@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Choose a Philippine Army mastery quiz and see the class score history summary.">
+  <meta name="referrer" content="no-referrer">
+  <title>Mastery Quizzes · Choose your exam</title>
+  <style>
+    /* Design tokens shared with the mastery quizzes (see armor-mastery-quiz/src/template.html). */
+    :root {
+      --color-bg: #e7e8d6;
+      --color-surface: #fbfaf3;
+      --color-surface-sunken: #f1f1e6;
+      --color-text: #1d2119;
+      --color-muted: #464c3c;
+      --color-border: #7a8068;
+      --color-border-subtle: #c3c7ae;
+      --color-accent: #3f4d22;
+      --color-accent-hover: #2f3a19;
+      --color-accent-text: #ffffff;
+      --color-charcoal: #23281e;
+      --color-olive-deep: #4a4128;
+      --color-brass: #e3b65a;
+      --color-hero-text: #f3efdf;
+      --color-hero-muted: #d6d2bf;
+      --color-warning-bg: #fff0c7;
+      --color-warning-text: #7a3e00;
+      --color-incorrect: #9e2418;
+      --color-incorrect-bg: #fbe6e2;
+      --color-focus: #1a4fd1;
+      --mode-tint: #eef0e2;
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --space-7: 3rem;
+
+      --text-xs: 0.8125rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-md: 1.125rem;
+      --text-lg: 1.375rem;
+      --text-xl: 1.75rem;
+      --text-2xl: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-pill: 999px;
+
+      --shadow-sm: 0 1px 2px rgba(35, 40, 30, 0.12), 0 1px 6px rgba(35, 40, 30, 0.08);
+      --shadow-md: 0 2px 4px rgba(35, 40, 30, 0.1), 0 8px 24px rgba(35, 40, 30, 0.14);
+
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --font-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+    h1, h2, h3 { line-height: 1.25; }
+    h2 { font-size: var(--text-lg); margin: 0; }
+    h3 { font-size: var(--text-md); margin: 0; }
+    p { margin: 0 0 var(--space-3); }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    .skip-link {
+      position: absolute; left: var(--space-2); top: -4rem; z-index: 10;
+      padding: var(--space-2) var(--space-4); background: var(--color-surface); color: var(--color-accent);
+      font-weight: 700; border-radius: var(--radius-sm);
+    }
+    .skip-link:focus { top: var(--space-2); }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-olive-deep) 100%);
+      color: var(--color-hero-text);
+      border-bottom: 6px solid var(--color-brass);
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: var(--space-5);
+      align-items: center;
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: var(--space-6) var(--space-4);
+    }
+    .hero-copy { min-width: 0; }
+    .eyebrow { margin: 0; font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.04em; color: var(--color-brass); }
+    h1 { margin: var(--space-1) 0 var(--space-2); font-size: var(--text-2xl); }
+    .hero-lede { margin: 0; color: var(--color-hero-muted); max-width: 36rem; }
+    .hero-art { min-width: 0; }
+    .hero-art svg { display: block; width: 100%; max-width: 22rem; height: auto; margin-left: auto; }
+
+    main { max-width: 72rem; margin: 0 auto; padding: var(--space-5) var(--space-4) var(--space-7); }
+    .section-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); }
+    .section-intro { margin: var(--space-2) 0 var(--space-4); color: var(--color-muted); font-size: var(--text-sm); }
+
+    /* Exam cards: the whole card is clickable through the stretched "Start exam" link. */
+    .exam-grid { display: grid; grid-template-columns: 1fr; gap: var(--space-4); margin: 0; padding: 0; list-style: none; }
+    @media (min-width: 640px) { .exam-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+    .exam-grid > li { display: flex; min-width: 0; }
+    .exam-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      width: 100%;
+      padding: var(--space-5);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-top: 6px solid var(--color-accent);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.15s ease, transform 0.15s ease;
+    }
+    .exam-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); }
+    .exam-grid > li.is-combined { grid-column: 1 / -1; }
+    .is-combined .exam-card { border-top-color: var(--color-brass); background: linear-gradient(180deg, #fff8e4 0%, var(--color-surface) 60%); }
+    .card-kicker { margin: 0; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
+    .card-title { font-size: var(--text-lg); }
+    .is-combined .card-title { font-size: var(--text-xl); }
+    .card-desc { margin: 0; color: var(--color-muted); }
+    .card-meta { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
+    .tag {
+      display: inline-flex; align-items: center; gap: var(--space-1);
+      padding: var(--space-1) var(--space-3); border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-pill); background: var(--color-surface-sunken);
+      font-size: var(--text-sm); font-weight: 600;
+    }
+    .tag-comprehensive { border-color: #9a6a00; background: #fff0c7; color: var(--color-warning-text); }
+    .card-stats { margin-top: auto; padding-top: var(--space-3); border-top: 1px solid var(--color-border-subtle); font-size: var(--text-sm); color: var(--color-muted); min-height: 3.25rem; }
+    .card-stats dl { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin: 0; }
+    .card-stats dt { font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; }
+    .card-stats dd { margin: 0; color: var(--color-text); font-weight: 700; font-variant-numeric: tabular-nums; }
+    .card-stats .stat-note { margin: 0; }
+    .stat-error { color: var(--color-warning-text); font-weight: 600; }
+    .start-link {
+      display: inline-flex; align-items: center; justify-content: center; gap: var(--space-2);
+      align-self: flex-start;
+      min-height: 44px; min-width: 44px;
+      padding: var(--space-3) var(--space-5);
+      border: 2px solid var(--color-accent); border-radius: var(--radius-sm);
+      background: var(--color-accent); color: var(--color-accent-text);
+      font-weight: 700; text-decoration: none; line-height: 1.25;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+    }
+    .start-link::before { content: ""; position: absolute; inset: 0; border-radius: var(--radius-lg); }
+    .exam-card:hover .start-link { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+    .start-link:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    .start-link:focus-visible::before { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+    .arrow { display: inline-block; width: 0.6em; height: 0.6em; border: solid currentColor; border-width: 0.16em 0.16em 0 0; transform: rotate(45deg); }
+
+    /* Buttons and filter chips (same as the quizzes). */
+    button {
+      font: inherit; min-height: 44px; min-width: 44px;
+      padding: var(--space-3) var(--space-4);
+      border: 2px solid var(--color-accent); border-radius: var(--radius-sm);
+      background: var(--color-accent); color: var(--color-accent-text);
+      font-weight: 600; line-height: 1.25; cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    button:hover:not(:disabled) { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+    button.secondary { background: var(--color-surface); color: var(--color-accent); }
+    button.secondary:hover:not(:disabled) { background: var(--mode-tint); color: var(--color-accent-hover); }
+    button:disabled { cursor: not-allowed; opacity: 0.55; }
+    :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    .hero :focus-visible { outline-color: #ffffff; }
+
+    /* Class score history */
+    .history-panel { margin-top: var(--space-7); padding-top: var(--space-5); border-top: 2px solid var(--color-border-subtle); }
+    .history-filters { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-3); }
+    .filter-button { background: var(--color-surface); color: var(--color-accent); padding: var(--space-2) var(--space-4); border-radius: var(--radius-pill); }
+    .filter-button:hover:not(:disabled) { background: var(--mode-tint); color: var(--color-accent-hover); }
+    .filter-button[aria-pressed="true"], .filter-button[aria-pressed="true"]:hover:not(:disabled) { background: var(--color-accent); color: #ffffff; }
+    .filter-button[aria-pressed="true"]::before { content: "\2713\00a0"; }
+    .history-status { display: flex; gap: var(--space-2); align-items: baseline; margin: 0 0 var(--space-4); padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface-sunken); }
+    .status-error { background: var(--color-incorrect-bg); color: var(--color-incorrect); font-weight: 600; }
+    .status-partial { background: var(--color-warning-bg); color: var(--color-warning-text); }
+    .status-ready { padding: 0; background: transparent; color: var(--color-muted); font-size: var(--text-sm); }
+    .history-card { margin-top: var(--space-4); padding: var(--space-5); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+    .history-card h3 { margin-bottom: var(--space-3); }
+
+    .table-wrap { max-width: 100%; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; background: var(--color-surface); }
+    caption { text-align: left; padding-bottom: var(--space-2); color: var(--color-muted); font-size: var(--text-sm); }
+    th, td { padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--color-border-subtle); text-align: left; vertical-align: middle; }
+    thead th { border-bottom: 2px solid var(--color-border); font-size: var(--text-sm); color: var(--color-muted); }
+    tbody th { font-weight: 600; }
+    .history-table td { font-variant-numeric: tabular-nums; }
+    .history-name-text { font-weight: 600; }
+    .cell-muted { color: var(--color-muted); font-style: italic; }
+
+    @media (max-width: 760px) {
+      .hero-inner { grid-template-columns: 1fr; gap: var(--space-3); padding: var(--space-5) var(--space-4); }
+      .hero-art svg { max-width: 15rem; max-height: 9rem; margin: 0; }
+      main { padding: var(--space-4) var(--space-4) var(--space-6); }
+      .exam-card, .history-card { padding: var(--space-4); }
+      .start-link { align-self: stretch; }
+      th, td { padding: var(--space-2); }
+    }
+    /* Very narrow screens: rows become labelled cards so the page never scrolls sideways. */
+    @media (max-width: 560px) {
+      .history-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+      .history-table, .history-table tbody, .history-table tr, .history-table td, .history-table tbody th { display: block; width: 100%; }
+      .history-table tr { margin-bottom: var(--space-2); padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); }
+      .history-table td, .history-table tbody th { display: flex; justify-content: space-between; gap: var(--space-3); padding: var(--space-1) 0; border: 0; text-align: right; }
+      .history-table td::before, .history-table tbody th::before { content: attr(data-label); font-weight: 700; color: var(--color-muted); text-align: left; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .exam-card:hover { transform: none; }
+    }
+
+    @media print {
+      body { background: #ffffff; }
+      .hero { background: #ffffff; color: #000000; border-bottom: 2px solid #000000; }
+      .eyebrow, .hero-lede { color: #000000; }
+      .hero-art, .skip-link, .history-filters, #history-refresh, noscript { display: none !important; }
+      .exam-card, .history-card { box-shadow: none; break-inside: avoid; background: #ffffff; }
+      .start-link { background: #ffffff; color: #000000; border-color: #000000; }
+      .start-link::after { content: " " attr(href); font-weight: 400; font-size: var(--text-xs); }
+      .arrow { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to exams</a>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Philippine Army · Mastery Quizzes</p>
+        <h1>Choose your exam</h1>
+        <p class="hero-lede">Pick a lesson quiz to practise one topic in Easy, Medium or Hard mode, or take the Combined Exam to test yourself across all four lessons. Class results are summarised below.</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 240 150" aria-hidden="true" focusable="false">
+          <path d="M0 30H240M0 60H240M0 90H240M0 120H240M40 0V150M80 0V150M120 0V150M160 0V150M200 0V150" fill="none" stroke="#f3efdf" stroke-opacity="0.08"/>
+          <g fill="none" stroke="#c9b37a" stroke-opacity="0.4" stroke-width="1.2" stroke-dasharray="3 5">
+            <path d="M10 112Q70 82 130 98T234 84"/>
+            <path d="M14 134Q80 108 140 122T236 112"/>
+            <path d="M60 52Q110 26 160 44T230 38"/>
+          </g>
+          <path d="M42 108L84 70L120 92L160 54L198 76" fill="none" stroke="#e3b65a" stroke-width="2" stroke-dasharray="6 4"/>
+          <g fill="#23281e" stroke="#e3b65a" stroke-width="2">
+            <circle cx="42" cy="108" r="7"/>
+            <circle cx="84" cy="70" r="7"/>
+            <circle cx="120" cy="92" r="7"/>
+            <circle cx="160" cy="54" r="7"/>
+          </g>
+          <g transform="translate(198 76)">
+            <circle r="14" fill="none" stroke="#e3b65a" stroke-width="2"/>
+            <circle r="5" fill="#e3b65a"/>
+            <path d="M0 -22V-16M0 16V22M-22 0H-16M16 0H22" stroke="#e3b65a" stroke-width="2"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section aria-labelledby="exams-heading">
+      <div class="section-head">
+        <h2 id="exams-heading">Available exams</h2>
+      </div>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have three modes of 25 questions; the Combined Exam has 30.</p>
+      <ul class="exam-grid" id="exam-grid">
+        <li class="is-combined" id="card-combined" data-key="combined">
+          <article class="exam-card" aria-labelledby="title-combined">
+            <p class="card-kicker">Comprehensive</p>
+            <h3 class="card-title" id="title-combined">Combined Exam</h3>
+            <p class="card-desc">30 questions drawn from all four lessons: ISR, Armor, Field Artillery and Army Operations.</p>
+            <ul class="card-meta">
+              <li class="tag tag-comprehensive">All four lessons</li>
+              <li class="tag">30 questions</li>
+              <li class="tag">Easy · Medium · Hard</li>
+            </ul>
+            <div class="card-stats" id="stats-combined" aria-live="polite"></div>
+            <a class="start-link" href="https://atticus-42.github.io/combined-mastery-exam/">Start exam<span class="sr-only">: Combined Exam</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+        <li id="card-isr" data-key="isr">
+          <article class="exam-card" aria-labelledby="title-isr">
+            <p class="card-kicker">Lesson quiz</p>
+            <h3 class="card-title" id="title-isr">ISR Operations</h3>
+            <p class="card-desc">Introduction to ISR Operations.</p>
+            <ul class="card-meta">
+              <li class="tag">25 questions per mode</li>
+              <li class="tag">Easy · Medium · Hard</li>
+            </ul>
+            <div class="card-stats" id="stats-isr" aria-live="polite"></div>
+            <a class="start-link" href="https://atticus-42.github.io/isr-mastery-quiz/">Start exam<span class="sr-only">: ISR Operations</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+        <li id="card-armor" data-key="armor">
+          <article class="exam-card" aria-labelledby="title-armor">
+            <p class="card-kicker">Lesson quiz</p>
+            <h3 class="card-title" id="title-armor">Armor Operations</h3>
+            <p class="card-desc">Fundamentals of Armor Operations.</p>
+            <ul class="card-meta">
+              <li class="tag">25 questions per mode</li>
+              <li class="tag">Easy · Medium · Hard</li>
+            </ul>
+            <div class="card-stats" id="stats-armor" aria-live="polite"></div>
+            <a class="start-link" href="https://atticus-42.github.io/armor-mastery-quiz/">Start exam<span class="sr-only">: Armor Operations</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+        <li id="card-fieldartillery" data-key="fieldartillery">
+          <article class="exam-card" aria-labelledby="title-fieldartillery">
+            <p class="card-kicker">Lesson quiz</p>
+            <h3 class="card-title" id="title-fieldartillery">Field Artillery Operations</h3>
+            <p class="card-desc">Field Artillery Operations lesson.</p>
+            <ul class="card-meta">
+              <li class="tag">25 questions per mode</li>
+              <li class="tag">Easy · Medium · Hard</li>
+            </ul>
+            <div class="card-stats" id="stats-fieldartillery" aria-live="polite"></div>
+            <a class="start-link" href="https://atticus-42.github.io/field-artillery-mastery-quiz/">Start exam<span class="sr-only">: Field Artillery Operations</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+        <li id="card-armyops" data-key="armyops">
+          <article class="exam-card" aria-labelledby="title-armyops">
+            <p class="card-kicker">Lesson quiz</p>
+            <h3 class="card-title" id="title-armyops">Army Operations</h3>
+            <p class="card-desc">Introduction to Army Operations.</p>
+            <ul class="card-meta">
+              <li class="tag">25 questions per mode</li>
+              <li class="tag">Easy · Medium · Hard</li>
+            </ul>
+            <div class="card-stats" id="stats-armyops" aria-live="polite"></div>
+            <a class="start-link" href="https://atticus-42.github.io/army-operations-scenario-quiz/">Start exam<span class="sr-only">: Army Operations</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+      </ul>
+    </section>
+
+    <section class="history-panel" aria-labelledby="history-heading">
+      <div class="section-head">
+        <h2 id="history-heading">Class score history summary</h2>
+        <button type="button" id="history-refresh" class="secondary" hidden>Refresh</button>
+      </div>
+      <p class="section-intro">Results saved by students from every exam, read live from the shared class sheet.</p>
+      <noscript><p class="history-status">JavaScript is needed to load the history.</p></noscript>
+      <div id="history-app" hidden>
+        <div class="history-filters" role="group" aria-label="Filter history by mode">
+          <button type="button" class="filter-button" data-mode="all" id="filter-all" aria-pressed="true">All</button>
+          <button type="button" class="filter-button" data-mode="easy" id="filter-easy" aria-pressed="false">Easy</button>
+          <button type="button" class="filter-button" data-mode="medium" id="filter-medium" aria-pressed="false">Medium</button>
+          <button type="button" class="filter-button" data-mode="hard" id="filter-hard" aria-pressed="false">Hard</button>
+        </div>
+        <p id="history-status" class="history-status" role="status" aria-live="polite">Loading class history…</p>
+
+        <div class="history-card">
+          <h3 id="summary-heading">Summary by exam</h3>
+          <div class="table-wrap">
+            <table class="history-table" aria-labelledby="summary-heading">
+              <thead>
+                <tr><th scope="col">Exam</th><th scope="col">Attempts</th><th scope="col">Average %</th><th scope="col">Top score (name)</th><th scope="col">Latest attempt</th></tr>
+              </thead>
+              <tbody id="summary-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="history-card">
+          <h3 id="recent-heading">Recent attempts</h3>
+          <div class="table-wrap">
+            <table class="history-table" aria-labelledby="recent-heading">
+              <thead>
+                <tr><th scope="col">Name</th><th scope="col">Exam</th><th scope="col">Mode</th><th scope="col">Score</th><th scope="col">%</th><th scope="col">Band</th><th scope="col">Date</th></tr>
+              </thead>
+              <tbody id="recent-body"></tbody>
+            </table>
+          </div>
+          <p id="recent-empty" class="history-status status-ready" hidden>No attempts to show yet.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // ---- Configuration: one line per exam. Lesson keys match the shared history script. ----
+    var EXAMS = [
+      { key: 'combined', lesson: 'combined', title: 'Combined Exam', description: '30 questions drawn from all four lessons.', url: 'https://atticus-42.github.io/combined-mastery-exam/', total: 30, comprehensive: true },
+      { key: 'isr', lesson: 'isr', title: 'ISR Operations', description: 'Introduction to ISR Operations.', url: 'https://atticus-42.github.io/isr-mastery-quiz/', total: 25 },
+      { key: 'armor', lesson: 'armor', title: 'Armor Operations', description: 'Fundamentals of Armor Operations.', url: 'https://atticus-42.github.io/armor-mastery-quiz/', total: 25 },
+      { key: 'fieldartillery', lesson: 'fieldartillery', title: 'Field Artillery Operations', description: 'Field Artillery Operations lesson.', url: 'https://atticus-42.github.io/field-artillery-mastery-quiz/', total: 25 },
+      { key: 'armyops', lesson: 'armyops', title: 'Army Operations', description: 'Introduction to Army Operations.', url: 'https://atticus-42.github.io/army-operations-scenario-quiz/', total: 25 }
+    ];
+    var HISTORY_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwTNNYOiebIGo46PzM3fUA9VT6XnS740D72prOPg-0OJ5Kvg4W8LVl-xJEo_gxImxqnmg/exec';
+    var HISTORY_LIMIT = 200;      // rows requested and kept per exam
+    var RECENT_COUNT = 10;        // rows in the "Recent attempts" table
+    var NAME_MAX = 60;            // characters kept from a remote name
+    var FETCH_TIMEOUT_MS = 15000;
+    var MODES = ['easy', 'medium', 'hard'];
+
+    // ---- Pure functions (tested by scripts/verify.mjs). ----
+    function cleanText(value, max) {
+      if (value === null || value === undefined) return '';
+      var s = String(value).replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim();
+      return s.length > max ? s.slice(0, max - 1) + '…' : s;
+    }
+
+    function toNumber(value) {
+      if (typeof value === 'number') return isFinite(value) ? value : NaN;
+      if (typeof value === 'string' && value.trim() !== '') { var n = Number(value.replace('%', '')); return isFinite(n) ? n : NaN; }
+      return NaN;
+    }
+
+    function normalizeRow(raw) {
+      if (!raw || typeof raw !== 'object' || Array.isArray(raw)) return null;
+      var score = toNumber(raw.score);
+      var total = toNumber(raw.total);
+      var percent = toNumber(raw.percent);
+      if (!isFinite(percent) && isFinite(score) && isFinite(total) && total > 0) percent = (score / total) * 100;
+      if (!isFinite(percent)) return null;
+      percent = Math.max(0, Math.min(100, percent));
+      var mode = cleanText(raw.mode, 20).toLowerCase();
+      if (MODES.indexOf(mode) === -1) mode = 'other';
+      var time = raw.finishedAt ? new Date(raw.finishedAt).getTime() : NaN;
+      return {
+        name: cleanText(raw.name, NAME_MAX) || 'Anonymous',
+        mode: mode,
+        score: isFinite(score) ? score : null,
+        total: isFinite(total) ? total : null,
+        percent: percent,
+        band: cleanText(raw.band, 40),
+        time: isFinite(time) ? time : null
+      };
+    }
+
+    // Turns a response body into { ok, rows, error }. Never throws.
+    function parseHistoryResponse(text) {
+      var data;
+      try { data = JSON.parse(text); } catch (e) { return { ok: false, rows: [], error: 'malformed response' }; }
+      if (!data || typeof data !== 'object') return { ok: false, rows: [], error: 'malformed response' };
+      if (data.ok !== true) return { ok: false, rows: [], error: cleanText(data.error, 120) || 'not available' };
+      if (!Array.isArray(data.rows)) return { ok: false, rows: [], error: 'malformed response' };
+      var rows = [];
+      for (var i = 0; i < data.rows.length && rows.length < HISTORY_LIMIT; i++) {
+        var row = normalizeRow(data.rows[i]);
+        if (row) rows.push(row);
+      }
+      return { ok: true, rows: rows, error: '' };
+    }
+
+    function filterByMode(rows, mode) {
+      if (!Array.isArray(rows)) return [];
+      if (!mode || mode === 'all') return rows.slice();
+      return rows.filter(function (r) { return r && r.mode === mode; });
+    }
+
+    // { attempts, average (rounded %, or null), top (row or null), latest (time or null) }
+    function summarize(rows) {
+      var list = Array.isArray(rows) ? rows.filter(function (r) { return r && isFinite(r.percent); }) : [];
+      if (!list.length) return { attempts: 0, average: null, top: null, latest: null };
+      var sum = 0, top = null, latest = null;
+      list.forEach(function (r) {
+        sum += r.percent;
+        if (!top || r.percent > top.percent || (r.percent === top.percent && (r.time || 0) < (top.time || 0))) top = r;
+        if (r.time !== null && r.time !== undefined && (latest === null || r.time > latest)) latest = r.time;
+      });
+      return { attempts: list.length, average: Math.round(sum / list.length), top: top, latest: latest };
+    }
+
+    // Merges several row lists, newest first; undated rows go last. Returns at most n rows.
+    function mergeRecent(lists, n) {
+      var all = [];
+      (Array.isArray(lists) ? lists : []).forEach(function (list) {
+        if (Array.isArray(list)) list.forEach(function (r) { if (r) all.push(r); });
+      });
+      all = all.map(function (r, i) { return { r: r, i: i }; });
+      all.sort(function (a, b) {
+        var ta = a.r.time, tb = b.r.time;
+        var ha = ta !== null && ta !== undefined, hb = tb !== null && tb !== undefined;
+        if (ha && hb && ta !== tb) return tb - ta;
+        if (ha !== hb) return ha ? -1 : 1;
+        return a.i - b.i;
+      });
+      var limit = Math.max(0, Math.min(Number(n) || 0, 100));
+      return all.slice(0, limit).map(function (x) { return x.r; });
+    }
+
+    function pad2(n) { return (n < 10 ? '0' : '') + n; }
+    function formatDate(time) {
+      if (time === null || time === undefined || !isFinite(time)) return '—';
+      var d = new Date(time);
+      return d.getFullYear() + '-' + pad2(d.getMonth() + 1) + '-' + pad2(d.getDate()) + ' ' + pad2(d.getHours()) + ':' + pad2(d.getMinutes());
+    }
+    function formatScore(r) {
+      if (r.score === null || r.total === null) return '—';
+      return r.score + ' / ' + r.total;
+    }
+    function modeLabel(mode) {
+      return mode === 'all' ? 'All modes' : mode.charAt(0).toUpperCase() + mode.slice(1);
+    }
+    function historyUrl(lesson) {
+      return HISTORY_ENDPOINT + '?lesson=' + encodeURIComponent(lesson) + '&mode=all&limit=' + HISTORY_LIMIT;
+    }
+
+    // Fetches one lesson; resolves to { ok, rows, error } and never rejects.
+    function fetchLesson(fetchFn, lesson) {
+      var controller = typeof AbortController === 'function' ? new AbortController() : null;
+      var timer = controller ? setTimeout(function () { controller.abort(); }, FETCH_TIMEOUT_MS) : null;
+      var opts = { method: 'GET', credentials: 'omit', cache: 'no-store', redirect: 'follow' };
+      if (controller) opts.signal = controller.signal;
+      return Promise.resolve()
+        .then(function () { return fetchFn(historyUrl(lesson), opts); })
+        .then(function (res) {
+          if (!res || !res.ok) return { ok: false, rows: [], error: 'HTTP ' + (res ? res.status : '?') };
+          return res.text().then(parseHistoryResponse);
+        })
+        .catch(function () { return { ok: false, rows: [], error: 'network error' }; })
+        .then(function (result) { if (timer) clearTimeout(timer); return result; });
+    }
+
+    // ---- DOM rendering: textContent only, never HTML strings. ----
+    function el(doc, tag, className, text) {
+      var node = doc.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined && text !== null) node.textContent = String(text);
+      return node;
+    }
+    function clear(node) { while (node.firstChild) node.removeChild(node.firstChild); }
+    function cell(doc, tag, label, text, className) {
+      var c = el(doc, tag, className, text);
+      c.setAttribute('data-label', label);
+      if (tag === 'th') c.setAttribute('scope', 'row');
+      return c;
+    }
+
+    function createHub(doc, fetchFn) {
+      var state = { mode: 'all', results: {}, loading: false };
+
+      // A config entry without a static card in the HTML gets one built here.
+      function ensureCard(exam) {
+        if (doc.getElementById('card-' + exam.key)) return;
+        var grid = doc.getElementById('exam-grid');
+        if (!grid) return;
+        var li = el(doc, 'li', exam.comprehensive ? 'is-combined' : '');
+        li.id = 'card-' + exam.key;
+        var art = el(doc, 'article', 'exam-card');
+        var h = el(doc, 'h3', 'card-title', exam.title);
+        art.appendChild(el(doc, 'p', 'card-kicker', exam.comprehensive ? 'Comprehensive' : 'Lesson quiz'));
+        art.appendChild(h);
+        art.appendChild(el(doc, 'p', 'card-desc', exam.description));
+        var meta = el(doc, 'ul', 'card-meta');
+        meta.appendChild(el(doc, 'li', 'tag', exam.comprehensive ? exam.total + ' questions' : exam.total + ' questions per mode'));
+        meta.appendChild(el(doc, 'li', 'tag', 'Easy · Medium · Hard'));
+        art.appendChild(meta);
+        var stats = el(doc, 'div', 'card-stats');
+        stats.id = 'stats-' + exam.key;
+        art.appendChild(stats);
+        var a = el(doc, 'a', 'start-link', 'Start exam');
+        a.setAttribute('href', exam.url);
+        a.appendChild(el(doc, 'span', 'sr-only', ': ' + exam.title));
+        art.appendChild(a);
+        li.appendChild(art);
+        grid.appendChild(li);
+      }
+
+      function renderCardStats(exam) {
+        var box = doc.getElementById('stats-' + exam.key);
+        if (!box) return;
+        clear(box);
+        var res = state.results[exam.key];
+        if (!res || res.status === 'loading') { box.appendChild(el(doc, 'p', 'stat-note', 'Loading class history…')); return; }
+        if (res.status === 'error') { box.appendChild(el(doc, 'p', 'stat-note stat-error', 'Class history: Not available yet')); return; }
+        var s = summarize(filterByMode(res.rows, state.mode));
+        if (!s.attempts) {
+          box.appendChild(el(doc, 'p', 'stat-note', state.mode === 'all' ? 'No attempts yet.' : 'No ' + modeLabel(state.mode) + ' attempts yet.'));
+          return;
+        }
+        var dl = el(doc, 'dl');
+        [['Attempts', String(s.attempts)], ['Average', s.average + '%'], ['Top score', s.top.name + ' · ' + Math.round(s.top.percent) + '%']].forEach(function (pair) {
+          var g = el(doc, 'div');
+          g.appendChild(el(doc, 'dt', null, pair[0] + (state.mode === 'all' ? '' : ' (' + modeLabel(state.mode) + ')')));
+          g.appendChild(el(doc, 'dd', null, pair[1]));
+          dl.appendChild(g);
+        });
+        box.appendChild(dl);
+      }
+
+      function renderSummary() {
+        var body = doc.getElementById('summary-body');
+        if (!body) return;
+        clear(body);
+        EXAMS.forEach(function (exam) {
+          var res = state.results[exam.key];
+          var tr = el(doc, 'tr');
+          tr.appendChild(cell(doc, 'th', 'Exam', exam.title));
+          if (!res || res.status !== 'ok') {
+            var msg = !res || res.status === 'loading' ? 'Loading…' : 'Not available yet';
+            ['Attempts', 'Average %', 'Top score (name)', 'Latest attempt'].forEach(function (label, i) {
+              tr.appendChild(cell(doc, 'td', label, i === 0 ? msg : '—', 'cell-muted'));
+            });
+          } else {
+            var s = summarize(filterByMode(res.rows, state.mode));
+            tr.appendChild(cell(doc, 'td', 'Attempts', String(s.attempts)));
+            tr.appendChild(cell(doc, 'td', 'Average %', s.average === null ? '—' : s.average + '%'));
+            tr.appendChild(cell(doc, 'td', 'Top score (name)', s.top ? Math.round(s.top.percent) + '% (' + s.top.name + ')' : '—'));
+            tr.appendChild(cell(doc, 'td', 'Latest attempt', formatDate(s.latest)));
+          }
+          body.appendChild(tr);
+        });
+      }
+
+      function renderRecent() {
+        var body = doc.getElementById('recent-body');
+        var empty = doc.getElementById('recent-empty');
+        if (!body) return;
+        clear(body);
+        var lists = EXAMS.map(function (exam) {
+          var res = state.results[exam.key];
+          if (!res || res.status !== 'ok') return [];
+          return filterByMode(res.rows, state.mode).map(function (r) {
+            return { name: r.name, mode: r.mode, score: r.score, total: r.total, percent: r.percent, band: r.band, time: r.time, exam: exam.title };
+          });
+        });
+        var rows = mergeRecent(lists, RECENT_COUNT);
+        rows.forEach(function (r) {
+          var tr = el(doc, 'tr');
+          tr.appendChild(cell(doc, 'td', 'Name', r.name, 'history-name-text'));
+          tr.appendChild(cell(doc, 'td', 'Exam', r.exam));
+          tr.appendChild(cell(doc, 'td', 'Mode', r.mode === 'other' ? '—' : modeLabel(r.mode)));
+          tr.appendChild(cell(doc, 'td', 'Score', formatScore(r)));
+          tr.appendChild(cell(doc, 'td', '%', Math.round(r.percent) + '%'));
+          tr.appendChild(cell(doc, 'td', 'Band', r.band || '—'));
+          tr.appendChild(cell(doc, 'td', 'Date', formatDate(r.time)));
+          body.appendChild(tr);
+        });
+        if (empty) {
+          empty.hidden = rows.length > 0 || state.loading;
+          empty.textContent = state.mode === 'all' ? 'No attempts to show yet.' : 'No ' + modeLabel(state.mode) + ' attempts to show yet.';
+        }
+      }
+
+      function renderStatus() {
+        var status = doc.getElementById('history-status');
+        if (!status) return;
+        var keys = EXAMS.map(function (e) { return e.key; });
+        var failed = keys.filter(function (k) { return state.results[k] && state.results[k].status === 'error'; });
+        if (state.loading) { status.className = 'history-status'; status.textContent = 'Loading class history…'; return; }
+        if (failed.length === keys.length) {
+          status.className = 'history-status status-error';
+          status.textContent = 'The class history could not be loaded. Check your connection, then select Refresh.';
+        } else if (failed.length) {
+          status.className = 'history-status status-partial';
+          status.textContent = 'Showing ' + modeLabel(state.mode).toLowerCase() + '. History is not available yet for ' + failed.length + ' of ' + keys.length + ' exams.';
+        } else {
+          status.className = 'history-status status-ready';
+          status.textContent = 'Showing ' + modeLabel(state.mode).toLowerCase() + '. Updated ' + formatDate(Date.now()) + '.';
+        }
+      }
+
+      function render() {
+        EXAMS.forEach(renderCardStats);
+        renderSummary();
+        renderRecent();
+        renderStatus();
+        var refresh = doc.getElementById('history-refresh');
+        if (refresh) refresh.disabled = state.loading;
+      }
+
+      function load() {
+        if (state.loading) return Promise.resolve(state);
+        state.loading = true;
+        EXAMS.forEach(function (e) { state.results[e.key] = { status: 'loading', rows: [] }; });
+        render();
+        return Promise.all(EXAMS.map(function (exam) {
+          return fetchLesson(fetchFn, exam.lesson).then(function (result) {
+            state.results[exam.key] = result.ok ? { status: 'ok', rows: result.rows } : { status: 'error', rows: [], error: result.error };
+          });
+        })).then(function () {
+          state.loading = false;
+          render();
+          return state;
+        });
+      }
+
+      function setMode(mode) {
+        if (mode !== 'all' && MODES.indexOf(mode) === -1) return;
+        state.mode = mode;
+        ['all'].concat(MODES).forEach(function (m) {
+          var b = doc.getElementById('filter-' + m);
+          if (b) b.setAttribute('aria-pressed', m === mode ? 'true' : 'false');
+        });
+        render();
+      }
+
+      function init() {
+        EXAMS.forEach(ensureCard);
+        var app = doc.getElementById('history-app');
+        var refresh = doc.getElementById('history-refresh');
+        if (app) app.hidden = false;
+        if (refresh) { refresh.hidden = false; refresh.addEventListener('click', function () { load(); }); }
+        ['all'].concat(MODES).forEach(function (m) {
+          var b = doc.getElementById('filter-' + m);
+          if (b) b.addEventListener('click', function () { setMode(m); });
+        });
+        return load();
+      }
+
+      return { state: state, init: init, load: load, setMode: setMode, render: render };
+    }
+
+    if (typeof document !== 'undefined' && typeof window !== 'undefined' && typeof window.fetch === 'function') {
+      var startHub = function () { createHub(document, window.fetch.bind(window)).init(); };
+      if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', startHub);
+      else startHub();
+    }
+  </script>
+</body>
+</html>
