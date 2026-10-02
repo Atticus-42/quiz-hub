@@ -1,5 +1,5 @@
 // Dependency-free checks for index.html. Run: node scripts/verify.mjs
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 import vm from 'node:vm';
@@ -180,7 +180,8 @@ test('no external URLs except the six quiz links, the hub itself and the history
   assert.ok(!/<script\b[^>]*src=/i.test(html), 'no external scripts');
   const css = html.match(/<style>([\s\S]*?)<\/style>/)[1];
   assert.ok(!/@import|url\(/i.test(css), 'no CSS imports or url() assets');
-  assert.ok(!/<(img|iframe|video|audio|source|object|embed)\b/i.test(html), 'no embedded external media');
+  const nonAsset = html.replace(/<(?:img|source)\b[^>]*>/gi, (tag) => (/\b(?:src|srcset)="(?:assets\/[\w-]+\.jpg(?: [\w.]+)?(?:, )?)+"/.test(tag) && !/\/\/|https?:/i.test(tag) ? '' : tag));
+  assert.ok(!/<(img|iframe|video|audio|source|object|embed)\b/i.test(nonAsset), 'no embedded media except same-origin assets/ images');
 });
 
 test('script never uses HTML-string sinks or storage', () => {
@@ -495,6 +496,45 @@ test('topographic background: decorative, fixed, sliced, themed by CSS variables
   assert.match(css, /\.hero, main \{ position: relative; z-index: 1; \}/);
   // Cards and tables keep solid surfaces over the map.
   for (const sel of ['.exam-card {', '.module-card {', '.history-card {']) assert.match(css.slice(css.indexOf(sel)), /^[^}]*background: var\(--color-surface\)/, sel);
+});
+
+test('Bandwidth Brothers banner sits above the hero with srcset, dimensions, priority and alt text', () => {
+  const m = html.match(/<div class="banner">\s*<picture>([\s\S]*?)<\/picture>\s*<\/div>/);
+  assert.ok(m, 'banner picture markup');
+  assert.ok(html.indexOf('<div class="banner">') < html.indexOf('<header'), 'banner precedes the hero');
+  assert.match(m[1], /<source media="\(max-width: 800px\)" srcset="assets\/banner-800\.jpg 1x, assets\/banner-1600\.jpg 2x">/);
+  const img = m[1].match(/<img\b[^>]*>/)[0];
+  assert.match(img, /\bsrcset="assets\/banner-1600\.jpg 1x"/);
+  assert.match(img, /\bwidth="1600"/); assert.match(img, /\bheight="900"/);
+  assert.match(img, /\bfetchpriority="high"/);
+  assert.match(img, /\balt="Bandwidth Brothers banner"/);
+  const css = html.match(/<style>([\s\S]*?)<\/style>/)[1];
+  assert.match(css, /\.banner img \{[^}]*aspect-ratio: 16 \/ 6;[^}]*object-fit: cover/);
+  assert.match(css, /max-width: 600px\) \{ \.banner img \{ aspect-ratio: 16 \/ 8;/);
+});
+
+test('Class photo is a lazy, captioned figure with exact caption and alt text', () => {
+  const m = html.match(/<figure class="class-photo">([\s\S]*?)<\/figure>/);
+  assert.ok(m, 'class photo figure');
+  const img = m[1].match(/<img\b[^>]*>/)[0];
+  assert.match(img, /\bsrcset="assets\/class-photo-800\.jpg 800w, assets\/class-photo-1600\.jpg 1600w"/);
+  assert.match(img, /\bwidth="1600"/); assert.match(img, /\bheight="1200"/);
+  assert.match(img, /\bloading="lazy"/); assert.match(img, /\bdecoding="async"/);
+  assert.match(img, /\balt="SOAC 52 - 2026 class group photo"/);
+  assert.equal(m[1].match(/<figcaption>([\s\S]*?)<\/figcaption>/)[1], 'SOAC 52 - 2026');
+  const css = html.match(/<style>([\s\S]*?)<\/style>/)[1];
+  assert.match(css, /\.class-photo \{[^}]*max-width: 56rem;[^}]*border-radius: var\(--radius-lg\);[^}]*box-shadow:/);
+});
+
+test('Photo srcsets reference the four asset files, and they exist on disk', () => {
+  const found = new Set([...html.matchAll(/\b(?:src|srcset)="([^"]*)"/g)].flatMap(x => x[1].split(',').map(p => p.trim().split(/\s+/)[0])).filter(p => /\.jpg$/.test(p)));
+  assert.deepEqual([...found].sort(), ['assets/banner-1600.jpg', 'assets/banner-800.jpg', 'assets/class-photo-1600.jpg', 'assets/class-photo-800.jpg']);
+  for (const f of found) assert.ok(existsSync(join(root, f)), f + ' must exist');
+});
+
+test('Banner and photo are hidden in print', () => {
+  const css = html.match(/<style>([\s\S]*?)<\/style>/)[1];
+  assert.match(css, /@media print \{[\s\S]*\.banner, \.class-photo[^{]*\{ display: none !important; \}/);
 });
 
 test('no hash: only the module chooser, with per-module overviews from all six lessons', async () => {
