@@ -1,82 +1,87 @@
 <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
-  <path d="M0 50H480M0 100H480M0 150H480M0 200H480M80 0V250M160 0V250M240 0V250M320 0V250M400 0V250" fill="none" stroke="#f3efdf" stroke-opacity="0.08" stroke-width="1"/>
-  <g class="terrain-contour" fill="none" stroke="#c9b37a" stroke-opacity="0.28" stroke-width="1.2" stroke-dasharray="3 5">
-    <path d="M150 214Q230 150 320 160T480 150"/>
-    <path d="M190 214Q250 172 330 178T480 172"/>
-    <path d="M0 150Q60 132 130 140"/>
+  <g class="plate-grid" fill="none" stroke="currentColor">
+    <path class="grid-cross" d="M77 50h6M80 47v6M157 50h6M160 47v6M237 50h6M240 47v6M317 50h6M320 47v6M397 50h6M400 47v6M77 100h6M80 97v6M157 100h6M160 97v6M237 100h6M240 97v6M317 100h6M320 97v6M397 100h6M400 97v6M77 150h6M80 147v6M157 150h6M160 147v6M237 150h6M240 147v6M317 150h6M320 147v6M397 150h6M400 147v6"/>
+    <path class="thin" d="M80 0v6M160 0v6M240 0v6M320 0v6M400 0v6M80 244v6M160 244v6M240 244v6M320 244v6M400 244v6M0 50h6M0 100h6M0 150h6M0 200h6M474 50h6M474 100h6M474 150h6M474 200h6"/>
   </g>
-  <text x="12" y="18" fill="#e3b65a">SIGNAL SUPPORT · COMBINED ARMS OPS</text>
-  <text x="12" y="31" fill="#d6d2bf">CONNECT · COMMUNICATE · COORDINATE</text>
-  <path class="hill" d="M0 214C80 208 160 216 240 212C320 208 400 216 480 210V250H0Z" fill="#3f4a2c"/>
-  <path d="M0 226C80 222 160 230 240 226C320 222 400 232 480 226" fill="none" stroke="#5a6340" stroke-width="1.5"/>
-  <g class="link-lines" fill="none" stroke="#e3b65a" stroke-opacity="0.8" stroke-width="1.6" stroke-dasharray="6 3" stroke-linecap="round">
+  <g class="terrain-contour" fill="none" stroke="currentColor" stroke-width="0.9" stroke-dasharray="3 4">
+    <path d="M150 214Q230 150 320 160T480 150"/>
+    <path class="faint" d="M190 214Q250 172 330 178T480 172"/>
+    <path class="faint" d="M0 150Q60 132 130 140"/>
+  </g>
+  <text class="t-title" x="12" y="20">SIGNAL SUPPORT · COMBINED ARMS OPS</text>
+  <text class="t-mute" x="12" y="33">CONNECT · COMMUNICATE · COORDINATE</text>
+  <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+    <path class="hill ink" d="M0 214C80 208 160 216 240 212C320 208 400 216 480 210"/>
+    <path class="thin faint" d="M0 226C80 222 160 230 240 226C320 222 400 232 480 226"/>
+  </g>
+  <g class="link-lines" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="5 3">
     <path class="link-line" d="M118 128L296 70"/>
     <path class="link-line" d="M118 128L232 180"/>
     <path class="link-line" d="M118 128L322 182"/>
     <path class="link-line" d="M118 128L412 182"/>
     <path class="link-line" d="M322 80L339 176"/>
   </g>
-  <g class="arm-marker arm-infantry" fill="#2a2f24" stroke="#d6d2bf" stroke-width="1.8">
-    <rect x="232" y="176" width="34" height="22" rx="1"/>
-    <path d="M232 176L266 198M266 176L232 198" fill="none"/>
-    <path d="M249 198V212" fill="none" stroke-opacity="0.6"/>
+  <g class="arm-marker arm-infantry ink" fill="none" stroke-width="1.2">
+    <path class="pf" d="M232 176H266V198H232Z"/>
+    <path d="M232 176L266 198M266 176L232 198"/>
+    <path class="thin" d="M249 198V212"/>
   </g>
-  <g class="arm-marker arm-armor" fill="#2a2f24" stroke="#d6d2bf" stroke-width="1.8">
-    <rect x="322" y="176" width="34" height="22" rx="1"/>
-    <rect x="328" y="181" width="22" height="12" rx="6" fill="none"/>
-    <path d="M339 198V212" fill="none" stroke-opacity="0.6"/>
+  <g class="arm-marker arm-armor ink" fill="none" stroke-width="1.2">
+    <path class="pf" d="M322 176H356V198H322Z"/>
+    <path d="M334 181H344A6 6 0 0 1 344 193H334A6 6 0 0 1 334 181Z"/>
+    <path class="thin" d="M339 198V212"/>
   </g>
-  <g class="arm-marker arm-artillery" fill="#2a2f24" stroke="#d6d2bf" stroke-width="1.8">
-    <rect x="412" y="176" width="34" height="22" rx="1"/>
-    <circle cx="429" cy="187" r="3.5" fill="#d6d2bf" stroke="none"/>
-    <path d="M429 198V212" fill="none" stroke-opacity="0.6"/>
+  <g class="arm-marker arm-artillery ink" fill="none" stroke-width="1.2">
+    <path class="pf" d="M412 176H446V198H412Z"/>
+    <circle class="ink-f" cx="429" cy="187" r="3.5"/>
+    <path class="thin" d="M429 198V212"/>
   </g>
-  <text x="249" y="240" fill="#d6d2bf" text-anchor="middle">INFANTRY</text>
-  <text x="339" y="240" fill="#d6d2bf" text-anchor="middle">ARMOR</text>
-  <text x="429" y="240" fill="#d6d2bf" text-anchor="middle">ARTILLERY</text>
-  <text x="96" y="240" fill="#d6d2bf" text-anchor="middle">SIGNAL</text>
-  <g id="dust" fill="none" stroke="#e3b65a" stroke-width="1.6">
+  <text x="249" y="240" text-anchor="middle">INFANTRY</text>
+  <text x="339" y="240" text-anchor="middle">ARMOR</text>
+  <text x="429" y="240" text-anchor="middle">ARTILLERY</text>
+  <text x="96" y="240" text-anchor="middle">SIGNAL</text>
+  <g id="dust" fill="none" class="acc" stroke-width="1">
     <circle class="dust-puff" cx="58" cy="70" r="6"/>
     <circle class="dust-puff" cx="58" cy="70" r="10"/>
     <circle class="dust-puff" cx="58" cy="70" r="14"/>
   </g>
-  <g id="tank">
-    <ellipse cx="96" cy="216" rx="72" ry="4" fill="#1b1f16" fill-opacity="0.5"/>
-    <g id="tank-gun">
-      <rect x="55" y="74" width="6" height="84" rx="1" fill="#a3a98c" stroke="#1f231b" stroke-width="1.5"/>
-      <path d="M54 102H62M54 130H62" stroke="#1f231b" stroke-width="1.5"/>
-      <path d="M44 76H72M48 70L58 64L68 70" fill="none" stroke="#d6d2bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <circle cx="58" cy="64" r="2.5" fill="#e3b65a"/>
+  <g id="tank" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+    <g id="tank-gun" class="ink">
+      <path class="pf" d="M55 74H61V158H55Z"/>
+      <path class="thin" d="M54 102H62M54 130H62"/>
+      <path d="M44 76H72M48 70L58 64L68 70"/>
+      <circle class="acc-f" cx="58" cy="64" r="2.5"/>
     </g>
-    <rect x="30" y="156" width="98" height="44" rx="3" fill="#6b7a45" stroke="#1f231b" stroke-width="2"/>
-    <path d="M44 166H74V192H44Z" fill="#586636" stroke="#1f231b" stroke-width="1.5"/>
-    <path d="M86 170H118M86 178H118M86 186H118" stroke="#1f231b" stroke-opacity="0.45" stroke-width="1.5"/>
-    <path d="M130 200V182L138 172H160L168 186V200Z" fill="#586636" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
-    <path d="M141 176H158L163 186H141Z" fill="#c9d3c0" fill-opacity="0.55"/>
-    <rect x="24" y="198" width="146" height="9" rx="3" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/>
-    <circle cx="50" cy="206" r="9" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/><circle cx="50" cy="206" r="3.5" fill="#8a8f78"/>
-    <circle cx="80" cy="206" r="9" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/><circle cx="80" cy="206" r="3.5" fill="#8a8f78"/>
-    <circle cx="148" cy="206" r="9" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/><circle cx="148" cy="206" r="3.5" fill="#8a8f78"/>
-    <path d="M108 156V146" stroke="#1f231b" stroke-width="3"/>
-    <g transform="translate(110 144) rotate(-30)">
-      <path d="M-15 0A15 7 0 0 0 15 0Z" fill="#d9dcc8" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
-      <path d="M0 2V-13" stroke="#1f231b" stroke-width="1.8"/>
-      <circle cx="0" cy="-14" r="2.2" fill="#1f231b"/>
+    <g class="ink">
+      <path class="pf" d="M30 156H128V200H30Z"/>
+      <path class="thin" d="M44 166H74V192H44ZM86 170H118M86 178H118M86 186H118"/>
+      <path class="pf" d="M130 200V182L138 172H160L168 186V200Z"/>
+      <path class="thin" d="M141 176H158L163 186H141Z"/>
+      <path class="pf" d="M24 198H170V207H24Z"/>
+      <circle class="pf" cx="50" cy="206" r="8.5"/><circle class="thin" cx="50" cy="206" r="3"/>
+      <circle class="pf" cx="80" cy="206" r="8.5"/><circle class="thin" cx="80" cy="206" r="3"/>
+      <circle class="pf" cx="148" cy="206" r="8.5"/><circle class="thin" cx="148" cy="206" r="3"/>
+      <path d="M108 156V146"/>
+      <g transform="translate(110 144) rotate(-30)">
+        <path class="pf" d="M-15 0A15 7 0 0 0 15 0Z"/>
+        <path class="thin" d="M0 2V-13"/>
+        <circle class="ink-f" cx="0" cy="-14" r="2"/>
+      </g>
     </g>
-    <g id="muzzle-blast" fill="none" stroke="#ffd166" stroke-width="2" stroke-linecap="round">
+    <g id="muzzle-blast" class="acc">
       <path d="M124 122A9 9 0 0 1 128 131"/>
       <path d="M128 115A16 16 0 0 1 135 131"/>
       <path d="M132 108A23 23 0 0 1 142 131"/>
     </g>
   </g>
-  <g id="objective" fill="none" stroke="currentColor" stroke-width="1.5">
-    <circle class="impact-pulse" cx="320" cy="66" r="20" stroke-width="2.5"/>
-    <rect x="298" y="54" width="44" height="26" rx="2" fill="#2a2f24" stroke-width="2"/>
-    <path d="M298 80V92" stroke-width="2"/>
-    <path d="M306 61H334M306 67H334M306 73H326" stroke-opacity="0.55"/>
-    <text x="320" y="47" fill="currentColor" stroke="none" text-anchor="middle">COMMANDER</text>
+  <g id="objective" fill="none" stroke="currentColor" stroke-width="1.2">
+    <circle class="impact-pulse" cx="320" cy="66" r="20" stroke-width="1.6"/>
+    <path class="pf" d="M298 54H342V80H298Z"/>
+    <path d="M298 80V92"/>
+    <path class="thin" d="M306 61H334M306 67H334M306 73H326"/>
+    <text class="t-acc" x="320" y="47" text-anchor="middle">COMMANDER</text>
   </g>
   <g id="shell">
-    <rect x="-5" y="-4" width="10" height="8" rx="2" fill="#ffd166" stroke="#1f231b" stroke-width="1.5"/>
+    <rect class="acc-f" x="-5" y="-4" width="10" height="8"/>
   </g>
 </svg>

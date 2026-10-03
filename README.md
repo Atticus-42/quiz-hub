@@ -20,14 +20,17 @@ The whole site is published from this repository with GitHub Pages at https://at
 
 The old per-lesson repositories now only redirect to these URLs.
 
-No login, analytics, cookies, external fonts or scripts. Everything is inline HTML/CSS/JS, plus the shared images in `assets/`.
+No login, analytics, cookies, external fonts or scripts. Everything is inline HTML/CSS/JS, plus the shared files in `assets/` (photos, the self-hosted fonts and the paper grain).
 
 ## Layout
 
 | Path | What it is |
 | --- | --- |
 | `src/engine/template.html` | The one quiz engine: gate, Easy/Medium/Hard, shuffle, keyboard, sounds, results, history, practice retries |
-| `src/engine/contours.svg` | The shared topographic background |
+| `src/engine/contours.svg` | The topographic contours, shown faintly in the page margins and masthead band |
+| `src/shared/base.css` | The "Field Manual" design system shared by every page: fonts, colour tokens (with their computed WCAG contrast), type scale, grid, paper, buttons, tables. The build writes it into each page's one `<style>` |
+| `assets/fonts/` | IBM Plex Sans Condensed and IBM Plex Mono (Latin-1 WOFF2 subsets, SIL Open Font License in `OFL.txt`), self-hosted and preloaded |
+| `assets/paper-grain.svg` | The paper texture (a tiny SVG noise tile) |
 | `src/hub/`, `src/instructor/`, `src/class/` | Page templates |
 | `lessons/modules.json` | Modules, in hub order |
 | `lessons/<key>/lesson.json` | A lesson's titles, topics (`categoryOrder`), slide/page reference range, palette, slug, module and order |

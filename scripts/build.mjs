@@ -355,11 +355,55 @@ export function quizConfig(lesson) {
   };
 }
 
-export function renderQuizPage(template, contours, lesson, { endpoint = HISTORY_ENDPOINT } = {}) {
+// ---------------------------------------------------------------------------
+// Shared design system (src/shared/base.css), written into every page's single <style>
+// ---------------------------------------------------------------------------
+
+// The self-hosted fonts every page preloads: the two faces used most (body text and headings).
+export const PRELOADED_FONTS = ['IBMPlexSansCondensed-Regular-Latin1.woff2', 'IBMPlexSansCondensed-SemiBold-Latin1.woff2'];
+
+// `assets` is the page's relative path to the assets/ folder ('assets/' at the root, '../assets/' one folder down).
+export function baseCss(css, assets) {
+  return css.replace(/\r\n/g, '\n').trimEnd().replaceAll('__ASSETS__', assets);
+}
+
+export function fontPreloads(assets) {
+  return PRELOADED_FONTS.map(file => `<link rel="preload" href="${assets}fonts/${file}" as="font" type="font/woff2" crossorigin>`).join('\n  ');
+}
+
+// "module-2" -> "02": the module number as the manual prints it.
+export function moduleNumber(id) {
+  return String(Number(String(id).replace(/^module-/, '')) || 0).padStart(2, '0');
+}
+
+// The masthead's reference lines and meta table for one quiz page.
+function mastheadParts(lesson) {
+  const mod = moduleNumber(lesson.module);
+  const counts = MODES.map(mode => lesson.counts[mode]);
+  const ref = lesson.rules.ref;
+  const reference = lesson.pool
+    ? `${lesson.pool.lessons.length} lessons · ${lesson.pool.count} per attempt`
+    : `${ref.plural} ${ref.min}–${ref.max}`;
+  const rows = [
+    ['Questions', lesson.pool ? `${lesson.pool.count} per attempt` : counts.join(' · '), lesson.pool ? '' : 'Easy · Medium · Hard'],
+    [lesson.pool ? 'Lessons' : 'Topics', String(lesson.rules.categoryOrder.length), ''],
+    ['Source', lesson.pool ? 'Module lessons' : reference, ''],
+  ];
+  return {
+    LESSON_REF: escapeHtml(`Module ${mod} · ${lesson.pool ? 'Comprehensive' : `Lesson ${String(lesson.order).padStart(2, '0')}`}`),
+    SOURCE_LINE: escapeHtml(`Ref. ${reference}`),
+    MASTHEAD_META: rows.map(([term, value, note]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}${note ? ` <span class="meta-note">${escapeHtml(note)}</span>` : ''}</dd></div>`).join('\n          '),
+  };
+}
+
+export function renderQuizPage(template, contours, lesson, { endpoint = HISTORY_ENDPOINT, base = '' } = {}) {
   const text = lessonText(lesson);
   const palette = Object.entries(lesson.palette ?? {}).map(([name, value]) => `${name}: ${value};`);
   const modePrefix = mode => escapeHtml(fill(text.modeDescPrefix, { count: lesson.counts[mode] }));
   return fillTemplate(template, {
+    BASE_CSS: baseCss(base, '../assets/'),
+    FONT_PRELOAD: fontPreloads('../assets/'),
+    ...mastheadParts(lesson),
     PAGE_TITLE: escapeHtml(lesson.title),
     PALETTE_CSS: palette.length ? `    :root { ${palette.join(' ')} }` : '    /* (none) */',
     HERO_CSS: indent(lesson.heroCss, 4),
@@ -439,9 +483,12 @@ export function hubModules(modules, lessons) {
 function hubModuleCard(module) {
   const id = module.id;
   const describedBy = [`pick-meta-${id}`, `pick-desc-${id}`, ...(module.note ? [`pick-note-${id}`] : []), `overview-${id}`].join(' ');
+  const number = moduleNumber(id);
   return [
     '        <li>',
     `          <a class="module-card" id="pick-${id}" href="#${id}" aria-labelledby="pick-title-${id}" aria-describedby="${describedBy}">`,
+    `            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. ${number}</span></span>`,
+    `            <span class="vol-num" aria-hidden="true">${number}</span>`,
     `            <span class="card-kicker" id="pick-meta-${id}">${escapeHtml(module.meta)}</span>`,
     `            <span class="module-title" id="pick-title-${id}">${escapeHtml(module.title)}</span>`,
     `            <span class="card-desc" id="pick-desc-${id}">${escapeHtml(module.description)}</span>`,
@@ -453,16 +500,22 @@ function hubModuleCard(module) {
   ].join('\n');
 }
 
-function hubExamCard(exam) {
+// One exam as a numbered contents line: "02.1  ISR Operations ........ 44 / 44 / 40".
+function hubExamCard(exam, source, moduleId) {
+  const number = `${moduleNumber(moduleId)}.${source ? source.order : 0}`;
+  const counts = !source ? '' : source.pool ? `${source.pool.count} / attempt` : MODES.map(mode => source.counts[mode]).join(' / ');
   return [
     `        <li${exam.prominent ? ' class="is-prominent"' : ''} id="card-${exam.key}" data-key="${exam.key}">`,
     `          <article class="exam-card" aria-labelledby="title-${exam.key}">`,
-    `            <p class="card-kicker">${escapeHtml(exam.kicker)}</p>`,
-    `            <h3 class="card-title" id="title-${exam.key}">${escapeHtml(exam.title)}</h3>`,
-    `            <p class="card-desc">${escapeHtml(exam.description)}</p>`,
-    '            <ul class="card-meta">',
-    ...exam.tags.map(tag => `              <li class="tag${tag.comprehensive ? ' tag-comprehensive' : ''}">${escapeHtml(tag.text)}</li>`),
-    '            </ul>',
+    `            <p class="toc-num" aria-hidden="true">${number}</p>`,
+    '            <div class="toc-main">',
+    `              <p class="card-kicker">${escapeHtml(exam.kicker)}</p>`,
+    `              <div class="toc-line"><h3 class="card-title" id="title-${exam.key}">${escapeHtml(exam.title)}</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">${escapeHtml(counts)}</span></div>`,
+    `              <p class="card-desc">${escapeHtml(exam.description)}</p>`,
+    '              <ul class="card-meta">',
+    ...exam.tags.map(tag => `                <li class="tag${tag.comprehensive ? ' tag-comprehensive' : ''}">${escapeHtml(tag.text)}</li>`),
+    '              </ul>',
+    '            </div>',
     `            <div class="card-stats" id="stats-${exam.key}" aria-live="polite"></div>`,
     `            <a class="start-link" href="${escapeHtml(exam.url)}">Start exam<span class="sr-only">: ${escapeHtml(exam.title)}</span> <span class="arrow" aria-hidden="true"></span></a>`,
     '          </article>',
@@ -470,30 +523,42 @@ function hubExamCard(exam) {
   ].join('\n');
 }
 
-function hubPanel(module) {
+function hubPanel(module, byKey) {
   const id = module.id;
   const pools = module.exams.filter(exam => exam.prominent);
   const intro = `Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes${pools.length ? `; the ${pools.map(exam => `${exam.title} has ${exam.tags.find(tag => /questions$/.test(tag.text))?.text ?? 'a fixed number of questions'}`).join('; the ')}` : ''}.${module.note ? ` ${module.note.replace(/^More lessons coming$/, `More ${module.title} lessons are coming`)}.` : ''}`;
   return [
     `    <section class="exam-panel" id="${id}" aria-labelledby="exams-heading-${id}">`,
-    '      <div class="section-head">',
+    '      <div class="sect-head section-head">',
     `        <h2 id="exams-heading-${id}" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· ${escapeHtml(module.title)}</span></h2>`,
     `        <a class="change-module" id="change-${id}" href="#choose-module">Change module</a>`,
     '      </div>',
+    '      <div class="sect-body">',
     `      <p class="section-intro">${escapeHtml(intro)}</p>`,
+    '      <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>',
     `      <ul class="exam-grid" id="exam-grid-${id}">`,
-    ...module.exams.map(hubExamCard),
+    ...module.exams.map(exam => hubExamCard(exam, byKey.get(exam.key), id)),
     '      </ul>',
+    '      </div>',
     '    </section>',
   ].join('\n');
 }
 
-export function renderHub(template, contours, modules, lessons, { endpoint = HISTORY_ENDPOINT } = {}) {
+export function renderHub(template, contours, modules, lessons, { endpoint = HISTORY_ENDPOINT, base = '' } = {}) {
   const config = hubModules(modules, lessons);
+  const quizzes = lessons.filter(lesson => !lesson.pool);
   return fillTemplate(template, {
+    BASE_CSS: baseCss(base, 'assets/'),
+    FONT_PRELOAD: fontPreloads('assets/'),
+    HUB_META: [
+      ['Modules', String(config.length)],
+      ['Exams', String(lessons.length)],
+      ['Questions', quizzes.reduce((sum, lesson) => sum + quizTotal(lesson), 0).toLocaleString('en-US')],
+      ['Modes', 'Easy · Medium · Hard'],
+    ].map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('\n            '),
     CONTOURS: contours.trim(),
     MODULE_CARDS: config.map(hubModuleCard).join('\n'),
-    EXAM_PANELS: config.map(hubPanel).join('\n\n'),
+    EXAM_PANELS: config.map(module => hubPanel(module, new Map(lessons.map(lesson => [lesson.key, lesson])))).join('\n\n'),
     MODULES: JSON.stringify(config, null, 2).replaceAll('<', '\\u003c').split('\n').join('\n    '),
     HISTORY_ENDPOINT: endpoint,
   });
@@ -528,8 +593,10 @@ export function instructorData(modules, lessons) {
   };
 }
 
-export function renderInstructor(template, contours, modules, lessons, { endpoint = HISTORY_ENDPOINT } = {}) {
+export function renderInstructor(template, contours, modules, lessons, { endpoint = HISTORY_ENDPOINT, base = '' } = {}) {
   return fillTemplate(template, {
+    BASE_CSS: baseCss(base, '../assets/'),
+    FONT_PRELOAD: fontPreloads('../assets/'),
     CONTOURS: contours.trim(),
     ITEM_DATA: scriptJson(instructorData(modules, lessons)),
     HISTORY_ENDPOINT: endpoint,
@@ -571,20 +638,27 @@ export function loadClass(root = ROOT) {
   return data;
 }
 
-export function renderClass(template, contours, data) {
-  return fillTemplate(template, { CONTOURS: contours.trim(), CLASS_DATA: scriptJson(data) });
+export function renderClass(template, contours, data, { base = '' } = {}) {
+  return fillTemplate(template, {
+    BASE_CSS: baseCss(base, '../assets/'),
+    FONT_PRELOAD: fontPreloads('../assets/'),
+    CONTOURS: contours.trim(),
+    CLASS_COUNT: String(data.roster.length),
+    CLASS_DATA: scriptJson(data),
+  });
 }
 
 // Builds every page; returns { path: html } for the files written.
 export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, write = true } = {}) {
   const { modules, lessons } = loadLessons(root);
   const contours = readFileSync(join(root, 'src', 'engine', 'contours.svg'), 'utf8');
+  const base = readFileSync(join(root, 'src', 'shared', 'base.css'), 'utf8');
   const engine = readFileSync(join(root, 'src', 'engine', 'template.html'), 'utf8').replace(/\r\n/g, '\n');
   const pages = {};
-  for (const lesson of lessons) pages[`${lesson.slug}/index.html`] = renderQuizPage(engine, contours, lesson, { endpoint });
-  pages['index.html'] = renderHub(readFileSync(join(root, 'src', 'hub', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint });
-  pages['class/index.html'] = renderClass(readFileSync(join(root, 'src', 'class', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadClass(root));
-  pages['instructor/index.html'] = renderInstructor(readFileSync(join(root, 'src', 'instructor', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint });
+  for (const lesson of lessons) pages[`${lesson.slug}/index.html`] = renderQuizPage(engine, contours, lesson, { endpoint, base });
+  pages['index.html'] = renderHub(readFileSync(join(root, 'src', 'hub', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base });
+  pages['class/index.html'] = renderClass(readFileSync(join(root, 'src', 'class', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadClass(root), { base });
+  pages['instructor/index.html'] = renderInstructor(readFileSync(join(root, 'src', 'instructor', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base });
   if (write) {
     for (const [path, html] of Object.entries(pages)) {
       mkdirSync(dirname(join(out, path)), { recursive: true });

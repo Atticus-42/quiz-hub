@@ -2,7 +2,7 @@
 //   node scripts/build.mjs && node scripts/verify.mjs
 // 1. the build and every question bank, 2. the engine suite once per lesson quiz and pool exam (plus the
 // lesson's own lessons/<key>/checks.mjs, if any), 3. apps-script/Code.gs in a sandbox, 4. the hub,
-// 5. the instructor page and the class page.
+// 5. the instructor page and the class page, 6. the shared design system (fonts, assets, contrast, overflow).
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -14,6 +14,7 @@ import { engineSuite } from './test/engine.test.mjs';
 import { codeGsSuite } from './test/codegs.test.mjs';
 import { hubSuite } from './test/hub.test.mjs';
 import { instructorSuite, classSuite } from './test/instructor.test.mjs';
+import { designSuite } from './test/design.test.mjs';
 
 const { modules, lessons } = loadLessons();
 // Shares per pool lesson, as the engine computes them.
@@ -37,6 +38,7 @@ await codeGsSuite();
 await hubSuite({ lessons });
 await instructorSuite({ lessons });
 await classSuite();
+await designSuite({ lessons });
 
 if (results.failures > 0) {
   console.error(`\n${results.failures} of ${results.tests} verification tests failed:\n  ${results.failed.join('\n  ')}`);

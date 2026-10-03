@@ -21,14 +21,7 @@
     "Security Measures and Protocols"
   ],
   "sourceRef": { "label": "page", "plural": "pages", "min": 1, "max": 19, "required": true },
-  "palette": {
-    "--color-paper": "#efeddc",
-    "--topo-angle": "155deg",
-    "--topo-tint-green": "#e4ead3",
-    "--topo-tint-sand": "#f0e5cc",
-    "--topo-line": "#4f6232",
-    "--topo-line-major": "#3f5226"
-  },
+  "palette": { "--lesson-accent": "#d9541e" },
   "art": {
     "groups": ["tank", "tank-gun", "muzzle-blast", "shell", "dust", "objective"],
     "nested": { "tank": ["tank-gun", "muzzle-blast"] },

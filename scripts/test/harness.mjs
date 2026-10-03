@@ -493,3 +493,17 @@ export function keyEvent(document, key, options = {}) {
     preventDefault() { this.defaultPrevented = true; },
   };
 }
+
+// ---------------------------------------------------------------------------
+// Self-hosted assets (fonts and the paper grain) referenced by every page
+// ---------------------------------------------------------------------------
+
+// The font preloads the build writes into each page's <head> (scripts/build.mjs PRELOADED_FONTS).
+export const FONT_PRELOAD = /<link rel="preload" href="((?:\.\.\/)?assets\/fonts\/[\w-]+\.woff2)" as="font" type="font\/woff2" crossorigin>/g;
+export const withoutFontPreloads = html => html.replace(FONT_PRELOAD, '');
+
+// Every url(...) target in a stylesheet (quotes removed).
+export const cssUrls = css => [...css.matchAll(/url\(\s*['"]?([^'")]*)/gi)].map(match => match[1]);
+
+// A same-origin asset reference: a relative path into assets/ (fonts or the paper grain), never a scheme or host.
+export const isLocalAsset = url => /^(?:\.\.\/)?assets\/(?:fonts\/[\w-]+\.woff2|paper-grain\.svg)$/.test(url);

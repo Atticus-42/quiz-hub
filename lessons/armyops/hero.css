@@ -1,7 +1,7 @@
 /* Artwork parts. Rest states are the static artwork shown with reduced motion.
    #tank is the task-force unit marker, #tank-gun its guidon, #muzzle-blast a signal burst,
    #shell the advancing unit marker, #dust its movement trail and #objective the objective. */
-#objective { color: var(--mode-glow); }
+#objective { color: var(--lesson-accent); }
 #muzzle-blast { opacity: 0; transform-box: fill-box; transform-origin: 0% 50%; }
 #shell { opacity: 0; transform: translate(110px, 87px); }
 #tank-gun { transform-box: fill-box; transform-origin: 0% 100%; }

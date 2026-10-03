@@ -1,69 +1,78 @@
 <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
-  <path d="M0 50H480M0 100H480M0 150H480M0 200H480M80 0V250M160 0V250M240 0V250M320 0V250M400 0V250" fill="none" stroke="#f3efdf" stroke-opacity="0.08" stroke-width="1"/>
-  <text x="12" y="18" fill="#e3b65a">FULL SPECTRUM OPERATIONS</text>
-  <text x="12" y="31" fill="#d6d2bf">OFFENSE · DEFENSE · SUPPORT TO CIVIL GOVERNANCE</text>
-  <path class="hill" d="M0 152C80 146 160 156 240 150C320 145 400 156 480 148V250H0Z" fill="#3f4a2c"/>
-  <g class="terrain-contour" fill="none" stroke="#c9b37a" stroke-opacity="0.3" stroke-width="1.2" stroke-dasharray="3 5">
-    <path d="M0 170Q120 160 240 168T480 164"/>
-    <path d="M0 222Q130 212 250 220T480 216"/>
-    <path d="M0 136Q140 124 250 132T480 128"/>
+  <g class="plate-grid" fill="none" stroke="currentColor">
+    <path class="grid-cross" d="M77 50h6M80 47v6M157 50h6M160 47v6M237 50h6M240 47v6M317 50h6M320 47v6M397 50h6M400 47v6M77 100h6M80 97v6M157 100h6M160 97v6M237 100h6M240 97v6M317 100h6M320 97v6M397 100h6M400 97v6M77 150h6M80 147v6M157 150h6M160 147v6M237 150h6M240 147v6M317 150h6M320 147v6M397 150h6M400 147v6"/>
+    <path class="thin" d="M80 0v6M160 0v6M240 0v6M320 0v6M400 0v6M80 244v6M160 244v6M240 244v6M320 244v6M400 244v6M0 50h6M0 100h6M0 150h6M0 200h6M474 50h6M474 100h6M474 150h6M474 200h6"/>
   </g>
-  <path d="M240 160V232" fill="none" stroke="#f3efdf" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="2 4"/>
-  <path class="offense-arrow" d="M92 92C190 60 300 58 388 84" fill="none" stroke="#e3b65a" stroke-opacity="0.16" stroke-width="14" stroke-linecap="round"/>
-  <path class="axis-line" d="M92 92C190 60 300 58 388 84" fill="none" stroke="#e3b65a" stroke-opacity="0.85" stroke-width="1.6" stroke-dasharray="6 5"/>
-  <path d="M397.6 86.7L388.3 75.8L383.9 91.2Z" fill="#e3b65a" fill-opacity="0.85"/>
-  <text x="200" y="52" fill="#e3b65a">OFFENSE</text>
-  <text x="30" y="122" fill="#d6d2bf">TASK FORCE</text>
-  <g id="dust" fill="#c9b37a">
+  <text class="t-title" x="12" y="20">FULL SPECTRUM OPERATIONS</text>
+  <text class="t-mute" x="12" y="33">OFFENSE · DEFENSE · SUPPORT TO CIVIL GOVERNANCE</text>
+  <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+    <path class="hill ink" d="M0 152C80 146 160 156 240 150C320 145 400 156 480 148"/>
+    <g class="terrain-contour" stroke-width="0.9" stroke-dasharray="3 4">
+      <path d="M0 170Q120 160 240 168T480 164"/>
+      <path class="faint" d="M0 222Q130 212 250 220T480 216"/>
+      <path class="faint" d="M0 136Q140 124 250 132T480 128"/>
+    </g>
+    <path class="thin faint" d="M240 160V232" stroke-dasharray="1 3"/>
+    <path class="offense-arrow thin faint" d="M92 84C190 52 300 50 388 76M92 100C190 68 300 66 388 92"/>
+    <path class="axis-line acc" d="M92 92C190 60 300 58 388 84" stroke-dasharray="6 4"/>
+    <path class="acc-f" d="M397.6 86.7L388.3 75.8L383.9 91.2Z"/>
+  </g>
+  <text class="t-acc" x="204" y="52">OFFENSE</text>
+  <text x="30" y="124">TASK FORCE</text>
+  <g id="dust" fill="none" stroke="currentColor" stroke-width="0.9">
     <circle class="dust-puff" cx="100" cy="98" r="6"/>
     <circle class="dust-puff" cx="92" cy="94" r="5"/>
     <circle class="dust-puff" cx="106" cy="104" r="4"/>
   </g>
-  <g id="tank">
-    <rect x="40" y="74" width="46" height="30" rx="2" fill="#a9c9e8" stroke="#1f231b" stroke-width="2"/>
-    <path d="M40 74L86 104M40 104L86 74" stroke="#1f231b" stroke-width="2"/>
-    <text x="59" y="70" fill="#f3efdf">X</text>
-    <g id="tank-gun">
-      <path d="M40 74V46" stroke="#d6d2bf" stroke-width="2" stroke-linecap="round"/>
-      <path d="M40 46L58 50L40 56Z" fill="#e3b65a" stroke="#1f231b" stroke-width="1"/>
+  <g id="tank" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round">
+    <g class="ink">
+      <path class="pf" d="M40 74H86V104H40Z"/>
+      <path d="M40 74L86 104M40 104L86 74"/>
+      <path class="thin" d="M59 66L67 62M59 62L67 66"/>
     </g>
-    <g id="muzzle-blast" fill="none" stroke="#ffd166" stroke-width="2" stroke-linecap="round">
+    <g id="tank-gun" class="ink">
+      <path d="M40 74V46"/>
+      <path class="acc-f" d="M40 46L58 50L40 56Z"/>
+    </g>
+    <g id="muzzle-blast" class="acc">
       <path d="M90 80a11 11 0 0 1 0 18"/>
       <path d="M95 74a19 19 0 0 1 0 30"/>
     </g>
   </g>
-  <g class="defense-line">
-    <path d="M70 160L92 168V184C92 198 82 206 70 212C58 206 48 198 48 184V168Z" fill="#586636" stroke="#e3b65a" stroke-width="2" stroke-linejoin="round"/>
-    <path d="M58 182H82M58 190H82" stroke="#e3b65a" stroke-width="2" stroke-linecap="round"/>
-    <path d="M104 204H212" stroke="#23281e" stroke-width="4" stroke-linecap="round"/>
-    <path d="M104 200L112 192L120 200L128 192L136 200L144 192L152 200L160 192L168 200L176 192L184 200L192 192L200 200L208 192" fill="none" stroke="#c9b37a" stroke-width="2" stroke-linejoin="round"/>
-    <text x="100" y="236" fill="#d6d2bf">DEFENSE</text>
+  <g class="defense-line" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+    <g class="ink">
+      <path class="pf" d="M70 160L92 168V184C92 198 82 206 70 212C58 206 48 198 48 184V168Z"/>
+      <path d="M58 182H82M58 190H82"/>
+      <path d="M104 204H212"/>
+      <path class="thin" d="M104 200L112 192L120 200L128 192L136 200L144 192L152 200L160 192L168 200L176 192L184 200L192 192L200 200L208 192"/>
+    </g>
+    <text x="100" y="236">DEFENSE</text>
   </g>
-  <g class="relief-truck">
-    <rect x="262" y="178" width="64" height="32" rx="2" fill="#6b7a45" stroke="#1f231b" stroke-width="2"/>
-    <rect x="284" y="185" width="20" height="16" rx="1" fill="#c9b37a" stroke="#1f231b" stroke-width="1.5"/>
-    <path d="M294 185V201M284 193H304" stroke="#1f231b" stroke-width="1.2"/>
-    <path d="M326 188H344L354 200V210H326Z" fill="#586636" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
-    <path d="M330 192H342L348 200H330Z" fill="#a9c9e8"/>
-    <circle cx="280" cy="212" r="7" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/>
-    <circle cx="340" cy="212" r="7" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/>
-    <rect x="364" y="190" width="14" height="12" rx="1" fill="#c9b37a" stroke="#1f231b" stroke-width="1.5"/>
-    <path class="relief-hands" d="M358 204C362 212 380 212 384 204" fill="none" stroke="#e8cfa6" stroke-width="3" stroke-linecap="round"/>
-    <path d="M390 188L416 168L442 188Z" fill="#a5633a" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
-    <rect x="396" y="186" width="40" height="26" fill="#8a7a5a" stroke="#1f231b" stroke-width="2"/>
-    <rect x="411" y="196" width="10" height="16" fill="#2a2f24"/>
-    <text x="290" y="236" fill="#d6d2bf">SUPPORT TO CIVIL GOVERNANCE</text>
+  <g class="relief-truck" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+    <g class="ink">
+      <path class="pf" d="M262 178H326V210H262Z"/>
+      <path class="thin" d="M284 185H304V201H284ZM294 188V198M289 193H299"/>
+      <path class="pf" d="M326 188H344L354 200V210H326Z"/>
+      <path class="thin" d="M330 192H342L348 200H330Z"/>
+      <circle class="pf" cx="280" cy="212" r="6.5"/><circle class="pf" cx="340" cy="212" r="6.5"/>
+      <path class="pf" d="M364 190H378V202H364Z"/>
+      <path class="relief-hands" d="M358 206C362 212 380 212 384 206"/>
+      <path class="pf" d="M390 188L416 168L442 188Z"/>
+      <path class="pf" d="M396 186H436V212H396Z"/>
+      <path class="thin" d="M411 212V196H421V212"/>
+    </g>
+    <text x="276" y="236">SUPPORT TO CIVIL GOVERNANCE</text>
   </g>
-  <g id="objective" fill="none" stroke="currentColor" stroke-width="1.5">
-    <path d="M396 70C398 56 420 50 436 56C452 62 458 80 452 96C446 110 424 116 408 110C394 104 394 84 396 70Z" fill="#2a2f24" stroke-width="2"/>
-    <path d="M424 52V36" stroke-width="2" stroke-linecap="round"/>
-    <path d="M424 36L440 40L424 45Z" fill="currentColor"/>
-    <circle class="impact-pulse" cx="424" cy="83" r="16" stroke-width="2.5"/>
-    <text x="414" y="87" fill="currentColor" stroke="none">OBJ</text>
-    <text x="398" y="130" fill="currentColor" stroke="none">OBJECTIVE</text>
+  <g id="objective" fill="none" stroke="currentColor" stroke-width="1.2">
+    <path class="pf" d="M396 70C398 56 420 50 436 56C452 62 458 80 452 96C446 110 424 116 408 110C394 104 394 84 396 70Z"/>
+    <path d="M424 52V36"/>
+    <path class="acc-f" d="M424 36L440 40L424 45Z"/>
+    <circle class="impact-pulse" cx="424" cy="83" r="16" stroke-width="1.6"/>
+    <text class="t-acc" x="414" y="87">OBJ</text>
+    <text class="t-acc" x="398" y="130">OBJECTIVE</text>
   </g>
-  <g id="shell">
-    <rect x="-9" y="-6" width="18" height="12" rx="1.5" fill="#a9c9e8" stroke="#1f231b" stroke-width="1.5"/>
-    <path d="M-9 -6L9 6M-9 6L9 -6" stroke="#1f231b" stroke-width="1.2"/>
+  <g id="shell" fill="none" stroke-width="1.2">
+    <path class="ink pf" d="M-9 -6H9V6H-9Z"/>
+    <path class="acc" d="M-9 -6L9 6M-9 6L9 -6"/>
   </g>
 </svg>

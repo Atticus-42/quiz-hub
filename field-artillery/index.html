@@ -4,89 +4,102 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Field Artillery Mastery Quiz</title>
+  <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-Regular-Latin1.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-SemiBold-Latin1.woff2" as="font" type="font/woff2" crossorigin>
   <style>
     /* =====================================================================
-       QUIZ ENGINE. One template serves every lesson quiz and pool exam; the
-       build (scripts/build.mjs) fills in each lesson's text, palette, hero
-       artwork and question banks from lessons/<key>/.
+       FIELD MANUAL DESIGN SYSTEM (src/shared/base.css). The build writes this
+       sheet into every page (hub, quizzes, class page, instructor view) at
+       the top of its one style element, with the assets placeholder replaced
+       by the page's path to assets/. Edit it here, never in a built page.
 
-       Colour. Ratios are WCAG 2.1 contrast against --color-surface (#fbfaf3)
-       unless noted. Every text pair meets AA (4.5:1 body, 3:1 large text/UI).
-         --color-text            #1d2119  15.6:1  body copy
-         --color-muted           #464c3c   8.5:1  secondary copy, captions, dimmed options
-         --color-border          #7a8068   3.9:1  control borders (UI >= 3:1)
-         --color-border-subtle   #c3c7ae          decorative dividers only
-         --color-accent          #3f4d22   8.6:1  primary buttons (white text 9.1:1)
-         --color-focus           #1a4fd1   6.5:1  keyboard focus ring, 3px solid
-         --color-correct         #1c6530   6.8:1  (6.0:1 on --color-correct-bg, white on it 7.1:1)
-         --color-incorrect       #9e2418   7.4:1  (6.5:1 on --color-incorrect-bg, white on it 7.7:1)
-         --color-warning-text    #7a3e00   7.4:1 on --color-warning-bg
-         --color-brass           #e3b65a          hero accents on charcoal only (9.4:1 on #23281e)
-         Difficulty accents (--mode-accent) reach >= 4.6:1 on their --mode-selected
-         tint and carry white text at >= 6:1. Difficulty is always named in text too.
-         Lesson palettes (lessons/<key>/lesson.json "palette") only change the hero
-         gradient and the decorative contour map, never a text pair.
+       Type. IBM Plex Sans Condensed (text, headings, UI) and IBM Plex Mono
+       (numbers, codes, references, kbd), self-hosted Latin-1 subsets under
+       the SIL Open Font License (assets/fonts/OFL.txt), font-display: swap.
+       The subsets have no arrows; per-glyph fallback draws them from the
+       system stack. The metric-matched fallback faces keep line breaks close
+       to Plex while the files load, so the swap does not shift the layout.
+       Scale (ratio 1.25 from 16px): 12 label · 14 meta · 16 UI · 18 body ·
+       20 · 25 · 31 · 39-76 display. Body 18px, measure 60-75ch.
 
-       Interaction states (colour is never the only signal):
-         unselected  2px --color-border, surface fill, outlined letter badge
-         hover       --mode-accent border, --mode-tint fill
-         focus       3px solid --color-focus outline, 2px offset
-         selected    --mode-accent border + inset ring, --mode-selected fill,
-                     filled letter badge, "Selected" tag with check icon
-         correct     --color-correct border + ring, --color-correct-bg fill,
-                     "Correct answer" tag with check icon
-         incorrect   --color-incorrect border + ring, --color-incorrect-bg fill,
-                     "Your answer" tag with cross icon
-         dimmed      subtle border, sunken fill, muted text (still 8:1)
-
-       Spacing:  --space-1 0.25rem · 2 0.5rem · 3 0.75rem · 4 1rem · 5 1.5rem · 6 2rem · 7 3rem
-       Type:     --text-xs 0.8125rem · sm 0.875rem · base 1rem · md 1.125rem · lg 1.375rem
-                 · xl 1.75rem · 2xl clamp(1.75rem, 1.2rem + 2vw, 2.5rem); line-height 1.5 body, 1.25 headings
-       Radii:    --radius-sm 0.375rem · md 0.5rem · lg 0.75rem · pill 999px
-       Shadows:  --shadow-sm resting cards · --shadow-md main card
-       Fonts:    system stacks only (--font-sans, --font-mono); no web fonts.
+       Colour. WCAG 2.1 contrast, computed (scripts/test checks them again):
+         --color-text      #1e211b on --color-paper #f3efe4   14.18:1  body
+         --color-muted     #4a4c40 on paper                    7.62:1  secondary text
+         --color-accent    #4b5320 on paper                    7.15:1  olive drab: links, primary buttons
+                           paper on --color-accent             7.15:1  button text
+         --color-olive-dark #2e3418: paper on it              11.28:1  dark bands, selected covers
+         --color-khaki     #c9b98f on olive-dark                6.68:1  labels on dark bands
+         --color-signal    #d9541e on paper                    3.49:1  non-text only: progress, current
+                           item, focus ring (UI >= 3:1); never small text
+         --color-signal-text #a8431a on paper                  5.25:1  orange text (small)
+         --color-signal-light #e68a5c on olive-dark            5.03:1  orange text on dark bands
+         --color-rule      #7d7865 on paper                    3.85:1  control borders (UI >= 3:1)
+         --color-hairline  #c8c2ae                                     decorative rules only
+         --color-correct   #2f6b2f on paper 5.60:1, on --color-correct-bg #e6ebd8 5.28:1, paper on it 5.60:1
+         --color-incorrect #a32a1c on paper 6.29:1, on --color-incorrect-bg #f3e2da 5.75:1, paper on it 6.29:1
+         --color-text on --color-sunken #e9e6d6               13.00:1
+         --color-accent on --color-selected #e3e6d0            6.45:1  selected answer (text 12.80:1)
+         --color-focus = signal orange, 3px: 3.49:1 on paper, 3.23:1 on olive-dark
+       Corners are square (2px at most); 1px hairlines replace boxes; shadows
+       only for true layering. Motion 120-200ms, no bounce, off under
+       prefers-reduced-motion.
        ===================================================================== */
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Regular-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: italic; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Italic-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Medium-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-SemiBold-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Bold-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexMono-Regular-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/IBMPlexMono-Medium-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/IBMPlexMono-SemiBold-Latin1.woff2") format("woff2"); }
+    /* Metric-matched fallbacks (measured: Plex Sans Condensed sets 1.108x Arial Narrow, 0.909x Arial; Plex Mono 1.091x Consolas). */
+    @font-face { font-family: "Plex Condensed Fallback"; src: local("Arial Narrow"), local("ArialNarrow"); size-adjust: 110.8%; ascent-override: 92.5%; descent-override: 24.8%; line-gap-override: 0%; }
+    @font-face { font-family: "Plex Condensed Fallback Wide"; src: local("Arial"), local("Helvetica"); size-adjust: 90.9%; ascent-override: 112.8%; descent-override: 30.3%; line-gap-override: 0%; }
+    @font-face { font-family: "Plex Mono Fallback"; src: local("Consolas"), local("Menlo"); size-adjust: 109.1%; ascent-override: 94%; descent-override: 25.2%; line-gap-override: 0%; }
+
     :root {
-      --color-bg: #e7e8d6;
-      --color-surface: #fbfaf3;
-      --color-surface-sunken: #f1f1e6;
-      --color-text: #1d2119;
-      --color-muted: #464c3c;
-      --color-border: #7a8068;
-      --color-border-subtle: #c3c7ae;
-      --color-accent: #3f4d22;
-      --color-accent-hover: #2f3a19;
-      --color-accent-text: #ffffff;
-      --color-charcoal: #23281e;
-      --color-olive-deep: #4a4128;
-      --color-terrain: #5b6b3a;
-      /* Topographic background: paper, green-to-sand relief tint, olive contour lines. */
-      --color-paper: #f6f2e4;
-      --topo-angle: 160deg;
-      --topo-tint-green: #e2e8cc;
-      --topo-tint-sand: #f1e3c6;
-      --topo-line: #5f6d35;
-      --topo-line-major: #4b5a22;
-      --topo-minor-opacity: 0.22;
-      --topo-major-opacity: 0.4;
-      --topo-major-width: 1.6;
-      --color-brass: #e3b65a;
-      --color-hero-text: #f3efdf;
-      --color-hero-muted: #d6d2bf;
-      --color-warning-bg: #fff0c7;
-      --color-warning-border: #9a5a00;
-      --color-warning-text: #7a3e00;
-      --color-correct: #1c6530;
-      --color-correct-bg: #e3f1e4;
-      --color-incorrect: #9e2418;
-      --color-incorrect-bg: #fbe6e2;
-      --color-self-bg: #fff4d1;
-      --color-self-border: #9a6a00;
-      --color-focus: #1a4fd1;
-      --band-mastery: #1c6530;
-      --band-proficient: #3f4d22;
-      --band-developing: #8a5700;
-      --band-review: #9e2418;
+      --color-paper: #f3efe4;
+      --color-surface: #f3efe4;
+      --color-sunken: #e9e6d6;
+      --color-selected: #e3e6d0;
+      --color-text: #1e211b;
+      --color-muted: #4a4c40;
+      --color-accent: #4b5320;
+      --color-accent-hover: #2e3418;
+      --color-accent-text: #f3efe4;
+      --color-olive-dark: #2e3418;
+      --color-khaki: #c9b98f;
+      --color-signal: #d9541e;
+      --color-signal-text: #a8431a;
+      --color-signal-light: #e68a5c;
+      --color-rule: #7d7865;
+      --color-hairline: #c8c2ae;
+      --color-correct: #2f6b2f;
+      --color-correct-bg: #e6ebd8;
+      --color-incorrect: #a32a1c;
+      --color-incorrect-bg: #f3e2da;
+      --color-focus: #d9541e;
+
+      /* Margin topography: olive contours, shown only in the page margins and the masthead band. */
+      --topo-line: #4b5320;
+      --topo-line-major: #2e3418;
+      --topo-minor-opacity: 0.1;
+      --topo-major-opacity: 0.16;
+      --topo-major-width: 1.2;
+      --grain: url("../assets/paper-grain.svg");
+
+      --font-sans: "IBM Plex Sans Condensed", "Plex Condensed Fallback", "Plex Condensed Fallback Wide", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --font-mono: "IBM Plex Mono", "Plex Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+
+      --text-label: 0.75rem;
+      --text-meta: 0.875rem;
+      --text-ui: 1rem;
+      --text-body: 1.125rem;
+      --text-h4: 1.25rem;
+      --text-h3: 1.5625rem;
+      --text-h2: 1.953rem;
+      --text-h1: clamp(2.44rem, 1.55rem + 3.6vw, 4.77rem);
+      --text-display: clamp(4rem, 2.2rem + 7.5vw, 7.45rem);
 
       --space-1: 0.25rem;
       --space-2: 0.5rem;
@@ -95,70 +108,66 @@
       --space-5: 1.5rem;
       --space-6: 2rem;
       --space-7: 3rem;
+      --space-8: 4.5rem;
+      --space-9: 6rem;
 
-      --text-xs: 0.8125rem;
-      --text-sm: 0.875rem;
-      --text-base: 1rem;
-      --text-md: 1.125rem;
-      --text-lg: 1.375rem;
-      --text-xl: 1.75rem;
-      --text-2xl: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
-
-      --radius-sm: 0.375rem;
-      --radius-md: 0.5rem;
-      --radius-lg: 0.75rem;
-      --radius-pill: 999px;
-
-      --shadow-sm: 0 1px 2px rgba(35, 40, 30, 0.12), 0 1px 6px rgba(35, 40, 30, 0.08);
-      --shadow-md: 0 2px 4px rgba(35, 40, 30, 0.1), 0 8px 24px rgba(35, 40, 30, 0.14);
-
-      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      --font-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-
-      --mode-accent: var(--color-accent);
-      --mode-tint: #eef0e2;
-      --mode-selected: #e3e8cf;
-      --mode-glow: var(--color-brass);
+      --radius: 2px;
+      --page-max: 84rem;
+      --gutter: clamp(1rem, 3.2vw, 3rem);
+      --col-gap: clamp(1rem, 2vw, 2rem);
+      --rail: minmax(0, 3fr);
+      --body: minmax(0, 9fr);
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+      --speed: 160ms;
+      --shadow-layer: 0 1px 0 rgba(30, 33, 27, 0.08), 0 12px 32px rgba(30, 33, 27, 0.18);
     }
-    /* Lesson palette (lessons/<key>/lesson.json). */
-    :root { --color-paper: #f1eedc; --topo-angle: 165deg; --topo-tint-green: #eef0dd; --topo-tint-sand: #efe7cf; --topo-line: #3a4822; --topo-line-major: #3a4822; --topo-major-width: 1.4; }
-    /* Difficulty identities. The difficulty is always also named in text. */
-    .theme-easy, .mode-easy { --mode-accent: #2d6a2f; --mode-tint: #eef1e3; --mode-selected: #dcebd0; --mode-glow: #8fd17a; }
-    .theme-medium, .mode-medium { --mode-accent: #8a5700; --mode-tint: #f7eed6; --mode-selected: #f5e3b8; --mode-glow: #f2b441; }
-    .theme-hard, .mode-hard { --mode-accent: #a63d17; --mode-tint: #f8e6dc; --mode-selected: #f7d9cb; --mode-glow: #ff8a5c; }
 
     *, *::before, *::after { box-sizing: border-box; }
     [hidden] { display: none !important; }
-    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--color-paper); }
     body {
       margin: 0;
       min-height: 100vh;
-      background: var(--color-paper);
+      background: var(--color-paper) var(--grain);
       color: var(--color-text);
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-      font-size: var(--text-base);
+      font-family: var(--font-sans);
+      font-size: var(--text-ui);
       line-height: 1.5;
+      font-kerning: normal;
       overflow-wrap: anywhere;
+      -webkit-font-smoothing: antialiased;
     }
-    h1, h2, h3, h4 { line-height: 1.25; }
-    h2 { font-size: var(--text-lg); margin: var(--space-6) 0 var(--space-3); }
-    h3 { font-size: var(--text-md); margin: var(--space-5) 0 var(--space-3); }
-    h4 { font-size: var(--text-base); margin: var(--space-4) 0 var(--space-2); }
+    h1, h2, h3, h4 { margin: 0; font-weight: 600; line-height: 1.12; letter-spacing: -0.01em; text-wrap: balance; }
     p { margin: 0 0 var(--space-3); }
+    a { color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+    a:hover { color: var(--color-text); text-decoration-thickness: 2px; }
+    strong { font-weight: 600; }
     .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0 0 0 0);
-      white-space: nowrap;
-      border: 0;
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
     }
+    .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    /* Uppercase small label: the manual's running heads, captions and table heads. */
+    .label {
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.4;
+    }
+    .wrap { width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin-inline: auto; }
 
-    /* Decorative tactical-map layer: fixed, clipped and inert, so it never adds page width. */
-    .terrain {
+    /* Classification strip: the first line of every page. */
+    .strip { position: relative; z-index: 2; background: var(--color-olive-dark); color: var(--color-khaki); }
+    .strip-inner {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 var(--space-5);
+      min-height: 2rem; padding-block: 0.375rem;
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .strip-inner p { margin: 0; }
+    .strip-ref { color: var(--color-paper); letter-spacing: 0.08em; }
+    .strip .sep { padding-inline: 0.5em; color: var(--color-signal-light); }
+    @media (max-width: 600px) { .strip-inner { letter-spacing: 0.08em; } .strip-ref { display: none; } }
+
+    /* Paper with margin topography: a fixed, clipped, inert contour layer masked to the page edges and the masthead band. */
+    .terrain, .topo {
       position: fixed;
       top: 0;
       left: 0;
@@ -167,98 +176,257 @@
       z-index: -1;
       overflow: hidden;
       pointer-events: none;
-      background: linear-gradient(var(--topo-angle), var(--topo-tint-green) 0%, var(--color-paper) 48%, var(--topo-tint-sand) 100%);
+      -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - var(--page-max) / 2 - 2rem), transparent calc(50% - var(--page-max) / 2 + 3rem), transparent calc(50% + var(--page-max) / 2 - 3rem), #000 calc(50% + var(--page-max) / 2 + 2rem)), linear-gradient(180deg, #000 0, #000 9rem, transparent 26rem);
+      mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - var(--page-max) / 2 - 2rem), transparent calc(50% - var(--page-max) / 2 + 3rem), transparent calc(50% + var(--page-max) / 2 - 3rem), #000 calc(50% + var(--page-max) / 2 + 2rem)), linear-gradient(180deg, #000 0, #000 9rem, transparent 26rem);
     }
-    .terrain svg { display: block; width: 100%; height: 100%; }
-    .terrain .contours { fill: none; stroke-linejoin: round; stroke-linecap: round; }
-    .terrain .contours path { stroke: var(--topo-line); stroke-opacity: var(--topo-minor-opacity); stroke-width: 1; vector-effect: non-scaling-stroke; }
-    .terrain .contours path.major { stroke: var(--topo-line-major); stroke-opacity: var(--topo-major-opacity); stroke-width: var(--topo-major-width); }
+    .terrain svg, .topo svg { display: block; width: 100%; height: 100%; }
+    .terrain .contours, .topo .contours { fill: none; stroke-linejoin: round; stroke-linecap: round; }
+    .terrain .contours path, .topo .contours path { stroke: var(--topo-line); stroke-opacity: var(--topo-minor-opacity); stroke-width: 1; vector-effect: non-scaling-stroke; }
+    .terrain .contours path.major, .topo .contours path.major { stroke: var(--topo-line-major); stroke-opacity: var(--topo-major-opacity); stroke-width: var(--topo-major-width); }
 
-    /* Bandwidth Brothers banner (top of page) and class photo (bottom of page). */
-    .banner { position: relative; z-index: 1; width: 100%; background: var(--color-charcoal); line-height: 0; }
+    /* Plate I: the Bandwidth Brothers banner, toned olive/ink and tightly cropped, with a Mono caption line. */
+    .banner { position: relative; z-index: 1; width: 100%; background: #d8cfae; line-height: 0; overflow: hidden; isolation: isolate; }
     .banner picture { display: block; }
-    .banner img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 6; max-height: 32rem; object-fit: cover; object-position: center 55%; }
+    .banner img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 16 / 5; object-fit: cover; object-position: 50% 56%;
+      filter: grayscale(1) contrast(1.45) brightness(0.95);
+      mix-blend-mode: multiply;
+    }
+    /* Duotone: the multiply above maps white to khaki paper; lighten lifts black to ink. */
+    .banner::before { content: ""; position: absolute; inset: 0; z-index: 1; background: #1e211b; mix-blend-mode: lighten; pointer-events: none; }
+    .plate-caption {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 var(--space-5);
+      margin-block: 0; padding-block: var(--space-2);
+      border-bottom: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted);
+    }
+    .plate-caption b { font-weight: 600; color: var(--color-text); }
+
+    /* Figure: the SOAC 52 - 2026 class photograph. */
     .class-photo {
       position: relative; z-index: 1;
-      width: calc(100% - 2rem); max-width: 56rem; margin: var(--space-6) auto;
-      padding: var(--space-3);
+      width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin: var(--space-8) auto 0;
       background: var(--color-surface);
-      border: 1px solid var(--color-border-subtle);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-md);
     }
-    .class-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-md); }
-    .class-photo figcaption { margin-top: var(--space-3); text-align: center; font-weight: 700; color: var(--color-muted); }
-    @media (max-width: 600px) { .banner img { aspect-ratio: 16 / 8; } .class-photo { width: calc(100% - 1.5rem); padding: var(--space-2); } }
+    .class-photo img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 62%;
+      border-radius: 0; filter: grayscale(1) sepia(0.22) contrast(1.06);
+    }
+    .class-photo figcaption {
+      display: flex; flex-wrap: wrap; gap: 0 var(--space-4);
+      margin: 0; padding: var(--space-2) 0; border-top: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text);
+    }
+    .class-photo figcaption::before { content: var(--fig-photo, "Fig. 3") " \2014  Bandwidth Brothers,"; color: var(--color-muted); font-weight: 500; }
+
+    /* Buttons: square, hairline-precise, 44px targets. */
+    button {
+      font: inherit;
+      min-height: 44px;
+      min-width: 44px;
+      padding: var(--space-2) var(--space-5);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius);
+      background: var(--color-accent);
+      color: var(--color-accent-text);
+      font-family: var(--font-sans);
+      font-size: var(--text-ui);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: background-color var(--speed) var(--ease), border-color var(--speed) var(--ease), color var(--speed) var(--ease);
+    }
+    button:hover:not(:disabled) { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+    button.secondary { background: transparent; color: var(--color-text); border-color: var(--color-rule); }
+    button.secondary:hover:not(:disabled) { background: var(--color-sunken); color: var(--color-text); border-color: var(--color-text); }
+    button.compact { padding: var(--space-1) var(--space-4); font-size: var(--text-meta); }
+    button:disabled { cursor: not-allowed; opacity: 0.5; }
+    :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    /* Headings that receive focus from script (tabindex=-1, never reached by Tab) are marked by an orange underline, not a box. */
+    [tabindex="-1"]:focus-visible { outline: 3px solid transparent; text-decoration: underline; text-decoration-color: var(--color-signal); text-decoration-thickness: 3px; text-underline-offset: 0.3em; }
+    .strip :focus-visible, .on-dark :focus-visible { outline-color: var(--color-signal-light); }
+    .arrow-r::after { content: "\00a0\2192"; font-family: var(--font-mono); }
+    .arrow-l::before { content: "\2190\00a0"; font-family: var(--font-mono); }
+
+    /* Section with a margin rail: number and heading in the rail, content to the right (stacked on narrow screens). */
+    .sect { display: grid; grid-template-columns: var(--rail) var(--body); column-gap: var(--col-gap); padding-block: var(--space-7); border-top: 1px solid var(--color-text); }
+    .sect-head { min-width: 0; }
+    .sect-num { display: block; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; color: var(--color-signal-text); }
+    .sect-head h2 { margin-top: var(--space-2); font-size: var(--text-h3); }
+    .sect-body { min-width: 0; }
+    @media (max-width: 900px) {
+      .sect { grid-template-columns: 1fr; row-gap: var(--space-4); padding-block: var(--space-6); }
+    }
+
+    /* Tags: square-cornered labels with a text name, never colour alone. */
+    .tag {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      padding: 0.0625rem 0.5rem; border: 1px solid currentColor; border-radius: var(--radius);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.6;
+      white-space: nowrap;
+    }
+
+    /* Tables: hairline rules, Mono heads and tabular numerals. */
+    .table-wrap { max-width: 100%; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; background: transparent; font-variant-numeric: tabular-nums; }
+    caption { padding-bottom: var(--space-3); text-align: left; color: var(--color-muted); font-size: var(--text-meta); }
+    th, td { padding: var(--space-3) var(--space-3) var(--space-3) 0; border-bottom: 1px solid var(--color-hairline); text-align: left; vertical-align: baseline; }
+    thead th { padding-block: var(--space-2); border-bottom: 1px solid var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    td.num, th.num, .num { font-family: var(--font-mono); font-size: 0.9375rem; text-align: right; }
+
+    kbd {
+      display: inline-block;
+      min-width: 1.7em;
+      padding: 0 0.35em;
+      border: 1px solid var(--color-rule);
+      border-bottom-width: 2px;
+      border-radius: var(--radius);
+      background: var(--color-paper);
+      color: var(--color-text);
+      font-family: var(--font-mono);
+      font-size: 0.8em;
+      font-weight: 500;
+      line-height: 1.55;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .site-footer { position: relative; z-index: 1; }
+    .colophon {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-5);
+      margin-top: var(--space-8); padding-block: var(--space-4) var(--space-7); border-top: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted);
+    }
+
+    /* =====================================================================
+       QUIZ ENGINE. One template serves every lesson quiz and pool exam; the
+       build (scripts/build.mjs) fills in each lesson's text, palette, hero
+       artwork and question banks from lessons/<key>/. Tokens, type, tables,
+       buttons and the paper come from src/shared/base.css above.
+
+       Interaction states (colour is never the only signal):
+         unselected  hairline separator, outlined Mono key cap (the keyboard hint)
+         hover       --color-rule left bar, faint sunken fill
+         focus       3px solid --color-focus (signal orange) outline, 2px offset
+         selected    4px olive left bar, --color-selected fill, filled key cap,
+                     "Selected" tag with check icon
+         correct     4px --color-correct bar, --color-correct-bg fill, filled cap,
+                     "Correct answer" tag with check icon
+         incorrect   4px --color-incorrect bar, --color-incorrect-bg fill,
+                     "Your answer" tag with cross icon
+         dimmed      muted text (7.6:1), outlined cap
+       Difficulty is named in text and drawn as a three-step gauge (1, 2 or 3
+       filled squares), never by colour alone.
+       Lesson palettes (lessons/<key>/lesson.json "palette") only set
+       --lesson-accent: the hero art's single accent and the section markers
+       (each >= 3:1 on paper as a graphic, never small text).
+       ===================================================================== */
+    :root { --lesson-accent: var(--color-signal); --hero-art-ink: var(--color-accent); }
+    /* Lesson palette (lessons/<key>/lesson.json). */
+    :root { --lesson-accent: #a8431a; }
+    /* Difficulty identities: the gauge fills one, two or three squares. */
+    .theme-easy .quiz-rail .gauge i:nth-child(1), .mode-easy .gauge i:nth-child(1) { background: currentColor; }
+    .theme-medium .quiz-rail .gauge i:nth-child(-n+2), .mode-medium .gauge i:nth-child(-n+2) { background: currentColor; }
+    .theme-hard .quiz-rail .gauge i, .mode-hard .gauge i { background: currentColor; }
+    .gauge { display: inline-flex; gap: 3px; vertical-align: 0.05em; }
+    .gauge i { display: block; width: 0.625rem; height: 0.625rem; border: 1px solid currentColor; }
+
+    h2 { font-size: var(--text-h3); }
+    h3 { font-size: var(--text-h4); }
+    h4 { font-size: var(--text-ui); }
+
+    /* Masthead: tools bar, rail + title + plate, meta table. Compacts outside the landing view. */
     body:not([data-view="landing"]) .banner, body:not([data-view="landing"]) .class-photo { display: none; }
-
-    /* Lesson hero */
-    .hero {
-      background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-olive-deep) 100%);
-      color: var(--color-hero-text);
-      border-bottom: 6px solid var(--mode-glow);
-      overflow: hidden;
+    .banner img { aspect-ratio: 16 / 3; object-position: 50% 54%; max-height: 17rem; }
+    .hero { position: relative; z-index: 1; color: var(--color-text); }
+    .hero-bar {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4);
+      padding-block: var(--space-2); border-bottom: 1px solid var(--color-text);
     }
-    .hero-inner {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
-      gap: var(--space-5);
-      align-items: center;
-      width: 100%;
-      max-width: 72rem;
-      margin: 0 auto;
-      padding: var(--space-5) var(--space-4);
-    }
-    .hero-copy { min-width: 0; }
-    .eyebrow { margin: 0; font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.04em; color: var(--color-brass); }
-    h1 { margin: var(--space-1) 0 var(--space-2); font-size: var(--text-2xl); }
-    .hero-lede { margin: 0; color: var(--color-hero-muted); max-width: 34rem; }
-    .hero-tools { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
-    .hero-art { min-width: 0; }
-    .hero-art svg { display: block; width: 100%; max-width: 100%; height: auto; }
-    .hero-art text { font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: 0.08em; }
-    body[data-view="quiz"] .hero-inner, body[data-view="results"] .hero-inner { padding-top: var(--space-4); padding-bottom: var(--space-4); }
-    body[data-view="quiz"] .hero-art svg, body[data-view="results"] .hero-art svg { max-height: 12rem; }
-
-    /* Sound toggle: speaker icon plus visible On/Off text; aria-pressed carries the state. */
-    .sound-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-2);
-      padding: var(--space-2) var(--space-3);
-      border: 2px solid var(--color-brass);
-      background: rgba(20, 24, 17, 0.55);
-      color: var(--color-hero-text);
-      font-size: var(--text-sm);
-    }
-    .sound-toggle:hover:not(:disabled) { background: rgba(20, 24, 17, 0.85); border-color: var(--color-hero-text); }
-    .sound-toggle svg { width: 1.25rem; height: 1.25rem; flex: none; }
-    .sound-toggle .sound-waves { display: inline; }
-    .sound-toggle .sound-mute { display: none; }
-    .sound-toggle[aria-pressed="false"] .sound-waves { display: none; }
-    .sound-toggle[aria-pressed="false"] .sound-mute { display: inline; }
-    .sound-state { font-weight: 700; color: var(--color-brass); }
-    /* Link back to the quiz hub, styled to match the sound toggle. */
+    .hero-bar .fig-line { flex: 1 1 18rem; margin: 0; color: var(--color-muted); text-align: center; }
+    body:not([data-view="landing"]) .hero-bar .fig-line { visibility: hidden; }
     .hub-link {
       display: inline-flex;
       align-items: center;
       gap: var(--space-2);
       min-height: 44px;
-      padding: var(--space-2) var(--space-3);
-      border: 2px solid var(--color-brass);
-      border-radius: var(--radius-sm);
-      background: rgba(20, 24, 17, 0.55);
-      color: var(--color-hero-text);
-      font-size: var(--text-sm);
-      font-weight: 600;
+      padding: 0 var(--space-2) 0 0;
+      color: var(--color-text);
+      font-family: var(--font-mono);
+      font-size: var(--text-label);
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
       text-decoration: none;
+      transition: color var(--speed) var(--ease);
     }
-    .hub-link:hover { background: rgba(20, 24, 17, 0.85); border-color: var(--color-hero-text); text-decoration: underline; }
-    .hub-arrow { color: var(--color-brass); font-weight: 700; }
+    .hub-link:hover { color: var(--color-accent); text-decoration: underline; text-underline-offset: 0.3em; }
+    .hub-arrow { font-size: 1rem; letter-spacing: 0; color: var(--color-signal-text); }
+
+    /* Sound toggle: speaker icon plus visible On/Off text; aria-pressed carries the state. */
+    .sound-toggle {
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: 0 var(--space-3);
+      border-color: var(--color-rule); background: transparent; color: var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .sound-toggle:hover:not(:disabled) { background: var(--color-sunken); border-color: var(--color-text); }
+    .sound-toggle svg { width: 1.125rem; height: 1.125rem; flex: none; }
+    .sound-toggle .sound-waves { display: inline; }
+    .sound-toggle .sound-mute { display: none; }
+    .sound-toggle[aria-pressed="false"] .sound-waves { display: none; }
+    .sound-toggle[aria-pressed="false"] .sound-mute { display: inline; }
+    .sound-state { min-width: 2.2em; padding: 0 0.3em; background: var(--color-text); color: var(--color-paper); font-weight: 600; text-align: center; }
+    .sound-toggle[aria-pressed="false"] .sound-state { background: transparent; color: var(--color-text); box-shadow: inset 0 0 0 1px var(--color-rule); }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: var(--rail) minmax(0, 5fr) minmax(0, 4fr);
+      column-gap: var(--col-gap);
+      align-items: start;
+      padding-block: var(--space-7) var(--space-6);
+    }
+    .hero-rail { min-width: 0; padding-top: 0.5rem; }
+    .rail-ref { margin: 0 0 var(--space-1); color: var(--color-signal-text); }
+    .rail-src { margin: 0; color: var(--color-muted); }
+    .hero-copy { min-width: 0; }
+    .eyebrow { margin: 0 0 var(--space-3); color: var(--color-muted); }
+    h1 { margin: 0 0 var(--space-4); font-size: var(--text-h1); font-weight: 600; line-height: 0.98; letter-spacing: -0.022em; }
+    .hero-lede { max-width: 38rem; margin: 0; font-size: var(--text-body); line-height: 1.55; color: var(--color-text); }
+    .hero-meta { display: grid; grid-template-columns: repeat(3, minmax(0, auto)); justify-content: start; gap: 0 var(--space-6); margin: var(--space-5) 0 0; padding-top: var(--space-3); border-top: 1px solid var(--color-text); }
+    .hero-meta dt { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    .hero-meta dd { margin: var(--space-1) 0 0; font-family: var(--font-mono); font-size: 0.9375rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+    .meta-note { display: block; font-size: var(--text-label); color: var(--color-muted); letter-spacing: 0.04em; }
+    .hero-art { min-width: 0; margin: 0; color: var(--hero-art-ink); }
+    .hero-art svg { display: block; width: 100%; max-width: 100%; height: auto; border: 1px solid var(--color-text); background: var(--color-paper); }
+    /* Plate drawing conventions shared by every lesson's hero.svg: single-weight olive linework, ink for the
+       principal subject, paper fills to knock out lines behind objects, one accent (--lesson-accent). */
+    .hero-art svg * { vector-effect: non-scaling-stroke; }
+    .hero-art .ink { stroke: var(--color-text); }
+    .hero-art .acc { stroke: var(--lesson-accent); }
+    .hero-art .acc-f { fill: var(--lesson-accent); stroke: none; }
+    .hero-art .ink-f { fill: var(--color-text); stroke: none; }
+    .hero-art .pf { fill: var(--color-paper); }
+    .hero-art .thin { stroke-width: 0.75; }
+    .hero-art .faint { stroke-opacity: 0.45; }
+    .hero-art .grid-cross { stroke-width: 0.75; stroke-opacity: 0.5; }
+    .hero-art text { font-family: var(--font-mono); font-size: 9.5px; font-weight: 500; letter-spacing: 0.08em; fill: var(--color-text); stroke: none; }
+    .hero-art text.t-title { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; }
+    .hero-art text.t-mute { fill: var(--color-muted); }
+    .hero-art text.t-acc { fill: var(--color-signal-text); }
+    .hero-art .art-cap { display: flex; justify-content: space-between; gap: var(--space-3); margin: var(--space-2) 0 0; color: var(--color-muted); }
+    /* Quiz and results: a slim running head keeps the lesson title; the plate and lede step aside for the question. */
+    body:not([data-view="landing"]) .hero-inner { grid-template-columns: var(--rail) var(--body); padding-block: var(--space-4) var(--space-3); }
+    body:not([data-view="landing"]) h1 { margin: 0; font-size: var(--text-h3); line-height: 1.1; }
+    body:not([data-view="landing"]) .hero-rail { padding-top: 0.25rem; }
+    body:not([data-view="landing"]) .hero-art, body:not([data-view="landing"]) .hero-lede, body:not([data-view="landing"]) .hero-meta, body:not([data-view="landing"]) .eyebrow, body:not([data-view="landing"]) .rail-src { display: none; }
 
     /* Lesson artwork (lessons/<key>/hero.css). Nothing loops, so no pause control is needed. */
     /* Artwork parts. Rest states are the static artwork shown with reduced motion. */
-    #objective { color: var(--mode-glow); }
+    #objective { color: var(--lesson-accent); }
     #muzzle-blast { opacity: 0; transform-box: fill-box; transform-origin: 0% 50%; }
     #shell { opacity: 0; transform: translate(230px, 125px); }
     #dust .dust-puff { opacity: 0; transform-box: fill-box; transform-origin: center; }
@@ -318,157 +486,158 @@
       #objective .impact-pulse { opacity: 0.6; transform: none; }
     }
     @keyframes view-enter {
-      from { opacity: 0; transform: translateY(0.5rem); }
+      from { opacity: 0; transform: translateY(0.375rem); }
       to { opacity: 1; transform: none; }
     }
 
-    /* Main card */
+    /* The document body: rail + content grid, one sheet of paper. */
     .app {
-      width: calc(100% - 2rem);
-      max-width: 52rem;
-      margin: var(--space-5) auto var(--space-6);
-      padding: var(--space-5);
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-top: 6px solid var(--mode-accent);
-      border-radius: var(--radius-lg);
-      box-shadow: var(--shadow-md);
+      display: grid;
+      grid-template-columns: var(--rail) var(--body);
+      column-gap: var(--col-gap);
+      padding-bottom: var(--space-8);
+      background: var(--color-surface) var(--grain);
+      border-top: 1px solid var(--color-text);
     }
-    .view { animation: view-enter 0.3s ease-out both; }
-    .view > h2:first-child { margin-top: 0; }
-
-    button {
-      font: inherit;
-      min-height: 44px;
-      min-width: 44px;
-      padding: var(--space-3) var(--space-4);
-      border: 2px solid var(--color-accent);
-      border-radius: var(--radius-sm);
-      background: var(--color-accent);
-      color: var(--color-accent-text);
-      font-weight: 600;
-      line-height: 1.25;
-      cursor: pointer;
-      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
-    }
-    button:hover:not(:disabled) { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
-    button.secondary { background: var(--color-surface); color: var(--color-accent); }
-    button.secondary:hover:not(:disabled) { background: var(--mode-tint); color: var(--color-accent-hover); }
-    button.compact { padding: var(--space-2) var(--space-3); font-size: var(--text-sm); }
-    button:disabled { cursor: not-allowed; opacity: 0.55; }
-    :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
-    .hero :focus-visible { outline-color: #ffffff; }
+    .app > * { grid-column: 1 / -1; min-width: 0; }
+    .view { animation: view-enter 180ms var(--ease) both; }
+    .view .sect:first-child { border-top: 0; }
+    .sect-intro { max-width: 40rem; color: var(--color-muted); }
 
     /* Icons are drawn in CSS with currentColor, always paired with text. */
     .icon { position: relative; display: inline-block; flex: none; width: 1em; height: 1em; vertical-align: -0.125em; }
     .icon::before, .icon::after { content: ""; position: absolute; }
-    .icon-check::before { left: 0.32em; top: 0.06em; width: 0.34em; height: 0.64em; border: solid currentColor; border-width: 0 0.16em 0.16em 0; transform: rotate(45deg); }
-    .icon-cross::before, .icon-cross::after { left: 0.42em; top: 0.02em; width: 0.16em; height: 0.96em; border-radius: 0.08em; background: currentColor; transform: rotate(45deg); }
+    .icon-check::before { left: 0.32em; top: 0.06em; width: 0.34em; height: 0.64em; border: solid currentColor; border-width: 0 0.15em 0.15em 0; transform: rotate(45deg); }
+    .icon-cross::before, .icon-cross::after { left: 0.43em; top: 0.04em; width: 0.14em; height: 0.92em; background: currentColor; transform: rotate(45deg); }
     .icon-cross::after { transform: rotate(-45deg); }
-    .icon-alert::before { left: 0.42em; top: 0.04em; width: 0.16em; height: 0.6em; border-radius: 0.08em; background: currentColor; }
-    .icon-alert::after { left: 0.42em; top: 0.78em; width: 0.16em; height: 0.18em; border-radius: 0.08em; background: currentColor; }
-    .icon-dot::before { left: 0.3em; top: 0.3em; width: 0.4em; height: 0.4em; border-radius: 50%; background: currentColor; }
+    .icon-alert::before { left: 0.43em; top: 0.04em; width: 0.14em; height: 0.6em; background: currentColor; }
+    .icon-alert::after { left: 0.43em; top: 0.78em; width: 0.14em; height: 0.16em; background: currentColor; }
+    .icon-dot::before { left: 0.32em; top: 0.32em; width: 0.36em; height: 0.36em; background: currentColor; }
 
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.375rem;
-      padding: 0.125rem 0.625rem;
-      border-radius: var(--radius-pill);
-      font-size: var(--text-sm);
-      font-weight: 700;
-      line-height: 1.5;
-      white-space: nowrap;
-    }
-    .tag-selected { background: var(--mode-accent); color: #ffffff; }
-    .tag-correct { background: var(--color-correct); color: #ffffff; }
-    .tag-incorrect { background: var(--color-incorrect); color: #ffffff; }
-    .tag-strength { background: var(--color-correct-bg); color: var(--color-correct); border: 1px solid var(--color-correct); }
-    .tag-gap { background: var(--color-incorrect-bg); color: var(--color-incorrect); border: 1px solid var(--color-incorrect); }
-    .tag-you { background: var(--color-accent); color: #ffffff; font-size: var(--text-xs); padding: 0 var(--space-2); }
+    .tag-selected { color: var(--color-accent); }
+    .tag-correct { background: var(--color-correct); border-color: var(--color-correct); color: var(--color-paper); }
+    .tag-incorrect { background: var(--color-incorrect); border-color: var(--color-incorrect); color: var(--color-paper); }
+    .tag-strength { color: var(--color-correct); }
+    .tag-gap { color: var(--color-incorrect); }
+    .tag-you { background: var(--color-text); border-color: var(--color-text); color: var(--color-paper); }
 
     /* Landing */
-    .field { margin: 0 0 var(--space-5); }
-    .field-label { display: block; margin-bottom: var(--space-1); font-weight: 700; }
-    .field-help { margin: 0 0 var(--space-2); font-size: var(--text-sm); color: var(--color-muted); }
+    .field { margin: 0 0 var(--space-6); }
+    .field-label { display: block; margin-bottom: var(--space-1); font-size: var(--text-h4); font-weight: 600; }
+    .field-help { margin: 0 0 var(--space-3); font-size: var(--text-meta); color: var(--color-muted); }
     .text-input {
       display: block;
       width: 100%;
       max-width: 26rem;
-      min-height: 44px;
+      min-height: 48px;
       padding: var(--space-2) var(--space-3);
-      border: 2px solid var(--color-border);
-      border-radius: var(--radius-sm);
-      background: #ffffff;
+      border: 1px solid var(--color-rule);
+      border-bottom: 2px solid var(--color-text);
+      border-radius: var(--radius);
+      background: #faf8f1;
       color: var(--color-text);
       font: inherit;
-      transition: border-color 0.15s ease;
+      font-size: var(--text-body);
+      transition: border-color var(--speed) var(--ease);
     }
-    .text-input:hover { border-color: var(--color-accent); }
+    .text-input:hover { border-color: var(--color-text); }
     .text-input[aria-invalid="true"] { border-color: var(--color-incorrect); }
     .field-message { display: flex; gap: var(--space-2); align-items: baseline; margin: var(--space-2) 0 0; color: var(--color-incorrect); font-weight: 600; }
 
+    /* CAUTION block, as the manual sets warnings. */
     .study-warning {
-      border: 2px solid var(--color-warning-border);
-      border-left-width: 8px;
-      border-radius: var(--radius-md);
-      background: var(--color-warning-bg);
-      padding: var(--space-4);
+      position: relative;
+      max-width: 44rem;
+      padding: var(--space-6) var(--space-5) var(--space-3);
+      border: 1px solid var(--color-text);
+      border-left: 4px solid var(--color-signal);
+      background: var(--color-sunken);
     }
-    .study-warning p { margin-top: 0; }
-    .study-warning strong { color: var(--color-warning-text); }
+    .study-warning::before {
+      content: "Caution"; position: absolute; top: -1px; left: -4px;
+      padding: 0.125rem 0.5rem; background: var(--color-text); color: var(--color-paper);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    .study-warning p { margin-top: 0; font-size: var(--text-body); line-height: 1.55; }
+    .study-warning strong { font-weight: 600; }
     .study-confirm {
       display: flex;
       gap: var(--space-3);
       align-items: flex-start;
       min-height: 44px;
-      padding: var(--space-2) 0;
-      font-weight: 600;
+      padding: var(--space-3) 0 var(--space-2);
+      border-top: 1px solid var(--color-hairline);
+      font-weight: 500;
       cursor: pointer;
     }
-    .study-confirm input { flex: none; width: 1.5rem; height: 1.5rem; margin: 0.1rem 0 0; accent-color: var(--color-accent); }
+    .study-confirm input { flex: none; width: 1.375rem; height: 1.375rem; margin: 0.1rem 0 0; accent-color: var(--color-accent); }
 
-    .mode-hint { color: var(--color-muted); }
-    .mode-list {
-      display: grid;
-      gap: var(--space-3);
-      grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
-    }
+    .mode-hint { max-width: 40rem; color: var(--color-muted); }
+    .mode-list { display: grid; grid-template-columns: 1fr; margin-top: var(--space-4); border-top: 1px solid var(--color-text); }
     .mode-button {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: var(--space-1);
-      text-align: left;
-      padding: var(--space-4);
-      background: var(--mode-tint);
+      display: grid;
+      grid-template-columns: 7.5rem minmax(0, 1fr) auto;
+      align-items: baseline;
+      column-gap: var(--space-5);
+      width: 100%;
+      min-height: 4.5rem;
+      padding: var(--space-4) var(--space-3) var(--space-4) var(--space-4);
+      border: 0;
+      border-bottom: 1px solid var(--color-text);
+      border-left: 4px solid transparent;
+      border-radius: 0;
+      background: transparent;
       color: var(--color-text);
-      border: 2px solid var(--color-border);
-      border-left: 10px solid var(--mode-accent);
-      border-radius: var(--radius-md);
-      box-shadow: var(--shadow-sm);
+      text-align: left;
     }
-    .mode-button:hover:not(:disabled) { background: var(--color-surface); border-color: var(--mode-accent); color: var(--color-text); }
-    .mode-name { font-size: var(--text-md); font-weight: 700; color: var(--mode-accent); }
-    .mode-desc { font-size: 0.9375rem; font-weight: 400; }
-    .privacy-note, .question-category, .results-reminder { color: var(--color-muted); }
-    .privacy-note { margin-top: var(--space-5); font-size: var(--text-sm); }
-    .device-progress { margin: 0; font-size: var(--text-sm); color: var(--color-muted); }
-    .link-button { min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--color-accent); font-size: var(--text-sm); font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; }
-    .link-button:hover:not(:disabled) { background: transparent; border: 0; color: var(--color-accent-hover); }
+    .mode-button:hover:not(:disabled) { background: var(--color-selected); border-color: var(--color-text); border-left-color: var(--color-accent); color: var(--color-text); }
+    .mode-button:disabled { opacity: 1; color: var(--color-muted); }
+    .mode-button:disabled .mode-go { visibility: hidden; }
+    .mode-name { display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-h4); font-weight: 600; }
+    .mode-name .gauge { color: var(--color-accent); }
+    .mode-button:disabled .mode-name .gauge { color: var(--color-rule); }
+    .mode-desc { font-size: var(--text-ui); font-weight: 400; line-height: 1.45; }
+    .mode-go { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent); }
+    .privacy-note { max-width: 46rem; font-size: var(--text-meta); line-height: 1.6; color: var(--color-muted); }
+    .question-category, .results-reminder { color: var(--color-muted); }
+    .device-progress { margin: 0; font-size: var(--text-meta); color: var(--color-muted); }
+    .link-button { min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--color-accent); font-size: var(--text-meta); font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; }
+    .link-button:hover:not(:disabled) { background: transparent; border: 0; color: var(--color-text); }
 
-    /* Quiz */
-    .quiz-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2) var(--space-4); margin-bottom: var(--space-3); }
-    .quiz-head h2 { margin: 0; }
-    .student-line { margin: 0; font-size: var(--text-sm); color: var(--color-muted); }
+    /* Quiz: the rail carries the mode, student and question number; the question is the focal point. */
+    .view-quiz:not([hidden]) {
+      display: grid;
+      grid-template-columns: var(--rail) var(--body);
+      column-gap: var(--col-gap);
+      align-content: start;
+      padding-top: var(--space-6);
+    }
+    .view-quiz > * { grid-column: 2; min-width: 0; }
+    .view-quiz > .quiz-rail { grid-column: 1; grid-row: 1 / span 12; align-self: start; position: sticky; top: var(--space-4); }
+    .quiz-head h2 { margin: 0 0 var(--space-2); font-size: var(--text-ui); font-weight: 600; letter-spacing: 0.01em; }
+    .quiz-head h2 .gauge { margin-right: var(--space-2); }
+    .gauge { color: var(--color-accent); }
+    .student-line { margin: 0; font-size: var(--text-meta); color: var(--color-muted); }
     .student-line strong { color: var(--color-text); }
-    .quiz-progress label { font-size: var(--text-sm); font-weight: 600; color: var(--color-muted); }
-    .quiz-status { font-size: var(--text-sm); color: var(--color-muted); }
-    progress { display: block; width: 100%; height: 0.75rem; accent-color: var(--mode-accent); }
-    .question-heading { margin: var(--space-5) 0 var(--space-1); }
-    .question-category { margin: 0 0 var(--space-4); font-size: var(--text-sm); }
+    .q-index { margin: var(--space-6) 0 0; font-family: var(--font-mono); font-weight: 500; line-height: 0.9; font-variant-numeric: tabular-nums; }
+    .q-index-num { display: block; font-size: clamp(3rem, 2rem + 3vw, 5rem); letter-spacing: -0.04em; }
+    .q-index-total { display: block; margin-top: var(--space-2); font-size: var(--text-meta); color: var(--color-muted); letter-spacing: 0.1em; }
+    .quiz-progress label { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    .quiz-progress progress { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+    .quiz-status { margin: var(--space-2) 0 0; font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.06em; color: var(--color-muted); }
+    /* Segmented progress: one tick per question (filled = checked, signal orange = current). */
+    .ticks { display: flex; gap: 2px; height: 0.5rem; margin: var(--space-2) 0 0; padding: 0; list-style: none; }
+    .ticks-dense { gap: 0; }
+    .tick { flex: 1 1 0; min-width: 1px; background: var(--color-hairline); }
+    .tick-done { background: var(--color-text); }
+    .tick-current { background: var(--color-signal); transform: scaleY(1.6); }
+    .question-heading { margin: var(--space-6) 0 0; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-muted); }
+    /* The feedback panel receives focus from script (never by Tab): its top rule turns orange. */
+    .feedback:focus-visible { outline: 3px solid transparent; border-top-color: var(--color-signal); text-decoration: none; }
+    .question-category { display: flex; gap: var(--space-2); align-items: baseline; margin: var(--space-1) 0 var(--space-4); font-size: var(--text-meta); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-accent); }
+    .question-category::before { content: ""; flex: none; width: 0.5rem; height: 0.5rem; background: var(--lesson-accent); }
     fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
-    legend { display: block; max-width: 100%; margin-bottom: var(--space-4); padding: 0; font-size: var(--text-md); font-weight: 600; line-height: 1.45; white-space: normal; }
+    legend { display: block; max-width: 44rem; margin-bottom: var(--space-5); padding: 0; font-size: clamp(1.3125rem, 1.15rem + 0.6vw, 1.625rem); font-weight: 500; line-height: 1.32; letter-spacing: -0.005em; white-space: normal; }
 
     /* Practice (retry the missed questions): labelled in text, never by colour alone. */
     .practice-note {
@@ -477,29 +646,32 @@
       align-items: baseline;
       margin: 0 0 var(--space-4);
       padding: var(--space-2) var(--space-3);
-      border: 2px dashed var(--color-warning-border);
-      border-radius: var(--radius-md);
-      background: var(--color-warning-bg);
-      color: var(--color-warning-text);
-      font-size: var(--text-sm);
-      font-weight: 600;
+      border: 1px dashed var(--color-text);
+      font-family: var(--font-mono);
+      font-size: var(--text-label);
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--color-signal-text);
     }
 
     .option {
       position: relative;
       display: flex;
-      gap: var(--space-3);
+      gap: var(--space-4);
       align-items: flex-start;
       min-height: 44px;
-      margin-bottom: var(--space-2);
-      padding: var(--space-3) var(--space-4) var(--space-3) var(--space-3);
-      border: 2px solid var(--color-border);
-      border-radius: var(--radius-md);
-      background: var(--color-surface);
+      margin: 0;
+      padding: var(--space-4) var(--space-4) var(--space-4) var(--space-3);
+      border: 0;
+      border-top: 1px solid var(--color-hairline);
+      border-left: 4px solid transparent;
+      background: transparent;
       cursor: pointer;
-      transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+      transition: border-color var(--speed) var(--ease), background-color var(--speed) var(--ease);
     }
-    /* The native radio stays in the tab order and drives keyboard selection; the letter badge is its visual. */
+    .question-fieldset .option:last-of-type { border-bottom: 1px solid var(--color-hairline); }
+    /* The native radio stays in the tab order and drives keyboard selection; the key cap is its visual. */
     .option input { position: absolute; top: 50%; left: 1.25rem; width: 1px; height: 1px; margin: 0; opacity: 0; }
     .option-letter {
       display: inline-flex;
@@ -508,157 +680,161 @@
       justify-content: center;
       width: 2rem;
       height: 2rem;
-      border: 2px solid var(--color-border);
-      border-radius: 50%;
-      background: var(--color-surface);
+      border: 1px solid var(--color-rule);
+      border-bottom-width: 2px;
+      border-radius: var(--radius);
+      background: #faf8f1;
       color: var(--color-text);
-      font-weight: 700;
+      font-family: var(--font-mono);
+      font-size: 0.9375rem;
+      font-weight: 600;
     }
     .option-body { flex: 1; min-width: 0; padding-top: 0.2rem; }
-    .option-text { display: block; }
+    .option-text { display: block; font-size: var(--text-body); line-height: 1.45; }
     .option-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
     .option-tags:empty { display: none; }
-    .option:hover:not(.option-correct):not(.option-incorrect):not(.option-selected):not(.option-locked) { border-color: var(--mode-accent); background: var(--mode-tint); }
-    .option:focus-within { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    .option:hover:not(.option-correct):not(.option-incorrect):not(.option-selected):not(.option-locked) { border-color: var(--color-hairline) var(--color-hairline) var(--color-hairline) var(--color-rule); background: rgba(233, 230, 214, 0.6); }
+    .option:hover:not(.option-correct):not(.option-incorrect):not(.option-selected):not(.option-locked) .option-letter { border-color: var(--color-text); }
+    .option:focus-within { outline: 3px solid var(--color-focus); outline-offset: -1px; }
     .option:has(input:focus:not(:focus-visible)) { outline-color: transparent; }
-    .option-selected { border-color: var(--mode-accent); background: var(--mode-selected); box-shadow: inset 0 0 0 1px var(--mode-accent); }
-    .option-selected .option-letter { border-color: var(--mode-accent); background: var(--mode-accent); color: #ffffff; }
+    .option-selected { border-left-color: var(--color-accent); background: var(--color-selected); }
+    .option-selected .option-letter { border-color: var(--color-accent); background: var(--color-accent); color: var(--color-paper); }
     .option-locked { cursor: default; }
-    .option-correct { border-color: var(--color-correct); background: var(--color-correct-bg); box-shadow: inset 0 0 0 1px var(--color-correct); }
-    .option-correct .option-letter { border-color: var(--color-correct); background: var(--color-correct); color: #ffffff; }
-    .option-incorrect { border-color: var(--color-incorrect); background: var(--color-incorrect-bg); box-shadow: inset 0 0 0 1px var(--color-incorrect); }
-    .option-incorrect .option-letter { border-color: var(--color-incorrect); background: var(--color-incorrect); color: #ffffff; }
-    .option-dimmed { border-color: var(--color-border-subtle); background: var(--color-surface-sunken); color: var(--color-muted); }
-    .option-dimmed .option-letter { border-color: var(--color-border-subtle); background: var(--color-surface-sunken); color: var(--color-muted); }
+    .option-correct { border-left-color: var(--color-correct); background: var(--color-correct-bg); }
+    .option-correct .option-letter { border-color: var(--color-correct); background: var(--color-correct); color: var(--color-paper); }
+    .option-incorrect { border-left-color: var(--color-incorrect); background: var(--color-incorrect-bg); }
+    .option-incorrect .option-letter { border-color: var(--color-incorrect); background: var(--color-incorrect); color: var(--color-paper); }
+    .option-dimmed { color: var(--color-muted); }
+    .option-dimmed .option-letter { border-color: var(--color-hairline); background: transparent; color: var(--color-muted); }
 
     .validation-message { display: flex; gap: var(--space-2); align-items: baseline; margin-top: var(--space-3); color: var(--color-incorrect); font-weight: 600; }
 
+    /* Feedback: a verdict line, the answer lines, then the explanation set as a manual NOTE with its reference. */
     .feedback {
-      margin-top: var(--space-5);
-      border: 2px solid var(--color-border);
-      border-radius: var(--radius-lg);
+      margin-top: var(--space-6);
+      border-top: 2px solid var(--color-text);
       background: var(--color-surface);
-      box-shadow: var(--shadow-sm);
-      overflow: hidden;
-      animation: view-enter 0.25s ease-out both;
+      animation: view-enter 160ms var(--ease) both;
     }
-    .feedback-correct { border-color: var(--color-correct); }
-    .feedback-incorrect { border-color: var(--color-incorrect); }
-    .feedback-header { display: flex; align-items: center; gap: var(--space-3); margin: 0; padding: var(--space-3) var(--space-4); font-size: var(--text-lg); font-weight: 700; }
-    .feedback-correct .feedback-header { background: var(--color-correct-bg); color: var(--color-correct); }
-    .feedback-incorrect .feedback-header { background: var(--color-incorrect-bg); color: var(--color-incorrect); }
-    .feedback-mark { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 50%; color: #ffffff; font-size: 1rem; }
+    .feedback-header { display: flex; align-items: center; gap: var(--space-3); margin: 0; padding: var(--space-3) 0; font-size: var(--text-h3); font-weight: 600; line-height: 1.1; }
+    .feedback-correct .feedback-header { color: var(--color-correct); }
+    .feedback-incorrect .feedback-header { color: var(--color-incorrect); }
+    .feedback-mark { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 2rem; height: 2rem; color: var(--color-paper); font-size: 1rem; }
     .feedback-correct .feedback-mark { background: var(--color-correct); }
     .feedback-incorrect .feedback-mark { background: var(--color-incorrect); }
-    .feedback-body { padding: var(--space-4); }
-    .answer-line { margin: 0 0 var(--space-2); padding: var(--space-2) var(--space-3); border-left: 4px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface-sunken); }
-    .answer-line-correct { border-left-color: var(--color-correct); background: var(--color-correct-bg); }
-    .answer-line-incorrect { border-left-color: var(--color-incorrect); background: var(--color-incorrect-bg); }
-    .answer-label { font-weight: 700; }
-    .explanation { margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle); }
-    .section-label { margin: 0 0 var(--space-1); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
-    .explanation-text { margin: 0; max-width: 68ch; line-height: 1.6; }
-    .source-ref { margin: var(--space-3) 0 0; font-size: var(--text-sm); color: var(--color-muted); }
-    .quiz-actions, .results-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
+    .feedback-body { padding: 0 0 var(--space-2); }
+    .answer-line { margin: 0; padding: var(--space-2) 0 var(--space-2) var(--space-3); border-left: 4px solid var(--color-rule); border-top: 1px solid var(--color-hairline); font-size: var(--text-ui); }
+    .answer-line-correct { border-left-color: var(--color-correct); }
+    .answer-line-incorrect { border-left-color: var(--color-incorrect); }
+    .answer-label { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+    .answer-line-correct .answer-label { color: var(--color-correct); }
+    .answer-line-incorrect .answer-label { color: var(--color-incorrect); }
+    .explanation {
+      display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); column-gap: var(--space-4);
+      margin-top: var(--space-4); padding: var(--space-4); border: 1px solid var(--color-text); background: var(--color-sunken);
+    }
+    .explanation > * { grid-column: 2; }
+    .explanation > .section-label { grid-column: 1; grid-row: 1 / span 2; }
+    .section-label { margin: 0; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text); }
+    .explanation > .section-label { padding-top: 0.2rem; border-top: 3px solid var(--lesson-accent); align-self: start; }
+    .explanation-text { margin: 0; max-width: 68ch; font-size: var(--text-body); line-height: 1.55; }
+    .source-ref { margin: var(--space-3) 0 0; padding-top: var(--space-2); border-top: 1px solid var(--color-hairline); font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
+    .quiz-actions, .results-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
 
-    /* Results */
+    /* Results: a debrief. Big Mono score, stamped band, topic table with bar sparklines, missed list. */
+    .view-results:not([hidden]) { padding-top: var(--space-6); }
+    .view-results > h2 { margin: 0 0 var(--space-5); font-size: var(--text-h3); }
     .score-card {
       display: grid;
-      grid-template-columns: auto minmax(0, 1fr);
-      gap: var(--space-5);
-      align-items: center;
-      padding: var(--space-5);
-      border: 1px solid var(--color-border);
-      border-left: 8px solid var(--band-color, var(--mode-accent));
-      border-radius: var(--radius-lg);
-      background: var(--mode-tint);
-      box-shadow: var(--shadow-sm);
+      grid-template-columns: var(--rail) var(--body);
+      column-gap: var(--col-gap);
+      align-items: end;
+      padding: var(--space-5) 0 var(--space-6);
+      border-top: 2px solid var(--color-text);
+      border-bottom: 1px solid var(--color-text);
     }
-    .band-mastery { --band-color: var(--band-mastery); }
-    .band-proficient { --band-color: var(--band-proficient); }
-    .band-developing { --band-color: var(--band-developing); }
-    .band-needs-review { --band-color: var(--band-review); }
-    .score-figure { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 8.5rem; height: 8.5rem; border: 6px solid var(--band-color, var(--mode-accent)); border-radius: 50%; background: var(--color-surface); text-align: center; }
-    .score-percent { font-size: 2.25rem; font-weight: 800; line-height: 1; }
-    .score-count { margin-top: var(--space-1); font-size: var(--text-sm); color: var(--color-muted); }
-    .score-meta { min-width: 0; }
-    .score-meta p { margin: 0 0 var(--space-2); }
-    .meta-label { display: block; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
-    .meta-value { font-weight: 700; }
-    .band-badge { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: var(--band-color, var(--mode-accent)); color: #ffffff; font-size: var(--text-md); font-weight: 700; }
-    .band-description { color: var(--color-text); }
+    .band-mastery { --band-color: var(--color-correct); }
+    .band-proficient { --band-color: var(--color-accent); }
+    .band-developing { --band-color: var(--color-signal-text); }
+    .band-needs-review { --band-color: var(--color-incorrect); }
+    .score-figure { display: flex; flex-direction: column; margin: 0; }
+    .score-percent { font-family: var(--font-mono); font-size: var(--text-display); font-weight: 500; line-height: 0.85; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
+    .score-count { margin-top: var(--space-3); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    .score-meta { display: grid; grid-template-columns: repeat(2, minmax(0, auto)) minmax(0, 1fr); align-items: end; gap: var(--space-3) var(--space-6); min-width: 0; }
+    .score-meta p { margin: 0; }
+    .meta-label { display: block; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    .meta-value { font-size: var(--text-h4); font-weight: 600; }
+    .score-meta > .meta-label { grid-column: 3; grid-row: 1; justify-self: start; align-self: start; }
+    .band-badge {
+      grid-column: 3; grid-row: 2; justify-self: start;
+      display: inline-flex; align-items: center; gap: var(--space-2);
+      padding: 0.25rem 0.75rem; border: 2px solid var(--band-color, var(--color-accent)); outline: 1px solid var(--band-color, var(--color-accent)); outline-offset: 2px;
+      color: var(--band-color, var(--color-accent));
+      font-family: var(--font-mono); font-size: var(--text-h4); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
+      transform: rotate(-2deg);
+    }
+    .band-description { grid-column: 1 / -1; max-width: 40rem; font-size: var(--text-body); }
 
-    .history-save { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-4); padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); background: var(--color-surface-sunken); font-size: var(--text-sm); }
+    .history-save { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-4); padding: var(--space-2) 0; border-bottom: 1px solid var(--color-hairline); font-size: var(--text-meta); }
     .history-save p { display: flex; gap: var(--space-2); align-items: baseline; margin: 0; }
     .history-save:empty { display: none; }
-    .save-failed { border-color: var(--color-incorrect); background: var(--color-incorrect-bg); color: var(--color-incorrect); font-weight: 600; }
-    .save-saved { border-color: var(--color-correct); background: var(--color-correct-bg); color: var(--color-correct); font-weight: 600; }
-    .results-reminder { margin-top: var(--space-4); font-size: var(--text-sm); }
+    .save-failed { color: var(--color-incorrect); font-weight: 600; }
+    .save-saved { color: var(--color-correct); font-weight: 600; }
+    .results-reminder { margin-top: var(--space-3); max-width: 46rem; font-size: var(--text-meta); }
+    .results-actions { padding-bottom: var(--space-5); border-bottom: 1px solid var(--color-text); }
+    .results-topics, .results-review { display: grid; grid-template-columns: var(--rail) var(--body); column-gap: var(--col-gap); padding-top: var(--space-6); }
+    .results-topics > *, .results-review > * { grid-column: 2; min-width: 0; }
+    .results-topics > h3, .results-review > h3 { grid-column: 1; grid-row: 1 / span 3; margin: 0; font-size: var(--text-h4); }
 
-    .table-wrap { max-width: 100%; overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; background: var(--color-surface); }
-    caption { text-align: left; padding-bottom: var(--space-2); color: var(--color-muted); font-size: var(--text-sm); }
-    th, td { padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--color-border-subtle); text-align: left; vertical-align: middle; }
-    thead th { border-bottom: 2px solid var(--color-border); font-size: var(--text-sm); color: var(--color-muted); }
-    .topic-count { min-width: 9rem; }
-    .bar { position: relative; display: block; height: 0.5rem; margin-top: var(--space-1); border-radius: var(--radius-pill); background: var(--color-border-subtle); overflow: hidden; }
-    .bar::after { content: ""; position: absolute; top: 0; bottom: 0; left: 75%; width: 2px; background: var(--color-text); }
-    .bar-fill { display: block; height: 100%; border-radius: var(--radius-pill); }
+    .topic-table th[scope="row"] { font-weight: 500; }
+    .topic-count { min-width: 11rem; font-family: var(--font-mono); font-size: 0.875rem; }
+    .bar { position: relative; display: block; height: 0.375rem; margin-top: var(--space-2); background: var(--color-hairline); }
+    .bar::after { content: ""; position: absolute; top: -3px; bottom: -3px; left: 75%; width: 1px; background: var(--color-text); }
+    .bar-fill { display: block; height: 100%; }
     .bar-strength { background: var(--color-correct); }
     .bar-gap { background: var(--color-incorrect); }
-    .topic-lists { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+    .topic-lists { display: grid; gap: var(--space-5); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); margin-top: var(--space-5); }
+    .topic-lists h4 { margin: 0 0 var(--space-2); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
     .topic-lists ul { margin: 0; padding-left: var(--space-5); }
 
-    .review-list { margin: 0; padding: 0; list-style: none; }
-    .review-item { margin-bottom: var(--space-4); padding: var(--space-4); border: 1px solid var(--color-border-subtle); border-left: 6px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); }
+    .review-list { margin: 0; padding: 0; list-style: none; counter-reset: review; }
+    .review-item { padding: var(--space-5) 0 var(--space-5) var(--space-4); border-top: 1px solid var(--color-hairline); border-left: 4px solid var(--color-rule); background: var(--color-surface); }
     .review-correct { border-left-color: var(--color-correct); }
     .review-incorrect { border-left-color: var(--color-incorrect); }
-    .review-head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin: 0 0 var(--space-2); }
-    .review-topic { font-size: var(--text-sm); color: var(--color-muted); }
-    .review-prompt { font-weight: 600; }
+    .review-head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin: 0 0 var(--space-2); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+    .review-topic { margin-bottom: var(--space-2); font-size: var(--text-meta); color: var(--color-muted); }
+    .review-prompt { max-width: 46rem; font-size: var(--text-body); font-weight: 500; line-height: 1.45; }
+    .review-item .answer-line { max-width: 46rem; }
+    .review-item .explanation { max-width: 52rem; }
 
     /* Class score history */
-    .history-panel { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 2px solid var(--color-border-subtle); }
-    .section-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); }
-    .section-head h2 { margin: 0; }
-    .section-intro { margin-top: var(--space-2); color: var(--color-muted); font-size: var(--text-sm); }
-    .history-filters { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-3); }
-    .filter-button { background: var(--color-surface); color: var(--color-accent); padding: var(--space-2) var(--space-4); border-radius: var(--radius-pill); }
-    .filter-button:hover:not(:disabled) { background: var(--mode-tint); color: var(--color-accent-hover); }
-    .filter-button[aria-pressed="true"], .filter-button[aria-pressed="true"]:hover:not(:disabled) { background: var(--color-accent); color: #ffffff; }
-    .history-status { display: flex; gap: var(--space-2); align-items: baseline; padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface-sunken); }
-    .status-error { background: var(--color-incorrect-bg); color: var(--color-incorrect); font-weight: 600; }
-    .status-not-configured { background: var(--color-warning-bg); color: var(--color-warning-text); }
-    .status-ready { padding: 0; background: transparent; color: var(--color-muted); font-size: var(--text-sm); }
-    .history-table td { font-variant-numeric: tabular-nums; }
-    .history-row-self td { background: var(--color-self-bg); }
-    .history-row-self td:first-child { box-shadow: inset 4px 0 0 var(--color-self-border); }
-    .history-name-text { font-weight: 600; }
+    .history-panel { border-top: 1px solid var(--color-text); }
+    .history-panel .sect-head .compact { margin-top: var(--space-4); }
+    .section-intro { color: var(--color-muted); font-size: var(--text-meta); }
+    .history-filters { display: flex; flex-wrap: wrap; gap: 0; margin-bottom: var(--space-4); }
+    .filter-button { margin-right: -1px; padding: var(--space-2) var(--space-4); border-color: var(--color-rule); background: transparent; color: var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
+    .filter-button:hover:not(:disabled) { background: var(--color-sunken); color: var(--color-text); }
+    .filter-button[aria-pressed="true"], .filter-button[aria-pressed="true"]:hover:not(:disabled) { position: relative; background: var(--color-text); border-color: var(--color-text); color: var(--color-paper); }
+    .history-status { display: flex; gap: var(--space-2); align-items: baseline; margin: 0; padding: var(--space-3) 0; border-top: 1px solid var(--color-hairline); font-size: var(--text-meta); }
+    .status-error { color: var(--color-incorrect); font-weight: 600; }
+    .status-not-configured { color: var(--color-muted); }
+    .status-ready { padding: 0; border: 0; color: var(--color-muted); }
+    .history-table td { font-family: var(--font-mono); font-size: 0.875rem; }
+    .history-row-self td { background: var(--color-selected); }
+    .history-row-self td:first-child { box-shadow: inset 4px 0 0 var(--color-accent); padding-left: var(--space-3); }
+    .history-name-text { font-family: var(--font-sans); font-size: var(--text-ui); font-weight: 600; }
 
     /* Keyboard shortcuts: a subtle hint line under the controls and a collapsible full list.
        Both are extras; every control still works by Tab, Space and Enter. */
-    kbd {
-      display: inline-block;
-      min-width: 1.6em;
-      padding: 0 0.35em;
-      border: 1px solid var(--color-border);
-      border-bottom-width: 2px;
-      border-radius: var(--radius-sm);
-      background: var(--color-surface-sunken);
-      color: var(--color-text);
-      font-family: var(--font-mono);
-      font-size: 0.85em;
-      font-weight: 600;
-      line-height: 1.5;
-      text-align: center;
-      white-space: nowrap;
-    }
-    .keyboard-hint { margin: var(--space-4) 0 0; font-size: var(--text-xs); color: var(--color-muted); line-height: 1.9; }
-    .keyboard-hint .hint-label { font-weight: 700; }
+    .keyboard-hint { margin: var(--space-4) 0 0; font-size: var(--text-meta); color: var(--color-muted); line-height: 2; }
+    .keyboard-hint .hint-label { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; }
     .keyboard-hint .hint-item { white-space: nowrap; }
-    .keyboard-help { margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-muted); }
-    .keyboard-help summary { padding: var(--space-3) 0; font-weight: 600; color: var(--color-text); cursor: pointer; }
-    .shortcut-list { display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr); gap: var(--space-2) var(--space-4); margin: 0 0 var(--space-3); }
+    .keyboard-help { grid-column: 2; margin-top: var(--space-5); font-size: var(--text-meta); color: var(--color-muted); }
+    .keyboard-help summary { display: inline-flex; align-items: center; min-height: 44px; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text); cursor: pointer; }
+    .keyboard-help summary::before { content: "+"; display: inline-block; width: 1.25em; font-size: 1rem; color: var(--color-signal-text); }
+    .keyboard-help[open] summary::before { content: "\2212"; }
+    .class-photo img { aspect-ratio: 5 / 2; }
+    .shortcut-list { display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr); gap: var(--space-2) var(--space-5); margin: 0 0 var(--space-3); padding-top: var(--space-3); border-top: 1px solid var(--color-hairline); }
     .shortcut-list dt { white-space: nowrap; }
     .shortcut-list dd { margin: 0; color: var(--color-text); }
     .shortcut-note { margin: 0; }
@@ -667,51 +843,88 @@
       .keyboard-hint, .keyboard-help { display: none; }
     }
 
-    /* Narrow screens: stack the hero and every control row. */
+    /* Narrow screens: one column; the rail becomes a running head. */
+    @media (max-width: 1023px) {
+      .hero-inner { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
+      .hero-rail { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 0 var(--space-5); margin-bottom: var(--space-4); padding-top: 0; }
+      .hero-rail p { margin: 0; }
+    }
     @media (max-width: 760px) {
-      .hero-inner { grid-template-columns: 1fr; gap: var(--space-3); padding: var(--space-4); }
-      .hero-art svg { max-height: 13rem; margin: 0 auto; }
-      body[data-view="quiz"] .hero-art, body[data-view="results"] .hero-art, body[data-view="quiz"] .hero-lede, body[data-view="results"] .hero-lede { display: none; }
-      .hero-tools { margin-top: var(--space-3); }
-      .app { width: calc(100% - 1rem); margin: var(--space-3) auto var(--space-5); padding: var(--space-4); }
-      .mode-list { grid-template-columns: 1fr; }
+      .hero-inner { grid-template-columns: 1fr; padding-block: var(--space-5) var(--space-5); }
+      .hero-bar .fig-line { display: none; }
+      .hero-art { margin-top: var(--space-5); }
+      .hero-art svg { max-height: 15rem; }
+      .hero-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3) var(--space-5); }
+      .banner img { aspect-ratio: 16 / 7; }
+      .class-photo img { aspect-ratio: 16 / 10; }
+      body:not([data-view="landing"]) .hero-inner { grid-template-columns: 1fr; padding-block: var(--space-3); }
+      body:not([data-view="landing"]) h1 { font-size: var(--text-h4); }
+      body:not([data-view="landing"]) .hero-rail { margin-bottom: var(--space-1); }
+      .app, .view-quiz:not([hidden]), .score-card, .results-topics, .results-review { grid-template-columns: 1fr; }
+      .view-quiz > *, .view-quiz > .quiz-rail, .keyboard-help, .results-topics > *, .results-review > *, .results-topics > h3, .results-review > h3 { grid-column: 1; grid-row: auto; }
+      .view-quiz > .quiz-rail { position: static; display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; padding-bottom: var(--space-3); }
+      .q-index { grid-column: 2; grid-row: 1 / span 2; margin: 0; text-align: right; }
+      .q-index-num { font-size: 2.5rem; }
+      .results-topics > h3, .results-review > h3 { margin-bottom: var(--space-3); }
+      .mode-button { grid-template-columns: minmax(0, 1fr) auto; row-gap: var(--space-1); }
+      .mode-desc { grid-column: 1 / -1; grid-row: 2; }
+      .mode-go { grid-column: 2; grid-row: 1; }
+      .option { gap: var(--space-3); padding: var(--space-3) var(--space-2) var(--space-3) var(--space-2); }
+      .explanation { grid-template-columns: 1fr; row-gap: var(--space-2); }
+      .explanation > *, .explanation > .section-label { grid-column: 1; grid-row: auto; }
       .quiz-actions, .results-actions { flex-direction: column; }
       .quiz-actions button, .results-actions button { width: 100%; }
-      .score-card { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: var(--space-4); }
-      th, td { padding: var(--space-2); }
+      .score-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: var(--space-5); }
+      .score-meta > .meta-label, .band-badge { grid-column: 1 / -1; grid-row: auto; }
+      th, td { padding-right: var(--space-2); }
     }
     /* Very narrow screens: history rows become labelled cards so the page never scrolls sideways. */
     @media (max-width: 560px) {
+      .topic-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+      .topic-table tr { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--space-3); padding: var(--space-3) 0; border-bottom: 1px solid var(--color-hairline); }
+      .topic-table th, .topic-table td { padding: 0; border: 0; }
+      .topic-table th[scope="row"] { grid-column: 1 / -1; margin-bottom: var(--space-1); }
+      .topic-count { min-width: 0; }
       .history-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
       .history-table, .history-table tbody, .history-table tr, .history-table td { display: block; width: 100%; }
-      .history-table tr { margin-bottom: var(--space-2); padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); }
+      .history-table tr { padding: var(--space-2) 0; border-bottom: 1px solid var(--color-hairline); }
       .history-table td { display: flex; justify-content: space-between; gap: var(--space-3); padding: var(--space-1) 0; border: 0; }
-      .history-table td::before { content: attr(data-label); font-weight: 700; color: var(--color-muted); }
-      .history-row-self { border-color: var(--color-self-border); background: var(--color-self-bg); }
-      .history-row-self td:first-child { box-shadow: none; }
+      .history-table td::before { content: attr(data-label); font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+      .history-row-self { background: var(--color-selected); box-shadow: inset 4px 0 0 var(--color-accent); padding-left: var(--space-3) !important; }
+      .history-row-self td:first-child { box-shadow: none; padding-left: 0; }
     }
 
     /* Reduced motion: stop every animation and transition (the artwork's own rest states are in its hero.css). */
     @media (prefers-reduced-motion: reduce) {
-      .view, .feedback, button, .option, .text-input {
+      .view, .feedback, button, .option, .text-input, .hub-link {
         animation: none !important;
         transition: none !important;
       }
     }
 
+    /* Print: a manual page. Ink on white, rules kept, chrome and photographs dropped. */
     @media print {
-      body { background: #ffffff; }
-      .terrain, .banner, .class-photo, .hero-art, .hero-tools, .results-actions, .noscript, .history-panel, .history-save, .keyboard-hint, .keyboard-help { display: none !important; }
-      .hero { background: #ffffff; color: #000000; border-bottom: 2px solid #000000; }
-      .eyebrow, .hero-lede { color: #000000; }
-      .app { box-shadow: none; border: 0; margin: 0 auto; }
-      .review-item { break-inside: avoid; }
+      @page { margin: 16mm 14mm; }
+      html, body { background: #ffffff; }
+      .terrain, .banner, .class-photo, .hero-art, .hero-bar, .strip, .results-actions, .noscript, .history-panel, .history-save, .keyboard-hint, .keyboard-help, .ticks { display: none !important; }
+      .app { background: #ffffff; padding: 0; }
+      .hero-inner { padding-block: 0 4mm; }
+      .score-card, .results-topics, .results-review { break-inside: auto; }
+      .review-item { break-inside: avoid; background: #ffffff; }
+      .explanation { background: #ffffff; }
+      .band-badge { transform: none; }
     }
   </style>
 </head>
 <body data-view="landing">
   <div class="terrain" aria-hidden="true">
     <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><g class="contours" fill="none" stroke-linejoin="round" stroke-linecap="round"><path d="M233 0l12 9 9 5 11 8 5 2 8 6 3 1 9 6 12 6 4 1 9 4 11 2 10-1 9-6 3-5 3-3 6-13 5-16 1-6"/><path d="M204 0l11 8 23 20 5 3 20 19 8 6 25 25 6 8 8 8 18 25 9 16 5 7 9 18 2 2 6 11 9 14 6 8 12 12 7 6 5 3 12 6 16 4 12-1 10-5 3-5 2-8-1-12-3-10-2-3-7-16-6-10-2-5-8-12-2-5-5-7-9-18-2-6-4-8-2-8-2-4-3-12 0-4-3-15 0-9-1-4 0-42"/><path d="M181 0l0 1 5 3 12 10 24 23 6 4 14 14 12 15 8 8 3 5 8 9 15 22 2 5 5 7 9 18 2 2 14 29 6 10 2 5 3 4 4 9 18 25 14 14 19 14 18 9 6 2 18 5 14 2 20 0 20-5 9-4 8-8 5-8 2-7 0-12-2-11-3-9-6-13-8-15-5-7-2-5-8-11-8-14-3-3-5-8-2-5-5-7-9-18-2-2-3-8-6-12-5-14 0-2-1-1 0-3-3-8 0-4-3-12 0-4-2-9 0-7-1-4 0-12-1-2"/><path d="M160 0l17 14 8 8 2 1 34 34 28 35 12 18 2 5 2 2 10 17 8 16 1 4 13 26 2 6 10 20 3 4 7 14 15 22 20 20 8 6 13 8 19 9 8 3 28 7 16 2 32 0 8-1 16-3 19-8 6-4 10-10 3-5 4-12 0-12-5-20-2-6-5-10-20-33-22-31-18-28-2-5-5-7-12-24-1-4-4-8-1-5-2-3-5-20-1-1 0-3-3-12-3-26"/><path d="M140 0l8 7 6 4 12 11 36 36 10 12 3 5 4 4 5 8 6 7 10 17 5 7 2 5 2 2 4 9 4 6 2 6 5 9 0 2 9 18 2 7 5 10 2 6 17 36 15 24 13 15 6 6 11 9 9 6 13 7 16 7 11 4 3 0 26 7 24 3 8 0 4 1 20 0 4-1 12 0 20-3 20-6 20-10 7-5 8-10 5-10 2-6 1-10-1-4 0-5-3-11-2-4-2-7-8-15-11-18-23-33-8-10-7-11-5-6-1-3-3-3-6-9-1-3-2-2-5-9-2-2-2-5-3-4-11-22-7-20-3-6-5-19-1-9-2-8-1-14M966 0l1 1 3 0 20 5 8 0 4 1 16-1 8-2 9-4" class="major"/><path d="M122 0l19 17 2 1 8 8 8 6 9 9 6 8 19 20 3 5 12 15 11 17 5 8 6 12 2 2 6 14 2 2 8 19 0 2 3 5 4 12 4 8 10 28 10 23 2 3 2 6 5 8 2 5 15 21 14 14 6 5 3 1 6 5 5 2 2 2 14 7 2 0 5 3 8 2 6 3 3 0 32 8 4 0 3 1 24 3 8 0 4 1 36 0 4-1 20-1 8-2 9-1 19-5 6-2 10-5 4-1 6-3 6-5 3-1 14-15 5-9 3-16-1-12-3-12-3-5 0-2-2-5-7-13-15-23-8-10-6-9-7-8-17-24-7-8-12-18-3-3-4-8-6-8-1-3-6-9-11-22-5-14-2-3-1-5-1-1 0-3-2-4-4-16-1-9-2-7-1-10M918 0l8 5 16 8 32 14 12 3 8 3 20 4 24 0 18-5 2-2 7-4 9-9 4-7 2-2 3-8"/><path d="M103 0l7 6 5 3 14 13 2 1 34 34 19 23 1 3 8 10 13 20 4 9 3 4 8 16 11 26 3 10 2 4 2 8 5 12 3 12 2 4 6 20 6 16 3 5 0 2 2 5 6 12 11 17 4 5 13 13 9 8 17 10 4 1 10 5 14 4 4 2 3 0 1 1 20 5 4 0 12 3 5 0 3 1 24 3 8 0 4 1 20 0 4 1 36-1 4-1 8 0 23-3 6-2 3 0 20-5 20-7 21-11 3-3 6-4 9-9 7-11 0-2 4-13 0-12-4-16-1-1-2-7-6-12-5-7-1-3-3-3-1-3-11-15-7-8-9-13-10-11-7-10-6-6-9-13-4-4-6-8-16-23-19-33-12-28 0-3-1-1-8-31 0-6-1-3 0-4-1-2M887 0l1 0 6 5 3 1 3 3 3 1 11 8 9 5 2 2 5 2 4 3 16 8 2 2 16 8 19 8 2 0 20 8 3 0 22 6 12 1 3 1 17 0 16-4 9-5 7-6 1-3 6-9 3-11 2-4 3-16 1-14M0 454l9-11 7-14 0-2 2-5 1-8 0-16-3-11 0-3-7-16-9-14"/><path d="M84 0l11 8 18 16 8 6 25 25 22 27 19 28 21 42 10 30 2 4 3 12 2 4 7 27 0 3 8 28 0 2 1 1 0 3 2 4 4 14 2 3 7 17 2 2 5 9 8 9 10 9 13 9 12 6 4 1 5 3 2 0 5 2 12 3 4 2 8 1 16 4 4 0 8 2 12 1 3 1 5 0 12 2 8 0 4 1 8 0 4 1 16 0 4 1 44 0 4-1 12 0 12-2 8 0 16-3 4 0 24-6 3 0 26-9 2 0 28-14 11-9 10-10 3-4 5-9 3-9 0-18-3-13-8-17-4-7-2-2-1-3-4-6-4-4-3-5-3-3-1-3-9-11-22-25-4-6-15-16-7-10-5-5-6-9-16-20-3-6-3-3-1-3-8-12-13-26-4-10-5-16-5-20 0-4-2-7 0-7M861 0l9 7 11 7 3 3 11 7 3 3 4 2 3 3 13 8 11 8 14 8 7 5 5 2 7 5 42 21 20 7 6 3 8 2 3 2 5 1 1 1 3 0 4 2 50 13 3 0 19 5 4 0 16 4 8 0 3-1 1-2 0-4-4-16 0-4-6-28-5-40 0-8-2-12 0-8-1-6M1200 140l-10-2-4 0-12-3-7 0-2 1 0 6 2 8 0 3 1 1 3 12 2 4 3 9 0 2 8 22 0 2 7 17 0 2 2 3 7 20M0 490l2-2 5-2 8-6 19-18 6-8 9-16 2-8 2-4 1-8 0-16-4-16-4-9-13-21-15-18-18-18"/><path d="M64 0l11 7 6 6 13 9 37 36 13 15 7 10 4 4 13 19 2 5 4 7 2 2 3 6 1 4 2 4 2 2 5 14 2 3 1 5 1 1 2 7 2 4 3 12 1 1 0 3 8 32 0 4 4 20 1 12 2 8 2 20 2 8 0 4 4 15 0 3 2 6 8 17 6 8 10 9 11 7 13 6 7 2 1 1 31 8 9 1 8 2 32 4 8 0 4 1 8 0 16 2 40 1 4 1 40 0 4-1 16 0 4-1 8 0 4-1 17-1 3-1 12-1 8-2 4 0 12-3 3 0 6-2 3 0 8-3 28-8 26-11 6-4 10-5 12-9 11-12 1-3 2-2 2-4 3-8 0-4 1-3 0-13-3-12-3-8-6-12-6-8-4-7-7-8-6-9-5-5 0-1-21-22-4-6-24-25-1-2-8-8-6-8-10-11-9-13-7-8-4-7-8-11-2-5-7-11-9-18 0-2-4-9-7-24 0-4-3-16 0-6M837 0l8 7 3 1 14 12 12 8 14 12 3 1 3 3 5 3 4 4 8 5 3 3 9 6 10 8 9 5 11 8 3 1 3 3 3 1 12 8 52 26 4 1 16 8 5 2 2 0 9 5 6 2 22 11 4 3 5 2 2 2 20 13 6 5 14 14 10 12 1 3 8 10 14 23 9 18 2 2 15 31M1164 0l4 17 0 3 4 14 4 10 0 2 1 1 7 17 2 2 5 9 9 12M0 517l15-7 24-14 15-13 13-13 5-6 12-18 5-10 6-22 0-12-4-16-11-18-14-17-9-9-15-12-8-8-5-3-12-10-6-6-5-3-6-5"/><path d="M44 0l27 19 6 6 10 7 27 26 24 29 4 7 8 11 2 5 7 11 9 18 0 2 8 19 0 3 2 7 2 4 3 12 0 4 3 12 2 16 0 8 1 4 0 32-1 4-1 16-2 8-1 9-7 22-9 16-8 7-6 3-4 1-8 0-8-1-16-5-8-4-6-2-26-13-12-8-5-2-2-2-9-5-2-2-3-1-19-12-3-3-14-8-3-3-6-3M540 0l1 2 0 8 2 15 2 6 0 3 2 4 5 18 16 32 2 2 5 9 18 24 16 18 1 2 13 13 4 6 56 56 3 4 12 12 20 28 6 12 4 14 1 6 0 12-1 6-3 6-1 4-9 12-13 12-9 5-7 5-16 8-4 1-5 3-2 0-9 4-24 7-4 2-32 8-4 0-11 3-9 1-8 2-32 4-8 0-16 2-16 0-4 1-96 0-4-1-32 0-4-1-24 0-4-1-36-1-4-1-8 0-4-1-8 0-4-1-8 0-4-1-8 0-12-2-12 0-4-1-17 1-7 2-7 3-9 6-6 6-46 56-17 17-8 6-18 16-12 9-9 5-2 2-32 16-16 5M813 0l8 7 3 1 11 9 28 23 18 16 10 7 6 6 13 9 16 14 20 14 9 5 2 2 20 13 9 4 4 3 32 16 6 2 47 24 2 2 11 6 12 8 9 8 5 3 24 24 10 12 8 12 3 3 1 3 2 2 5 9 2 2 10 17 21 40M1187 0l1 6 2 4 5 16 5 11" class="major"/><path d="M21 0l2 2 3 1 20 13 8 6 4 4 13 9 10 10 3 2 25 26 10 12 1 3 8 10 15 27 9 19 2 6 4 16 2 5 3 15 2 16 0 24-3 16 0 4-2 5 0 2-8 19-5 6-11 10-10 5-8 2-12 1-16-2-8-2-4-2-16-5-10-4-34-17-12-8-6-3M561 0l0 10 2 16 5 20 1 1 5 15 8 16 2 2 1 3 7 12 3 3 12 17 6 6 11 14 41 41 8 6 38 36 8 6 6 6 4 6 16 17 7 11 2 2 7 14 0 2 2 4 2 8 1 12-3 16-4 8-10 13-23 17-8 3-9 5-2 0-5 3-24 9-12 3-4 2-20 5-12 4-8 2-4 0-28 7-4 0-32 6-32 4-8 0-16 2-12 0-4 1-20 0-4 1-36 0-4 1-40 0-4 1-24 0-4 1-16 0-4 1-12 0-4 1-20 1-3 1-6 0-3 1-20 2-12 3-4 0-8 2-1 1-7 1-4 2-14 4-26 13-12 8-3 1-8 7-24 17-20 17-20 14-4 4-9 5-11 8-5 2-12 8-8 3-9 5-2 0-13 6-22 6M789 0l0 1 5 3 16 14 10 7 13 12 14 11 34 32 14 11 10 10 23 19 3 1 3 3 12 8 3 3 3 1 2 2 9 5 2 2 5 2 4 3 9 4 10 6 16 7 19 10 6 2 38 20 27 18 12 10 22 22 19 25 8 13 8 11 2 5 4 7 2 2 24 47"/><path d="M0 233l15 8 38 15 3 0 14 4 8 1 16 0 12-3 5-2 10-7 6-6 9-18 4-15 1-8 0-16-2-16-2-8 0-3-1-1-3-12-2-4-2-7-2-3-4-10-3-4-7-14-8-12-8-9-1-3-8-8 0-1-30-29-5-3-9-8-11-7-3-3-30-18M585 0l-1 18 2 16 5 18 2 3 2 7 8 16 14 21 3 3 6 9 8 8 6 8 17 17 8 6 16 15 23 19 9 6 20 17 5 3 4 4 5 3 12 10 22 22 5 6 10 15 7 16 2 8 1 8 0 12-5 19-10 14-6 6-18 13-17 8-16 6-24 7-4 2-10 3-3 0-29 8-3 0-27 7-3 0-6 2-3 0-20 5-4 0-7 2-9 1-8 2-4 0-8 2-48 6-8 0-12 2-12 0-4 1-12 0-4 1-12 0-4 1-16 0-4 1-32 1-4 1-32 2-12 2-8 0-9 2-11 1-8 2-4 0-12 3-4 0-32 8-4 2-12 3-16 6-33 16-31 19-24 17-16 10-10 8-3 1-6 5-5 2-16 11-23 12-13 6-4 1-5 3-11 3-4 2-7 1-1 1-14 3M761 0l17 12 23 20 8 6 28 27 2 1 58 59 3 2 8 8 10 7 4 4 8 6 20 13 5 2 2 2 18 9 13 5 3 2 11 4 8 4 4 1 14 7 13 5 18 9 2 2 11 6 14 9 16 13 27 27 1 2 4 4 3 5 3 3 11 16 17 28 2 5 6 10 24 49"/><path d="M618 0l-2 3 0 2-2 5-2 12 0 12 2 8 0 4 2 5 0 2 8 19 2 2 5 9 2 2 7 11 14 17 17 17 8 6 11 10 20 14 10 8 3 1 3 3 8 4 11 8 12 7 3 1 2 2 9 5 2 2 5 2 7 5 14 8 3 3 9 6 15 14 8 11 4 7 7 17 4 20 0 20-1 8-3 12-4 10-8 12-13 13-9 6-19 9-18 5-4 2-3 0-1 1-24 6-4 0-24 6-4 0-15 4-9 1-20 5-4 0-6 2-3 0-11 3-4 0-16 4-4 0-2 1-3 0-7 2-4 0-12 3-4 0-8 2-16 2-20 4-20 2-3 1-17 1-12 2-8 0-24 3-12 0-4 1-8 0-3 1-9 0-12 2-8 0-40 5-3 1-4 0-2 1-11 1-16 4-4 0-8 2-1 1-3 0-16 4-4 2-3 0-1 1-2 0-10 4-17 5-3 2-14 5-42 21-17 10-2 2-11 6-25 17-39 25-11 6-2 2-5 2-4 3-22 11-17 6-3 2-2 0-4 2-18 5-3 0-7 2-4 0-2 1M726 0l25 16 3 3 4 2 33 27 25 25 6 8 15 16 11 15 12 14 8 12 10 12 20 20 7 6 15 9 26 12 9 3 2 0 9 4 28 8 10 4 2 0 1 1 18 6 3 2 16 6 18 9 32 22 26 26 1 3 12 14 11 16 7 12 1 3 2 2 4 7 11 22 7 17 8 16 7 17 2 3 6 16 1 1M0 212l10 5 8 3 32 9 8 1 12 0 8-1 4-1 13-6 10-10 4-6 1-4 2-3 0-3 3-10 0-20-3-18-3-10-3-8-9-18-9-15-19-24-14-14-23-19-11-7-2-2-9-5-2-2-8-4M1172 800l-9-14-2-5-4-4-4-6-11-11-8-3-8 0-5 3-5 6-9 16-7 18"/><path d="M672 16l-6 2-10 6-5 10-1 4 0 12 3 12 5 12 3 4 1 3 18 22 6 6 6 4 5 5 9 6 3 3 9 6 5 2 2 2 5 2 4 3 6 3 22 8 16 4 16 0 7-2 3-2 5-5 2-10 0-4-3-11 0-3-11-22-18-24-21-21-6-5-9-6-3-3-9-6-3-1-2-2-16-8-19-6-5 0-4-1-10 1M0 190l2 0 8 3 20 5 16 1 12-2 12-5 11-12 4-14 1-8-1-12-5-19-7-15-11-18-12-15-14-14-6-4-5-5-1 0-9-8-14-9-1 0M1200 510l-9-24-11-36-2-4-6-20-2-4-9-27-3-5-1-4-5-10-7-17-8-15-11-18-9-13-6-6-1-2-23-23-9-6-3-3-9-6-5-2-2-2-18-9-7-2-12-5-24-6-4 0-2-1-14-2-8 0-4-1-16 0-19 3-12 5-3 2-10 10-7 17-3 12 0 4-3 12 0 4-2 8 0 4-3 11 0 3-4 14-4 9 0 2-6 12-9 11-8 7-6 4-3 1-2 2-4 1-10 5-3 0-27 7-4 0-8 2-36 4-8 2-28 3-20 4-17 2-7 2-4 0-12 3-4 0-28 6-4 0-12 3-4 0-7 2-9 1-12 3-4 0-32 6-12 1-8 2-64 8-8 0-16 2-3 1-6 0-3 1-28 3-8 2-4 0-7 2-9 1-16 4-4 0-10 3-3 0-7 2-4 2-16 4-1 1-11 3-9 4-2 0-9 4-4 1-23 10-22 11-15 9-12 6-7 5-5 2-8 5-3 3-14 8-35 24-5 2-18 12-5 2-12 8-18 9-16 6-3 2-22 7-3 0-6 2-4 0-8 2-6 0M1200 674l0-2-8-19 0-2-7-14-5-7-4-5-10-9-8-5-12-6-12-3-8-1-12 0-8 2-4 0-10 4-12 8-8 9-9 18-7 28-2 16-1 20-1 4 0 12-1 4 0 12-1 4-1 20-1 3-1 13-2 8 0 4-2 10"/><path d="M0 161l18 2 8-1 7-2 9-7 4-7 2-8-1-12-4-12-9-16-2-2-1-3-5-6-14-14-12-9M1007 800l1-6 1-1 0-3 2-8 0-4 2-8 1-16 1-4 0-8 1-4 0-28 1-4 0-28-1-4 0-36 1-4 0-20 3-24 3-12 3-8 4-8 7-8 11-10 17-7 1-1 2 0 10-4 16-4 1-1 11-3 20-10 12-12 7-16 3-16 0-16-1-4-1-16-2-8 0-4-5-20-3-7 0-3-15-35-2-2-2-5-12-18-19-22-12-10-7-5-9-5-2-2-10-5-16-5-4-2-4 0-12-3-20 0-16 3-13 6-6 5-3 1-2 2-6 8-9 16-3 8-3 12-2 4-10 40-7 16-3 4-1 3-7 8-5 3-3 3-13 6-10 3-22 3-96 3-4 1-20 1-12 2-8 0-16 2-8 2-11 1-9 2-4 0-12 3-16 2-7 2-9 1-16 4-4 0-8 2-3 0-6 2-3 0-8 2-4 0-12 3-4 0-8 2-4 0-8 2-4 0-32 6-20 2-8 2-12 1-8 2-12 1-8 2-16 2-12 3-3 0-6 2-3 0-27 7-3 0-14 4-16 6-8 2-24 9-5 3-2 0-5 3-11 4-18 9-10 6-9 4-4 3-5 2-2 2-26 15-82 56-42 24-2 0-5 3-24 9-24 5-14 1" class="major"/><path d="M1008 312l6-1 17 1 15 5 4 3 5 2 9 6 11 10 13 16 2 5 6 9 4 10 6 20 1 8 0 20-3 12-7 13-5 6-11 8-15 6-3 0-6 2-7 1-8 0-4 1-16 0-4-1-8 0-20-4-7-3-8-7-4-6-2-7-1-1-3-16-1-8 0-16-1-4 1-8 0-16 3-19 1-1 3-12 6-12 5-7 6-6 6-4 4-2 10-3M976 800l3-10 2-4 2-8 2-16 2-8 0-8 2-16 0-52-1-4 0-12-1-4-1-20-2-12 0-8-4-32-2-8-2-18-1-2-1-12-5-24-1-9-4-15-4-10-5-6-5-4-16-7-24-6-4 0-2-1-3 0-15-4-4 0-12-3-4 0-2-1-10-1-20-4-16-2-8 0-12-2-12 0-4-1-56 0-4 1-20 1-40 5-8 2-16 2-12 3-4 0-12 3-3 0-6 2-3 0-16 4-4 0-11 3-3 0-6 2-4 0-16 4-4 0-16 4-4 0-16 4-4 0-28 6-4 0-12 3-9 1-7 2-4 0-20 5-3 0-6 2-3 0-40 11-4 2-20 6-9 4-2 0-5 3-14 5-22 11-8 3-2 2-26 13-12 7-53 35-15 12-17 12-4 4-8 5-9 8-9 6-8 7-18 12-6 5-5 2-12 8-18 9-10 4-11 3-13 2-18 0"/><path d="M948 800l2-6 4-8 8-32 3-24 0-12 1-4-1-40-1-4 0-8-3-23-2-9 0-4-4-16-1-8-9-30-2-3-2-7-5-11-8-15-11-15-14-14-5-3-10-8-26-13-4-1-5-3-15-4-4-2-3 0-1-1-20-5-4 0-12-3-5 0-11-2-20-1-4-1-36 0-4 1-12 0-4 1-16 1-3 1-6 0-15 3-4 0-8 2-4 0-32 7-4 0-15 4-3 0-26 7-3 0-35 9-3 0-30 8-3 0-14 4-4 0-14 4-3 0-27 7-4 2-28 7-1 1-15 4-3 2-17 5-9 4-2 0-5 3-14 5-50 25-24 15-5 2-11 8-7 4-3 3-11 7-3 3-9 6-12 10-16 15-8 6-25 25-6 8-8 8-17 24-6 13-3 12 0 8 3 12 11 16 12 12 8 6"/><path d="M919 800l4-6 8-16 5-14 0-2 1-1 0-3 4-16 3-24 0-36-1-4 0-12-2-16-3-12 0-4-2-6 0-3-5-19-2-4 0-3-2-3-3-10-8-16-1-4-14-21-13-16-17-14-13-9-9-4-12-7-7-3-14-4-6-3-36-8-16-2-8 0-4-1-44 0-4 1-8 0-32 4-24 5-4 0-15 4-3 0-58 15-4 2-44 12-7 3-3 0-10 4-32 9-7 3-3 0-6 3-8 2-4 2-3 0-3 2-34 12-3 2-5 1-8 4-4 1-16 8-4 1-2 2-6 2-10 5-6 4-20 10-12 8-5 2-19 14-3 1-8 7-13 9-29 28-17 20-14 25-5 19 0 16 2 8 5 12 9 13 6 7 17 14 1 0"/><path d="M889 800l1-2 6-6 6-9 11-22 7-25 0-3 2-7 1-16 1-4 0-24-1-4 0-8-3-24-7-28-2-4-2-8-2-4-2-7-5-9-1-4-10-17-15-19-12-12-15-11-17-11-8-3-9-5-2 0-9-4-13-4-35-7-8-1-12 0-4-1-28 0-4 1-9 0-3 1-16 1-8 2-16 2-36 9-3 0-1 1-20 5-7 3-3 0-10 4-14 4-6 3-8 2-3 2-5 1-1 1-18 6-3 2-10 4-7 2-5 3-4 1-10 5-14 5-5 3-2 0-9 5-26 11-2 2-8 3-12 7-4 1-15 9-5 2-4 3-9 4-2 2-9 5-2 2-3 1-24 16-3 3-12 8-12 10-18 18-1 3-8 9-4 6-6 12-4 12-1 16 3 12 5 10 5 6 13 12 13 7 15 6 3 0 1 1 16 3 12 0 8 1 4-1 12 0 16-2 3-1 6 0 7-2 4 0 8-2 12-1 16-3 24-1 4-1 12 0 4 1 12 0 3 1 6 0 3 1 12 1 12 3 4 0 42 11 3 0 7 3 12 3 5 2 2 0"/><path d="M852 800l12-8 16-17 7-12 1-3 2-2 1-4 5-10 0-3 6-23 2-16 0-28-3-24-4-16 0-3-1-1 0-2-4-10-2-8-3-5-9-20-12-18-5-6-18-18-21-15-5-2-12-7-17-6-3-2-3 0-4-2-12-3-4 0-7-2-3 0-2-1-16-1-4-1-36 0-4 1-16 1-20 4-4 0-19 5-3 0-25 8-3 0-14 6-8 2-1 1-34 14-32 16-9 6-8 4-7 5-5 2-13 9-3 3-6 3-9 8-3 1-17 14-8 8-2 1-6 7-4 3-19 23-8 16-1 6 0 11 3 6 10 10 6 3 4 1 5 3 2 0 9 4 13 4 2 0 23 8 2 0 1 1 3 0 4 2 8 2 3 2 5 1 1 1 18 6 1 1 8 2 8 4 20 7 5 3 2 0 29 12 10 3 3 2 18 6 1 1 5 1 3 2 8 3 32 10" class="major"/><path d="M789 800l17-3 4-2 9-3 2 0 14-7 12-9 9-9 9-11 5-10 2-2 4-10 3-12 2-4 0-4 2-8 1-8 0-32-3-19-2-6-1-7-2-4-4-14-13-26-12-17-14-15-15-11-3-3-12-7-21-10-23-7-33-5-32 0-4 1-16 1-8 2-9 1-31 8-1 1-11 3-9 4-2 0-5 3-14 5-2 2-8 3-15 9-5 2-33 24-17 17-9 12-8 15-4 14-1 8 1 8 3 12 13 20 14 14 11 9 22 15 16 9 7 5 9 4 4 3 16 8 6 2 14 7 6 2 10 5 7 2 3 2 10 3 4 2 37 11 3 0 20 5 16 2"/><path d="M664 535l-8 1-14 4-4 2-16 5-25 12-2 2-14 8-3 3-9 6-18 18-4 5-8 13-2 6-2 3 0 3-2 4-1 8 0 12 3 12 3 8 4 8 2 2 1 3 3 3 3 5 22 22 5 3 12 10 17 11 12 6 2 2 9 4 6 4 16 6 10 5 8 3 2 0 1 1 5 1 4 2 18 5 3 0 11 3 4 0 8 2 16 1 4 1 20 0 16-2 16-4 19-8 6-4 11-9 6-6 11-16 7-16 5-20 1-8 0-24-2-16-7-25-2-3-4-11-8-14-2-2-7-11-18-18-7-6-14-9-16-8-7-2-4-2-13-4-3 0-12-3-16-2-28 0-24 3-6 2"/><path d="M672 550l-22 6-8 3-24 12-18 13-16 17-7 12-4 9-2 8-1 12 1 8 4 15 10 18 3 3 3 5 22 22 5 3 3 3 3 1 6 5 3 1 3 3 10 5 2 2 6 3 4 1 9 5 23 8 27 7 13 2 8 0 4 1 20-1 14-2 20-7 6-3 13-9 11-12 1-3 6-9 7-18 3-21-1-20-2-13-2-7-5-12 0-2-7-14-2-2-1-3-3-3-6-9-15-15-2-1-4-4-18-11-21-9-3 0-1-1-12-3-16-2-32 0-8 2-10 1"/><path d="M688 567l-14 3-4 2-14 4-2 2-7 3-15 10-16 17-8 16 0 3-2 7 0 12 1 8 8 19 12 17 6 6 16 13 17 11 8 3 9 5 2 0 9 4 16 4 1 1 23 3 12 0 16-2 16-5 4-2 14-10 9-10 6-9 5-14 3-18-1-16-1-7-1-1-3-12-6-13-13-19-10-10-3-1-10-8-15-8-10-4-11-3-13-2-28 0-6 1"/><path d="M696 591l-1 1-3 0-10 3-13 6-3 3-5 3-8 8-2 3-4 8-3 12 0 8 2 8 0 3 4 9 9 13 12 11 7 5 20 10 8 3 8 2 16 2 8 0 16-3 9-4 12-9 5-6 5-9 4-15-1-16-3-11-2-3-2-6-6-9-11-12-15-10-18-7-5 0-12-2-18 1" class="major"/></g></svg>
+  </div>
+  <div class="strip">
+    <div class="wrap strip-inner">
+      <p>For training purposes<span class="sep" aria-hidden="true">·</span>SOAC 52 - 2026<span class="sep" aria-hidden="true">·</span>Bandwidth Brothers</p>
+      <p class="strip-ref">Mastery examination</p>
+    </div>
   </div>
 
   <div class="banner">
@@ -722,131 +935,172 @@
   </div>
 
   <header class="site-header hero">
-    <div class="hero-inner">
+    <div class="wrap hero-bar">
+      <a id="hub-link" class="hub-link" href="../#module-2"><span class="hub-arrow" aria-hidden="true">&#8592;</span> All quizzes</a>
+      <p class="fig-line label" aria-hidden="true">Fig. 1 — Bandwidth Brothers, SOAC 52 - 2026</p>
+      <button type="button" id="btn-sound" class="sound-toggle" aria-pressed="true" aria-keyshortcuts="S">
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter">
+          <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/>
+          <path class="sound-waves" d="M15.5 9a4.2 4.2 0 0 1 0 6M18.2 6.5a8 8 0 0 1 0 11"/>
+          <path class="sound-mute" d="M16 9.5l5 5M21 9.5l-5 5"/>
+        </svg>
+        <span>Sound effects</span>
+        <span id="sound-state" class="sound-state" aria-hidden="true">On</span>
+      </button>
+    </div>
+    <div class="wrap hero-inner">
+      <div class="hero-rail">
+        <p class="rail-ref label">Module 02 · Lesson 03</p>
+        <p class="rail-src label">Ref. slides 15–38</p>
+      </div>
       <div class="hero-copy">
-        <p class="eyebrow">Philippine Army · Field Artillery Operations</p>
+        <p class="eyebrow label">Philippine Army · Field Artillery Operations</p>
         <h1>Field Artillery Mastery Quiz</h1>
         <p class="hero-lede">A practice aid for the Field Artillery Operations lesson: 126 situational questions across Easy, Medium, and Hard.</p>
-        <div class="hero-tools">
-          <button type="button" id="btn-sound" class="sound-toggle" aria-pressed="true" aria-keyshortcuts="S">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/>
-              <path class="sound-waves" d="M15.5 9a4.2 4.2 0 0 1 0 6M18.2 6.5a8 8 0 0 1 0 11"/>
-              <path class="sound-mute" d="M16 9.5l5 5M21 9.5l-5 5"/>
-            </svg>
-            <span>Sound effects</span>
-            <span id="sound-state" class="sound-state" aria-hidden="true">On</span>
-          </button>
-          <a id="hub-link" class="hub-link" href="../#module-2"><span class="hub-arrow" aria-hidden="true">&#8592;</span> All quizzes</a>
-        </div>
+        <dl class="hero-meta">
+          <div><dt>Questions</dt><dd>45 · 43 · 38 <span class="meta-note">Easy · Medium · Hard</span></dd></div>
+          <div><dt>Topics</dt><dd>9</dd></div>
+          <div><dt>Source</dt><dd>slides 15–38</dd></div>
+        </dl>
       </div>
       <div id="hero-art" class="hero-art" aria-hidden="true">
         <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
-          <path class="map-grid" d="M0 50H480M0 100H480M0 150H480M0 200H480M80 0V250M160 0V250M240 0V250M320 0V250M400 0V250" fill="none" stroke="#f3efdf" stroke-opacity="0.08" stroke-width="1"/>
-          <g class="terrain-contour" fill="none" stroke="#e3b65a" stroke-opacity="0.4" stroke-width="1.2" stroke-dasharray="4 6">
-            <circle cx="140" cy="200" r="110"/>
-            <circle cx="140" cy="200" r="190"/>
-            <circle cx="140" cy="200" r="270"/>
+          <g class="plate-grid" fill="none" stroke="currentColor">
+            <path class="grid-cross" d="M77 50h6M80 47v6M157 50h6M160 47v6M237 50h6M240 47v6M317 50h6M320 47v6M397 50h6M400 47v6M77 100h6M80 97v6M157 100h6M160 97v6M237 100h6M240 97v6M317 100h6M320 97v6M397 100h6M400 97v6M77 150h6M80 147v6M157 150h6M160 147v6M237 150h6M240 147v6M317 150h6M320 147v6M397 150h6M400 147v6"/>
+            <path class="thin" d="M80 0v6M160 0v6M240 0v6M320 0v6M400 0v6M80 244v6M160 244v6M240 244v6M320 244v6M400 244v6M0 50h6M0 100h6M0 150h6M0 200h6M474 50h6M474 100h6M474 150h6M474 200h6"/>
           </g>
-          <text x="146" y="86" fill="#e3b65a" fill-opacity="0.85">RG 4000</text>
-          <text x="146" y="18" fill="#e3b65a" fill-opacity="0.85">RG 8000</text>
-          <text x="262" y="18" fill="#e3b65a">FIRE MISSION · BTRY A</text>
-          <text x="262" y="31" fill="#d6d2bf">GRID 51P TT 3341 1276</text>
-          <path class="hill" d="M0 214C60 206 110 210 170 212C240 214 300 200 360 206C410 210 450 204 480 208V250H0Z" fill="#3d4a2a"/>
-          <path d="M0 226C80 220 160 228 240 224C320 220 400 230 480 224M0 238C90 234 170 242 260 238C340 234 410 242 480 238" fill="none" stroke="#5b6b3a" stroke-width="1.5"/>
-          <text x="12" y="246" fill="#d6d2bf">AZ 1600 MILS · SHELL HE · FUZE Q</text>
-          <path class="axis-line" d="M230 125Q319 -40 408 182" fill="none" stroke="#f3efdf" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="3 6"/>
-          <g id="objective" fill="none" stroke="currentColor" stroke-width="1.5">
-            <rect x="376" y="150" width="64" height="64"/>
-            <path d="M392 150V214M408 150V214M424 150V214M376 166H440M376 182H440M376 198H440" stroke-opacity="0.45" stroke-width="1"/>
+          <g class="terrain-contour" fill="none" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2 4">
+            <path d="M30 200A110 110 0 0 1 250 200"/>
+            <path d="M-50 200A190 190 0 0 1 330 200"/>
+            <path class="faint" d="M-130 200A270 270 0 0 1 410 200"/>
+          </g>
+          <text class="t-mute" x="146" y="84">RG 4000</text>
+          <text class="t-mute" x="146" y="16">RG 8000</text>
+          <text class="t-title" x="262" y="20">FIRE MISSION · BTRY A</text>
+          <text class="t-mute" x="262" y="33">GRID 51P TT 3341 1276</text>
+          <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+            <path class="hill ink" d="M0 214C60 206 110 210 170 212C240 214 300 200 360 206C410 210 450 204 480 208"/>
+            <path class="thin faint" d="M0 226C80 220 160 228 240 224C320 220 400 230 480 224M0 238C90 234 170 242 260 238C340 234 410 242 480 238"/>
+            <path class="axis-line" d="M230 125Q319 -40 408 182" stroke-dasharray="3 4"/>
+          </g>
+          <text x="12" y="246">AZ 1600 MILS · SHELL HE · FUZE Q</text>
+          <g id="objective" fill="none" stroke="currentColor" stroke-width="1.2">
+            <path class="pf" d="M376 150H440V214H376Z"/>
+            <path class="thin faint" d="M392 150V214M408 150V214M424 150V214M376 166H440M376 182H440M376 198H440"/>
             <circle cx="408" cy="182" r="9"/>
             <path d="M408 166V177M408 187V198M392 182H403M413 182H424"/>
-            <circle class="impact-pulse" cx="408" cy="182" r="14" stroke-width="2.5"/>
-            <text x="376" y="143" fill="currentColor" stroke="none">TGT AF 1001</text>
+            <circle class="impact-pulse" cx="408" cy="182" r="14" stroke-width="1.6"/>
+            <text class="t-acc" x="376" y="143">TGT AF 1001</text>
           </g>
-          <g id="tank">
-            <ellipse cx="124" cy="214" rx="82" ry="5" fill="#1b1f16" fill-opacity="0.5"/>
-            <path d="M134 188L58 207L52 214H66L142 198Z" fill="#4a5730" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M46 205H62L60 217H44Z" fill="#3a4524" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
+          <g id="tank" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+            <g class="ink">
+              <path class="pf" d="M134 188L58 207L52 214H66L142 198Z"/>
+              <path class="pf" d="M46 205H62L60 217H44Z"/>
+            </g>
             <g transform="translate(140 182) rotate(-32)">
-              <g id="tank-gun">
-                <rect x="-4" y="-5" width="98" height="10" rx="3" fill="#6b7a45" stroke="#1f231b" stroke-width="2"/>
-                <path d="M6 -2.5H86" stroke="#a3b36d" stroke-width="2" stroke-linecap="round"/>
-                <rect x="92" y="-7.5" width="13" height="15" rx="2.5" fill="#4a5730" stroke="#1f231b" stroke-width="2"/>
+              <g id="tank-gun" class="ink">
+                <path class="pf" d="M-4 -5H94V5H-4Z"/>
+                <path class="thin" d="M8 0H86"/>
+                <path class="pf" d="M92 -7.5H105V7.5H92Z"/>
+                <path class="thin" d="M96 -7.5V7.5M101 -7.5V7.5"/>
               </g>
-              <rect x="-20" y="-9" width="46" height="18" rx="5" fill="#586636" stroke="#1f231b" stroke-width="2"/>
-              <g id="muzzle-blast">
-                <path d="M106 0L122 -10L118 -3L136 0L118 3L122 10Z" fill="#ffd166" stroke="#ff8a3d" stroke-width="2" stroke-linejoin="round"/>
-                <circle cx="111" cy="0" r="5" fill="#fff3b0"/>
+              <path class="ink pf" d="M-20 -9H26V9H-20Z"/>
+              <g id="muzzle-blast" class="acc">
+                <path d="M107 0L123 -10M107 0L136 0M107 0L123 10M111 -5L117 -14M111 5L117 14"/>
               </g>
             </g>
-            <path d="M116 162L148 156L154 194L122 199Z" fill="#6b7a45" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
-            <path d="M122 168L144 164" stroke="#a3b36d" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="140" cy="198" r="17" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/>
-            <circle cx="140" cy="198" r="10" fill="none" stroke="#586636" stroke-width="3"/>
-            <circle cx="140" cy="198" r="4" fill="#e3b65a"/>
+            <g class="ink">
+              <path class="pf" d="M116 162L148 156L154 194L122 199Z"/>
+              <path class="thin" d="M122 168L144 164M124 176L146 172"/>
+              <circle class="pf" cx="140" cy="198" r="17"/>
+              <circle class="thin" cx="140" cy="198" r="11"/>
+              <path class="thin" d="M140 181V215M123 198H157M128 186L152 210M152 186L128 210"/>
+              <circle class="pf" cx="140" cy="198" r="4"/>
+            </g>
           </g>
-          <g id="dust" fill="#e9e5d6">
+          <g id="dust" fill="none" stroke="currentColor" stroke-width="0.9">
             <circle class="dust-puff" cx="232" cy="121" r="7"/>
             <circle class="dust-puff" cx="241" cy="115" r="6"/>
             <circle class="dust-puff" cx="228" cy="112" r="5"/>
           </g>
           <g id="shell">
-            <ellipse cx="0" cy="0" rx="5" ry="3.5" fill="#e3b65a" stroke="#1f231b" stroke-width="1.5"/>
+            <circle class="acc-f" r="3.5"/>
           </g>
         </svg>
+        <p class="art-cap label"><span>Fig. 2 — Operational sketch</span><span>Not to scale</span></p>
       </div>
     </div>
   </header>
 
-  <main id="app" class="app">
+  <main id="app" class="app wrap">
     <noscript><p class="noscript">This quiz needs JavaScript enabled in your browser.</p></noscript>
 
     <section id="view-landing" class="view view-landing" aria-labelledby="landing-heading">
-      <h2 id="landing-heading">Before you begin</h2>
-      <div class="field">
-        <label class="field-label" for="student-name">Your name or username</label>
-        <p id="student-name-help" class="field-help">2 to 40 characters. Shown on your results and in the class score history.</p>
-        <input type="text" id="student-name" class="text-input" name="student-name" autocomplete="name" maxlength="40" spellcheck="false" required aria-describedby="student-name-help student-name-message">
-        <p id="student-name-message" class="field-message" aria-live="polite" hidden></p>
-      </div>
-      <div id="study-warning" class="study-warning">
-        <p><strong>This mock examination is a practice aid only.</strong> It cannot replace studying the complete Field Artillery Operations lesson, and repeated attempts are not a substitute for that study.</p>
-        <label class="study-confirm" for="study-confirm">
-          <input type="checkbox" id="study-confirm" autocomplete="off">
-          <span>I understand that I must study the complete lesson and not rely only on this mock examination.</span>
-        </label>
+      <div class="sect">
+        <div class="sect-head"><span class="sect-num" aria-hidden="true">01</span><h2 id="landing-heading">Before you begin</h2></div>
+        <div class="sect-body">
+          <div class="field">
+            <label class="field-label" for="student-name">Your name or username</label>
+            <p id="student-name-help" class="field-help">2 to 40 characters. Shown on your results and in the class score history.</p>
+            <input type="text" id="student-name" class="text-input" name="student-name" autocomplete="name" maxlength="40" spellcheck="false" required aria-describedby="student-name-help student-name-message">
+            <p id="student-name-message" class="field-message" aria-live="polite" hidden></p>
+          </div>
+          <div id="study-warning" class="study-warning">
+            <p><strong>This mock examination is a practice aid only.</strong> It cannot replace studying the complete Field Artillery Operations lesson, and repeated attempts are not a substitute for that study.</p>
+            <label class="study-confirm" for="study-confirm">
+              <input type="checkbox" id="study-confirm" autocomplete="off">
+              <span>I understand that I must study the complete lesson and not rely only on this mock examination.</span>
+            </label>
+          </div>
+        </div>
       </div>
 
-      <h2 id="difficulty-heading" tabindex="-1">Choose a difficulty</h2>
-      <p id="mode-hint" class="mode-hint" role="status" aria-live="polite">To enable the difficulty buttons, enter your name and check the study confirmation above.</p>
-      <div id="mode-list" class="mode-list" role="group" aria-labelledby="difficulty-heading">
-        <button type="button" id="mode-easy" class="mode-button mode-easy" disabled aria-describedby="mode-hint">
-          <span class="mode-name">Easy</span>
-          <span class="mode-desc">45 questions. One primary doctrinal judgment in each situation.</span>
-        </button>
-        <button type="button" id="mode-medium" class="mode-button mode-medium" disabled aria-describedby="mode-hint">
-          <span class="mode-name">Medium</span>
-          <span class="mode-desc">43 questions. Compare, diagnose, and choose among plausible options.</span>
-        </button>
-        <button type="button" id="mode-hard" class="mode-button mode-hard" disabled aria-describedby="mode-hint">
-          <span class="mode-name">Hard</span>
-          <span class="mode-desc">38 questions. Integrate several concepts under competing constraints.</span>
-        </button>
+      <div class="sect">
+        <div class="sect-head"><span class="sect-num" aria-hidden="true">02</span><h2 id="difficulty-heading" tabindex="-1">Choose a difficulty</h2></div>
+        <div class="sect-body">
+          <p id="mode-hint" class="mode-hint" role="status" aria-live="polite">To enable the difficulty buttons, enter your name and check the study confirmation above.</p>
+          <div id="mode-list" class="mode-list" role="group" aria-labelledby="difficulty-heading">
+            <button type="button" id="mode-easy" class="mode-button mode-easy" disabled aria-describedby="mode-hint">
+              <span class="mode-name"><span class="gauge" aria-hidden="true"><i></i><i></i><i></i></span>Easy</span>
+              <span class="mode-desc">45 questions. One primary doctrinal judgment in each situation.</span>
+              <span class="mode-go" aria-hidden="true">Begin →</span>
+            </button>
+            <button type="button" id="mode-medium" class="mode-button mode-medium" disabled aria-describedby="mode-hint">
+              <span class="mode-name"><span class="gauge" aria-hidden="true"><i></i><i></i><i></i></span>Medium</span>
+              <span class="mode-desc">43 questions. Compare, diagnose, and choose among plausible options.</span>
+              <span class="mode-go" aria-hidden="true">Begin →</span>
+            </button>
+            <button type="button" id="mode-hard" class="mode-button mode-hard" disabled aria-describedby="mode-hint">
+              <span class="mode-name"><span class="gauge" aria-hidden="true"><i></i><i></i><i></i></span>Hard</span>
+              <span class="mode-desc">38 questions. Integrate several concepts under competing constraints.</span>
+              <span class="mode-go" aria-hidden="true">Begin →</span>
+            </button>
+          </div>
+        </div>
       </div>
-      <p class="privacy-note">No login and no tracking. Your answers stay in this browser tab and are cleared when you refresh or close it. When your instructor has set up the class history, finishing an attempt sends your name, difficulty, score, percentage, mastery band and finish time to the class history sheet, together with the reference codes of the questions you were asked and of those you missed (for the instructor's question analysis). The answers you chose are never sent, and practice retries of missed questions are not sent at all. To put questions you have not seen yet first, then those you missed, this browser remembers which questions it has shown you and which were missed (question codes only, no name); that record never leaves this device.</p>
-      <p id="device-progress" class="device-progress" hidden><button type="button" id="btn-reset-progress" class="link-button">Reset my progress on this device</button> <span id="reset-progress-status" class="reset-status" role="status" aria-live="polite"></span></p>
+
+      <div class="sect">
+        <div class="sect-head"><span class="sect-num" aria-hidden="true">03</span><h2 id="privacy-heading">Records and privacy</h2></div>
+        <div class="sect-body">
+          <p class="privacy-note">No login and no tracking. Your answers stay in this browser tab and are cleared when you refresh or close it. When your instructor has set up the class history, finishing an attempt sends your name, difficulty, score, percentage, mastery band and finish time to the class history sheet, together with the reference codes of the questions you were asked and of those you missed (for the instructor's question analysis). The answers you chose are never sent, and practice retries of missed questions are not sent at all. To put questions you have not seen yet first, then those you missed, this browser remembers which questions it has shown you and which were missed (question codes only, no name); that record never leaves this device.</p>
+          <p id="device-progress" class="device-progress" hidden><button type="button" id="btn-reset-progress" class="link-button">Reset my progress on this device</button> <span id="reset-progress-status" class="reset-status" role="status" aria-live="polite"></span></p>
+        </div>
+      </div>
     </section>
 
     <section id="view-quiz" class="view view-quiz" hidden aria-labelledby="quiz-heading">
-      <div class="quiz-head">
-        <h2 id="quiz-heading">Examination</h2>
-        <p id="quiz-student" class="student-line"></p>
+      <div class="quiz-rail">
+        <div class="quiz-head">
+          <h2 id="quiz-heading">Examination</h2>
+          <p id="quiz-student" class="student-line"></p>
+        </div>
+        <p class="q-index" aria-hidden="true"><span class="gauge"><i></i><i></i><i></i></span><span id="q-index-num" class="q-index-num">01</span><span id="q-index-total" class="q-index-total">of 01</span></p>
       </div>
       <p id="quiz-practice-note" class="practice-note" hidden></p>
       <div class="quiz-progress">
         <label for="quiz-progress">Answers checked</label>
         <progress id="quiz-progress" max="1" value="0"></progress>
+        <ol id="quiz-ticks" class="ticks" aria-hidden="true"></ol>
         <p id="quiz-status" class="quiz-status" role="status" aria-live="polite"></p>
       </div>
       <h3 id="question-heading" class="question-heading" tabindex="-1">Question</h3>
@@ -874,9 +1128,9 @@
       <p class="results-reminder">This score is practice feedback only. Study the complete lesson; do not rely only on this mock examination.</p>
       <div class="results-actions">
         <button type="button" id="btn-retry-missed" aria-keyshortcuts="M" hidden>Retry the questions I missed</button>
-        <button type="button" id="btn-print" class="secondary">Print or save results</button>
         <button type="button" id="btn-retake" aria-keyshortcuts="R">Retake same difficulty</button>
         <button type="button" id="btn-choose" class="secondary" aria-keyshortcuts="C">Choose another difficulty</button>
+        <button type="button" id="btn-print" class="secondary">Print or save results</button>
         <button type="button" id="btn-history" class="secondary">View class score history</button>
       </div>
       <p id="results-keyboard-hint" class="keyboard-hint"><span class="hint-label">Keyboard:</span> <span class="hint-item"><kbd>R</kbd> retake</span> · <span class="hint-item"><kbd>C</kbd> choose another difficulty</span><span id="hint-retry-missed" hidden> · <span class="hint-item"><kbd>M</kbd> retry missed</span></span> · <span class="hint-item"><kbd>?</kbd> help</span></p>
@@ -928,39 +1182,46 @@
     </details>
 
     <section id="view-unavailable" class="view view-unavailable" hidden aria-labelledby="unavailable-heading">
-      <h2 id="unavailable-heading" tabindex="-1">Quiz unavailable</h2>
-      <p>The quiz is unavailable because its question data could not be loaded or did not pass validation, so no examination can start. Please try again later or inform your instructor.</p>
+      <div class="sect">
+        <div class="sect-head"><span class="sect-num" aria-hidden="true">00</span><h2 id="unavailable-heading" tabindex="-1">Quiz unavailable</h2></div>
+        <div class="sect-body"><p>The quiz is unavailable because its question data could not be loaded or did not pass validation, so no examination can start. Please try again later or inform your instructor.</p></div>
+      </div>
     </section>
 
-    <section id="history-panel" class="history-panel" aria-labelledby="history-heading" hidden>
-      <div class="section-head">
+    <section id="history-panel" class="history-panel sect" aria-labelledby="history-heading" hidden>
+      <div class="sect-head section-head">
+        <span class="sect-num" aria-hidden="true">Annex A</span>
         <h2 id="history-heading" tabindex="-1">Class score history</h2>
         <button type="button" id="btn-history-refresh" class="secondary compact">Refresh</button>
       </div>
-      <p class="section-intro">Recent attempts from your class, newest first. Rows with your name are marked “You”.</p>
-      <div class="history-filters" role="group" aria-label="Show attempts for">
-        <button type="button" id="history-filter-all" class="filter-button" aria-pressed="true">All</button>
-        <button type="button" id="history-filter-easy" class="filter-button" aria-pressed="false">Easy</button>
-        <button type="button" id="history-filter-medium" class="filter-button" aria-pressed="false">Medium</button>
-        <button type="button" id="history-filter-hard" class="filter-button" aria-pressed="false">Hard</button>
-      </div>
-      <p id="history-status" class="history-status" role="status" aria-live="polite"></p>
-      <div id="history-table-wrap" class="table-wrap" hidden>
-        <table id="history-table" class="history-table">
-          <caption class="sr-only">Recent class attempts, newest first</caption>
-          <thead>
-            <tr><th scope="col">Name</th><th scope="col">Mode</th><th scope="col">Score</th><th scope="col">%</th><th scope="col">Band</th><th scope="col">Date</th></tr>
-          </thead>
-          <tbody id="history-body"></tbody>
-        </table>
+      <div class="sect-body">
+        <p class="section-intro">Recent attempts from your class, newest first. Rows with your name are marked “You”.</p>
+        <div class="history-filters" role="group" aria-label="Show attempts for">
+          <button type="button" id="history-filter-all" class="filter-button" aria-pressed="true">All</button>
+          <button type="button" id="history-filter-easy" class="filter-button" aria-pressed="false">Easy</button>
+          <button type="button" id="history-filter-medium" class="filter-button" aria-pressed="false">Medium</button>
+          <button type="button" id="history-filter-hard" class="filter-button" aria-pressed="false">Hard</button>
+        </div>
+        <p id="history-status" class="history-status" role="status" aria-live="polite"></p>
+        <div id="history-table-wrap" class="table-wrap" hidden>
+          <table id="history-table" class="history-table">
+            <caption class="sr-only">Recent class attempts, newest first</caption>
+            <thead>
+              <tr><th scope="col">Name</th><th scope="col">Mode</th><th scope="col">Score</th><th scope="col">%</th><th scope="col">Band</th><th scope="col">Date</th></tr>
+            </thead>
+            <tbody id="history-body"></tbody>
+          </table>
+        </div>
       </div>
     </section>
   </main>
 
   <figure class="class-photo">
-    <img src="../assets/class-photo-800.jpg" srcset="../assets/class-photo-800.jpg 800w, ../assets/class-photo-1600.jpg 1600w" sizes="(max-width: 928px) calc(100vw - 4rem), 52rem" width="1600" height="1200" loading="lazy" decoding="async" alt="SOAC 52 - 2026 class group photo">
+    <img src="../assets/class-photo-800.jpg" srcset="../assets/class-photo-800.jpg 800w, ../assets/class-photo-1600.jpg 1600w" sizes="(max-width: 1344px) calc(100vw - 2rem), 82rem" width="1600" height="1200" loading="lazy" decoding="async" alt="SOAC 52 - 2026 class group photo">
     <figcaption>SOAC 52 - 2026</figcaption>
   </figure>
+
+  <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
 
   <script type="application/json" id="quiz-config">{"key":"fieldartillery","title":"Field Artillery Mastery Quiz","categoryOrder":["Mission and Functions","Tactical Roles","Capabilities and Limitations","Weapon Classification","Effects of Fires","Philippine Operational Environment","Four Basic Tasks","FA System Elements and Responsibilities","Employment Tactics and Integrated Decisions"],"sourceRef":{"label":"slide","min":15,"max":38,"required":true},"pool":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
   <script type="application/json" id="questions-easy">[{"id":1,"qid":"fieldartillery-e-01","difficulty":"easy","category":"Mission and Functions","tags":["mission","timely and accurate support","integration of fire-support means"],"prompt":"During a Philippine Army brigade planning exercise, a draft artillery mission mentions timely, accurate fires for ground forces but omits the relationship with other fire-support means. Which addition best completes the mission described in the lesson?","options":["Assist in integrating all fire-support means into the combined-arms operation.","Limit artillery's contribution to its own weapon and ammunition combinations.","Make target acquisition the sole purpose of the combined-arms operation.","Replace fire-support integration with command of additional artillery units."],"answer":0,"explanation":"Slide 15 combines timely and accurate artillery support with assisting in the integration of all fire-support means into combined-arms operations.","sourceSlides":[15]},{"id":2,"qid":"fieldartillery-e-02","difficulty":"easy","category":"Mission and Functions","tags":["functions","fire-support cells","fire-support elements"],"prompt":"A Philippine Army maneuver headquarters is organizing its fire-support cell for a training exercise. Which proposed artillery contribution matches the function assigned by the lesson?","options":["Provide a survey section in place of the maneuver headquarters' fire-support cell.","Assign the entire fire-support-cell function to the ammunition supply staff.","Establish the nucleus of the fire-support cell and provide fire-support elements to maneuver units.","Treat the fire-support cell as a target-acquisition collector only."],"answer":2,"explanation":"Slide 16 assigns artillery the function of establishing the nucleus of supported maneuver forces' fire-support cells and providing fire-support elements to maneuver units.","sourceSlides":[16]},{"id":3,"qid":"fieldartillery-e-03","difficulty":"easy","category":"Tactical Roles","tags":["close support"],"prompt":"In a Philippine Army exercise review, an artillery action is described as engaging an enemy position that directly threatens the supported infantry during its advance. Which tactical role best describes that action?","options":["Attack at depth, because any support to an advance is interdiction.","Close support, because the enemy position threatens the supported force.","Counterfires, because any enemy position belongs to its fire-support system.","Diversion, because supporting an advance necessarily draws attention from another operation."],"answer":1,"explanation":"Slide 17 describes close support as engaging enemy troops, weapons, or positions that threaten or can threaten the force in attack or defense.","sourceSlides":[17]},{"id":4,"qid":"fieldartillery-e-04","difficulty":"easy","category":"Tactical Roles","tags":["attack at depth","interdiction"],"prompt":"A Philippine Army exercise report describes artillery delaying an enemy force whose primary weapons cannot yet reach friendly troops because of intervening terrain. The delay creates a window for friendly maneuver. Which role is illustrated?","options":["Close support against a position already threatening the force with its primary weapons.","Counterfires directed at the enemy's overall fire-support system.","Diversion intended to draw enemy attention away from the principal operation.","Attack at depth, also called interdiction."],"answer":3,"explanation":"Slide 17 links attack at depth to enemy forces unable to use their primary weapons against friendly forces because of range or terrain, and to creating windows for friendly maneuver.","sourceSlides":[17]},{"id":5,"qid":"fieldartillery-e-05","difficulty":"easy","category":"Tactical Roles","tags":["counterfires"],"prompt":"In a Philippine Army exercise review, a student rejects the label counterfires because the action addresses the enemy's wider fire-support system rather than its guns alone. Which judgment best corrects the student's reasoning?","options":["Retain counterfires: its purpose includes attacking the total enemy fire-support system.","Use close support: the label counterfires applies only to enemy guns.","Use interdiction: every action beyond enemy guns must be an attack at depth.","Use diversion: action against a wider system necessarily draws attention from the principal operation."],"answer":0,"explanation":"Slide 17 defines the purpose of counterfires as attacking the total enemy fire-support system throughout the battlefield.","sourceSlides":[17]},{"id":6,"qid":"fieldartillery-e-06","difficulty":"easy","category":"Capabilities and Limitations","tags":["rapid shifting and massing"],"prompt":"In a Philippine Army map exercise, several targets are within the artillery weapons' specified range limits. A student claims that shifting and massing fires always requires moving the guns first. Which lesson-based correction is best?","options":["The claim is correct because mobility is a system element.","Artillery can shift and mass fires rapidly without having to displace.","The claim is correct because continuous support requires displacement before every shift.","Shifting fires depends on changing the weapon's caliber classification."],"answer":1,"explanation":"Slide 18 lists rapid shifting and massing of fires without displacement as a capability. The scenario states that the targets are within range, so it does not override the range limitation in slide 19.","sourceSlides":[18,19]},{"id":7,"qid":"fieldartillery-e-07","difficulty":"easy","category":"Capabilities and Limitations","tags":["point-target ammunition cost"],"prompt":"During a Philippine Army training estimate, a planner assumes that destroying an individual point target will require little ammunition simply because artillery can mass fires rapidly. Which limitation most directly challenges that assumption?","options":["Artillery has limited self-defense against ground or air attack.","Artillery weapons must engage within their specified range limits.","Artillery firing signatures can reveal their presence.","Destroying point targets can require considerable ammunition expenditure."],"answer":3,"explanation":"Slide 19 specifically limits artillery's ability to destroy point targets without considerable ammunition expenditure. Rapid massing does not remove that limitation.","sourceSlides":[18,19]},{"id":8,"qid":"fieldartillery-e-08","difficulty":"easy","category":"Capabilities and Limitations","tags":["weapon range limits","all-weather and all-terrain fires"],"prompt":"A Philippine Army student argues that the lesson's all-weather and all-terrain capability permits a weapon to engage a target beyond its specified range. Which assessment is supported by the lesson?","options":["The claim is valid because weather and terrain are the only limits on artillery fires.","The claim is valid whenever several weapons mass their fires.","The claim is invalid because each weapon still has specified range limits.","The claim is invalid because artillery cannot provide fires in poor weather."],"answer":2,"explanation":"Slides 18 and 19 state both the all-weather, all-terrain capability and the requirement to engage within specified weapon range limits. One does not cancel the other.","sourceSlides":[18,19]},{"id":9,"qid":"fieldartillery-e-09","difficulty":"easy","category":"Weapon Classification","tags":["classification by caliber","medium"],"prompt":"A Philippine Army equipment clerk finds a 155 mm artillery weapon listed as heavy in a training inventory. Applying the lesson's caliber bands, which correction should the clerk make?","options":["Change the entry to light.","Retain the heavy classification.","Change the entry to very heavy.","Change the entry to medium."],"answer":3,"explanation":"Slide 20 places 121 mm through 160 mm weapons in the medium category. A 155 mm weapon belongs in that band.","sourceSlides":[20]},{"id":10,"qid":"fieldartillery-e-10","difficulty":"easy","category":"Weapon Classification","tags":["classification by transport","self-propelled"],"prompt":"For a Philippine Army equipment briefing, a student labels an artillery weapon mounted on its own powered vehicle as towed merely because it travels by road. Which revision best follows the lesson's transport classification?","options":["Classify it as self-propelled because the weapon has its own powered mounting.","Keep it as towed because a vehicle supplies the power to move the mounted weapon.","List it as both towed and self-propelled because the gun and vehicle have separate functions.","Leave its transport class undecided until its next movement route is known."],"answer":0,"explanation":"Slides 21-24 distinguish towed, self-propelled, and aerial transport. Slide 23 illustrates a weapon mounted on a powered vehicle as self-propelled; road travel alone does not make it towed.","sourceSlides":[21,22,23,24]},{"id":11,"qid":"fieldartillery-e-11","difficulty":"easy","category":"Effects of Fires","tags":["destroy","30-percent computed-effect threshold"],"prompt":"A Philippine Army simulation report labels an effect as neutralization, yet its evidence says the enemy unit remains physically combat-ineffective until reconstituted. Which effect should replace the report's label?","options":["Suppress.","Neutralize.","Destroy.","Diversion."],"answer":2,"explanation":"Slide 25 describes destruction as physically rendering a force combat-ineffective until reconstituted. Its computed artillery effect is permanent or long-term ineffectiveness with at least 30-percent casualties or materiel damage.","sourceSlides":[25]},{"id":12,"qid":"fieldartillery-e-12","difficulty":"easy","category":"Effects of Fires","tags":["neutralize","10-percent computed-effect threshold"],"prompt":"A Philippine Army exercise report records that opposing troops stopped firing while a friendly movement was completed, then resumed shortly afterward. The report concludes that the opposing force was permanently destroyed. Which correction is supported by the recorded results?","options":["Retain destruction: completion of the friendly movement establishes a permanent effect.","Record neutralization for that operation: the later resumption does not support permanent destruction.","Record diversion: the temporary halt establishes that enemy attention shifted elsewhere.","Record disruption: the temporary halt establishes that enemy forces committed piecemeal."],"answer":1,"explanation":"The troops did not interfere during the recorded movement, but resumed firing afterward. That supports the operation-specific, temporary effect of neutralization in slide 26 rather than permanent destruction. Slide 26's computed-effect threshold is at least 10-percent casualties or materiel damage; the report does not provide a casualty estimate.","sourceSlides":[26]},{"id":13,"qid":"fieldartillery-e-13","difficulty":"easy","category":"Effects of Fires","tags":["suppress","3-percent computed-effect threshold"],"prompt":"A Philippine Army training report claims destruction, but the evidence shows only a temporary drop in an enemy weapon system's performance below the level needed for its mission. Which effect is supported by that evidence?","options":["Suppress.","Destroy.","Defeat.","Diversion."],"answer":0,"explanation":"Slide 27 describes suppression as temporary degradation of performance below the level needed for the mission. Its computed effect uses at least 3-percent casualties or materiel damage; this is not a guarantee of physical destruction.","sourceSlides":[27]},{"id":14,"qid":"fieldartillery-e-14","difficulty":"easy","category":"Effects of Fires","tags":["disrupt"],"prompt":"In a Philippine Army map exercise, the described result of combining fires, terrain, and obstacles is that the enemy's timetable breaks down and its force commits piecemeal. Which effect best describes this result?","options":["Diversion, because enemy attention was drawn away from the principal operation.","Defeat, because the enemy necessarily lost the means or will to fight.","Destroy, because a broken timetable proves long-term physical ineffectiveness.","Disrupt, because the enemy's tempo and orderly commitment were upset."],"answer":3,"explanation":"Slide 28 links disruption to integrating direct and indirect fires, terrain, and obstacles to upset formation or tempo, interrupt the timetable, or cause premature or piecemeal commitment.","sourceSlides":[28]},{"id":15,"qid":"fieldartillery-e-15","difficulty":"easy","category":"Philippine Operational Environment","tags":["Philippine archipelago","rapid displacement between islands"],"prompt":"A Philippine Army staff exercise expands from one island to another, but its mobility review considers movement within a single land area only. Which correction best addresses the gap in the review?","options":["Measure rapid movement between positions on the original island as proof of inter-island readiness.","Include rapid movement between islands while maintaining continuity of the ongoing operation.","Add inter-island travel speed as the requirement, leaving operational interruptions outside the review.","Require artillery to remain on the original island until operations there have completely ended."],"answer":1,"explanation":"Slide 29 says the Philippine archipelago and its distinct land features require artillery capable of rapid displacement between areas or islands without disrupting multidimensional operations.","sourceSlides":[29]},{"id":16,"qid":"fieldartillery-e-16","difficulty":"easy","category":"Philippine Operational Environment","tags":["Philippine archipelago","continuity during displacement"],"prompt":"An after-action review of a Philippine Army island-to-island exercise praises a rapid artillery move, although the move disrupted the ongoing operation. How should the review assess this against the lesson's environmental requirement?","options":["Fully satisfactory, because displacement speed is the only stated requirement.","Fully satisfactory, because continuity applies only to movement within one land area.","Incomplete, because rapid displacement must also avoid disrupting the operation.","Incomplete only if the destination island requires a different tactical role."],"answer":2,"explanation":"Slide 29 couples rapid displacement with avoiding disruption to multidimensional operations. Speed alone does not satisfy that stated requirement.","sourceSlides":[29]},{"id":17,"qid":"fieldartillery-e-17","difficulty":"easy","category":"Four Basic Tasks","tags":["support forces in contact"],"prompt":"During a Philippine Army exercise review, the supported unit reports that artillery support was not ready when requested while the unit was in contact. Which basic task is most directly at issue?","options":["Support the concept of operations, judged only by the commander's overall objective.","Synchronize fire support, judged only by coordination among different assets.","Support forces in contact, which requires responsive fires ready when requested.","Sustain FA operations, judged only by keeping the artillery unit supplied."],"answer":2,"explanation":"Slide 31 states that support to forces in contact requires responsive artillery fires ready when requested by the supported unit. The report identifies readiness to respond, not a specific supply or coordination failure.","sourceSlides":[31]},{"id":18,"qid":"fieldartillery-e-18","difficulty":"easy","category":"Four Basic Tasks","tags":["support the concept of operations"],"prompt":"A Philippine Army exercise review finds that artillery fires were timely but served an objective unrelated to the supported maneuver commander's objective. Which basic task was missed?","options":["Support the concept of operations.","Support forces in contact, solely because the fires were timely.","Sustain FA operations, solely because an objective was selected.","Synchronize fire support, solely because artillery was employed."],"answer":0,"explanation":"Slide 31 requires artillery fires to fulfill the supported maneuver commander's objective under support to the concept of operations. Timeliness alone does not establish that alignment.","sourceSlides":[31]},{"id":19,"qid":"fieldartillery-e-19","difficulty":"easy","category":"Four Basic Tasks","tags":["synchronize fire support","economize resources"],"prompt":"A Philippine Army exercise staff finds that available fire-support assets acted without coordination and duplicated effort. The corrective goal is to economize resources while maximizing their combined effect. Which basic task addresses that goal?","options":["Sustain FA operations by focusing only on artillery resupply.","Support forces in contact by focusing only on response readiness.","Support the concept of operations by focusing only on naming the commander's objective.","Synchronize fire support with the other available assets."],"answer":3,"explanation":"Slide 31 assigns synchronization the purpose of coordinating artillery with other available fire-support assets to economize resources and maximize effect.","sourceSlides":[31]},{"id":20,"qid":"fieldartillery-e-20","difficulty":"easy","category":"FA System Elements and Responsibilities","tags":["target acquisition","observers and collectors","drones and vertical imagery","FA intelligence"],"prompt":"In a Philippine Army training review, observer reports and drone imagery are available, but the resulting target information lacks timely identification and location. Which system element's core responsibility most directly concerns that gap?","options":["Logistics, through sustaining artillery operations.","Target acquisition, through detection, identification, and location of targets.","Weapon/ammunition combinations, through matching weapons and ammunition.","Mobility, through providing movement assets."],"answer":1,"explanation":"Slide 33 makes timely, accurate detection, identification, and location the responsibility of target acquisition. It includes artillery observers and vertical aerial imagery such as drones among information collectors for artillery intelligence.","sourceSlides":[33]},{"id":21,"qid":"fieldartillery-e-21","difficulty":"easy","category":"FA System Elements and Responsibilities","tags":["fire direction center","call-for-fire conversion"],"prompt":"A Philippine Army observer's call for fire reaches the training headquarters, but it has not been converted into appropriate fire commands. Which element has the responsibility for that conversion?","options":["The target-acquisition collectors.","The survey section.","The logistics element.","The fire direction center."],"answer":3,"explanation":"Slide 34 explicitly assigns the fire direction center the conversion of a forward observer's call for fire into appropriate fire commands.","sourceSlides":[34]},{"id":22,"qid":"fieldartillery-e-22","difficulty":"easy","category":"FA System Elements and Responsibilities","tags":["survey","common survey grid","Headquarters and Headquarters Battery"],"prompt":"A Philippine Army exercise review identifies inconsistent location and direction references among artillery elements. Which system function provides the common grid needed to resolve that specific inconsistency?","options":["Ballistic meteorology.","Weapon/ammunition combinations.","Survey.","Logistics."],"answer":2,"explanation":"Slide 36 states that artillery survey provides a common grid of location and direction for accurate delivery and massing of fires. The survey section belongs to Headquarters and Headquarters Battery.","sourceSlides":[36]},{"id":23,"qid":"fieldartillery-e-23","difficulty":"easy","category":"FA System Elements and Responsibilities","tags":["communications","radio and digital communications","Signal Platoon","Headquarters and Headquarters Battery"],"prompt":"During a Philippine Army communications exercise, unreliable voice and digital radio links delay exchanges even though the staff have completed their work. Which platoon under Headquarters and Headquarters Battery should address that communications gap?","options":["The Signal Platoon, which supports the voice and digital radio links.","The MET section, which supplies data for predicted fires.","The survey section, which establishes a common grid.","The Target Acquisition Platoon, which collects target information."],"answer":0,"explanation":"Slide 37 links artillery effectiveness and responsiveness to efficient, reliable communications, identifies radio for voice and digital use as the principal means, and places the Signal Platoon under Headquarters and Headquarters Battery. MET, survey, and target acquisition have different functions.","sourceSlides":[37]},{"id":24,"qid":"fieldartillery-e-24","difficulty":"easy","category":"Employment Tactics and Integrated Decisions","tags":["employment tactics","offensive positioning"],"prompt":"In a Philippine Army map-exercise review, artillery is described as positioned well forward to support an attack and exploit weapon range. Which explanation best matches the lesson's reason for this broad employment pattern?","options":["It applies the defensive rationale of preserving fires after enemy penetration to a forward position.","It follows the supported unit's offensive mission by supporting the attack and exploiting weapon range.","It treats exploiting weapon range as sufficient reason for the same forward posture in offense and defense.","It treats proximity to the supported unit as the requirement for continuity of fires in every mission."],"answer":1,"explanation":"Slide 38 says the supported unit's mission dictates artillery employment. It associates well-forward positioning to support an attack and exploit range with the offense.","sourceSlides":[38]},{"id":25,"qid":"fieldartillery-e-25","difficulty":"easy","category":"Employment Tactics and Integrated Decisions","tags":["employment tactics","defensive positioning","continuity of fires"],"prompt":"A Philippine Army student reviews a defensive exercise diagram in which supporting artillery is positioned to the rear. Which stated rationale most closely follows the lesson?","options":["Maintaining continuity of artillery fires if the enemy penetrates.","Exploiting range from a well-forward position during an attack.","Removing the need for target acquisition during the defense.","Making the artillery's limited self-defense capability irrelevant."],"answer":0,"explanation":"Slide 38 links rearward positioning in defense to continuity of artillery fires in the event of enemy penetration. It does not remove other system requirements or limitations.","sourceSlides":[38]},{"id":26,"qid":"fieldartillery-e-26","difficulty":"easy","category":"Mission and Functions","tags":["mission","destroy","neutralize","suppress"],"prompt":"According to the Field Artillery mission statement, which three effects do timely and accurate FA fires seek to achieve against the enemy in support of ground forces?","options":["Destroy, neutralize, or suppress","Disrupt, delay, or divert","Defeat, deny, or disrupt","Destroy, defeat, or divert"],"answer":0,"explanation":"Slide 15 states the FA mission: to destroy, neutralize or suppress the enemy with timely and accurate field artillery fires in support of ground forces, and to assist in integrating all fire-support means into combined-arms operations.","sourceSlides":[15]},{"id":27,"qid":"fieldartillery-e-27","difficulty":"easy","category":"Mission and Functions","tags":["functions","command and control"],"prompt":"Which of the following is listed among the functions of Field Artillery?","options":["Conduct the main ground assault on the maneuver objective.","Command and control additional field artillery units.","Provide close air support to forward maneuver units.","Replace the maneuver unit's own intelligence section."],"answer":1,"explanation":"Slide 16 lists four FA functions: continuous, accurate, timely fire support; providing its own communication, mobility, survey, meteorological data, target acquisition and fire direction; establishing the nucleus of fire-support cells and providing fire-support elements; and commanding and controlling additional FA units.","sourceSlides":[16]},{"id":28,"qid":"fieldartillery-e-28","difficulty":"easy","category":"Tactical Roles","tags":["attack at depth","interdiction"],"prompt":"In the tactical roles of Field Artillery, attack at depth is also known by which term?","options":["Counterfire","Close support","Interdiction","Suppression"],"answer":2,"explanation":"Slide 17 labels the second tactical role 'Attack at depth (Interdiction)'.","sourceSlides":[17]},{"id":29,"qid":"fieldartillery-e-29","difficulty":"easy","category":"Capabilities and Limitations","tags":["capabilities","depth"],"prompt":"Which of the following is a capability of Field Artillery presented in the lesson?","options":["FA can defend itself strongly against air attack.","FA can destroy point targets with little ammunition.","FA can engage targets beyond its range limits.","FA can add depth to the battlefield."],"answer":3,"explanation":"Slide 18 lists adding depth to the battlefield as an FA capability. The other statements contradict the limitations on slide 19: limited self-defense, considerable ammunition for point targets, and engagement only within specified range limits.","sourceSlides":[18,19]},{"id":30,"qid":"fieldartillery-e-30","difficulty":"easy","category":"Weapon Classification","tags":["classification by caliber","light"],"prompt":"An FA weapon has a caliber of 105 mm. Using the caliber classes in the lesson, which class is it?","options":["Light","Medium","Heavy","Very heavy"],"answer":0,"explanation":"Slide 20: Light is 120 mm and less, so 105 mm is light; Medium is 121 through 160 mm; Heavy is 161 through 210 mm; Very heavy is 211 mm and more.","sourceSlides":[20]},{"id":31,"qid":"fieldartillery-e-31","difficulty":"easy","category":"Weapon Classification","tags":["classification by transport","self-propelled","SP","acronym"],"prompt":"In the classification of FA weapons as to means of transport, what does the abbreviation SP stand for?","options":["Special purpose","Self-propelled","Support platoon","Survey position"],"answer":1,"explanation":"Slide 21 lists towed, self-propelled and aerial as the means-of-transport classes; slide 37 uses the abbreviation in '155mm SP unit'.","sourceSlides":[21,23,37]},{"id":32,"qid":"fieldartillery-e-32","difficulty":"easy","category":"Weapon Classification","tags":["classification by transport","aerial"],"prompt":"A Philippine Army howitzer is carried slung beneath a helicopter to a ridge-top firing position in Mindanao that trucks cannot reach. Under which means-of-transport classification does this weapon fall?","options":["Towed","Self-propelled","Aerial","Light"],"answer":2,"explanation":"Slides 21 and 24 classify FA weapons as to means of transport as towed, self-propelled or aerial; slide 24 illustrates aerial transport with howitzers slung beneath helicopters. Light is a caliber class, not a transport class.","sourceSlides":[21,24]},{"id":33,"qid":"fieldartillery-e-33","difficulty":"easy","category":"Effects of Fires","tags":["suppress","3 percent","computed effects"],"prompt":"In the context of the computed effects of FA fires, suppression renders a target ineffective for a short period while producing at least what level of casualties or materiel damage?","options":["10 percent","30 percent","20 percent","3 percent"],"answer":3,"explanation":"Slide 27: suppression produces at least 3-percent casualties or materiel damage. Neutralization is at least 10 percent (slide 26) and destruction at least 30 percent (slide 25).","sourceSlides":[27]},{"id":34,"qid":"fieldartillery-e-34","difficulty":"easy","category":"Effects of Fires","tags":["diversion","feint"],"prompt":"Before a brigade's principal landing on the eastern coast of Samar, a Philippine Army task force fires artillery and stages a feint near a barangay far to the north so that enemy attention and forces move away from the landing beach. Which effect of fires is being applied?","options":["Diversion","Disrupt","Defeat","Neutralize"],"answer":0,"explanation":"Slide 28 defines diversion as drawing the attention and forces of an enemy from the point of the principal operation; an attack, alarm, or feint that diverts attention.","sourceSlides":[28]},{"id":35,"qid":"fieldartillery-e-35","difficulty":"easy","category":"Philippine Operational Environment","tags":["Philippine archipelago","rapid displacement","multidimensional operations"],"prompt":"According to the lesson, what dictates that Philippine Army artillery assets must be able to displace rapidly from one area or island to another without disrupting multidimensional operations?","options":["The limited range of enemy rocket and missile systems","The distinct land features of the Philippine Archipelago","The small number of general-purpose vehicles on hand","The need to keep FA units close to the HHB"],"answer":1,"explanation":"Slide 29 states that the Philippine Archipelago, with its distinct land features, dictates that artillery assets be capable of displacing rapidly from one area or island to another without disrupting multidimensional operations.","sourceSlides":[29]},{"id":36,"qid":"fieldartillery-e-36","difficulty":"easy","category":"Four Basic Tasks","tags":["basic tasks","seven to four"],"prompt":"Field Artillery's basic tasks were later summarized into four. How many basic tasks did FA use before this?","options":["Five","Six","Seven","Ten"],"answer":2,"explanation":"Slide 31: 'Before FA uses seven basic tasks but it is now summarized into four (4) basic tasks.'","sourceSlides":[31]},{"id":37,"qid":"fieldartillery-e-37","difficulty":"easy","category":"Four Basic Tasks","tags":["basic tasks","counterfires","tactical roles"],"prompt":"A staff officer drafts a list of FA basic tasks. Which entry does NOT belong to the four basic tasks?","options":["Support forces in contact","Synchronize fire support","Sustain FA operations","Conduct counterfires"],"answer":3,"explanation":"Slide 31 lists the four basic tasks: support forces in contact, support the concept of operations, synchronize fire support, and sustain FA operations. Counterfires is a tactical role (slide 17), not a basic task.","sourceSlides":[17,31]},{"id":38,"qid":"fieldartillery-e-38","difficulty":"easy","category":"FA System Elements and Responsibilities","tags":["FA system","ten functional elements"],"prompt":"How many functional elements make up the Field Artillery system as presented in the lesson?","options":["Ten","Four","Seven","Five"],"answer":0,"explanation":"Slide 32 lists ten functional elements: target acquisition, fire direction and coordination, weapon/ammunition combinations, organization, survey, ballistic meteorology, communications, logistics, mobility, and employment tactics.","sourceSlides":[32]},{"id":39,"qid":"fieldartillery-e-39","difficulty":"easy","category":"FA System Elements and Responsibilities","tags":["fire direction and coordination","brain"],"prompt":"Which element of the FA system is described as the 'brain' of the system?","options":["Target acquisition","Fire direction and coordination","Weapon/ammunition combinations","Communications"],"answer":1,"explanation":"Slide 34 calls fire direction center and coordination the 'brain' of the system. Target acquisition is the 'eyes and ears' (slide 33) and weapon/ammunition combinations the 'muscle' (slide 35).","sourceSlides":[33,34,35]},{"id":40,"qid":"fieldartillery-e-40","difficulty":"easy","category":"FA System Elements and Responsibilities","tags":["FDC","acronym","fire direction center"],"prompt":"In Field Artillery usage, what does the acronym FDC stand for?","options":["Fire Delivery Coordination","Forward Defense Cell","Fire Direction Center","Fire Data Computation"],"answer":2,"explanation":"Slide 34 discusses the fire direction center (FDC), which converts the forward observer's call for fire into appropriate fire commands.","sourceSlides":[34]},{"id":41,"qid":"fieldartillery-e-41","difficulty":"easy","category":"FA System Elements and Responsibilities","tags":["HHB","acronym","Headquarters and Headquarters Battery"],"prompt":"Several organic units of the FA Bn are placed under the HHB. What does HHB stand for?","options":["Howitzer and Headquarters Battery","Headquarters and Heavy Battalion","Headquarters Howitzer Brigade","Headquarters and Headquarters Battery"],"answer":3,"explanation":"Slides 33, 36 and 37 place the Target Acquisition Platoon, survey section, MET section and Signal platoon under the Headquarters and Headquarters Battery of the FA Bn.","sourceSlides":[33,36,37]},{"id":42,"qid":"fieldartillery-e-42","difficulty":"easy","category":"FA System Elements and Responsibilities","tags":["FA","FA Bn","acronym"],"prompt":"In the lesson, what does the abbreviation 'FA Bn' refer to?","options":["Field Artillery Battalion","Fire Assault Battalion","Field Artillery Brigade","Forward Artillery Battery"],"answer":0,"explanation":"FA stands for Field Artillery and Bn for battalion; slides 33 and 36-37 describe organic units of the FA Bn under its Headquarters and Headquarters Battery.","sourceSlides":[33,36]},{"id":43,"qid":"fieldartillery-e-43","difficulty":"easy","category":"FA System Elements and Responsibilities","tags":["MET","ballistic meteorology","five requirements"],"prompt":"Meteorological (MET) information is one of how many requirements for accurate predicted fires?","options":["Four","Five","Three","Ten"],"answer":1,"explanation":"Slide 36: meteorological (MET) information is one of the five requirements for accurate predicted fires.","sourceSlides":[36]},{"id":44,"qid":"fieldartillery-e-44","difficulty":"easy","category":"Employment Tactics and Integrated Decisions","tags":["employment tactics","supported unit mission"],"prompt":"According to the lesson, what dictates the employment of the supporting Field Artillery unit?","options":["The caliber class of the FA weapons","The location of the FA Bn's HHB","The mission of the supported unit","The availability of current MET data"],"answer":2,"explanation":"Slide 38: the mission of the supported unit dictates the employment of the supporting FA.","sourceSlides":[38]},{"id":45,"qid":"fieldartillery-e-45","difficulty":"easy","category":"FA System Elements and Responsibilities","tags":["logistics","sustain FA operations"],"prompt":"What is logistics support in the FA system designed to do?","options":["Provide a common grid for massing fires","Convert calls for fire into fire commands","Detect, identify, and locate enemy targets","Sustain the conduct of FA operations"],"answer":3,"explanation":"Slide 37: logistics support is designed to sustain the conduct of FA operations. The distractors describe survey (slide 36), fire direction (slide 34) and target acquisition (slide 33).","sourceSlides":[37]}]</script>
@@ -1467,6 +1728,9 @@
       quizPracticeNote: byId('quiz-practice-note'),
       quizProgress: byId('quiz-progress'),
       quizStatus: byId('quiz-status'),
+      quizTicks: byId('quiz-ticks'),
+      qIndexNum: byId('q-index-num'),
+      qIndexTotal: byId('q-index-total'),
       questionHeading: byId('question-heading'),
       questionCategory: byId('question-category'),
       questionArea: byId('question-area'),
@@ -1735,6 +1999,10 @@
       ui.quizProgress.setAttribute('value', String(done));
       ui.quizStatus.textContent = 'Question ' + (index + 1) + ' of ' + total + '. ' + done + ' of ' + total + ' answers checked.';
       ui.questionHeading.textContent = 'Question ' + (index + 1) + ' of ' + total;
+      // Decorative (aria-hidden) echoes of the above: the rail's big question number and the segmented progress.
+      if (ui.qIndexNum) ui.qIndexNum.textContent = pad(index + 1);
+      if (ui.qIndexTotal) ui.qIndexTotal.textContent = 'of ' + pad(total);
+      renderTicks(attempt);
       ui.questionCategory.textContent = TEXT.topicNoun + ': ' + question.category;
 
       var fieldset = make('fieldset', 'question-fieldset');
@@ -1778,6 +2046,21 @@
       ui.btnFinish.hidden = !allChecked;
     }
 
+    // One tick per question: checked ones filled, the current one marked. Hidden from assistive technology
+    // (the <progress> element and the live status carry the same information).
+    function renderTicks(attempt) {
+      var list = ui.quizTicks;
+      if (!list) return;
+      var total = attempt.questions.length;
+      list.className = 'ticks' + (total > 120 ? ' ticks-dense' : '');
+      if (list.children.length !== total) {
+        setChildren(list, attempt.questions.map(function () { return make('li', 'tick'); }));
+      }
+      for (var i = 0; i < total; i++) {
+        list.children[i].className = 'tick' + (attempt.responses[i].checked ? ' tick-done' : '') + (i === attempt.current ? ' tick-current' : '');
+      }
+    }
+
     // Unselected, selected, correct, incorrect and dimmed states, each with a text tag, never colour alone.
     function applyOptionStates(question, response) {
       ui.options.forEach(function (entry, index) {
@@ -1813,7 +2096,7 @@
     function explanationBlock(question, className) {
       var block = make('div', 'explanation ' + className);
       block.append(
-        make('p', 'section-label', 'Explanation'),
+        make('p', 'section-label', 'Note'),
         make('p', 'explanation-text', question.explanation)
       );
       // The lesson reference line appears only for questions that carry sourceSlides.

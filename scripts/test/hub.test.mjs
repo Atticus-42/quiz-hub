@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import { ROOT as root, HISTORY_ENDPOINT as ENDPOINT } from '../build.mjs';
-import { test as runTest } from './harness.mjs';
+import { test as runTest, withoutFontPreloads, cssUrls, isLocalAsset } from './harness.mjs';
 
 export async function hubSuite({ lessons }) {
 const html = readFileSync(join(root, 'index.html'), 'utf8');
@@ -183,11 +183,12 @@ test('no external URLs except the history endpoint; quiz, class and instructor l
   const found = [...html.matchAll(/(?:https?:)?\/\/[a-z0-9.-]+\.[a-z]{2,}[^\s"'<>)]*/gi)].map((m) => m[0]);
   const bad = found.filter((u) => !allowed.has(u));
   assert.deepEqual(bad, []);
-  assert.ok(!/<link\b[^>]*href=/i.test(html), 'no external stylesheets');
+  assert.ok(!/<link\b[^>]*href=/i.test(withoutFontPreloads(html)), 'no external stylesheets (only same-origin font preloads)');
   assert.ok(!/<script\b[^>]*src=/i.test(html), 'no external scripts');
   const css = html.match(/<style>([\s\S]*?)<\/style>/)[1];
-  assert.ok(!/@import|url\(/i.test(css), 'no CSS imports or url() assets');
-  const hrefs = [...html.matchAll(/\bhref="([^"]*)"/g)].map((m) => m[1]);
+  assert.ok(!/@import/i.test(css), 'no CSS imports');
+  for (const target of cssUrls(css)) assert.ok(isLocalAsset(target) && !target.startsWith('../') && existsSync(join(root, target)), `url(${target}) must be a same-origin assets/ file on disk`);
+  const hrefs = [...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map((m) => m[1]);
   const allowedHref = new Set([...Object.values(EXPECTED), 'class/', 'instructor/', '#main', '#choose-module', ...Object.keys(MODULE_EXAMS).map((id) => `#${id}`)]);
   assert.deepEqual(hrefs.filter((href) => !allowedHref.has(href)), [], 'every link is a quiz folder, the class or instructor page, or an in-page fragment');
   const nonAsset = html.replace(/<(?:img|source)\b[^>]*>/gi, (tag) => (/\b(?:src|srcset)="(?:assets\/[\w-]+\.jpg(?: [\w.]+)?(?:, )?)+"/.test(tag) && !/\/\/|https?:/i.test(tag) ? '' : tag));
@@ -490,7 +491,7 @@ test('markup: landmarks, headings, labelled filter group, viewport, lang', () =>
   assert.match(html, /Class score history summary/);
 });
 
-test('topographic background: decorative, fixed, sliced, themed by CSS variables, hidden in print', () => {
+test('topographic contours: decorative, fixed, sliced, quiet, in the margins only, themed by CSS variables, hidden in print', () => {
   const layer = html.match(/<div class="topo" aria-hidden="true">\s*<svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><g class="contours"[^>]*>([\s\S]*?)<\/g><\/svg>\s*<\/div>/);
   assert.ok(layer, 'inline contour layer');
   const paths = layer[1].match(/<path\b/g) || [];
@@ -499,8 +500,11 @@ test('topographic background: decorative, fixed, sliced, themed by CSS variables
   assert.ok(!/<(script|a|foreignObject|image|use)\b|\son\w+=/i.test(layer[1]), 'only plain paths in the fragment');
   const css = html.match(/<style>([\s\S]*?)<\/style>/)[1];
   assert.match(css, /\.topo \{[^}]*position: fixed;[^}]*pointer-events: none;/);
-  assert.match(css, /--topo-minor-opacity: 0\.22;/);
-  assert.match(css, /--topo-major-opacity: 0\.4;/);
+  for (const name of ['--topo-minor-opacity', '--topo-major-opacity']) {
+    const value = Number(css.match(new RegExp(`${name}: ([0-9.]+);`))?.[1]);
+    assert.ok(value > 0 && value <= 0.2, `${name} is quiet (${value})`);
+  }
+  assert.match(css, /\.topo \{[^}]*mask-image: linear-gradient\(90deg/, 'masked to the margins');
   assert.match(css, /stroke: var\(--topo-line\); stroke-opacity: var\(--topo-minor-opacity\)/);
   assert.match(css, /path\.major \{ stroke: var\(--topo-line-major\); stroke-opacity: var\(--topo-major-opacity\)/);
   assert.match(css, /@media print \{[\s\S]*\.topo[^{]*\{ display: none !important; \}/);
@@ -520,8 +524,8 @@ test('Bandwidth Brothers banner sits above the hero with srcset, dimensions, pri
   assert.match(img, /\bfetchpriority="high"/);
   assert.match(img, /\balt="Bandwidth Brothers banner"/);
   const css = html.match(/<style>([\s\S]*?)<\/style>/)[1];
-  assert.match(css, /\.banner img \{[^}]*aspect-ratio: 16 \/ 6;[^}]*object-fit: cover/);
-  assert.match(css, /max-width: 600px\) \{ \.banner img \{ aspect-ratio: 16 \/ 8;/);
+  assert.match(css, /\.banner img \{[^}]*aspect-ratio: 16 \/ 5;[^}]*object-fit: cover/);
+  assert.match(css, /\.banner img \{ aspect-ratio: 16 \/ 8; \}/, 'a taller crop on phones');
 });
 
 test('Class photo is a lazy, captioned figure with exact caption and alt text', () => {
@@ -534,7 +538,7 @@ test('Class photo is a lazy, captioned figure with exact caption and alt text', 
   assert.match(img, /\balt="SOAC 52 - 2026 class group photo"/);
   assert.equal(m[1].match(/<figcaption>([\s\S]*?)<\/figcaption>/)[1], 'SOAC 52 - 2026');
   const css = html.match(/<style>([\s\S]*?)<\/style>/)[1];
-  assert.match(css, /\.class-photo \{[^}]*max-width: 56rem;[^}]*border-radius: var\(--radius-lg\);[^}]*box-shadow:/);
+  assert.match(css, /\.class-photo \{[^}]*max-width: var\(--page-max\);/);
 });
 
 test('Photo srcsets reference the four asset files, and they exist on disk', () => {

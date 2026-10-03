@@ -3,7 +3,7 @@
    converge on the central exam target (#objective). #tank-gun is the tank's main gun (recoil),
    #muzzle-blast its firing flash, #dust the track dust, and #shell the convergence marker that
    runs each lesson's axis into the target and holds on the bullseye. */
-#objective { color: var(--mode-glow); }
+#objective { color: var(--lesson-accent); }
 #muzzle-blast { opacity: 0; transform-box: fill-box; transform-origin: 0% 50%; }
 #shell { opacity: 0; transform: translate(94px, 82px); }
 #tank-gun { transform-box: fill-box; transform-origin: 0% 50%; }

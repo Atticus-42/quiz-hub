@@ -19,15 +19,7 @@
     "Principles of Army Operations"
   ],
   "sourceRef": { "label": "page", "plural": "pages", "min": 1, "max": 200, "required": false },
-  "palette": {
-    "--color-paper": "#f1eedc",
-    "--topo-angle": "165deg",
-    "--topo-tint-green": "#eef0dd",
-    "--topo-tint-sand": "#efe7cf",
-    "--topo-line": "#3a4822",
-    "--topo-line-major": "#3a4822",
-    "--topo-major-width": "1.4"
-  },
+  "palette": { "--lesson-accent": "#c75a22" },
   "art": {
     "groups": ["tank", "tank-gun", "muzzle-blast", "shell", "dust", "objective"],
     "nested": { "tank": ["tank-gun", "muzzle-blast"] },

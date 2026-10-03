@@ -6,29 +6,104 @@
   <meta name="description" content="Bandwidth Brothers, SOAC 52 - 2026: class organization and roster.">
   <meta name="referrer" content="no-referrer">
   <title>Bandwidth Brothers · SOAC 52 - 2026</title>
-  <!-- The layout is responsive without media queries (fluid grids); print styles are in the media="print" sheet below. -->
+  <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-Regular-Latin1.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-SemiBold-Latin1.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Print styles are in the media="print" sheet below. -->
   <style>
-    /* Design tokens shared with the hub (src/hub/template.html). */
+    /* =====================================================================
+       FIELD MANUAL DESIGN SYSTEM (src/shared/base.css). The build writes this
+       sheet into every page (hub, quizzes, class page, instructor view) at
+       the top of its one style element, with the assets placeholder replaced
+       by the page's path to assets/. Edit it here, never in a built page.
+
+       Type. IBM Plex Sans Condensed (text, headings, UI) and IBM Plex Mono
+       (numbers, codes, references, kbd), self-hosted Latin-1 subsets under
+       the SIL Open Font License (assets/fonts/OFL.txt), font-display: swap.
+       The subsets have no arrows; per-glyph fallback draws them from the
+       system stack. The metric-matched fallback faces keep line breaks close
+       to Plex while the files load, so the swap does not shift the layout.
+       Scale (ratio 1.25 from 16px): 12 label · 14 meta · 16 UI · 18 body ·
+       20 · 25 · 31 · 39-76 display. Body 18px, measure 60-75ch.
+
+       Colour. WCAG 2.1 contrast, computed (scripts/test checks them again):
+         --color-text      #1e211b on --color-paper #f3efe4   14.18:1  body
+         --color-muted     #4a4c40 on paper                    7.62:1  secondary text
+         --color-accent    #4b5320 on paper                    7.15:1  olive drab: links, primary buttons
+                           paper on --color-accent             7.15:1  button text
+         --color-olive-dark #2e3418: paper on it              11.28:1  dark bands, selected covers
+         --color-khaki     #c9b98f on olive-dark                6.68:1  labels on dark bands
+         --color-signal    #d9541e on paper                    3.49:1  non-text only: progress, current
+                           item, focus ring (UI >= 3:1); never small text
+         --color-signal-text #a8431a on paper                  5.25:1  orange text (small)
+         --color-signal-light #e68a5c on olive-dark            5.03:1  orange text on dark bands
+         --color-rule      #7d7865 on paper                    3.85:1  control borders (UI >= 3:1)
+         --color-hairline  #c8c2ae                                     decorative rules only
+         --color-correct   #2f6b2f on paper 5.60:1, on --color-correct-bg #e6ebd8 5.28:1, paper on it 5.60:1
+         --color-incorrect #a32a1c on paper 6.29:1, on --color-incorrect-bg #f3e2da 5.75:1, paper on it 6.29:1
+         --color-text on --color-sunken #e9e6d6               13.00:1
+         --color-accent on --color-selected #e3e6d0            6.45:1  selected answer (text 12.80:1)
+         --color-focus = signal orange, 3px: 3.49:1 on paper, 3.23:1 on olive-dark
+       Corners are square (2px at most); 1px hairlines replace boxes; shadows
+       only for true layering. Motion 120-200ms, no bounce, off under
+       prefers-reduced-motion.
+       ===================================================================== */
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Regular-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: italic; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Italic-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Medium-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-SemiBold-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Bold-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexMono-Regular-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/IBMPlexMono-Medium-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/IBMPlexMono-SemiBold-Latin1.woff2") format("woff2"); }
+    /* Metric-matched fallbacks (measured: Plex Sans Condensed sets 1.108x Arial Narrow, 0.909x Arial; Plex Mono 1.091x Consolas). */
+    @font-face { font-family: "Plex Condensed Fallback"; src: local("Arial Narrow"), local("ArialNarrow"); size-adjust: 110.8%; ascent-override: 92.5%; descent-override: 24.8%; line-gap-override: 0%; }
+    @font-face { font-family: "Plex Condensed Fallback Wide"; src: local("Arial"), local("Helvetica"); size-adjust: 90.9%; ascent-override: 112.8%; descent-override: 30.3%; line-gap-override: 0%; }
+    @font-face { font-family: "Plex Mono Fallback"; src: local("Consolas"), local("Menlo"); size-adjust: 109.1%; ascent-override: 94%; descent-override: 25.2%; line-gap-override: 0%; }
+
     :root {
-      --color-surface: #fbfaf3;
-      --color-surface-sunken: #f1f1e6;
-      --color-text: #1d2119;
-      --color-muted: #464c3c;
-      --color-border: #7a8068;
-      --color-border-subtle: #c3c7ae;
-      --color-accent: #3f4d22;
-      --color-charcoal: #23281e;
-      --color-olive-deep: #4a4128;
-      --color-brass: #e3b65a;
-      --color-hero-text: #f3efdf;
-      --color-hero-muted: #d6d2bf;
-      --color-focus: #1a4fd1;
-      --mode-tint: #eef0e2;
-      --color-paper: #f6f2e4;
-      --topo-tint-green: #e2e8cc;
-      --topo-tint-sand: #f1e3c6;
-      --topo-line: #5f6d35;
-      --topo-line-major: #4b5a22;
+      --color-paper: #f3efe4;
+      --color-surface: #f3efe4;
+      --color-sunken: #e9e6d6;
+      --color-selected: #e3e6d0;
+      --color-text: #1e211b;
+      --color-muted: #4a4c40;
+      --color-accent: #4b5320;
+      --color-accent-hover: #2e3418;
+      --color-accent-text: #f3efe4;
+      --color-olive-dark: #2e3418;
+      --color-khaki: #c9b98f;
+      --color-signal: #d9541e;
+      --color-signal-text: #a8431a;
+      --color-signal-light: #e68a5c;
+      --color-rule: #7d7865;
+      --color-hairline: #c8c2ae;
+      --color-correct: #2f6b2f;
+      --color-correct-bg: #e6ebd8;
+      --color-incorrect: #a32a1c;
+      --color-incorrect-bg: #f3e2da;
+      --color-focus: #d9541e;
+
+      /* Margin topography: olive contours, shown only in the page margins and the masthead band. */
+      --topo-line: #4b5320;
+      --topo-line-major: #2e3418;
+      --topo-minor-opacity: 0.1;
+      --topo-major-opacity: 0.16;
+      --topo-major-width: 1.2;
+      --grain: url("../assets/paper-grain.svg");
+
+      --font-sans: "IBM Plex Sans Condensed", "Plex Condensed Fallback", "Plex Condensed Fallback Wide", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --font-mono: "IBM Plex Mono", "Plex Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+
+      --text-label: 0.75rem;
+      --text-meta: 0.875rem;
+      --text-ui: 1rem;
+      --text-body: 1.125rem;
+      --text-h4: 1.25rem;
+      --text-h3: 1.5625rem;
+      --text-h2: 1.953rem;
+      --text-h1: clamp(2.44rem, 1.55rem + 3.6vw, 4.77rem);
+      --text-display: clamp(4rem, 2.2rem + 7.5vw, 7.45rem);
+
       --space-1: 0.25rem;
       --space-2: 0.5rem;
       --space-3: 0.75rem;
@@ -36,78 +111,288 @@
       --space-5: 1.5rem;
       --space-6: 2rem;
       --space-7: 3rem;
-      --text-xs: 0.8125rem;
-      --text-sm: 0.875rem;
-      --text-md: 1.125rem;
-      --text-lg: 1.375rem;
-      --text-2xl: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
-      --radius-sm: 0.375rem;
-      --radius-md: 0.5rem;
-      --radius-lg: 0.75rem;
-      --shadow-sm: 0 1px 2px rgba(35, 40, 30, 0.12), 0 1px 6px rgba(35, 40, 30, 0.08);
-      --shadow-md: 0 2px 4px rgba(35, 40, 30, 0.1), 0 8px 24px rgba(35, 40, 30, 0.14);
-      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --space-8: 4.5rem;
+      --space-9: 6rem;
+
+      --radius: 2px;
+      --page-max: 84rem;
+      --gutter: clamp(1rem, 3.2vw, 3rem);
+      --col-gap: clamp(1rem, 2vw, 2rem);
+      --rail: minmax(0, 3fr);
+      --body: minmax(0, 9fr);
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+      --speed: 160ms;
+      --shadow-layer: 0 1px 0 rgba(30, 33, 27, 0.08), 0 12px 32px rgba(30, 33, 27, 0.18);
     }
+
     *, *::before, *::after { box-sizing: border-box; }
     [hidden] { display: none !important; }
-    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-    body { margin: 0; min-height: 100vh; background: var(--color-paper); color: var(--color-text); font-family: var(--font-sans); font-size: 1rem; line-height: 1.5; overflow-wrap: anywhere; }
-    h1, h2, h3 { line-height: 1.25; }
-    h2 { font-size: var(--text-lg); margin: 0 0 var(--space-2); }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--color-paper); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--color-paper) var(--grain);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-size: var(--text-ui);
+      line-height: 1.5;
+      font-kerning: normal;
+      overflow-wrap: anywhere;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { margin: 0; font-weight: 600; line-height: 1.12; letter-spacing: -0.01em; text-wrap: balance; }
     p { margin: 0 0 var(--space-3); }
+    a { color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+    a:hover { color: var(--color-text); text-decoration-thickness: 2px; }
+    strong { font-weight: 600; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    /* Uppercase small label: the manual's running heads, captions and table heads. */
+    .label {
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.4;
+    }
+    .wrap { width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin-inline: auto; }
+
+    /* Classification strip: the first line of every page. */
+    .strip { position: relative; z-index: 2; background: var(--color-olive-dark); color: var(--color-khaki); }
+    .strip-inner {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 var(--space-5);
+      min-height: 2rem; padding-block: 0.375rem;
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .strip-inner p { margin: 0; }
+    .strip-ref { color: var(--color-paper); letter-spacing: 0.08em; }
+    .strip .sep { padding-inline: 0.5em; color: var(--color-signal-light); }
+    @media (max-width: 600px) { .strip-inner { letter-spacing: 0.08em; } .strip-ref { display: none; } }
+
+    /* Paper with margin topography: a fixed, clipped, inert contour layer masked to the page edges and the masthead band. */
+    .terrain, .topo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - var(--page-max) / 2 - 2rem), transparent calc(50% - var(--page-max) / 2 + 3rem), transparent calc(50% + var(--page-max) / 2 - 3rem), #000 calc(50% + var(--page-max) / 2 + 2rem)), linear-gradient(180deg, #000 0, #000 9rem, transparent 26rem);
+      mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - var(--page-max) / 2 - 2rem), transparent calc(50% - var(--page-max) / 2 + 3rem), transparent calc(50% + var(--page-max) / 2 - 3rem), #000 calc(50% + var(--page-max) / 2 + 2rem)), linear-gradient(180deg, #000 0, #000 9rem, transparent 26rem);
+    }
+    .terrain svg, .topo svg { display: block; width: 100%; height: 100%; }
+    .terrain .contours, .topo .contours { fill: none; stroke-linejoin: round; stroke-linecap: round; }
+    .terrain .contours path, .topo .contours path { stroke: var(--topo-line); stroke-opacity: var(--topo-minor-opacity); stroke-width: 1; vector-effect: non-scaling-stroke; }
+    .terrain .contours path.major, .topo .contours path.major { stroke: var(--topo-line-major); stroke-opacity: var(--topo-major-opacity); stroke-width: var(--topo-major-width); }
+
+    /* Plate I: the Bandwidth Brothers banner, toned olive/ink and tightly cropped, with a Mono caption line. */
+    .banner { position: relative; z-index: 1; width: 100%; background: #d8cfae; line-height: 0; overflow: hidden; isolation: isolate; }
+    .banner picture { display: block; }
+    .banner img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 16 / 5; object-fit: cover; object-position: 50% 56%;
+      filter: grayscale(1) contrast(1.45) brightness(0.95);
+      mix-blend-mode: multiply;
+    }
+    /* Duotone: the multiply above maps white to khaki paper; lighten lifts black to ink. */
+    .banner::before { content: ""; position: absolute; inset: 0; z-index: 1; background: #1e211b; mix-blend-mode: lighten; pointer-events: none; }
+    .plate-caption {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 var(--space-5);
+      margin-block: 0; padding-block: var(--space-2);
+      border-bottom: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted);
+    }
+    .plate-caption b { font-weight: 600; color: var(--color-text); }
+
+    /* Figure: the SOAC 52 - 2026 class photograph. */
+    .class-photo {
+      position: relative; z-index: 1;
+      width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin: var(--space-8) auto 0;
+      background: var(--color-surface);
+    }
+    .class-photo img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 62%;
+      border-radius: 0; filter: grayscale(1) sepia(0.22) contrast(1.06);
+    }
+    .class-photo figcaption {
+      display: flex; flex-wrap: wrap; gap: 0 var(--space-4);
+      margin: 0; padding: var(--space-2) 0; border-top: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text);
+    }
+    .class-photo figcaption::before { content: var(--fig-photo, "Fig. 3") " \2014  Bandwidth Brothers,"; color: var(--color-muted); font-weight: 500; }
+
+    /* Buttons: square, hairline-precise, 44px targets. */
+    button {
+      font: inherit;
+      min-height: 44px;
+      min-width: 44px;
+      padding: var(--space-2) var(--space-5);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius);
+      background: var(--color-accent);
+      color: var(--color-accent-text);
+      font-family: var(--font-sans);
+      font-size: var(--text-ui);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: background-color var(--speed) var(--ease), border-color var(--speed) var(--ease), color var(--speed) var(--ease);
+    }
+    button:hover:not(:disabled) { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+    button.secondary { background: transparent; color: var(--color-text); border-color: var(--color-rule); }
+    button.secondary:hover:not(:disabled) { background: var(--color-sunken); color: var(--color-text); border-color: var(--color-text); }
+    button.compact { padding: var(--space-1) var(--space-4); font-size: var(--text-meta); }
+    button:disabled { cursor: not-allowed; opacity: 0.5; }
     :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
-    .hero :focus-visible { outline-color: #ffffff; }
+    /* Headings that receive focus from script (tabindex=-1, never reached by Tab) are marked by an orange underline, not a box. */
+    [tabindex="-1"]:focus-visible { outline: 3px solid transparent; text-decoration: underline; text-decoration-color: var(--color-signal); text-decoration-thickness: 3px; text-underline-offset: 0.3em; }
+    .strip :focus-visible, .on-dark :focus-visible { outline-color: var(--color-signal-light); }
+    .arrow-r::after { content: "\00a0\2192"; font-family: var(--font-mono); }
+    .arrow-l::before { content: "\2190\00a0"; font-family: var(--font-mono); }
 
-    .topo { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; background: linear-gradient(160deg, var(--topo-tint-green) 0%, var(--color-paper) 48%, var(--topo-tint-sand) 100%); }
-    .topo svg { display: block; width: 100%; height: 100%; }
-    .topo .contours path { stroke: var(--topo-line); stroke-opacity: 0.22; stroke-width: 1; vector-effect: non-scaling-stroke; }
-    .topo .contours path.major { stroke: var(--topo-line-major); stroke-opacity: 0.4; stroke-width: 1.6; }
-    .banner, .hero, main, .class-photo { position: relative; z-index: 1; }
+    /* Section with a margin rail: number and heading in the rail, content to the right (stacked on narrow screens). */
+    .sect { display: grid; grid-template-columns: var(--rail) var(--body); column-gap: var(--col-gap); padding-block: var(--space-7); border-top: 1px solid var(--color-text); }
+    .sect-head { min-width: 0; }
+    .sect-num { display: block; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; color: var(--color-signal-text); }
+    .sect-head h2 { margin-top: var(--space-2); font-size: var(--text-h3); }
+    .sect-body { min-width: 0; }
+    @media (max-width: 900px) {
+      .sect { grid-template-columns: 1fr; row-gap: var(--space-4); padding-block: var(--space-6); }
+    }
 
-    .banner { width: 100%; background: var(--color-charcoal); line-height: 0; }
-    .banner img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 6; max-height: 32rem; object-fit: cover; object-position: center 55%; }
-    .hero { background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-olive-deep) 100%); color: var(--color-hero-text); border-bottom: 6px solid var(--color-brass); }
-    .hero-inner { max-width: 72rem; margin: 0 auto; padding: var(--space-6) var(--space-4); }
-    .eyebrow { margin: 0; font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.04em; color: var(--color-brass); }
-    h1 { margin: var(--space-1) 0 var(--space-2); font-size: var(--text-2xl); }
-    .hero-subtitle { margin: 0 0 var(--space-2); font-size: var(--text-md); font-weight: 700; color: var(--color-brass); }
-    .hero-lede { margin: 0; color: var(--color-hero-muted); max-width: 44rem; }
-    .hub-link { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; margin-top: var(--space-4); padding: var(--space-2) var(--space-3); border: 2px solid var(--color-brass); border-radius: var(--radius-sm); background: rgba(20, 24, 17, 0.55); color: var(--color-hero-text); font-size: var(--text-sm); font-weight: 600; text-decoration: none; }
-    .hub-link:hover { background: rgba(20, 24, 17, 0.85); border-color: var(--color-hero-text); text-decoration: underline; }
+    /* Tags: square-cornered labels with a text name, never colour alone. */
+    .tag {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      padding: 0.0625rem 0.5rem; border: 1px solid currentColor; border-radius: var(--radius);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.6;
+      white-space: nowrap;
+    }
 
-    main { max-width: 72rem; margin: 0 auto; padding: var(--space-5) var(--space-4) var(--space-6); }
-    .card { margin-top: var(--space-5); padding: clamp(var(--space-3), 3vw, var(--space-5)); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
-    .card:first-child { margin-top: 0; }
-    .section-intro { color: var(--color-muted); font-size: var(--text-sm); }
-
-    .org-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); gap: var(--space-3); margin: var(--space-4) 0 0; padding: 0; list-style: none; }
-    .org-card { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; padding: var(--space-3) var(--space-4); background: var(--color-surface); border: 1px solid var(--color-border-subtle); border-left: 6px solid var(--color-accent); border-radius: var(--radius-md); }
-    .org-card.is-lead { border-left-color: var(--color-brass); background: linear-gradient(180deg, #fff8e4 0%, var(--color-surface) 70%); box-shadow: var(--shadow-sm); }
-    .org-grid.org-leads { grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
-    .org-position { margin: 0; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-muted); }
-    .org-name { margin: 0; font-weight: 700; }
-    .is-lead .org-position { font-size: var(--text-sm); color: var(--color-accent); }
-    .is-lead .org-name { font-size: var(--text-md); }
-
+    /* Tables: hairline rules, Mono heads and tabular numerals. */
     .table-wrap { max-width: 100%; overflow-x: auto; }
-    table { width: 100%; border-collapse: collapse; background: var(--color-surface); font-size: clamp(var(--text-sm), 2.5vw, 1rem); }
-    caption { text-align: left; padding-bottom: var(--space-2); color: var(--color-muted); font-size: var(--text-sm); }
-    th, td { padding: var(--space-2) clamp(var(--space-1), 1.5vw, var(--space-3)); border-bottom: 1px solid var(--color-border-subtle); text-align: left; vertical-align: top; }
-    thead th { border-bottom: 2px solid var(--color-border); font-size: var(--text-sm); color: var(--color-muted); }
-    td.num { font-variant-numeric: tabular-nums; }
-    tbody th { font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; background: transparent; font-variant-numeric: tabular-nums; }
+    caption { padding-bottom: var(--space-3); text-align: left; color: var(--color-muted); font-size: var(--text-meta); }
+    th, td { padding: var(--space-3) var(--space-3) var(--space-3) 0; border-bottom: 1px solid var(--color-hairline); text-align: left; vertical-align: baseline; }
+    thead th { padding-block: var(--space-2); border-bottom: 1px solid var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    td.num, th.num, .num { font-family: var(--font-mono); font-size: 0.9375rem; text-align: right; }
 
-    .class-photo { width: calc(100% - 2rem); max-width: 56rem; margin: var(--space-2) auto var(--space-6); padding: clamp(var(--space-2), 2vw, var(--space-3)); background: var(--color-surface); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
-    .class-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-md); }
-    .class-photo figcaption { margin-top: var(--space-3); text-align: center; font-weight: 700; color: var(--color-muted); }
-    .note { color: var(--color-muted); font-size: var(--text-xs); }
+    kbd {
+      display: inline-block;
+      min-width: 1.7em;
+      padding: 0 0.35em;
+      border: 1px solid var(--color-rule);
+      border-bottom-width: 2px;
+      border-radius: var(--radius);
+      background: var(--color-paper);
+      color: var(--color-text);
+      font-family: var(--font-mono);
+      font-size: 0.8em;
+      font-weight: 500;
+      line-height: 1.55;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .site-footer { position: relative; z-index: 1; }
+    .colophon {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-5);
+      margin-top: var(--space-8); padding-block: var(--space-4) var(--space-7); border-top: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted);
+    }
+
+    /* =====================================================================
+       CLASS PAGE. Masthead, the class portrait as a full-bleed figure, the
+       organization as a hierarchy diagram (Class Leader, Ex-O, staff sections
+       S1-S7 with their assistants, special staff) and the roster as a
+       directory table. Tokens and components: src/shared/base.css above.
+       ===================================================================== */
+    :root { --fig-photo: "Fig. 2"; }
+    .hero, main, .class-photo { position: relative; z-index: 1; }
+    .banner img { aspect-ratio: 16 / 3.4; max-height: 18rem; }
+    .hero { color: var(--color-text); }
+    .hero-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); padding-block: var(--space-2); border-bottom: 1px solid var(--color-text); }
+    .hero-bar .fig-line { margin: 0; color: var(--color-muted); }
+    .hub-link {
+      display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px;
+      color: var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+    }
+    .hub-link span { font-size: 1rem; letter-spacing: 0; color: var(--color-signal-text); }
+    .hub-link:hover { text-decoration: underline; text-underline-offset: 0.3em; }
+    .hero-inner { display: grid; grid-template-columns: var(--rail) minmax(0, 6fr) minmax(0, 3fr); column-gap: var(--col-gap); align-items: end; padding-block: var(--space-7) var(--space-6); }
+    .hero-rail { align-self: start; padding-top: 0.5rem; }
+    .hero-rail p { margin: 0 0 var(--space-1); }
+    .rail-ref { color: var(--color-signal-text); }
+    .eyebrow { margin: 0 0 var(--space-3); color: var(--color-muted); }
+    h1 { margin: 0; font-size: var(--text-h1); line-height: 0.95; letter-spacing: -0.025em; }
+    .hero-subtitle { margin: var(--space-2) 0 var(--space-4); font-family: var(--font-mono); font-size: clamp(1.125rem, 0.9rem + 1vw, 1.75rem); font-weight: 500; letter-spacing: 0.04em; color: var(--color-signal-text); }
+    .hero-lede { max-width: 40rem; margin: 0; font-size: var(--text-body); line-height: 1.55; }
+    .hero-meta { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3) var(--space-5); margin: 0; padding-top: var(--space-3); border-top: 1px solid var(--color-text); }
+    .hero-meta dt { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    .hero-meta dd { margin: var(--space-1) 0 0; font-family: var(--font-mono); font-size: 1.5rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+    /* The portrait: full bleed, full colour, captioned like a plate. */
+    .class-photo { width: 100%; max-width: none; margin: 0; padding: 0; background: var(--color-olive-dark); }
+    .class-photo img { aspect-ratio: 21 / 9; max-height: 46rem; object-position: 50% 60%; filter: none; }
+    .class-photo figcaption { width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin: 0 auto; border-top: 0; color: var(--color-paper); }
+    .class-photo figcaption::before { color: var(--color-khaki); }
+
+    h2 { font-size: var(--text-h3); }
+    .section-intro { max-width: 40rem; color: var(--color-muted); }
+
+    /* Organization: a fluid grid on small screens, a hierarchy diagram from 1024px. */
+    .org-grid.org-leads { display: grid; grid-template-columns: 1fr; justify-items: center; gap: var(--space-6); margin: var(--space-6) 0 0; padding: 0; list-style: none; }
+    .org-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); gap: var(--space-3); margin: var(--space-4) 0 0; padding: 0; list-style: none; }
+    .org-card { position: relative; display: flex; flex-direction: column; gap: 0.125rem; min-width: 0; padding: var(--space-3) var(--space-3) var(--space-3) var(--space-4); background: var(--color-surface); border: 1px solid var(--color-text); border-left: 4px solid var(--color-accent); }
+    .org-card.is-asst { border-color: var(--color-rule); border-left-color: var(--color-rule); }
+    .org-card.is-lead { width: min(100%, 24rem); padding: var(--space-4) var(--space-5); border-left-color: var(--color-signal); }
+    .org-leads .org-card.is-lead + .org-card.is-lead::before { content: ""; position: absolute; left: 50%; top: calc(-1 * var(--space-6) - 1px); height: var(--space-6); border-left: 1px solid var(--color-text); }
+    .org-position { margin: 0; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    .org-name { margin: 0; font-weight: 600; line-height: 1.3; }
+    .is-lead .org-position { color: var(--color-signal-text); }
+    .is-lead .org-name { font-size: var(--text-h4); }
+    @media (min-width: 1024px) {
+      .org-grid.org-leads { position: relative; padding-bottom: var(--space-6); }
+      .org-leads::after { content: ""; position: absolute; left: 50%; bottom: 0; height: var(--space-6); border-left: 1px solid var(--color-text); }
+      #org-grid { grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--space-3); row-gap: var(--space-3); margin-top: 0; padding-top: var(--space-6); position: relative; }
+      #org-grid::before { content: ""; position: absolute; top: 0; left: 8.333%; right: 8.333%; border-top: 1px solid var(--color-text); }
+      .org-card[style] { grid-column: var(--col) / span var(--span); grid-row: var(--row); }
+      .org-card.is-principal::before { content: ""; position: absolute; left: 50%; bottom: calc(100% + 1px); height: var(--space-6); border-left: 1px solid var(--color-text); }
+      .org-card.is-asst::before { content: ""; position: absolute; left: 50%; bottom: calc(100% + 1px); height: var(--space-3); border-left: 1px dashed var(--color-rule); }
+      .org-card.is-special.is-principal { margin-top: var(--space-7); }
+      .org-card.is-special.is-principal::before { height: calc(var(--space-7) + var(--space-3) + 2px); border-left-style: dashed; border-left-color: var(--color-rule); }
+    }
+
+    .roster-table th[scope="row"] { font-weight: 600; font-size: var(--text-ui); }
+    .roster-table td { font-family: var(--font-mono); font-size: 0.875rem; }
+    .roster-table td.num { width: 3.5rem; text-align: left; color: var(--color-muted); }
+    .note { max-width: 46rem; margin-top: var(--space-4); color: var(--color-muted); font-size: var(--text-meta); }
+
+    @media (max-width: 760px) {
+      .hero-inner { grid-template-columns: 1fr; row-gap: var(--space-4); padding-block: var(--space-5); }
+      .hero-rail { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); }
+      .banner img { aspect-ratio: 16 / 7; }
+      .class-photo img { aspect-ratio: 4 / 3; }
+      .hero-bar .fig-line { display: none; }
+      .org-card.is-asst { margin-left: var(--space-5); }
+      .roster-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+      .roster-table tr { display: grid; grid-template-columns: 2rem 2.75rem minmax(0, 1fr); align-items: baseline; padding: var(--space-3) 0; border-bottom: 1px solid var(--color-hairline); }
+      .roster-table td, .roster-table th { padding: 0; border: 0; white-space: nowrap; }
+      .roster-table th[scope="row"] { white-space: normal; }
+      .roster-table td:last-child { grid-column: 3; margin-top: var(--space-1); color: var(--color-muted); }
+      .org-grid { gap: var(--space-2); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
   </style>
   <style media="print">
-    body { background: #ffffff; }
+    html, body { background: #ffffff; }
     .topo, .banner, .hub-link { display: none !important; }
-    .hero { background: #ffffff; color: #000000; border-bottom: 2px solid #000000; }
-    .eyebrow, .hero-lede { color: #000000; }
-    .card, .class-photo { box-shadow: none; break-inside: avoid; }
+    .strip, .hero-bar, .class-photo { display: none !important; }
     .org-card { break-inside: avoid; }
     tr { break-inside: avoid; }
   </style>
@@ -116,6 +401,12 @@
   <div class="topo" aria-hidden="true">
     <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><g class="contours" fill="none" stroke-linejoin="round" stroke-linecap="round"><path d="M233 0l12 9 9 5 11 8 5 2 8 6 3 1 9 6 12 6 4 1 9 4 11 2 10-1 9-6 3-5 3-3 6-13 5-16 1-6"/><path d="M204 0l11 8 23 20 5 3 20 19 8 6 25 25 6 8 8 8 18 25 9 16 5 7 9 18 2 2 6 11 9 14 6 8 12 12 7 6 5 3 12 6 16 4 12-1 10-5 3-5 2-8-1-12-3-10-2-3-7-16-6-10-2-5-8-12-2-5-5-7-9-18-2-6-4-8-2-8-2-4-3-12 0-4-3-15 0-9-1-4 0-42"/><path d="M181 0l0 1 5 3 12 10 24 23 6 4 14 14 12 15 8 8 3 5 8 9 15 22 2 5 5 7 9 18 2 2 14 29 6 10 2 5 3 4 4 9 18 25 14 14 19 14 18 9 6 2 18 5 14 2 20 0 20-5 9-4 8-8 5-8 2-7 0-12-2-11-3-9-6-13-8-15-5-7-2-5-8-11-8-14-3-3-5-8-2-5-5-7-9-18-2-2-3-8-6-12-5-14 0-2-1-1 0-3-3-8 0-4-3-12 0-4-2-9 0-7-1-4 0-12-1-2"/><path d="M160 0l17 14 8 8 2 1 34 34 28 35 12 18 2 5 2 2 10 17 8 16 1 4 13 26 2 6 10 20 3 4 7 14 15 22 20 20 8 6 13 8 19 9 8 3 28 7 16 2 32 0 8-1 16-3 19-8 6-4 10-10 3-5 4-12 0-12-5-20-2-6-5-10-20-33-22-31-18-28-2-5-5-7-12-24-1-4-4-8-1-5-2-3-5-20-1-1 0-3-3-12-3-26"/><path d="M140 0l8 7 6 4 12 11 36 36 10 12 3 5 4 4 5 8 6 7 10 17 5 7 2 5 2 2 4 9 4 6 2 6 5 9 0 2 9 18 2 7 5 10 2 6 17 36 15 24 13 15 6 6 11 9 9 6 13 7 16 7 11 4 3 0 26 7 24 3 8 0 4 1 20 0 4-1 12 0 20-3 20-6 20-10 7-5 8-10 5-10 2-6 1-10-1-4 0-5-3-11-2-4-2-7-8-15-11-18-23-33-8-10-7-11-5-6-1-3-3-3-6-9-1-3-2-2-5-9-2-2-2-5-3-4-11-22-7-20-3-6-5-19-1-9-2-8-1-14M966 0l1 1 3 0 20 5 8 0 4 1 16-1 8-2 9-4" class="major"/><path d="M122 0l19 17 2 1 8 8 8 6 9 9 6 8 19 20 3 5 12 15 11 17 5 8 6 12 2 2 6 14 2 2 8 19 0 2 3 5 4 12 4 8 10 28 10 23 2 3 2 6 5 8 2 5 15 21 14 14 6 5 3 1 6 5 5 2 2 2 14 7 2 0 5 3 8 2 6 3 3 0 32 8 4 0 3 1 24 3 8 0 4 1 36 0 4-1 20-1 8-2 9-1 19-5 6-2 10-5 4-1 6-3 6-5 3-1 14-15 5-9 3-16-1-12-3-12-3-5 0-2-2-5-7-13-15-23-8-10-6-9-7-8-17-24-7-8-12-18-3-3-4-8-6-8-1-3-6-9-11-22-5-14-2-3-1-5-1-1 0-3-2-4-4-16-1-9-2-7-1-10M918 0l8 5 16 8 32 14 12 3 8 3 20 4 24 0 18-5 2-2 7-4 9-9 4-7 2-2 3-8"/><path d="M103 0l7 6 5 3 14 13 2 1 34 34 19 23 1 3 8 10 13 20 4 9 3 4 8 16 11 26 3 10 2 4 2 8 5 12 3 12 2 4 6 20 6 16 3 5 0 2 2 5 6 12 11 17 4 5 13 13 9 8 17 10 4 1 10 5 14 4 4 2 3 0 1 1 20 5 4 0 12 3 5 0 3 1 24 3 8 0 4 1 20 0 4 1 36-1 4-1 8 0 23-3 6-2 3 0 20-5 20-7 21-11 3-3 6-4 9-9 7-11 0-2 4-13 0-12-4-16-1-1-2-7-6-12-5-7-1-3-3-3-1-3-11-15-7-8-9-13-10-11-7-10-6-6-9-13-4-4-6-8-16-23-19-33-12-28 0-3-1-1-8-31 0-6-1-3 0-4-1-2M887 0l1 0 6 5 3 1 3 3 3 1 11 8 9 5 2 2 5 2 4 3 16 8 2 2 16 8 19 8 2 0 20 8 3 0 22 6 12 1 3 1 17 0 16-4 9-5 7-6 1-3 6-9 3-11 2-4 3-16 1-14M0 454l9-11 7-14 0-2 2-5 1-8 0-16-3-11 0-3-7-16-9-14"/><path d="M84 0l11 8 18 16 8 6 25 25 22 27 19 28 21 42 10 30 2 4 3 12 2 4 7 27 0 3 8 28 0 2 1 1 0 3 2 4 4 14 2 3 7 17 2 2 5 9 8 9 10 9 13 9 12 6 4 1 5 3 2 0 5 2 12 3 4 2 8 1 16 4 4 0 8 2 12 1 3 1 5 0 12 2 8 0 4 1 8 0 4 1 16 0 4 1 44 0 4-1 12 0 12-2 8 0 16-3 4 0 24-6 3 0 26-9 2 0 28-14 11-9 10-10 3-4 5-9 3-9 0-18-3-13-8-17-4-7-2-2-1-3-4-6-4-4-3-5-3-3-1-3-9-11-22-25-4-6-15-16-7-10-5-5-6-9-16-20-3-6-3-3-1-3-8-12-13-26-4-10-5-16-5-20 0-4-2-7 0-7M861 0l9 7 11 7 3 3 11 7 3 3 4 2 3 3 13 8 11 8 14 8 7 5 5 2 7 5 42 21 20 7 6 3 8 2 3 2 5 1 1 1 3 0 4 2 50 13 3 0 19 5 4 0 16 4 8 0 3-1 1-2 0-4-4-16 0-4-6-28-5-40 0-8-2-12 0-8-1-6M1200 140l-10-2-4 0-12-3-7 0-2 1 0 6 2 8 0 3 1 1 3 12 2 4 3 9 0 2 8 22 0 2 7 17 0 2 2 3 7 20M0 490l2-2 5-2 8-6 19-18 6-8 9-16 2-8 2-4 1-8 0-16-4-16-4-9-13-21-15-18-18-18"/><path d="M64 0l11 7 6 6 13 9 37 36 13 15 7 10 4 4 13 19 2 5 4 7 2 2 3 6 1 4 2 4 2 2 5 14 2 3 1 5 1 1 2 7 2 4 3 12 1 1 0 3 8 32 0 4 4 20 1 12 2 8 2 20 2 8 0 4 4 15 0 3 2 6 8 17 6 8 10 9 11 7 13 6 7 2 1 1 31 8 9 1 8 2 32 4 8 0 4 1 8 0 16 2 40 1 4 1 40 0 4-1 16 0 4-1 8 0 4-1 17-1 3-1 12-1 8-2 4 0 12-3 3 0 6-2 3 0 8-3 28-8 26-11 6-4 10-5 12-9 11-12 1-3 2-2 2-4 3-8 0-4 1-3 0-13-3-12-3-8-6-12-6-8-4-7-7-8-6-9-5-5 0-1-21-22-4-6-24-25-1-2-8-8-6-8-10-11-9-13-7-8-4-7-8-11-2-5-7-11-9-18 0-2-4-9-7-24 0-4-3-16 0-6M837 0l8 7 3 1 14 12 12 8 14 12 3 1 3 3 5 3 4 4 8 5 3 3 9 6 10 8 9 5 11 8 3 1 3 3 3 1 12 8 52 26 4 1 16 8 5 2 2 0 9 5 6 2 22 11 4 3 5 2 2 2 20 13 6 5 14 14 10 12 1 3 8 10 14 23 9 18 2 2 15 31M1164 0l4 17 0 3 4 14 4 10 0 2 1 1 7 17 2 2 5 9 9 12M0 517l15-7 24-14 15-13 13-13 5-6 12-18 5-10 6-22 0-12-4-16-11-18-14-17-9-9-15-12-8-8-5-3-12-10-6-6-5-3-6-5"/><path d="M44 0l27 19 6 6 10 7 27 26 24 29 4 7 8 11 2 5 7 11 9 18 0 2 8 19 0 3 2 7 2 4 3 12 0 4 3 12 2 16 0 8 1 4 0 32-1 4-1 16-2 8-1 9-7 22-9 16-8 7-6 3-4 1-8 0-8-1-16-5-8-4-6-2-26-13-12-8-5-2-2-2-9-5-2-2-3-1-19-12-3-3-14-8-3-3-6-3M540 0l1 2 0 8 2 15 2 6 0 3 2 4 5 18 16 32 2 2 5 9 18 24 16 18 1 2 13 13 4 6 56 56 3 4 12 12 20 28 6 12 4 14 1 6 0 12-1 6-3 6-1 4-9 12-13 12-9 5-7 5-16 8-4 1-5 3-2 0-9 4-24 7-4 2-32 8-4 0-11 3-9 1-8 2-32 4-8 0-16 2-16 0-4 1-96 0-4-1-32 0-4-1-24 0-4-1-36-1-4-1-8 0-4-1-8 0-4-1-8 0-4-1-8 0-12-2-12 0-4-1-17 1-7 2-7 3-9 6-6 6-46 56-17 17-8 6-18 16-12 9-9 5-2 2-32 16-16 5M813 0l8 7 3 1 11 9 28 23 18 16 10 7 6 6 13 9 16 14 20 14 9 5 2 2 20 13 9 4 4 3 32 16 6 2 47 24 2 2 11 6 12 8 9 8 5 3 24 24 10 12 8 12 3 3 1 3 2 2 5 9 2 2 10 17 21 40M1187 0l1 6 2 4 5 16 5 11" class="major"/><path d="M21 0l2 2 3 1 20 13 8 6 4 4 13 9 10 10 3 2 25 26 10 12 1 3 8 10 15 27 9 19 2 6 4 16 2 5 3 15 2 16 0 24-3 16 0 4-2 5 0 2-8 19-5 6-11 10-10 5-8 2-12 1-16-2-8-2-4-2-16-5-10-4-34-17-12-8-6-3M561 0l0 10 2 16 5 20 1 1 5 15 8 16 2 2 1 3 7 12 3 3 12 17 6 6 11 14 41 41 8 6 38 36 8 6 6 6 4 6 16 17 7 11 2 2 7 14 0 2 2 4 2 8 1 12-3 16-4 8-10 13-23 17-8 3-9 5-2 0-5 3-24 9-12 3-4 2-20 5-12 4-8 2-4 0-28 7-4 0-32 6-32 4-8 0-16 2-12 0-4 1-20 0-4 1-36 0-4 1-40 0-4 1-24 0-4 1-16 0-4 1-12 0-4 1-20 1-3 1-6 0-3 1-20 2-12 3-4 0-8 2-1 1-7 1-4 2-14 4-26 13-12 8-3 1-8 7-24 17-20 17-20 14-4 4-9 5-11 8-5 2-12 8-8 3-9 5-2 0-13 6-22 6M789 0l0 1 5 3 16 14 10 7 13 12 14 11 34 32 14 11 10 10 23 19 3 1 3 3 12 8 3 3 3 1 2 2 9 5 2 2 5 2 4 3 9 4 10 6 16 7 19 10 6 2 38 20 27 18 12 10 22 22 19 25 8 13 8 11 2 5 4 7 2 2 24 47"/><path d="M0 233l15 8 38 15 3 0 14 4 8 1 16 0 12-3 5-2 10-7 6-6 9-18 4-15 1-8 0-16-2-16-2-8 0-3-1-1-3-12-2-4-2-7-2-3-4-10-3-4-7-14-8-12-8-9-1-3-8-8 0-1-30-29-5-3-9-8-11-7-3-3-30-18M585 0l-1 18 2 16 5 18 2 3 2 7 8 16 14 21 3 3 6 9 8 8 6 8 17 17 8 6 16 15 23 19 9 6 20 17 5 3 4 4 5 3 12 10 22 22 5 6 10 15 7 16 2 8 1 8 0 12-5 19-10 14-6 6-18 13-17 8-16 6-24 7-4 2-10 3-3 0-29 8-3 0-27 7-3 0-6 2-3 0-20 5-4 0-7 2-9 1-8 2-4 0-8 2-48 6-8 0-12 2-12 0-4 1-12 0-4 1-12 0-4 1-16 0-4 1-32 1-4 1-32 2-12 2-8 0-9 2-11 1-8 2-4 0-12 3-4 0-32 8-4 2-12 3-16 6-33 16-31 19-24 17-16 10-10 8-3 1-6 5-5 2-16 11-23 12-13 6-4 1-5 3-11 3-4 2-7 1-1 1-14 3M761 0l17 12 23 20 8 6 28 27 2 1 58 59 3 2 8 8 10 7 4 4 8 6 20 13 5 2 2 2 18 9 13 5 3 2 11 4 8 4 4 1 14 7 13 5 18 9 2 2 11 6 14 9 16 13 27 27 1 2 4 4 3 5 3 3 11 16 17 28 2 5 6 10 24 49"/><path d="M618 0l-2 3 0 2-2 5-2 12 0 12 2 8 0 4 2 5 0 2 8 19 2 2 5 9 2 2 7 11 14 17 17 17 8 6 11 10 20 14 10 8 3 1 3 3 8 4 11 8 12 7 3 1 2 2 9 5 2 2 5 2 7 5 14 8 3 3 9 6 15 14 8 11 4 7 7 17 4 20 0 20-1 8-3 12-4 10-8 12-13 13-9 6-19 9-18 5-4 2-3 0-1 1-24 6-4 0-24 6-4 0-15 4-9 1-20 5-4 0-6 2-3 0-11 3-4 0-16 4-4 0-2 1-3 0-7 2-4 0-12 3-4 0-8 2-16 2-20 4-20 2-3 1-17 1-12 2-8 0-24 3-12 0-4 1-8 0-3 1-9 0-12 2-8 0-40 5-3 1-4 0-2 1-11 1-16 4-4 0-8 2-1 1-3 0-16 4-4 2-3 0-1 1-2 0-10 4-17 5-3 2-14 5-42 21-17 10-2 2-11 6-25 17-39 25-11 6-2 2-5 2-4 3-22 11-17 6-3 2-2 0-4 2-18 5-3 0-7 2-4 0-2 1M726 0l25 16 3 3 4 2 33 27 25 25 6 8 15 16 11 15 12 14 8 12 10 12 20 20 7 6 15 9 26 12 9 3 2 0 9 4 28 8 10 4 2 0 1 1 18 6 3 2 16 6 18 9 32 22 26 26 1 3 12 14 11 16 7 12 1 3 2 2 4 7 11 22 7 17 8 16 7 17 2 3 6 16 1 1M0 212l10 5 8 3 32 9 8 1 12 0 8-1 4-1 13-6 10-10 4-6 1-4 2-3 0-3 3-10 0-20-3-18-3-10-3-8-9-18-9-15-19-24-14-14-23-19-11-7-2-2-9-5-2-2-8-4M1172 800l-9-14-2-5-4-4-4-6-11-11-8-3-8 0-5 3-5 6-9 16-7 18"/><path d="M672 16l-6 2-10 6-5 10-1 4 0 12 3 12 5 12 3 4 1 3 18 22 6 6 6 4 5 5 9 6 3 3 9 6 5 2 2 2 5 2 4 3 6 3 22 8 16 4 16 0 7-2 3-2 5-5 2-10 0-4-3-11 0-3-11-22-18-24-21-21-6-5-9-6-3-3-9-6-3-1-2-2-16-8-19-6-5 0-4-1-10 1M0 190l2 0 8 3 20 5 16 1 12-2 12-5 11-12 4-14 1-8-1-12-5-19-7-15-11-18-12-15-14-14-6-4-5-5-1 0-9-8-14-9-1 0M1200 510l-9-24-11-36-2-4-6-20-2-4-9-27-3-5-1-4-5-10-7-17-8-15-11-18-9-13-6-6-1-2-23-23-9-6-3-3-9-6-5-2-2-2-18-9-7-2-12-5-24-6-4 0-2-1-14-2-8 0-4-1-16 0-19 3-12 5-3 2-10 10-7 17-3 12 0 4-3 12 0 4-2 8 0 4-3 11 0 3-4 14-4 9 0 2-6 12-9 11-8 7-6 4-3 1-2 2-4 1-10 5-3 0-27 7-4 0-8 2-36 4-8 2-28 3-20 4-17 2-7 2-4 0-12 3-4 0-28 6-4 0-12 3-4 0-7 2-9 1-12 3-4 0-32 6-12 1-8 2-64 8-8 0-16 2-3 1-6 0-3 1-28 3-8 2-4 0-7 2-9 1-16 4-4 0-10 3-3 0-7 2-4 2-16 4-1 1-11 3-9 4-2 0-9 4-4 1-23 10-22 11-15 9-12 6-7 5-5 2-8 5-3 3-14 8-35 24-5 2-18 12-5 2-12 8-18 9-16 6-3 2-22 7-3 0-6 2-4 0-8 2-6 0M1200 674l0-2-8-19 0-2-7-14-5-7-4-5-10-9-8-5-12-6-12-3-8-1-12 0-8 2-4 0-10 4-12 8-8 9-9 18-7 28-2 16-1 20-1 4 0 12-1 4 0 12-1 4-1 20-1 3-1 13-2 8 0 4-2 10"/><path d="M0 161l18 2 8-1 7-2 9-7 4-7 2-8-1-12-4-12-9-16-2-2-1-3-5-6-14-14-12-9M1007 800l1-6 1-1 0-3 2-8 0-4 2-8 1-16 1-4 0-8 1-4 0-28 1-4 0-28-1-4 0-36 1-4 0-20 3-24 3-12 3-8 4-8 7-8 11-10 17-7 1-1 2 0 10-4 16-4 1-1 11-3 20-10 12-12 7-16 3-16 0-16-1-4-1-16-2-8 0-4-5-20-3-7 0-3-15-35-2-2-2-5-12-18-19-22-12-10-7-5-9-5-2-2-10-5-16-5-4-2-4 0-12-3-20 0-16 3-13 6-6 5-3 1-2 2-6 8-9 16-3 8-3 12-2 4-10 40-7 16-3 4-1 3-7 8-5 3-3 3-13 6-10 3-22 3-96 3-4 1-20 1-12 2-8 0-16 2-8 2-11 1-9 2-4 0-12 3-16 2-7 2-9 1-16 4-4 0-8 2-3 0-6 2-3 0-8 2-4 0-12 3-4 0-8 2-4 0-8 2-4 0-32 6-20 2-8 2-12 1-8 2-12 1-8 2-16 2-12 3-3 0-6 2-3 0-27 7-3 0-14 4-16 6-8 2-24 9-5 3-2 0-5 3-11 4-18 9-10 6-9 4-4 3-5 2-2 2-26 15-82 56-42 24-2 0-5 3-24 9-24 5-14 1" class="major"/><path d="M1008 312l6-1 17 1 15 5 4 3 5 2 9 6 11 10 13 16 2 5 6 9 4 10 6 20 1 8 0 20-3 12-7 13-5 6-11 8-15 6-3 0-6 2-7 1-8 0-4 1-16 0-4-1-8 0-20-4-7-3-8-7-4-6-2-7-1-1-3-16-1-8 0-16-1-4 1-8 0-16 3-19 1-1 3-12 6-12 5-7 6-6 6-4 4-2 10-3M976 800l3-10 2-4 2-8 2-16 2-8 0-8 2-16 0-52-1-4 0-12-1-4-1-20-2-12 0-8-4-32-2-8-2-18-1-2-1-12-5-24-1-9-4-15-4-10-5-6-5-4-16-7-24-6-4 0-2-1-3 0-15-4-4 0-12-3-4 0-2-1-10-1-20-4-16-2-8 0-12-2-12 0-4-1-56 0-4 1-20 1-40 5-8 2-16 2-12 3-4 0-12 3-3 0-6 2-3 0-16 4-4 0-11 3-3 0-6 2-4 0-16 4-4 0-16 4-4 0-16 4-4 0-28 6-4 0-12 3-9 1-7 2-4 0-20 5-3 0-6 2-3 0-40 11-4 2-20 6-9 4-2 0-5 3-14 5-22 11-8 3-2 2-26 13-12 7-53 35-15 12-17 12-4 4-8 5-9 8-9 6-8 7-18 12-6 5-5 2-12 8-18 9-10 4-11 3-13 2-18 0"/><path d="M948 800l2-6 4-8 8-32 3-24 0-12 1-4-1-40-1-4 0-8-3-23-2-9 0-4-4-16-1-8-9-30-2-3-2-7-5-11-8-15-11-15-14-14-5-3-10-8-26-13-4-1-5-3-15-4-4-2-3 0-1-1-20-5-4 0-12-3-5 0-11-2-20-1-4-1-36 0-4 1-12 0-4 1-16 1-3 1-6 0-15 3-4 0-8 2-4 0-32 7-4 0-15 4-3 0-26 7-3 0-35 9-3 0-30 8-3 0-14 4-4 0-14 4-3 0-27 7-4 2-28 7-1 1-15 4-3 2-17 5-9 4-2 0-5 3-14 5-50 25-24 15-5 2-11 8-7 4-3 3-11 7-3 3-9 6-12 10-16 15-8 6-25 25-6 8-8 8-17 24-6 13-3 12 0 8 3 12 11 16 12 12 8 6"/><path d="M919 800l4-6 8-16 5-14 0-2 1-1 0-3 4-16 3-24 0-36-1-4 0-12-2-16-3-12 0-4-2-6 0-3-5-19-2-4 0-3-2-3-3-10-8-16-1-4-14-21-13-16-17-14-13-9-9-4-12-7-7-3-14-4-6-3-36-8-16-2-8 0-4-1-44 0-4 1-8 0-32 4-24 5-4 0-15 4-3 0-58 15-4 2-44 12-7 3-3 0-10 4-32 9-7 3-3 0-6 3-8 2-4 2-3 0-3 2-34 12-3 2-5 1-8 4-4 1-16 8-4 1-2 2-6 2-10 5-6 4-20 10-12 8-5 2-19 14-3 1-8 7-13 9-29 28-17 20-14 25-5 19 0 16 2 8 5 12 9 13 6 7 17 14 1 0"/><path d="M889 800l1-2 6-6 6-9 11-22 7-25 0-3 2-7 1-16 1-4 0-24-1-4 0-8-3-24-7-28-2-4-2-8-2-4-2-7-5-9-1-4-10-17-15-19-12-12-15-11-17-11-8-3-9-5-2 0-9-4-13-4-35-7-8-1-12 0-4-1-28 0-4 1-9 0-3 1-16 1-8 2-16 2-36 9-3 0-1 1-20 5-7 3-3 0-10 4-14 4-6 3-8 2-3 2-5 1-1 1-18 6-3 2-10 4-7 2-5 3-4 1-10 5-14 5-5 3-2 0-9 5-26 11-2 2-8 3-12 7-4 1-15 9-5 2-4 3-9 4-2 2-9 5-2 2-3 1-24 16-3 3-12 8-12 10-18 18-1 3-8 9-4 6-6 12-4 12-1 16 3 12 5 10 5 6 13 12 13 7 15 6 3 0 1 1 16 3 12 0 8 1 4-1 12 0 16-2 3-1 6 0 7-2 4 0 8-2 12-1 16-3 24-1 4-1 12 0 4 1 12 0 3 1 6 0 3 1 12 1 12 3 4 0 42 11 3 0 7 3 12 3 5 2 2 0"/><path d="M852 800l12-8 16-17 7-12 1-3 2-2 1-4 5-10 0-3 6-23 2-16 0-28-3-24-4-16 0-3-1-1 0-2-4-10-2-8-3-5-9-20-12-18-5-6-18-18-21-15-5-2-12-7-17-6-3-2-3 0-4-2-12-3-4 0-7-2-3 0-2-1-16-1-4-1-36 0-4 1-16 1-20 4-4 0-19 5-3 0-25 8-3 0-14 6-8 2-1 1-34 14-32 16-9 6-8 4-7 5-5 2-13 9-3 3-6 3-9 8-3 1-17 14-8 8-2 1-6 7-4 3-19 23-8 16-1 6 0 11 3 6 10 10 6 3 4 1 5 3 2 0 9 4 13 4 2 0 23 8 2 0 1 1 3 0 4 2 8 2 3 2 5 1 1 1 18 6 1 1 8 2 8 4 20 7 5 3 2 0 29 12 10 3 3 2 18 6 1 1 5 1 3 2 8 3 32 10" class="major"/><path d="M789 800l17-3 4-2 9-3 2 0 14-7 12-9 9-9 9-11 5-10 2-2 4-10 3-12 2-4 0-4 2-8 1-8 0-32-3-19-2-6-1-7-2-4-4-14-13-26-12-17-14-15-15-11-3-3-12-7-21-10-23-7-33-5-32 0-4 1-16 1-8 2-9 1-31 8-1 1-11 3-9 4-2 0-5 3-14 5-2 2-8 3-15 9-5 2-33 24-17 17-9 12-8 15-4 14-1 8 1 8 3 12 13 20 14 14 11 9 22 15 16 9 7 5 9 4 4 3 16 8 6 2 14 7 6 2 10 5 7 2 3 2 10 3 4 2 37 11 3 0 20 5 16 2"/><path d="M664 535l-8 1-14 4-4 2-16 5-25 12-2 2-14 8-3 3-9 6-18 18-4 5-8 13-2 6-2 3 0 3-2 4-1 8 0 12 3 12 3 8 4 8 2 2 1 3 3 3 3 5 22 22 5 3 12 10 17 11 12 6 2 2 9 4 6 4 16 6 10 5 8 3 2 0 1 1 5 1 4 2 18 5 3 0 11 3 4 0 8 2 16 1 4 1 20 0 16-2 16-4 19-8 6-4 11-9 6-6 11-16 7-16 5-20 1-8 0-24-2-16-7-25-2-3-4-11-8-14-2-2-7-11-18-18-7-6-14-9-16-8-7-2-4-2-13-4-3 0-12-3-16-2-28 0-24 3-6 2"/><path d="M672 550l-22 6-8 3-24 12-18 13-16 17-7 12-4 9-2 8-1 12 1 8 4 15 10 18 3 3 3 5 22 22 5 3 3 3 3 1 6 5 3 1 3 3 10 5 2 2 6 3 4 1 9 5 23 8 27 7 13 2 8 0 4 1 20-1 14-2 20-7 6-3 13-9 11-12 1-3 6-9 7-18 3-21-1-20-2-13-2-7-5-12 0-2-7-14-2-2-1-3-3-3-6-9-15-15-2-1-4-4-18-11-21-9-3 0-1-1-12-3-16-2-32 0-8 2-10 1"/><path d="M688 567l-14 3-4 2-14 4-2 2-7 3-15 10-16 17-8 16 0 3-2 7 0 12 1 8 8 19 12 17 6 6 16 13 17 11 8 3 9 5 2 0 9 4 16 4 1 1 23 3 12 0 16-2 16-5 4-2 14-10 9-10 6-9 5-14 3-18-1-16-1-7-1-1-3-12-6-13-13-19-10-10-3-1-10-8-15-8-10-4-11-3-13-2-28 0-6 1"/><path d="M696 591l-1 1-3 0-10 3-13 6-3 3-5 3-8 8-2 3-4 8-3 12 0 8 2 8 0 3 4 9 9 13 12 11 7 5 20 10 8 3 8 2 16 2 8 0 16-3 9-4 12-9 5-6 5-9 4-15-1-16-3-11-2-3-2-6-6-9-11-12-15-10-18-7-5 0-12-2-18 1" class="major"/></g></svg>
   </div>
+  <div class="strip">
+    <div class="wrap strip-inner">
+      <p>For training purposes<span class="sep" aria-hidden="true">·</span>SOAC 52 - 2026<span class="sep" aria-hidden="true">·</span>Bandwidth Brothers</p>
+      <p class="strip-ref">Class organization</p>
+    </div>
+  </div>
   <div class="banner">
     <picture>
       <source media="(max-width: 800px)" srcset="../assets/banner-800.jpg 1x, ../assets/banner-1600.jpg 2x">
@@ -123,43 +414,62 @@
     </picture>
   </div>
   <header class="hero">
-    <div class="hero-inner">
-      <p class="eyebrow">Philippine Army · Mastery Quizzes · Our class</p>
-      <h1 id="class-title">Bandwidth Brothers</h1>
-      <p class="hero-subtitle" id="class-subtitle">SOAC 52 - 2026</p>
-      <p class="hero-lede">The officers of the class: who holds each class position, and the full roster with each officer’s commissioning source.</p>
+    <div class="wrap hero-bar">
       <a class="hub-link" href="../"><span aria-hidden="true">&#8592;</span> All quizzes</a>
+      <p class="fig-line label" aria-hidden="true">Fig. 1 — Bandwidth Brothers, SOAC 52 - 2026</p>
+    </div>
+    <div class="wrap hero-inner">
+      <div class="hero-rail">
+        <p class="rail-ref label">Annex B · Our class</p>
+        <p class="label">Philippine Army</p>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow label">Philippine Army · Mastery Quizzes · Our class</p>
+        <h1 id="class-title">Bandwidth Brothers</h1>
+        <p class="hero-subtitle" id="class-subtitle">SOAC 52 - 2026</p>
+        <p class="hero-lede">The officers of the class: who holds each class position, and the full roster with each officer’s commissioning source.</p>
+      </div>
+      <dl class="hero-meta">
+        <div><dt>Officers</dt><dd>26</dd></div>
+        <div><dt>Course</dt><dd>SOAC 52</dd></div>
+      </dl>
     </div>
   </header>
 
-  <main id="main">
-    <section class="card" aria-labelledby="org-heading">
-      <h2 id="org-heading">Class organization</h2>
-      <p class="section-intro">Class positions, led by the Class Leader and the Executive Officer.</p>
-      <noscript><p>JavaScript is needed to show the class organization and roster.</p></noscript>
-      <ul id="org-leads" class="org-grid org-leads"></ul>
-      <ul id="org-grid" class="org-grid"></ul>
+  <figure class="class-photo">
+    <img src="../assets/class-photo-800.jpg" srcset="../assets/class-photo-800.jpg 800w, ../assets/class-photo-1600.jpg 1600w" sizes="100vw" width="1600" height="1200" loading="lazy" decoding="async" alt="SOAC 52 - 2026 class group photo">
+    <figcaption>SOAC 52 - 2026</figcaption>
+  </figure>
+
+  <main id="main" class="wrap">
+    <section class="sect" aria-labelledby="org-heading">
+      <div class="sect-head"><span class="sect-num" aria-hidden="true">01</span><h2 id="org-heading">Class organization</h2></div>
+      <div class="sect-body">
+        <p class="section-intro">Class positions, led by the Class Leader and the Executive Officer, with the staff sections and the special staff below them.</p>
+        <noscript><p>JavaScript is needed to show the class organization and roster.</p></noscript>
+        <ul id="org-leads" class="org-grid org-leads"></ul>
+        <ul id="org-grid" class="org-grid"></ul>
+      </div>
     </section>
 
-    <section class="card" aria-labelledby="roster-heading">
-      <h2 id="roster-heading">Class roster</h2>
-      <div class="table-wrap">
-        <table id="roster-table">
-          <caption id="roster-caption">All members of the class, in roster order.</caption>
-          <thead>
-            <tr><th scope="col">Nr</th><th scope="col">Rank</th><th scope="col">Name</th><th scope="col">Commissioning source</th></tr>
-          </thead>
-          <tbody id="roster-body"></tbody>
-        </table>
+    <section class="sect" aria-labelledby="roster-heading">
+      <div class="sect-head"><span class="sect-num" aria-hidden="true">02</span><h2 id="roster-heading">Class roster</h2></div>
+      <div class="sect-body">
+        <div class="table-wrap">
+          <table id="roster-table" class="roster-table">
+            <caption id="roster-caption">All members of the class, in roster order.</caption>
+            <thead>
+              <tr><th scope="col">Nr</th><th scope="col">Rank</th><th scope="col">Name</th><th scope="col">Commissioning source</th></tr>
+            </thead>
+            <tbody id="roster-body"></tbody>
+          </table>
+        </div>
+        <p id="class-note" class="note"></p>
       </div>
-      <p id="class-note" class="note"></p>
     </section>
   </main>
 
-  <figure class="class-photo">
-    <img src="../assets/class-photo-800.jpg" srcset="../assets/class-photo-800.jpg 800w, ../assets/class-photo-1600.jpg 1600w" sizes="(max-width: 928px) calc(100vw - 4rem), 52rem" width="1600" height="1200" loading="lazy" decoding="async" alt="SOAC 52 - 2026 class group photo">
-    <figcaption>SOAC 52 - 2026</figcaption>
-  </figure>
+  <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
 
   <script type="application/json" id="class-data">{"class":"SOAC 52 - 2026","name":"Bandwidth Brothers","note":"Public-safe subset of the class roster: rank, name, commissioning source and class positions only. No serial numbers, contact details, addresses or ratings.","organization":[{"position":"Class Leader","member":6},{"position":"Executive Officer (Ex-O)","member":5},{"position":"S1","member":16},{"position":"Assistant S1","member":18},{"position":"S2","member":20},{"position":"Assistant S2","member":17},{"position":"S3","member":25},{"position":"Assistant S3","member":10},{"position":"S4","member":13},{"position":"Assistant S4","member":15},{"position":"S6","member":22},{"position":"Assistant S6","member":24},{"position":"S7","member":19},{"position":"Assistant S7","member":14},{"position":"AAR Officer","member":7},{"position":"Assistant AAR Officer","member":21},{"position":"KMO","member":4},{"position":"Assistant KMO","member":9},{"position":"PT Officer","member":12},{"position":"Assistant PT Officer","member":23},{"position":"Finance / Mess Officer","member":3},{"position":"Assistant Finance / Mess Officer","member":8}],"roster":[{"nr":1,"rank":"CPT","name":"Roland D. Diolata","commission":"OCC CL 52-19"},{"nr":2,"rank":"1LT","name":"Berlinda B. Gad-icon","commission":"OPC CL 71-19"},{"nr":3,"rank":"1LT","name":"Mark R. Pabiania","commission":"OCC CL 53-20"},{"nr":4,"rank":"1LT","name":"Nigel Dwight V. Anub","commission":"OCC CL 53-20"},{"nr":5,"rank":"1LT","name":"Don Riyadh B. Beduya","commission":"OCC CL 53-20"},{"nr":6,"rank":"1LT","name":"Jan Lemrolf B. Francisco","commission":"OCC CL 49-17"},{"nr":7,"rank":"1LT","name":"Rena Sheina Mae D. Aldamia","commission":"OCC CL 54-20"},{"nr":8,"rank":"1LT","name":"Queenejean A. Vales","commission":"OPC CL 72-20"},{"nr":9,"rank":"1LT","name":"John Anthony B. Guia","commission":"OPC CL 72-20"},{"nr":10,"rank":"1LT","name":"Jonnel B. Regalario","commission":"OCC CL 54-20"},{"nr":11,"rank":"1LT","name":"Mark Jason V. Paquiz","commission":"PMA CL 21"},{"nr":12,"rank":"1LT","name":"Ariel S. Marzan","commission":"PMA CL 21"},{"nr":13,"rank":"1LT","name":"Riel Alexander C. Toniza","commission":"PMA CL 21"},{"nr":14,"rank":"1LT","name":"Karl C. Cosadio","commission":"OCC CL 55-21"},{"nr":15,"rank":"1LT","name":"Mohammad Ujaid L. Abdulhalim","commission":"OCC CL 55-21"},{"nr":16,"rank":"1LT","name":"Elaine Marey N. Paasa","commission":"PMA CL 22"},{"nr":17,"rank":"1LT","name":"Eric Jan B. Intoy","commission":"PMA CL 22"},{"nr":18,"rank":"1LT","name":"Renmil John B. Trompeta","commission":"PMA CL 22"},{"nr":19,"rank":"1LT","name":"Daniel Deo A. Raqueño","commission":"PMA CL 22"},{"nr":20,"rank":"1LT","name":"Junril E. Escartin","commission":"OCC ROTC CL 01"},{"nr":21,"rank":"1LT","name":"Ginalyn B. Ballaso","commission":"OCC ROTC CL 01"},{"nr":22,"rank":"1LT","name":"Kiergie B. Mariano","commission":"OCC CL 56-22"},{"nr":23,"rank":"1LT","name":"Raymond B. Yagyagan","commission":"OCC CL 56-22"},{"nr":24,"rank":"1LT","name":"Art Lester S. Galasinao","commission":"OCC CL 56-22"},{"nr":25,"rank":"1LT","name":"Jobert Kevin Luke B. Salon","commission":"OCC ROTC CL 02"},{"nr":26,"rank":"1LT","name":"Roden S. Zamora","commission":"OCC CL 57-22"}]}</script>
   <script>
@@ -175,6 +485,9 @@
       return node;
     }
     var LEAD_POSITIONS = [/^Class Leader$/i, /Ex-O/i];
+    // Staff sections are S1, S2, ... (each with an assistant); every other position is special staff.
+    var STAFF_SECTION = /^S\d+$/;
+    var ASSISTANT = /^Assistant\s+/i;
 
     var data;
     try { data = JSON.parse(byId('class-data').textContent); } catch (error) { data = null; }
@@ -192,8 +505,34 @@
     var positions = data.organization.filter(function (entry) { return byNr[entry.member]; });
     var leads = positions.filter(function (entry) { return leadIndex(entry.position) !== -1; }).sort(function (a, b) { return leadIndex(a.position) - leadIndex(b.position); });
     var others = positions.filter(function (entry) { return leadIndex(entry.position) === -1; });
+
+    // Places each position in the hierarchy diagram: its column within its group (staff sections or special
+    // staff) and its row (principal above, assistant below). The stylesheet uses these only from 1024px up.
+    var columns = { staff: [], special: [] };
+    function groupOf(base) { return STAFF_SECTION.test(base) ? 'staff' : 'special'; }
+    others.forEach(function (entry) {
+      var base = entry.position.replace(ASSISTANT, '');
+      if (columns[groupOf(base)].indexOf(base) === -1) columns[groupOf(base)].push(base);
+    });
+    function placement(entry) {
+      var assistant = ASSISTANT.test(entry.position);
+      var base = entry.position.replace(ASSISTANT, '');
+      var group = groupOf(base);
+      var count = Math.max(1, columns[group].length);
+      var span = Math.max(1, Math.floor(12 / count));
+      var offset = Math.floor((12 - span * count) / 2);
+      var col = offset + columns[group].indexOf(base) * span + 1;
+      var row = (group === 'staff' ? 1 : 3) + (assistant ? 1 : 0);
+      return { group: group, assistant: assistant, style: '--col: ' + col + '; --span: ' + span + '; --row: ' + row };
+    }
+
     function card(entry, lead) {
       var item = make('li', 'org-card' + (lead ? ' is-lead' : ''));
+      if (!lead) {
+        var place = placement(entry);
+        item.className += ' is-' + place.group + (place.assistant ? ' is-asst' : ' is-principal');
+        item.setAttribute('style', place.style);
+      }
       item.appendChild(make('p', 'org-position', entry.position));
       item.appendChild(make('p', 'org-name', fullName(byNr[entry.member])));
       return item;

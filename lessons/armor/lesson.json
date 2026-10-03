@@ -21,7 +21,7 @@
     "Major Equipment of the Armor Division"
   ],
   "sourceRef": { "label": "page", "plural": "pages", "min": 13, "max": 83, "required": true },
-  "palette": {},
+  "palette": { "--lesson-accent": "#b9461b" },
   "art": {
     "groups": ["tank", "tank-gun", "muzzle-blast", "shell", "dust", "objective"],
     "nested": { "tank": ["tank-gun", "muzzle-blast"] },

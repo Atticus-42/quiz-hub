@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ROOT, MODES, CLASS_FORBIDDEN, loadClass } from '../build.mjs';
-import { test, plain, findAll, isShown, hasClass, parseHtml, appScripts, runPage, withEndpoint, fakeFetch, TEST_ENDPOINT, loadCodeGs } from './harness.mjs';
+import { test, plain, findAll, isShown, hasClass, parseHtml, appScripts, runPage, withEndpoint, fakeFetch, TEST_ENDPOINT, loadCodeGs, withoutFontPreloads } from './harness.mjs';
 
 export async function instructorSuite({ lessons }) {
   const T = (name, run) => test(`[instructor] ${name}`, run);
@@ -158,7 +158,7 @@ export async function instructorSuite({ lessons }) {
 
   await T('the page links back to the hub, uses only the endpoint, is not indexed, and embeds every lesson question once', () => {
     assert.match(builtHtml, /<meta name="robots" content="noindex">/);
-    assert.deepEqual([...builtHtml.matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../']);
+    assert.deepEqual([...withoutFontPreloads(builtHtml).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../']);
     const urls = [...builtHtml.matchAll(/https?:\/\/[^\s"'<>)]+/g)].map(m => m[0]);
     assert.ok(urls.every(url => url.startsWith('https://script.google.com/')), urls.join(' '));
     const data = JSON.parse(builtHtml.match(/<script type="application\/json" id="item-data">([\s\S]*?)<\/script>/)[1]);
@@ -189,7 +189,8 @@ export async function classSuite() {
   });
 
   await T('the built page never contains an e-mail sign, +63 phone prefix, O-<digits> serial number or long digit run', () => {
-    assert.doesNotMatch(html, /@/);
+    // Stylesheets legitimately hold @media and @font-face rules; everything else (text, data, markup) never has an @.
+    assert.doesNotMatch(html.replace(/<style\b[^>]*>[\s\S]*?<\/style>/g, ''), /@/);
     assert.doesNotMatch(html, /\+63/);
     assert.doesNotMatch(html, /\bO-\d/);
     for (const pattern of CLASS_FORBIDDEN) assert.doesNotMatch(JSON.stringify(data), pattern);
@@ -227,14 +228,14 @@ export async function classSuite() {
     assert.doesNotMatch(code, /innerHTML|outerHTML|insertAdjacentHTML|document\.write|fetch\(|localStorage/);
   });
 
-  await T('looks like the hub (banner, contour map, cards), is printable and fluid down to 375px without sideways scrolling', () => {
+  await T('looks like the hub (banner, contour map, figure), is printable and fluid down to 375px without sideways scrolling', () => {
     assert.match(html, /<div class="topo" aria-hidden="true">\s*<svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice"/);
     assert.match(html, /<div class="banner">/);
     assert.match(html, /<style media="print">[\s\S]*\.topo, \.banner, \.hub-link \{ display: none !important; \}/);
     assert.match(html, /grid-template-columns: repeat\(auto-fill, minmax\(min\(100%, 14rem\), 1fr\)\)/, 'cards reflow to one column on phones');
     assert.match(html, /\.table-wrap \{ max-width: 100%; overflow-x: auto; \}/);
     assert.match(html, /body \{[^}]*overflow-wrap: anywhere;/);
-    assert.deepEqual([...html.matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../']);
+    assert.deepEqual([...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../']);
     assert.doesNotMatch(html, /https?:\/\//);
   });
 }

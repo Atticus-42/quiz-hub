@@ -7,7 +7,7 @@ import { MODES, ROOT, validateBank, quizTotal, lessonText } from '../build.mjs';
 import {
   test, plain, seededRandom, normalize, findAll, isShown, hasClass, parseHtml, appScripts, runPage,
   withEndpoint, fakeFetch, TEST_ENDPOINT, ENDPOINT_PATTERN, stylesheetText, parseCss, REDUCED_MOTION_MEDIA, hasMotion,
-  keyEvent, loadCodeGs, FakeStorage,
+  keyEvent, loadCodeGs, FakeStorage, withoutFontPreloads, cssUrls, isLocalAsset,
 } from './harness.mjs';
 
 const LETTERS = ['A', 'B', 'C', 'D'];
@@ -563,7 +563,8 @@ export async function engineSuite(lesson) {
     assert.equal(builtHtml.split('var HISTORY_ENDPOINT =').length - 1, 1, 'HISTORY_ENDPOINT is declared exactly once');
     const endpoint = builtHtml.match(ENDPOINT_PATTERN)[1];
     assert.ok(endpoint === '' || /^https:\/\/[^\s'"<>\\]+$/.test(endpoint), 'HISTORY_ENDPOINT must be empty or an https URL');
-    const withoutAssetImages = builtHtml.replace(/<(?:img|source)\b[^>]*>/gi, tag => {
+    // The self-hosted font preloads are same-origin assets too (checked in the design suite).
+    const withoutAssetImages = withoutFontPreloads(builtHtml).replace(/<(?:img|source)\b[^>]*>/gi, tag => {
       const urls = [...tag.matchAll(/\b(?:src|srcset)="([^"]*)"/gi)].flatMap(m => m[1].split(',').map(u => u.trim().split(/\s+/)[0]));
       return urls.length && urls.every(u => /^\.\.\/assets\/[\w.-]+\.jpg$/.test(u)) ? '' : tag;
     });
@@ -1139,21 +1140,26 @@ export async function engineSuite(lesson) {
     }
   });
 
-  await T('no external URLs other than the history endpoint; links are in-page fragments or the relative hub link; system fonts only', () => {
+  await T('no external URLs other than the history endpoint; links are in-page fragments or the relative hub link; self-hosted fonts with system fallbacks', () => {
     assert.doesNotMatch(baseHtml, /https?:\/\//i, 'no absolute URLs outside HISTORY_ENDPOINT (inline SVG needs no xmlns)');
-    assert.doesNotMatch(builtHtml, /@font-face|data:[a-z]+\//i);
+    assert.doesNotMatch(builtHtml, /data:[a-z]+\//i, 'no data: URIs');
     const urls = [...builtHtml.matchAll(/(?:https?:)?\/\/[a-z0-9.-]+\.[a-z]{2,}[^\s"'<>)]*/gi)].map(m => m[0]);
     assert.deepEqual(urls.filter(u => !u.startsWith('https://script.google.com/')), []);
     const css = stylesheetText(builtHtml);
-    for (const [, target] of css.matchAll(/url\(\s*['"]?([^'")]*)/gi)) {
-      assert.ok(target.startsWith('#'), `stylesheet url(${target}) must reference an inline fragment`);
+    assert.match(css, /@font-face/, 'the self-hosted fonts are declared');
+    for (const target of cssUrls(css)) {
+      assert.ok(target.startsWith('#') || (isLocalAsset(target) && target.startsWith('../') && existsSync(resolve(dirname(pagePath), target))), `stylesheet url(${target}) must be an inline fragment or a same-origin ../assets/ file on disk`);
     }
-    for (const [, target] of builtHtml.matchAll(/\bhref\s*=\s*"([^"]*)"/gi)) {
+    const preloads = [...builtHtml.matchAll(/<link\b[^>]*>/gi)].map(m => m[0]);
+    assert.ok(preloads.length >= 2 && preloads.every(tag => /^<link rel="preload" href="\.\.\/assets\/fonts\/[\w-]+\.woff2" as="font" type="font\/woff2" crossorigin>$/.test(tag)), 'only font preloads, same-origin');
+    for (const [, target] of withoutFontPreloads(builtHtml).matchAll(/\bhref\s*=\s*"([^"]*)"/gi)) {
       assert.ok(target.startsWith('#') || target === hubHref, `href ${target} must be an in-page fragment or the quiz hub`);
     }
     const { rules } = parseCss(css);
     const bodyFont = rules.find(rule => !rule.media && rule.selectors.includes('body'))?.declarations.get('font-family') ?? '';
-    assert.match(bodyFont, /system-ui/, 'body uses a system font stack');
+    const stack = bodyFont.startsWith('var(') ? (rules.find(rule => !rule.media && rule.selectors.includes(':root') && rule.declarations.has('--font-sans'))?.declarations.get('--font-sans') ?? '') : bodyFont;
+    assert.match(stack, /^"IBM Plex Sans Condensed"/, 'body text is set in IBM Plex Sans Condensed');
+    assert.match(stack, /system-ui/, 'with a system font stack behind it');
   });
 
   await T(`the header links back to the hub's ${lesson.module} section as an "All quizzes" link`, () => {
@@ -1189,15 +1195,17 @@ export async function engineSuite(lesson) {
     assert.deepEqual([...found].sort(), ['../assets/banner-1600.jpg', '../assets/banner-800.jpg', '../assets/class-photo-1600.jpg', '../assets/class-photo-800.jpg']);
     for (const file of found) assert.ok(existsSync(resolve(dirname(pagePath), file)), `${file} must exist`);
     const css = builtHtml.match(/<style>([\s\S]*?)<\/style>/)[1];
-    assert.match(css, /\.banner img \{[^}]*aspect-ratio: 16 \/ 6;[^}]*object-fit: cover/);
-    assert.match(css, /max-width: 600px\) \{ \.banner img \{ aspect-ratio: 16 \/ 8;/);
-    assert.match(css, /\.class-photo \{[^}]*max-width: 56rem;[^}]*border-radius: var\(--radius-lg\);[^}]*box-shadow:/);
+    // Plate I: a tight, toned crop of the banner (a compact masthead strip on the quiz pages, taller on phones).
+    assert.match(css, /\.banner img \{[^}]*aspect-ratio: 16 \/ 5;[^}]*object-fit: cover/);
+    assert.match(css, /\.banner img \{ aspect-ratio: 16 \/ 3;/);
+    assert.match(css, /max-width: 760px\) \{[^}]*\}[\s\S]*?\.banner img \{ aspect-ratio: 16 \/ 7; \}/);
+    assert.match(css, /\.class-photo \{[^}]*max-width: var\(--page-max\);/);
     assert.match(css, /@media print \{[\s\S]*\.banner, \.class-photo[^{]*\{ display: none !important; \}/);
     assert.match(css, /body:not\(\[data-view="landing"\]\) \.banner, body:not\(\[data-view="landing"\]\) \.class-photo \{ display: none; \}/);
     assert.ok(/<body data-view="landing">/.test(builtHtml), 'body starts on the landing view');
   });
 
-  await T('the topographic contour background is sliced, decorative, light and themed by CSS variables', () => {
+  await T('the topographic contours are sliced, decorative, quiet, confined to the margins and themed by CSS variables', () => {
     const layer = builtHtml.match(/<div class="terrain" aria-hidden="true">\s*<svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><g class="contours"[^>]*>([\s\S]*?)<\/g><\/svg>\s*<\/div>/);
     assert.ok(layer, 'inline contour layer');
     const paths = layer[1].match(/<path\b[^>]*>/g) || [];
@@ -1207,8 +1215,12 @@ export async function engineSuite(lesson) {
     assert.ok(!/<(script|a|foreignObject|image|use)\b|\son\w+=/i.test(layer[1]), 'only plain paths');
     assert.ok(Buffer.byteLength(layer[0]) < 20000, `the contour layer stays light (${Buffer.byteLength(layer[0])} bytes)`);
     const css = stylesheetText(builtHtml);
-    assert.match(css, /--topo-minor-opacity: 0\.22;/);
-    assert.match(css, /--topo-major-opacity: 0\.4;/);
+    // Paper first: the contours are faint (<= 0.2) and masked to the page margins and the masthead band.
+    for (const name of ['--topo-minor-opacity', '--topo-major-opacity']) {
+      const value = Number(css.match(new RegExp(`${name}: ([0-9.]+);`))?.[1]);
+      assert.ok(value > 0 && value <= 0.2, `${name} is quiet (${value})`);
+    }
+    assert.match(css, /\.terrain, \.topo \{[^}]*mask-image: linear-gradient\(90deg, #000 0, #000 calc\(50% - var\(--page-max\) \/ 2/, 'the contours are masked out of the content column');
     assert.match(css, /stroke: var\(--topo-line\); stroke-opacity: var\(--topo-minor-opacity\)/);
     assert.match(css, /path\.major \{ stroke: var\(--topo-line-major\); stroke-opacity: var\(--topo-major-opacity\)/);
     assert.match(css, /@media print \{[\s\S]*\.terrain,/);

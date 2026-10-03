@@ -1,54 +1,63 @@
 <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
-  <path class="map-grid" d="M0 50H480M0 100H480M0 150H480M0 200H480M80 0V250M160 0V250M240 0V250M320 0V250M400 0V250" fill="none" stroke="#f3efdf" stroke-opacity="0.08" stroke-width="1"/>
-  <g class="terrain-contour" fill="none" stroke="#e3b65a" stroke-opacity="0.4" stroke-width="1.2" stroke-dasharray="4 6">
-    <circle cx="140" cy="200" r="110"/>
-    <circle cx="140" cy="200" r="190"/>
-    <circle cx="140" cy="200" r="270"/>
+  <g class="plate-grid" fill="none" stroke="currentColor">
+    <path class="grid-cross" d="M77 50h6M80 47v6M157 50h6M160 47v6M237 50h6M240 47v6M317 50h6M320 47v6M397 50h6M400 47v6M77 100h6M80 97v6M157 100h6M160 97v6M237 100h6M240 97v6M317 100h6M320 97v6M397 100h6M400 97v6M77 150h6M80 147v6M157 150h6M160 147v6M237 150h6M240 147v6M317 150h6M320 147v6M397 150h6M400 147v6"/>
+    <path class="thin" d="M80 0v6M160 0v6M240 0v6M320 0v6M400 0v6M80 244v6M160 244v6M240 244v6M320 244v6M400 244v6M0 50h6M0 100h6M0 150h6M0 200h6M474 50h6M474 100h6M474 150h6M474 200h6"/>
   </g>
-  <text x="146" y="86" fill="#e3b65a" fill-opacity="0.85">RG 4000</text>
-  <text x="146" y="18" fill="#e3b65a" fill-opacity="0.85">RG 8000</text>
-  <text x="262" y="18" fill="#e3b65a">FIRE MISSION · BTRY A</text>
-  <text x="262" y="31" fill="#d6d2bf">GRID 51P TT 3341 1276</text>
-  <path class="hill" d="M0 214C60 206 110 210 170 212C240 214 300 200 360 206C410 210 450 204 480 208V250H0Z" fill="#3d4a2a"/>
-  <path d="M0 226C80 220 160 228 240 224C320 220 400 230 480 224M0 238C90 234 170 242 260 238C340 234 410 242 480 238" fill="none" stroke="#5b6b3a" stroke-width="1.5"/>
-  <text x="12" y="246" fill="#d6d2bf">AZ 1600 MILS · SHELL HE · FUZE Q</text>
-  <path class="axis-line" d="M230 125Q319 -40 408 182" fill="none" stroke="#f3efdf" stroke-opacity="0.55" stroke-width="1.5" stroke-dasharray="3 6"/>
-  <g id="objective" fill="none" stroke="currentColor" stroke-width="1.5">
-    <rect x="376" y="150" width="64" height="64"/>
-    <path d="M392 150V214M408 150V214M424 150V214M376 166H440M376 182H440M376 198H440" stroke-opacity="0.45" stroke-width="1"/>
+  <g class="terrain-contour" fill="none" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2 4">
+    <path d="M30 200A110 110 0 0 1 250 200"/>
+    <path d="M-50 200A190 190 0 0 1 330 200"/>
+    <path class="faint" d="M-130 200A270 270 0 0 1 410 200"/>
+  </g>
+  <text class="t-mute" x="146" y="84">RG 4000</text>
+  <text class="t-mute" x="146" y="16">RG 8000</text>
+  <text class="t-title" x="262" y="20">FIRE MISSION · BTRY A</text>
+  <text class="t-mute" x="262" y="33">GRID 51P TT 3341 1276</text>
+  <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+    <path class="hill ink" d="M0 214C60 206 110 210 170 212C240 214 300 200 360 206C410 210 450 204 480 208"/>
+    <path class="thin faint" d="M0 226C80 220 160 228 240 224C320 220 400 230 480 224M0 238C90 234 170 242 260 238C340 234 410 242 480 238"/>
+    <path class="axis-line" d="M230 125Q319 -40 408 182" stroke-dasharray="3 4"/>
+  </g>
+  <text x="12" y="246">AZ 1600 MILS · SHELL HE · FUZE Q</text>
+  <g id="objective" fill="none" stroke="currentColor" stroke-width="1.2">
+    <path class="pf" d="M376 150H440V214H376Z"/>
+    <path class="thin faint" d="M392 150V214M408 150V214M424 150V214M376 166H440M376 182H440M376 198H440"/>
     <circle cx="408" cy="182" r="9"/>
     <path d="M408 166V177M408 187V198M392 182H403M413 182H424"/>
-    <circle class="impact-pulse" cx="408" cy="182" r="14" stroke-width="2.5"/>
-    <text x="376" y="143" fill="currentColor" stroke="none">TGT AF 1001</text>
+    <circle class="impact-pulse" cx="408" cy="182" r="14" stroke-width="1.6"/>
+    <text class="t-acc" x="376" y="143">TGT AF 1001</text>
   </g>
-  <g id="tank">
-    <ellipse cx="124" cy="214" rx="82" ry="5" fill="#1b1f16" fill-opacity="0.5"/>
-    <path d="M134 188L58 207L52 214H66L142 198Z" fill="#4a5730" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
-    <path d="M46 205H62L60 217H44Z" fill="#3a4524" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
+  <g id="tank" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+    <g class="ink">
+      <path class="pf" d="M134 188L58 207L52 214H66L142 198Z"/>
+      <path class="pf" d="M46 205H62L60 217H44Z"/>
+    </g>
     <g transform="translate(140 182) rotate(-32)">
-      <g id="tank-gun">
-        <rect x="-4" y="-5" width="98" height="10" rx="3" fill="#6b7a45" stroke="#1f231b" stroke-width="2"/>
-        <path d="M6 -2.5H86" stroke="#a3b36d" stroke-width="2" stroke-linecap="round"/>
-        <rect x="92" y="-7.5" width="13" height="15" rx="2.5" fill="#4a5730" stroke="#1f231b" stroke-width="2"/>
+      <g id="tank-gun" class="ink">
+        <path class="pf" d="M-4 -5H94V5H-4Z"/>
+        <path class="thin" d="M8 0H86"/>
+        <path class="pf" d="M92 -7.5H105V7.5H92Z"/>
+        <path class="thin" d="M96 -7.5V7.5M101 -7.5V7.5"/>
       </g>
-      <rect x="-20" y="-9" width="46" height="18" rx="5" fill="#586636" stroke="#1f231b" stroke-width="2"/>
-      <g id="muzzle-blast">
-        <path d="M106 0L122 -10L118 -3L136 0L118 3L122 10Z" fill="#ffd166" stroke="#ff8a3d" stroke-width="2" stroke-linejoin="round"/>
-        <circle cx="111" cy="0" r="5" fill="#fff3b0"/>
+      <path class="ink pf" d="M-20 -9H26V9H-20Z"/>
+      <g id="muzzle-blast" class="acc">
+        <path d="M107 0L123 -10M107 0L136 0M107 0L123 10M111 -5L117 -14M111 5L117 14"/>
       </g>
     </g>
-    <path d="M116 162L148 156L154 194L122 199Z" fill="#6b7a45" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
-    <path d="M122 168L144 164" stroke="#a3b36d" stroke-width="2" stroke-linecap="round"/>
-    <circle cx="140" cy="198" r="17" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/>
-    <circle cx="140" cy="198" r="10" fill="none" stroke="#586636" stroke-width="3"/>
-    <circle cx="140" cy="198" r="4" fill="#e3b65a"/>
+    <g class="ink">
+      <path class="pf" d="M116 162L148 156L154 194L122 199Z"/>
+      <path class="thin" d="M122 168L144 164M124 176L146 172"/>
+      <circle class="pf" cx="140" cy="198" r="17"/>
+      <circle class="thin" cx="140" cy="198" r="11"/>
+      <path class="thin" d="M140 181V215M123 198H157M128 186L152 210M152 186L128 210"/>
+      <circle class="pf" cx="140" cy="198" r="4"/>
+    </g>
   </g>
-  <g id="dust" fill="#e9e5d6">
+  <g id="dust" fill="none" stroke="currentColor" stroke-width="0.9">
     <circle class="dust-puff" cx="232" cy="121" r="7"/>
     <circle class="dust-puff" cx="241" cy="115" r="6"/>
     <circle class="dust-puff" cx="228" cy="112" r="5"/>
   </g>
   <g id="shell">
-    <ellipse cx="0" cy="0" rx="5" ry="3.5" fill="#e3b65a" stroke="#1f231b" stroke-width="1.5"/>
+    <circle class="acc-f" r="3.5"/>
   </g>
 </svg>
