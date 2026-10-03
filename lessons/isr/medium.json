@@ -140,7 +140,7 @@
     ],
     "prompt": "A Philippine Army division needs an airborne asset to stay very high over a wide mountainous area for many hours at a time. Which choice and reason fit the lesson?",
     "options": [
-      "A manned reconnaissance aircraft, since its crew can stay aloft for hours",
+      "A manned reconnaissance aircraft, since its crew can stay aloft for many hours",
       "A HALE vehicle, since it operates very high for hours without pilot limits",
       "A ground surveillance radar, since it can be fixed on a low tower",
       "A manned aircraft, since it has been used since World War I"
@@ -164,7 +164,7 @@
     "prompt": "A brief says armed UAVs are sensors with no strike role. What is the correction?",
     "options": [
       "Only manned aircraft may engage targets found through ISR, since UAVs carry sensors alone",
-      "UAVs may never engage targets identified in ISR missions, even when carrying missiles or bombs",
+      "UAVs may never engage targets identified in ISR missions, even when they are carrying missiles or bombs",
       "UAVs with missiles, bombs or precision-guided ammunition can engage targets identified through ISR",
       "Only HALE vehicles give persistent strike support to ground and maritime operations"
     ],
@@ -226,7 +226,7 @@
     ],
     "prompt": "A Philippine Army S2 proposes seeding sensors behind enemy lines along an armed group's infiltration trail; the S3 rejects it as an untested concept. Which response is best supported?",
     "options": [
-      "Sensor networks are a recent development used only by space-based forces and satellite operators",
+      "Sensor networks are a recent development used only by space-based forces and their satellite operators",
       "Sensor networks are nothing new; Allied forces have dropped sensors behind enemy lines for decades",
       "Sensors have never been placed behind enemy lines because the risk of compromise is too high",
       "Sensor networks work only when installed aboard surface ships of a naval fleet"
@@ -534,13 +534,407 @@
     "options": [
       "Interoperability, which requires coordination among services and allied forces",
       "Fusion, which combines several intelligence types into one assessment",
-      "Security, which protects sensitive assets against compromise by adversaries",
+      "Security, which protects sensitive information and assets against compromise by adversaries",
       "Persistence, which sustains continuous monitoring of the area over time"
     ],
     "answer": 0,
     "explanation": "Slide 56 stresses interoperability in joint and coalition environments.",
     "sourceSlides": [
       56
+    ]
+  },
+  {
+    "id": 26,
+    "qid": "isr-m-26",
+    "difficulty": "medium",
+    "category": "ISR Fundamentals and Components",
+    "tags": [
+      "ISR definition",
+      "planning operations assessment"
+    ],
+    "prompt": "Where does the lesson place ISR in relation to military activity?",
+    "options": [
+      "At the intersection of military planning, operations, and assessment",
+      "At the end of the targeting process, after strikes are complete",
+      "Outside planning, as a purely technical sensor function run by specialists",
+      "Within logistics, between supply and maintenance"
+    ],
+    "answer": 0,
+    "explanation": "Slide 22: ISR is at the intersection between military planning, operations, and assessment, where intelligence is the product of surveillance and reconnaissance.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "isr-m-27",
+    "difficulty": "medium",
+    "category": "ISR Fundamentals and Components",
+    "tags": [
+      "PED",
+      "ISR definition"
+    ],
+    "prompt": "ISR synchronizes and integrates the planning and operation of sensors, assets, and which systems?",
+    "options": [
+      "Production, evaluation, and distribution systems",
+      "Processing, exploitation, and dissemination systems",
+      "Planning, execution, and debriefing systems",
+      "Positioning, encryption, and secure delivery systems"
+    ],
+    "answer": 1,
+    "explanation": "Slide 22: ISR integrates sensors, assets, and processing, exploitation, and dissemination (PED) systems in direct support of current and future operations.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "isr-m-28",
+    "difficulty": "medium",
+    "category": "ISR Fundamentals and Components",
+    "tags": [
+      "history"
+    ],
+    "prompt": "According to the lesson, how long have the principles of ISR been used in warfare?",
+    "options": [
+      "Only since World War I",
+      "Only since satellites entered orbit",
+      "For centuries",
+      "Only since the Battle of Marawi"
+    ],
+    "answer": 2,
+    "explanation": "Slide 26: the principles of ISR have been used in warfare for centuries.",
+    "sourceSlides": [
+      26
+    ]
+  },
+  {
+    "id": 29,
+    "qid": "isr-m-29",
+    "difficulty": "medium",
+    "category": "Roles and Importance of ISR",
+    "tags": [
+      "accurate ISR data",
+      "why important"
+    ],
+    "prompt": "Why is accurate ISR data critical, according to the lesson?",
+    "options": [
+      "It lets units skip planning because the sensors choose the course of action for them",
+      "It reduces the need for ISR as technology continues to develop",
+      "It lets commanders rely on one source instead of fusing reports",
+      "It yields high-quality intelligence on enemy threats and makes operations more effective"
+    ],
+    "answer": 3,
+    "explanation": "Slide 24: accurate ISR data provides high-quality intelligence about enemy threats and increases the effectiveness of military operations.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 30,
+    "qid": "isr-m-30",
+    "difficulty": "medium",
+    "category": "Roles and Importance of ISR",
+    "tags": [
+      "demand for ISR",
+      "technology"
+    ],
+    "prompt": "What does the lesson say about the demand for ISR capabilities in recent years?",
+    "options": [
+      "Ongoing technology development has increased it",
+      "It has declined as satellites replaced other assets",
+      "It has stayed the same since World War II",
+      "It is now limited to maritime operations"
+    ],
+    "answer": 0,
+    "explanation": "Slide 24: the ongoing development of technology has only increased the demand for ISR capabilities.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 31,
+    "qid": "isr-m-31",
+    "difficulty": "medium",
+    "category": "Roles and Importance of ISR",
+    "tags": [
+      "unstructured data",
+      "why important"
+    ],
+    "prompt": "How does ISR help warfighters make better decisions?",
+    "options": [
+      "Only structured reports are accepted, which keeps information moving at a slow, safe pace",
+      "Insights extracted from unstructured data enable a lightning-fast information flow",
+      "Satellites alone collect data, so smaller devices are no longer needed",
+      "Decisions are made automatically by sensors without human analysis"
+    ],
+    "answer": 1,
+    "explanation": "Slide 29: ISR systems use unstructured data to extract insights; the lightning-fast information flow lets warfighters make better decisions.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 32,
+    "qid": "isr-m-32",
+    "difficulty": "medium",
+    "category": "Airborne ISR Systems",
+    "tags": [
+      "asset categories",
+      "airborne"
+    ],
+    "prompt": "Which set of systems does the lesson group under Airborne ISR Systems?",
+    "options": [
+      "Ground surveillance radars, sensor networks, and armed UAVs",
+      "Surface ships, submarines, and HALE platforms",
+      "IMINT, SIGINT, and MASINT satellites",
+      "UAVs, manned reconnaissance aircraft, and HALE platforms"
+    ],
+    "answer": 3,
+    "explanation": "Slides 32-36 present UAVs, manned reconnaissance aircraft, and HALE platforms as airborne ISR systems.",
+    "sourceSlides": [
+      32,
+      35,
+      36
+    ]
+  },
+  {
+    "id": 33,
+    "qid": "isr-m-33",
+    "difficulty": "medium",
+    "category": "Ground-Based ISR Systems",
+    "tags": [
+      "terrestrial benefits"
+    ],
+    "prompt": "Which of the following is listed as a benefit of terrestrial-based ISR?",
+    "options": [
+      "Company UAS assets can provide near-real-time full-motion video relay",
+      "Unrestricted and worldwide coverage of all areas of interest by satellite",
+      "Collection in denied areas where aircraft cannot access",
+      "Beyond line-of-sight coverage of large areas of interest"
+    ],
+    "answer": 0,
+    "explanation": "Slide 44 lists near-real-time full-motion video from company UAS, local approval for relocation and tasking, and lethal or non-lethal effects as terrestrial benefits; the others are space-based benefits.",
+    "sourceSlides": [
+      44
+    ]
+  },
+  {
+    "id": 34,
+    "qid": "isr-m-34",
+    "difficulty": "medium",
+    "category": "Maritime ISR Platforms",
+    "tags": [
+      "submarine"
+    ],
+    "prompt": "Why do submarines have an incredible ability to gather information?",
+    "options": [
+      "They form the backbone of the surface warfare fleet",
+      "They are the most invisible asset in the entire military",
+      "They observe huge areas from satellites in regular orbits",
+      "They operate extremely high for many hours"
+    ],
+    "answer": 1,
+    "explanation": "Slide 40: submarines are the most invisible asset in the military, which gives them an incredible ability to gather information.",
+    "sourceSlides": [
+      40
+    ]
+  },
+  {
+    "id": 35,
+    "qid": "isr-m-35",
+    "difficulty": "medium",
+    "category": "Space-Based ISR Systems",
+    "tags": [
+      "space-based benefits"
+    ],
+    "prompt": "Which of the following is listed as a benefit of space-based ISR?",
+    "options": [
+      "Local commander approval for relocation and tasking of assets",
+      "Deployment of lethal or non-lethal effects after target identification",
+      "Collection in denied areas where aircraft and ground intelligence cannot access",
+      "Near-real-time full-motion video relay provided by company UAS assets in the area"
+    ],
+    "answer": 2,
+    "explanation": "Slide 44: space-based ISR collects in denied areas; the other options are benefits of terrestrial-based ISR.",
+    "sourceSlides": [
+      44
+    ]
+  },
+  {
+    "id": 36,
+    "qid": "isr-m-36",
+    "difficulty": "medium",
+    "category": "Space-Based ISR Systems",
+    "tags": [
+      "PiX",
+      "commercial imagery resources"
+    ],
+    "prompt": "Which commercial imagery resource provides in-depth global awareness of people, places, activities, and infrastructure?",
+    "options": [
+      "Army Geospatial Center",
+      "NGA Map of the World",
+      "Army Mapping Resources",
+      "Protected Internet eXchange (PiX)"
+    ],
+    "answer": 3,
+    "explanation": "Slide 45 describes PiX as giving in-depth global awareness of people, places, activities, and infrastructure.",
+    "sourceSlides": [
+      45
+    ]
+  },
+  {
+    "id": 37,
+    "qid": "isr-m-37",
+    "difficulty": "medium",
+    "category": "Space-Based ISR Systems",
+    "tags": [
+      "G-EGD",
+      "MAXAR",
+      "acronym"
+    ],
+    "prompt": "In the lesson's MAXAR example, what does G-EGD stand for?",
+    "options": [
+      "Global-Enhanced GEOINT Delivery",
+      "Ground-Enhanced Geospatial Data",
+      "Global Electronic Guidance Display",
+      "Geo-Enhanced Ground Defense"
+    ],
+    "answer": 0,
+    "explanation": "Slide 46: MAXAR Global-Enhanced GEOINT Delivery (G-EGD).",
+    "sourceSlides": [
+      46
+    ]
+  },
+  {
+    "id": 38,
+    "qid": "isr-m-38",
+    "difficulty": "medium",
+    "category": "Timeliness, Accuracy, and Fusion",
+    "tags": [
+      "accuracy",
+      "why important"
+    ],
+    "prompt": "Why is accuracy critical in ISR operations?",
+    "options": [
+      "It lets commanders act proactively on the most current information available",
+      "It gives commanders reliable information and minimizes errors and misinterpretations",
+      "It combines SIGINT, HUMINT, and IMINT into one picture of the battlefield",
+      "It protects sensitive information and assets against adversary exploitation"
+    ],
+    "answer": 1,
+    "explanation": "Slide 50: accuracy gives commanders reliable information and minimizes the risk of errors and misinterpretations. The others describe timeliness, fusion, and security.",
+    "sourceSlides": [
+      50
+    ]
+  },
+  {
+    "id": 39,
+    "qid": "isr-m-39",
+    "difficulty": "medium",
+    "category": "Coverage, Persistence, and Flexibility",
+    "tags": [
+      "coverage"
+    ],
+    "prompt": "What best describes the principle of coverage?",
+    "options": [
+      "Sustaining continuous monitoring of the operational area over time",
+      "Adapting to changing requirements by redirecting assets and priorities",
+      "Achieving comprehensive coverage of the area of interest or operational objective",
+      "Collecting, processing, and disseminating intelligence without delay"
+    ],
+    "answer": 2,
+    "explanation": "Slide 52 defines coverage; the distractors describe persistence, flexibility, and timeliness.",
+    "sourceSlides": [
+      52
+    ]
+  },
+  {
+    "id": 40,
+    "qid": "isr-m-40",
+    "difficulty": "medium",
+    "category": "Coverage, Persistence, and Flexibility",
+    "tags": [
+      "flexibility",
+      "different methods"
+    ],
+    "prompt": "Midway through an operation in Samar, a brigade's priority shifts from the coastline to an inland mountain trail, and the S2 changes from imagery collection to human sources to follow the enemy there. Which principle is being applied?",
+    "options": [
+      "Coverage",
+      "Persistence",
+      "Fusion",
+      "Flexibility"
+    ],
+    "answer": 3,
+    "explanation": "Slide 54: flexibility includes adjusting collection priorities and employing different intelligence methods as mission needs or enemy actions change.",
+    "sourceSlides": [
+      54
+    ]
+  },
+  {
+    "id": 41,
+    "qid": "isr-m-41",
+    "difficulty": "medium",
+    "category": "Security, Interoperability, and Ethics",
+    "tags": [
+      "security",
+      "why important"
+    ],
+    "prompt": "Why must ISR operations apply strict security measures?",
+    "options": [
+      "They involve sensitive information and assets open to compromise or exploitation",
+      "They operate with allied forces that need common procedures",
+      "They must follow international laws and rules of engagement",
+      "They must give commanders reliable, error-free information"
+    ],
+    "answer": 0,
+    "explanation": "Slide 55: ISR involves sensitive information and assets requiring strict security against compromise or exploitation by adversaries.",
+    "sourceSlides": [
+      55
+    ]
+  },
+  {
+    "id": 42,
+    "qid": "isr-m-42",
+    "difficulty": "medium",
+    "category": "Timeliness, Accuracy, and Fusion",
+    "tags": [
+      "accuracy",
+      "sibling"
+    ],
+    "prompt": "Before sending a single UAS sighting of an enemy mortar position to the commander, a brigade S2 rechecks the grid against the map and the sensor's calibration so the commander does not act on a wrong location. Which principle is the S2 applying?",
+    "options": [
+      "Fusion",
+      "Timeliness",
+      "Accuracy",
+      "Security"
+    ],
+    "answer": 2,
+    "explanation": "Slide 50: accuracy ensures commanders have reliable information and minimizes the risk of errors and misinterpretations. No other sources are combined, so this is not fusion.",
+    "sourceSlides": [
+      50
+    ]
+  },
+  {
+    "id": 43,
+    "qid": "isr-m-43",
+    "difficulty": "medium",
+    "category": "Airborne ISR Systems",
+    "tags": [
+      "manned reconnaissance aircraft",
+      "sibling"
+    ],
+    "prompt": "A Philippine Army division plans aerial ISR over a coastal province using the traditional approach: an aircraft with a crew aboard flying the reconnaissance mission. Which airborne ISR system is this?",
+    "options": [
+      "Unmanned aerial vehicle",
+      "HALE platform",
+      "Manned reconnaissance aircraft",
+      "Ground surveillance radar"
+    ],
+    "answer": 2,
+    "explanation": "Slide 35: manned reconnaissance aircraft are the more traditional approach to aerial ISR.",
+    "sourceSlides": [
+      35
     ]
   }
 ]

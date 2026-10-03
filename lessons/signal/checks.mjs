@@ -37,15 +37,23 @@ export default async function signalChecks({ test, assert, lesson }) {
     });
   }
 
-  await test('[signal] no two prompts are near-duplicates (word overlap below 0.4)', () => {
+  // Prompts may share a template ("What does X stand for?") as long as each asks about a distinct X: two
+  // prompts with word overlap of 0.4 or more must have clearly different keys, and no two prompts may
+  // overlap by 0.85 or more at all.
+  await test('[signal] no two questions are near-duplicates (similar prompts ask about distinct subjects with distinct keys)', () => {
     const words = text => new Set(text.toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter(word => word.length > 3));
-    const sets = allQuestions.map(item => [`${item.difficulty} ${item.id}`, words(item.prompt)]);
+    const overlap = (left, right) => {
+      const shared = [...left].filter(word => right.has(word)).length;
+      return shared / (left.size + right.size - shared);
+    };
+    const sets = allQuestions.map(item => [`${item.difficulty} ${item.id}`, words(item.prompt), words(item.options[item.answer])]);
     for (let i = 0; i < sets.length; i++) {
       for (let j = i + 1; j < sets.length; j++) {
-        const [a, left] = sets[i];
-        const [b, right] = sets[j];
-        const shared = [...left].filter(word => right.has(word)).length;
-        assert.ok(shared / (left.size + right.size - shared) < 0.4, `${a} and ${b} prompts are too similar`);
+        const [a, left, leftKey] = sets[i];
+        const [b, right, rightKey] = sets[j];
+        const similarity = overlap(left, right);
+        assert.ok(similarity < 0.85, `${a} and ${b} prompts are too similar`);
+        if (similarity >= 0.4) assert.ok(overlap(leftKey, rightKey) < 0.5, `${a} and ${b} have similar prompts and similar keys`);
       }
     }
   });

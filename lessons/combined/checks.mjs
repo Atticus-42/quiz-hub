@@ -5,6 +5,8 @@ export default async function combinedChecks({ test, assert, lesson, lessons, lo
     'ISR Operations': / \(ISR Operations, slides? \d+(?:, \d+)*\)$/,
     'Armor Operations': / \(Armor Operations, pages? \d+(?:, \d+)*\)$/,
     'Field Artillery Operations': / \(Field Artillery Operations, slides? \d+(?:, \d+)*\)$/,
+    // Army Operations page references are optional: only items that cite pages get one.
+    'Army Operations': / \(Army Operations, pages? \d+(?:, \d+)*\)$/,
   };
 
   for (const [mode, bank] of Object.entries(lesson.banks)) {
@@ -38,13 +40,18 @@ export default async function combinedChecks({ test, assert, lesson, lessons, lo
     assert.deepEqual(plain(api.poolQuotas()), [8, 8, 7, 7]);
     // Fisher-Yates with every draw 0 rotates an array left by one. Quotas [8,8,7,7] become [8,7,7,8]
     // (ISR 8, Armor 7, Field Artillery 7, Army Operations 8); each lesson pool starts at its 2nd question;
-    // the final shuffle moves the first pick (ISR id 2) to the end.
+    // the final shuffle moves the first pick (ISR's 2nd question) to the end. Bank sizes are read from the
+    // lessons, so appending questions keeps this hand check valid.
     let draws = 0;
     const zero = () => { draws++; return 0; };
     const ids = plain(api.sampleQuestions(lesson.banks.easy, zero)).map(item => item.id);
     const range = (from, to) => Array.from({ length: to - from + 1 }, (_, index) => from + index);
-    assert.deepEqual(ids, [...range(3, 9), ...range(27, 33), ...range(52, 58), ...range(77, 84), 2]);
-    assert.equal(draws, 3 + 4 * 24 + 29, 'quota deal, four lesson shuffles and the final shuffle all use the injected random');
+    const sizes = lesson.pool.lessons.map(key => lessons.find(item => item.key === key).banks.easy.length);
+    const starts = sizes.map((size, index) => sizes.slice(0, index).reduce((sum, value) => sum + value, 0));
+    const dealt = [8, 7, 7, 8];
+    const picks = starts.flatMap((start, index) => range(start + 2, start + 1 + dealt[index]));
+    assert.deepEqual(ids, [...picks.slice(1), picks[0]]);
+    assert.equal(draws, 3 + sizes.reduce((sum, size) => sum + size - 1, 0) + 29, 'quota deal, four lesson shuffles and the final shuffle all use the injected random');
     const lessonCounts = new Map(LESSONS.map(name => [name, new Set()]));
     const seen = new Set();
     for (let index = 1; index <= 200; index++) {

@@ -182,7 +182,7 @@
     "options": [
       "It is the newest approach, developed after HALE vehicles",
       "It is the traditional aerial approach, used since World War I",
-      "It began with satellites and was later adapted to aircraft",
+      "It began with satellites and was only later adapted to manned aircraft",
       "It is limited to maritime patrol missions over open sea"
     ],
     "answer": 1,
@@ -244,7 +244,7 @@
     "prompt": "During a joint Army-Navy planning exercise, a staff wants to build maritime ISR around naval aviation alone. Which force should the plan begin with as its backbone?",
     "options": [
       "The surface warfare fleet",
-      "The aviation branches",
+      "The Navy's aviation branches",
       "The submarine force",
       "Space-based sensors"
     ],
@@ -289,7 +289,7 @@
       "Satellite imagery is always blurred over the target",
       "Satellites cannot observe large areas",
       "Targets can track regular orbit cycles and avoid being seen",
-      "Satellite imagery is blocked out over friendly territory"
+      "Satellite imagery is always blocked out over friendly territory"
     ],
     "answer": 2,
     "explanation": "Slide 41 says satellites are in regular orbits, so targets can track the cycles and avoid being seen.",
@@ -526,6 +526,418 @@
     "explanation": "Slide 57 says ethics guide ISR collection, analysis and dissemination in accordance with international laws, rules of engagement and moral principles.",
     "sourceSlides": [
       57
+    ]
+  },
+  {
+    "id": 26,
+    "qid": "isr-e-26",
+    "difficulty": "easy",
+    "category": "ISR Fundamentals and Components",
+    "tags": [
+      "ISR",
+      "acronym"
+    ],
+    "prompt": "In the term ISR, what does the letter R stand for?",
+    "options": [
+      "Reconnaissance",
+      "Reporting",
+      "Readiness",
+      "Response"
+    ],
+    "answer": 0,
+    "explanation": "Slides 21-22 spell out ISR as Intelligence, Surveillance, and Reconnaissance.",
+    "sourceSlides": [
+      21,
+      22
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "isr-e-27",
+    "difficulty": "easy",
+    "category": "ISR Fundamentals and Components",
+    "tags": [
+      "components",
+      "number"
+    ],
+    "prompt": "How many individual components of ISR does the lesson identify?",
+    "options": [
+      "Two",
+      "Three",
+      "Four",
+      "Nine"
+    ],
+    "answer": 1,
+    "explanation": "Slide 26 lists three components: intelligence, surveillance, and reconnaissance. Four is the number of asset categories and nine the number of principles.",
+    "sourceSlides": [
+      26
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "isr-e-28",
+    "difficulty": "easy",
+    "category": "ISR Fundamentals and Components",
+    "tags": [
+      "ISR definition"
+    ],
+    "prompt": "The lesson defines ISR as an integrated activity of which two fields?",
+    "options": [
+      "Logistics and intelligence",
+      "Operations and communications",
+      "Operations and intelligence",
+      "Fires and maneuver"
+    ],
+    "answer": 2,
+    "explanation": "Slide 22: ISR is an integrated operations and intelligence activity.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 29,
+    "qid": "isr-e-29",
+    "difficulty": "easy",
+    "category": "ISR Fundamentals and Components",
+    "tags": [
+      "domains"
+    ],
+    "prompt": "ISR gives decision-makers and action-takers a more complete picture of the situation in which domains?",
+    "options": [
+      "Ground and air only",
+      "Sea and space only",
+      "Ground, air, and sea only",
+      "Ground, air, sea, space, and cyberspace"
+    ],
+    "answer": 3,
+    "explanation": "Slide 21: ISR provides a more complete picture on the ground, in the air, at sea, in space, and cyberspace.",
+    "sourceSlides": [
+      21
+    ]
+  },
+  {
+    "id": 30,
+    "qid": "isr-e-30",
+    "difficulty": "easy",
+    "category": "ISR Fundamentals and Components",
+    "tags": [
+      "collection sources"
+    ],
+    "prompt": "Which of the following is listed in the lesson as a source from which ISR systems collect information?",
+    "options": [
+      "Infrared imaging",
+      "Unit morning reports",
+      "Supply requisitions",
+      "Personnel records"
+    ],
+    "answer": 0,
+    "explanation": "Slide 23 lists electronic communications, optical, radar, and infrared imaging as ISR sources.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 31,
+    "qid": "isr-e-31",
+    "difficulty": "easy",
+    "category": "Roles and Importance of ISR",
+    "tags": [
+      "ISR aims"
+    ],
+    "prompt": "Which of the following is one of the stated aims of ISR?",
+    "options": [
+      "To deliver indirect fires on enemy positions",
+      "To alert friendly forces to threats",
+      "To resupply forward units with ammunition",
+      "To replace the commander's decision-making"
+    ],
+    "answer": 1,
+    "explanation": "Slide 28 lists alerting friendly forces to threats among the aims of ISR; ISR aids decision-making rather than replacing it.",
+    "sourceSlides": [
+      28
+    ]
+  },
+  {
+    "id": 32,
+    "qid": "isr-e-32",
+    "difficulty": "easy",
+    "category": "Roles and Importance of ISR",
+    "tags": [
+      "ISR aims",
+      "alert friendly forces"
+    ],
+    "prompt": "A Philippine Army UAS team spots an armed group massing near a company patrol base in a barangay and immediately warns the troops at the base. Which ISR aim is being served?",
+    "options": [
+      "Evaluating combat effectiveness",
+      "Holding targets at risk of attack",
+      "Alerting friendly forces to threats",
+      "Identifying adversary vulnerabilities"
+    ],
+    "answer": 2,
+    "explanation": "Slide 28: one aim of ISR is to alert friendly forces to threats.",
+    "sourceSlides": [
+      28
+    ]
+  },
+  {
+    "id": 33,
+    "qid": "isr-e-33",
+    "difficulty": "easy",
+    "category": "Airborne ISR Systems",
+    "tags": [
+      "HALE",
+      "acronym"
+    ],
+    "prompt": "What does the abbreviation HALE stand for?",
+    "options": [
+      "High-Accuracy, Low Emission",
+      "Heavy-Airframe, Long Endurance",
+      "High-Altitude, Limited Endurance",
+      "High-Altitude, Long Endurance"
+    ],
+    "answer": 3,
+    "explanation": "Slide 36: High-Altitude, Long Endurance (HALE) platforms.",
+    "sourceSlides": [
+      36
+    ]
+  },
+  {
+    "id": 34,
+    "qid": "isr-e-34",
+    "difficulty": "easy",
+    "category": "Airborne ISR Systems",
+    "tags": [
+      "UAV",
+      "payloads"
+    ],
+    "prompt": "Which payloads does the lesson list for UAVs that engage targets identified through ISR missions?",
+    "options": [
+      "Missiles, bombs, or precision-guided ammunitions",
+      "Radars, cameras, or infrared sensors for full-motion video",
+      "Rockets, mortars, or artillery shells",
+      "Troops, supplies, or medical kits"
+    ],
+    "answer": 0,
+    "explanation": "Slide 32: UAVs carrying missiles, bombs, or precision-guided ammunitions engage targets identified through ISR.",
+    "sourceSlides": [
+      32
+    ]
+  },
+  {
+    "id": 35,
+    "qid": "isr-e-35",
+    "difficulty": "easy",
+    "category": "Ground-Based ISR Systems",
+    "tags": [
+      "asset categories",
+      "ground-based"
+    ],
+    "prompt": "Under which category of ISR assets does the lesson place ground surveillance radars and fixed and mobile sensor networks?",
+    "options": [
+      "Airborne ISR Systems",
+      "Ground-Based ISR Systems",
+      "Maritime ISR Platforms",
+      "Space-Based ISR Systems"
+    ],
+    "answer": 1,
+    "explanation": "Slides 37-38 present both under Ground-Based ISR Systems.",
+    "sourceSlides": [
+      31,
+      37,
+      38
+    ]
+  },
+  {
+    "id": 36,
+    "qid": "isr-e-36",
+    "difficulty": "easy",
+    "category": "Ground-Based ISR Systems",
+    "tags": [
+      "ground surveillance radar"
+    ],
+    "prompt": "Where is a fixed ground surveillance radar usually mounted?",
+    "options": [
+      "On a satellite",
+      "On a submarine mast",
+      "On a low tower",
+      "On a HALE vehicle"
+    ],
+    "answer": 2,
+    "explanation": "Slide 37: a fixed ground surveillance radar is usually on a low tower; a mobile one is mounted on a vehicle.",
+    "sourceSlides": [
+      37
+    ]
+  },
+  {
+    "id": 37,
+    "qid": "isr-e-37",
+    "difficulty": "easy",
+    "category": "Maritime ISR Platforms",
+    "tags": [
+      "surface warfare"
+    ],
+    "prompt": "According to the lesson, maritime ISR all begins with which?",
+    "options": [
+      "Submarine warfare",
+      "Naval aviation",
+      "Space-based ISR",
+      "Surface warfare"
+    ],
+    "answer": 3,
+    "explanation": "Slide 39: aviation and submarines are crucial, but it all begins with surface warfare, the backbone of the Navy.",
+    "sourceSlides": [
+      39
+    ]
+  },
+  {
+    "id": 38,
+    "qid": "isr-e-38",
+    "difficulty": "easy",
+    "category": "Space-Based ISR Systems",
+    "tags": [
+      "MASINT",
+      "acronym"
+    ],
+    "prompt": "What does MASINT stand for?",
+    "options": [
+      "Maritime Surveillance Intelligence",
+      "Mapping and Satellite Intelligence",
+      "Military Assessment and Signals Intelligence",
+      "Measurement and Signature Intelligence"
+    ],
+    "answer": 3,
+    "explanation": "Slide 43: MASINT is Measurement and Signature Intelligence.",
+    "sourceSlides": [
+      43
+    ]
+  },
+  {
+    "id": 39,
+    "qid": "isr-e-39",
+    "difficulty": "easy",
+    "category": "Timeliness, Accuracy, and Fusion",
+    "tags": [
+      "HUMINT",
+      "acronym",
+      "fusion"
+    ],
+    "prompt": "Which abbreviation refers to human intelligence, one of the sources the lesson lists under fusion?",
+    "options": [
+      "IMINT",
+      "HUMINT",
+      "SIGINT",
+      "MASINT"
+    ],
+    "answer": 1,
+    "explanation": "Slide 51 lists signals intelligence (SIGINT), human intelligence (HUMINT), and imagery intelligence (IMINT) as sources fused in ISR.",
+    "sourceSlides": [
+      51
+    ]
+  },
+  {
+    "id": 40,
+    "qid": "isr-e-40",
+    "difficulty": "easy",
+    "category": "Space-Based ISR Systems",
+    "tags": [
+      "commercial imagery"
+    ],
+    "prompt": "Which statement about commercial imagery appears in the lesson?",
+    "options": [
+      "It is classified and limited to national forces",
+      "It is collected only by submarine systems",
+      "It is the easiest ISR capability to access",
+      "It is restricted to denied areas of the world"
+    ],
+    "answer": 2,
+    "explanation": "Slide 45: commercial imagery is the easiest ISR capability to access and the most relevant for operations; it is unclassified.",
+    "sourceSlides": [
+      45
+    ]
+  },
+  {
+    "id": 41,
+    "qid": "isr-e-41",
+    "difficulty": "easy",
+    "category": "Timeliness, Accuracy, and Fusion",
+    "tags": [
+      "timeliness"
+    ],
+    "prompt": "Which principle of ISR operations allows for proactive responses to evolving situations on the battlefield?",
+    "options": [
+      "Accuracy",
+      "Fusion",
+      "Security",
+      "Timeliness"
+    ],
+    "answer": 3,
+    "explanation": "Slide 49: timeliness allows for proactive responses to evolving situations on the battlefield.",
+    "sourceSlides": [
+      49
+    ]
+  },
+  {
+    "id": 42,
+    "qid": "isr-e-42",
+    "difficulty": "easy",
+    "category": "Coverage, Persistence, and Flexibility",
+    "tags": [
+      "principles",
+      "number"
+    ],
+    "prompt": "How many principles of ISR operations does the lesson list?",
+    "options": [
+      "Nine",
+      "Seven",
+      "Eight",
+      "Ten"
+    ],
+    "answer": 0,
+    "explanation": "Slide 58 lists nine: timeliness, accuracy, fusion, coverage, persistence, flexibility, security, interoperability, and ethical considerations.",
+    "sourceSlides": [
+      58
+    ]
+  },
+  {
+    "id": 43,
+    "qid": "isr-e-43",
+    "difficulty": "easy",
+    "category": "Coverage, Persistence, and Flexibility",
+    "tags": [
+      "persistence"
+    ],
+    "prompt": "What best describes the principle of persistence?",
+    "options": [
+      "Comprehensive coverage of the area of interest or an operational objective",
+      "Sustained, continuous monitoring of the operational area over time",
+      "Quickly redirecting assets and adjusting collection priorities",
+      "Integrating SIGINT, HUMINT, IMINT, and other intelligence sources"
+    ],
+    "answer": 1,
+    "explanation": "Slide 53 defines persistence; the other options describe coverage, flexibility, and fusion.",
+    "sourceSlides": [
+      53
+    ]
+  },
+  {
+    "id": 44,
+    "qid": "isr-e-44",
+    "difficulty": "easy",
+    "category": "Security, Interoperability, and Ethics",
+    "tags": [
+      "interoperability"
+    ],
+    "prompt": "What best describes the principle of interoperability?",
+    "options": [
+      "Strict measures protecting sensitive information and assets from compromise",
+      "Conduct guided by international laws, rules of engagement, and moral principles",
+      "Coordination among different services and allied forces in joint and coalition settings",
+      "Integration of multiple intelligence sources such as signals, human, and imagery intelligence"
+    ],
+    "answer": 2,
+    "explanation": "Slide 56 defines interoperability; the distractors describe security, ethical considerations, and fusion.",
+    "sourceSlides": [
+      56
     ]
   }
 ]

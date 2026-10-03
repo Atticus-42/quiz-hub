@@ -64,8 +64,8 @@ export async function buildSuite({ lessons, modules }) {
   });
 
   await T('every lesson folder loads: unique keys, slugs and qids; modules exist; the combined exam is a pool of the four Module 2 lessons', () => {
-    assert.deepEqual(lessons.map(lesson => lesson.key), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops', 'signal']);
-    assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined', 'isr', 'armor', 'field-artillery', 'army-operations', 'signal-support']);
+    assert.deepEqual(lessons.map(lesson => lesson.key), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops', 'signal', 'signaljoint']);
+    assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined', 'isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal']);
     assert.deepEqual(modules.map(module => module.id), ['module-2', 'module-3']);
     const combined = lessons.find(lesson => lesson.key === 'combined');
     assert.deepEqual(combined.pool, { lessons: ['isr', 'armor', 'fieldartillery', 'armyops'], count: 30 });
@@ -79,7 +79,7 @@ export async function buildSuite({ lessons, modules }) {
     const pages = build({ write: false });
     const expectedPages = ['index.html', 'class/index.html', 'instructor/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
     assert.deepEqual(Object.keys(pages).sort(), expectedPages.sort());
-    for (const slug of ['isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'combined']) assert.ok(expectedPages.includes(`${slug}/index.html`), slug);
+    for (const slug of ['isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal', 'combined']) assert.ok(expectedPages.includes(`${slug}/index.html`), slug);
     for (const [path, html] of Object.entries(pages)) {
       assert.equal(readFileSync(join(ROOT, path), 'utf8'), html, `${path} is stale: run node scripts/build.mjs`);
       if (path !== 'class/index.html') assert.equal(html.split(`var HISTORY_ENDPOINT = '${HISTORY_ENDPOINT}';`).length - 1, 1, `${path} declares the endpoint once`);
@@ -116,15 +116,19 @@ export async function buildSuite({ lessons, modules }) {
       for (const dir of ['scripts', 'src', 'lessons', 'data']) cpSync(join(ROOT, dir), join(fixture, dir), { recursive: true });
       const path = join(fixture, 'lessons', 'armor', 'medium.json');
       const bank = JSON.parse(readFileSync(path, 'utf8'));
+      const sizes = MODES.map(mode => JSON.parse(readFileSync(join(fixture, 'lessons', 'armor', `${mode}.json`), 'utf8')).length);
+      sizes[MODES.indexOf('medium')]++;
       bank.push({ ...bank[0], id: bank.length + 1, qid: `armor-m-${bank.length + 1}`, prompt: 'A brand new appended prompt about armor movement?' });
       writeFileSync(path, JSON.stringify(bank, null, 2));
       const result = spawnSync(process.execPath, [join(fixture, 'scripts', 'build.mjs')], { encoding: 'utf8' });
       assert.equal(result.status, 0, result.stderr);
       const html = readFileSync(join(fixture, 'armor', 'index.html'), 'utf8');
-      assert.match(html, /26 questions\. Compare, diagnose/);
-      assert.match(html, /76 situational questions/);
+      assert.ok(html.includes(`${bank.length} questions. Compare, diagnose`), 'the medium mode states the new bank size');
+      assert.ok(html.includes(`${sizes.reduce((sum, size) => sum + size, 0)} situational questions`), 'the lede states the new total');
       const hub = readFileSync(join(fixture, 'index.html'), 'utf8');
-      assert.match(hub, /25–26 questions per mode/);
+      const low = Math.min(...sizes);
+      const high = Math.max(...sizes);
+      assert.ok(hub.includes(low === high ? `${low} questions per mode` : `${low}–${high} questions per mode`), 'the hub card follows the new bank size');
       const combined = readFileSync(join(fixture, 'combined', 'index.html'), 'utf8');
       assert.ok(combined.includes('A brand new appended prompt about armor movement?'), 'the pool exam picks up the new question');
     } finally {
@@ -137,6 +141,7 @@ export async function buildSuite({ lessons, modules }) {
     try {
       for (const dir of ['scripts', 'src', 'lessons', 'data']) cpSync(join(ROOT, dir), join(fixture, dir), { recursive: true });
       const dir = join(fixture, 'lessons', 'signaljoint');
+      rmSync(dir, { recursive: true, force: true });
       cpSync(join(ROOT, 'lessons', '_template'), dir, { recursive: true });
       const config = JSON.parse(readFileSync(join(dir, 'lesson.json'), 'utf8'));
       config.categoryOrder = ['Test topic'];
@@ -181,7 +186,7 @@ export async function buildSuite({ lessons, modules }) {
         for (const category of lesson.categoryOrder) assert.ok(used.has(category), `no ${category} question`);
         assert.ok(bank.length >= lesson.categoryOrder.length);
       });
-      await T(`${lesson.key} ${mode}: answer letters balanced (±1 around ${bank.length}/4) and the key is the unique longest option in at most ${Math.round(share * 100)}%`, () => {
+      await T(`${lesson.key} ${mode}: answer letters balanced (±1 around ${bank.length}/4, max − min ≤ 1) and the key is the unique longest option in at most ${Math.round(share * 100)}%`, () => {
         const counts = [0, 0, 0, 0];
         let longest = 0;
         for (const item of bank) {
@@ -191,6 +196,7 @@ export async function buildSuite({ lessons, modules }) {
         }
         const even = bank.length / 4;
         assert.ok(counts.every(count => count >= Math.ceil(even - 1) && count <= Math.floor(even + 1)), counts.join('/'));
+        assert.ok(Math.max(...counts) - Math.min(...counts) <= 1, `answer letters differ by at most one: ${counts.join('/')}`);
         assert.ok(longest <= share * bank.length, `key is the unique longest option in ${longest}/${bank.length} items`);
       });
     }
@@ -210,7 +216,12 @@ export async function buildSuite({ lessons, modules }) {
     for (const lesson of lessons) {
       const label = countLabel(lesson);
       if (lesson.pool) assert.equal(label, '30 questions');
-      else assert.equal(label, `${lesson.counts.easy} questions per mode`);
+      else {
+        const counts = MODES.map(mode => lesson.counts[mode]);
+        const low = Math.min(...counts);
+        const high = Math.max(...counts);
+        assert.equal(label, low === high ? `${low} questions per mode` : `${low}–${high} questions per mode`);
+      }
     }
   });
 }

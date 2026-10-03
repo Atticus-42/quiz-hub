@@ -578,5 +578,342 @@
       56,
       57
     ]
+  },
+  {
+    "id": 26,
+    "qid": "isr-h-26",
+    "difficulty": "hard",
+    "category": "ISR Fundamentals and Components",
+    "tags": [
+      "components",
+      "matching"
+    ],
+    "prompt": "Which statement correctly matches all three ISR components with their definitions?",
+    "options": [
+      "Surveillance: continuous observation of a target; reconnaissance: data for a specific military question; intelligence: their result combined with other data",
+      "Surveillance: data for a specific military question; reconnaissance: continuous observation of a target; intelligence: their result combined with other data",
+      "Surveillance: continuous observation of a target; reconnaissance: their result combined with other data; intelligence: data for a specific military question",
+      "Surveillance: their result combined with other data; reconnaissance: data for a specific military question; intelligence: continuous observation of a target"
+    ],
+    "answer": 0,
+    "explanation": "Slide 26: surveillance is the continuous observation of a target, reconnaissance collects data to answer a specific military question, and intelligence is their result combined with other data. Every other pairing swaps at least two definitions.",
+    "sourceSlides": [
+      26
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "isr-h-27",
+    "difficulty": "hard",
+    "category": "ISR Fundamentals and Components",
+    "tags": [
+      "surveillance",
+      "timeliness",
+      "two-concept"
+    ],
+    "prompt": "A battalion team observes a river ford without interruption for a week, but its logs reach the S2 two days after each crossing, when the groups have already moved on. Which component was being performed, and which principle was compromised?",
+    "options": [
+      "Reconnaissance; timeliness",
+      "Surveillance; timeliness",
+      "Surveillance; persistence",
+      "Reconnaissance; accuracy"
+    ],
+    "answer": 1,
+    "explanation": "Continuous observation of a target is surveillance (slide 26); reports arriving after the situation changed compromise timeliness (slide 49). Persistence was achieved.",
+    "sourceSlides": [
+      26,
+      49
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "isr-h-28",
+    "difficulty": "hard",
+    "category": "Roles and Importance of ISR",
+    "tags": [
+      "ISR aims"
+    ],
+    "prompt": "Which list contains only aims of ISR stated in the lesson?",
+    "options": [
+      "Alert friendly forces to threats, resupply forward units, evaluate combat effectiveness",
+      "Hold targets at risk of attack, replace human intelligence teams, support military planning",
+      "Alert friendly forces to threats, identify adversary vulnerabilities, evaluate combat effectiveness",
+      "Support deception techniques, conduct civil-military operations, aid decision-making"
+    ],
+    "answer": 2,
+    "explanation": "Slide 28 lists aiding decision-making, supporting planning, alerting friendly forces, supporting and countering deception, identifying vulnerabilities, holding targets at risk, and evaluating combat effectiveness. Each distractor contains one item not in that list.",
+    "sourceSlides": [
+      28
+    ]
+  },
+  {
+    "id": 29,
+    "qid": "isr-h-29",
+    "difficulty": "hard",
+    "category": "Roles and Importance of ISR",
+    "tags": [
+      "alert friendly forces",
+      "timeliness",
+      "compromised"
+    ],
+    "prompt": "During an operation in Mindanao, ISR shows an enemy force moving toward a company patrol base, but the S2 holds the report for the next day's scheduled briefing and the base is attacked first. Which ISR aim went unmet, and which principle was compromised?",
+    "options": [
+      "Identifying adversary vulnerabilities; accuracy",
+      "Holding targets at risk of attack; persistence",
+      "Alerting friendly forces to threats; coverage",
+      "Alerting friendly forces to threats; timeliness"
+    ],
+    "answer": 3,
+    "explanation": "The threat was detected (coverage was met), but the warning was not passed in time: the aim of alerting friendly forces (slide 28) failed because timeliness (slide 49) was compromised.",
+    "sourceSlides": [
+      28,
+      49
+    ]
+  },
+  {
+    "id": 30,
+    "qid": "isr-h-30",
+    "difficulty": "hard",
+    "category": "Airborne ISR Systems",
+    "tags": [
+      "UAV",
+      "strike capability"
+    ],
+    "prompt": "UAVs that carry strike payloads provide a flexible and persistent strike capability supporting which operations?",
+    "options": [
+      "Ground or maritime operations",
+      "Ground operations only",
+      "Maritime operations only",
+      "Air and space operations"
+    ],
+    "answer": 0,
+    "explanation": "Slide 32: the strike capability supports ground or maritime operations.",
+    "sourceSlides": [
+      32
+    ]
+  },
+  {
+    "id": 31,
+    "qid": "isr-h-31",
+    "difficulty": "hard",
+    "category": "Space-Based ISR Systems",
+    "tags": [
+      "space-based benefits",
+      "terrestrial benefits",
+      "matching"
+    ],
+    "prompt": "Which pairing correctly assigns one benefit to space-based ISR and one to terrestrial-based ISR?",
+    "options": [
+      "Space-based: local commander approval for relocation and tasking; terrestrial: beyond line-of-sight coverage of large areas",
+      "Space-based: beyond line-of-sight coverage of large areas; terrestrial: local commander approval for relocation and tasking",
+      "Space-based: near-real-time full-motion video from company UAS; terrestrial: collection in denied areas",
+      "Space-based: deployment of lethal effects after target identification; terrestrial: worldwide coverage"
+    ],
+    "answer": 1,
+    "explanation": "Slide 44 lists beyond line-of-sight coverage under space-based benefits and local commander approval under terrestrial benefits.",
+    "sourceSlides": [
+      44
+    ]
+  },
+  {
+    "id": 32,
+    "qid": "isr-h-32",
+    "difficulty": "hard",
+    "category": "Space-Based ISR Systems",
+    "tags": [
+      "commercial imagery resources",
+      "CAC-enabled"
+    ],
+    "prompt": "Which two commercial imagery resources does the lesson mark as CAC-enabled?",
+    "options": [
+      "PiX and Army Mapping Resources",
+      "PiX and NGA Map of the World",
+      "Army Geospatial Center and NGA Map of the World",
+      "Army Geospatial Center and PiX"
+    ],
+    "answer": 2,
+    "explanation": "Slide 45 marks the Army Geospatial Center and the NGA Map of the World as CAC-enabled.",
+    "sourceSlides": [
+      45
+    ]
+  },
+  {
+    "id": 33,
+    "qid": "isr-h-33",
+    "difficulty": "hard",
+    "category": "Space-Based ISR Systems",
+    "tags": [
+      "Army Geospatial Center"
+    ],
+    "prompt": "Engineer Route Studies, Common Map Background, and Urban Tactical Planners are products listed under which resource?",
+    "options": [
+      "Protected Internet eXchange (PiX)",
+      "NGA Map of the World",
+      "MAXAR G-EGD",
+      "Army Geospatial Center"
+    ],
+    "answer": 3,
+    "explanation": "Slide 45 lists these three products with the Army Geospatial Center.",
+    "sourceSlides": [
+      45
+    ]
+  },
+  {
+    "id": 34,
+    "qid": "isr-h-34",
+    "difficulty": "hard",
+    "category": "Space-Based ISR Systems",
+    "tags": [
+      "IMINT",
+      "discrimination"
+    ],
+    "prompt": "Which statement about space-based IMINT matches the lesson?",
+    "options": [
+      "It observes huge areas without blurring, but regular orbits let targets avoid it",
+      "It identifies emitter type and location to measure a target's distinctive signature",
+      "It is used in collaboration with aerial and ground-based SIGINT assets",
+      "It is unclassified, easily obtained, and benefits multinational partners"
+    ],
+    "answer": 0,
+    "explanation": "Slide 41 describes IMINT; the distractors describe MASINT (43), space-based SIGINT (42), and commercial imagery (45).",
+    "sourceSlides": [
+      41,
+      42,
+      43,
+      45
+    ]
+  },
+  {
+    "id": 35,
+    "qid": "isr-h-35",
+    "difficulty": "hard",
+    "category": "Timeliness, Accuracy, and Fusion",
+    "tags": [
+      "fusion",
+      "interoperability",
+      "two-concept"
+    ],
+    "prompt": "In a combined exercise, a Philippine Army S2 merges its own SIGINT, HUMINT, and IMINT reports into one assessment; separately, its UAS team and an allied naval unit adopt common procedures so they can exchange target tracks. Which principles are shown, in order?",
+    "options": [
+      "Interoperability, then fusion",
+      "Fusion, then interoperability",
+      "Fusion, then coverage",
+      "Coverage, then interoperability"
+    ],
+    "answer": 1,
+    "explanation": "Combining multiple intelligence sources is fusion (slide 51); coordination with allied forces is interoperability (slide 56).",
+    "sourceSlides": [
+      51,
+      56
+    ]
+  },
+  {
+    "id": 36,
+    "qid": "isr-h-36",
+    "difficulty": "hard",
+    "category": "Coverage, Persistence, and Flexibility",
+    "tags": [
+      "coverage",
+      "persistence",
+      "compromised"
+    ],
+    "prompt": "A brigade keeps one UAS orbiting continuously over a single river crossing for a week, while enemy groups move freely through two other valleys in its area of interest that no asset watches. Which principle was compromised?",
+    "options": [
+      "Persistence",
+      "Flexibility",
+      "Coverage",
+      "Timeliness"
+    ],
+    "answer": 2,
+    "explanation": "Persistence over the crossing was achieved (slide 53), but the plan failed to achieve comprehensive coverage of the area of interest (slide 52).",
+    "sourceSlides": [
+      52,
+      53
+    ]
+  },
+  {
+    "id": 37,
+    "qid": "isr-h-37",
+    "difficulty": "hard",
+    "category": "Coverage, Persistence, and Flexibility",
+    "tags": [
+      "flexibility"
+    ],
+    "prompt": "Which set lists only actions that the lesson includes under flexibility?",
+    "options": [
+      "Redirecting assets, sustaining continuous monitoring, adjusting collection priorities",
+      "Adjusting collection priorities, combining SIGINT and HUMINT, redirecting assets",
+      "Employing different intelligence methods, achieving comprehensive coverage, redirecting assets",
+      "Redirecting assets, adjusting collection priorities, employing different intelligence methods"
+    ],
+    "answer": 3,
+    "explanation": "Slide 54 names quickly redirecting assets, adjusting collection priorities, and employing different intelligence methods; the distractors each insert persistence, fusion, or coverage.",
+    "sourceSlides": [
+      54
+    ]
+  },
+  {
+    "id": 38,
+    "qid": "isr-h-38",
+    "difficulty": "hard",
+    "category": "Security, Interoperability, and Ethics",
+    "tags": [
+      "ethical considerations"
+    ],
+    "prompt": "Ethical considerations guide ISR collection, analysis, and dissemination in accordance with which?",
+    "options": [
+      "International laws, rules of engagement, and moral principles",
+      "International laws, security classifications, and allied procedures",
+      "Rules of engagement, collection priorities, and coalition agreements",
+      "Moral principles, commander's intent, and commercial licensing"
+    ],
+    "answer": 0,
+    "explanation": "Slide 57: ethics guide ISR conduct in accordance with international laws, rules of engagement, and moral principles.",
+    "sourceSlides": [
+      57
+    ]
+  },
+  {
+    "id": 39,
+    "qid": "isr-h-39",
+    "difficulty": "hard",
+    "category": "Security, Interoperability, and Ethics",
+    "tags": [
+      "principles list"
+    ],
+    "prompt": "Which of the following is NOT one of the principles of ISR operations listed in the lesson?",
+    "options": [
+      "Fusion",
+      "Synchronization",
+      "Interoperability",
+      "Persistence"
+    ],
+    "answer": 1,
+    "explanation": "Slide 58 lists timeliness, accuracy, fusion, coverage, persistence, flexibility, security, interoperability, and ethical considerations; synchronization is not among them.",
+    "sourceSlides": [
+      58
+    ]
+  },
+  {
+    "id": 40,
+    "qid": "isr-h-40",
+    "difficulty": "hard",
+    "category": "Security, Interoperability, and Ethics",
+    "tags": [
+      "ethical considerations",
+      "compromised"
+    ],
+    "prompt": "To locate an armed group's leader quickly, a collection team intercepts communications in a manner that violates international law and the rules of engagement. The location turns out to be correct and reaches the commander within minutes. Which principle was compromised?",
+    "options": [
+      "Accuracy",
+      "Timeliness",
+      "Security",
+      "Ethical considerations"
+    ],
+    "answer": 3,
+    "explanation": "Slide 57: ethics guide intelligence collection in accordance with international laws, rules of engagement, and moral principles. The report was accurate and timely, so those principles were met.",
+    "sourceSlides": [
+      57
+    ]
   }
 ]

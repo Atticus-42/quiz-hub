@@ -13,6 +13,7 @@ The whole site is published from this repository with GitHub Pages at https://at
   | Module 2 | Field Artillery Operations | `fieldartillery` | `/quiz-hub/field-artillery/` |
   | Module 2 | Army Operations | `armyops` | `/quiz-hub/army-operations/` |
   | Module 3 | Signal Support in Combined Arms Operations | `signal` | `/quiz-hub/signal-support/` |
+  | Module 3 | Signal Support in Joint Operations | `signaljoint` | `/quiz-hub/joint-signal/` |
 
 - **Instructor view** (`/quiz-hub/instructor/`): question analysis.
 - **Our class** (`/quiz-hub/class/`): class organization and roster.
@@ -63,7 +64,11 @@ Each bank is a JSON array. Each question looks like this:
 ```
 
 - `id` is the position in the bank: 1, 2, 3, …
-- `qid` is permanent. The instructor's question analysis is keyed on it, so never change or reuse one.
+- `qid` is permanent. The instructor's question analysis is keyed on it, so never change or reuse one. A question
+  corrected only in wording, explanation or a distractor keeps its qid; a question whose meaning changes gets a new
+  qid (delete its `qid` and run `assign-qids`), so its statistics are not mixed with the old version's. Retired so far:
+  `armyops-h-24` (now `armyops-h-26`: unity of command in a joint task force instead of civilians reporting to an
+  officer) and `armyops-m-14` (now `armyops-m-26`: the stem described Information Operations, the key is Information).
 - `category` must be one of the lesson's `categoryOrder` topics.
 - `sourceSlides` must fall within `sourceRef` (it is optional for Army Operations).
 - An attempt asks every question of the chosen bank (1–500 per bank). The pool exam asks `pool.count` questions, split evenly across its lessons.
@@ -79,8 +84,8 @@ Each bank is a JSON array. Each question looks like this:
    ```
 
 Page texts, hub cards, the Combined Exam pool and the instructor page all follow automatically. The tests require each bank to keep:
-- answer letters balanced (each letter within ±1 of a quarter of the bank);
-- the key as the unique longest option in no more than 35% of questions (ISR is allowed 48% and Army Operations 44%, as their current banks need);
+- answer letters balanced (each letter within ±1 of a quarter of the bank, and the most and least used letters differ by at most one);
+- the key as the unique longest option in no more than 35% of questions (every lesson; `maxKeyLongestShare` in `lesson.json` can override it, but no lesson does);
 - every topic present;
 - unique prompts.
 Signal Support also has content rules in `lessons/signal/checks.mjs`.
@@ -92,7 +97,7 @@ Copy `lessons/_template/` to `lessons/<key>/`, then:
 - add `hero.svg` (and optionally `hero.css`) and the three banks;
 - add the key to `LESSONS` in `apps-script/Code.gs` and update the deployment.
 
-Then run `assign-qids`, build and verify. See `lessons/_template/README.md`. The Module 3 lesson `signaljoint` (slug `joint-signal`) is already registered in `Code.gs`.
+Then run `assign-qids`, build and verify. See `lessons/_template/README.md`. The Module 3 lesson `signaljoint` (slug `joint-signal`) is registered in `Code.gs`; its `coverage.md` maps each question to the lesson slides.
 
 ## Students' features
 

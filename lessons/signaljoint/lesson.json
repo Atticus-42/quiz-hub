@@ -1,0 +1,41 @@
+{
+  "key": "signaljoint",
+  "slug": "joint-signal",
+  "module": "module-3",
+  "order": 2,
+  "name": "Signal Support in Joint Operations",
+  "title": "Signal Support in Joint Operations Mastery Quiz",
+  "eyebrow": "Philippine Army · Module 3 · Signal Support in Joint Operations",
+  "lessonName": "Signal Support in Joint Operations",
+  "hubDescription": "Signal Support in Joint Operations lesson.",
+  "lede": "Test your command of how signal support connects the Army, Navy and Air Force in AFP joint operations: the services' contributions, the roles of signal support, joint systems and interoperability arrangements, the five principles, tactical considerations, the eight-step planning process, and security measures and protocols. {total} situational questions across Easy, Medium, and Hard.",
+  "historyLesson": "signaljoint",
+  "categoryOrder": [
+    "Joint Operations Fundamentals",
+    "Operational Environment",
+    "Roles of Signal Support",
+    "Systems and Technologies",
+    "Principles of Signal Support",
+    "Tactical Considerations",
+    "Planning and Coordination",
+    "Security Measures and Protocols"
+  ],
+  "sourceRef": { "label": "slide", "plural": "slides", "min": 6, "max": 70, "required": true },
+  "palette": {
+    "--color-paper": "#efeddc",
+    "--topo-angle": "145deg",
+    "--topo-tint-green": "#e2e9d6",
+    "--topo-tint-sand": "#ece4cd",
+    "--topo-line": "#4a5f3a",
+    "--topo-line-major": "#3c5030"
+  },
+  "art": {
+    "groups": ["tank", "tank-gun", "muzzle-blast", "shell", "dust", "objective"],
+    "nested": { "tank": ["tank-gun", "muzzle-blast"] },
+    "labels": ["SIGNAL SUPPORT · JOINT OPERATIONS", "ARMY", "NAVY", "AIR FORCE", "JOINT NETWORK", "PHYSICAL", "CYBERSPACE", "ELECTROMAGNETIC SPECTRUM"],
+    "classes": ["link-line", "service-node", "node-ship", "node-aircraft", "env-physical", "env-cyberspace", "env-spectrum"],
+    "forbidden": "COMBINED ARMS|INFANTRY|ARTILLERY|COMMANDER|OBJECTIVE",
+    "stilled": ["#tank-gun", "#muzzle-blast", "#shell", "#dust .dust-puff", "#objective .impact-pulse", ".link-line"],
+    "staticPattern": "#tank|#objective$|\\.env-band|\\.link-line|\\.service-node|\\.hero-art"
+  }
+}

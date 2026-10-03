@@ -594,5 +594,362 @@
       17,
       18
     ]
+  },
+  {
+    "id": 26,
+    "qid": "signal-h-26",
+    "difficulty": "hard",
+    "category": "Operational Environment",
+    "tags": [
+      "PMESII-PT",
+      "METT-TC"
+    ],
+    "prompt": "Which of these factors is listed in PMESII-PT but not in METT-TC?",
+    "options": [
+      "Time",
+      "Enemy",
+      "Infrastructure",
+      "Civil Considerations"
+    ],
+    "answer": 2,
+    "explanation": "Page 3: Infrastructure is listed in PMESII-PT but not in METT-TC. Time appears in both (Time / Time Available); Enemy and Civil Considerations are METT-TC factors, not PMESII-PT factors.",
+    "sourceSlides": [
+      3
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "signal-h-27",
+    "difficulty": "hard",
+    "category": "Tactical Considerations",
+    "tags": [
+      "METT-TC",
+      "METAL"
+    ],
+    "prompt": "A planner compares METT-TC with METAL, the guide for the Signal Estimate. Which factor appears in METT-TC but not in METAL?",
+    "options": [
+      "Enemy",
+      "Civil Considerations",
+      "Mission",
+      "Logistical Requirements"
+    ],
+    "answer": 1,
+    "explanation": "Pages 3 and 11: METT-TC includes Civil Considerations, which METAL lacks. Mission and Enemy appear in both; Logistical Requirements is in METAL but not in METT-TC.",
+    "sourceSlides": [
+      3,
+      11
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "signal-h-28",
+    "difficulty": "hard",
+    "category": "Systems and Technologies",
+    "tags": [
+      "communication services",
+      "fixed",
+      "tactical",
+      "special purpose"
+    ],
+    "prompt": "Which matching of the three communication services to the lesson's examples is correct?",
+    "options": [
+      "Fixed: PANET and VTC; tactical: HF/VHF/UHF radios and CNR; special purpose: cellular and satellite phones",
+      "Fixed: PANET and satellite phones; tactical: HF/VHF/UHF radios; special purpose: CNR and commercial VTC",
+      "Fixed: CNR and Army telephones; tactical: cellular phones and HF radios; special purpose: PANET and email",
+      "Fixed: Army telephones and CNR; tactical: VHF radios and satellite phones; special purpose: PANET and VTC"
+    ],
+    "answer": 0,
+    "explanation": "Page 4: fixed communication includes Army telephone systems, PANET, email and video teleconferencing; tactical communication includes HF, VHF and UHF radios and combat net radio; special purpose communication includes cellular phones, satellite phones and commercial videoconferencing.",
+    "sourceSlides": [
+      4,
+      7
+    ]
+  },
+  {
+    "id": 29,
+    "qid": "signal-h-29",
+    "difficulty": "hard",
+    "category": "Priorities, Continuity and Coordination",
+    "tags": [
+      "planning steps",
+      "sequence"
+    ],
+    "prompt": "Which sequence matches the lesson's steps for planning and coordinating Signal Support?",
+    "options": [
+      "Resources; Signal Estimate; priorities; who communicates and why; tentative plan; continuity and recovery; publish and update",
+      "Who communicates and why; tentative plan; Signal Estimate; resources; continuity and recovery; priorities; publish and update",
+      "Signal Estimate; resources; tentative plan; who communicates and why; priorities; publish and update; continuity and recovery",
+      "Signal Estimate; who communicates and why; resources; priorities; continuity and recovery; tentative plan; publish and update"
+    ],
+    "answer": 3,
+    "explanation": "Pages 14-17: understand the mission and prepare the Signal Estimate; determine who needs to communicate and why; determine available resources; establish support priorities; plan continuity and recovery; prepare and coordinate the tentative plan; publish the plan and keep it updated.",
+    "sourceSlides": [
+      14,
+      15,
+      16,
+      17
+    ]
+  },
+  {
+    "id": 30,
+    "qid": "signal-h-30",
+    "difficulty": "hard",
+    "category": "Priorities, Continuity and Coordination",
+    "tags": [
+      "PACE",
+      "Emergency"
+    ],
+    "prompt": "During a night attack in Sulu, a company's primary net fails, its alternate set is destroyed, and the contingency option planned for jamming does not fit the situation. A casualty evacuation request must get through at once. Which arrangement of its PACE plan should the company now use?",
+    "options": [
+      "Alternate",
+      "Contingency",
+      "Emergency",
+      "Primary"
+    ],
+    "answer": 2,
+    "explanation": "Page 16: the Emergency arrangement is the one available when other planned options cannot meet the urgent requirement. Alternate is the substitute for primary failure; Contingency is for a specified disruption or situation.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 31,
+    "qid": "signal-h-31",
+    "difficulty": "hard",
+    "category": "Priorities, Continuity and Coordination",
+    "tags": [
+      "coordination",
+      "subordinate and supporting units"
+    ],
+    "prompt": "While coordinating the tentative plan for a brigade attack, the S6 meets the attached artillery battalion and engineer company to confirm their requirements, capabilities, operating arrangements and responsibilities. With which party, in the lesson's coordination table, is the S6 coordinating?",
+    "options": [
+      "Adjacent units",
+      "Subordinate and supporting units",
+      "Higher headquarters",
+      "Commander and operations staff"
+    ],
+    "answer": 1,
+    "explanation": "Page 16: with subordinate and supporting units, confirm their requirements, capabilities, operating arrangements and responsibilities. Adjacent units: necessary coordination links; higher headquarters: required connections and available support; commander and operations staff: operational concept, priorities and phases.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 32,
+    "qid": "signal-h-32",
+    "difficulty": "hard",
+    "category": "Tactical Considerations",
+    "tags": [
+      "terrain, weather and signal coverage"
+    ],
+    "prompt": "A brigade relay on Palawan is sited from a map alone, with no site survey or reconnaissance. Once the companies reach their assigned areas, dense forest and an approaching storm leave them in a coverage gap no one had identified, although they are exactly where the plan placed them. Which tactical consideration was neglected?",
+    "options": [
+      "Consider terrain, weather, and signal coverage",
+      "Consider troop movement and facility locations",
+      "Check equipment, personnel, and resources",
+      "Ensure interoperability and coordination"
+    ],
+    "answer": 0,
+    "explanation": "Page 12: terrain, vegetation and storms affect propagation; the site survey or reconnaissance determines signal coverage and gaps, and coverage must be verified where troops will actually operate. The troops did not move from their planned positions, so troop movement is not the issue.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 33,
+    "qid": "signal-h-33",
+    "difficulty": "hard",
+    "category": "Tactical Considerations",
+    "tags": [
+      "establish priorities"
+    ],
+    "prompt": "Resources cannot support every link at once for a battalion attack. The S6 supports requests in the order they arrive, and the main effort's fire support link is left without a radio. Which tactical consideration was compromised?",
+    "options": [
+      "Check equipment, personnel, and resources",
+      "Ensure interoperability and coordination",
+      "Consider troop movement and facility locations",
+      "Establish priorities when resources are limited"
+    ],
+    "answer": 3,
+    "explanation": "Page 13: when requirements exceed capability, planners compare requirements with resources and establish priorities based on supportability and importance to mission accomplishment, guided by the commander. Allocating on a first-come basis ignores this.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 34,
+    "qid": "signal-h-34",
+    "difficulty": "hard",
+    "category": "Tactical Considerations",
+    "tags": [
+      "communication failure and hostile disruption"
+    ],
+    "prompt": "When enemy jamming hits a battalion's primary net, its companies do not know which backup to use, no alternate routing exists, and no procedure for changing frequencies has been issued. Which tactical consideration was neglected?",
+    "options": [
+      "Protect the systems and the information",
+      "Ensure interoperability and coordination",
+      "Prepare for communication failure and hostile disruption",
+      "Establish priorities when resources are limited"
+    ],
+    "answer": 2,
+    "explanation": "Page 13: the plan must include what happens when the main connection fails: redundant communication, protection against jamming and interception, incident response, frequency change procedures, PACE plans and alternate routing, all prepared before the disruption.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 35,
+    "qid": "signal-h-35",
+    "difficulty": "hard",
+    "category": "Tactical Considerations",
+    "tags": [
+      "protect systems and information"
+    ],
+    "prompt": "A company in Maguindanao finds that a commercial messaging app works well in the field and uses it to pass troop locations and orders without checking whether it meets COMSEC requirements; the link never fails. Which tactical consideration was neglected?",
+    "options": [
+      "Prepare for communication failure and hostile disruption",
+      "Protect the systems and the information",
+      "Ensure interoperability and coordination",
+      "Check equipment, personnel, and resources"
+    ],
+    "answer": 1,
+    "explanation": "Page 14: protecting the systems and the information requires COMSEC compliance and security measures in planning and execution; a commercially available device may connect, but its use must still meet the security requirements for the information exchanged.",
+    "sourceSlides": [
+      14
+    ]
+  },
+  {
+    "id": 36,
+    "qid": "signal-h-36",
+    "difficulty": "hard",
+    "category": "Tactical Considerations",
+    "tags": [
+      "METAL",
+      "Signal Estimate"
+    ],
+    "prompt": "An S6 completes a thorough METAL-based Signal Estimate at the start of an operation and files it. Its PACE and frequency-change provisions are sound. Two days later the enemy begins jamming, an attached company arrives and the force moves to new terrain, but the estimate is never revisited. Which tactical consideration was mishandled?",
+    "options": [
+      "Understand the situation using METAL",
+      "Check equipment, personnel, and resources",
+      "Consider troop movement and facility locations",
+      "Prepare for communication failure and hostile disruption"
+    ],
+    "answer": 0,
+    "explanation": "Page 12: under \"understand the situation using METAL,\" the Signal Estimate must be updated when the situation changes. The other considerations deal with specific resources, locations and failure plans, not with keeping the estimate current.",
+    "sourceSlides": [
+      11,
+      12
+    ]
+  },
+  {
+    "id": 37,
+    "qid": "signal-h-37",
+    "difficulty": "hard",
+    "category": "Security Measures and Protocols",
+    "tags": [
+      "CEOI",
+      "CESI"
+    ],
+    "prompt": "A radio operator must change to new frequencies at a set time. He needs (1) the specific instruction stating what to do and (2) guidance explaining how that instruction is meant to be applied. Which documents provide these, in order?",
+    "options": [
+      "CESI, then CEOI",
+      "SOPs, then CEOI",
+      "CEOI, then SOPs",
+      "CEOI, then CESI"
+    ],
+    "answer": 3,
+    "explanation": "Page 18: the CEOI provides specific operating instructions (\"what to do\"); the CESI explains the use of the CEOI (\"how to do\"). SOPs provide established unit procedures.",
+    "sourceSlides": [
+      18
+    ]
+  },
+  {
+    "id": 38,
+    "qid": "signal-h-38",
+    "difficulty": "hard",
+    "category": "Security Measures and Protocols",
+    "tags": [
+      "CSIRT",
+      "cyber defense"
+    ],
+    "prompt": "Which of the following is a CSIRT function according to the lesson?",
+    "options": [
+      "Inspect equipment and give refresher training to units",
+      "Conduct radio repairs and support equipment readiness",
+      "Manage incident updates and remediate problems",
+      "Change compromised frequencies quickly and efficiently"
+    ],
+    "answer": 2,
+    "explanation": "Page 18: the CSIRT maintains an incident response plan, investigates incidents, manages incident updates, remediates problems and recommends improvements. Inspection and refresher training is SMMART; radio repairs are SMTF.",
+    "sourceSlides": [
+      8,
+      18
+    ]
+  },
+  {
+    "id": 39,
+    "qid": "signal-h-39",
+    "difficulty": "hard",
+    "category": "Security Measures and Protocols",
+    "tags": [
+      "availability",
+      "redundancy"
+    ],
+    "prompt": "According to the lesson, which arrangements support the availability of communication during disruption?",
+    "options": [
+      "Frequency hopping and anti-jamming capabilities, applied only to the primary net",
+      "Redundant communication, repair and replacement, technical support, alternate routing, and PACE plans",
+      "Network monitoring and CSIRT employment, applied only to fixed headquarters networks",
+      "Restricting access to authorized persons, protecting messages from alteration, and preventing disclosure"
+    ],
+    "answer": 1,
+    "explanation": "Page 19: availability is supported by redundancy and recovery arrangements: redundant communication, equipment repair and replacement, technical support, alternate routing and PACE plans. Restricting access and preventing alteration relate to confidentiality and integrity.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 40,
+    "qid": "signal-h-40",
+    "difficulty": "hard",
+    "category": "Security Measures and Protocols",
+    "tags": [
+      "compromised equipment",
+      "frequencies"
+    ],
+    "prompt": "Why does the lesson say the response to lost or captured equipment must be coordinated rather than handled by the affected unit alone?",
+    "options": [
+      "A compromise can affect the communication arrangements of several units",
+      "Only the CSIRT is authorized to report lost equipment",
+      "Frequency changes apply only to the unit that lost the equipment",
+      "COMSEC policy bars units from reporting their own losses"
+    ],
+    "answer": 0,
+    "explanation": "Page 19: equipment in adversary hands can compromise operational radio frequencies, and a compromise can affect the communication arrangements of several units, so authorized personnel determine and coordinate the changes.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 41,
+    "qid": "signal-h-41",
+    "difficulty": "hard",
+    "category": "Security Measures and Protocols",
+    "tags": [
+      "security concerns",
+      "Confidentiality"
+    ],
+    "prompt": "What best describes confidentiality as a security concern in Signal Support?",
+    "options": [
+      "Information remains accurate and protected from unauthorized alteration",
+      "Authorized users can access information and systems when needed",
+      "Communication continues through backup paths when a system fails",
+      "Information remains accessible only to authorized persons"
+    ],
+    "answer": 3,
+    "explanation": "Page 17: confidentiality means information remains accessible only to authorized persons. Integrity is protection from unauthorized alteration; availability is access when needed; continued communication through backups is redundancy.",
+    "sourceSlides": [
+      17
+    ]
   }
 ]

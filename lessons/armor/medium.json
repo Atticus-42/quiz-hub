@@ -560,5 +560,361 @@
       81,
       82
     ]
+  },
+  {
+    "id": 26,
+    "qid": "armor-m-26",
+    "difficulty": "medium",
+    "category": "Characteristics of Armor",
+    "tags": [
+      "intensive and flexible communication",
+      "scenario"
+    ],
+    "prompt": "During a brigade attack in Tarlac, a Philippine Army armor battalion commander passes orders by radio to every vehicle at once, and his company commanders coordinate fire and movement with each other while on the move across a wide front. Which characteristic of armor is being demonstrated?",
+    "options": [
+      "Intensive and flexible communication",
+      "Flexibility",
+      "Mobility",
+      "Shock action"
+    ],
+    "answer": 0,
+    "explanation": "Page 20 lists intensive and flexible communication as a characteristic of armor; the scenario is about passing and coordinating orders by radio, not changing the task (flexibility).",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "armor-m-27",
+    "difficulty": "medium",
+    "category": "Mechanized Infantry Capabilities and Limitations",
+    "tags": [
+      "mech inf limitations",
+      "sibling limitations"
+    ],
+    "prompt": "Which of the following is listed as a limitation of MECHANIZED INFANTRY rather than of cavalry or tanks?",
+    "options": [
+      "High logistics requirements",
+      "Infantrymen need sufficient time to mount and dismount",
+      "Dependence on flatbeds for deployment to the theater",
+      "Mobility and firepower restricted in extremely close terrain"
+    ],
+    "answer": 1,
+    "explanation": "Page 30 lists the time needed to mount and dismount as a mechanized infantry limitation. High logistics requirements is a cavalry limitation (p61); the flatbed and close-terrain items are tank limitations (pp. 67-68).",
+    "sourceSlides": [
+      30,
+      61,
+      67,
+      68
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "armor-m-28",
+    "difficulty": "medium",
+    "category": "Mounting and Dismounting SOPs",
+    "tags": [
+      "weapon handling",
+      "mounting SOP",
+      "dismounting SOP"
+    ],
+    "prompt": "Which pairing of weapon-handling rules matches the SOPs on dismounting and on mounting?",
+    "options": [
+      "Dismounting: clear weapons once outside the AV; mounting: chamber empty, muzzle up",
+      "Dismounting: chamber loaded, muzzle down; mounting: once inside the AV, clear weapons and muzzle up",
+      "Dismounting: chamber empty, muzzle down; mounting: once inside the AV, clear weapons and muzzle down",
+      "Dismounting: chamber empty, muzzle up; mounting: keep weapons loaded until the ramp closes"
+    ],
+    "answer": 2,
+    "explanation": "Page 31 (dismounting): chamber empty, muzzle down. Page 45 (mounting): once inside the AV, clear weapons and muzzle down.",
+    "sourceSlides": [
+      31,
+      45
+    ]
+  },
+  {
+    "id": 29,
+    "qid": "armor-m-29",
+    "difficulty": "medium",
+    "category": "Mounting and Dismounting SOPs",
+    "tags": [
+      "mounting SOP",
+      "sibling SOPs"
+    ],
+    "prompt": "Which of the following is an SOP on MOUNTING rather than on dismounting?",
+    "options": [
+      "No riders on top of the AV",
+      "Never hide behind an AV",
+      "First to dismount is the last to mount, and vice versa",
+      "Provide cover while others are mounting"
+    ],
+    "answer": 3,
+    "explanation": "Page 45 lists providing cover while others are mounting as a mounting SOP; the other three are dismounting SOPs on page 31.",
+    "sourceSlides": [
+      31,
+      45
+    ]
+  },
+  {
+    "id": 30,
+    "qid": "armor-m-30",
+    "difficulty": "medium",
+    "category": "Cavalry Operations",
+    "tags": [
+      "cavalry capabilities",
+      "sibling capabilities"
+    ],
+    "prompt": "Which of the following is listed as a capability of CAVALRY rather than of tanks or mechanized infantry?",
+    "options": [
+      "Operate in an economy of force role without being reinforced",
+      "Operate in an opposed entry role",
+      "Use thermal sights to enhance night fighting",
+      "Destroy light armor vehicles while mounted"
+    ],
+    "answer": 0,
+    "explanation": "Page 60: cavalry can operate in an economy of force role without being reinforced in offensive, defensive or delay operations. Opposed entry and thermal sights are tank capabilities (p66); destroying light armor vehicles is a mounted mech inf capability (p28).",
+    "sourceSlides": [
+      28,
+      60,
+      66
+    ]
+  },
+  {
+    "id": 31,
+    "qid": "armor-m-31",
+    "difficulty": "medium",
+    "category": "Tank Operations",
+    "tags": [
+      "tank platoon",
+      "ranks"
+    ],
+    "prompt": "According to the tank platoon chart, which ranks are shown for the platoon leader, the platoon sergeant and the two other tank commanders?",
+    "options": [
+      "LT, MSG and SSG",
+      "LT, TSG and SSG",
+      "CPT, TSG and SGT",
+      "LT, SSG and SGT"
+    ],
+    "answer": 1,
+    "explanation": "Page 65: PLT LDR (LT), PLT SGT (TSG) and two tank commanders (SSG).",
+    "sourceSlides": [
+      65
+    ]
+  },
+  {
+    "id": 32,
+    "qid": "armor-m-32",
+    "difficulty": "medium",
+    "category": "Tank Operations",
+    "tags": [
+      "classes of supply",
+      "CSS",
+      "tank limitations"
+    ],
+    "prompt": "Which classes of supply does the lesson single out as tank CSS needs that infantry units lack the organic transportation to support?",
+    "options": [
+      "Classes I, III and V",
+      "Classes II, IV and VIII",
+      "Classes III, V and IX",
+      "Classes III, VII and IX"
+    ],
+    "answer": 2,
+    "explanation": "Page 68: infantry units do not have the organic transportation assets to support the tanks' CSS needs, especially Classes III, V and IX.",
+    "sourceSlides": [
+      68
+    ]
+  },
+  {
+    "id": 33,
+    "qid": "armor-m-33",
+    "difficulty": "medium",
+    "category": "Planning Considerations",
+    "tags": [
+      "SBF",
+      "acronym",
+      "tank planning"
+    ],
+    "prompt": "SBF positions appear in the planning considerations of which unit, and what does SBF stand for?",
+    "options": [
+      "Cavalry units; support by fire",
+      "Tank units; security and blocking force",
+      "Mechanized infantry units; security and blocking force",
+      "Tank units; support by fire"
+    ],
+    "answer": 3,
+    "explanation": "Page 71 lists SBF (support by fire) positions among the tank planning considerations.",
+    "sourceSlides": [
+      71
+    ]
+  },
+  {
+    "id": 34,
+    "qid": "armor-m-34",
+    "difficulty": "medium",
+    "category": "Planning Considerations",
+    "tags": [
+      "weapon range",
+      "shared considerations"
+    ],
+    "prompt": "Which planning consideration appears in the lists for BOTH mechanized infantry and cavalry?",
+    "options": [
+      "Weapon range",
+      "Surface danger zone",
+      "Distance from main body",
+      "Avenue of approach restrictions"
+    ],
+    "answer": 0,
+    "explanation": "Pages 69-70: weapon range is item 2 in both the mechanized infantry and cavalry lists. Surface danger zone is tank only (p71), distance from main body is cavalry only, avenue of approach restrictions is mech inf only.",
+    "sourceSlides": [
+      69,
+      70,
+      71
+    ]
+  },
+  {
+    "id": 35,
+    "qid": "armor-m-35",
+    "difficulty": "medium",
+    "category": "Major Equipment of the Armor Division",
+    "tags": [
+      "25 mm cannon",
+      "AIFV",
+      "UTS"
+    ],
+    "prompt": "Two Philippine Army vehicles carry a 25 mm primary cannon. Which pairing of vehicle and cannon matches the lesson?",
+    "options": [
+      "AIFV: Bushmaster MK-44; M113A2 IFV UTS: Oerlikon KBA",
+      "AIFV: Oerlikon KBA; M113A2 IFV UTS: Bushmaster MK-44",
+      "AIFV: Oerlikon KBA; M113A2 IFV UTS: Ordnance L23A1",
+      "AIFV: Browning M2A1 QCB; M113A2 IFV UTS: Bushmaster MK-44"
+    ],
+    "answer": 1,
+    "explanation": "Page 75: the UTS mounts the 25 mm Orbital Alliant Techsystems Bush-Master MK-44. Page 76: the AIFV mounts the 25 mm Oerlikon KBA.",
+    "sourceSlides": [
+      75,
+      76
+    ]
+  },
+  {
+    "id": 36,
+    "qid": "armor-m-36",
+    "difficulty": "medium",
+    "category": "Major Equipment of the Armor Division",
+    "tags": [
+      "RCWS",
+      "ATT",
+      "FCS",
+      "EDS",
+      "acronym"
+    ],
+    "prompt": "The M113A2 Remote Controlled Weapon System includes ATT, an FCS and an EDS. What do these stand for?",
+    "options": [
+      "Automated Turret Traverse, Fire Coordination System, Electronic Defense System",
+      "Automatic Target Tracking, Fire Coordination System, Electronic Defense System",
+      "Automatic Target Tracking, Fire Control System, Electrical Drive System",
+      "Automated Turret Traverse, Fire Control System, Electrical Drive System"
+    ],
+    "answer": 2,
+    "explanation": "Page 74: Automatic Target Tracking (ATT), Fire Control System (FCS) and Electrical Drive System (EDS).",
+    "sourceSlides": [
+      74
+    ]
+  },
+  {
+    "id": 37,
+    "qid": "armor-m-37",
+    "difficulty": "medium",
+    "category": "Major Equipment of the Armor Division",
+    "tags": [
+      "Simba",
+      "features"
+    ],
+    "prompt": "Which set of features identifies the Simba Fighting Vehicle?",
+    "options": [
+      "Front wheel drive, one-man turret, run flat tires, fully amphibious",
+      "Aluminum alloy hull, full tracked laying, fully amphibious, troop or cargo carrier",
+      "Cummins ISC diesel engine, crew of 3 plus 7 passengers, acquired in 2024 under the Horizon 2 Project",
+      "Armored monocoque hull, two or four wheel drive, air conditioned, 0.43 m vertical obstacle"
+    ],
+    "answer": 3,
+    "explanation": "Page 80: the Simba has an armored monocoque hull, two or four wheel drive, air conditioning and a 0.43 m maximum vertical obstacle. The others describe the V-150S (p79), M113A2 (p73) and Guarani (p83).",
+    "sourceSlides": [
+      73,
+      79,
+      80,
+      83
+    ]
+  },
+  {
+    "id": 38,
+    "qid": "armor-m-38",
+    "difficulty": "medium",
+    "category": "Major Equipment of the Armor Division",
+    "tags": [
+      "Mounted Mortar System",
+      "MMS"
+    ],
+    "prompt": "Which description matches the Mounted Mortar System (MMS) on the M113A2?",
+    "options": [
+      "81/120 mm smooth bore, muzzle loaded, self-propelled, recoiling mortar for small and medium vehicles",
+      "81/120 mm rifled, breech loaded, towed mortar designed for installation on heavy tracked vehicles only",
+      "60/81 mm smooth bore, muzzle loaded, man-portable mortar laid only by hand",
+      "120/155 mm rifled, breech loaded, self-propelled howitzer with a fixed laying system"
+    ],
+    "answer": 0,
+    "explanation": "Page 77: the MMS is an 81 mm/120 mm smooth bore, muzzle loaded, self-propelled, recoiling mortar designed for installation on small and medium sized vehicles.",
+    "sourceSlides": [
+      77
+    ]
+  },
+  {
+    "id": 39,
+    "qid": "armor-m-39",
+    "difficulty": "medium",
+    "category": "Armor Fundamentals and Mission",
+    "tags": [
+      "tank",
+      "sub-component",
+      "scenario"
+    ],
+    "prompt": "A Philippine Army armor unit is tasked to neutralize an enemy force entrenched near a barangay by fire, maneuver and shock effect, in coordination with supporting infantry and artillery. Which armor sub-component is being employed?",
+    "options": [
+      "Mechanized infantry operations",
+      "Internal security operations",
+      "Cavalry operations",
+      "Tank operations"
+    ],
+    "answer": 3,
+    "explanation": "Pages 15 and 17: the tank component neutralizes enemy forces by fire, maneuver and shock effect in coordination with other units. Mech inf closes to destroy or capture (p18); cavalry performs reconnaissance, surveillance and security (p16).",
+    "sourceSlides": [
+      15,
+      16,
+      17,
+      18
+    ]
+  },
+  {
+    "id": 40,
+    "qid": "armor-m-40",
+    "difficulty": "medium",
+    "category": "Major Equipment of the Armor Division",
+    "tags": [
+      "M113A2",
+      "electrical system",
+      "radio"
+    ],
+    "prompt": "Which electrical system and radio are listed on the M113A2 Armored Personnel Carrier data sheet?",
+    "options": [
+      "12 V DC; RF 5800 HH Harris vehicular radio",
+      "24 V DC; BMS and Navigation System",
+      "24 V DC; RF 5800 HH Harris vehicular radio",
+      "12 V DC; BMS and Navigation System"
+    ],
+    "answer": 2,
+    "explanation": "Page 73 lists a 24 V DC electrical system and the RF 5800 HH Harris vehicular radio. BMS and Navigation System appear on the Sabrah sheet (p82).",
+    "sourceSlides": [
+      73,
+      82
+    ]
   }
 ]

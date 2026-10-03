@@ -696,5 +696,324 @@
       19,
       38
     ]
+  },
+  {
+    "id": 26,
+    "qid": "fieldartillery-h-26",
+    "difficulty": "hard",
+    "category": "Effects of Fires",
+    "tags": [
+      "computed effects",
+      "neutralize",
+      "threshold discrimination"
+    ],
+    "prompt": "A Philippine Army battalion's artillery fires on an enemy mortar section that has been shelling a supply route in Cotabato. The computed estimate shows 29-percent casualties and materiel damage, and the section is rendered ineffective only for a short period. What is the highest computed effect this result achieves?",
+    "options": [
+      "Neutralization",
+      "Destruction",
+      "Suppression",
+      "Defeat"
+    ],
+    "answer": 0,
+    "explanation": "Slides 25-27: destruction requires at least 30 percent and a permanent or long-period effect; neutralization is a short-period effect of at least 10 percent. 29 percent with a short-period effect meets neutralization but not destruction. Suppression's 3-percent minimum is also met, but neutralization is the higher effect actually reached. Defeat concerns losing the means or will to fight (slide 28).",
+    "sourceSlides": [
+      25,
+      26,
+      27,
+      28
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "fieldartillery-h-27",
+    "difficulty": "hard",
+    "category": "Effects of Fires",
+    "tags": [
+      "destroy",
+      "neutralize",
+      "duration of effect"
+    ],
+    "prompt": "Which statement correctly distinguishes destruction from neutralization in the computed effects of FA fires?",
+    "options": [
+      "Destruction keeps a target out of action for a short time; neutralization, permanently or for a long time.",
+      "Destruction keeps a target out of action permanently or for a long time; neutralization, for a short time.",
+      "Both keep a target out of action for a short time; only the percentage of damage differs between them.",
+      "Both keep a target out of action permanently; neutralization only adds temporary degradation of morale."
+    ],
+    "answer": 1,
+    "explanation": "Slide 25: destruction renders a target out of action permanently or ineffective for a long period (at least 30 percent). Slide 26: neutralization renders a target ineffective for a short period (at least 10 percent).",
+    "sourceSlides": [
+      25,
+      26
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "fieldartillery-h-28",
+    "difficulty": "hard",
+    "category": "Effects of Fires",
+    "tags": [
+      "defeat",
+      "destroy",
+      "close discrimination"
+    ],
+    "prompt": "Which statement correctly distinguishes 'Defeat' from 'Destroy' as tactical mission tasks?",
+    "options": [
+      "Defeat: enemy is combat-ineffective until reconstituted; destroy: enemy has lost the means or will to fight.",
+      "Defeat: enemy is drawn away from the principal operation; destroy: enemy's timetable is interrupted.",
+      "Defeat: enemy has lost the means or will to fight; destroy: enemy is combat-ineffective until reconstituted.",
+      "Defeat: enemy is incapable of interfering with an operation; destroy: enemy's performance is degraded."
+    ],
+    "answer": 2,
+    "explanation": "Slide 28: defeat occurs when an enemy force has temporarily or permanently lost the physical means or the will to fight. Slide 25: destroy physically renders an enemy force combat-ineffective until it is reconstituted.",
+    "sourceSlides": [
+      25,
+      28
+    ]
+  },
+  {
+    "id": 29,
+    "qid": "fieldartillery-h-29",
+    "difficulty": "hard",
+    "category": "Effects of Fires",
+    "tags": [
+      "suppress",
+      "neutralize",
+      "close discrimination"
+    ],
+    "prompt": "Which statement correctly distinguishes 'Suppress' from 'Neutralize' as tactical mission tasks?",
+    "options": [
+      "Suppress stops interference with a particular operation; neutralize degrades performance below mission level.",
+      "Suppress upsets the enemy's tempo or timetable; neutralize draws enemy forces from the principal operation.",
+      "Suppress makes an enemy combat-ineffective until reconstituted; neutralize means the enemy lost its will.",
+      "Suppress degrades performance below mission level; neutralize stops interference with a particular operation."
+    ],
+    "answer": 3,
+    "explanation": "Slide 27: suppress results in temporary degradation of the performance of a force or weapon system below the level needed to accomplish the mission. Slide 26: neutralize renders enemy personnel or materiel incapable of interfering with a particular operation.",
+    "sourceSlides": [
+      26,
+      27
+    ]
+  },
+  {
+    "id": 30,
+    "qid": "fieldartillery-h-30",
+    "difficulty": "hard",
+    "category": "FA System Elements and Responsibilities",
+    "tags": [
+      "ballistic meteorology",
+      "compromised element",
+      "predicted fires"
+    ],
+    "prompt": "A Philippine Army battery in Bukidnon fires predicted fires at night. Targets were accurately located, all batteries share a verified common grid, the FDC converted the calls correctly, and radios worked. However, firing data were computed with outdated atmospheric data, and rounds fell off target. Which FA system element was compromised?",
+    "options": [
+      "Ballistic meteorology",
+      "Survey",
+      "Target acquisition",
+      "Fire direction and coordination"
+    ],
+    "answer": 0,
+    "explanation": "Slide 36: ballistic meteorological data are necessary for accurate FA fires, and MET information is one of the five requirements for accurate predicted fires. Survey (common grid), target acquisition and fire direction were all functioning.",
+    "sourceSlides": [
+      33,
+      34,
+      36
+    ]
+  },
+  {
+    "id": 31,
+    "qid": "fieldartillery-h-31",
+    "difficulty": "hard",
+    "category": "FA System Elements and Responsibilities",
+    "tags": [
+      "eyes and ears",
+      "brain",
+      "muscle",
+      "matching"
+    ],
+    "prompt": "Which matching of FA system roles to elements is correct?",
+    "options": [
+      "Eyes and ears: fire direction; brain: target acquisition; muscle: weapon/ammunition",
+      "Eyes and ears: target acquisition; brain: fire direction; muscle: weapon/ammunition",
+      "Eyes and ears: target acquisition; brain: weapon/ammunition; muscle: fire direction",
+      "Eyes and ears: survey; brain: fire direction; muscle: logistics and mobility"
+    ],
+    "answer": 1,
+    "explanation": "Slide 33: target acquisition is the 'eyes and ears'. Slide 34: fire direction center and coordination is the 'brain'. Slide 35: weapon/ammunition combinations are the 'muscle'.",
+    "sourceSlides": [
+      33,
+      34,
+      35
+    ]
+  },
+  {
+    "id": 32,
+    "qid": "fieldartillery-h-32",
+    "difficulty": "hard",
+    "category": "Capabilities and Limitations",
+    "tags": [
+      "capabilities",
+      "limitations",
+      "classification"
+    ],
+    "prompt": "Which pairing correctly sorts two statements into an FA capability and an FA limitation?",
+    "options": [
+      "Capability: engages only within range limits; limitation: adds depth to the battlefield",
+      "Capability: limited self-defense against ground attack; limitation: fires in all weather",
+      "Capability: adds depth to the battlefield; limitation: engages only within range limits",
+      "Capability: firing signature reveals location; limitation: shifts fires without displacing"
+    ],
+    "answer": 2,
+    "explanation": "Slide 18 lists adding depth to the battlefield as a capability; slide 19 lists that FA weapons can only effectively engage targets within their specified range limits as a limitation. The other pairings reverse capabilities and limitations.",
+    "sourceSlides": [
+      18,
+      19
+    ]
+  },
+  {
+    "id": 33,
+    "qid": "fieldartillery-h-33",
+    "difficulty": "hard",
+    "category": "Weapon Classification",
+    "tags": [
+      "classification by caliber",
+      "heavy",
+      "very heavy",
+      "boundary"
+    ],
+    "prompt": "Applying the caliber classes, how are a 210 mm weapon and a 211 mm weapon classified, respectively?",
+    "options": [
+      "Very heavy and very heavy",
+      "Heavy and heavy",
+      "Medium and heavy",
+      "Heavy and very heavy"
+    ],
+    "answer": 3,
+    "explanation": "Slide 20: Heavy is 161 mm through 210 mm, and Very heavy is 211 mm and more.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 34,
+    "qid": "fieldartillery-h-34",
+    "difficulty": "hard",
+    "category": "FA System Elements and Responsibilities",
+    "tags": [
+      "mobility",
+      "compromised element",
+      "KM500",
+      "M35"
+    ],
+    "prompt": "A Philippine Army brigade advances quickly in Quezon province. Its supporting battalion has current MET data, a common grid, working radios, and ample ammunition and fuel, but most of its KM500 and M35 trucks have been reassigned to another unit, leaving no prime movers, so the batteries cannot move to keep up with the attack. Which FA system element was compromised?",
+    "options": [
+      "Mobility",
+      "Logistics",
+      "Communications",
+      "Employment tactics"
+    ],
+    "answer": 0,
+    "explanation": "Slides 32 and 37: mobility is a separate system element; FA units are issued KM450, KM250, KM500, M35 and general-purpose vehicles for mission accomplishment. Supply (logistics), radios (communications) and positioning doctrine (employment tactics) were not the failure here.",
+    "sourceSlides": [
+      32,
+      37
+    ]
+  },
+  {
+    "id": 35,
+    "qid": "fieldartillery-h-35",
+    "difficulty": "hard",
+    "category": "FA System Elements and Responsibilities",
+    "tags": [
+      "organization",
+      "compromised element",
+      "command and support relationship"
+    ],
+    "prompt": "A Philippine Army FA battery arrives on Basilan with trained crews and enough ammunition, but no command or support relationship with the infantry battalion is established. As a result, its indirect fires are not fused with the battalion's operation and are delivered uneconomically. Which FA system element was compromised?",
+    "options": [
+      "Fire direction and coordination",
+      "Organization",
+      "Weapon/ammunition combinations",
+      "Logistics"
+    ],
+    "answer": 1,
+    "explanation": "Slide 35 (Organization): establishing a command and/or support relationship for cannon, rocket and missile systems with maneuver units gives accurate fusion of indirect fire capacities for the effective and economical delivery of FA fires.",
+    "sourceSlides": [
+      35
+    ]
+  },
+  {
+    "id": 36,
+    "qid": "fieldartillery-h-36",
+    "difficulty": "hard",
+    "category": "FA System Elements and Responsibilities",
+    "tags": [
+      "HHB",
+      "organic units",
+      "TA Platoon",
+      "survey section",
+      "MET section",
+      "Signal platoon"
+    ],
+    "prompt": "What do the Target Acquisition Platoon, the survey section, the MET section, and the Signal platoon have in common according to the lesson?",
+    "options": [
+      "Each is the smallest unit deployed to support maneuver.",
+      "Each belongs to the supported unit's fire-support cell.",
+      "Each is an organic unit of the FA Bn under its HHB.",
+      "Each is under the Intelligence Office of the FA Regiment."
+    ],
+    "answer": 2,
+    "explanation": "Slides 33, 36 and 37 place the Target Acquisition Platoon, survey section, MET section and Signal platoon under the Headquarters and Headquarters Battery of the FA Bn. The FA platoon is the smallest unit deployed (slide 35).",
+    "sourceSlides": [
+      33,
+      35,
+      36,
+      37
+    ]
+  },
+  {
+    "id": 37,
+    "qid": "fieldartillery-h-37",
+    "difficulty": "hard",
+    "category": "FA System Elements and Responsibilities",
+    "tags": [
+      "FA intelligence",
+      "large operations",
+      "Intelligence Office"
+    ],
+    "prompt": "In large operations, which is the principal unit in artillery intelligence?",
+    "options": [
+      "The Target Acquisition Platoon of the HHB",
+      "The fire direction center of the FA Bn",
+      "The maneuver unit's fire-support element",
+      "The Intelligence Office of the FA Regiment and FA Bn"
+    ],
+    "answer": 3,
+    "explanation": "Slide 33: the Target Acquisition Platoon forms part of FA target intelligence, but in large operations the Intelligence Office of the FA Regiment and FA Bn is the principal unit in artillery intelligence.",
+    "sourceSlides": [
+      33
+    ]
+  },
+  {
+    "id": 38,
+    "qid": "fieldartillery-h-38",
+    "difficulty": "hard",
+    "category": "FA System Elements and Responsibilities",
+    "tags": [
+      "FA target intelligence",
+      "collect process disseminate"
+    ],
+    "prompt": "The Target Acquisition Platoon forms part of FA target intelligence. What does FA target intelligence do with information?",
+    "options": [
+      "Collects, processes, and disseminates it",
+      "Plans, executes, and coordinates it",
+      "Converts, transmits, and adjusts it",
+      "Surveys, records, and distributes it"
+    ],
+    "answer": 0,
+    "explanation": "Slide 33: the Target Acquisition Platoon forms part of the FA target intelligence that collects, processes and disseminates information.",
+    "sourceSlides": [
+      33
+    ]
   }
 ]
