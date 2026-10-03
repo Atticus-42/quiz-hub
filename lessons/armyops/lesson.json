@@ -1,0 +1,41 @@
+{
+  "key": "armyops",
+  "slug": "army-operations",
+  "module": "module-2",
+  "order": 4,
+  "name": "Army Operations",
+  "title": "Army Operations Mastery Quiz",
+  "eyebrow": "Philippine Army · Army Operations",
+  "lessonName": "Introduction to Army Operations",
+  "hubDescription": "Introduction to Army Operations.",
+  "historyLesson": "armyops",
+  "categoryOrder": [
+    "Constitutional Mandate and Platforms",
+    "Full Spectrum Operations",
+    "Offensive and Defensive Tasks",
+    "Support to Civil Governance",
+    "Tenets of Army Operations",
+    "Army Power and Warfighting Functions",
+    "Principles of Army Operations"
+  ],
+  "sourceRef": { "label": "page", "plural": "pages", "min": 1, "max": 200, "required": false },
+  "palette": {
+    "--color-paper": "#f1eedc",
+    "--topo-angle": "165deg",
+    "--topo-tint-green": "#eef0dd",
+    "--topo-tint-sand": "#efe7cf",
+    "--topo-line": "#3a4822",
+    "--topo-line-major": "#3a4822",
+    "--topo-major-width": "1.4"
+  },
+  "maxKeyLongestShare": 0.44,
+  "art": {
+    "groups": ["tank", "tank-gun", "muzzle-blast", "shell", "dust", "objective"],
+    "nested": { "tank": ["tank-gun", "muzzle-blast"] },
+    "labels": ["FULL SPECTRUM OPERATIONS", "OFFENSE", "DEFENSE", "SUPPORT TO CIVIL GOVERNANCE", "OBJECTIVE"],
+    "classes": ["axis-line", "terrain-contour", "defense-line", "relief-truck"],
+    "forbidden": "ARMOR|ISR|ARTILLERY",
+    "stilled": ["#tank-gun", "#muzzle-blast", "#shell", "#dust .dust-puff", "#objective .impact-pulse"],
+    "staticPattern": "#tank|#objective$|\\.terrain-contour|\\.axis-line|\\.hero-art"
+  }
+}

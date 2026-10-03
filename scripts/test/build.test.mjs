@@ -1,0 +1,216 @@
+// The build: template filling, validators, lesson loading, generated pages, and every question bank.
+import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
+import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import {
+  ROOT, MODES, HISTORY_ENDPOINT, build, fillTemplate, scriptJson, escapeHtml, validateQuestion, validateBank, poolQuotas, countLabel,
+} from '../build.mjs';
+import { test, normalize } from './harness.mjs';
+
+const LETTER = { easy: 'e', medium: 'm', hard: 'h' };
+
+export async function buildSuite({ lessons, modules }) {
+  const T = (name, run) => test(`[build] ${name}`, run);
+  const rules = { key: 'armor', categoryOrder: ['Fire support', 'Tank Operations'], ref: { label: 'page', min: 13, max: 83, required: true }, pool: null };
+  const question = { id: 1, qid: 'armor-e-01', difficulty: 'easy', category: 'Fire support', prompt: 'Which fire support choice fits the situation?', options: ['First', 'Second', 'Third', 'Fourth'], answer: 2, explanation: 'The third choice fits the stated constraints.', tags: ['planning'], sourceSlides: [13] };
+
+  await T('fillTemplate replaces each placeholder exactly once, keeps "$&"-style text literal, and rejects duplicates or leftovers', () => {
+    assert.equal(fillTemplate('<a>{{X}}</a><b>{{Y}}</b>', { X: '1', Y: '2' }), '<a>1</a><b>2</b>');
+    for (const token of ['$&', '$`', "$'", '$$']) assert.equal(fillTemplate('{{X}}', { X: `Literal ${token} text` }), `Literal ${token} text`);
+    assert.throws(() => fillTemplate('{{X}}{{X}}', { X: '1' }), /\{\{X\}\} must occur exactly once/);
+    assert.throws(() => fillTemplate('{{X}}', { Y: '1' }), /\{\{Y\}\} must occur exactly once/);
+    assert.throws(() => fillTemplate('{{X}}{{Z}}', { X: '1' }), /\{\{Z\}\} was not filled/);
+  });
+
+  await T('embedded JSON cannot close its script element, and authored text is HTML-escaped', () => {
+    const json = scriptJson([{ ...question, prompt: '</script><script>alert(1)</script>' }]);
+    assert.equal(json.includes('</script>'), false);
+    assert.match(json, /\\u003c\/script>/);
+    assert.equal(JSON.parse(json)[0].prompt, '</script><script>alert(1)</script>');
+    assert.equal(escapeHtml('<b a="x">&</b>'), '&lt;b a=&quot;x&quot;&gt;&amp;&lt;/b&gt;');
+  });
+
+  await T('validateQuestion accepts a complete question and names every malformed field', () => {
+    assert.deepEqual(validateQuestion(question, 'easy', 1, rules), []);
+    const errors = validateQuestion({ ...question, id: 1.5, qid: 'isr-e-01', difficulty: 'hard', category: 'Gunnery', options: ['Only one'], answer: 4, sourceSlides: [14, '15'] }, 'easy', 1, rules);
+    for (const field of ['id', 'qid', 'difficulty', 'category', 'options', 'answer', 'sourceSlides']) {
+      assert.ok(errors.some(error => error.includes(field)), `missing ${field} error: ${errors.join('; ')}`);
+    }
+    assert.deepEqual(validateQuestion(null, 'easy', 1, rules), ['question must be an object']);
+    const optional = { ...rules, ref: { ...rules.ref, required: false } };
+    const { sourceSlides, ...noRef } = question;
+    assert.deepEqual(validateQuestion(noRef, 'easy', 1, optional), [], 'an optional reference may be absent');
+    for (const value of [[], null, 13, '13', [13, '14'], [1.5], [12], [84], [{}]]) {
+      const found = validateQuestion({ ...question, sourceSlides: value }, 'easy', 1, optional);
+      assert.deepEqual(found, ['sourceSlides, when present, must contain integers from 13 to 83'], JSON.stringify(value));
+    }
+    assert.deepEqual(validateQuestion({ ...question, qid: 'armor-e-1' }, 'easy', 1, rules), ['qid must be "armor-e-" followed by 2 to 4 digits']);
+  });
+
+  await T('validateBank: 1 to 500 questions, sequential ids, unique qids; pool banks need every lesson’s largest share', () => {
+    assert.deepEqual(validateBank([question], 'easy', rules), []);
+    assert.deepEqual(validateBank([], 'easy', rules), ['bank must contain at least 1 question']);
+    assert.deepEqual(validateBank('x', 'easy', rules), ['bank must be an array of questions']);
+    assert.deepEqual(validateBank([question, { ...question, id: 2 }], 'easy', rules), ['question 2: qid armor-e-01 is used more than once']);
+    assert.deepEqual(validateBank([question, { ...question, id: 3, qid: 'armor-e-02' }], 'easy', rules), ['question 2: id must be integer 2']);
+    const many = Array.from({ length: 501 }, (_, index) => ({ ...question, id: index + 1, qid: `armor-e-${String(index + 1).padStart(3, '0')}` }));
+    assert.deepEqual(validateBank(many, 'easy', rules), ['bank must contain at most 500 questions (found 501)']);
+    assert.deepEqual(validateBank(many.slice(0, 500), 'easy', rules), []);
+    assert.deepEqual(poolQuotas(30, 4), [8, 8, 7, 7]);
+    assert.deepEqual(poolQuotas(30, 5), [6, 6, 6, 6, 6]);
+    assert.deepEqual(poolQuotas(10, 3), [4, 3, 3]);
+  });
+
+  await T('every lesson folder loads: unique keys, slugs and qids; modules exist; the combined exam is a pool of the four Module 2 lessons', () => {
+    assert.deepEqual(lessons.map(lesson => lesson.key), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops', 'signal']);
+    assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined', 'isr', 'armor', 'field-artillery', 'army-operations', 'signal-support']);
+    assert.deepEqual(modules.map(module => module.id), ['module-2', 'module-3']);
+    const combined = lessons.find(lesson => lesson.key === 'combined');
+    assert.deepEqual(combined.pool, { lessons: ['isr', 'armor', 'fieldartillery', 'armyops'], count: 30 });
+    assert.deepEqual(combined.rules.pool.lessons.map(lesson => lesson.name), ['ISR Operations', 'Armor Operations', 'Field Artillery Operations', 'Army Operations']);
+    const qids = lessons.filter(lesson => !lesson.pool).flatMap(lesson => MODES.flatMap(mode => lesson.banks[mode].map(item => item.qid)));
+    assert.equal(new Set(qids).size, qids.length, 'qids are unique across every lesson');
+    for (const lesson of lessons) assert.equal(lesson.historyLesson, lesson.key);
+  });
+
+  await T('every committed page is a fresh build (run node scripts/build.mjs), with the real endpoint written once per page', () => {
+    const pages = build({ write: false });
+    const expectedPages = ['index.html', 'class/index.html', 'instructor/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
+    assert.deepEqual(Object.keys(pages).sort(), expectedPages.sort());
+    for (const slug of ['isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'combined']) assert.ok(expectedPages.includes(`${slug}/index.html`), slug);
+    for (const [path, html] of Object.entries(pages)) {
+      assert.equal(readFileSync(join(ROOT, path), 'utf8'), html, `${path} is stale: run node scripts/build.mjs`);
+      if (path !== 'class/index.html') assert.equal(html.split(`var HISTORY_ENDPOINT = '${HISTORY_ENDPOINT}';`).length - 1, 1, `${path} declares the endpoint once`);
+      assert.doesNotMatch(html, /\{\{[A-Z_]+\}\}/, `${path} has no unfilled placeholder`);
+    }
+    const preview = build({ write: false, endpoint: '' });
+    for (const [path, html] of Object.entries(preview)) assert.ok(!html.includes('script.google.com'), `${path}: --endpoint "" removes the endpoint`);
+  });
+
+  await T('the build CLI fails with a clear message when a bank file is missing or a question is invalid, and writes nothing', () => {
+    const fixture = mkdtempSync(join(tmpdir(), 'quiz-build-'));
+    try {
+      for (const dir of ['scripts', 'src', 'lessons', 'data']) cpSync(join(ROOT, dir), join(fixture, dir), { recursive: true });
+      rmSync(join(fixture, 'lessons', 'armor', 'easy.json'));
+      let result = spawnSync(process.execPath, [join(fixture, 'scripts', 'build.mjs')], { encoding: 'utf8' });
+      assert.notEqual(result.status, 0);
+      assert.match(result.stderr, /armor[\\/]easy\.json: file is missing/);
+      cpSync(join(ROOT, 'lessons', 'armor', 'easy.json'), join(fixture, 'lessons', 'armor', 'easy.json'));
+      const bank = JSON.parse(readFileSync(join(fixture, 'lessons', 'signal', 'hard.json'), 'utf8'));
+      bank[4].answer = 7;
+      writeFileSync(join(fixture, 'lessons', 'signal', 'hard.json'), JSON.stringify(bank));
+      result = spawnSync(process.execPath, [join(fixture, 'scripts', 'build.mjs')], { encoding: 'utf8' });
+      assert.notEqual(result.status, 0);
+      assert.match(result.stderr, /signal[\\/]hard\.json: question 5: answer must be an integer from 0 to 3/);
+      assert.throws(() => readFileSync(join(fixture, 'index.html')), /ENOENT/, 'nothing was written');
+    } finally {
+      rmSync(fixture, { recursive: true, force: true });
+    }
+  });
+
+  await T('appending a question is a plain append + rebuild: a new question with the next id and qid builds, the counts follow', () => {
+    const fixture = mkdtempSync(join(tmpdir(), 'quiz-append-'));
+    try {
+      for (const dir of ['scripts', 'src', 'lessons', 'data']) cpSync(join(ROOT, dir), join(fixture, dir), { recursive: true });
+      const path = join(fixture, 'lessons', 'armor', 'medium.json');
+      const bank = JSON.parse(readFileSync(path, 'utf8'));
+      bank.push({ ...bank[0], id: bank.length + 1, qid: `armor-m-${bank.length + 1}`, prompt: 'A brand new appended prompt about armor movement?' });
+      writeFileSync(path, JSON.stringify(bank, null, 2));
+      const result = spawnSync(process.execPath, [join(fixture, 'scripts', 'build.mjs')], { encoding: 'utf8' });
+      assert.equal(result.status, 0, result.stderr);
+      const html = readFileSync(join(fixture, 'armor', 'index.html'), 'utf8');
+      assert.match(html, /26 questions\. Compare, diagnose/);
+      assert.match(html, /76 situational questions/);
+      const hub = readFileSync(join(fixture, 'index.html'), 'utf8');
+      assert.match(hub, /25–26 questions per mode/);
+      const combined = readFileSync(join(fixture, 'combined', 'index.html'), 'utf8');
+      assert.ok(combined.includes('A brand new appended prompt about armor movement?'), 'the pool exam picks up the new question');
+    } finally {
+      rmSync(fixture, { recursive: true, force: true });
+    }
+  });
+
+  await T('a new lesson is just dropped in: lessons/_template + hero.svg + three banks builds a page, a hub card and an instructor entry', () => {
+    const fixture = mkdtempSync(join(tmpdir(), 'quiz-slot-'));
+    try {
+      for (const dir of ['scripts', 'src', 'lessons', 'data']) cpSync(join(ROOT, dir), join(fixture, dir), { recursive: true });
+      const dir = join(fixture, 'lessons', 'signaljoint');
+      cpSync(join(ROOT, 'lessons', '_template'), dir, { recursive: true });
+      const config = JSON.parse(readFileSync(join(dir, 'lesson.json'), 'utf8'));
+      config.categoryOrder = ['Test topic'];
+      writeFileSync(join(dir, 'lesson.json'), JSON.stringify(config));
+      writeFileSync(join(dir, 'hero.svg'), '<svg viewBox="0 0 480 250" aria-hidden="true" focusable="false"><path d="M0 0H10"/></svg>');
+      for (const mode of MODES) {
+        // Placeholder fixtures only (never real content): enough to exercise the build.
+        const bank = Array.from({ length: 4 }, (_, index) => ({ id: index + 1, difficulty: mode, category: 'Test topic', tags: ['t'], prompt: `Fixture ${mode} ${index}?`, options: ['w', 'x', 'y', 'z'], answer: index, explanation: 'Fixture.', sourceSlides: [1] }));
+        writeFileSync(join(dir, `${mode}.json`), JSON.stringify(bank));
+      }
+      let result = spawnSync(process.execPath, [join(fixture, 'scripts', 'assign-qids.mjs'), 'signaljoint'], { encoding: 'utf8' });
+      assert.equal(result.status, 0, result.stderr);
+      assert.equal(JSON.parse(readFileSync(join(dir, 'hard.json'), 'utf8'))[3].qid, 'signaljoint-h-04');
+      result = spawnSync(process.execPath, [join(fixture, 'scripts', 'build.mjs')], { encoding: 'utf8' });
+      assert.equal(result.status, 0, result.stderr);
+      const page = readFileSync(join(fixture, 'joint-signal', 'index.html'), 'utf8');
+      assert.match(page, /<title>Signal Support in Joint Operations Mastery Quiz<\/title>/);
+      assert.match(page, /href="\.\.\/#module-3"/);
+      const hub = readFileSync(join(fixture, 'index.html'), 'utf8');
+      const panel = hub.match(/<section class="exam-panel" id="module-3"[\s\S]*?<\/section>/)[0];
+      assert.ok(panel.indexOf('id="card-signal"') < panel.indexOf('id="card-signaljoint"'), 'second Module 3 lesson after Signal Support');
+      assert.match(panel, /<a class="start-link" href="joint-signal\/">/);
+      assert.match(hub, /2 lessons<\/span>/);
+      assert.match(readFileSync(join(fixture, 'instructor', 'index.html'), 'utf8'), /signaljoint:hard:signaljoint-h-04/);
+      assert.match(readFileSync(join(ROOT, 'apps-script', 'Code.gs'), 'utf8'), /signaljoint: 'Signal Joint Operations History'/, 'the sheet already knows the lesson');
+    } finally {
+      rmSync(fixture, { recursive: true, force: true });
+    }
+  });
+
+  for (const lesson of lessons.filter(item => !item.pool)) {
+    const share = lesson.maxKeyLongestShare ?? 0.35;
+    for (const mode of MODES) {
+      const bank = lesson.banks[mode];
+      await T(`${lesson.key} ${mode}: valid bank, qids ${lesson.key}-${LETTER[mode]}-NN, four distinct options, every topic present`, () => {
+        assert.deepEqual(validateBank(bank, mode, lesson.rules), []);
+        bank.forEach((item, index) => {
+          assert.ok(item.tags.length > 0, `${index + 1} needs tags`);
+          assert.equal(new Set(item.options.map(normalize)).size, 4, `${index + 1} needs four distinct options`);
+        });
+        const used = new Set(bank.map(item => item.category));
+        for (const category of lesson.categoryOrder) assert.ok(used.has(category), `no ${category} question`);
+        assert.ok(bank.length >= lesson.categoryOrder.length);
+      });
+      await T(`${lesson.key} ${mode}: answer letters balanced (±1 around ${bank.length}/4) and the key is the unique longest option in at most ${Math.round(share * 100)}%`, () => {
+        const counts = [0, 0, 0, 0];
+        let longest = 0;
+        for (const item of bank) {
+          counts[item.answer]++;
+          const lengths = item.options.map(option => option.length);
+          if (lengths[item.answer] === Math.max(...lengths) && lengths.filter(length => length === lengths[item.answer]).length === 1) longest++;
+        }
+        const even = bank.length / 4;
+        assert.ok(counts.every(count => count >= Math.ceil(even - 1) && count <= Math.floor(even + 1)), counts.join('/'));
+        assert.ok(longest <= share * bank.length, `key is the unique longest option in ${longest}/${bank.length} items`);
+      });
+    }
+    await T(`${lesson.key}: every prompt is unique across the three banks`, () => {
+      const seen = new Map();
+      for (const mode of MODES) {
+        for (const item of lesson.banks[mode]) {
+          const key = normalize(item.prompt);
+          assert.ok(!seen.has(key), `Duplicate prompt: ${seen.get(key)} and ${mode} ${item.id}`);
+          seen.set(key, `${mode} ${item.id}`);
+        }
+      }
+    });
+  }
+
+  await T('hub card tags state each lesson’s questions per mode from the bank sizes', () => {
+    for (const lesson of lessons) {
+      const label = countLabel(lesson);
+      if (lesson.pool) assert.equal(label, '30 questions');
+      else assert.equal(label, `${lesson.counts.easy} questions per mode`);
+    }
+  });
+}

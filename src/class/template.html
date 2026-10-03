@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bandwidth Brothers, SOAC 52 - 2026: class organization and roster.">
+  <meta name="referrer" content="no-referrer">
+  <title>Bandwidth Brothers · SOAC 52 - 2026</title>
+  <!-- The layout is responsive without media queries (fluid grids); print styles are in the media="print" sheet below. -->
+  <style>
+    /* Design tokens shared with the hub (src/hub/template.html). */
+    :root {
+      --color-surface: #fbfaf3;
+      --color-surface-sunken: #f1f1e6;
+      --color-text: #1d2119;
+      --color-muted: #464c3c;
+      --color-border: #7a8068;
+      --color-border-subtle: #c3c7ae;
+      --color-accent: #3f4d22;
+      --color-charcoal: #23281e;
+      --color-olive-deep: #4a4128;
+      --color-brass: #e3b65a;
+      --color-hero-text: #f3efdf;
+      --color-hero-muted: #d6d2bf;
+      --color-focus: #1a4fd1;
+      --mode-tint: #eef0e2;
+      --color-paper: #f6f2e4;
+      --topo-tint-green: #e2e8cc;
+      --topo-tint-sand: #f1e3c6;
+      --topo-line: #5f6d35;
+      --topo-line-major: #4b5a22;
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --space-7: 3rem;
+      --text-xs: 0.8125rem;
+      --text-sm: 0.875rem;
+      --text-md: 1.125rem;
+      --text-lg: 1.375rem;
+      --text-2xl: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --shadow-sm: 0 1px 2px rgba(35, 40, 30, 0.12), 0 1px 6px rgba(35, 40, 30, 0.08);
+      --shadow-md: 0 2px 4px rgba(35, 40, 30, 0.1), 0 8px 24px rgba(35, 40, 30, 0.14);
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body { margin: 0; min-height: 100vh; background: var(--color-paper); color: var(--color-text); font-family: var(--font-sans); font-size: 1rem; line-height: 1.5; overflow-wrap: anywhere; }
+    h1, h2, h3 { line-height: 1.25; }
+    h2 { font-size: var(--text-lg); margin: 0 0 var(--space-2); }
+    p { margin: 0 0 var(--space-3); }
+    :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    .hero :focus-visible { outline-color: #ffffff; }
+
+    .topo { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; background: linear-gradient(160deg, var(--topo-tint-green) 0%, var(--color-paper) 48%, var(--topo-tint-sand) 100%); }
+    .topo svg { display: block; width: 100%; height: 100%; }
+    .topo .contours path { stroke: var(--topo-line); stroke-opacity: 0.22; stroke-width: 1; vector-effect: non-scaling-stroke; }
+    .topo .contours path.major { stroke: var(--topo-line-major); stroke-opacity: 0.4; stroke-width: 1.6; }
+    .banner, .hero, main, .class-photo { position: relative; z-index: 1; }
+
+    .banner { width: 100%; background: var(--color-charcoal); line-height: 0; }
+    .banner img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 6; max-height: 32rem; object-fit: cover; object-position: center 55%; }
+    .hero { background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-olive-deep) 100%); color: var(--color-hero-text); border-bottom: 6px solid var(--color-brass); }
+    .hero-inner { max-width: 72rem; margin: 0 auto; padding: var(--space-6) var(--space-4); }
+    .eyebrow { margin: 0; font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.04em; color: var(--color-brass); }
+    h1 { margin: var(--space-1) 0 var(--space-2); font-size: var(--text-2xl); }
+    .hero-subtitle { margin: 0 0 var(--space-2); font-size: var(--text-md); font-weight: 700; color: var(--color-brass); }
+    .hero-lede { margin: 0; color: var(--color-hero-muted); max-width: 44rem; }
+    .hub-link { display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px; margin-top: var(--space-4); padding: var(--space-2) var(--space-3); border: 2px solid var(--color-brass); border-radius: var(--radius-sm); background: rgba(20, 24, 17, 0.55); color: var(--color-hero-text); font-size: var(--text-sm); font-weight: 600; text-decoration: none; }
+    .hub-link:hover { background: rgba(20, 24, 17, 0.85); border-color: var(--color-hero-text); text-decoration: underline; }
+
+    main { max-width: 72rem; margin: 0 auto; padding: var(--space-5) var(--space-4) var(--space-6); }
+    .card { margin-top: var(--space-5); padding: clamp(var(--space-3), 3vw, var(--space-5)); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); }
+    .card:first-child { margin-top: 0; }
+    .section-intro { color: var(--color-muted); font-size: var(--text-sm); }
+
+    .org-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); gap: var(--space-3); margin: var(--space-4) 0 0; padding: 0; list-style: none; }
+    .org-card { display: flex; flex-direction: column; gap: var(--space-1); min-width: 0; padding: var(--space-3) var(--space-4); background: var(--color-surface); border: 1px solid var(--color-border-subtle); border-left: 6px solid var(--color-accent); border-radius: var(--radius-md); }
+    .org-card.is-lead { border-left-color: var(--color-brass); background: linear-gradient(180deg, #fff8e4 0%, var(--color-surface) 70%); box-shadow: var(--shadow-sm); }
+    .org-grid.org-leads { grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr)); }
+    .org-position { margin: 0; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-muted); }
+    .org-name { margin: 0; font-weight: 700; }
+    .is-lead .org-position { font-size: var(--text-sm); color: var(--color-accent); }
+    .is-lead .org-name { font-size: var(--text-md); }
+
+    .table-wrap { max-width: 100%; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; background: var(--color-surface); font-size: clamp(var(--text-sm), 2.5vw, 1rem); }
+    caption { text-align: left; padding-bottom: var(--space-2); color: var(--color-muted); font-size: var(--text-sm); }
+    th, td { padding: var(--space-2) clamp(var(--space-1), 1.5vw, var(--space-3)); border-bottom: 1px solid var(--color-border-subtle); text-align: left; vertical-align: top; }
+    thead th { border-bottom: 2px solid var(--color-border); font-size: var(--text-sm); color: var(--color-muted); }
+    td.num { font-variant-numeric: tabular-nums; }
+    tbody th { font-weight: 600; }
+
+    .class-photo { width: calc(100% - 2rem); max-width: 56rem; margin: var(--space-2) auto var(--space-6); padding: clamp(var(--space-2), 2vw, var(--space-3)); background: var(--color-surface); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); }
+    .class-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-md); }
+    .class-photo figcaption { margin-top: var(--space-3); text-align: center; font-weight: 700; color: var(--color-muted); }
+    .note { color: var(--color-muted); font-size: var(--text-xs); }
+  </style>
+  <style media="print">
+    body { background: #ffffff; }
+    .topo, .banner, .hub-link { display: none !important; }
+    .hero { background: #ffffff; color: #000000; border-bottom: 2px solid #000000; }
+    .eyebrow, .hero-lede { color: #000000; }
+    .card, .class-photo { box-shadow: none; break-inside: avoid; }
+    .org-card { break-inside: avoid; }
+    tr { break-inside: avoid; }
+  </style>
+</head>
+<body>
+  <div class="topo" aria-hidden="true">
+    {{CONTOURS}}
+  </div>
+  <div class="banner">
+    <picture>
+      <source media="(max-width: 800px)" srcset="../assets/banner-800.jpg 1x, ../assets/banner-1600.jpg 2x">
+      <img src="../assets/banner-1600.jpg" srcset="../assets/banner-1600.jpg 1x" width="1600" height="900" fetchpriority="high" alt="Bandwidth Brothers banner">
+    </picture>
+  </div>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">Philippine Army · Mastery Quizzes · Our class</p>
+      <h1 id="class-title">Bandwidth Brothers</h1>
+      <p class="hero-subtitle" id="class-subtitle">SOAC 52 - 2026</p>
+      <p class="hero-lede">The officers of the class: who holds each class position, and the full roster with each officer’s commissioning source.</p>
+      <a class="hub-link" href="../"><span aria-hidden="true">&#8592;</span> All quizzes</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="card" aria-labelledby="org-heading">
+      <h2 id="org-heading">Class organization</h2>
+      <p class="section-intro">Class positions, led by the Class Leader and the Executive Officer.</p>
+      <noscript><p>JavaScript is needed to show the class organization and roster.</p></noscript>
+      <ul id="org-leads" class="org-grid org-leads"></ul>
+      <ul id="org-grid" class="org-grid"></ul>
+    </section>
+
+    <section class="card" aria-labelledby="roster-heading">
+      <h2 id="roster-heading">Class roster</h2>
+      <div class="table-wrap">
+        <table id="roster-table">
+          <caption id="roster-caption">All members of the class, in roster order.</caption>
+          <thead>
+            <tr><th scope="col">Nr</th><th scope="col">Rank</th><th scope="col">Name</th><th scope="col">Commissioning source</th></tr>
+          </thead>
+          <tbody id="roster-body"></tbody>
+        </table>
+      </div>
+      <p id="class-note" class="note"></p>
+    </section>
+  </main>
+
+  <figure class="class-photo">
+    <img src="../assets/class-photo-800.jpg" srcset="../assets/class-photo-800.jpg 800w, ../assets/class-photo-1600.jpg 1600w" sizes="(max-width: 928px) calc(100vw - 4rem), 52rem" width="1600" height="1200" loading="lazy" decoding="async" alt="SOAC 52 - 2026 class group photo">
+    <figcaption>SOAC 52 - 2026</figcaption>
+  </figure>
+
+  <script type="application/json" id="class-data">{{CLASS_DATA}}</script>
+  <script>
+  (function () {
+    'use strict';
+    // The approved public-safe class data (data/class.json, checked by scripts/build.mjs). Rendered with
+    // textContent only; this page makes no network request.
+    function byId(id) { return document.getElementById(id); }
+    function make(tag, className, text) {
+      var node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined && text !== null) node.textContent = String(text);
+      return node;
+    }
+    var LEAD_POSITIONS = [/^Class Leader$/i, /Ex-O/i];
+
+    var data;
+    try { data = JSON.parse(byId('class-data').textContent); } catch (error) { data = null; }
+    if (!data || !Array.isArray(data.roster) || !Array.isArray(data.organization)) return;
+
+    var byNr = {};
+    data.roster.forEach(function (member) { byNr[member.nr] = member; });
+    function fullName(member) { return member.rank + ' ' + member.name; }
+    function leadIndex(position) {
+      for (var i = 0; i < LEAD_POSITIONS.length; i++) if (LEAD_POSITIONS[i].test(position)) return i;
+      return -1;
+    }
+
+    // Class Leader and Ex-O first (emphasised), then the other positions in their listed order.
+    var positions = data.organization.filter(function (entry) { return byNr[entry.member]; });
+    var leads = positions.filter(function (entry) { return leadIndex(entry.position) !== -1; }).sort(function (a, b) { return leadIndex(a.position) - leadIndex(b.position); });
+    var others = positions.filter(function (entry) { return leadIndex(entry.position) === -1; });
+    function card(entry, lead) {
+      var item = make('li', 'org-card' + (lead ? ' is-lead' : ''));
+      item.appendChild(make('p', 'org-position', entry.position));
+      item.appendChild(make('p', 'org-name', fullName(byNr[entry.member])));
+      return item;
+    }
+    var grid = byId('org-grid');
+    leads.forEach(function (entry) { byId('org-leads').appendChild(card(entry, true)); });
+    others.forEach(function (entry) { grid.appendChild(card(entry, false)); });
+
+    var body = byId('roster-body');
+    data.roster.forEach(function (member) {
+      var row = make('tr');
+      row.appendChild(make('td', 'num', member.nr));
+      row.appendChild(make('td', null, member.rank));
+      var name = make('th', null, member.name);
+      name.setAttribute('scope', 'row');
+      row.appendChild(name);
+      row.appendChild(make('td', null, member.commission));
+      body.appendChild(row);
+    });
+    byId('roster-caption').textContent = 'All ' + data.roster.length + ' members of ' + (data.name ? data.name + ', ' : '') + data.class + ', in roster order.';
+    byId('class-note').textContent = data.note || '';
+  }());
+  </script>
+</body>
+</html>

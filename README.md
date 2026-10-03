@@ -1,57 +1,109 @@
-# Mastery Quizzes hub
+# Mastery Quizzes (Bandwidth Brothers, SOAC 52 - 2026)
 
-A single static page (`index.html`) where students first choose a module, then one of that module's Philippine Army mastery exams, and see a summary of the class score history for the module. Published at https://atticus-42.github.io/quiz-hub/
+The whole site is published from this repository with GitHub Pages at https://atticus-42.github.io/quiz-hub/. It contains:
 
-- No build step, no dependencies, no external assets: inline CSS, JS and SVG, system fonts.
-- Design tokens (colours, type scale, spacing, buttons, filter chips, history table) are copied from the quizzes (`armor-mastery-quiz/src/template.html`) so the hub looks like the same product.
-- Module cards and exam cards are plain links, so they work without JavaScript (all module panels are then shown and the module cards jump to them). The history section needs JavaScript and says so in a `<noscript>` message.
+- **The hub** (`index.html`): choose a module, then an exam, and see a summary of the class score history.
+- **One page per quiz**, all built from a single quiz engine:
 
-## Modules and exams
+  | Module | Exam | Lesson key | URL |
+  | --- | --- | --- | --- |
+  | Module 2 | Combined Exam (30 questions drawn across the four lessons) | `combined` | `/quiz-hub/combined/` |
+  | Module 2 | ISR Operations | `isr` | `/quiz-hub/isr/` |
+  | Module 2 | Armor Operations | `armor` | `/quiz-hub/armor/` |
+  | Module 2 | Field Artillery Operations | `fieldartillery` | `/quiz-hub/field-artillery/` |
+  | Module 2 | Army Operations | `armyops` | `/quiz-hub/army-operations/` |
+  | Module 3 | Signal Support in Combined Arms Operations | `signal` | `/quiz-hub/signal-support/` |
 
-| Module | Exam | Lesson key | URL |
-| --- | --- | --- | --- |
-| Module 2 | Combined Exam (30 questions, all four lessons) | `combined` | https://atticus-42.github.io/combined-mastery-exam/ |
-| Module 2 | ISR Operations | `isr` | https://atticus-42.github.io/isr-mastery-quiz/ |
-| Module 2 | Armor Operations | `armor` | https://atticus-42.github.io/armor-mastery-quiz/ |
-| Module 2 | Field Artillery Operations | `fieldartillery` | https://atticus-42.github.io/field-artillery-mastery-quiz/ |
-| Module 2 | Army Operations | `armyops` | https://atticus-42.github.io/army-operations-scenario-quiz/ |
-| Module 3 | Signal Support in Combined Arms Operations | `signal` | https://atticus-42.github.io/signal-support-mastery-quiz/ |
+- **Instructor view** (`/quiz-hub/instructor/`): question analysis.
+- **Our class** (`/quiz-hub/class/`): class organization and roster.
 
-## Module selection
+The old per-lesson repositories now only redirect to these URLs.
 
-- Step 1 shows the module cards; step 2 shows the exam grid of the chosen module only.
-- The choice lives in the URL hash: `#module-2`, `#module-3`. Links can be shared, back/forward works, the hash is applied on load, and no (or an unknown) hash shows only the module chooser. "Change module" removes the hash and returns to step 1.
-- The chosen card has `aria-current="true"`. After a choice, focus moves to the step's heading and a polite live region announces it (for example "Module 2 selected. Choose your exam: 5 exams available."). Ctrl/Cmd-click on a module card keeps the browser default.
+No login, analytics, cookies, external fonts or scripts. Everything is inline HTML/CSS/JS, plus the shared images in `assets/`.
 
-### Adding a lesson or a module
+## Layout
 
-1. Add the exam (`key`, `lesson`, `title`, `description`, `url`, `total`, optional `prominent`) to its module's `exams` in the `MODULES` array at the top of the script in `index.html`; a new module is one more entry (`id: 'module-N'`, `title`, `meta`, `description`, optional `note`, `exams`). With JavaScript on, a card is built automatically for any exam that has no static card.
-2. For visitors without JavaScript, also copy a static `<li id="card-...">` block into the module's `<ul id="exam-grid-module-N">` (and, for a new module, a module card and an `exam-panel` section).
-3. Add the URL to `EXPECTED` and the key to `MODULE_EXAMS` in `scripts/verify.mjs` and run the tests.
+| Path | What it is |
+| --- | --- |
+| `src/engine/template.html` | The one quiz engine: gate, Easy/Medium/Hard, shuffle, keyboard, sounds, results, history, practice retries |
+| `src/engine/contours.svg` | The shared topographic background |
+| `src/hub/`, `src/instructor/`, `src/class/` | Page templates |
+| `lessons/modules.json` | Modules, in hub order |
+| `lessons/<key>/lesson.json` | A lesson's titles, topics (`categoryOrder`), slide/page reference range, palette, slug, module and order |
+| `lessons/<key>/hero.svg`, `hero.css` | The lesson's artwork and its animation |
+| `lessons/<key>/{easy,medium,hard}.json` | The question banks |
+| `lessons/<key>/checks.mjs` | Optional lesson-specific tests |
+| `lessons/combined/lesson.json` | A *pool* exam: `pool.lessons` and `pool.count`; it has no banks of its own |
+| `data/class.json` | The approved public class data (rank, name, commissioning source, positions only) |
+| `apps-script/Code.gs`, `SETUP.md` | The Google Apps Script web app behind the class history and item analysis |
+| `scripts/build.mjs` | Builds every page; the hub's `MODULES` are generated from the `lesson.json` files |
+| `scripts/verify.mjs` | The test gate |
 
-## Class history
+The `index.html` files are generated. Never edit them by hand; always rebuild and test:
 
-The page reads the shared Google Sheet web app (`HISTORY_ENDPOINT`) with one GET per lesson:
-
-```
-GET <HISTORY_ENDPOINT>?lesson=<key>&mode=all&limit=200
--> {"ok":true,"rows":[{name,mode,score,total,percent,band,finishedAt}, ...]}  (newest first)
--> {"ok":false,"error":"..."}
-```
-
-- On load, the selected module's lessons are requested first, then all six lessons in parallel for the small "N class attempts" overview on each module card. Each lesson is requested once and cached; Refresh reloads only the selected module's lessons.
-- For the selected module: per-exam stats on each card, a summary table (attempts, average, top score, latest attempt) and the 10 newest attempts. The All/Easy/Medium/Hard chips filter all three.
-- A lesson whose request fails (for example `unknown lesson` before the Apps Script knows `signal`) shows "Not available yet"; if a whole module is unknown to the sheet the status says so. Only if every request of the module fails for network reasons is an error with Refresh shown.
-- Remote text is only ever written with `textContent`, names are trimmed to 60 characters, and at most 200 rows per lesson are kept. Nothing is stored in cookies or browser storage.
-
-## Background
-
-A fixed, decorative topographic contour map (inline SVG, `aria-hidden`, `pointer-events: none`, `preserveAspectRatio="xMidYMid slice"`) sits behind the content over a paper-cream background with a soft green-to-sand tint. Line colours and opacities are CSS variables (`--topo-line`, `--topo-line-major`, `--topo-minor-opacity` 0.22, `--topo-major-opacity` 0.4); index contours use `class="major"`. Cards and tables stay on solid surfaces, the hero keeps its dark band, and print hides the map.
-
-## Tests
-
-```
-node scripts/verify.mjs
+```sh
+node scripts/build.mjs && node scripts/verify.mjs
 ```
 
-Runs the page script in `node:vm` against a small fake DOM and window (no network) and checks the `MODULES` config (ids, keys, exact URLs), hash routing on load, by click, "Change module" and back/forward, focus and live-region announcements, per-module history scoping and Refresh, failure tolerance for `unknown lesson`, the pure helpers (`summarize`, `mergeRecent`, `filterByMode`, `parseHistoryResponse`, `moduleFromHash`, `formatDate`), the mode filter, XSS safety, the background layer, and that the only external URLs are the six exams, the hub itself and the history endpoint.
+The tests never contact the class history sheet: they clear the endpoint or use a fake network.
+
+For a local preview with no class-history traffic at all, build a copy with the endpoint blanked, copy `assets/` next to it, and serve that folder:
+
+```sh
+node scripts/build.mjs --out ../preview --endpoint ""
+```
+
+## Questions
+
+Each bank is a JSON array. Each question looks like this:
+
+```json
+{ "id": 7, "qid": "armor-e-07", "difficulty": "easy", "category": "Tank Operations", "tags": ["..."],
+  "prompt": "...", "options": ["...", "...", "...", "..."], "answer": 2, "explanation": "...", "sourceSlides": [31] }
+```
+
+- `id` is the position in the bank: 1, 2, 3, …
+- `qid` is permanent. The instructor's question analysis is keyed on it, so never change or reuse one.
+- `category` must be one of the lesson's `categoryOrder` topics.
+- `sourceSlides` must fall within `sourceRef` (it is optional for Army Operations).
+- An attempt asks every question of the chosen bank (1–500 per bank). The pool exam asks `pool.count` questions, split evenly across its lessons.
+
+**Appending questions** (for example the course-style questions written in parallel) is a plain append, then a rebuild:
+
+1. Append the new objects to `lessons/<key>/<mode>.json`. `id` and `qid` may be left out.
+2. Run the following, which numbers the ids and gives each new question the next free qid:
+   ```sh
+   node scripts/assign-qids.mjs <key>
+   node scripts/build.mjs
+   node scripts/verify.mjs
+   ```
+
+Page texts, hub cards, the Combined Exam pool and the instructor page all follow automatically. The tests require each bank to keep:
+- answer letters balanced (each letter within ±1 of a quarter of the bank);
+- the key as the unique longest option in no more than 35% of questions (ISR is allowed 48% and Army Operations 44%, as their current banks need);
+- every topic present;
+- unique prompts.
+Signal Support also has content rules in `lessons/signal/checks.mjs`.
+
+## Adding a lesson
+
+Copy `lessons/_template/` to `lessons/<key>/`, then:
+- fill in `lesson.json`;
+- add `hero.svg` (and optionally `hero.css`) and the three banks;
+- add the key to `LESSONS` in `apps-script/Code.gs` and update the deployment.
+
+Then run `assign-qids`, build and verify. See `lessons/_template/README.md`. The Module 3 lesson `signaljoint` (slug `joint-signal`) is already registered in `Code.gs`.
+
+## Students' features
+
+- **Retry my mistakes.** On the results page, *Retry the N questions I missed* (or the **M** key) starts a practice round with only those questions, reshuffled. It has its own results and is never sent to the class history.
+- **Unseen first.** Each attempt asks the questions this browser has not shown yet first, then the ones last missed, then the rest, each group shuffled. The pool exam applies the same order within each lesson's share.
+  - The record lives only in this browser's `localStorage`: question codes with seen/missed flags, and no name.
+  - Without storage, the order is a plain shuffle.
+  - *Reset my progress on this device* on the start page clears it.
+
+## Class history and item analysis
+
+Each finished (non-practice) attempt POSTs `{lesson, name, mode, score, total, percent, band, finishedAt, asked, missed}` to `HISTORY_ENDPOINT`. `asked` and `missed` hold stable ids of the form `<lessonKey>:<mode>:<qid>`; a pool exam reports each source question's own id.
+
+The sheet (Code.gs v7) stores the attempt row with a `Missed` column and updates the 'Item Analysis' tab. The instructor page reads `?action=items&lesson=all`. Until the deployed script is updated to v7, the page says "not available yet". See `apps-script/SETUP.md`.

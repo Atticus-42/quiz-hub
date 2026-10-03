@@ -1,0 +1,59 @@
+{
+  "key": "combined",
+  "slug": "combined",
+  "module": "module-2",
+  "order": 0,
+  "prominent": true,
+  "name": "Combined Exam",
+  "title": "Combined Mastery Exam",
+  "eyebrow": "Philippine Army · Comprehensive Examination",
+  "lede": "One examination across four lessons: each attempt draws {count} situational questions at random from the ISR, Armor, Field Artillery and Army Operations lessons, at Easy, Medium, or Hard.",
+  "hubDescription": "{count} questions drawn from all four lessons: ISR, Armor, Field Artillery and Army Operations.",
+  "hubKicker": "Comprehensive",
+  "hubTags": [
+    { "text": "All four lessons", "comprehensive": true },
+    { "text": "{count} questions" }
+  ],
+  "historyLesson": "combined",
+  "pool": {
+    "lessons": ["isr", "armor", "fieldartillery", "armyops"],
+    "count": 30
+  },
+  "palette": {
+    "--color-paper": "#f1eedc",
+    "--topo-angle": "165deg",
+    "--topo-tint-green": "#eef0dd",
+    "--topo-tint-sand": "#efe7cf",
+    "--topo-line": "#3a4822",
+    "--topo-line-major": "#3a4822",
+    "--topo-major-width": "1.4"
+  },
+  "text": {
+    "studyWarningLead": "This combined mock examination is a practice aid only, and it assumes you have studied ALL four lessons.",
+    "studyWarningBody": "Every attempt mixes questions from ISR Operations, Armor Operations, Field Artillery Operations and Army Operations. Study each complete lesson before you start; repeated attempts are not a substitute for that study.",
+    "studyConfirm": "I understand that I must study all four lessons completely and not rely only on this mock examination.",
+    "resultsReminder": "This score is practice feedback only. Study all four lessons completely; do not rely only on this mock examination.",
+    "modeDescPrefix": "{count} questions from all four lessons.",
+    "topicNoun": "Lesson",
+    "topicsHeading": "Lesson analysis",
+    "topicsCaption": "Correct answers by lesson. A lesson is a strength at 75% or higher and a gap below 75%; the line on each bar marks 75%.",
+    "gapsHeading": "Lessons to review",
+    "strengthsEmpty": "No lesson reached 75% in this attempt.",
+    "gapsEmpty": "No gaps in this attempt. Keep studying all four lessons.",
+    "bands": [
+      "Consistent command of all four lessons at this difficulty.",
+      "Solid understanding. Restudy the lessons listed as gaps.",
+      "Partial understanding. Restudy all four lessons before retaking.",
+      "Study all four lessons completely again before another attempt."
+    ]
+  },
+  "art": {
+    "groups": ["tank", "tank-gun", "muzzle-blast", "shell", "dust", "objective"],
+    "nested": { "tank": ["tank-gun", "muzzle-blast"] },
+    "labels": ["COMBINED MASTERY EXAMINATION", "ISR", "ARMOR", "FIELD ARTILLERY", "ARMY OPERATIONS", "EXAM · 30 QUESTIONS"],
+    "classes": ["sensor-dish", "howitzer", "unit-flag", "exam-target", "terrain-contour", "converge-line"],
+    "forbidden": "FULL SPECTRUM|OFFENSE|DEFENSE|SURVEILLANCE|FIRE SUPPORT",
+    "stilled": ["#tank-gun", "#muzzle-blast", "#shell", "#dust .dust-puff", "#objective .impact-pulse"],
+    "staticPattern": "#tank|#objective$|\\.terrain-contour|\\.axis-line|\\.hero-art"
+  }
+}

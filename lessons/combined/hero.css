@@ -1,0 +1,79 @@
+/* Artwork parts. Rest states are the static artwork shown with reduced motion.
+   Four lesson emblems (ISR sensor dish, Armor #tank, Field Artillery howitzer, Army Operations flag)
+   converge on the central exam target (#objective). #tank-gun is the tank's main gun (recoil),
+   #muzzle-blast its firing flash, #dust the track dust, and #shell the convergence marker that
+   runs each lesson's axis into the target and holds on the bullseye. */
+#objective { color: var(--mode-glow); }
+#muzzle-blast { opacity: 0; transform-box: fill-box; transform-origin: 0% 50%; }
+#shell { opacity: 0; transform: translate(94px, 82px); }
+#tank-gun { transform-box: fill-box; transform-origin: 0% 50%; }
+#dust .dust-puff { opacity: 0; transform-box: fill-box; transform-origin: center; }
+#objective .impact-pulse { opacity: 0; transform-box: fill-box; transform-origin: center; }
+
+/* One convergence (5 seconds) plays when the art appears; nothing loops, so no pause control is needed. */
+#tank-gun { animation: gun-recoil 5s ease-out 1 both; }
+#muzzle-blast { animation: gun-flash 5s ease-out 1 both; }
+#shell { animation: marker-converge 5s linear 1 both; }
+#dust .dust-puff { animation: track-dust 5s ease-out 1 both; }
+#dust .dust-puff:nth-child(2) { animation-delay: 0.12s; }
+#dust .dust-puff:nth-child(3) { animation-delay: 0.24s; }
+#objective .impact-pulse { animation: target-pulse 5s ease-out 1 both; }
+
+@keyframes gun-recoil {
+  0%, 39% { transform: translateX(0); }
+  41% { transform: translateX(-4px); }
+  48%, 100% { transform: translateX(0); }
+}
+@keyframes gun-flash {
+  0%, 39% { opacity: 0; transform: scale(0.4); }
+  41% { opacity: 1; transform: scale(1); }
+  47%, 100% { opacity: 0; transform: scale(1.4); }
+}
+@keyframes track-dust {
+  0%, 40% { opacity: 0; transform: translate(0, 0) scale(0.4); }
+  45% { opacity: 0.8; transform: translate(-3px, 1px) scale(0.9); }
+  80%, 100% { opacity: 0; transform: translate(-20px, 4px) scale(1.8); }
+}
+/* The marker runs the four converging axes in turn (ISR, Field Artillery, Armor, Army Operations),
+   then settles on the centre of the exam target. */
+@keyframes marker-converge {
+  0%, 2% { opacity: 0; transform: translate(94px, 82px); }
+  3% { opacity: 1; transform: translate(94px, 82px); }
+  11% { opacity: 1; transform: translate(153px, 95.5px); }
+  19% { opacity: 1; transform: translate(198px, 116px); }
+  20% { opacity: 0; transform: translate(198px, 116px); }
+  21% { opacity: 0; transform: translate(386px, 82px); }
+  22% { opacity: 1; transform: translate(386px, 82px); }
+  30% { opacity: 1; transform: translate(327px, 95.5px); }
+  38% { opacity: 1; transform: translate(282px, 116px); }
+  39% { opacity: 0; transform: translate(282px, 116px); }
+  40% { opacity: 0; transform: translate(96px, 172px); }
+  41% { opacity: 1; transform: translate(96px, 172px); }
+  49% { opacity: 1; transform: translate(153.5px, 163px); }
+  57% { opacity: 1; transform: translate(198px, 148px); }
+  58% { opacity: 0; transform: translate(198px, 148px); }
+  59% { opacity: 0; transform: translate(384px, 172px); }
+  60% { opacity: 1; transform: translate(384px, 172px); }
+  68% { opacity: 1; transform: translate(326.5px, 163px); }
+  76% { opacity: 1; transform: translate(282px, 148px); }
+  77% { opacity: 0; transform: translate(282px, 148px); }
+  78% { opacity: 0; transform: translate(240px, 132px); }
+  84%, 100% { opacity: 1; transform: translate(240px, 132px); }
+}
+@keyframes target-pulse {
+  0%, 83% { opacity: 0; transform: scale(0.3); }
+  86% { opacity: 1; transform: scale(0.7); }
+  100% { opacity: 0; transform: scale(1.6); }
+}
+
+/* Reduced motion: the artwork rests in its static pose. */
+@media (prefers-reduced-motion: reduce) {
+  #tank-gun, #muzzle-blast, #shell, #dust .dust-puff, #dust .dust-puff:nth-child(2), #dust .dust-puff:nth-child(3), #objective .impact-pulse {
+    animation: none !important;
+    transition: none !important;
+  }
+  #muzzle-blast, #dust .dust-puff { opacity: 0; }
+  #tank-gun { transform: none; }
+  #shell { opacity: 1; transform: translate(240px, 132px); }
+  #objective .impact-pulse { opacity: 0.6; transform: none; }
+}

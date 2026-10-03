@@ -1,0 +1,84 @@
+<svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
+  <path d="M0 50H480M0 100H480M0 150H480M0 200H480M80 0V250M160 0V250M240 0V250M320 0V250M400 0V250" fill="none" stroke="#f3efdf" stroke-opacity="0.08" stroke-width="1"/>
+  <text x="12" y="18" fill="#e3b65a">COMBINED MASTERY EXAMINATION</text>
+  <text x="12" y="31" fill="#d6d2bf">ISR · ARMOR · FIELD ARTILLERY · ARMY OPERATIONS</text>
+  <path class="hill" d="M0 214C120 208 240 218 360 210C420 206 450 212 480 208V250H0Z" fill="#3f4a2c"/>
+  <g class="terrain-contour" fill="none" stroke="#c9b37a" stroke-opacity="0.3" stroke-width="1.2" stroke-dasharray="3 5">
+    <path d="M0 232Q120 222 240 230T480 226"/>
+    <path d="M120 132Q180 60 240 60T360 132"/>
+    <path d="M150 132Q195 84 240 84T330 132"/>
+  </g>
+  <g class="converge-line" fill="none" stroke="#e3b65a" stroke-opacity="0.8" stroke-width="1.6" stroke-dasharray="5 4">
+    <path d="M94 82Q160 92 198 116"/>
+    <path d="M386 82Q320 92 282 116"/>
+    <path d="M96 172Q160 166 198 148"/>
+    <path d="M384 172Q320 166 282 148"/>
+  </g>
+  <g class="converge-heads" fill="#e3b65a" fill-opacity="0.85">
+    <path d="M203 119L191 117L196 110Z"/>
+    <path d="M277 119L289 117L284 110Z"/>
+    <path d="M203 145L196 153L192 145Z"/>
+    <path d="M277 145L284 153L288 145Z"/>
+  </g>
+  <g id="objective" class="exam-target" fill="none" stroke="currentColor" stroke-width="1.5">
+    <circle cx="240" cy="132" r="44" fill="#2a2f24" stroke-width="2"/>
+    <circle cx="240" cy="132" r="30"/>
+    <circle cx="240" cy="132" r="16"/>
+    <path d="M240 82V100M240 164V182M190 132H208M272 132H290" stroke-width="2" stroke-linecap="round"/>
+    <circle class="impact-pulse" cx="240" cy="132" r="44" stroke-width="2.5"/>
+    <text x="182" y="196" fill="currentColor" stroke="none">EXAM · 30 QUESTIONS</text>
+  </g>
+  <g class="sensor-dish">
+    <circle cx="64" cy="72" r="30" fill="#2a2f24" stroke="#c9b37a" stroke-width="1.5"/>
+    <path d="M56 92L64 78L72 92" fill="none" stroke="#d6d2bf" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M64 78L61 72" stroke="#d6d2bf" stroke-width="2"/>
+    <path d="M48 58Q50 80 72 82Z" fill="#a9c9e8" stroke="#1f231b" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M60 70L72 60" stroke="#d6d2bf" stroke-width="1.5"/>
+    <circle cx="72" cy="60" r="2.2" fill="#e3b65a"/>
+    <path class="sensor-waves" d="M77 53a8 8 0 0 1 4 9M81 47a15 15 0 0 1 7 17" fill="none" stroke="#e3b65a" stroke-width="1.6" stroke-linecap="round"/>
+    <text x="55" y="116" fill="#f3efdf">ISR</text>
+  </g>
+  <g class="howitzer">
+    <circle cx="416" cy="72" r="30" fill="#2a2f24" stroke="#c9b37a" stroke-width="1.5"/>
+    <path d="M418 82L438 94" stroke="#6b7a45" stroke-width="4" stroke-linecap="round"/>
+    <path class="howitzer-tube" d="M418 70L394 55" stroke="#d6d2bf" stroke-width="4" stroke-linecap="round"/>
+    <path d="M410 74H426V68H414Z" fill="#586636" stroke="#1f231b" stroke-width="1.2" stroke-linejoin="round"/>
+    <circle cx="418" cy="82" r="8" fill="#2a2f24" stroke="#c9b37a" stroke-width="2"/>
+    <circle cx="418" cy="82" r="2" fill="#c9b37a"/>
+    <text x="370" y="116" fill="#f3efdf">FIELD ARTILLERY</text>
+  </g>
+  <g id="dust" fill="#c9b37a">
+    <circle class="dust-puff" cx="40" cy="192" r="5"/>
+    <circle class="dust-puff" cx="36" cy="186" r="4"/>
+    <circle class="dust-puff" cx="44" cy="196" r="3.5"/>
+  </g>
+  <g id="tank">
+    <circle cx="64" cy="180" r="30" fill="#2a2f24" stroke="#c9b37a" stroke-width="1.5"/>
+    <rect x="42" y="184" width="44" height="10" rx="5" fill="#1f231b" stroke="#c9b37a" stroke-width="1.2"/>
+    <circle cx="49" cy="189" r="2.6" fill="#6b7a45"/>
+    <circle cx="59" cy="189" r="2.6" fill="#6b7a45"/>
+    <circle cx="69" cy="189" r="2.6" fill="#6b7a45"/>
+    <circle cx="79" cy="189" r="2.6" fill="#6b7a45"/>
+    <path d="M44 184L48 176H80L84 184Z" fill="#6b7a45" stroke="#1f231b" stroke-width="1.5" stroke-linejoin="round"/>
+    <g id="tank-gun">
+      <rect x="70" y="169.5" width="20" height="3" rx="1" fill="#d6d2bf" stroke="#1f231b" stroke-width="0.8"/>
+    </g>
+    <path d="M54 176L57 167H70L73 176Z" fill="#586636" stroke="#1f231b" stroke-width="1.5" stroke-linejoin="round"/>
+    <g id="muzzle-blast" fill="#ffd166" stroke="#ff8a5c" stroke-width="1" stroke-linejoin="round">
+      <path d="M91 171L99 165L97 171L99 177Z"/>
+    </g>
+    <text x="48" y="224" fill="#f3efdf">ARMOR</text>
+  </g>
+  <g class="unit-flag">
+    <circle cx="416" cy="180" r="30" fill="#2a2f24" stroke="#c9b37a" stroke-width="1.5"/>
+    <path d="M408 202V158" stroke="#d6d2bf" stroke-width="2" stroke-linecap="round"/>
+    <path d="M400 202H416" stroke="#d6d2bf" stroke-width="2" stroke-linecap="round"/>
+    <path d="M408 158H434L428 167L434 176H408Z" fill="#e3b65a" stroke="#1f231b" stroke-width="1.2" stroke-linejoin="round"/>
+    <path d="M418 162L419.5 165.5L423 165.6L420.3 167.8L421.2 171.2L418 169.3L414.8 171.2L415.7 167.8L413 165.6L416.5 165.5Z" fill="#23281e"/>
+    <text x="370" y="224" fill="#f3efdf">ARMY OPERATIONS</text>
+  </g>
+  <g id="shell">
+    <path d="M0 -7L7 0L0 7L-7 0Z" fill="#e3b65a" stroke="#1f231b" stroke-width="1.5"/>
+    <circle r="2" fill="#1f231b"/>
+  </g>
+</svg>

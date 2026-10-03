@@ -1,0 +1,74 @@
+<svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
+  <text x="12" y="18" fill="#e3b65a">COLLECT · PROCESS · EXPLOIT · DISSEMINATE</text>
+  <text x="12" y="31" fill="#d6d2bf">INTELLIGENCE · SURVEILLANCE · RECONNAISSANCE</text>
+  <path d="M300 60Q360 10 440 52" fill="none" stroke="#7fc8d8" stroke-opacity="0.45" stroke-width="1.2" stroke-dasharray="2 5"/>
+  <g transform="translate(372 36)">
+    <rect x="-9" y="-6" width="18" height="12" rx="2" fill="#7fc8d8" stroke="#1f231b" stroke-width="1.5"/>
+    <rect x="-30" y="-4" width="17" height="8" fill="#3f6f86" stroke="#1f231b" stroke-width="1.5"/>
+    <rect x="13" y="-4" width="17" height="8" fill="#3f6f86" stroke="#1f231b" stroke-width="1.5"/>
+    <path d="M-24 -4V4M-18 -4V4M19 -4V4M25 -4V4" stroke="#1f231b" stroke-width="1"/>
+  </g>
+  <text x="350" y="62" fill="#7fc8d8">SPACE</text>
+  <g>
+    <ellipse cx="222" cy="92" rx="14" ry="4" fill="#d6d2bf" stroke="#1f231b" stroke-width="1.5"/>
+    <path d="M212 92L200 83M232 92L246 83M222 88V81" stroke="#1f231b" stroke-width="2" stroke-linecap="round"/>
+    <path d="M196 81H206M240 81H252" stroke="#e3b65a" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="196" y="112" fill="#e3b65a">AIRBORNE</text>
+  <path class="hill" d="M0 214C60 206 110 210 170 212C240 214 300 200 360 206C410 210 450 204 480 208V250H0Z" fill="#3d4a2a"/>
+  <path d="M196 218C230 214 270 216 300 213C330 211 350 216 372 214V250H196Z" fill="#2f4a5a"/>
+  <path d="M204 226Q214 222 224 226T244 226T264 226T284 226T304 226T324 226T344 226T364 226M204 238Q214 234 224 238T244 238T264 238T284 238T304 238T324 238T344 238T364 238" fill="none" stroke="#7fc8d8" stroke-opacity="0.6" stroke-width="1.4"/>
+  <g>
+    <path d="M242 212H326L316 224H252Z" fill="#8a9a9f" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
+    <rect x="272" y="198" width="30" height="14" fill="#a9b6ba" stroke="#1f231b" stroke-width="2"/>
+    <path d="M287 198V186M280 190H294" stroke="#1f231b" stroke-width="2" stroke-linecap="round"/>
+  </g>
+  <text x="258" y="182" fill="#7fc8d8">MARITIME</text>
+  <text x="66" y="236" fill="#e3b65a">GROUND</text>
+  <g class="sensor-coverage" fill="none" stroke="#e3b65a" stroke-opacity="0.35" stroke-width="1.2" stroke-dasharray="3 5">
+    <path d="M110 150A40 40 0 0 1 150 190"/>
+    <path d="M110 128A62 62 0 0 1 172 190"/>
+  </g>
+  <g class="data-link" fill="none" stroke="#f3efdf" stroke-opacity="0.5" stroke-width="1.3" stroke-dasharray="3 5">
+    <path class="data-link" d="M372 44L410 150"/>
+    <path class="data-link" d="M222 96L392 158"/>
+    <path class="data-link" d="M120 160L386 176"/>
+    <path class="data-link" d="M300 200L392 186"/>
+  </g>
+  <g id="command-post">
+    <path d="M380 190H440" stroke="currentColor" stroke-opacity="0.6" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M393 159V148" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M388 151Q393 146 398 151M385.5 147.5Q393 140 400.5 147.5" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+    <circle cx="393" cy="148" r="1.6" fill="currentColor"/>
+    <path d="M386 189L398 164H420L432 189Z" fill="#2a2f24" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M398 164L409 189M420 164L409 189" stroke="currentColor" stroke-opacity="0.45" stroke-width="1"/>
+    <path d="M403 189L409 176L415 189Z" fill="currentColor"/>
+    <path d="M409 164V136" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <path d="M409 137L427 142L409 147Z" fill="currentColor"/>
+    <circle class="cp-pulse" cx="409" cy="170" r="16" fill="none" stroke="currentColor" stroke-width="2.5"/>
+    <text x="376" y="204" fill="currentColor">COMMANDER</text>
+  </g>
+  <g id="radar-site">
+    <ellipse cx="110" cy="214" rx="36" ry="5" fill="#1b1f16" fill-opacity="0.5"/>
+    <path d="M92 212L102 172H118L128 212Z" fill="#586636" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M96 196H124M100 184H120M94 212L116 172M126 212L104 172" stroke="#1f231b" stroke-width="1.5"/>
+    <g transform="translate(110 166) rotate(-20)">
+      <g id="radar-dish">
+        <path d="M-22 0Q0 -26 22 0Z" fill="#a3b36d" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M0 0V-12" stroke="#e3b65a" stroke-width="3" stroke-linecap="round"/>
+      </g>
+      <g id="radar-sweep">
+        <circle cx="0" cy="-8" r="14" fill="none" stroke="#ffd166" stroke-width="3"/>
+        <circle cx="0" cy="-8" r="24" fill="none" stroke="#ff8a3d" stroke-width="2"/>
+      </g>
+    </g>
+  </g>
+  <g id="signal-waves" fill="#7fc8d8">
+    <circle class="wave" cx="232" cy="98" r="7"/>
+    <circle class="wave" cx="241" cy="94" r="6"/>
+    <circle class="wave" cx="228" cy="92" r="5"/>
+  </g>
+  <g id="data-packet">
+    <rect x="-6" y="-4" width="12" height="8" rx="2" fill="#e3b65a" stroke="#1f231b" stroke-width="1.5"/>
+  </g>
+</svg>

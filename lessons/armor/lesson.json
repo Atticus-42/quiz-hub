@@ -1,0 +1,33 @@
+{
+  "key": "armor",
+  "slug": "armor",
+  "module": "module-2",
+  "order": 2,
+  "name": "Armor Operations",
+  "title": "Armor Operations Mastery Quiz",
+  "eyebrow": "Philippine Army · Armor Operations",
+  "lessonName": "Fundamentals of Armor Operations",
+  "hubDescription": "Fundamentals of Armor Operations.",
+  "historyLesson": "armor",
+  "categoryOrder": [
+    "Armor Fundamentals and Mission",
+    "Characteristics of Armor",
+    "Mechanized Infantry: Mission and Organization",
+    "Mechanized Infantry Capabilities and Limitations",
+    "Mounting and Dismounting SOPs",
+    "Cavalry Operations",
+    "Tank Operations",
+    "Planning Considerations",
+    "Major Equipment of the Armor Division"
+  ],
+  "sourceRef": { "label": "page", "plural": "pages", "min": 13, "max": 83, "required": true },
+  "palette": {},
+  "art": {
+    "groups": ["tank", "tank-gun", "muzzle-blast", "shell", "dust", "objective"],
+    "nested": { "tank": ["tank-gun", "muzzle-blast"] },
+    "labels": ["ARMOR"],
+    "classes": ["axis-line", "terrain-contour"],
+    "stilled": ["#tank-gun", "#muzzle-blast", "#shell", "#dust .dust-puff", "#objective .impact-pulse"],
+    "staticPattern": "#tank|#objective$|\\.terrain-contour|\\.axis-line|\\.hero-art"
+  }
+}

@@ -1,0 +1,62 @@
+/* Artwork parts. Rest states are the static artwork shown with reduced motion.
+   #tank is the task-force unit marker, #tank-gun its guidon, #muzzle-blast a signal burst,
+   #shell the advancing unit marker, #dust its movement trail and #objective the objective. */
+#objective { color: var(--mode-glow); }
+#muzzle-blast { opacity: 0; transform-box: fill-box; transform-origin: 0% 50%; }
+#shell { opacity: 0; transform: translate(110px, 87px); }
+#tank-gun { transform-box: fill-box; transform-origin: 0% 100%; }
+#dust .dust-puff { opacity: 0; transform-box: fill-box; transform-origin: center; }
+#objective .impact-pulse { opacity: 0; transform-box: fill-box; transform-origin: center; }
+
+/* One advance (4 seconds) plays when the art appears; nothing loops, so no pause control is needed. */
+#tank-gun { animation: guidon-wave 4s ease-in-out 1 both; }
+#muzzle-blast { animation: signal-burst 4s ease-out 1 both; }
+#shell { animation: unit-advance 4s linear 1 both; }
+#dust .dust-puff { animation: trail-drift 4s ease-out 1 both; }
+#dust .dust-puff:nth-child(2) { animation-delay: 0.12s; }
+#dust .dust-puff:nth-child(3) { animation-delay: 0.24s; }
+#objective .impact-pulse { animation: objective-pulse 4s ease-out 1 both; }
+
+@keyframes guidon-wave {
+  0%, 10% { transform: rotate(0deg); }
+  14% { transform: rotate(-7deg); }
+  20% { transform: rotate(5deg); }
+  26% { transform: rotate(-2deg); }
+  32%, 100% { transform: rotate(0deg); }
+}
+@keyframes signal-burst {
+  0%, 12% { opacity: 0; transform: scale(0.4); }
+  15% { opacity: 1; transform: scale(1); }
+  22%, 100% { opacity: 0; transform: scale(1.3); }
+}
+@keyframes trail-drift {
+  0%, 16% { opacity: 0; transform: translate(0, 0) scale(0.4); }
+  21% { opacity: 0.8; transform: translate(-3px, 1px) scale(0.9); }
+  70%, 100% { opacity: 0; transform: translate(-26px, 8px) scale(2); }
+}
+/* The advancing unit marker follows the axis of advance (the curve in the artwork) and holds on the objective. */
+@keyframes unit-advance {
+  0%, 15.9% { opacity: 0; transform: translate(110px, 87px); }
+  16% { opacity: 1; transform: translate(110px, 87px); }
+  26% { opacity: 1; transform: translate(169px, 74px); }
+  37% { opacity: 1; transform: translate(245px, 66px); }
+  48% { opacity: 1; transform: translate(320px, 70px); }
+  58%, 100% { opacity: 1; transform: translate(384px, 83px); }
+}
+@keyframes objective-pulse {
+  0%, 57% { opacity: 0; transform: scale(0.3); }
+  60% { opacity: 1; transform: scale(0.7); }
+  88%, 100% { opacity: 0; transform: scale(2.4); }
+}
+
+/* Reduced motion: the artwork rests in its static pose. */
+@media (prefers-reduced-motion: reduce) {
+  #tank-gun, #muzzle-blast, #shell, #dust .dust-puff, #dust .dust-puff:nth-child(2), #dust .dust-puff:nth-child(3), #objective .impact-pulse {
+    animation: none !important;
+    transition: none !important;
+  }
+  #muzzle-blast, #dust .dust-puff { opacity: 0; }
+  #tank-gun { transform: none; }
+  #shell { opacity: 1; transform: translate(245px, 66px); }
+  #objective .impact-pulse { opacity: 0.6; transform: none; }
+}

@@ -1,0 +1,41 @@
+{
+  "key": "signal",
+  "slug": "signal-support",
+  "module": "module-3",
+  "order": 1,
+  "name": "Signal Support in Combined Arms Operations",
+  "title": "Signal Support Mastery Quiz",
+  "eyebrow": "Philippine Army · Module 3 · Signal Support",
+  "lessonName": "Signal Support in Combined Arms Operations",
+  "hubDescription": "Signal Support in Combined Arms Operations lesson.",
+  "historyLesson": "signal",
+  "categoryOrder": [
+    "Signal Support Concepts",
+    "Operational Environment",
+    "Roles of Signal Support",
+    "Systems and Technologies",
+    "Principles of Signal Support",
+    "Tactical Considerations",
+    "Signal Estimate and Requirements",
+    "Priorities, Continuity and Coordination",
+    "Security Measures and Protocols"
+  ],
+  "sourceRef": { "label": "page", "plural": "pages", "min": 1, "max": 19, "required": true },
+  "palette": {
+    "--color-paper": "#efeddc",
+    "--topo-angle": "155deg",
+    "--topo-tint-green": "#e4ead3",
+    "--topo-tint-sand": "#f0e5cc",
+    "--topo-line": "#4f6232",
+    "--topo-line-major": "#3f5226"
+  },
+  "art": {
+    "groups": ["tank", "tank-gun", "muzzle-blast", "shell", "dust", "objective"],
+    "nested": { "tank": ["tank-gun", "muzzle-blast"] },
+    "labels": ["CONNECT · COMMUNICATE · COORDINATE", "INFANTRY", "ARMOR", "ARTILLERY", "COMMANDER"],
+    "classes": ["link-line", "arm-infantry", "arm-armor", "arm-artillery"],
+    "forbidden": "OBJECTIVE|SHOCK EFFECT|FIRE SUPPORT|SURVEILLANCE|CAVALRY|MECH INF",
+    "stilled": ["#tank-gun", "#muzzle-blast", "#shell", "#dust .dust-puff", "#objective .impact-pulse", ".link-line"],
+    "staticPattern": "#tank|#objective$|\\.terrain-contour|\\.link-line|\\.arm-marker|\\.hero-art"
+  }
+}

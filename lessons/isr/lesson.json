@@ -1,0 +1,34 @@
+{
+  "key": "isr",
+  "slug": "isr",
+  "module": "module-2",
+  "order": 1,
+  "name": "ISR Operations",
+  "title": "ISR Operations Mastery Quiz",
+  "eyebrow": "Philippine Army · Intelligence, Surveillance and Reconnaissance",
+  "lessonName": "Introduction to ISR Operations",
+  "hubDescription": "Introduction to ISR Operations.",
+  "historyLesson": "isr",
+  "categoryOrder": [
+    "ISR Fundamentals and Components",
+    "Roles and Importance of ISR",
+    "Airborne ISR Systems",
+    "Ground-Based ISR Systems",
+    "Maritime ISR Platforms",
+    "Space-Based ISR Systems",
+    "Timeliness, Accuracy, and Fusion",
+    "Coverage, Persistence, and Flexibility",
+    "Security, Interoperability, and Ethics"
+  ],
+  "sourceRef": { "label": "slide", "plural": "slides", "min": 21, "max": 58, "required": true },
+  "palette": { "--color-olive-deep": "#34402a" },
+  "maxKeyLongestShare": 0.48,
+  "art": {
+    "groups": ["radar-site", "radar-dish", "radar-sweep", "data-packet", "signal-waves", "command-post"],
+    "nested": { "radar-site": ["radar-dish", "radar-sweep"] },
+    "labels": ["COLLECT"],
+    "classes": ["data-link", "sensor-coverage"],
+    "stilled": ["#radar-dish", "#radar-sweep", "#data-packet", "#signal-waves .wave", "#command-post .cp-pulse"],
+    "staticPattern": "#radar-site|#command-post$|\\.sensor-coverage|\\.data-link|\\.hero-art"
+  }
+}

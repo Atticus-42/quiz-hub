@@ -1,0 +1,2541 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Army Operations Mastery Quiz</title>
+  <style>
+    /* =====================================================================
+       QUIZ ENGINE. One template serves every lesson quiz and pool exam; the
+       build (scripts/build.mjs) fills in each lesson's text, palette, hero
+       artwork and question banks from lessons/<key>/.
+
+       Colour. Ratios are WCAG 2.1 contrast against --color-surface (#fbfaf3)
+       unless noted. Every text pair meets AA (4.5:1 body, 3:1 large text/UI).
+         --color-text            #1d2119  15.6:1  body copy
+         --color-muted           #464c3c   8.5:1  secondary copy, captions, dimmed options
+         --color-border          #7a8068   3.9:1  control borders (UI >= 3:1)
+         --color-border-subtle   #c3c7ae          decorative dividers only
+         --color-accent          #3f4d22   8.6:1  primary buttons (white text 9.1:1)
+         --color-focus           #1a4fd1   6.5:1  keyboard focus ring, 3px solid
+         --color-correct         #1c6530   6.8:1  (6.0:1 on --color-correct-bg, white on it 7.1:1)
+         --color-incorrect       #9e2418   7.4:1  (6.5:1 on --color-incorrect-bg, white on it 7.7:1)
+         --color-warning-text    #7a3e00   7.4:1 on --color-warning-bg
+         --color-brass           #e3b65a          hero accents on charcoal only (9.4:1 on #23281e)
+         Difficulty accents (--mode-accent) reach >= 4.6:1 on their --mode-selected
+         tint and carry white text at >= 6:1. Difficulty is always named in text too.
+         Lesson palettes (lessons/<key>/lesson.json "palette") only change the hero
+         gradient and the decorative contour map, never a text pair.
+
+       Interaction states (colour is never the only signal):
+         unselected  2px --color-border, surface fill, outlined letter badge
+         hover       --mode-accent border, --mode-tint fill
+         focus       3px solid --color-focus outline, 2px offset
+         selected    --mode-accent border + inset ring, --mode-selected fill,
+                     filled letter badge, "Selected" tag with check icon
+         correct     --color-correct border + ring, --color-correct-bg fill,
+                     "Correct answer" tag with check icon
+         incorrect   --color-incorrect border + ring, --color-incorrect-bg fill,
+                     "Your answer" tag with cross icon
+         dimmed      subtle border, sunken fill, muted text (still 8:1)
+
+       Spacing:  --space-1 0.25rem · 2 0.5rem · 3 0.75rem · 4 1rem · 5 1.5rem · 6 2rem · 7 3rem
+       Type:     --text-xs 0.8125rem · sm 0.875rem · base 1rem · md 1.125rem · lg 1.375rem
+                 · xl 1.75rem · 2xl clamp(1.75rem, 1.2rem + 2vw, 2.5rem); line-height 1.5 body, 1.25 headings
+       Radii:    --radius-sm 0.375rem · md 0.5rem · lg 0.75rem · pill 999px
+       Shadows:  --shadow-sm resting cards · --shadow-md main card
+       Fonts:    system stacks only (--font-sans, --font-mono); no web fonts.
+       ===================================================================== */
+    :root {
+      --color-bg: #e7e8d6;
+      --color-surface: #fbfaf3;
+      --color-surface-sunken: #f1f1e6;
+      --color-text: #1d2119;
+      --color-muted: #464c3c;
+      --color-border: #7a8068;
+      --color-border-subtle: #c3c7ae;
+      --color-accent: #3f4d22;
+      --color-accent-hover: #2f3a19;
+      --color-accent-text: #ffffff;
+      --color-charcoal: #23281e;
+      --color-olive-deep: #4a4128;
+      --color-terrain: #5b6b3a;
+      /* Topographic background: paper, green-to-sand relief tint, olive contour lines. */
+      --color-paper: #f6f2e4;
+      --topo-angle: 160deg;
+      --topo-tint-green: #e2e8cc;
+      --topo-tint-sand: #f1e3c6;
+      --topo-line: #5f6d35;
+      --topo-line-major: #4b5a22;
+      --topo-minor-opacity: 0.22;
+      --topo-major-opacity: 0.4;
+      --topo-major-width: 1.6;
+      --color-brass: #e3b65a;
+      --color-hero-text: #f3efdf;
+      --color-hero-muted: #d6d2bf;
+      --color-warning-bg: #fff0c7;
+      --color-warning-border: #9a5a00;
+      --color-warning-text: #7a3e00;
+      --color-correct: #1c6530;
+      --color-correct-bg: #e3f1e4;
+      --color-incorrect: #9e2418;
+      --color-incorrect-bg: #fbe6e2;
+      --color-self-bg: #fff4d1;
+      --color-self-border: #9a6a00;
+      --color-focus: #1a4fd1;
+      --band-mastery: #1c6530;
+      --band-proficient: #3f4d22;
+      --band-developing: #8a5700;
+      --band-review: #9e2418;
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --space-7: 3rem;
+
+      --text-xs: 0.8125rem;
+      --text-sm: 0.875rem;
+      --text-base: 1rem;
+      --text-md: 1.125rem;
+      --text-lg: 1.375rem;
+      --text-xl: 1.75rem;
+      --text-2xl: clamp(1.75rem, 1.2rem + 2vw, 2.5rem);
+
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-pill: 999px;
+
+      --shadow-sm: 0 1px 2px rgba(35, 40, 30, 0.12), 0 1px 6px rgba(35, 40, 30, 0.08);
+      --shadow-md: 0 2px 4px rgba(35, 40, 30, 0.1), 0 8px 24px rgba(35, 40, 30, 0.14);
+
+      --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --font-mono: ui-monospace, "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+
+      --mode-accent: var(--color-accent);
+      --mode-tint: #eef0e2;
+      --mode-selected: #e3e8cf;
+      --mode-glow: var(--color-brass);
+    }
+    /* Lesson palette (lessons/<key>/lesson.json). */
+    :root { --color-paper: #f1eedc; --topo-angle: 165deg; --topo-tint-green: #eef0dd; --topo-tint-sand: #efe7cf; --topo-line: #3a4822; --topo-line-major: #3a4822; --topo-major-width: 1.4; }
+    /* Difficulty identities. The difficulty is always also named in text. */
+    .theme-easy, .mode-easy { --mode-accent: #2d6a2f; --mode-tint: #eef1e3; --mode-selected: #dcebd0; --mode-glow: #8fd17a; }
+    .theme-medium, .mode-medium { --mode-accent: #8a5700; --mode-tint: #f7eed6; --mode-selected: #f5e3b8; --mode-glow: #f2b441; }
+    .theme-hard, .mode-hard { --mode-accent: #a63d17; --mode-tint: #f8e6dc; --mode-selected: #f7d9cb; --mode-glow: #ff8a5c; }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--color-paper);
+      color: var(--color-text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      font-size: var(--text-base);
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+    h1, h2, h3, h4 { line-height: 1.25; }
+    h2 { font-size: var(--text-lg); margin: var(--space-6) 0 var(--space-3); }
+    h3 { font-size: var(--text-md); margin: var(--space-5) 0 var(--space-3); }
+    h4 { font-size: var(--text-base); margin: var(--space-4) 0 var(--space-2); }
+    p { margin: 0 0 var(--space-3); }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    /* Decorative tactical-map layer: fixed, clipped and inert, so it never adds page width. */
+    .terrain {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+      background: linear-gradient(var(--topo-angle), var(--topo-tint-green) 0%, var(--color-paper) 48%, var(--topo-tint-sand) 100%);
+    }
+    .terrain svg { display: block; width: 100%; height: 100%; }
+    .terrain .contours { fill: none; stroke-linejoin: round; stroke-linecap: round; }
+    .terrain .contours path { stroke: var(--topo-line); stroke-opacity: var(--topo-minor-opacity); stroke-width: 1; vector-effect: non-scaling-stroke; }
+    .terrain .contours path.major { stroke: var(--topo-line-major); stroke-opacity: var(--topo-major-opacity); stroke-width: var(--topo-major-width); }
+
+    /* Bandwidth Brothers banner (top of page) and class photo (bottom of page). */
+    .banner { position: relative; z-index: 1; width: 100%; background: var(--color-charcoal); line-height: 0; }
+    .banner picture { display: block; }
+    .banner img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 6; max-height: 32rem; object-fit: cover; object-position: center 55%; }
+    .class-photo {
+      position: relative; z-index: 1;
+      width: calc(100% - 2rem); max-width: 56rem; margin: var(--space-6) auto;
+      padding: var(--space-3);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border-subtle);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+    .class-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius-md); }
+    .class-photo figcaption { margin-top: var(--space-3); text-align: center; font-weight: 700; color: var(--color-muted); }
+    @media (max-width: 600px) { .banner img { aspect-ratio: 16 / 8; } .class-photo { width: calc(100% - 1.5rem); padding: var(--space-2); } }
+    body:not([data-view="landing"]) .banner, body:not([data-view="landing"]) .class-photo { display: none; }
+
+    /* Lesson hero */
+    .hero {
+      background: linear-gradient(135deg, var(--color-charcoal) 0%, var(--color-olive-deep) 100%);
+      color: var(--color-hero-text);
+      border-bottom: 6px solid var(--mode-glow);
+      overflow: hidden;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+      gap: var(--space-5);
+      align-items: center;
+      width: 100%;
+      max-width: 72rem;
+      margin: 0 auto;
+      padding: var(--space-5) var(--space-4);
+    }
+    .hero-copy { min-width: 0; }
+    .eyebrow { margin: 0; font-size: var(--text-sm); font-weight: 700; letter-spacing: 0.04em; color: var(--color-brass); }
+    h1 { margin: var(--space-1) 0 var(--space-2); font-size: var(--text-2xl); }
+    .hero-lede { margin: 0; color: var(--color-hero-muted); max-width: 34rem; }
+    .hero-tools { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+    .hero-art { min-width: 0; }
+    .hero-art svg { display: block; width: 100%; max-width: 100%; height: auto; }
+    .hero-art text { font-family: var(--font-mono); font-size: 9px; font-weight: 700; letter-spacing: 0.08em; }
+    body[data-view="quiz"] .hero-inner, body[data-view="results"] .hero-inner { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+    body[data-view="quiz"] .hero-art svg, body[data-view="results"] .hero-art svg { max-height: 12rem; }
+
+    /* Sound toggle: speaker icon plus visible On/Off text; aria-pressed carries the state. */
+    .sound-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      border: 2px solid var(--color-brass);
+      background: rgba(20, 24, 17, 0.55);
+      color: var(--color-hero-text);
+      font-size: var(--text-sm);
+    }
+    .sound-toggle:hover:not(:disabled) { background: rgba(20, 24, 17, 0.85); border-color: var(--color-hero-text); }
+    .sound-toggle svg { width: 1.25rem; height: 1.25rem; flex: none; }
+    .sound-toggle .sound-waves { display: inline; }
+    .sound-toggle .sound-mute { display: none; }
+    .sound-toggle[aria-pressed="false"] .sound-waves { display: none; }
+    .sound-toggle[aria-pressed="false"] .sound-mute { display: inline; }
+    .sound-state { font-weight: 700; color: var(--color-brass); }
+    /* Link back to the quiz hub, styled to match the sound toggle. */
+    .hub-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      min-height: 44px;
+      padding: var(--space-2) var(--space-3);
+      border: 2px solid var(--color-brass);
+      border-radius: var(--radius-sm);
+      background: rgba(20, 24, 17, 0.55);
+      color: var(--color-hero-text);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .hub-link:hover { background: rgba(20, 24, 17, 0.85); border-color: var(--color-hero-text); text-decoration: underline; }
+    .hub-arrow { color: var(--color-brass); font-weight: 700; }
+
+    /* Lesson artwork (lessons/<key>/hero.css). Nothing loops, so no pause control is needed. */
+    /* Artwork parts. Rest states are the static artwork shown with reduced motion.
+       #tank is the task-force unit marker, #tank-gun its guidon, #muzzle-blast a signal burst,
+       #shell the advancing unit marker, #dust its movement trail and #objective the objective. */
+    #objective { color: var(--mode-glow); }
+    #muzzle-blast { opacity: 0; transform-box: fill-box; transform-origin: 0% 50%; }
+    #shell { opacity: 0; transform: translate(110px, 87px); }
+    #tank-gun { transform-box: fill-box; transform-origin: 0% 100%; }
+    #dust .dust-puff { opacity: 0; transform-box: fill-box; transform-origin: center; }
+    #objective .impact-pulse { opacity: 0; transform-box: fill-box; transform-origin: center; }
+
+    /* One advance (4 seconds) plays when the art appears; nothing loops, so no pause control is needed. */
+    #tank-gun { animation: guidon-wave 4s ease-in-out 1 both; }
+    #muzzle-blast { animation: signal-burst 4s ease-out 1 both; }
+    #shell { animation: unit-advance 4s linear 1 both; }
+    #dust .dust-puff { animation: trail-drift 4s ease-out 1 both; }
+    #dust .dust-puff:nth-child(2) { animation-delay: 0.12s; }
+    #dust .dust-puff:nth-child(3) { animation-delay: 0.24s; }
+    #objective .impact-pulse { animation: objective-pulse 4s ease-out 1 both; }
+
+    @keyframes guidon-wave {
+      0%, 10% { transform: rotate(0deg); }
+      14% { transform: rotate(-7deg); }
+      20% { transform: rotate(5deg); }
+      26% { transform: rotate(-2deg); }
+      32%, 100% { transform: rotate(0deg); }
+    }
+    @keyframes signal-burst {
+      0%, 12% { opacity: 0; transform: scale(0.4); }
+      15% { opacity: 1; transform: scale(1); }
+      22%, 100% { opacity: 0; transform: scale(1.3); }
+    }
+    @keyframes trail-drift {
+      0%, 16% { opacity: 0; transform: translate(0, 0) scale(0.4); }
+      21% { opacity: 0.8; transform: translate(-3px, 1px) scale(0.9); }
+      70%, 100% { opacity: 0; transform: translate(-26px, 8px) scale(2); }
+    }
+    /* The advancing unit marker follows the axis of advance (the curve in the artwork) and holds on the objective. */
+    @keyframes unit-advance {
+      0%, 15.9% { opacity: 0; transform: translate(110px, 87px); }
+      16% { opacity: 1; transform: translate(110px, 87px); }
+      26% { opacity: 1; transform: translate(169px, 74px); }
+      37% { opacity: 1; transform: translate(245px, 66px); }
+      48% { opacity: 1; transform: translate(320px, 70px); }
+      58%, 100% { opacity: 1; transform: translate(384px, 83px); }
+    }
+    @keyframes objective-pulse {
+      0%, 57% { opacity: 0; transform: scale(0.3); }
+      60% { opacity: 1; transform: scale(0.7); }
+      88%, 100% { opacity: 0; transform: scale(2.4); }
+    }
+
+    /* Reduced motion: the artwork rests in its static pose. */
+    @media (prefers-reduced-motion: reduce) {
+      #tank-gun, #muzzle-blast, #shell, #dust .dust-puff, #dust .dust-puff:nth-child(2), #dust .dust-puff:nth-child(3), #objective .impact-pulse {
+        animation: none !important;
+        transition: none !important;
+      }
+      #muzzle-blast, #dust .dust-puff { opacity: 0; }
+      #tank-gun { transform: none; }
+      #shell { opacity: 1; transform: translate(245px, 66px); }
+      #objective .impact-pulse { opacity: 0.6; transform: none; }
+    }
+    @keyframes view-enter {
+      from { opacity: 0; transform: translateY(0.5rem); }
+      to { opacity: 1; transform: none; }
+    }
+
+    /* Main card */
+    .app {
+      width: calc(100% - 2rem);
+      max-width: 52rem;
+      margin: var(--space-5) auto var(--space-6);
+      padding: var(--space-5);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-top: 6px solid var(--mode-accent);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+    }
+    .view { animation: view-enter 0.3s ease-out both; }
+    .view > h2:first-child { margin-top: 0; }
+
+    button {
+      font: inherit;
+      min-height: 44px;
+      min-width: 44px;
+      padding: var(--space-3) var(--space-4);
+      border: 2px solid var(--color-accent);
+      border-radius: var(--radius-sm);
+      background: var(--color-accent);
+      color: var(--color-accent-text);
+      font-weight: 600;
+      line-height: 1.25;
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+    }
+    button:hover:not(:disabled) { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+    button.secondary { background: var(--color-surface); color: var(--color-accent); }
+    button.secondary:hover:not(:disabled) { background: var(--mode-tint); color: var(--color-accent-hover); }
+    button.compact { padding: var(--space-2) var(--space-3); font-size: var(--text-sm); }
+    button:disabled { cursor: not-allowed; opacity: 0.55; }
+    :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    .hero :focus-visible { outline-color: #ffffff; }
+
+    /* Icons are drawn in CSS with currentColor, always paired with text. */
+    .icon { position: relative; display: inline-block; flex: none; width: 1em; height: 1em; vertical-align: -0.125em; }
+    .icon::before, .icon::after { content: ""; position: absolute; }
+    .icon-check::before { left: 0.32em; top: 0.06em; width: 0.34em; height: 0.64em; border: solid currentColor; border-width: 0 0.16em 0.16em 0; transform: rotate(45deg); }
+    .icon-cross::before, .icon-cross::after { left: 0.42em; top: 0.02em; width: 0.16em; height: 0.96em; border-radius: 0.08em; background: currentColor; transform: rotate(45deg); }
+    .icon-cross::after { transform: rotate(-45deg); }
+    .icon-alert::before { left: 0.42em; top: 0.04em; width: 0.16em; height: 0.6em; border-radius: 0.08em; background: currentColor; }
+    .icon-alert::after { left: 0.42em; top: 0.78em; width: 0.16em; height: 0.18em; border-radius: 0.08em; background: currentColor; }
+    .icon-dot::before { left: 0.3em; top: 0.3em; width: 0.4em; height: 0.4em; border-radius: 50%; background: currentColor; }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.125rem 0.625rem;
+      border-radius: var(--radius-pill);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      line-height: 1.5;
+      white-space: nowrap;
+    }
+    .tag-selected { background: var(--mode-accent); color: #ffffff; }
+    .tag-correct { background: var(--color-correct); color: #ffffff; }
+    .tag-incorrect { background: var(--color-incorrect); color: #ffffff; }
+    .tag-strength { background: var(--color-correct-bg); color: var(--color-correct); border: 1px solid var(--color-correct); }
+    .tag-gap { background: var(--color-incorrect-bg); color: var(--color-incorrect); border: 1px solid var(--color-incorrect); }
+    .tag-you { background: var(--color-accent); color: #ffffff; font-size: var(--text-xs); padding: 0 var(--space-2); }
+
+    /* Landing */
+    .field { margin: 0 0 var(--space-5); }
+    .field-label { display: block; margin-bottom: var(--space-1); font-weight: 700; }
+    .field-help { margin: 0 0 var(--space-2); font-size: var(--text-sm); color: var(--color-muted); }
+    .text-input {
+      display: block;
+      width: 100%;
+      max-width: 26rem;
+      min-height: 44px;
+      padding: var(--space-2) var(--space-3);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: #ffffff;
+      color: var(--color-text);
+      font: inherit;
+      transition: border-color 0.15s ease;
+    }
+    .text-input:hover { border-color: var(--color-accent); }
+    .text-input[aria-invalid="true"] { border-color: var(--color-incorrect); }
+    .field-message { display: flex; gap: var(--space-2); align-items: baseline; margin: var(--space-2) 0 0; color: var(--color-incorrect); font-weight: 600; }
+
+    .study-warning {
+      border: 2px solid var(--color-warning-border);
+      border-left-width: 8px;
+      border-radius: var(--radius-md);
+      background: var(--color-warning-bg);
+      padding: var(--space-4);
+    }
+    .study-warning p { margin-top: 0; }
+    .study-warning strong { color: var(--color-warning-text); }
+    .study-confirm {
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+      min-height: 44px;
+      padding: var(--space-2) 0;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .study-confirm input { flex: none; width: 1.5rem; height: 1.5rem; margin: 0.1rem 0 0; accent-color: var(--color-accent); }
+
+    .mode-hint { color: var(--color-muted); }
+    .mode-list {
+      display: grid;
+      gap: var(--space-3);
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+    }
+    .mode-button {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-1);
+      text-align: left;
+      padding: var(--space-4);
+      background: var(--mode-tint);
+      color: var(--color-text);
+      border: 2px solid var(--color-border);
+      border-left: 10px solid var(--mode-accent);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+    .mode-button:hover:not(:disabled) { background: var(--color-surface); border-color: var(--mode-accent); color: var(--color-text); }
+    .mode-name { font-size: var(--text-md); font-weight: 700; color: var(--mode-accent); }
+    .mode-desc { font-size: 0.9375rem; font-weight: 400; }
+    .privacy-note, .question-category, .results-reminder { color: var(--color-muted); }
+    .privacy-note { margin-top: var(--space-5); font-size: var(--text-sm); }
+    .device-progress { margin: 0; font-size: var(--text-sm); color: var(--color-muted); }
+    .link-button { min-height: 44px; padding: 0; border: 0; background: transparent; color: var(--color-accent); font-size: var(--text-sm); font-weight: 600; text-decoration: underline; text-underline-offset: 0.2em; }
+    .link-button:hover:not(:disabled) { background: transparent; border: 0; color: var(--color-accent-hover); }
+
+    /* Quiz */
+    .quiz-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--space-2) var(--space-4); margin-bottom: var(--space-3); }
+    .quiz-head h2 { margin: 0; }
+    .student-line { margin: 0; font-size: var(--text-sm); color: var(--color-muted); }
+    .student-line strong { color: var(--color-text); }
+    .quiz-progress label { font-size: var(--text-sm); font-weight: 600; color: var(--color-muted); }
+    .quiz-status { font-size: var(--text-sm); color: var(--color-muted); }
+    progress { display: block; width: 100%; height: 0.75rem; accent-color: var(--mode-accent); }
+    .question-heading { margin: var(--space-5) 0 var(--space-1); }
+    .question-category { margin: 0 0 var(--space-4); font-size: var(--text-sm); }
+    fieldset { min-width: 0; margin: 0; padding: 0; border: 0; }
+    legend { display: block; max-width: 100%; margin-bottom: var(--space-4); padding: 0; font-size: var(--text-md); font-weight: 600; line-height: 1.45; white-space: normal; }
+
+    /* Practice (retry the missed questions): labelled in text, never by colour alone. */
+    .practice-note {
+      display: flex;
+      gap: var(--space-2);
+      align-items: baseline;
+      margin: 0 0 var(--space-4);
+      padding: var(--space-2) var(--space-3);
+      border: 2px dashed var(--color-warning-border);
+      border-radius: var(--radius-md);
+      background: var(--color-warning-bg);
+      color: var(--color-warning-text);
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+
+    .option {
+      position: relative;
+      display: flex;
+      gap: var(--space-3);
+      align-items: flex-start;
+      min-height: 44px;
+      margin-bottom: var(--space-2);
+      padding: var(--space-3) var(--space-4) var(--space-3) var(--space-3);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-surface);
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    /* The native radio stays in the tab order and drives keyboard selection; the letter badge is its visual. */
+    .option input { position: absolute; top: 50%; left: 1.25rem; width: 1px; height: 1px; margin: 0; opacity: 0; }
+    .option-letter {
+      display: inline-flex;
+      flex: none;
+      align-items: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      border: 2px solid var(--color-border);
+      border-radius: 50%;
+      background: var(--color-surface);
+      color: var(--color-text);
+      font-weight: 700;
+    }
+    .option-body { flex: 1; min-width: 0; padding-top: 0.2rem; }
+    .option-text { display: block; }
+    .option-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
+    .option-tags:empty { display: none; }
+    .option:hover:not(.option-correct):not(.option-incorrect):not(.option-selected):not(.option-locked) { border-color: var(--mode-accent); background: var(--mode-tint); }
+    .option:focus-within { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    .option:has(input:focus:not(:focus-visible)) { outline-color: transparent; }
+    .option-selected { border-color: var(--mode-accent); background: var(--mode-selected); box-shadow: inset 0 0 0 1px var(--mode-accent); }
+    .option-selected .option-letter { border-color: var(--mode-accent); background: var(--mode-accent); color: #ffffff; }
+    .option-locked { cursor: default; }
+    .option-correct { border-color: var(--color-correct); background: var(--color-correct-bg); box-shadow: inset 0 0 0 1px var(--color-correct); }
+    .option-correct .option-letter { border-color: var(--color-correct); background: var(--color-correct); color: #ffffff; }
+    .option-incorrect { border-color: var(--color-incorrect); background: var(--color-incorrect-bg); box-shadow: inset 0 0 0 1px var(--color-incorrect); }
+    .option-incorrect .option-letter { border-color: var(--color-incorrect); background: var(--color-incorrect); color: #ffffff; }
+    .option-dimmed { border-color: var(--color-border-subtle); background: var(--color-surface-sunken); color: var(--color-muted); }
+    .option-dimmed .option-letter { border-color: var(--color-border-subtle); background: var(--color-surface-sunken); color: var(--color-muted); }
+
+    .validation-message { display: flex; gap: var(--space-2); align-items: baseline; margin-top: var(--space-3); color: var(--color-incorrect); font-weight: 600; }
+
+    .feedback {
+      margin-top: var(--space-5);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background: var(--color-surface);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      animation: view-enter 0.25s ease-out both;
+    }
+    .feedback-correct { border-color: var(--color-correct); }
+    .feedback-incorrect { border-color: var(--color-incorrect); }
+    .feedback-header { display: flex; align-items: center; gap: var(--space-3); margin: 0; padding: var(--space-3) var(--space-4); font-size: var(--text-lg); font-weight: 700; }
+    .feedback-correct .feedback-header { background: var(--color-correct-bg); color: var(--color-correct); }
+    .feedback-incorrect .feedback-header { background: var(--color-incorrect-bg); color: var(--color-incorrect); }
+    .feedback-mark { display: inline-flex; flex: none; align-items: center; justify-content: center; width: 2rem; height: 2rem; border-radius: 50%; color: #ffffff; font-size: 1rem; }
+    .feedback-correct .feedback-mark { background: var(--color-correct); }
+    .feedback-incorrect .feedback-mark { background: var(--color-incorrect); }
+    .feedback-body { padding: var(--space-4); }
+    .answer-line { margin: 0 0 var(--space-2); padding: var(--space-2) var(--space-3); border-left: 4px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface-sunken); }
+    .answer-line-correct { border-left-color: var(--color-correct); background: var(--color-correct-bg); }
+    .answer-line-incorrect { border-left-color: var(--color-incorrect); background: var(--color-incorrect-bg); }
+    .answer-label { font-weight: 700; }
+    .explanation { margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--color-border-subtle); }
+    .section-label { margin: 0 0 var(--space-1); font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
+    .explanation-text { margin: 0; max-width: 68ch; line-height: 1.6; }
+    .source-ref { margin: var(--space-3) 0 0; font-size: var(--text-sm); color: var(--color-muted); }
+    .quiz-actions, .results-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-5); }
+
+    /* Results */
+    .score-card {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      gap: var(--space-5);
+      align-items: center;
+      padding: var(--space-5);
+      border: 1px solid var(--color-border);
+      border-left: 8px solid var(--band-color, var(--mode-accent));
+      border-radius: var(--radius-lg);
+      background: var(--mode-tint);
+      box-shadow: var(--shadow-sm);
+    }
+    .band-mastery { --band-color: var(--band-mastery); }
+    .band-proficient { --band-color: var(--band-proficient); }
+    .band-developing { --band-color: var(--band-developing); }
+    .band-needs-review { --band-color: var(--band-review); }
+    .score-figure { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 8.5rem; height: 8.5rem; border: 6px solid var(--band-color, var(--mode-accent)); border-radius: 50%; background: var(--color-surface); text-align: center; }
+    .score-percent { font-size: 2.25rem; font-weight: 800; line-height: 1; }
+    .score-count { margin-top: var(--space-1); font-size: var(--text-sm); color: var(--color-muted); }
+    .score-meta { min-width: 0; }
+    .score-meta p { margin: 0 0 var(--space-2); }
+    .meta-label { display: block; font-size: var(--text-xs); font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
+    .meta-value { font-weight: 700; }
+    .band-badge { display: inline-flex; align-items: center; gap: var(--space-2); padding: var(--space-1) var(--space-3); border-radius: var(--radius-pill); background: var(--band-color, var(--mode-accent)); color: #ffffff; font-size: var(--text-md); font-weight: 700; }
+    .band-description { color: var(--color-text); }
+
+    .history-save { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-4); padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); background: var(--color-surface-sunken); font-size: var(--text-sm); }
+    .history-save p { display: flex; gap: var(--space-2); align-items: baseline; margin: 0; }
+    .history-save:empty { display: none; }
+    .save-failed { border-color: var(--color-incorrect); background: var(--color-incorrect-bg); color: var(--color-incorrect); font-weight: 600; }
+    .save-saved { border-color: var(--color-correct); background: var(--color-correct-bg); color: var(--color-correct); font-weight: 600; }
+    .results-reminder { margin-top: var(--space-4); font-size: var(--text-sm); }
+
+    .table-wrap { max-width: 100%; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; background: var(--color-surface); }
+    caption { text-align: left; padding-bottom: var(--space-2); color: var(--color-muted); font-size: var(--text-sm); }
+    th, td { padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--color-border-subtle); text-align: left; vertical-align: middle; }
+    thead th { border-bottom: 2px solid var(--color-border); font-size: var(--text-sm); color: var(--color-muted); }
+    .topic-count { min-width: 9rem; }
+    .bar { position: relative; display: block; height: 0.5rem; margin-top: var(--space-1); border-radius: var(--radius-pill); background: var(--color-border-subtle); overflow: hidden; }
+    .bar::after { content: ""; position: absolute; top: 0; bottom: 0; left: 75%; width: 2px; background: var(--color-text); }
+    .bar-fill { display: block; height: 100%; border-radius: var(--radius-pill); }
+    .bar-strength { background: var(--color-correct); }
+    .bar-gap { background: var(--color-incorrect); }
+    .topic-lists { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); }
+    .topic-lists ul { margin: 0; padding-left: var(--space-5); }
+
+    .review-list { margin: 0; padding: 0; list-style: none; }
+    .review-item { margin-bottom: var(--space-4); padding: var(--space-4); border: 1px solid var(--color-border-subtle); border-left: 6px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); }
+    .review-correct { border-left-color: var(--color-correct); }
+    .review-incorrect { border-left-color: var(--color-incorrect); }
+    .review-head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin: 0 0 var(--space-2); }
+    .review-topic { font-size: var(--text-sm); color: var(--color-muted); }
+    .review-prompt { font-weight: 600; }
+
+    /* Class score history */
+    .history-panel { margin-top: var(--space-6); padding-top: var(--space-5); border-top: 2px solid var(--color-border-subtle); }
+    .section-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); }
+    .section-head h2 { margin: 0; }
+    .section-intro { margin-top: var(--space-2); color: var(--color-muted); font-size: var(--text-sm); }
+    .history-filters { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-3); }
+    .filter-button { background: var(--color-surface); color: var(--color-accent); padding: var(--space-2) var(--space-4); border-radius: var(--radius-pill); }
+    .filter-button:hover:not(:disabled) { background: var(--mode-tint); color: var(--color-accent-hover); }
+    .filter-button[aria-pressed="true"], .filter-button[aria-pressed="true"]:hover:not(:disabled) { background: var(--color-accent); color: #ffffff; }
+    .history-status { display: flex; gap: var(--space-2); align-items: baseline; padding: var(--space-3); border-radius: var(--radius-md); background: var(--color-surface-sunken); }
+    .status-error { background: var(--color-incorrect-bg); color: var(--color-incorrect); font-weight: 600; }
+    .status-not-configured { background: var(--color-warning-bg); color: var(--color-warning-text); }
+    .status-ready { padding: 0; background: transparent; color: var(--color-muted); font-size: var(--text-sm); }
+    .history-table td { font-variant-numeric: tabular-nums; }
+    .history-row-self td { background: var(--color-self-bg); }
+    .history-row-self td:first-child { box-shadow: inset 4px 0 0 var(--color-self-border); }
+    .history-name-text { font-weight: 600; }
+
+    /* Keyboard shortcuts: a subtle hint line under the controls and a collapsible full list.
+       Both are extras; every control still works by Tab, Space and Enter. */
+    kbd {
+      display: inline-block;
+      min-width: 1.6em;
+      padding: 0 0.35em;
+      border: 1px solid var(--color-border);
+      border-bottom-width: 2px;
+      border-radius: var(--radius-sm);
+      background: var(--color-surface-sunken);
+      color: var(--color-text);
+      font-family: var(--font-mono);
+      font-size: 0.85em;
+      font-weight: 600;
+      line-height: 1.5;
+      text-align: center;
+      white-space: nowrap;
+    }
+    .keyboard-hint { margin: var(--space-4) 0 0; font-size: var(--text-xs); color: var(--color-muted); line-height: 1.9; }
+    .keyboard-hint .hint-label { font-weight: 700; }
+    .keyboard-hint .hint-item { white-space: nowrap; }
+    .keyboard-help { margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-muted); }
+    .keyboard-help summary { padding: var(--space-3) 0; font-weight: 600; color: var(--color-text); cursor: pointer; }
+    .shortcut-list { display: grid; grid-template-columns: minmax(0, auto) minmax(0, 1fr); gap: var(--space-2) var(--space-4); margin: 0 0 var(--space-3); }
+    .shortcut-list dt { white-space: nowrap; }
+    .shortcut-list dd { margin: 0; color: var(--color-text); }
+    .shortcut-note { margin: 0; }
+    /* Touch screens have no physical keyboard to advertise. */
+    @media (hover: none) and (pointer: coarse) {
+      .keyboard-hint, .keyboard-help { display: none; }
+    }
+
+    /* Narrow screens: stack the hero and every control row. */
+    @media (max-width: 760px) {
+      .hero-inner { grid-template-columns: 1fr; gap: var(--space-3); padding: var(--space-4); }
+      .hero-art svg { max-height: 13rem; margin: 0 auto; }
+      body[data-view="quiz"] .hero-art, body[data-view="results"] .hero-art, body[data-view="quiz"] .hero-lede, body[data-view="results"] .hero-lede { display: none; }
+      .hero-tools { margin-top: var(--space-3); }
+      .app { width: calc(100% - 1rem); margin: var(--space-3) auto var(--space-5); padding: var(--space-4); }
+      .mode-list { grid-template-columns: 1fr; }
+      .quiz-actions, .results-actions { flex-direction: column; }
+      .quiz-actions button, .results-actions button { width: 100%; }
+      .score-card { grid-template-columns: 1fr; justify-items: center; text-align: center; padding: var(--space-4); }
+      th, td { padding: var(--space-2); }
+    }
+    /* Very narrow screens: history rows become labelled cards so the page never scrolls sideways. */
+    @media (max-width: 560px) {
+      .history-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+      .history-table, .history-table tbody, .history-table tr, .history-table td { display: block; width: 100%; }
+      .history-table tr { margin-bottom: var(--space-2); padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border-subtle); border-radius: var(--radius-md); }
+      .history-table td { display: flex; justify-content: space-between; gap: var(--space-3); padding: var(--space-1) 0; border: 0; }
+      .history-table td::before { content: attr(data-label); font-weight: 700; color: var(--color-muted); }
+      .history-row-self { border-color: var(--color-self-border); background: var(--color-self-bg); }
+      .history-row-self td:first-child { box-shadow: none; }
+    }
+
+    /* Reduced motion: stop every animation and transition (the artwork's own rest states are in its hero.css). */
+    @media (prefers-reduced-motion: reduce) {
+      .view, .feedback, button, .option, .text-input {
+        animation: none !important;
+        transition: none !important;
+      }
+    }
+
+    @media print {
+      body { background: #ffffff; }
+      .terrain, .banner, .class-photo, .hero-art, .hero-tools, .results-actions, .noscript, .history-panel, .history-save, .keyboard-hint, .keyboard-help { display: none !important; }
+      .hero { background: #ffffff; color: #000000; border-bottom: 2px solid #000000; }
+      .eyebrow, .hero-lede { color: #000000; }
+      .app { box-shadow: none; border: 0; margin: 0 auto; }
+      .review-item { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body data-view="landing">
+  <div class="terrain" aria-hidden="true">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><g class="contours" fill="none" stroke-linejoin="round" stroke-linecap="round"><path d="M233 0l12 9 9 5 11 8 5 2 8 6 3 1 9 6 12 6 4 1 9 4 11 2 10-1 9-6 3-5 3-3 6-13 5-16 1-6"/><path d="M204 0l11 8 23 20 5 3 20 19 8 6 25 25 6 8 8 8 18 25 9 16 5 7 9 18 2 2 6 11 9 14 6 8 12 12 7 6 5 3 12 6 16 4 12-1 10-5 3-5 2-8-1-12-3-10-2-3-7-16-6-10-2-5-8-12-2-5-5-7-9-18-2-6-4-8-2-8-2-4-3-12 0-4-3-15 0-9-1-4 0-42"/><path d="M181 0l0 1 5 3 12 10 24 23 6 4 14 14 12 15 8 8 3 5 8 9 15 22 2 5 5 7 9 18 2 2 14 29 6 10 2 5 3 4 4 9 18 25 14 14 19 14 18 9 6 2 18 5 14 2 20 0 20-5 9-4 8-8 5-8 2-7 0-12-2-11-3-9-6-13-8-15-5-7-2-5-8-11-8-14-3-3-5-8-2-5-5-7-9-18-2-2-3-8-6-12-5-14 0-2-1-1 0-3-3-8 0-4-3-12 0-4-2-9 0-7-1-4 0-12-1-2"/><path d="M160 0l17 14 8 8 2 1 34 34 28 35 12 18 2 5 2 2 10 17 8 16 1 4 13 26 2 6 10 20 3 4 7 14 15 22 20 20 8 6 13 8 19 9 8 3 28 7 16 2 32 0 8-1 16-3 19-8 6-4 10-10 3-5 4-12 0-12-5-20-2-6-5-10-20-33-22-31-18-28-2-5-5-7-12-24-1-4-4-8-1-5-2-3-5-20-1-1 0-3-3-12-3-26"/><path d="M140 0l8 7 6 4 12 11 36 36 10 12 3 5 4 4 5 8 6 7 10 17 5 7 2 5 2 2 4 9 4 6 2 6 5 9 0 2 9 18 2 7 5 10 2 6 17 36 15 24 13 15 6 6 11 9 9 6 13 7 16 7 11 4 3 0 26 7 24 3 8 0 4 1 20 0 4-1 12 0 20-3 20-6 20-10 7-5 8-10 5-10 2-6 1-10-1-4 0-5-3-11-2-4-2-7-8-15-11-18-23-33-8-10-7-11-5-6-1-3-3-3-6-9-1-3-2-2-5-9-2-2-2-5-3-4-11-22-7-20-3-6-5-19-1-9-2-8-1-14M966 0l1 1 3 0 20 5 8 0 4 1 16-1 8-2 9-4" class="major"/><path d="M122 0l19 17 2 1 8 8 8 6 9 9 6 8 19 20 3 5 12 15 11 17 5 8 6 12 2 2 6 14 2 2 8 19 0 2 3 5 4 12 4 8 10 28 10 23 2 3 2 6 5 8 2 5 15 21 14 14 6 5 3 1 6 5 5 2 2 2 14 7 2 0 5 3 8 2 6 3 3 0 32 8 4 0 3 1 24 3 8 0 4 1 36 0 4-1 20-1 8-2 9-1 19-5 6-2 10-5 4-1 6-3 6-5 3-1 14-15 5-9 3-16-1-12-3-12-3-5 0-2-2-5-7-13-15-23-8-10-6-9-7-8-17-24-7-8-12-18-3-3-4-8-6-8-1-3-6-9-11-22-5-14-2-3-1-5-1-1 0-3-2-4-4-16-1-9-2-7-1-10M918 0l8 5 16 8 32 14 12 3 8 3 20 4 24 0 18-5 2-2 7-4 9-9 4-7 2-2 3-8"/><path d="M103 0l7 6 5 3 14 13 2 1 34 34 19 23 1 3 8 10 13 20 4 9 3 4 8 16 11 26 3 10 2 4 2 8 5 12 3 12 2 4 6 20 6 16 3 5 0 2 2 5 6 12 11 17 4 5 13 13 9 8 17 10 4 1 10 5 14 4 4 2 3 0 1 1 20 5 4 0 12 3 5 0 3 1 24 3 8 0 4 1 20 0 4 1 36-1 4-1 8 0 23-3 6-2 3 0 20-5 20-7 21-11 3-3 6-4 9-9 7-11 0-2 4-13 0-12-4-16-1-1-2-7-6-12-5-7-1-3-3-3-1-3-11-15-7-8-9-13-10-11-7-10-6-6-9-13-4-4-6-8-16-23-19-33-12-28 0-3-1-1-8-31 0-6-1-3 0-4-1-2M887 0l1 0 6 5 3 1 3 3 3 1 11 8 9 5 2 2 5 2 4 3 16 8 2 2 16 8 19 8 2 0 20 8 3 0 22 6 12 1 3 1 17 0 16-4 9-5 7-6 1-3 6-9 3-11 2-4 3-16 1-14M0 454l9-11 7-14 0-2 2-5 1-8 0-16-3-11 0-3-7-16-9-14"/><path d="M84 0l11 8 18 16 8 6 25 25 22 27 19 28 21 42 10 30 2 4 3 12 2 4 7 27 0 3 8 28 0 2 1 1 0 3 2 4 4 14 2 3 7 17 2 2 5 9 8 9 10 9 13 9 12 6 4 1 5 3 2 0 5 2 12 3 4 2 8 1 16 4 4 0 8 2 12 1 3 1 5 0 12 2 8 0 4 1 8 0 4 1 16 0 4 1 44 0 4-1 12 0 12-2 8 0 16-3 4 0 24-6 3 0 26-9 2 0 28-14 11-9 10-10 3-4 5-9 3-9 0-18-3-13-8-17-4-7-2-2-1-3-4-6-4-4-3-5-3-3-1-3-9-11-22-25-4-6-15-16-7-10-5-5-6-9-16-20-3-6-3-3-1-3-8-12-13-26-4-10-5-16-5-20 0-4-2-7 0-7M861 0l9 7 11 7 3 3 11 7 3 3 4 2 3 3 13 8 11 8 14 8 7 5 5 2 7 5 42 21 20 7 6 3 8 2 3 2 5 1 1 1 3 0 4 2 50 13 3 0 19 5 4 0 16 4 8 0 3-1 1-2 0-4-4-16 0-4-6-28-5-40 0-8-2-12 0-8-1-6M1200 140l-10-2-4 0-12-3-7 0-2 1 0 6 2 8 0 3 1 1 3 12 2 4 3 9 0 2 8 22 0 2 7 17 0 2 2 3 7 20M0 490l2-2 5-2 8-6 19-18 6-8 9-16 2-8 2-4 1-8 0-16-4-16-4-9-13-21-15-18-18-18"/><path d="M64 0l11 7 6 6 13 9 37 36 13 15 7 10 4 4 13 19 2 5 4 7 2 2 3 6 1 4 2 4 2 2 5 14 2 3 1 5 1 1 2 7 2 4 3 12 1 1 0 3 8 32 0 4 4 20 1 12 2 8 2 20 2 8 0 4 4 15 0 3 2 6 8 17 6 8 10 9 11 7 13 6 7 2 1 1 31 8 9 1 8 2 32 4 8 0 4 1 8 0 16 2 40 1 4 1 40 0 4-1 16 0 4-1 8 0 4-1 17-1 3-1 12-1 8-2 4 0 12-3 3 0 6-2 3 0 8-3 28-8 26-11 6-4 10-5 12-9 11-12 1-3 2-2 2-4 3-8 0-4 1-3 0-13-3-12-3-8-6-12-6-8-4-7-7-8-6-9-5-5 0-1-21-22-4-6-24-25-1-2-8-8-6-8-10-11-9-13-7-8-4-7-8-11-2-5-7-11-9-18 0-2-4-9-7-24 0-4-3-16 0-6M837 0l8 7 3 1 14 12 12 8 14 12 3 1 3 3 5 3 4 4 8 5 3 3 9 6 10 8 9 5 11 8 3 1 3 3 3 1 12 8 52 26 4 1 16 8 5 2 2 0 9 5 6 2 22 11 4 3 5 2 2 2 20 13 6 5 14 14 10 12 1 3 8 10 14 23 9 18 2 2 15 31M1164 0l4 17 0 3 4 14 4 10 0 2 1 1 7 17 2 2 5 9 9 12M0 517l15-7 24-14 15-13 13-13 5-6 12-18 5-10 6-22 0-12-4-16-11-18-14-17-9-9-15-12-8-8-5-3-12-10-6-6-5-3-6-5"/><path d="M44 0l27 19 6 6 10 7 27 26 24 29 4 7 8 11 2 5 7 11 9 18 0 2 8 19 0 3 2 7 2 4 3 12 0 4 3 12 2 16 0 8 1 4 0 32-1 4-1 16-2 8-1 9-7 22-9 16-8 7-6 3-4 1-8 0-8-1-16-5-8-4-6-2-26-13-12-8-5-2-2-2-9-5-2-2-3-1-19-12-3-3-14-8-3-3-6-3M540 0l1 2 0 8 2 15 2 6 0 3 2 4 5 18 16 32 2 2 5 9 18 24 16 18 1 2 13 13 4 6 56 56 3 4 12 12 20 28 6 12 4 14 1 6 0 12-1 6-3 6-1 4-9 12-13 12-9 5-7 5-16 8-4 1-5 3-2 0-9 4-24 7-4 2-32 8-4 0-11 3-9 1-8 2-32 4-8 0-16 2-16 0-4 1-96 0-4-1-32 0-4-1-24 0-4-1-36-1-4-1-8 0-4-1-8 0-4-1-8 0-4-1-8 0-12-2-12 0-4-1-17 1-7 2-7 3-9 6-6 6-46 56-17 17-8 6-18 16-12 9-9 5-2 2-32 16-16 5M813 0l8 7 3 1 11 9 28 23 18 16 10 7 6 6 13 9 16 14 20 14 9 5 2 2 20 13 9 4 4 3 32 16 6 2 47 24 2 2 11 6 12 8 9 8 5 3 24 24 10 12 8 12 3 3 1 3 2 2 5 9 2 2 10 17 21 40M1187 0l1 6 2 4 5 16 5 11" class="major"/><path d="M21 0l2 2 3 1 20 13 8 6 4 4 13 9 10 10 3 2 25 26 10 12 1 3 8 10 15 27 9 19 2 6 4 16 2 5 3 15 2 16 0 24-3 16 0 4-2 5 0 2-8 19-5 6-11 10-10 5-8 2-12 1-16-2-8-2-4-2-16-5-10-4-34-17-12-8-6-3M561 0l0 10 2 16 5 20 1 1 5 15 8 16 2 2 1 3 7 12 3 3 12 17 6 6 11 14 41 41 8 6 38 36 8 6 6 6 4 6 16 17 7 11 2 2 7 14 0 2 2 4 2 8 1 12-3 16-4 8-10 13-23 17-8 3-9 5-2 0-5 3-24 9-12 3-4 2-20 5-12 4-8 2-4 0-28 7-4 0-32 6-32 4-8 0-16 2-12 0-4 1-20 0-4 1-36 0-4 1-40 0-4 1-24 0-4 1-16 0-4 1-12 0-4 1-20 1-3 1-6 0-3 1-20 2-12 3-4 0-8 2-1 1-7 1-4 2-14 4-26 13-12 8-3 1-8 7-24 17-20 17-20 14-4 4-9 5-11 8-5 2-12 8-8 3-9 5-2 0-13 6-22 6M789 0l0 1 5 3 16 14 10 7 13 12 14 11 34 32 14 11 10 10 23 19 3 1 3 3 12 8 3 3 3 1 2 2 9 5 2 2 5 2 4 3 9 4 10 6 16 7 19 10 6 2 38 20 27 18 12 10 22 22 19 25 8 13 8 11 2 5 4 7 2 2 24 47"/><path d="M0 233l15 8 38 15 3 0 14 4 8 1 16 0 12-3 5-2 10-7 6-6 9-18 4-15 1-8 0-16-2-16-2-8 0-3-1-1-3-12-2-4-2-7-2-3-4-10-3-4-7-14-8-12-8-9-1-3-8-8 0-1-30-29-5-3-9-8-11-7-3-3-30-18M585 0l-1 18 2 16 5 18 2 3 2 7 8 16 14 21 3 3 6 9 8 8 6 8 17 17 8 6 16 15 23 19 9 6 20 17 5 3 4 4 5 3 12 10 22 22 5 6 10 15 7 16 2 8 1 8 0 12-5 19-10 14-6 6-18 13-17 8-16 6-24 7-4 2-10 3-3 0-29 8-3 0-27 7-3 0-6 2-3 0-20 5-4 0-7 2-9 1-8 2-4 0-8 2-48 6-8 0-12 2-12 0-4 1-12 0-4 1-12 0-4 1-16 0-4 1-32 1-4 1-32 2-12 2-8 0-9 2-11 1-8 2-4 0-12 3-4 0-32 8-4 2-12 3-16 6-33 16-31 19-24 17-16 10-10 8-3 1-6 5-5 2-16 11-23 12-13 6-4 1-5 3-11 3-4 2-7 1-1 1-14 3M761 0l17 12 23 20 8 6 28 27 2 1 58 59 3 2 8 8 10 7 4 4 8 6 20 13 5 2 2 2 18 9 13 5 3 2 11 4 8 4 4 1 14 7 13 5 18 9 2 2 11 6 14 9 16 13 27 27 1 2 4 4 3 5 3 3 11 16 17 28 2 5 6 10 24 49"/><path d="M618 0l-2 3 0 2-2 5-2 12 0 12 2 8 0 4 2 5 0 2 8 19 2 2 5 9 2 2 7 11 14 17 17 17 8 6 11 10 20 14 10 8 3 1 3 3 8 4 11 8 12 7 3 1 2 2 9 5 2 2 5 2 7 5 14 8 3 3 9 6 15 14 8 11 4 7 7 17 4 20 0 20-1 8-3 12-4 10-8 12-13 13-9 6-19 9-18 5-4 2-3 0-1 1-24 6-4 0-24 6-4 0-15 4-9 1-20 5-4 0-6 2-3 0-11 3-4 0-16 4-4 0-2 1-3 0-7 2-4 0-12 3-4 0-8 2-16 2-20 4-20 2-3 1-17 1-12 2-8 0-24 3-12 0-4 1-8 0-3 1-9 0-12 2-8 0-40 5-3 1-4 0-2 1-11 1-16 4-4 0-8 2-1 1-3 0-16 4-4 2-3 0-1 1-2 0-10 4-17 5-3 2-14 5-42 21-17 10-2 2-11 6-25 17-39 25-11 6-2 2-5 2-4 3-22 11-17 6-3 2-2 0-4 2-18 5-3 0-7 2-4 0-2 1M726 0l25 16 3 3 4 2 33 27 25 25 6 8 15 16 11 15 12 14 8 12 10 12 20 20 7 6 15 9 26 12 9 3 2 0 9 4 28 8 10 4 2 0 1 1 18 6 3 2 16 6 18 9 32 22 26 26 1 3 12 14 11 16 7 12 1 3 2 2 4 7 11 22 7 17 8 16 7 17 2 3 6 16 1 1M0 212l10 5 8 3 32 9 8 1 12 0 8-1 4-1 13-6 10-10 4-6 1-4 2-3 0-3 3-10 0-20-3-18-3-10-3-8-9-18-9-15-19-24-14-14-23-19-11-7-2-2-9-5-2-2-8-4M1172 800l-9-14-2-5-4-4-4-6-11-11-8-3-8 0-5 3-5 6-9 16-7 18"/><path d="M672 16l-6 2-10 6-5 10-1 4 0 12 3 12 5 12 3 4 1 3 18 22 6 6 6 4 5 5 9 6 3 3 9 6 5 2 2 2 5 2 4 3 6 3 22 8 16 4 16 0 7-2 3-2 5-5 2-10 0-4-3-11 0-3-11-22-18-24-21-21-6-5-9-6-3-3-9-6-3-1-2-2-16-8-19-6-5 0-4-1-10 1M0 190l2 0 8 3 20 5 16 1 12-2 12-5 11-12 4-14 1-8-1-12-5-19-7-15-11-18-12-15-14-14-6-4-5-5-1 0-9-8-14-9-1 0M1200 510l-9-24-11-36-2-4-6-20-2-4-9-27-3-5-1-4-5-10-7-17-8-15-11-18-9-13-6-6-1-2-23-23-9-6-3-3-9-6-5-2-2-2-18-9-7-2-12-5-24-6-4 0-2-1-14-2-8 0-4-1-16 0-19 3-12 5-3 2-10 10-7 17-3 12 0 4-3 12 0 4-2 8 0 4-3 11 0 3-4 14-4 9 0 2-6 12-9 11-8 7-6 4-3 1-2 2-4 1-10 5-3 0-27 7-4 0-8 2-36 4-8 2-28 3-20 4-17 2-7 2-4 0-12 3-4 0-28 6-4 0-12 3-4 0-7 2-9 1-12 3-4 0-32 6-12 1-8 2-64 8-8 0-16 2-3 1-6 0-3 1-28 3-8 2-4 0-7 2-9 1-16 4-4 0-10 3-3 0-7 2-4 2-16 4-1 1-11 3-9 4-2 0-9 4-4 1-23 10-22 11-15 9-12 6-7 5-5 2-8 5-3 3-14 8-35 24-5 2-18 12-5 2-12 8-18 9-16 6-3 2-22 7-3 0-6 2-4 0-8 2-6 0M1200 674l0-2-8-19 0-2-7-14-5-7-4-5-10-9-8-5-12-6-12-3-8-1-12 0-8 2-4 0-10 4-12 8-8 9-9 18-7 28-2 16-1 20-1 4 0 12-1 4 0 12-1 4-1 20-1 3-1 13-2 8 0 4-2 10"/><path d="M0 161l18 2 8-1 7-2 9-7 4-7 2-8-1-12-4-12-9-16-2-2-1-3-5-6-14-14-12-9M1007 800l1-6 1-1 0-3 2-8 0-4 2-8 1-16 1-4 0-8 1-4 0-28 1-4 0-28-1-4 0-36 1-4 0-20 3-24 3-12 3-8 4-8 7-8 11-10 17-7 1-1 2 0 10-4 16-4 1-1 11-3 20-10 12-12 7-16 3-16 0-16-1-4-1-16-2-8 0-4-5-20-3-7 0-3-15-35-2-2-2-5-12-18-19-22-12-10-7-5-9-5-2-2-10-5-16-5-4-2-4 0-12-3-20 0-16 3-13 6-6 5-3 1-2 2-6 8-9 16-3 8-3 12-2 4-10 40-7 16-3 4-1 3-7 8-5 3-3 3-13 6-10 3-22 3-96 3-4 1-20 1-12 2-8 0-16 2-8 2-11 1-9 2-4 0-12 3-16 2-7 2-9 1-16 4-4 0-8 2-3 0-6 2-3 0-8 2-4 0-12 3-4 0-8 2-4 0-8 2-4 0-32 6-20 2-8 2-12 1-8 2-12 1-8 2-16 2-12 3-3 0-6 2-3 0-27 7-3 0-14 4-16 6-8 2-24 9-5 3-2 0-5 3-11 4-18 9-10 6-9 4-4 3-5 2-2 2-26 15-82 56-42 24-2 0-5 3-24 9-24 5-14 1" class="major"/><path d="M1008 312l6-1 17 1 15 5 4 3 5 2 9 6 11 10 13 16 2 5 6 9 4 10 6 20 1 8 0 20-3 12-7 13-5 6-11 8-15 6-3 0-6 2-7 1-8 0-4 1-16 0-4-1-8 0-20-4-7-3-8-7-4-6-2-7-1-1-3-16-1-8 0-16-1-4 1-8 0-16 3-19 1-1 3-12 6-12 5-7 6-6 6-4 4-2 10-3M976 800l3-10 2-4 2-8 2-16 2-8 0-8 2-16 0-52-1-4 0-12-1-4-1-20-2-12 0-8-4-32-2-8-2-18-1-2-1-12-5-24-1-9-4-15-4-10-5-6-5-4-16-7-24-6-4 0-2-1-3 0-15-4-4 0-12-3-4 0-2-1-10-1-20-4-16-2-8 0-12-2-12 0-4-1-56 0-4 1-20 1-40 5-8 2-16 2-12 3-4 0-12 3-3 0-6 2-3 0-16 4-4 0-11 3-3 0-6 2-4 0-16 4-4 0-16 4-4 0-16 4-4 0-28 6-4 0-12 3-9 1-7 2-4 0-20 5-3 0-6 2-3 0-40 11-4 2-20 6-9 4-2 0-5 3-14 5-22 11-8 3-2 2-26 13-12 7-53 35-15 12-17 12-4 4-8 5-9 8-9 6-8 7-18 12-6 5-5 2-12 8-18 9-10 4-11 3-13 2-18 0"/><path d="M948 800l2-6 4-8 8-32 3-24 0-12 1-4-1-40-1-4 0-8-3-23-2-9 0-4-4-16-1-8-9-30-2-3-2-7-5-11-8-15-11-15-14-14-5-3-10-8-26-13-4-1-5-3-15-4-4-2-3 0-1-1-20-5-4 0-12-3-5 0-11-2-20-1-4-1-36 0-4 1-12 0-4 1-16 1-3 1-6 0-15 3-4 0-8 2-4 0-32 7-4 0-15 4-3 0-26 7-3 0-35 9-3 0-30 8-3 0-14 4-4 0-14 4-3 0-27 7-4 2-28 7-1 1-15 4-3 2-17 5-9 4-2 0-5 3-14 5-50 25-24 15-5 2-11 8-7 4-3 3-11 7-3 3-9 6-12 10-16 15-8 6-25 25-6 8-8 8-17 24-6 13-3 12 0 8 3 12 11 16 12 12 8 6"/><path d="M919 800l4-6 8-16 5-14 0-2 1-1 0-3 4-16 3-24 0-36-1-4 0-12-2-16-3-12 0-4-2-6 0-3-5-19-2-4 0-3-2-3-3-10-8-16-1-4-14-21-13-16-17-14-13-9-9-4-12-7-7-3-14-4-6-3-36-8-16-2-8 0-4-1-44 0-4 1-8 0-32 4-24 5-4 0-15 4-3 0-58 15-4 2-44 12-7 3-3 0-10 4-32 9-7 3-3 0-6 3-8 2-4 2-3 0-3 2-34 12-3 2-5 1-8 4-4 1-16 8-4 1-2 2-6 2-10 5-6 4-20 10-12 8-5 2-19 14-3 1-8 7-13 9-29 28-17 20-14 25-5 19 0 16 2 8 5 12 9 13 6 7 17 14 1 0"/><path d="M889 800l1-2 6-6 6-9 11-22 7-25 0-3 2-7 1-16 1-4 0-24-1-4 0-8-3-24-7-28-2-4-2-8-2-4-2-7-5-9-1-4-10-17-15-19-12-12-15-11-17-11-8-3-9-5-2 0-9-4-13-4-35-7-8-1-12 0-4-1-28 0-4 1-9 0-3 1-16 1-8 2-16 2-36 9-3 0-1 1-20 5-7 3-3 0-10 4-14 4-6 3-8 2-3 2-5 1-1 1-18 6-3 2-10 4-7 2-5 3-4 1-10 5-14 5-5 3-2 0-9 5-26 11-2 2-8 3-12 7-4 1-15 9-5 2-4 3-9 4-2 2-9 5-2 2-3 1-24 16-3 3-12 8-12 10-18 18-1 3-8 9-4 6-6 12-4 12-1 16 3 12 5 10 5 6 13 12 13 7 15 6 3 0 1 1 16 3 12 0 8 1 4-1 12 0 16-2 3-1 6 0 7-2 4 0 8-2 12-1 16-3 24-1 4-1 12 0 4 1 12 0 3 1 6 0 3 1 12 1 12 3 4 0 42 11 3 0 7 3 12 3 5 2 2 0"/><path d="M852 800l12-8 16-17 7-12 1-3 2-2 1-4 5-10 0-3 6-23 2-16 0-28-3-24-4-16 0-3-1-1 0-2-4-10-2-8-3-5-9-20-12-18-5-6-18-18-21-15-5-2-12-7-17-6-3-2-3 0-4-2-12-3-4 0-7-2-3 0-2-1-16-1-4-1-36 0-4 1-16 1-20 4-4 0-19 5-3 0-25 8-3 0-14 6-8 2-1 1-34 14-32 16-9 6-8 4-7 5-5 2-13 9-3 3-6 3-9 8-3 1-17 14-8 8-2 1-6 7-4 3-19 23-8 16-1 6 0 11 3 6 10 10 6 3 4 1 5 3 2 0 9 4 13 4 2 0 23 8 2 0 1 1 3 0 4 2 8 2 3 2 5 1 1 1 18 6 1 1 8 2 8 4 20 7 5 3 2 0 29 12 10 3 3 2 18 6 1 1 5 1 3 2 8 3 32 10" class="major"/><path d="M789 800l17-3 4-2 9-3 2 0 14-7 12-9 9-9 9-11 5-10 2-2 4-10 3-12 2-4 0-4 2-8 1-8 0-32-3-19-2-6-1-7-2-4-4-14-13-26-12-17-14-15-15-11-3-3-12-7-21-10-23-7-33-5-32 0-4 1-16 1-8 2-9 1-31 8-1 1-11 3-9 4-2 0-5 3-14 5-2 2-8 3-15 9-5 2-33 24-17 17-9 12-8 15-4 14-1 8 1 8 3 12 13 20 14 14 11 9 22 15 16 9 7 5 9 4 4 3 16 8 6 2 14 7 6 2 10 5 7 2 3 2 10 3 4 2 37 11 3 0 20 5 16 2"/><path d="M664 535l-8 1-14 4-4 2-16 5-25 12-2 2-14 8-3 3-9 6-18 18-4 5-8 13-2 6-2 3 0 3-2 4-1 8 0 12 3 12 3 8 4 8 2 2 1 3 3 3 3 5 22 22 5 3 12 10 17 11 12 6 2 2 9 4 6 4 16 6 10 5 8 3 2 0 1 1 5 1 4 2 18 5 3 0 11 3 4 0 8 2 16 1 4 1 20 0 16-2 16-4 19-8 6-4 11-9 6-6 11-16 7-16 5-20 1-8 0-24-2-16-7-25-2-3-4-11-8-14-2-2-7-11-18-18-7-6-14-9-16-8-7-2-4-2-13-4-3 0-12-3-16-2-28 0-24 3-6 2"/><path d="M672 550l-22 6-8 3-24 12-18 13-16 17-7 12-4 9-2 8-1 12 1 8 4 15 10 18 3 3 3 5 22 22 5 3 3 3 3 1 6 5 3 1 3 3 10 5 2 2 6 3 4 1 9 5 23 8 27 7 13 2 8 0 4 1 20-1 14-2 20-7 6-3 13-9 11-12 1-3 6-9 7-18 3-21-1-20-2-13-2-7-5-12 0-2-7-14-2-2-1-3-3-3-6-9-15-15-2-1-4-4-18-11-21-9-3 0-1-1-12-3-16-2-32 0-8 2-10 1"/><path d="M688 567l-14 3-4 2-14 4-2 2-7 3-15 10-16 17-8 16 0 3-2 7 0 12 1 8 8 19 12 17 6 6 16 13 17 11 8 3 9 5 2 0 9 4 16 4 1 1 23 3 12 0 16-2 16-5 4-2 14-10 9-10 6-9 5-14 3-18-1-16-1-7-1-1-3-12-6-13-13-19-10-10-3-1-10-8-15-8-10-4-11-3-13-2-28 0-6 1"/><path d="M696 591l-1 1-3 0-10 3-13 6-3 3-5 3-8 8-2 3-4 8-3 12 0 8 2 8 0 3 4 9 9 13 12 11 7 5 20 10 8 3 8 2 16 2 8 0 16-3 9-4 12-9 5-6 5-9 4-15-1-16-3-11-2-3-2-6-6-9-11-12-15-10-18-7-5 0-12-2-18 1" class="major"/></g></svg>
+  </div>
+
+  <div class="banner">
+    <picture>
+      <source media="(max-width: 800px)" srcset="../assets/banner-800.jpg 1x, ../assets/banner-1600.jpg 2x">
+      <img src="../assets/banner-1600.jpg" srcset="../assets/banner-1600.jpg 1x" width="1600" height="900" fetchpriority="high" alt="Bandwidth Brothers banner">
+    </picture>
+  </div>
+
+  <header class="site-header hero">
+    <div class="hero-inner">
+      <div class="hero-copy">
+        <p class="eyebrow">Philippine Army · Army Operations</p>
+        <h1>Army Operations Mastery Quiz</h1>
+        <p class="hero-lede">A practice aid for the Introduction to Army Operations lesson: 75 situational questions across Easy, Medium, and Hard.</p>
+        <div class="hero-tools">
+          <button type="button" id="btn-sound" class="sound-toggle" aria-pressed="true" aria-keyshortcuts="S">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" fill="currentColor"/>
+              <path class="sound-waves" d="M15.5 9a4.2 4.2 0 0 1 0 6M18.2 6.5a8 8 0 0 1 0 11"/>
+              <path class="sound-mute" d="M16 9.5l5 5M21 9.5l-5 5"/>
+            </svg>
+            <span>Sound effects</span>
+            <span id="sound-state" class="sound-state" aria-hidden="true">On</span>
+          </button>
+          <a id="hub-link" class="hub-link" href="../#module-2"><span class="hub-arrow" aria-hidden="true">&#8592;</span> All quizzes</a>
+        </div>
+      </div>
+      <div id="hero-art" class="hero-art" aria-hidden="true">
+        <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
+          <path d="M0 50H480M0 100H480M0 150H480M0 200H480M80 0V250M160 0V250M240 0V250M320 0V250M400 0V250" fill="none" stroke="#f3efdf" stroke-opacity="0.08" stroke-width="1"/>
+          <text x="12" y="18" fill="#e3b65a">FULL SPECTRUM OPERATIONS</text>
+          <text x="12" y="31" fill="#d6d2bf">OFFENSE · DEFENSE · SUPPORT TO CIVIL GOVERNANCE</text>
+          <path class="hill" d="M0 152C80 146 160 156 240 150C320 145 400 156 480 148V250H0Z" fill="#3f4a2c"/>
+          <g class="terrain-contour" fill="none" stroke="#c9b37a" stroke-opacity="0.3" stroke-width="1.2" stroke-dasharray="3 5">
+            <path d="M0 170Q120 160 240 168T480 164"/>
+            <path d="M0 222Q130 212 250 220T480 216"/>
+            <path d="M0 136Q140 124 250 132T480 128"/>
+          </g>
+          <path d="M240 160V232" fill="none" stroke="#f3efdf" stroke-opacity="0.18" stroke-width="1" stroke-dasharray="2 4"/>
+          <path class="offense-arrow" d="M92 92C190 60 300 58 388 84" fill="none" stroke="#e3b65a" stroke-opacity="0.16" stroke-width="14" stroke-linecap="round"/>
+          <path class="axis-line" d="M92 92C190 60 300 58 388 84" fill="none" stroke="#e3b65a" stroke-opacity="0.85" stroke-width="1.6" stroke-dasharray="6 5"/>
+          <path d="M397.6 86.7L388.3 75.8L383.9 91.2Z" fill="#e3b65a" fill-opacity="0.85"/>
+          <text x="200" y="52" fill="#e3b65a">OFFENSE</text>
+          <text x="30" y="122" fill="#d6d2bf">TASK FORCE</text>
+          <g id="dust" fill="#c9b37a">
+            <circle class="dust-puff" cx="100" cy="98" r="6"/>
+            <circle class="dust-puff" cx="92" cy="94" r="5"/>
+            <circle class="dust-puff" cx="106" cy="104" r="4"/>
+          </g>
+          <g id="tank">
+            <rect x="40" y="74" width="46" height="30" rx="2" fill="#a9c9e8" stroke="#1f231b" stroke-width="2"/>
+            <path d="M40 74L86 104M40 104L86 74" stroke="#1f231b" stroke-width="2"/>
+            <text x="59" y="70" fill="#f3efdf">X</text>
+            <g id="tank-gun">
+              <path d="M40 74V46" stroke="#d6d2bf" stroke-width="2" stroke-linecap="round"/>
+              <path d="M40 46L58 50L40 56Z" fill="#e3b65a" stroke="#1f231b" stroke-width="1"/>
+            </g>
+            <g id="muzzle-blast" fill="none" stroke="#ffd166" stroke-width="2" stroke-linecap="round">
+              <path d="M90 80a11 11 0 0 1 0 18"/>
+              <path d="M95 74a19 19 0 0 1 0 30"/>
+            </g>
+          </g>
+          <g class="defense-line">
+            <path d="M70 160L92 168V184C92 198 82 206 70 212C58 206 48 198 48 184V168Z" fill="#586636" stroke="#e3b65a" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M58 182H82M58 190H82" stroke="#e3b65a" stroke-width="2" stroke-linecap="round"/>
+            <path d="M104 204H212" stroke="#23281e" stroke-width="4" stroke-linecap="round"/>
+            <path d="M104 200L112 192L120 200L128 192L136 200L144 192L152 200L160 192L168 200L176 192L184 200L192 192L200 200L208 192" fill="none" stroke="#c9b37a" stroke-width="2" stroke-linejoin="round"/>
+            <text x="100" y="236" fill="#d6d2bf">DEFENSE</text>
+          </g>
+          <g class="relief-truck">
+            <rect x="262" y="178" width="64" height="32" rx="2" fill="#6b7a45" stroke="#1f231b" stroke-width="2"/>
+            <rect x="284" y="185" width="20" height="16" rx="1" fill="#c9b37a" stroke="#1f231b" stroke-width="1.5"/>
+            <path d="M294 185V201M284 193H304" stroke="#1f231b" stroke-width="1.2"/>
+            <path d="M326 188H344L354 200V210H326Z" fill="#586636" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M330 192H342L348 200H330Z" fill="#a9c9e8"/>
+            <circle cx="280" cy="212" r="7" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/>
+            <circle cx="340" cy="212" r="7" fill="#2a2f24" stroke="#1f231b" stroke-width="2"/>
+            <rect x="364" y="190" width="14" height="12" rx="1" fill="#c9b37a" stroke="#1f231b" stroke-width="1.5"/>
+            <path class="relief-hands" d="M358 204C362 212 380 212 384 204" fill="none" stroke="#e8cfa6" stroke-width="3" stroke-linecap="round"/>
+            <path d="M390 188L416 168L442 188Z" fill="#a5633a" stroke="#1f231b" stroke-width="2" stroke-linejoin="round"/>
+            <rect x="396" y="186" width="40" height="26" fill="#8a7a5a" stroke="#1f231b" stroke-width="2"/>
+            <rect x="411" y="196" width="10" height="16" fill="#2a2f24"/>
+            <text x="290" y="236" fill="#d6d2bf">SUPPORT TO CIVIL GOVERNANCE</text>
+          </g>
+          <g id="objective" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M396 70C398 56 420 50 436 56C452 62 458 80 452 96C446 110 424 116 408 110C394 104 394 84 396 70Z" fill="#2a2f24" stroke-width="2"/>
+            <path d="M424 52V36" stroke-width="2" stroke-linecap="round"/>
+            <path d="M424 36L440 40L424 45Z" fill="currentColor"/>
+            <circle class="impact-pulse" cx="424" cy="83" r="16" stroke-width="2.5"/>
+            <text x="414" y="87" fill="currentColor" stroke="none">OBJ</text>
+            <text x="398" y="130" fill="currentColor" stroke="none">OBJECTIVE</text>
+          </g>
+          <g id="shell">
+            <rect x="-9" y="-6" width="18" height="12" rx="1.5" fill="#a9c9e8" stroke="#1f231b" stroke-width="1.5"/>
+            <path d="M-9 -6L9 6M-9 6L9 -6" stroke="#1f231b" stroke-width="1.2"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="app">
+    <noscript><p class="noscript">This quiz needs JavaScript enabled in your browser.</p></noscript>
+
+    <section id="view-landing" class="view view-landing" aria-labelledby="landing-heading">
+      <h2 id="landing-heading">Before you begin</h2>
+      <div class="field">
+        <label class="field-label" for="student-name">Your name or username</label>
+        <p id="student-name-help" class="field-help">2 to 40 characters. Shown on your results and in the class score history.</p>
+        <input type="text" id="student-name" class="text-input" name="student-name" autocomplete="name" maxlength="40" spellcheck="false" required aria-describedby="student-name-help student-name-message">
+        <p id="student-name-message" class="field-message" aria-live="polite" hidden></p>
+      </div>
+      <div id="study-warning" class="study-warning">
+        <p><strong>This mock examination is a practice aid only.</strong> It cannot replace studying the complete Introduction to Army Operations lesson, and repeated attempts are not a substitute for that study.</p>
+        <label class="study-confirm" for="study-confirm">
+          <input type="checkbox" id="study-confirm" autocomplete="off">
+          <span>I understand that I must study the complete lesson and not rely only on this mock examination.</span>
+        </label>
+      </div>
+
+      <h2 id="difficulty-heading" tabindex="-1">Choose a difficulty</h2>
+      <p id="mode-hint" class="mode-hint" role="status" aria-live="polite">To enable the difficulty buttons, enter your name and check the study confirmation above.</p>
+      <div id="mode-list" class="mode-list" role="group" aria-labelledby="difficulty-heading">
+        <button type="button" id="mode-easy" class="mode-button mode-easy" disabled aria-describedby="mode-hint">
+          <span class="mode-name">Easy</span>
+          <span class="mode-desc">25 questions. One primary doctrinal judgment in each situation.</span>
+        </button>
+        <button type="button" id="mode-medium" class="mode-button mode-medium" disabled aria-describedby="mode-hint">
+          <span class="mode-name">Medium</span>
+          <span class="mode-desc">25 questions. Compare, diagnose, and choose among plausible options.</span>
+        </button>
+        <button type="button" id="mode-hard" class="mode-button mode-hard" disabled aria-describedby="mode-hint">
+          <span class="mode-name">Hard</span>
+          <span class="mode-desc">25 questions. Integrate several concepts under competing constraints.</span>
+        </button>
+      </div>
+      <p class="privacy-note">No login and no tracking. Your answers stay in this browser tab and are cleared when you refresh or close it. When your instructor has set up the class history, finishing an attempt sends your name, difficulty, score, percentage, mastery band and finish time to the class history sheet, together with the reference codes of the questions you were asked and of those you missed (for the instructor's question analysis). The answers you chose are never sent, and practice retries of missed questions are not sent at all. To put questions you have not seen yet first, then those you missed, this browser remembers which questions it has shown you and which were missed (question codes only, no name); that record never leaves this device.</p>
+      <p id="device-progress" class="device-progress" hidden><button type="button" id="btn-reset-progress" class="link-button">Reset my progress on this device</button> <span id="reset-progress-status" class="reset-status" role="status" aria-live="polite"></span></p>
+    </section>
+
+    <section id="view-quiz" class="view view-quiz" hidden aria-labelledby="quiz-heading">
+      <div class="quiz-head">
+        <h2 id="quiz-heading">Examination</h2>
+        <p id="quiz-student" class="student-line"></p>
+      </div>
+      <p id="quiz-practice-note" class="practice-note" hidden></p>
+      <div class="quiz-progress">
+        <label for="quiz-progress">Answers checked</label>
+        <progress id="quiz-progress" max="1" value="0"></progress>
+        <p id="quiz-status" class="quiz-status" role="status" aria-live="polite"></p>
+      </div>
+      <h3 id="question-heading" class="question-heading" tabindex="-1">Question</h3>
+      <p id="question-category" class="question-category"></p>
+      <div id="question-area" class="question-area"></div>
+      <p id="validation-message" class="validation-message" role="alert" tabindex="-1" hidden></p>
+      <div id="answer-feedback" class="feedback" tabindex="-1" hidden></div>
+      <div class="quiz-actions">
+        <button type="button" id="btn-prev" class="secondary" aria-keyshortcuts="ArrowLeft P">Previous question</button>
+        <button type="button" id="btn-check" aria-keyshortcuts="Enter">Check answer</button>
+        <button type="button" id="btn-next" aria-keyshortcuts="Enter N">Next question</button>
+        <button type="button" id="btn-finish" aria-keyshortcuts="Enter">View results</button>
+      </div>
+      <p id="keyboard-hint" class="keyboard-hint"><span class="hint-label">Keyboard:</span> <span class="hint-item"><kbd>→</kbd> or <kbd>A</kbd>–<kbd>D</kbd> choose</span> · <span class="hint-item"><kbd>Enter</kbd> check / next</span> · <span class="hint-item"><kbd>←</kbd> previous</span> · <span class="hint-item"><kbd>↑</kbd> <kbd>↓</kbd> scroll</span> · <span class="hint-item"><kbd>?</kbd> help</span></p>
+    </section>
+
+    <section id="view-results" class="view view-results" hidden aria-labelledby="results-heading">
+      <h2 id="results-heading" tabindex="-1">Results</h2>
+      <p id="results-practice-note" class="practice-note" hidden></p>
+      <div id="results-summary" class="results-summary"></div>
+      <div id="history-save" class="history-save">
+        <p id="history-save-message" role="status" aria-live="polite"></p>
+        <button type="button" id="btn-history-retry" class="secondary compact" hidden>Retry saving</button>
+      </div>
+      <p class="results-reminder">This score is practice feedback only. Study the complete lesson; do not rely only on this mock examination.</p>
+      <div class="results-actions">
+        <button type="button" id="btn-retry-missed" aria-keyshortcuts="M" hidden>Retry the questions I missed</button>
+        <button type="button" id="btn-print" class="secondary">Print or save results</button>
+        <button type="button" id="btn-retake" aria-keyshortcuts="R">Retake same difficulty</button>
+        <button type="button" id="btn-choose" class="secondary" aria-keyshortcuts="C">Choose another difficulty</button>
+        <button type="button" id="btn-history" class="secondary">View class score history</button>
+      </div>
+      <p id="results-keyboard-hint" class="keyboard-hint"><span class="hint-label">Keyboard:</span> <span class="hint-item"><kbd>R</kbd> retake</span> · <span class="hint-item"><kbd>C</kbd> choose another difficulty</span><span id="hint-retry-missed" hidden> · <span class="hint-item"><kbd>M</kbd> retry missed</span></span> · <span class="hint-item"><kbd>?</kbd> help</span></p>
+      <section class="results-topics" aria-labelledby="topics-heading">
+        <h3 id="topics-heading">Topic analysis</h3>
+        <div class="table-wrap">
+          <table id="results-categories" class="topic-table">
+            <caption>Correct answers by primary topic. A topic is a strength at 75% or higher and a gap below 75%; the line on each bar marks 75%.</caption>
+            <thead>
+              <tr><th scope="col">Topic</th><th scope="col">Correct</th><th scope="col">Result</th></tr>
+            </thead>
+            <tbody id="results-categories-body"></tbody>
+          </table>
+        </div>
+        <div class="topic-lists">
+          <div>
+            <h4>Strengths</h4>
+            <ul id="results-strengths" class="results-strengths"></ul>
+          </div>
+          <div>
+            <h4>Gaps to review in the lesson</h4>
+            <ul id="results-gaps" class="results-gaps"></ul>
+          </div>
+        </div>
+      </section>
+      <section class="results-review" aria-labelledby="review-heading">
+        <h3 id="review-heading">Full answer review</h3>
+        <ol id="results-review" class="review-list"></ol>
+      </section>
+    </section>
+
+    <details id="keyboard-help" class="keyboard-help" hidden>
+      <summary>Keyboard shortcuts</summary>
+      <dl class="shortcut-list">
+        <dt><kbd>→</kbd></dt><dd>Select the next answer: A, B, C, D, then back to A (with nothing chosen yet, A); it is not checked until you press Enter</dd>
+        <dt><kbd>A</kbd>–<kbd>D</kbd> or <kbd>1</kbd>–<kbd>4</kbd></dt><dd>Choose that answer (it is not checked until you press Enter)</dd>
+        <dt><kbd>Enter</kbd></dt><dd>Check the answer; once checked, go to the next question; on the last question, view results</dd>
+        <dt><kbd>←</kbd></dt><dd>Previous question (your answers stay as they are)</dd>
+        <dt><kbd>↑</kbd> <kbd>↓</kbd></dt><dd>Scroll the page (they never change your answer)</dd>
+        <dt><kbd>N</kbd> or <kbd>Page Down</kbd></dt><dd>Also: next question</dd>
+        <dt><kbd>P</kbd> or <kbd>Page Up</kbd></dt><dd>Also: previous question</dd>
+        <dt><kbd>R</kbd></dt><dd>On the results page: retake the same difficulty</dd>
+        <dt><kbd>C</kbd></dt><dd>On the results page: choose another difficulty</dd>
+        <dt><kbd>M</kbd></dt><dd>On the results page: retry only the questions you missed (practice, not saved to the class history)</dd>
+        <dt><kbd>S</kbd></dt><dd>Turn sound effects on or off</dd>
+        <dt><kbd>?</kbd> or <kbd>H</kbd></dt><dd>Show or hide this list</dd>
+      </dl>
+      <p class="shortcut-note">Shortcuts pause while you type in a text field. Tab, Space and Enter still operate every button.</p>
+    </details>
+
+    <section id="view-unavailable" class="view view-unavailable" hidden aria-labelledby="unavailable-heading">
+      <h2 id="unavailable-heading" tabindex="-1">Quiz unavailable</h2>
+      <p>The quiz is unavailable because its question data could not be loaded or did not pass validation, so no examination can start. Please try again later or inform your instructor.</p>
+    </section>
+
+    <section id="history-panel" class="history-panel" aria-labelledby="history-heading" hidden>
+      <div class="section-head">
+        <h2 id="history-heading" tabindex="-1">Class score history</h2>
+        <button type="button" id="btn-history-refresh" class="secondary compact">Refresh</button>
+      </div>
+      <p class="section-intro">Recent attempts from your class, newest first. Rows with your name are marked “You”.</p>
+      <div class="history-filters" role="group" aria-label="Show attempts for">
+        <button type="button" id="history-filter-all" class="filter-button" aria-pressed="true">All</button>
+        <button type="button" id="history-filter-easy" class="filter-button" aria-pressed="false">Easy</button>
+        <button type="button" id="history-filter-medium" class="filter-button" aria-pressed="false">Medium</button>
+        <button type="button" id="history-filter-hard" class="filter-button" aria-pressed="false">Hard</button>
+      </div>
+      <p id="history-status" class="history-status" role="status" aria-live="polite"></p>
+      <div id="history-table-wrap" class="table-wrap" hidden>
+        <table id="history-table" class="history-table">
+          <caption class="sr-only">Recent class attempts, newest first</caption>
+          <thead>
+            <tr><th scope="col">Name</th><th scope="col">Mode</th><th scope="col">Score</th><th scope="col">%</th><th scope="col">Band</th><th scope="col">Date</th></tr>
+          </thead>
+          <tbody id="history-body"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <figure class="class-photo">
+    <img src="../assets/class-photo-800.jpg" srcset="../assets/class-photo-800.jpg 800w, ../assets/class-photo-1600.jpg 1600w" sizes="(max-width: 928px) calc(100vw - 4rem), 52rem" width="1600" height="1200" loading="lazy" decoding="async" alt="SOAC 52 - 2026 class group photo">
+    <figcaption>SOAC 52 - 2026</figcaption>
+  </figure>
+
+  <script type="application/json" id="quiz-config">{"key":"armyops","title":"Army Operations Mastery Quiz","categoryOrder":["Constitutional Mandate and Platforms","Full Spectrum Operations","Offensive and Defensive Tasks","Support to Civil Governance","Tenets of Army Operations","Army Power and Warfighting Functions","Principles of Army Operations"],"sourceRef":{"label":"page","min":1,"max":200,"required":false},"pool":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
+  <script type="application/json" id="questions-easy">[{"id":1,"qid":"armyops-e-01","difficulty":"easy","category":"Constitutional Mandate and Platforms","tags":["constitutional mandate"],"prompt":"An Army unit is ordered to secure a remote island after an armed group attempts to establish control there. Which constitutional purpose most directly justifies the mission?","options":["Protect the people and State while securing sovereignty and territorial integrity","Replace local government until civil services normalize","Expand Army authority over all maritime agencies","Provide routine community development regardless of threat"],"answer":0,"explanation":"Article II of the 1987 Constitution identifies the AFP as protector of the people and the State, charged with securing State sovereignty and national territorial integrity."},{"id":2,"qid":"armyops-e-02","difficulty":"easy","category":"Constitutional Mandate and Platforms","tags":["operational platforms","multinational or combined operations"],"prompt":"Philippine Army units operate with forces from allied countries under a coalition headquarters. Which operational platform describes this arrangement?","options":["Joint operations","Combined arms","Multinational or combined operations","Civil-military operations"],"answer":2,"explanation":"Operations conducted within an alliance or coalition are multinational or combined operations."},{"id":3,"qid":"armyops-e-03","difficulty":"easy","category":"Constitutional Mandate and Platforms","tags":["operational platforms","joint operations"],"prompt":"Army, Navy, and Air Force elements conduct one operation under a single commander. Which platform is being applied?","options":["Combined arms","Area defense","Multinational operations","Joint operations"],"answer":3,"explanation":"Joint operations involve forces from two or more military services under a single commander."},{"id":4,"qid":"armyops-e-04","difficulty":"easy","category":"Full Spectrum Operations","tags":["full spectrum operations","offensive operations"],"prompt":"A battalion advances to defeat hostile forces and seize a key bridge before the enemy can reinforce it. Which element of full spectrum operations dominates?","options":["Defensive operations","Support to civil governance","Offensive operations","Non-critical support"],"answer":2,"explanation":"Offensive operations defeat and destroy enemy forces and seize terrain, resources, or population centers."},{"id":5,"qid":"armyops-e-05","difficulty":"easy","category":"Offensive and Defensive Tasks","tags":["offensive tasks","movement to contact"],"prompt":"A force deliberately seeks initial contact with an enemy whose exact location is uncertain so it can develop the situation. Which primary offensive task fits?","options":["Pursuit","Exploitation","Strike","Movement to contact"],"answer":3,"explanation":"Movement to contact develops the situation and establishes or regains contact with the enemy."},{"id":6,"qid":"armyops-e-06","difficulty":"easy","category":"Offensive and Defensive Tasks","tags":["offensive tasks","pursuit"],"prompt":"Enemy forces break contact and withdraw in disorder. Friendly forces maintain pressure to destroy or capture them before they escape. Which task applies?","options":["Attack","Pursuit","Strike","Mobile defense"],"answer":1,"explanation":"Pursuit is directed against a withdrawing enemy to prevent escape and complete destruction or capture."},{"id":7,"qid":"armyops-e-07","difficulty":"easy","category":"Offensive and Defensive Tasks","tags":["defensive tasks","area defense"],"prompt":"The commander's priority is to retain control of a critical airfield. Forces are positioned to deny enemy access rather than lure the enemy into a separate striking force. Which task fits?","options":["Area defense","Mobile defense","Pursuit","Exploitation"],"answer":0,"explanation":"Area defense focuses on retaining specified terrain and denying enemy access to it."},{"id":8,"qid":"armyops-e-08","difficulty":"easy","category":"Offensive and Defensive Tasks","tags":["defensive tasks","retrograde"],"prompt":"A unit deliberately moves away from a stronger enemy to preserve combat power and gain time under pressure. Which primary defensive task is this?","options":["Strike","Pursuit","Retrograde","Attack"],"answer":2,"explanation":"Retrograde is an organized movement away from the enemy to improve the situation, preserve forces, or gain time."},{"id":9,"qid":"armyops-e-09","difficulty":"easy","category":"Support to Civil Governance","tags":["civil governance support","disaster response operations"],"prompt":"After a typhoon, troops clear routes, deliver relief, and coordinate rescue with civilian agencies. Which mission best describes the effort?","options":["Peace operations","Counterinsurgency operations","Area defense","Disaster response operations"],"answer":3,"explanation":"Military assistance after a disaster is disaster response, one form of support to civil governance."},{"id":10,"qid":"armyops-e-10","difficulty":"easy","category":"Support to Civil Governance","tags":["civil governance support","civil population and vital installation security"],"prompt":"Army units guard power plants and evacuation centers during a national emergency in coordination with civil authorities. Which mission applies?","options":["Civil population and vital installation security","Exploitation","Information operations","Multinational operations"],"answer":0,"explanation":"Protecting people and essential facilities is civil population and vital installation security."},{"id":11,"qid":"armyops-e-11","difficulty":"easy","category":"Support to Civil Governance","tags":["civil governance support","support to community development operations"],"prompt":"Engineers help a remote municipality restore a farm-to-market road to strengthen livelihoods and local resilience. Which support mission best fits?","options":["Counterinsurgency operations","Pursuit","Support to community development operations","Protection"],"answer":2,"explanation":"Work that improves community capacity and development falls under support to community development operations."},{"id":12,"qid":"armyops-e-12","difficulty":"easy","category":"Tenets of Army Operations","tags":["agility"],"prompt":"New intelligence reveals an exposed enemy flank. A unit rapidly reorients, decides, and moves before the enemy can react. Which tenet enabled the advantage?","options":["Perseverance","Agility","Security","Depth"],"answer":1,"explanation":"Agility is the ability to comprehend, decide, reorient, and act faster than the enemy."},{"id":13,"qid":"armyops-e-13","difficulty":"easy","category":"Tenets of Army Operations","tags":["synchronization"],"prompt":"Artillery, maneuver, engineers, and sustainment are timed so every effect arrives at the breach exactly when needed. Which tenet is applied?","options":["Versatility","Initiative","Legitimacy","Synchronization"],"answer":3,"explanation":"Synchronization arranges battlefield activities in time and space to mass effects at the decisive point."},{"id":14,"qid":"armyops-e-14","difficulty":"easy","category":"Tenets of Army Operations","tags":["versatility"],"prompt":"A unit shifts from combat operations to disaster assistance with little delay, adapting its organization and methods to the new mission. Which tenet is demonstrated?","options":["Versatility","Mass","Depth","Surprise"],"answer":0,"explanation":"Versatility is the ability to meet diverse mission requirements and transition flexibly between mission types."},{"id":15,"qid":"armyops-e-15","difficulty":"easy","category":"Army Power and Warfighting Functions","tags":["leadership"],"prompt":"A company faces confusion and fatigue. Its commander restores purpose, gives clear direction, motivates the soldiers, and improves the unit while completing the mission. Which element is decisive?","options":["Information","Fires","Leadership","Protection"],"answer":2,"explanation":"Leadership influences people through purpose, direction, and motivation and serves as the multiplying and unifying element of Army power."},{"id":16,"qid":"armyops-e-16","difficulty":"easy","category":"Army Power and Warfighting Functions","tags":["warfighting functions","movement and maneuver"],"prompt":"A force repositions through difficult terrain to gain a flank advantage over the enemy. Which warfighting function is primarily responsible?","options":["Movement and maneuver","Sustainment","Protection","Intelligence"],"answer":0,"explanation":"Movement and maneuver moves forces to positions of advantage; it does not refer to routine administrative movement."},{"id":17,"qid":"armyops-e-17","difficulty":"easy","category":"Army Power and Warfighting Functions","tags":["warfighting functions","fires"],"prompt":"A targeting team coordinates Army indirect fire, joint fire, and non-lethal effects against prioritized targets. Which function is this?","options":["Protection","Sustainment","Fires","Civil-military operations"],"answer":2,"explanation":"Fires integrates and synchronizes Army indirect fires, joint fires, and non-lethal effects through targeting."},{"id":18,"qid":"armyops-e-18","difficulty":"easy","category":"Army Power and Warfighting Functions","tags":["warfighting functions","sustainment"],"prompt":"A commander extends the operation by maintaining fuel, ammunition, maintenance, health services, and transport. Which function determines this depth and duration?","options":["Fires","Sustainment","Security","Maneuver"],"answer":1,"explanation":"Sustainment provides support and services that preserve freedom of action, extend reach, and prolong endurance."},{"id":19,"qid":"armyops-e-19","difficulty":"easy","category":"Army Power and Warfighting Functions","tags":["warfighting functions","protection"],"prompt":"A brigade strengthens air defense, hardens positions, and manages risk so the force remains able to apply maximum combat power. Which function is dominant?","options":["Economy of force","Sustainment","Restraint","Protection"],"answer":3,"explanation":"Protection preserves the force and maintains its integrity so the commander can continue applying Army power."},{"id":20,"qid":"armyops-e-20","difficulty":"easy","category":"Principles of Army Operations","tags":["objective"],"prompt":"Several attractive targets appear, but only one directly supports the higher commander's desired end state. Which principle directs the commander to choose it?","options":["Objective","Offensive","Simplicity","Mass"],"answer":0,"explanation":"The principle of objective directs every operation toward a clearly defined, decisive, and attainable objective tied to higher goals."},{"id":21,"qid":"armyops-e-21","difficulty":"easy","category":"Principles of Army Operations","tags":["mass"],"prompt":"A task force concentrates several effects against one decisive enemy position at the exact time required. Which principle guides this choice?","options":["Maneuver","Economy of force","Mass","Unity of command"],"answer":2,"explanation":"Mass focuses the effects of combat power at the decisive place and time; it may be created through concentration in space or time."},{"id":22,"qid":"armyops-e-22","difficulty":"easy","category":"Principles of Army Operations","tags":["maneuver"],"prompt":"Rather than attacking the enemy's strongest position, a force moves to threaten an exposed flank and compels the enemy to fight at a disadvantage. Which principle is this?","options":["Surprise","Maneuver","Objective","Versatility"],"answer":1,"explanation":"Maneuver places the enemy in a disadvantaged position through the flexible application of combat power."},{"id":23,"qid":"armyops-e-23","difficulty":"easy","category":"Principles of Army Operations","tags":["surprise"],"prompt":"A unit varies its tactics, preserves operational security, and attacks from an unexpected direction at an unexpected time. Which principle does this create?","options":["Initiative","Mass","Perseverance","Surprise"],"answer":3,"explanation":"Surprise strikes at a time, place, or in a manner for which the enemy is unprepared; speed, intelligence, OPSEC, varied tactics, and deception contribute."},{"id":24,"qid":"armyops-e-24","difficulty":"easy","category":"Principles of Army Operations","tags":["simplicity"],"prompt":"A staff can issue a clear plan now or a highly detailed plan after the opportunity may pass. Which principle favors the clear plan executed on time?","options":["Objective","Simplicity","Restraint","Synchronization"],"answer":1,"explanation":"Simplicity calls for clear, uncomplicated plans and concise orders; a simple timely plan is better than a detailed late one."},{"id":25,"qid":"armyops-e-25","difficulty":"easy","category":"Principles of Army Operations","tags":["perseverance"],"prompt":"A campaign requires patient, resolute effort over years before the desired national end state can be reached. Which principle sustains the commitment?","options":["Depth","Perseverance","Offensive","Legitimacy"],"answer":1,"explanation":"Perseverance ensures the commitment necessary to attain the national strategic end state, even over a long period."}]</script>
+  <script type="application/json" id="questions-medium">[{"id":1,"qid":"armyops-m-01","difficulty":"medium","category":"Constitutional Mandate and Platforms","tags":["constitutional mandate"],"prompt":"During planning, a commander proposes an action that could protect terrain but would disregard the safety of the population. Which correction best aligns the mission with the Army's legal basis?","options":["Prioritize terrain because sovereignty excludes people","Balance protection of the people and State with territorial security","Transfer all responsibility to law enforcement","Delay any military action until every risk is eliminated"],"answer":1,"explanation":"The mandate joins protection of the people and the State with sovereignty and territorial integrity; these are not competing obligations to be separated."},{"id":2,"qid":"armyops-m-02","difficulty":"medium","category":"Constitutional Mandate and Platforms","tags":["operational platforms","combined arms"],"prompt":"A brigade synchronizes infantry, armor, field artillery, engineers, and aviation so their simultaneous effects overwhelm an enemy position. What is this?","options":["Combined arms","Unity of effort","Economy of force","Support to civil governance"],"answer":0,"explanation":"Combined arms synchronizes Army-specific arms to achieve an effect greater than using them separately or in sequence."},{"id":3,"qid":"armyops-m-03","difficulty":"medium","category":"Constitutional Mandate and Platforms","tags":["operational platforms"],"prompt":"A staff officer labels an Army–Air Force mission as combined arms. Which analysis is most accurate?","options":["Correct, because every multi-unit mission is combined arms","Incorrect; two services under one commander make it joint operations","Incorrect; the mission must be multinational","Correct only if civil agencies participate"],"answer":1,"explanation":"Combined arms integrates Army-specific arms; forces from multiple services operate jointly."},{"id":4,"qid":"armyops-m-04","difficulty":"medium","category":"Full Spectrum Operations","tags":["defensive operations","defensive operation"],"prompt":"A brigade must defeat an enemy attack, gain time, economize its forces, and create conditions for a later counteroffensive. What kind of operation is required?","options":["Offensive operation","Peace operation","Community development support","Defensive operation"],"answer":3,"explanation":"Those purposes define defensive operations in the source doctrine."},{"id":5,"qid":"armyops-m-05","difficulty":"medium","category":"Offensive and Defensive Tasks","tags":["offensive tasks","exploitation"],"prompt":"After breaching the enemy's main defense, the commander drives rapidly into rear areas to disorganize support and prevent recovery. Which task is this?","options":["Exploitation","Area defense","Retrograde","Movement to contact"],"answer":0,"explanation":"Exploitation follows success to extend its effects, disrupt enemy depth, and prevent reorganization."},{"id":6,"qid":"armyops-m-06","difficulty":"medium","category":"Offensive and Defensive Tasks","tags":["offensive tasks","strike"],"prompt":"A commander employs concentrated combat power against a high-value enemy facility without intending to retain the location. Which primary offensive task best fits?","options":["Movement to contact","Exploitation","Strike","Area defense"],"answer":2,"explanation":"A strike applies combat power against a target to achieve a specific effect without necessarily holding terrain."},{"id":7,"qid":"armyops-m-07","difficulty":"medium","category":"Offensive and Defensive Tasks","tags":["defensive tasks","mobile defense"],"prompt":"A commander uses a fixing force to channel the attacker while keeping a mobile striking force ready to destroy the enemy at the decisive moment. Which task is being designed?","options":["Retrograde","Mobile defense","Area defense","Movement to contact"],"answer":1,"explanation":"Mobile defense combines a fixing force with a mobile striking force to destroy the attacker."},{"id":8,"qid":"armyops-m-08","difficulty":"medium","category":"Support to Civil Governance","tags":["civil governance support","support to law enforcement operations"],"prompt":"At the lawful request of authorities, troops provide perimeter security while police execute arrests. Which mission category is most direct?","options":["Command and control","Support to law enforcement operations","Mobile defense","Peace operations"],"answer":1,"explanation":"Assistance coordinated with police for lawful enforcement activity is support to law enforcement operations."},{"id":9,"qid":"armyops-m-09","difficulty":"medium","category":"Support to Civil Governance","tags":["civil governance support"],"prompt":"Troops assist environmental agencies in stopping illegal logging and rehabilitating a watershed. Which mission is being performed?","options":["Area defense","Non-critical support operations","Movement and maneuver","Support to environmental protection and development"],"answer":3,"explanation":"Coordinated action to protect and develop the environment is a specific support-to-governance mission."},{"id":10,"qid":"armyops-m-10","difficulty":"medium","category":"Tenets of Army Operations","tags":["initiative"],"prompt":"During a defense, a commander blocks the enemy's first assault, then counterattacks before the enemy can reorganize. Which tenet is most clearly demonstrated?","options":["Initiative","Depth","Versatility","Simplicity"],"answer":0,"explanation":"Initiative means dictating the terms of battle; in defense it includes denying enemy success and counterattacking to seize control of events."},{"id":11,"qid":"armyops-m-11","difficulty":"medium","category":"Tenets of Army Operations","tags":["depth"],"prompt":"A commander engages forward forces while also targeting uncommitted reserves and rear support facilities, keeping a friendly reserve ready. Which tenet is central?","options":["Synchronization","Restraint","Depth","Objective"],"answer":2,"explanation":"Depth extends operations in space, time, purpose, and resources, including pressure on reserves and rear support while retaining friendly reserves."},{"id":12,"qid":"armyops-m-12","difficulty":"medium","category":"Tenets of Army Operations","tags":["integrated analysis","initiative, synchronization, and depth"],"prompt":"An enemy attack is halted. The commander counterattacks quickly, synchronizes all arms at the decisive point, and retains a reserve to exploit success. Which combination best explains the design?","options":["Restraint, legitimacy, and simplicity","Initiative, synchronization, and depth","Versatility, civil support, and protection","Perseverance, economy of force, and surprise"],"answer":1,"explanation":"The counterattack seizes initiative, coordinated arms at the decisive point show synchronization, and the retained reserve provides depth."},{"id":13,"qid":"armyops-m-13","difficulty":"medium","category":"Army Power and Warfighting Functions","tags":["army power"],"prompt":"A commander asks what combines destructive, constructive, and information capabilities that the formation can apply at a given time. Which concept answers the question?","options":["Operational reach","Army power","Unity of effort","Combined arms"],"answer":1,"explanation":"Army power is the total potency a force generates through its capabilities, warfighting functions, leadership, and information."},{"id":14,"qid":"armyops-m-14","difficulty":"medium","category":"Army Power and Warfighting Functions","tags":["information"],"prompt":"A task force protects its own decision systems while shaping adversary perceptions and undermining hostile command and morale. Which enhancer of Army power is being used?","options":["Sustainment","Movement and maneuver","Civil-military operations","Information"],"answer":3,"explanation":"Information can affect enemy command, control, and morale while enhancing the force's own decisions and actions."},{"id":15,"qid":"armyops-m-15","difficulty":"medium","category":"Army Power and Warfighting Functions","tags":["warfighting functions","intelligence"],"prompt":"The staff integrates surveillance, terrain analysis, enemy capabilities, and civil considerations to help the commander understand the environment. Which function leads?","options":["Fires","Intelligence","Command and control","Information operations"],"answer":1,"explanation":"Intelligence tasks and systems develop understanding of the operational environment, enemy, terrain, and civil considerations."},{"id":16,"qid":"armyops-m-16","difficulty":"medium","category":"Army Power and Warfighting Functions","tags":["warfighting functions","civil-military operations"],"prompt":"A unit coordinates with mayors and community leaders to build popular support and weaken an armed group's will to fight. Which function is most directly involved?","options":["Information operations","Movement and maneuver","Command and control","Civil-military operations"],"answer":3,"explanation":"Civil-military operations are planned activities with civilian entities intended to gain popular support and weaken enemy will."},{"id":17,"qid":"armyops-m-17","difficulty":"medium","category":"Army Power and Warfighting Functions","tags":["warfighting functions","information operations"],"prompt":"The staff synchronizes military and non-military capabilities to affect friendly, neutral, and adversarial decision-making while protecting friendly systems. Which function applies?","options":["Information operations","Intelligence","Protection","Leadership"],"answer":0,"explanation":"Information operations integrate selected military and non-military capabilities to influence decision systems while protecting one's own."},{"id":18,"qid":"armyops-m-18","difficulty":"medium","category":"Army Power and Warfighting Functions","tags":["warfighting functions","command and control"],"prompt":"A headquarters gathers friendly information, manages relevant reports, and directs subordinate units toward the commander's intent. Which function is primary?","options":["Intelligence","Information","Command and control","Unity of command"],"answer":2,"explanation":"Command and control supports commanders in exercising authority and direction, managing information, and leading subordinates."},{"id":19,"qid":"armyops-m-19","difficulty":"medium","category":"Principles of Army Operations","tags":["offensive"],"prompt":"After gaining an advantage, a commander continues actions that force the enemy to react and preserves freedom of action. Which principle is most evident?","options":["Security","Perseverance","Offensive","Restraint"],"answer":2,"explanation":"The principle of offensive is to seize, retain, and exploit the initiative, dictating the nature, scope, and tempo of operations."},{"id":20,"qid":"armyops-m-20","difficulty":"medium","category":"Principles of Army Operations","tags":["economy of force"],"prompt":"A commander assigns only the minimum essential force to guard a secondary route, accepting calculated risk so the main effort can dominate. Which principle is applied?","options":["Security","Mass","Depth","Economy of force"],"answer":3,"explanation":"Economy of force allocates minimum essential combat power to secondary efforts to enable overwhelming effects at the decisive operation."},{"id":21,"qid":"armyops-m-21","difficulty":"medium","category":"Principles of Army Operations","tags":["unity of command","unity of effort"],"prompt":"Army, police, and local agencies support one objective, but law prevents placing all organizations under one commander. What should leaders establish?","options":["Unity of effort","Combined arms","Area defense","Economy of force"],"answer":0,"explanation":"When a common commander is not possible in joint, multinational, or interagency work, leaders seek unity of effort toward the common objective."},{"id":22,"qid":"armyops-m-22","difficulty":"medium","category":"Principles of Army Operations","tags":["security"],"prompt":"A commander uses deception, protects critical information, and accepts only calculated risks to prevent the enemy gaining an unexpected advantage. Which principle dominates?","options":["Surprise","Simplicity","Security","Legitimacy"],"answer":2,"explanation":"Security prevents the enemy from acquiring unexpected advantage while preserving combat power and permitting calculated risk."},{"id":23,"qid":"armyops-m-23","difficulty":"medium","category":"Principles of Army Operations","tags":["legitimacy"],"prompt":"A tactically useful course would violate Philippine law and damage public acceptance. Which principle requires its rejection?","options":["Security","Economy of force","Legitimacy","Initiative"],"answer":2,"explanation":"Legitimacy requires operations to follow Philippine and international law and to develop or reinforce authority and acceptance."},{"id":24,"qid":"armyops-m-24","difficulty":"medium","category":"Principles of Army Operations","tags":["restraint"],"prompt":"Troops can use greater force, but doing so would create unnecessary collateral damage and undermine the strategic end state. Which principle calls for disciplined limitation?","options":["Mass","Offensive","Unity of command","Restraint"],"answer":3,"explanation":"Restraint limits collateral damage and unnecessary force while balancing security, operations, the strategic end state, and self-defense."},{"id":25,"qid":"armyops-m-25","difficulty":"medium","category":"Principles of Army Operations","tags":["integrated analysis","legitimacy and restraint"],"prompt":"During civil support, a commander applies only necessary force, follows domestic and international law, and keeps the population's confidence. Which pair of principles is most directly balanced?","options":["Legitimacy and restraint","Mass and offensive","Security and surprise","Objective and maneuver"],"answer":0,"explanation":"Legitimacy preserves lawful authority and acceptance; restraint prevents unnecessary force and collateral damage."}]</script>
+  <script type="application/json" id="questions-hard">[{"id":1,"qid":"armyops-h-01","difficulty":"hard","category":"Constitutional Mandate and Platforms","tags":["operational platforms","combined arms"],"prompt":"A task force commander in a high-intensity urban conflict integrates infantry for building clearance, armor for street-level suppression, and engineers for obstacle breaching simultaneously. This approach seeks an effect greater than the sum of its parts. Which operational platform is being utilized?","options":["Combined Arms","Joint Operations","Combined Operations","Multinational Operations"],"answer":0,"explanation":"This concept involves the synchronized application of different Army-specific arms like infantry, armor, and engineers to achieve a synergistic effect."},{"id":2,"qid":"armyops-h-02","difficulty":"hard","category":"Constitutional Mandate and Platforms","tags":["constitutional mandate"],"prompt":"Which specific constitutional mandate serves as the primary legal justification for Philippine Army operations within national territory according to Article II of the 1987 Constitution?","options":["The State shall provide social justice in all phases of development.","The Army shall conduct all-out war against insurgents.","The President is the Commander-in-Chief of all armed forces.","The AFP is the protector of the people and the State."],"answer":3,"explanation":"This specific clause establishes the Armed Forces of the Philippines as the guardian of both the citizenry and the government entity."},{"id":3,"qid":"armyops-h-03","difficulty":"hard","category":"Constitutional Mandate and Platforms","tags":["operational platforms","joint operations"],"prompt":"A commander uses a single unified plan to coordinate Army infantry, Air Force close air support, and Navy coastal bombardment for a beach landing. This integration of multiple services is defined as:","options":["Joint Operations","Combined Arms","Combined Operations","Synchronization"],"answer":0,"explanation":"Joint operations involve forces of two or more services (e.g., Army, Navy, Air Force) under the control of a single commander."},{"id":4,"qid":"armyops-h-04","difficulty":"hard","category":"Full Spectrum Operations","tags":["support to civil governance"],"prompt":"A unit is tasked with patrolling a village to prevent insurgent recruitment while simultaneously helping the local government restore the electricity grid. This falls under which element of Full Spectrum Operations?","options":["Offensive Operations","Defensive Operations","Combined Arms Operations","Support to Civil Governance"],"answer":3,"explanation":"This element includes missions like counterinsurgency, disaster response, and support to community development and law enforcement."},{"id":5,"qid":"armyops-h-05","difficulty":"hard","category":"Offensive and Defensive Tasks","tags":["offensive tasks","exploitation"],"prompt":"Following a successful breach of the enemy's front lines, a commander orders a mechanized unit to bypass remaining strongpoints to cut off the enemy's line of retreat and destroy their command and control nodes. This is an example of which primary offensive task?","options":["Exploitation","Attack","Strike","Movement to Contact"],"answer":0,"explanation":"Exploitation follows a successful attack and is designed to disorganize the enemy in depth, preventing them from reconstituting a defense."},{"id":6,"qid":"armyops-h-06","difficulty":"hard","category":"Offensive and Defensive Tasks","tags":["defensive tasks","retrograde"],"prompt":"To draw a superior enemy force away from a vital supply port, a battalion intentionally yields territory and retreats to a more defensible mountain ridge. This defensive task is known as:","options":["Retrograde","Area Defense","Counter-offensive","Mobile Defense"],"answer":0,"explanation":"This task involves a movement away from the enemy to improve the tactical situation or draw the enemy into a less favorable position."},{"id":7,"qid":"armyops-h-07","difficulty":"hard","category":"Offensive and Defensive Tasks","tags":["offensive tasks","movement to contact"],"prompt":"An insurgent group is known to be moving through a jungle corridor, but their exact location is unconfirmed. A commander orders a force to advance cautiously, ready to react to any contact. This is known as:","options":["Strike","Pursuit","Exploitation","Movement to Contact"],"answer":3,"explanation":"This primary offensive task is used when the enemy's location is vague, aimed at establishing contact and developing the situation."},{"id":8,"qid":"armyops-h-08","difficulty":"hard","category":"Offensive and Defensive Tasks","tags":["defensive tasks","mobile defense"],"prompt":"A battalion is tasked with defending a large valley. Instead of staying in fixed trenches, the commander uses a small mobile force to strike the enemy's flanks whenever they attempt to bypass. This is known as:","options":["Movement to Contact","Retrograde","Area Defense","Mobile Defense"],"answer":3,"explanation":"This defensive task uses a combination of static forces to fix the enemy and striking forces to destroy them through maneuver."},{"id":9,"qid":"armyops-h-09","difficulty":"hard","category":"Support to Civil Governance","tags":["support to civil governance","disaster response operations"],"prompt":"A unit is deployed to a region following an earthquake to conduct Search and Rescue (SAR) and distribute food. According to the Army Operations Manual (PAM 3-00), this is categorized as:","options":["Civil Population Security","Non-Critical Support Operations","Disaster Response Operations","Peace Operations"],"answer":2,"explanation":"This is a specific mission set under Support to Civil Governance that involves mitigating the effects of natural or man-made calamities."},{"id":10,"qid":"armyops-h-10","difficulty":"hard","category":"Tenets of Army Operations","tags":["initiative"],"prompt":"In a defensive engagement, a battalion commander identifies that the enemy has overextended their supply lines. The commander immediately launches a localized counter-attack to throw the enemy into chaos. This action most closely aligns with which tenet of Army operations?","options":["Versatility","Initiative","Synchronization","Depth"],"answer":1,"explanation":"This tenet focuses on setting the terms of battle and forcing the enemy to respond to your actions, even while in a defensive posture."},{"id":11,"qid":"armyops-h-11","difficulty":"hard","category":"Tenets of Army Operations","tags":["versatility"],"prompt":"The Philippine Army conducts a mission to provide immediate relief and medical support following a major typhoon while simultaneously maintaining security to prevent looting. This multi-tasking capability across different mission profiles defines which tenet?","options":["Versatility","Agility","Depth","Synchronization"],"answer":0,"explanation":"This tenet describes the ability of Army forces to meet diverse mission requirements and shift rapidly from one type of operation to another."},{"id":12,"qid":"armyops-h-12","difficulty":"hard","category":"Tenets of Army Operations","tags":["synchronization"],"prompt":"An operational plan for a river crossing requires that the arrival of bridging engineers, the suppression of enemy fire by artillery, and the overhead cover by aviation all occur at exactly H−hour. This arrangement is an example of:","options":["Mass","Unity of Command","Synchronization","Maneuver"],"answer":2,"explanation":"This tenet involves the arrangement of battlefield activities in time, space, and purpose to mass effects at the decisive point."},{"id":13,"qid":"armyops-h-13","difficulty":"hard","category":"Tenets of Army Operations","tags":["depth"],"prompt":"When an Army force extends its operations across a large geographical area and sustains them over a long period to keep the enemy constantly under pressure, they are demonstrating which tenet?","options":["Synchronization","Versatility","Agility","Depth"],"answer":3,"explanation":"Depth is the extension of operations in space, time, and resources to overwhelm the enemy across their entire formation and support structure."},{"id":14,"qid":"armyops-h-14","difficulty":"hard","category":"Tenets of Army Operations","tags":["agility"],"prompt":"A commander realizes that the enemy has shifted their heavy weaponry to the east. Within minutes, the commander adjusts the plan and moves their own armor to intercept. This shows mental and physical quickness, which is the tenet of:","options":["Synchronization","Initiative","Versatility","Agility"],"answer":3,"explanation":"Agility is the mental and physical quickness to adapt to changes in the situation and stay ahead of the enemy's decision cycle."},{"id":15,"qid":"armyops-h-15","difficulty":"hard","category":"Army Power and Warfighting Functions","tags":["army power","intelligence"],"prompt":"A brigade commander utilizes a network of drones and ground scouts to identify not only enemy positions but also the locations of local water sources and civilian hospitals. Which Element of Army Power is primarily being exercised?","options":["Maneuver","Protection","Intelligence","Fires"],"answer":2,"explanation":"This element encompasses tasks and systems that facilitate understanding of the operational environment, including terrain, enemy, and civil considerations."},{"id":16,"qid":"armyops-h-16","difficulty":"hard","category":"Army Power and Warfighting Functions","tags":["army power","protection"],"prompt":"Which Element of Army Power is specifically designed to preserve the force's integrity and combat power so the commander can apply them at the most decisive moment?","options":["Intelligence","Movement and Maneuver","Fires","Protection"],"answer":3,"explanation":"This element includes tasks and systems that preserve the force from the effects of enemy power, allowing the commander to maintain operational integrity."},{"id":17,"qid":"armyops-h-17","difficulty":"hard","category":"Principles of Army Operations","tags":["objective"],"prompt":"During a counterinsurgency mission, a commander decides to bypass a small group of retreating insurgents to maintain the momentum of the primary advance toward a critical provincial capital. Which principle of Army operations is the commander prioritizing?","options":["Offensive","Objective","Maneuver","Mass"],"answer":1,"explanation":"This principle dictates that every military operation must be directed toward a clearly defined and attainable end state, avoiding distractions."},{"id":18,"qid":"armyops-h-18","difficulty":"hard","category":"Principles of Army Operations","tags":["economy of force"],"prompt":"A commander allocates only a single platoon to guard a secondary mountain pass, accepting higher risk there to ensure the main assault force has overwhelming combat power for the primary breach. Which principle is being applied?","options":["Security","Economy of Force","Mass","Simplicity"],"answer":1,"explanation":"This principle involves allocating minimum essential combat power to secondary efforts so that the maximum possible force can be concentrated at the decisive point."},{"id":19,"qid":"armyops-h-19","difficulty":"hard","category":"Principles of Army Operations","tags":["restraint"],"prompt":"During a mission in a sensitive area, a unit is fired upon from a building that also houses a medical clinic. The commander denies a request for an airstrike on the building, choosing instead a high-risk ground insertion to clear the threat. Which principle is being demonstrated?","options":["Objective","Security","Restraint","Legitimacy"],"answer":2,"explanation":"This principle involves limiting collateral damage and preventing the unnecessary use of force, balancing military necessity with the strategic end state."},{"id":20,"qid":"armyops-h-20","difficulty":"hard","category":"Principles of Army Operations","tags":["mass"],"prompt":"What is the primary difference between 'Mass' and 'Economy of Force' in the context of the 12 Principles of Army Operations?","options":["Mass is the concentration of effects at a decisive point, while Economy of Force enables that concentration by minimizing resources used elsewhere.","Mass applies only to offensive operations, while Economy of Force applies only to defensive operations.","Mass is about the number of soldiers, while Economy of Force is about the quality of equipment.","Mass focuses on speed of movement, while Economy of Force focuses on stealth and security."],"answer":0,"explanation":"These principles are two sides of the same coin: you cannot achieve mass at the critical point without economizing forces in less critical areas."},{"id":21,"qid":"armyops-h-21","difficulty":"hard","category":"Principles of Army Operations","tags":["legitimacy"],"prompt":"Why is 'Legitimacy' considered a critical principle when conducting Support to Civil Governance operations, such as Counterinsurgency?","options":["It refers to the speed at which a unit can change its orders.","It maintains the legal and moral authority of the operation in the eyes of the population and the international community.","It is the principle that allows a commander to use any amount of force necessary.","It ensures the military has the newest equipment for the mission."],"answer":1,"explanation":"Legitimacy is vital for long-term success in civil-centric missions as it ensures the mission is perceived as rightful and justified."},{"id":22,"qid":"armyops-h-22","difficulty":"hard","category":"Principles of Army Operations","tags":["simplicity"],"prompt":"A commander ensures that all subordinate leaders have a clear, uncomplicated plan to minimize the chance of confusion during a chaotic night-time raid. Which principle is being prioritized?","options":["Unity of Command","Simplicity","Surprise","Security"],"answer":1,"explanation":"Simplicity aims to reduce the friction of war by providing clear, concise orders that minimize the potential for misunderstanding in stressful environments."},{"id":23,"qid":"armyops-h-23","difficulty":"hard","category":"Principles of Army Operations","tags":["surprise"],"prompt":"Which principle of Army operations warns against attacking the enemy when they are fully prepared and suggests striking them in a way they did not expect?","options":["Offensive","Surprise","Security","Maneuver"],"answer":1,"explanation":"This principle involves striking the enemy at a time, place, or in a manner for which they are unprepared."},{"id":24,"qid":"armyops-h-24","difficulty":"hard","category":"Principles of Army Operations","tags":["unity of command"],"prompt":"A commander insists that all assets, including civilian NGOs and local police, report to one central military officer for mission coordination. Which principle does this enforcement support?","options":["Perseverance","Mass","Unity of Command","Simplicity"],"answer":2,"explanation":"This principle ensures that for every objective, there is unity of effort under one responsible commander."},{"id":25,"qid":"armyops-h-25","difficulty":"hard","category":"Principles of Army Operations","tags":["perseverance"],"prompt":"According to the Principles of Army Operations, 'Perseverance' is especially critical in full spectrum operations because:","options":["It allows a unit to ignore the objective if the enemy is too strong.","Soldiers need to be able to march for 24 hours without rest.","Successful outcomes often require long-term persistence to achieve strategic end states, especially in complex environments.","It involves the measured application of force to avoid collateral damage."],"answer":2,"explanation":"Perseverance acknowledges that some military objectives, particularly in civil governance support, take years of patient effort to fully realize."}]</script>
+  <script>
+  (function () {
+    'use strict';
+
+    // =======================================================================
+    // CLASS HISTORY CONFIGURATION
+    //
+    // The Google Apps Script web app URL (it ends in /exec) is set once in
+    // scripts/build.mjs (HISTORY_ENDPOINT) and written into every page by the
+    // build. An empty value switches class history off. Setup: apps-script/SETUP.md.
+    //
+    // On finishing an attempt the app sends the name, difficulty, score, total,
+    // percentage, mastery band, finish time and the stable ids of the questions
+    // asked and missed. The chosen answers are never sent; practice retries send
+    // nothing. This URL is the only network address the page ever contacts.
+    // =======================================================================
+    var HISTORY_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwTNNYOiebIGo46PzM3fUA9VT6XnS740D72prOPg-0OJ5Kvg4W8LVl-xJEo_gxImxqnmg/exec';
+    // Most recent attempts requested for the score history table (the sheet caps this at 200).
+    var HISTORY_LIMIT = 100;
+
+    var MODES = ['easy', 'medium', 'hard'];
+    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
+    var MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h' };
+    var LETTERS = ['A', 'B', 'C', 'D'];
+    // A lesson bank holds 1 to MAX_BANK_SIZE questions per difficulty (a sanity cap shared with the sheet);
+    // an attempt asks all of them.
+    var MAX_BANK_SIZE = 500;
+    var LESSON_KEY_PATTERN = /^[a-z][a-z0-9]{1,23}$/;
+
+    function byId(id) { return document.getElementById(id); }
+
+    // The lesson configuration written by the build (lessons/<key>/lesson.json, checked again here).
+    function readConfig() {
+      var element = byId('quiz-config');
+      var config;
+      try {
+        config = JSON.parse(element ? element.textContent : '');
+      } catch (error) {
+        return null;
+      }
+      var strings = function (list) { return Array.isArray(list) && list.length > 0 && list.every(function (item) { return typeof item === 'string' && item.trim(); }); };
+      if (!config || typeof config !== 'object' || !LESSON_KEY_PATTERN.test(config.key) || typeof config.title !== 'string') return null;
+      if (!config.text || typeof config.text !== 'object' || !Array.isArray(config.text.bands) || config.text.bands.length !== 4) return null;
+      if (config.pool) {
+        if (!Number.isInteger(config.pool.count) || config.pool.count < 1 || config.pool.count > MAX_BANK_SIZE) return null;
+        if (!Array.isArray(config.pool.lessons) || !config.pool.lessons.length || !config.pool.lessons.every(function (lesson) { return lesson && LESSON_KEY_PATTERN.test(lesson.key) && typeof lesson.name === 'string' && lesson.name.trim(); })) return null;
+      } else if (!strings(config.categoryOrder)) {
+        return null;
+      }
+      if (config.sourceRef !== null && (!config.sourceRef || !Number.isInteger(config.sourceRef.min) || !Number.isInteger(config.sourceRef.max) || typeof config.sourceRef.label !== 'string')) return null;
+      return config;
+    }
+
+    var CONFIG = readConfig();
+    var TEXT = CONFIG ? CONFIG.text : { topicNoun: 'Topic', strengthsEmpty: '', gapsEmpty: '', bands: ['', '', '', ''] };
+    // Names the score-history tab for this lesson in the shared Google Sheet (see apps-script/Code.gs LESSONS).
+    var HISTORY_LESSON = CONFIG ? CONFIG.key : '';
+    var QUIZ_TITLE = CONFIG ? CONFIG.title : 'Quiz';
+    // Pool exam (for example the Combined Exam): a fixed number of questions drawn across source lessons.
+    var POOL = CONFIG && CONFIG.pool ? CONFIG.pool : null;
+    var POOL_QUOTAS = POOL ? poolQuotas(POOL.count, POOL.lessons.length) : [];
+    // Optional per-question lesson reference ("Lesson reference: page 31"); null for pool exams.
+    var SOURCE_REF = CONFIG ? CONFIG.sourceRef : null;
+    var CATEGORY_ORDER = !CONFIG ? [] : POOL ? POOL.lessons.map(function (lesson) { return lesson.name; }) : CONFIG.categoryOrder.slice();
+    // A primary topic counts as a strength at or above this percentage, otherwise a gap.
+    var STRENGTH_THRESHOLD = 75;
+    // Mastery bands, checked from the top: the first band whose minimum is met applies.
+    var MASTERY_BANDS = [
+      { min: 90, name: 'Mastery', description: TEXT.bands[0] },
+      { min: 75, name: 'Proficient', description: TEXT.bands[1] },
+      { min: 60, name: 'Developing', description: TEXT.bands[2] },
+      { min: 0, name: 'Needs review', description: TEXT.bands[3] }
+    ];
+
+    // Questions per source lesson in a pool attempt: the count split as evenly as possible, larger shares
+    // first (30 over four lessons is 8, 8, 7, 7). Each attempt deals these shares to the lessons at random.
+    function poolQuotas(count, lessons) {
+      var base = Math.floor(count / lessons);
+      var extra = count % lessons;
+      var quotas = [];
+      for (var i = 0; i < lessons; i++) quotas.push(i < extra ? base + 1 : base);
+      return quotas;
+    }
+
+    function qidPrefix(owner, mode) {
+      return (LESSON_KEY_PATTERN.test(owner) ? owner : '<lesson>') + '-' + MODE_LETTERS[mode] + '-';
+    }
+
+    // Mirrors validateQuestion in scripts/build.mjs; the verifier checks both agree error-for-error.
+    function validateQuestion(question, expectedDifficulty, expectedId) {
+      if (question === null || typeof question !== 'object' || Array.isArray(question)) {
+        return ['question must be an object'];
+      }
+      var errors = [];
+      if (!Number.isInteger(question.id) || question.id !== expectedId) {
+        errors.push('id must be integer ' + expectedId);
+      }
+      var owner = POOL ? question.lessonKey : HISTORY_LESSON;
+      if (POOL) {
+        var source = POOL.lessons.filter(function (lesson) { return lesson.key === question.lessonKey; })[0];
+        if (!source) errors.push('lessonKey must name one of the pool lessons');
+        else if (question.lesson !== source.name || question.category !== source.name) errors.push('lesson and category must both name the source lesson');
+      }
+      var prefix = qidPrefix(owner, expectedDifficulty);
+      if (typeof question.qid !== 'string' || question.qid.indexOf(prefix) !== 0 || !/^[0-9]{2,4}$/.test(question.qid.slice(prefix.length))) {
+        errors.push('qid must be "' + prefix + '" followed by 2 to 4 digits');
+      }
+      if (question.difficulty !== expectedDifficulty) {
+        errors.push('difficulty must be ' + expectedDifficulty);
+      }
+      ['category', 'prompt', 'explanation'].forEach(function (field) {
+        if (typeof question[field] !== 'string' || !question[field].trim()) {
+          errors.push(field + ' must be a nonempty string');
+        }
+      });
+      if (!POOL && typeof question.category === 'string' && question.category.trim() && CATEGORY_ORDER.indexOf(question.category) === -1) {
+        errors.push('category must be one of the lesson topics');
+      }
+      if (!Array.isArray(question.tags) || question.tags.some(function (tag) { return typeof tag !== 'string' || !tag.trim(); })) {
+        errors.push('tags must be an array of nonempty strings');
+      }
+      if (!Array.isArray(question.options) || question.options.length !== 4 || question.options.some(function (option) { return typeof option !== 'string' || !option.trim(); })) {
+        errors.push('options must contain four nonempty strings');
+      }
+      if (!Number.isInteger(question.answer) || question.answer < 0 || question.answer > 3) {
+        errors.push('answer must be an integer from 0 to 3');
+      }
+      if (SOURCE_REF) {
+        if (SOURCE_REF.required || question.sourceSlides !== undefined) {
+          if (!Array.isArray(question.sourceSlides) || question.sourceSlides.length === 0 || question.sourceSlides.some(function (slide) { return !Number.isInteger(slide) || slide < SOURCE_REF.min || slide > SOURCE_REF.max; })) {
+            errors.push('sourceSlides' + (SOURCE_REF.required ? '' : ', when present,') + ' must contain integers from ' + SOURCE_REF.min + ' to ' + SOURCE_REF.max);
+          }
+        }
+      } else if (question.sourceSlides !== undefined) {
+        errors.push('sourceSlides must be absent in a pool exam (the reference is in the explanation)');
+      }
+      return errors;
+    }
+
+    // Mirrors validateBank in scripts/build.mjs; each message here is prefixed with the difficulty.
+    function validateBank(bank, mode) {
+      if (!Array.isArray(bank)) return ['bank must be an array of questions'];
+      var errors = [];
+      if (bank.length < 1) errors.push('bank must contain at least 1 question');
+      if (!POOL && bank.length > MAX_BANK_SIZE) errors.push('bank must contain at most ' + MAX_BANK_SIZE + ' questions (found ' + bank.length + ')');
+      var seen = {};
+      bank.forEach(function (question, index) {
+        validateQuestion(question, mode, index + 1).forEach(function (error) {
+          errors.push('question ' + (index + 1) + ': ' + error);
+        });
+        if (question !== null && typeof question === 'object' && typeof question.qid === 'string') {
+          if (Object.prototype.hasOwnProperty.call(seen, question.qid)) errors.push('question ' + (index + 1) + ': qid ' + question.qid + ' is used more than once');
+          seen[question.qid] = true;
+        }
+      });
+      if (POOL) {
+        var need = POOL_QUOTAS[0];
+        POOL.lessons.forEach(function (lesson) {
+          var found = bank.filter(function (question) { return question && question.lessonKey === lesson.key; }).length;
+          if (found < need) errors.push('bank must contain at least ' + need + ' ' + lesson.name + ' questions (found ' + found + ')');
+        });
+      }
+      return errors;
+    }
+
+    function validateBanks(banks) {
+      if (banks === null || typeof banks !== 'object') {
+        return { valid: false, errors: ['question banks must be an object'] };
+      }
+      var errors = [];
+      MODES.forEach(function (mode) {
+        validateBank(banks[mode], mode).forEach(function (error) {
+          errors.push(mode + ' ' + error);
+        });
+      });
+      return { valid: errors.length === 0, errors: errors };
+    }
+
+    // Fisher-Yates shuffle of a copy; the source array is never mutated.
+    function shuffleQuestions(bank, random) {
+      if (typeof random !== 'function') random = Math.random;
+      var copy = Array.prototype.slice.call(bank);
+      for (var i = copy.length - 1; i > 0; i--) {
+        var j = Math.min(i, Math.max(0, Math.floor(random() * (i + 1))));
+        var held = copy[i];
+        copy[i] = copy[j];
+        copy[j] = held;
+      }
+      return copy;
+    }
+
+    // Draws one pool attempt: the per-lesson shares are dealt to the lessons at random, each lesson's share
+    // is a random subset of its questions, and the picks are then shuffled together. Every draw uses
+    // random(), so an injected generator makes it reproducible.
+    // Within each lesson the device-local priority applies first (see prioritize), so unseen and missed
+    // questions are drawn before ones already answered correctly.
+    function sampleQuestions(bank, random, progress) {
+      if (typeof random !== 'function') random = Math.random;
+      if (!POOL) return prioritize(bank, progress, random);
+      var quotas = shuffleQuestions(POOL_QUOTAS, random);
+      var picked = [];
+      POOL.lessons.forEach(function (lesson, index) {
+        var pool = Array.prototype.filter.call(bank, function (question) { return question.lessonKey === lesson.key; });
+        picked = picked.concat(prioritize(pool, progress, random).slice(0, quotas[index]));
+      });
+      return shuffleQuestions(picked, random);
+    }
+
+    // ----- Device-local progress -----
+    // This browser only, anonymous: for each lesson and difficulty one entry maps a question's qid to 's' (seen,
+    // last answered correctly) or 'm' (last answered wrongly). No name, score or answer is stored and nothing is
+    // ever sent. Every storage access is wrapped in try/catch; without storage the quiz uses a plain shuffle.
+    var PROGRESS_PREFIX = 'mastery-quiz:progress:';
+    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emh]-[0-9]{2,4}$/;
+
+    function deviceStorage() {
+      try {
+        var storage = window.localStorage;
+        return storage && typeof storage.getItem === 'function' && typeof storage.setItem === 'function' ? storage : null;
+      } catch (error) {
+        return null;
+      }
+    }
+
+    function progressKey(lessonKey, mode) {
+      return PROGRESS_PREFIX + lessonKey + ':' + mode;
+    }
+
+    // The lessons whose progress this page uses: its own, or a pool exam's source lessons (shared with them).
+    function progressLessons() {
+      return POOL ? POOL.lessons.map(function (lesson) { return lesson.key; }) : [HISTORY_LESSON];
+    }
+
+    function readProgress(lessonKey, mode) {
+      var storage = deviceStorage();
+      var clean = {};
+      if (!storage) return clean;
+      try {
+        var data = JSON.parse(storage.getItem(progressKey(lessonKey, mode)) || '{}');
+        if (data && typeof data === 'object' && !Array.isArray(data)) {
+          Object.keys(data).forEach(function (qid) {
+            if (PROGRESS_QID.test(qid) && (data[qid] === 's' || data[qid] === 'm')) clean[qid] = data[qid];
+          });
+        }
+      } catch (error) {
+        return {};
+      }
+      return clean;
+    }
+
+    function loadProgress(mode) {
+      var progress = {};
+      progressLessons().forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
+      return progress;
+    }
+
+    function recordProgress(question, mode, correct) {
+      var storage = deviceStorage();
+      if (!storage) return false;
+      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var progress = readProgress(lessonKey, mode);
+      progress[question.qid] = correct ? 's' : 'm';
+      try {
+        storage.setItem(progressKey(lessonKey, mode), JSON.stringify(progress));
+        return true;
+      } catch (error) {
+        return false;
+      }
+    }
+
+    // Forgets this page's progress (every difficulty of its lesson, or of a pool exam's source lessons).
+    function resetProgress() {
+      var storage = deviceStorage();
+      if (!storage) return false;
+      try {
+        progressLessons().forEach(function (lessonKey) {
+          MODES.forEach(function (mode) { storage.removeItem(progressKey(lessonKey, mode)); });
+        });
+        return true;
+      } catch (error) {
+        return false;
+      }
+    }
+
+    // Questions this device has not seen come first, then the ones last missed, then the rest; each group is
+    // shuffled. With no progress (or no storage) this is exactly one Fisher-Yates shuffle of the whole list.
+    function prioritize(questions, progress, random) {
+      var groups = [[], [], []];
+      Array.prototype.forEach.call(questions, function (question) {
+        var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+        var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
+        var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
+        groups[flag === 'm' ? 1 : flag === 's' ? 2 : 0].push(question);
+      });
+      return shuffleQuestions(groups[0], random).concat(shuffleQuestions(groups[1], random), shuffleQuestions(groups[2], random));
+    }
+
+    function blankResponses(questions) {
+      return questions.map(function () { return { selected: null, checked: false }; });
+    }
+
+    // `progress` (optional) is the device-local record from loadProgress(mode).
+    function createAttempt(mode, banks, random, progress) {
+      if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
+      var questions = POOL ? sampleQuestions(banks[mode], random, progress) : prioritize(banks[mode], progress, random);
+      return { mode: mode, practice: false, questions: questions, current: 0, responses: blankResponses(questions) };
+    }
+
+    // A practice attempt asks only the given questions (reshuffled; answer choices keep their order).
+    function createPracticeAttempt(mode, questions, random) {
+      if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
+      var shuffled = shuffleQuestions(questions, random);
+      return { mode: mode, practice: true, questions: shuffled, current: 0, responses: blankResponses(shuffled) };
+    }
+
+    // Stable question id for the instructor's item analysis: <lessonKey>:<mode>:<qid>. A pool exam
+    // reports the source lesson's id, so a question counts the same wherever it was asked.
+    function itemId(question, mode) {
+      return (POOL ? question.lessonKey : HISTORY_LESSON) + ':' + mode + ':' + question.qid;
+    }
+
+    function masteryBand(percentage) {
+      for (var i = 0; i < MASTERY_BANDS.length; i++) {
+        if (percentage >= MASTERY_BANDS[i].min) return MASTERY_BANDS[i];
+      }
+      return MASTERY_BANDS[MASTERY_BANDS.length - 1];
+    }
+
+    function computeResults(attempt) {
+      var byCategory = {};
+      var order = CATEGORY_ORDER.slice();
+      var score = 0;
+      var review = attempt.questions.map(function (question, index) {
+        var response = attempt.responses[index];
+        var correct = response.selected === question.answer;
+        if (correct) score++;
+        if (!byCategory[question.category]) {
+          byCategory[question.category] = { category: question.category, correct: 0, total: 0 };
+          if (order.indexOf(question.category) === -1) order.push(question.category);
+        }
+        byCategory[question.category].total++;
+        if (correct) byCategory[question.category].correct++;
+        return { number: index + 1, question: question, selected: response.selected, correct: correct };
+      });
+      var total = attempt.questions.length;
+      var percentage = total ? Math.round((score / total) * 100) : 0;
+      var categories = order.filter(function (name) { return byCategory[name]; }).map(function (name) {
+        var entry = byCategory[name];
+        entry.percentage = Math.round((entry.correct / entry.total) * 100);
+        entry.status = entry.percentage >= STRENGTH_THRESHOLD ? 'Strength' : 'Gap';
+        return entry;
+      });
+      return {
+        mode: attempt.mode,
+        practice: Boolean(attempt.practice),
+        score: score,
+        total: total,
+        percentage: percentage,
+        band: masteryBand(percentage),
+        categories: categories,
+        review: review
+      };
+    }
+
+    function deepFreeze(value) {
+      if (value && typeof value === 'object' && !Object.isFrozen(value)) {
+        Object.freeze(value);
+        Object.keys(value).forEach(function (key) { deepFreeze(value[key]); });
+      }
+      return value;
+    }
+
+    // ----- Student name -----
+
+    var NAME_MIN_LENGTH = 2;
+    var NAME_MAX_LENGTH = 40;
+
+    // Collapses whitespace, turns control and invisible formatting characters into spaces, and drops
+    // leading spreadsheet formula triggers (=, +, -, @) exactly as the class history sheet does.
+    function normalizeName(raw) {
+      return String(raw === null || raw === undefined ? '' : raw)
+        .replace(/[\u0000-\u001F\u007F-\u009F\u200B-\u200F\u2028-\u202E\u2060-\u2064\uFEFF]/g, ' ')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .replace(/^[=+\-@\s]+/, '');
+    }
+
+    function validateName(raw) {
+      var name = normalizeName(raw);
+      var length = Array.from(name).length;
+      var message = '';
+      if (!length) message = 'Enter your name or username to continue.';
+      else if (length < NAME_MIN_LENGTH) message = 'Your name must be at least ' + NAME_MIN_LENGTH + ' characters.';
+      else if (length > NAME_MAX_LENGTH) message = 'Your name must be ' + NAME_MAX_LENGTH + ' characters or fewer.';
+      else if (!/[\p{L}\p{N}]/u.test(name)) message = 'Your name must include at least one letter or number.';
+      return { valid: !message, name: message ? '' : name, message: message };
+    }
+
+    // ----- Sound cues (Web Audio only; no audio files) -----
+
+    // Each cue is a list of [frequency Hz, start offset s, duration s, waveform, peak gain, end frequency].
+    // Every cue ends within 400 ms and peaks at a low volume.
+    var SOUND_CUES = {
+      select: [[1320, 0, 0.035, 'triangle', 0.035]],
+      correct: [[659.25, 0, 0.12, 'sine', 0.07], [987.77, 0.1, 0.2, 'sine', 0.07]],
+      incorrect: [[196, 0, 0.26, 'triangle', 0.08, 164.81]],
+      start: [[523.25, 0, 0.09, 'sine', 0.06], [783.99, 0.08, 0.16, 'sine', 0.06]],
+      error: [[392, 0, 0.09, 'sine', 0.05, 330]],
+      'finish-mastery': [[523.25, 0, 0.1, 'sine', 0.06], [659.25, 0.08, 0.1, 'sine', 0.06], [783.99, 0.16, 0.1, 'sine', 0.06], [1046.5, 0.24, 0.16, 'sine', 0.06]],
+      'finish-proficient': [[523.25, 0, 0.1, 'sine', 0.06], [659.25, 0.09, 0.1, 'sine', 0.06], [783.99, 0.18, 0.18, 'sine', 0.06]],
+      'finish-developing': [[523.25, 0, 0.12, 'sine', 0.06], [659.25, 0.11, 0.2, 'sine', 0.06]],
+      'finish-review': [[440, 0, 0.14, 'sine', 0.05], [392, 0.13, 0.22, 'sine', 0.05]]
+    };
+
+    // The AudioContext is created lazily by the first cue, which always runs inside a user gesture.
+    function createWebAudioPlayer() {
+      var context = null;
+      return function (cue) {
+        var notes = SOUND_CUES[cue];
+        var AudioCtor = window.AudioContext || window.webkitAudioContext;
+        if (!notes || typeof AudioCtor !== 'function') return;
+        if (!context) context = new AudioCtor();
+        if (context.state === 'suspended' && typeof context.resume === 'function') context.resume();
+        var now = context.currentTime + 0.01;
+        notes.forEach(function (note) {
+          var start = now + note[1];
+          var end = start + note[2];
+          var oscillator = context.createOscillator();
+          var gain = context.createGain();
+          oscillator.type = note[3];
+          oscillator.frequency.setValueAtTime(note[0], start);
+          if (note[5]) oscillator.frequency.exponentialRampToValueAtTime(note[5], end);
+          gain.gain.setValueAtTime(0.0001, start);
+          gain.gain.exponentialRampToValueAtTime(note[4], start + 0.012);
+          gain.gain.exponentialRampToValueAtTime(0.0001, end);
+          oscillator.connect(gain);
+          gain.connect(context.destination);
+          oscillator.start(start);
+          oscillator.stop(end + 0.02);
+        });
+      };
+    }
+
+    function finishCue(bandName) {
+      return {
+        Mastery: 'finish-mastery',
+        Proficient: 'finish-proficient',
+        Developing: 'finish-developing'
+      }[bandName] || 'finish-review';
+    }
+
+    // ----- State and DOM -----
+
+    var HISTORY_FILTERS = ['all', 'easy', 'medium', 'hard'];
+    var ENDPOINT = String(HISTORY_ENDPOINT || '').trim();
+    var PRACTICE_NOTE = 'Practice: retrying missed questions. Practice attempts are not saved to the class history.';
+
+    var state = {
+      available: false,
+      errors: [],
+      banks: null,
+      studyConfirmed: false,
+      studentName: '',
+      nameValid: false,
+      view: 'landing',
+      attempt: null,
+      results: null,
+      submission: null,
+      history: { filter: 'all', status: 'idle', rows: [], request: 0 },
+      soundEnabled: true,
+      soundPlayer: createWebAudioPlayer(),
+      random: Math.random
+    };
+    var defaultSoundPlayer = state.soundPlayer;
+    var pending = [];
+
+    var ui = {
+      views: {
+        landing: byId('view-landing'),
+        quiz: byId('view-quiz'),
+        results: byId('view-results'),
+        unavailable: byId('view-unavailable')
+      },
+      nameInput: byId('student-name'),
+      nameMessage: byId('student-name-message'),
+      studyConfirm: byId('study-confirm'),
+      modeHint: byId('mode-hint'),
+      difficultyHeading: byId('difficulty-heading'),
+      unavailableHeading: byId('unavailable-heading'),
+      modeButtons: {
+        easy: byId('mode-easy'),
+        medium: byId('mode-medium'),
+        hard: byId('mode-hard')
+      },
+      soundToggle: byId('btn-sound'),
+      soundState: byId('sound-state'),
+      quizHeading: byId('quiz-heading'),
+      quizStudent: byId('quiz-student'),
+      quizPracticeNote: byId('quiz-practice-note'),
+      quizProgress: byId('quiz-progress'),
+      quizStatus: byId('quiz-status'),
+      questionHeading: byId('question-heading'),
+      questionCategory: byId('question-category'),
+      questionArea: byId('question-area'),
+      validation: byId('validation-message'),
+      feedback: byId('answer-feedback'),
+      btnPrev: byId('btn-prev'),
+      btnCheck: byId('btn-check'),
+      btnNext: byId('btn-next'),
+      btnFinish: byId('btn-finish'),
+      resultsHeading: byId('results-heading'),
+      resultsPracticeNote: byId('results-practice-note'),
+      resultsSummary: byId('results-summary'),
+      resultsCategories: byId('results-categories-body'),
+      resultsStrengths: byId('results-strengths'),
+      resultsGaps: byId('results-gaps'),
+      resultsReview: byId('results-review'),
+      saveBox: byId('history-save'),
+      saveMessage: byId('history-save-message'),
+      btnSaveRetry: byId('btn-history-retry'),
+      btnRetryMissed: byId('btn-retry-missed'),
+      hintRetryMissed: byId('hint-retry-missed'),
+      btnPrint: byId('btn-print'),
+      btnRetake: byId('btn-retake'),
+      btnChoose: byId('btn-choose'),
+      btnHistory: byId('btn-history'),
+      historyPanel: byId('history-panel'),
+      historyHeading: byId('history-heading'),
+      historyRefresh: byId('btn-history-refresh'),
+      historyFilters: {
+        all: byId('history-filter-all'),
+        easy: byId('history-filter-easy'),
+        medium: byId('history-filter-medium'),
+        hard: byId('history-filter-hard')
+      },
+      historyStatus: byId('history-status'),
+      historyTableWrap: byId('history-table-wrap'),
+      historyBody: byId('history-body'),
+      keyboardHelp: byId('keyboard-help'),
+      deviceProgress: byId('device-progress'),
+      btnResetProgress: byId('btn-reset-progress'),
+      resetProgressStatus: byId('reset-progress-status'),
+      radios: [],
+      options: []
+    };
+
+    // Every node is built with textContent; remote or authored strings never pass through an HTML parser.
+    function make(tag, className, text) {
+      var node = document.createElement(tag);
+      if (className) node.className = className;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    }
+
+    function textNode(text) { return document.createTextNode(text); }
+
+    function iconNode(name) {
+      var icon = make('span', 'icon icon-' + name);
+      icon.setAttribute('aria-hidden', 'true');
+      return icon;
+    }
+
+    function tagNode(kind, icon, text) {
+      var tag = make('span', 'tag tag-' + kind);
+      if (icon) tag.appendChild(iconNode(icon));
+      tag.appendChild(textNode(text));
+      return tag;
+    }
+
+    // Empties a node and appends the given nodes; avoids the Safari 14+ only children-replacement API.
+    function setChildren(node, children) {
+      node.textContent = '';
+      children.forEach(function (child) { node.appendChild(child); });
+    }
+
+    function optionText(question, index) {
+      return LETTERS[index] + '. ' + question.options[index];
+    }
+
+    // Keeps a promise visible to whenSettled() until it finishes (used by the verifier and never rejects).
+    function track(promise) {
+      pending.push(promise);
+      var done = function () {
+        var index = pending.indexOf(promise);
+        if (index !== -1) pending.splice(index, 1);
+      };
+      promise.then(done, done);
+      return promise;
+    }
+
+    function whenSettled() {
+      if (!pending.length) return Promise.resolve();
+      return Promise.all(pending.slice()).then(whenSettled);
+    }
+
+    function showView(name) {
+      state.view = name;
+      Object.keys(ui.views).forEach(function (key) {
+        ui.views[key].hidden = key !== name;
+      });
+      ui.historyPanel.hidden = !(name === 'landing' || name === 'results');
+      ui.keyboardHelp.hidden = !(name === 'quiz' || name === 'results');
+      // Lets the stylesheet compact the hero outside the landing view.
+      document.body.setAttribute('data-view', name);
+    }
+
+    // Difficulty accent for the page: theme-easy, theme-medium or theme-hard; null clears it.
+    function setTheme(mode) {
+      MODES.forEach(function (key) {
+        document.body.classList.toggle('theme-' + key, key === mode);
+      });
+    }
+
+    function hideValidation() {
+      ui.validation.textContent = '';
+      ui.validation.hidden = true;
+    }
+
+    function showValidation(message) {
+      setChildren(ui.validation, [iconNode('alert'), make('span', null, message)]);
+      ui.validation.hidden = false;
+      ui.validation.focus();
+      playCue('error');
+    }
+
+    function checkedCount(attempt) {
+      return attempt.responses.filter(function (response) { return response.checked; }).length;
+    }
+
+    function firstUncheckedIndex(attempt) {
+      for (var i = 0; i < attempt.responses.length; i++) {
+        if (!attempt.responses[i].checked) return i;
+      }
+      return -1;
+    }
+
+    function setPracticeNote(node, practice) {
+      if (practice) {
+        setChildren(node, [iconNode('dot'), make('span', null, PRACTICE_NOTE)]);
+      } else {
+        node.textContent = '';
+      }
+      node.hidden = !practice;
+    }
+
+    // ----- Sound -----
+
+    function playCue(cue) {
+      if (!state.soundEnabled || typeof state.soundPlayer !== 'function') return false;
+      try {
+        state.soundPlayer(cue);
+      } catch (error) {
+        // Audio is an enhancement only; a failing audio stack must never interrupt the quiz.
+      }
+      return true;
+    }
+
+    function setSoundEnabled(enabled) {
+      state.soundEnabled = Boolean(enabled);
+      ui.soundToggle.setAttribute('aria-pressed', String(state.soundEnabled));
+      ui.soundState.textContent = state.soundEnabled ? 'On' : 'Off';
+      return state.soundEnabled;
+    }
+
+    // ----- Start gate: a valid name and the study confirmation -----
+
+    function gateOpen() {
+      return state.available && state.studyConfirmed && state.nameValid;
+    }
+
+    function updateGate() {
+      var open = gateOpen();
+      MODES.forEach(function (mode) {
+        ui.modeButtons[mode].disabled = !open;
+      });
+      if (state.available) {
+        var missing = [];
+        if (!state.nameValid) missing.push('enter your name');
+        if (!state.studyConfirmed) missing.push('check the study confirmation');
+        ui.modeHint.textContent = open
+          ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.'
+          : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
+      }
+      return open;
+    }
+
+    function setStudyConfirmed(confirmed) {
+      state.studyConfirmed = Boolean(confirmed) && state.available;
+      ui.studyConfirm.checked = state.studyConfirmed;
+      updateGate();
+      return state.studyConfirmed;
+    }
+
+    function renderNameMessage(result, force) {
+      var show = !result.valid && (force || normalizeName(ui.nameInput.value) !== '');
+      ui.nameInput.setAttribute('aria-invalid', show ? 'true' : 'false');
+      if (show) {
+        setChildren(ui.nameMessage, [iconNode('alert'), make('span', null, result.message)]);
+        ui.nameMessage.hidden = false;
+      } else {
+        ui.nameMessage.textContent = '';
+        ui.nameMessage.hidden = true;
+      }
+    }
+
+    // Validates and stores the student's name; `showMessage` forces the message even for an empty field.
+    function setStudentName(raw, showMessage) {
+      if (!state.available) return false;
+      if (ui.nameInput.value !== String(raw)) ui.nameInput.value = String(raw);
+      var result = validateName(raw);
+      state.nameValid = result.valid;
+      state.studentName = result.name;
+      renderNameMessage(result, Boolean(showMessage));
+      updateGate();
+      if (state.history.status === 'ready') renderHistory();
+      return result.valid;
+    }
+
+    // ----- Quiz flow -----
+
+    function beginAttempt(attempt) {
+      state.attempt = attempt;
+      state.attempt.studentName = state.studentName;
+      state.results = null;
+      state.submission = null;
+      setTheme(attempt.mode);
+      showView('quiz');
+      renderQuestion();
+      ui.questionHeading.focus();
+      playCue('start');
+      return true;
+    }
+
+    function startQuiz(mode) {
+      if (!gateOpen() || MODES.indexOf(mode) === -1) return false;
+      return beginAttempt(createAttempt(mode, state.banks, state.random, loadProgress(mode)));
+    }
+
+    function missedQuestions(results) {
+      if (!results) return [];
+      return results.review.filter(function (entry) { return !entry.correct; }).map(function (entry) { return entry.question; });
+    }
+
+    // Starts a practice attempt with only the questions answered wrongly in the attempt just finished.
+    function retryMissed() {
+      if (state.view !== 'results' || !state.results || !gateOpen()) return false;
+      var missed = missedQuestions(state.results);
+      if (!missed.length) return false;
+      return beginAttempt(createPracticeAttempt(state.results.mode, missed, state.random));
+    }
+
+    function renderQuestion() {
+      var attempt = state.attempt;
+      var index = attempt.current;
+      var question = attempt.questions[index];
+      var response = attempt.responses[index];
+      var done = checkedCount(attempt);
+      var total = attempt.questions.length;
+
+      ui.quizHeading.textContent = attempt.practice
+        ? 'Practice: retrying missed questions (' + MODE_LABELS[attempt.mode] + ')'
+        : MODE_LABELS[attempt.mode] + ' examination';
+      setPracticeNote(ui.quizPracticeNote, attempt.practice);
+      var student = make('strong', null, attempt.studentName);
+      setChildren(ui.quizStudent, [textNode('Student: '), student]);
+      ui.quizProgress.setAttribute('max', String(total));
+      ui.quizProgress.setAttribute('value', String(done));
+      ui.quizStatus.textContent = 'Question ' + (index + 1) + ' of ' + total + '. ' + done + ' of ' + total + ' answers checked.';
+      ui.questionHeading.textContent = 'Question ' + (index + 1) + ' of ' + total;
+      ui.questionCategory.textContent = TEXT.topicNoun + ': ' + question.category;
+
+      var fieldset = make('fieldset', 'question-fieldset');
+      fieldset.id = 'question-fieldset';
+      var legend = make('legend', 'question-prompt', question.prompt);
+      legend.id = 'question-prompt';
+      fieldset.appendChild(legend);
+      ui.options = [];
+      ui.radios = question.options.map(function (option, optionIndex) {
+        var inputId = 'answer-option-' + optionIndex;
+        var label = make('label', 'option');
+        label.htmlFor = inputId;
+        var input = document.createElement('input');
+        input.type = 'radio';
+        input.name = 'answer';
+        input.id = inputId;
+        input.value = String(optionIndex);
+        input.checked = response.selected === optionIndex;
+        input.disabled = response.checked;
+        input.addEventListener('change', function () { selectAnswer(optionIndex); });
+        var letter = make('span', 'option-letter');
+        letter.append(make('span', null, LETTERS[optionIndex]), make('span', 'sr-only', '.'));
+        var body = make('span', 'option-body');
+        var tags = make('span', 'option-tags');
+        body.append(make('span', 'option-text', option), tags);
+        label.append(input, letter, textNode(' '), body);
+        fieldset.appendChild(label);
+        ui.options.push({ label: label, tags: tags });
+        return input;
+      });
+      setChildren(ui.questionArea, [fieldset]);
+      applyOptionStates(question, response);
+
+      hideValidation();
+      renderFeedback(question, response);
+
+      var allChecked = done === total;
+      ui.btnPrev.hidden = index === 0;
+      ui.btnCheck.hidden = response.checked;
+      ui.btnNext.hidden = !response.checked || index === total - 1;
+      ui.btnFinish.hidden = !allChecked;
+    }
+
+    // Unselected, selected, correct, incorrect and dimmed states, each with a text tag, never colour alone.
+    function applyOptionStates(question, response) {
+      ui.options.forEach(function (entry, index) {
+        var classes = ['option'];
+        var tags = [];
+        if (response.checked) {
+          classes.push('option-locked');
+          if (index === question.answer) {
+            classes.push('option-correct');
+            tags.push(tagNode('correct', 'check', 'Correct answer'));
+            if (index === response.selected) tags.push(tagNode('correct', 'check', 'Your answer'));
+          } else if (index === response.selected) {
+            classes.push('option-incorrect');
+            tags.push(tagNode('incorrect', 'cross', 'Your answer'));
+          } else {
+            classes.push('option-dimmed');
+          }
+        } else if (index === response.selected) {
+          classes.push('option-selected');
+          tags.push(tagNode('selected', 'check', 'Selected'));
+        }
+        entry.label.className = classes.join(' ');
+        setChildren(entry.tags, tags);
+      });
+    }
+
+    function answerLine(kind, label, question, index) {
+      var line = make('p', 'answer-line answer-line-' + kind + ' feedback-' + (label === 'Your answer:' ? 'selected' : 'answer'));
+      line.append(make('span', 'answer-label', label), textNode(' ' + optionText(question, index)));
+      return line;
+    }
+
+    function explanationBlock(question, className) {
+      var block = make('div', 'explanation ' + className);
+      block.append(
+        make('p', 'section-label', 'Explanation'),
+        make('p', 'explanation-text', question.explanation)
+      );
+      // The lesson reference line appears only for questions that carry sourceSlides.
+      if (SOURCE_REF && Array.isArray(question.sourceSlides) && question.sourceSlides.length) {
+        block.appendChild(make('p', 'source-ref', 'Lesson reference: ' + SOURCE_REF.label + ' ' + question.sourceSlides.join(', ')));
+      }
+      return block;
+    }
+
+    function renderFeedback(question, response) {
+      if (!response.checked) {
+        ui.feedback.className = 'feedback';
+        setChildren(ui.feedback, []);
+        ui.feedback.hidden = true;
+        return;
+      }
+      var correct = response.selected === question.answer;
+      ui.feedback.className = 'feedback ' + (correct ? 'feedback-correct' : 'feedback-incorrect');
+      var header = make('p', 'feedback-header feedback-verdict');
+      var mark = make('span', 'feedback-mark');
+      mark.appendChild(iconNode(correct ? 'check' : 'cross'));
+      header.append(mark, make('span', null, correct ? 'Correct.' : 'Incorrect.'));
+      var body = make('div', 'feedback-body');
+      if (correct) {
+        body.appendChild(answerLine('correct', 'Correct answer:', question, question.answer));
+      } else {
+        body.append(
+          answerLine('incorrect', 'Your answer:', question, response.selected),
+          answerLine('correct', 'Correct answer:', question, question.answer)
+        );
+      }
+      body.appendChild(explanationBlock(question, 'feedback-explanation'));
+      setChildren(ui.feedback, [header, body]);
+      ui.feedback.hidden = false;
+    }
+
+    function selectAnswer(index) {
+      var attempt = state.attempt;
+      if (state.view !== 'quiz' || !attempt) return false;
+      var question = attempt.questions[attempt.current];
+      var response = attempt.responses[attempt.current];
+      if (response.checked || !Number.isInteger(index) || index < 0 || index > 3) {
+        ui.radios.forEach(function (radio, radioIndex) { radio.checked = response.selected === radioIndex; });
+        return false;
+      }
+      response.selected = index;
+      ui.radios.forEach(function (radio, radioIndex) { radio.checked = radioIndex === index; });
+      applyOptionStates(question, response);
+      hideValidation();
+      playCue('select');
+      return true;
+    }
+
+    function checkAnswer() {
+      var attempt = state.attempt;
+      if (state.view !== 'quiz' || !attempt) return false;
+      var question = attempt.questions[attempt.current];
+      var response = attempt.responses[attempt.current];
+      if (response.checked) return false;
+      if (response.selected === null) {
+        showValidation('Select an answer before pressing Check answer.');
+        return false;
+      }
+      response.checked = true;
+      // Practice retries update the device-local progress too.
+      recordProgress(question, attempt.mode, response.selected === question.answer);
+      renderQuestion();
+      ui.feedback.focus();
+      playCue(response.selected === question.answer ? 'correct' : 'incorrect');
+      return true;
+    }
+
+    function goToQuestion(index) {
+      var attempt = state.attempt;
+      if (state.view !== 'quiz' || !attempt || !Number.isInteger(index)) return false;
+      if (index < 0 || index >= attempt.questions.length) return false;
+      var limit = firstUncheckedIndex(attempt);
+      if (limit !== -1 && index > limit) return false;
+      attempt.current = index;
+      renderQuestion();
+      ui.questionHeading.focus();
+      return true;
+    }
+
+    function finishQuiz() {
+      var attempt = state.attempt;
+      if (state.view !== 'quiz' || !attempt) return false;
+      if (firstUncheckedIndex(attempt) !== -1) {
+        showValidation('Check all ' + attempt.questions.length + ' answers before viewing results.');
+        return false;
+      }
+      state.results = computeResults(attempt);
+      state.results.studentName = attempt.studentName;
+      renderResults(state.results);
+      showView('results');
+      ui.resultsHeading.focus();
+      playCue(finishCue(state.results.band.name));
+      if (attempt.practice) {
+        // Practice retries never reach the class history or the item analysis.
+        state.submission = { payload: null, status: 'practice' };
+        renderSaveStatus();
+      } else {
+        submitAttempt(buildSubmission(state.results));
+      }
+      return true;
+    }
+
+    function retakeQuiz() {
+      var mode = state.attempt ? state.attempt.mode : null;
+      if (!mode) return false;
+      return startQuiz(mode);
+    }
+
+    // The landing view's "Reset my progress on this device" link.
+    function resetDeviceProgress() {
+      var done = resetProgress();
+      ui.resetProgressStatus.textContent = done
+        ? 'Your progress on this device was reset. Every question counts as new again.'
+        : 'This browser does not allow saving progress, so there is nothing to reset.';
+      return done;
+    }
+
+    function resetToDifficulty() {
+      if (!state.available) return false;
+      state.attempt = null;
+      state.results = null;
+      state.submission = null;
+      setTheme(null);
+      showView('landing');
+      setStudyConfirmed(state.studyConfirmed);
+      ui.difficultyHeading.focus();
+      if (ENDPOINT) loadHistory(state.history.filter);
+      return true;
+    }
+
+    // ----- Keyboard shortcuts -----
+    // One document-level keydown listener, registered once in init(). It only acts in the quiz and
+    // results views, leaves typing, modified keys and key repeats (except → and ↑ / ↓) alone, and calls
+    // preventDefault only for keys it handles. Every shortcut goes through the same functions as the buttons, so
+    // validation, focus, live-region announcements and sound cues match clicking exactly.
+
+    var OPTION_KEYS = { a: 0, b: 1, c: 2, d: 3, '1': 0, '2': 1, '3': 2, '4': 3 };
+    // Arrow keys: → chooses the next answer, ← goes to the previous question, ↑ / ↓ only scroll the page.
+    var ARROW_KEYS = ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'];
+    // Held keys that may auto-repeat: → keeps cycling, ↑ / ↓ keep scrolling. All others (← included) act once per press.
+    var REPEATABLE_KEYS = ['ArrowRight', 'ArrowUp', 'ArrowDown'];
+    var ARROW_SCROLL_PX = 80;
+    // Enter on these is a native activation (click or toggle); handling it too would act twice.
+    var NATIVE_ENTER_TAGS = ['BUTTON', 'A', 'SUMMARY'];
+    var NON_TEXT_INPUTS = ['radio', 'checkbox', 'button', 'submit', 'reset', 'image', 'range', 'color', 'file'];
+
+    function isTypingTarget(target) {
+      if (!target || target.nodeType !== 1) return false;
+      if (target.isContentEditable) return true;
+      var tag = String(target.tagName).toUpperCase();
+      if (tag === 'TEXTAREA' || tag === 'SELECT') return true;
+      return tag === 'INPUT' && NON_TEXT_INPUTS.indexOf(String(target.type).toLowerCase()) === -1;
+    }
+
+    function tagOf(target) {
+      return target && target.nodeType === 1 ? String(target.tagName).toUpperCase() : '';
+    }
+
+    function isRadio(target) {
+      return tagOf(target) === 'INPUT' && String(target.type).toLowerCase() === 'radio';
+    }
+
+    // ↑ / ↓ on a focused answer: the browser would move the radio selection, so the page scrolls itself instead.
+    function scrollPageBy(direction) {
+      if (typeof window === 'undefined' || typeof window.scrollBy !== 'function') return;
+      var reduceMotion = typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollBy({ top: direction * ARROW_SCROLL_PX, left: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+    }
+
+    function toggleShortcutHelp() {
+      ui.keyboardHelp.open = !ui.keyboardHelp.open;
+      if (ui.keyboardHelp.open && typeof ui.keyboardHelp.scrollIntoView === 'function') {
+        ui.keyboardHelp.scrollIntoView({ block: 'nearest' });
+      }
+      return ui.keyboardHelp.open;
+    }
+
+    // Returns true when the key was handled.
+    function quizShortcut(key, target) {
+      var attempt = state.attempt;
+      if (!attempt) return false;
+      var question = attempt.questions[attempt.current];
+      var response = attempt.responses[attempt.current];
+      if (Object.prototype.hasOwnProperty.call(OPTION_KEYS, key)) {
+        var index = OPTION_KEYS[key];
+        if (response.checked || index >= question.options.length || !ui.radios[index]) return false;
+        // Re-choosing the selected answer changes nothing, exactly like clicking a checked radio.
+        if (response.selected !== index) selectAnswer(index);
+        ui.radios[index].focus();
+        return true;
+      }
+      if (key === 'Enter') {
+        if (NATIVE_ENTER_TAGS.indexOf(tagOf(target)) !== -1) return false;
+        if (!response.checked) {
+          checkAnswer();
+        } else if (attempt.current < attempt.questions.length - 1) {
+          goToQuestion(attempt.current + 1);
+        } else {
+          finishQuiz();
+        }
+        return true;
+      }
+      if (key === 'ArrowRight') {
+        // → only chooses: the next answer, A, B, C, D, then back to A (nothing chosen yet: A). It never checks and
+        // does nothing once the answer is checked. handleKeydown's preventDefault stops the browser's own
+        // radio-group arrow move, so each press changes the selection exactly once.
+        if (response.checked) return false;
+        var count = Math.min(question.options.length, ui.radios.length);
+        if (!count) return false;
+        var next = response.selected === null ? 0 : (response.selected + 1) % count;
+        selectAnswer(next);
+        ui.radios[next].focus();
+        return true;
+      }
+      // ← (like P and Page Up) goes to the previous question, checked or not; it never wraps or changes an answer.
+      if (key === 'ArrowLeft' || key === 'p' || key === 'PageUp') return goToQuestion(attempt.current - 1);
+      if (key === 'n' || key === 'PageDown') return goToQuestion(attempt.current + 1);
+      // ↑ / ↓ just scroll. Off a radio the browser does that itself; on a focused answer it would change the
+      // selection instead, so scroll by hand (and handleKeydown cancels the native move).
+      if (key === 'ArrowUp' || key === 'ArrowDown') {
+        if (!isRadio(target)) return false;
+        scrollPageBy(key === 'ArrowDown' ? 1 : -1);
+        return true;
+      }
+      return false;
+    }
+
+    function resultsShortcut(key) {
+      if (key === 'r') return retakeQuiz();
+      if (key === 'c') return resetToDifficulty();
+      if (key === 'm') return retryMissed();
+      return false;
+    }
+
+    function handleKeydown(event) {
+      if (!event || event.defaultPrevented || event.isComposing) return;
+      if (event.ctrlKey || event.altKey || event.metaKey) return;
+      if (state.view !== 'quiz' && state.view !== 'results') return;
+      if (isTypingTarget(event.target)) return;
+      var key = typeof event.key === 'string' ? event.key : '';
+      if (key.length === 1) key = key.toLowerCase();
+      // Arrow keys on a focused answer never get the browser's radio-group move: they must not change the answer.
+      var guardRadio = state.view === 'quiz' && ARROW_KEYS.indexOf(key) !== -1 && isRadio(event.target);
+      if (event.repeat && REPEATABLE_KEYS.indexOf(key) === -1) {
+        if (guardRadio) event.preventDefault();
+        return;
+      }
+      var handled = false;
+      if (key === '?' || key === 'h') {
+        toggleShortcutHelp();
+        handled = true;
+      } else if (key === 's') {
+        setSoundEnabled(!state.soundEnabled);
+        handled = true;
+      } else if (state.view === 'quiz') {
+        handled = quizShortcut(key, event.target);
+      } else {
+        handled = resultsShortcut(key);
+      }
+      if (handled || guardRadio) event.preventDefault();
+    }
+
+    // ----- Results -----
+
+    function bandClass(name) {
+      return 'band-' + String(name).toLowerCase().replace(/[^a-z]+/g, '-');
+    }
+
+    function renderResults(results) {
+      ui.resultsHeading.textContent = results.practice
+        ? 'Practice results (' + MODE_LABELS[results.mode] + ')'
+        : MODE_LABELS[results.mode] + ' examination results';
+      setPracticeNote(ui.resultsPracticeNote, results.practice);
+
+      var card = make('div', 'score-card ' + bandClass(results.band.name));
+      var figure = make('p', 'score-figure results-score');
+      figure.append(make('span', 'score-percent', results.percentage + '%'), make('span', 'score-count', results.score + ' of ' + results.total + ' correct'));
+      var meta = make('div', 'score-meta');
+      var student = make('p', 'results-student');
+      student.append(make('span', 'meta-label', 'Student'), make('span', 'meta-value', results.studentName));
+      var mode = make('p', 'results-mode');
+      mode.append(make('span', 'meta-label', 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode] + (results.practice ? ' · practice retry' : '')));
+      var bandLabel = make('p', 'meta-label', 'Mastery band');
+      var band = make('p', 'band-badge results-band');
+      band.append(iconNode(results.percentage >= STRENGTH_THRESHOLD ? 'check' : 'alert'), make('span', null, results.band.name));
+      meta.append(student, mode, bandLabel, band, make('p', 'band-description', results.band.description));
+      card.append(figure, meta);
+      setChildren(ui.resultsSummary, [card]);
+
+      var missed = missedQuestions(results).length;
+      ui.btnRetryMissed.textContent = missed === 1 ? 'Retry the 1 question I missed' : 'Retry the ' + missed + ' questions I missed';
+      ui.btnRetryMissed.hidden = missed === 0;
+      ui.hintRetryMissed.hidden = missed === 0;
+
+      var rows = results.categories.map(function (entry) {
+        var strength = entry.status === 'Strength';
+        var row = document.createElement('tr');
+        var name = make('th', null, entry.category);
+        name.setAttribute('scope', 'row');
+        var count = make('td', 'topic-count');
+        var bar = make('span', 'bar');
+        bar.setAttribute('aria-hidden', 'true');
+        var fill = make('span', 'bar-fill ' + (strength ? 'bar-strength' : 'bar-gap'));
+        fill.setAttribute('style', 'width: ' + entry.percentage + '%');
+        bar.appendChild(fill);
+        count.append(make('span', null, entry.correct + ' of ' + entry.total + ' (' + entry.percentage + '%)'), bar);
+        var status = make('td', 'topic-status');
+        status.appendChild(tagNode(strength ? 'strength' : 'gap', strength ? 'check' : 'alert', entry.status));
+        row.append(name, count, status);
+        return row;
+      });
+      setChildren(ui.resultsCategories, rows);
+
+      renderTopicList(ui.resultsStrengths, results.categories.filter(function (entry) { return entry.status === 'Strength'; }), TEXT.strengthsEmpty);
+      renderTopicList(ui.resultsGaps, results.categories.filter(function (entry) { return entry.status === 'Gap'; }), TEXT.gapsEmpty);
+
+      var items = results.review.map(function (entry) {
+        var question = entry.question;
+        var item = make('li', 'review-item ' + (entry.correct ? 'review-correct' : 'review-incorrect'));
+        var head = make('h4', 'review-head');
+        head.append(
+          make('span', null, 'Question ' + entry.number),
+          make('span', 'sr-only', ': '),
+          tagNode(entry.correct ? 'correct' : 'incorrect', entry.correct ? 'check' : 'cross', entry.correct ? 'Correct' : 'Incorrect')
+        );
+        item.append(
+          head,
+          make('p', 'review-topic', TEXT.topicNoun + ': ' + question.category),
+          make('p', 'review-prompt', question.prompt),
+          answerLine(entry.correct ? 'correct' : 'incorrect', 'Your answer:', question, entry.selected),
+          answerLine('correct', 'Correct answer:', question, question.answer),
+          explanationBlock(question, 'review-explanation')
+        );
+        return item;
+      });
+      setChildren(ui.resultsReview, items);
+    }
+
+    function renderTopicList(list, entries, emptyText) {
+      if (!entries.length) {
+        setChildren(list, [make('li', 'topic-empty', emptyText)]);
+        return;
+      }
+      setChildren(list, entries.map(function (entry) {
+        return make('li', null, entry.category + ': ' + entry.correct + ' of ' + entry.total + ' correct');
+      }));
+    }
+
+    // ----- Class history (network) -----
+
+    // The single network call in the app. It only ever contacts HISTORY_ENDPOINT, and it
+    // resolves with the parsed {ok: true, ...} body or rejects on any HTTP, JSON or {ok: false} failure.
+    function historyRequest(url, init) {
+      if (!ENDPOINT || url.indexOf(ENDPOINT) !== 0) return Promise.reject(new Error('Class history is not configured.'));
+      if (typeof window.fetch !== 'function') return Promise.reject(new Error('This browser cannot reach the class history.'));
+      return window.fetch(url, init).then(function (response) {
+        if (!response || !response.ok) throw new Error('The class history returned an error.');
+        return response.json();
+      }).then(function (body) {
+        if (!body || body.ok !== true) throw new Error('The class history rejected the request.');
+        return body;
+      });
+    }
+
+    // One record per finished (non-practice) attempt. `asked` and `missed` carry stable question ids only;
+    // the answers chosen are never part of the payload.
+    function buildSubmission(results) {
+      return {
+        name: results.studentName,
+        lesson: HISTORY_LESSON,
+        mode: results.mode,
+        score: results.score,
+        total: results.total,
+        percent: results.percentage,
+        band: results.band.name,
+        finishedAt: new Date().toISOString(),
+        asked: results.review.map(function (entry) { return itemId(entry.question, results.mode); }),
+        missed: results.review.filter(function (entry) { return !entry.correct; }).map(function (entry) { return itemId(entry.question, results.mode); })
+      };
+    }
+
+    // Saves one finished attempt. Failure only changes the small notice; results are already on screen.
+    function submitAttempt(payload) {
+      var submission = { payload: payload, status: ENDPOINT ? 'saving' : 'not-configured' };
+      state.submission = submission;
+      renderSaveStatus();
+      if (!ENDPOINT) return Promise.resolve(false);
+      return track(historyRequest(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      }).then(function () {
+        if (state.submission !== submission) return false;
+        submission.status = 'saved';
+        renderSaveStatus();
+        loadHistory(state.history.filter);
+        return true;
+      }, function () {
+        if (state.submission !== submission) return false;
+        submission.status = 'failed';
+        renderSaveStatus();
+        return false;
+      }));
+    }
+
+    function retrySubmission() {
+      if (!state.submission || state.submission.status !== 'failed') return Promise.resolve(false);
+      return submitAttempt(state.submission.payload);
+    }
+
+    function renderSaveStatus() {
+      var submission = state.submission;
+      var status = submission ? submission.status : 'none';
+      var copy = {
+        none: null,
+        saving: ['dot', 'Saving your score to the class history…'],
+        saved: ['check', 'Saved to the class history.'],
+        failed: ['alert', 'Could not save to class history. Your results below are unaffected.'],
+        'not-configured': ['dot', 'Class history is not set up, so this score was not saved to a class list.'],
+        practice: ['dot', 'Practice attempts are not saved to the class history.']
+      }[status];
+      ui.saveBox.className = 'history-save save-' + status;
+      setChildren(ui.saveMessage, copy ? [iconNode(copy[0]), make('span', null, copy[1])] : []);
+      ui.saveBox.hidden = !copy;
+      ui.btnSaveRetry.hidden = status !== 'failed';
+    }
+
+    function historyUrl(filter) {
+      return ENDPOINT + (ENDPOINT.indexOf('?') === -1 ? '?' : '&') + 'lesson=' + encodeURIComponent(HISTORY_LESSON) + '&mode=' + encodeURIComponent(filter) + '&limit=' + HISTORY_LIMIT;
+    }
+
+    function toInteger(value) {
+      if (value === null || value === undefined || value === '') return null;
+      var number = Number(value);
+      return Number.isFinite(number) ? Math.round(number) : null;
+    }
+
+    // Treats every remote field as untrusted: coerced to plain strings or numbers, clipped and validated.
+    function cleanHistoryRow(row) {
+      if (!row || typeof row !== 'object') return null;
+      var mode = String(row.mode === null || row.mode === undefined ? '' : row.mode).trim().toLowerCase();
+      if (MODES.indexOf(mode) === -1) return null;
+      var name = Array.from(normalizeName(row.name)).slice(0, 60).join('');
+      if (!name) return null;
+      var finishedAt = String(row.finishedAt === null || row.finishedAt === undefined ? '' : row.finishedAt);
+      var time = Date.parse(finishedAt);
+      return {
+        name: name,
+        mode: mode,
+        score: toInteger(row.score),
+        total: toInteger(row.total),
+        percent: toInteger(row.percent),
+        band: normalizeName(row.band).slice(0, 40),
+        finishedAt: finishedAt,
+        time: isNaN(time) ? null : time
+      };
+    }
+
+    function loadHistory(filter) {
+      if (HISTORY_FILTERS.indexOf(filter) === -1) filter = state.history.filter;
+      var history = state.history;
+      history.filter = filter;
+      if (!ENDPOINT) {
+        history.status = 'not-configured';
+        history.rows = [];
+        renderHistory();
+        return Promise.resolve(false);
+      }
+      var request = ++history.request;
+      history.status = 'loading';
+      renderHistory();
+      return track(historyRequest(historyUrl(filter), { method: 'GET', cache: 'no-store' }).then(function (body) {
+        if (request !== history.request) return false;
+        var rows = Array.isArray(body.rows) ? body.rows : [];
+        history.rows = rows.map(cleanHistoryRow).filter(function (row) {
+          return row && (filter === 'all' || row.mode === filter);
+        }).map(function (row, index) {
+          row.order = index;
+          return row;
+        }).sort(function (a, b) {
+          // Newest first; rows without a readable date keep the sheet's order after dated rows.
+          if (a.time !== null && b.time !== null && a.time !== b.time) return b.time - a.time;
+          if (a.time === null && b.time !== null) return 1;
+          if (b.time === null && a.time !== null) return -1;
+          return a.order - b.order;
+        }).slice(0, HISTORY_LIMIT);
+        history.status = history.rows.length ? 'ready' : 'empty';
+        renderHistory();
+        return true;
+      }, function () {
+        if (request !== history.request) return false;
+        history.status = 'error';
+        history.rows = [];
+        renderHistory();
+        return false;
+      }));
+    }
+
+    function isCurrentStudent(name) {
+      return Boolean(state.studentName) && name.toLowerCase() === state.studentName.toLowerCase();
+    }
+
+    function pad(number) { return (number < 10 ? '0' : '') + number; }
+
+    function formatDate(time) {
+      var date = new Date(time);
+      return date.getFullYear() + '-' + pad(date.getMonth() + 1) + '-' + pad(date.getDate()) + ' ' + pad(date.getHours()) + ':' + pad(date.getMinutes());
+    }
+
+    function historyCell(label, content, className) {
+      var cell = make('td', className);
+      cell.setAttribute('data-label', label);
+      if (typeof content === 'string') cell.textContent = content;
+      else cell.appendChild(content);
+      return cell;
+    }
+
+    function historyRowNode(row) {
+      var self = isCurrentStudent(row.name);
+      var tr = make('tr', 'history-row' + (self ? ' history-row-self' : ''));
+      var name = make('span', 'history-name');
+      name.appendChild(make('span', 'history-name-text', row.name));
+      if (self) name.append(textNode(' '), tagNode('you', null, 'You'));
+      var date;
+      if (row.time === null) {
+        date = make('span', null, 'Unknown');
+      } else {
+        date = make('time', null, formatDate(row.time));
+        date.setAttribute('datetime', new Date(row.time).toISOString());
+      }
+      tr.append(
+        historyCell('Name', name, 'history-name-cell'),
+        historyCell('Mode', MODE_LABELS[row.mode]),
+        historyCell('Score', row.score !== null && row.total !== null ? row.score + '/' + row.total : '—'),
+        historyCell('%', row.percent !== null ? row.percent + '%' : '—'),
+        historyCell('Band', row.band || '—'),
+        historyCell('Date', date)
+      );
+      return tr;
+    }
+
+    function renderHistory() {
+      var history = state.history;
+      HISTORY_FILTERS.forEach(function (filter) {
+        ui.historyFilters[filter].setAttribute('aria-pressed', String(filter === history.filter));
+        ui.historyFilters[filter].disabled = !ENDPOINT;
+      });
+      ui.historyRefresh.disabled = !ENDPOINT;
+      var scope = history.filter === 'all' ? '' : ' ' + MODE_LABELS[history.filter];
+      var copy = {
+        idle: ['dot', ''],
+        'not-configured': ['alert', 'Class history is not set up yet, so scores are not being collected. Instructors: follow apps-script/SETUP.md in the quiz repository to connect a Google Sheet, then set HISTORY_ENDPOINT.'],
+        loading: ['dot', 'Loading class history…'],
+        empty: ['dot', 'No' + scope + ' attempts have been recorded yet.'],
+        error: ['alert', 'Could not load the class history. Check your connection, then select Refresh to try again.'],
+        ready: [null, 'Showing the ' + history.rows.length + ' most recent' + scope + ' attempts, newest first.']
+      }[history.status];
+      ui.historyStatus.className = 'history-status status-' + history.status;
+      setChildren(ui.historyStatus, (copy[0] ? [iconNode(copy[0])] : []).concat([make('span', null, copy[1])]));
+      ui.historyTableWrap.hidden = history.status !== 'ready';
+      ui.historyTableWrap.setAttribute('aria-busy', String(history.status === 'loading'));
+      setChildren(ui.historyBody, history.status === 'ready' ? history.rows.map(historyRowNode) : []);
+    }
+
+    function showHistory() {
+      if (ui.historyPanel.hidden) return false;
+      ui.historyHeading.focus();
+      if (ENDPOINT) loadHistory(state.history.filter);
+      return true;
+    }
+
+    // ----- Startup -----
+
+    function readBanks() {
+      var banks = {};
+      var errors = [];
+      MODES.forEach(function (mode) {
+        var element = byId('questions-' + mode);
+        if (!element) {
+          errors.push(mode + ' bank data is missing');
+          return;
+        }
+        try {
+          banks[mode] = JSON.parse(element.textContent);
+        } catch (error) {
+          errors.push(mode + ' bank data is not valid JSON');
+        }
+      });
+      return { banks: banks, errors: errors };
+    }
+
+    function init() {
+      var loaded = readBanks();
+      var validation = CONFIG ? validateBanks(loaded.banks) : { errors: ['quiz configuration is missing or invalid'] };
+      state.errors = loaded.errors.concat(validation.errors);
+      state.available = state.errors.length === 0;
+
+      ui.soundToggle.addEventListener('click', function () { setSoundEnabled(!state.soundEnabled); });
+      setSoundEnabled(true);
+
+      if (!state.available) {
+        state.banks = null;
+        ui.studyConfirm.checked = false;
+        ui.studyConfirm.disabled = true;
+        ui.nameInput.disabled = true;
+        MODES.forEach(function (mode) { ui.modeButtons[mode].disabled = true; });
+        showView('unavailable');
+        ui.unavailableHeading.focus();
+        console.error(QUIZ_TITLE + ' is unavailable: ' + state.errors.join('; '));
+        return;
+      }
+
+      state.banks = deepFreeze(loaded.banks);
+      ui.nameInput.addEventListener('input', function () { setStudentName(ui.nameInput.value, false); });
+      ui.nameInput.addEventListener('change', function () { setStudentName(ui.nameInput.value, true); });
+      ui.nameInput.addEventListener('blur', function () { setStudentName(ui.nameInput.value, true); });
+      ui.studyConfirm.addEventListener('change', function () { setStudyConfirmed(ui.studyConfirm.checked); });
+      MODES.forEach(function (mode) {
+        ui.modeButtons[mode].addEventListener('click', function () { startQuiz(mode); });
+      });
+      ui.btnCheck.addEventListener('click', checkAnswer);
+      ui.btnPrev.addEventListener('click', function () { if (state.attempt) goToQuestion(state.attempt.current - 1); });
+      ui.btnNext.addEventListener('click', function () { if (state.attempt) goToQuestion(state.attempt.current + 1); });
+      ui.btnFinish.addEventListener('click', finishQuiz);
+      ui.btnRetryMissed.addEventListener('click', retryMissed);
+      ui.btnResetProgress.addEventListener('click', resetDeviceProgress);
+      ui.deviceProgress.hidden = !deviceStorage();
+      ui.btnPrint.addEventListener('click', function () { window.print(); });
+      ui.btnRetake.addEventListener('click', retakeQuiz);
+      ui.btnChoose.addEventListener('click', resetToDifficulty);
+      ui.btnHistory.addEventListener('click', showHistory);
+      ui.btnSaveRetry.addEventListener('click', retrySubmission);
+      ui.historyRefresh.addEventListener('click', function () { loadHistory(state.history.filter); });
+      HISTORY_FILTERS.forEach(function (filter) {
+        ui.historyFilters[filter].addEventListener('click', function () { loadHistory(filter); });
+      });
+      document.addEventListener('keydown', handleKeydown);
+
+      showView('landing');
+      setStudentName(ui.nameInput.value, false);
+      setStudyConfirmed(false);
+      renderSaveStatus();
+      loadHistory('all');
+    }
+
+    function getState() {
+      return JSON.parse(JSON.stringify({
+        available: state.available,
+        errors: state.errors,
+        studyConfirmed: state.studyConfirmed,
+        studentName: state.studentName,
+        nameValid: state.nameValid,
+        view: state.view,
+        attempt: state.attempt,
+        results: state.results,
+        submission: state.submission,
+        history: { filter: state.history.filter, status: state.history.status, rows: state.history.rows },
+        historyConfigured: Boolean(ENDPOINT),
+        soundEnabled: state.soundEnabled
+      }));
+    }
+
+    init();
+
+    globalThis.__quiz = Object.freeze({
+      lessonKey: HISTORY_LESSON,
+      validateBanks: validateBanks,
+      shuffleQuestions: shuffleQuestions,
+      sampleQuestions: sampleQuestions,
+      poolQuotas: function () { return POOL_QUOTAS.slice(); },
+      createAttempt: createAttempt,
+      createPracticeAttempt: createPracticeAttempt,
+      prioritize: prioritize,
+      loadProgress: loadProgress,
+      resetProgress: resetDeviceProgress,
+      itemId: itemId,
+      computeResults: computeResults,
+      masteryBand: masteryBand,
+      validateName: validateName,
+      setStudentName: setStudentName,
+      setStudyConfirmed: setStudyConfirmed,
+      startQuiz: startQuiz,
+      selectAnswer: selectAnswer,
+      checkAnswer: checkAnswer,
+      goToQuestion: goToQuestion,
+      finishQuiz: finishQuiz,
+      retakeQuiz: retakeQuiz,
+      retryMissed: retryMissed,
+      resetToDifficulty: resetToDifficulty,
+      loadHistory: loadHistory,
+      retrySubmission: retrySubmission,
+      whenSettled: whenSettled,
+      setSoundEnabled: setSoundEnabled,
+      // Replaces the Web Audio player (tests inject a recorder); null restores the default player.
+      setSoundPlayer: function (player) { state.soundPlayer = typeof player === 'function' ? player : defaultSoundPlayer; },
+      getState: getState,
+      getBanks: function () { return state.banks; },
+      setRandom: function (random) { state.random = typeof random === 'function' ? random : Math.random; }
+    });
+  })();
+  </script>
+</body>
+</html>

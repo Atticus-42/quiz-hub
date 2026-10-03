@@ -1,0 +1,55 @@
+/* Artwork parts. Rest states are the static artwork shown with reduced motion. */
+#command-post { color: var(--mode-glow); }
+#radar-sweep { opacity: 0; transform-box: fill-box; transform-origin: 0% 50%; }
+#data-packet { opacity: 0; transform: translate(222px, 96px); }
+#radar-dish { transform-box: fill-box; transform-origin: 50% 100%; }
+#signal-waves .wave { opacity: 0; transform-box: fill-box; transform-origin: center; }
+#command-post .cp-pulse { opacity: 0; transform-box: fill-box; transform-origin: center; }
+
+/* One collection cycle (4 seconds) plays when the art appears; nothing loops, so no pause control is needed. */
+#radar-dish { animation: dish-scan 4s ease-out 1 both; }
+#radar-sweep { animation: radar-sweep 4s ease-out 1 both; }
+#data-packet { animation: data-flow 4s linear 1 both; }
+#signal-waves .wave { animation: wave-out 4s ease-out 1 both; }
+#signal-waves .wave:nth-child(2) { animation-delay: 0.12s; }
+#signal-waves .wave:nth-child(3) { animation-delay: 0.24s; }
+#command-post .cp-pulse { animation: cp-pulse 4s ease-out 1 both; }
+
+@keyframes dish-scan {
+  0%, 10% { transform: rotate(0deg); }
+  30% { transform: rotate(-18deg); }
+  60% { transform: rotate(18deg); }
+  80%, 100% { transform: rotate(0deg); }
+}
+@keyframes radar-sweep {
+  0%, 15% { opacity: 0; transform: scale(0.3); }
+  16.5% { opacity: 1; transform: scale(1); }
+  22%, 100% { opacity: 0; transform: scale(1.2); }
+}
+@keyframes wave-out {
+  0%, 16% { opacity: 0; transform: translate(0, 0) scale(0.4); }
+  21% { opacity: 0.85; transform: translate(4px, -4px) scale(0.9); }
+  70%, 100% { opacity: 0; transform: translate(30px, -34px) scale(2.2); }
+}
+@keyframes data-flow {
+  0%, 15.9% { opacity: 0; transform: translate(222px, 96px); }
+  16% { opacity: 1; transform: translate(222px, 96px); }
+  56% { opacity: 1; transform: translate(392px, 158px); }
+  57%, 100% { opacity: 0; transform: translate(392px, 158px); }
+}
+@keyframes cp-pulse {
+  0%, 56% { opacity: 0; transform: scale(0.3); }
+  58% { opacity: 1; transform: scale(0.6); }
+  85%, 100% { opacity: 0; transform: scale(2.6); }
+}
+
+/* Reduced motion: the artwork rests in its static pose. */
+@media (prefers-reduced-motion: reduce) {
+  #radar-dish, #radar-sweep, #data-packet, #signal-waves .wave, #signal-waves .wave:nth-child(2), #signal-waves .wave:nth-child(3), #command-post .cp-pulse {
+    animation: none !important;
+    transition: none !important;
+  }
+  #radar-sweep, #signal-waves .wave { opacity: 0; }
+  #data-packet { opacity: 1; transform: translate(307px, 127px); }
+  #command-post .cp-pulse { opacity: 0.6; transform: none; }
+}
