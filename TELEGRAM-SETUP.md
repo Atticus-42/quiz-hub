@@ -17,12 +17,13 @@ For a private group's chat ID, add the bot and send a command addressed to it in
 
 - Tomorrow's date is calculated in Asia/Manila.
 - Every activity includes time, instructor, venue and uniform when provided, plus a direct link to that selected day.
+- Uses Telegram's current Rich Messages API: a native heading, dividers, bold times/activity titles and uniforms, and an italic footer. All activities stay visible in chronological order; no emojis, spoilers or collapsed sections. Full Schedule and Practice Quizzes buttons appear below the last part.
 - It reads `data/schedule.json` checked out from `main`, so future updates use the same data as the website.
 - If tomorrow is missing, it sends a short notice that the schedule has not been uploaded. It never silently sends an old week's activities.
-- Long schedules are divided into Telegram-sized messages. Saved state prevents ordinary same-day reruns from duplicating posts, including already successful parts of a split message. This protection depends on GitHub's cache being retained; it is not an exactly-once delivery guarantee.
+- Long schedules are divided between complete entries into rich messages (below Telegram's 32768-character limit). An individual oversized entry fails safely instead of truncating it. Saved state prevents ordinary same-day reruns from duplicating posts, including already successful parts of a split message. This protection depends on GitHub's cache being retained; it is not an exactly-once delivery guarantee.
 - Credentials and the group ID stay in repository secrets. The sender only logs the date and delivery result. Public workflow previews contain only the already-public timetable.
 
-Local preview: `node scripts/telegram-schedule.mjs --preview`
+Local preview: `node scripts/telegram-schedule.mjs --preview` (prints the rich HTML payload, without sending).
 
 Tests: `node --test scripts/test/telegram-schedule.test.mjs`
 
