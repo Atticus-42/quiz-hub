@@ -149,13 +149,13 @@ export async function scheduleSuite({ lessons }) {
     assert.deepEqual(nav.map(link => link.getAttribute('href')), data.days.map(day => `#day-${day.date}`));
   });
 
-  await T('layout: day columns on desktop, stacked days with a sticky day heading on phones, one landscape page in print, no external links', () => {
+  await T('layout: one selected day on screen, all days in landscape print, no external links', () => {
     const css = html.match(/<style>([\s\S]*?)<\/style>/)[1];
-    assert.match(css, /@media \(min-width: 1280px\) \{\s*\.week \{ grid-template-columns: repeat\(7, minmax\(0, 1fr\)\);/);
     assert.match(css, /\.week \{ display: grid; grid-template-columns: minmax\(0, 1fr\);/, 'one column by default (phones)');
     assert.match(css, /\.day-head \{\s*position: sticky; top: 0;/);
     assert.match(css, /@page \{ size: A4 landscape; margin: 7mm; \}/);
     assert.match(css, /@media print \{[\s\S]*\.week \{ grid-template-columns: repeat\(7, minmax\(0, 1fr\)\);/);
+    assert.match(css, /@media print \{[\s\S]*\.day\[hidden\] \{ display: block !important; \}/);
     assert.match(css, /@media print \{[\s\S]*\.now-next, \.week-nav, \.legend, \.blk-quiz/);
     assert.match(css, /\.blk, \.blk\.is-now \{[^}]*break-inside: avoid;/, 'a block never splits across columns or pages');
     const hrefs = [...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]);
@@ -163,6 +163,26 @@ export async function scheduleSuite({ lessons }) {
     assert.doesNotMatch(html, /https?:\/\//);
     const code = appScripts(parseHtml(html)).map(script => script.textContent).join('\n');
     assert.doesNotMatch(code, /innerHTML|outerHTML|insertAdjacentHTML|document\.write|fetch\(|XMLHttpRequest|localStorage|sendBeacon/);
+  });
+
+  await T('day picker: today or Monday opens alone; clicking another day replaces it; Go to today restores today', () => {
+    const page = load('2026-10-07T08:15');
+    const doc = page.document;
+    const visible = () => data.days.filter(day => !doc.getElementById(`day-${day.date}`).hidden).map(day => day.date);
+    const nav = findAll(doc.root, node => node.localName === 'a' && node.getAttribute('data-date'));
+    assert.deepEqual(visible(), ['2026-10-07']);
+    nav[4].click();
+    assert.deepEqual(visible(), ['2026-10-09']);
+    assert.equal(nav[4].getAttribute('aria-expanded'), 'true');
+    assert.equal(nav[2].getAttribute('aria-expanded'), 'false');
+    page.window.__schedule.update(new Date('2026-10-07T09:00'));
+    assert.deepEqual(visible(), ['2026-10-09'], 'clock refresh keeps the chosen day');
+    doc.getElementById('nn-jump').click();
+    assert.deepEqual(visible(), ['2026-10-07']);
+    const before = load('2026-10-04T12:00').document;
+    assert.deepEqual(data.days.filter(day => !before.getElementById(`day-${day.date}`).hidden).map(day => day.date), ['2026-10-05']);
+    const deep = load('2026-10-05T12:00', { location: { hash: '#day-2026-10-10' } }).document;
+    assert.deepEqual(data.days.filter(day => !deep.getElementById(`day-${day.date}`).hidden).map(day => day.date), ['2026-10-10']);
   });
 
   await T('today: Monday 13:10 highlights Monday, marks the two 1300 blocks as Now and Sports Activities as Next', () => {

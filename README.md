@@ -17,7 +17,7 @@ The whole site is published from this repository with GitHub Pages at https://at
 
 - **Instructor view** (`/quiz-hub/instructor/`): question analysis.
 - **Our class** (`/quiz-hub/class/`): class organization and roster.
-- **Weekly training schedule** (`/quiz-hub/schedule/`): this week's timetable, with today highlighted and a Now / Next panel; linked from the hub header and the class page.
+- **Weekly training schedule** (`/quiz-hub/schedule/`): click a day to show its timetable; today opens automatically within the week, with a Now / Next panel. Printing includes every day. Linked from the hub header and class page.
 
 The old per-lesson repositories now only redirect to these URLs.
 
