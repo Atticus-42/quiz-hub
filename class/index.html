@@ -187,12 +187,12 @@
     .terrain .contours path, .topo .contours path { stroke: var(--topo-line); stroke-opacity: var(--topo-minor-opacity); stroke-width: 1; vector-effect: non-scaling-stroke; }
     .terrain .contours path.major, .topo .contours path.major { stroke: var(--topo-line-major); stroke-opacity: var(--topo-major-opacity); stroke-width: var(--topo-major-width); }
 
-    /* Plate I: the Bandwidth Brothers banner, toned olive/ink and tightly cropped, with a Mono caption line. */
+    /* Plate I: the complete Bandwidth Brothers banner, scaled without cropping. */
     .banner { position: relative; z-index: 1; width: 100%; background: #d8cfae; line-height: 0; overflow: hidden; isolation: isolate; }
     .banner picture { display: block; }
     .banner img {
       display: block; width: 100%; height: auto;
-      aspect-ratio: 16 / 5; object-fit: cover; object-position: 50% 56%;
+      aspect-ratio: auto; object-fit: contain; max-height: none;
       filter: grayscale(1) contrast(1.45) brightness(0.95);
       mix-blend-mode: multiply;
     }
@@ -312,7 +312,6 @@
        ===================================================================== */
     :root { --fig-photo: "Fig. 2"; }
     .hero, main, .class-photo { position: relative; z-index: 1; }
-    .banner img { aspect-ratio: 16 / 3.4; max-height: 18rem; }
     .hero { color: var(--color-text); }
     .hero-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); padding-block: var(--space-2); border-bottom: 1px solid var(--color-text); }
     .hero-bar .fig-line { margin: 0; color: var(--color-muted); }
@@ -403,7 +402,6 @@
     @media (max-width: 760px) {
       .hero-inner { grid-template-columns: 1fr; row-gap: var(--space-4); padding-block: var(--space-5); }
       .hero-rail { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); }
-      .banner img { aspect-ratio: 16 / 7; }
       .class-photo img { aspect-ratio: 4 / 3; }
       .hero-bar .fig-line { display: none; }
       .org-card.is-asst { margin-left: var(--space-5); }

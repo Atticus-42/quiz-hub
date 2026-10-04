@@ -524,8 +524,7 @@ test('Bandwidth Brothers banner sits above the hero with srcset, dimensions, pri
   assert.match(img, /\bfetchpriority="high"/);
   assert.match(img, /\balt="Bandwidth Brothers banner"/);
   const css = html.match(/<style>([\s\S]*?)<\/style>/)[1];
-  assert.match(css, /\.banner img \{[^}]*aspect-ratio: 16 \/ 5;[^}]*object-fit: cover/);
-  assert.match(css, /\.banner img \{ aspect-ratio: 16 \/ 8; \}/, 'a taller crop on phones');
+  assert.match(css, /\.banner img \{[^}]*height: auto;[^}]*aspect-ratio: auto; object-fit: contain; max-height: none;/, 'the full banner keeps its natural proportions on desktop and phones');
 });
 
 test('Class photo is a lazy, captioned figure with exact caption and alt text', () => {

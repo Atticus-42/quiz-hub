@@ -1195,10 +1195,8 @@ export async function engineSuite(lesson) {
     assert.deepEqual([...found].sort(), ['../assets/banner-1600.jpg', '../assets/banner-800.jpg', '../assets/class-photo-1600.jpg', '../assets/class-photo-800.jpg']);
     for (const file of found) assert.ok(existsSync(resolve(dirname(pagePath), file)), `${file} must exist`);
     const css = builtHtml.match(/<style>([\s\S]*?)<\/style>/)[1];
-    // Plate I: a tight, toned crop of the banner (a compact masthead strip on the quiz pages, taller on phones).
-    assert.match(css, /\.banner img \{[^}]*aspect-ratio: 16 \/ 5;[^}]*object-fit: cover/);
-    assert.match(css, /\.banner img \{ aspect-ratio: 16 \/ 3;/);
-    assert.match(css, /max-width: 760px\) \{[^}]*\}[\s\S]*?\.banner img \{ aspect-ratio: 16 \/ 7; \}/);
+    // Plate I scales to the image's natural ratio on all screen sizes.
+    assert.match(css, /\.banner img \{[^}]*height: auto;[^}]*aspect-ratio: auto; object-fit: contain; max-height: none;/);
     assert.match(css, /\.class-photo \{[^}]*max-width: var\(--page-max\);/);
     assert.match(css, /@media print \{[\s\S]*\.banner, \.class-photo[^{]*\{ display: none !important; \}/);
     assert.match(css, /body:not\(\[data-view="landing"\]\) \.banner, body:not\(\[data-view="landing"\]\) \.class-photo \{ display: none; \}/);

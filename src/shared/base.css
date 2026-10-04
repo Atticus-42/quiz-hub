@@ -175,12 +175,12 @@
     .terrain .contours path, .topo .contours path { stroke: var(--topo-line); stroke-opacity: var(--topo-minor-opacity); stroke-width: 1; vector-effect: non-scaling-stroke; }
     .terrain .contours path.major, .topo .contours path.major { stroke: var(--topo-line-major); stroke-opacity: var(--topo-major-opacity); stroke-width: var(--topo-major-width); }
 
-    /* Plate I: the Bandwidth Brothers banner, toned olive/ink and tightly cropped, with a Mono caption line. */
+    /* Plate I: the complete Bandwidth Brothers banner, scaled without cropping. */
     .banner { position: relative; z-index: 1; width: 100%; background: #d8cfae; line-height: 0; overflow: hidden; isolation: isolate; }
     .banner picture { display: block; }
     .banner img {
       display: block; width: 100%; height: auto;
-      aspect-ratio: 16 / 5; object-fit: cover; object-position: 50% 56%;
+      aspect-ratio: auto; object-fit: contain; max-height: none;
       filter: grayscale(1) contrast(1.45) brightness(0.95);
       mix-blend-mode: multiply;
     }

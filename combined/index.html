@@ -184,12 +184,12 @@
     .terrain .contours path, .topo .contours path { stroke: var(--topo-line); stroke-opacity: var(--topo-minor-opacity); stroke-width: 1; vector-effect: non-scaling-stroke; }
     .terrain .contours path.major, .topo .contours path.major { stroke: var(--topo-line-major); stroke-opacity: var(--topo-major-opacity); stroke-width: var(--topo-major-width); }
 
-    /* Plate I: the Bandwidth Brothers banner, toned olive/ink and tightly cropped, with a Mono caption line. */
+    /* Plate I: the complete Bandwidth Brothers banner, scaled without cropping. */
     .banner { position: relative; z-index: 1; width: 100%; background: #d8cfae; line-height: 0; overflow: hidden; isolation: isolate; }
     .banner picture { display: block; }
     .banner img {
       display: block; width: 100%; height: auto;
-      aspect-ratio: 16 / 5; object-fit: cover; object-position: 50% 56%;
+      aspect-ratio: auto; object-fit: contain; max-height: none;
       filter: grayscale(1) contrast(1.45) brightness(0.95);
       mix-blend-mode: multiply;
     }
@@ -340,7 +340,6 @@
 
     /* Masthead: tools bar, rail + title + plate, meta table. Compacts outside the landing view. */
     body:not([data-view="landing"]) .banner, body:not([data-view="landing"]) .class-photo { display: none; }
-    .banner img { aspect-ratio: 16 / 3; object-position: 50% 54%; max-height: 17rem; }
     .hero { position: relative; z-index: 1; color: var(--color-text); }
     .hero-bar {
       display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4);
@@ -874,7 +873,6 @@
       .hero-art { margin-top: var(--space-5); }
       .hero-art svg { max-height: 15rem; }
       .hero-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3) var(--space-5); }
-      .banner img { aspect-ratio: 16 / 7; }
       .class-photo img { aspect-ratio: 16 / 10; }
       body:not([data-view="landing"]) .hero-inner { grid-template-columns: 1fr; padding-block: var(--space-3); }
       body:not([data-view="landing"]) h1 { font-size: var(--text-h4); }
