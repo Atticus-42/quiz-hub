@@ -74,6 +74,10 @@
     }
 
     /* Training directorate: a two-column directory, role (Mono small caps) left, rank and name right. */
+    .lead-grid { margin-top: 0; margin-bottom: var(--space-4); }
+    .lead-grid .org-card.is-lead { grid-column: 1 / -1; width: auto; }
+    .lead-grid .org-card.is-lead::before { content: none; }
+    .dir-title.lead-sub { margin-top: var(--space-5); }
     .dir-title { margin: 0 0 var(--space-4); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
     .dir-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--color-text); }
     .dir-row { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); column-gap: var(--col-gap); align-items: baseline; padding: var(--space-3) 0; border-bottom: 1px solid var(--color-hairline); }
@@ -175,8 +179,19 @@
   </figure>
 
   <main id="main" class="wrap">
+    <section class="sect" aria-labelledby="lead-heading">
+      <div class="sect-head"><span class="sect-num" aria-hidden="true">01</span><h2 id="lead-heading">School leadership</h2></div>
+      <div class="sect-body">
+        <p id="lead-caption" class="dir-caption"></p>
+        <p class="dir-title">Command group</p>
+        <ul id="lead-command" class="org-grid lead-grid"></ul>
+        <p class="dir-title lead-sub">Departments and branches</p>
+        <ul id="lead-depts" class="org-grid lead-grid"></ul>
+      </div>
+    </section>
+
     <section class="sect" aria-labelledby="dir-heading">
-      <div class="sect-head"><span class="sect-num" aria-hidden="true">01</span><h2 id="dir-heading">Training directorate</h2></div>
+      <div class="sect-head"><span class="sect-num" aria-hidden="true">02</span><h2 id="dir-heading">Training directorate</h2></div>
       <div class="sect-body">
         <p id="dir-title" class="dir-title"></p>
         <p id="dir-caption" class="dir-caption"></p>
@@ -185,17 +200,17 @@
     </section>
 
     <section class="sect" aria-labelledby="org-heading">
-      <div class="sect-head"><span class="sect-num" aria-hidden="true">02</span><h2 id="org-heading">Class organization</h2></div>
+      <div class="sect-head"><span class="sect-num" aria-hidden="true">03</span><h2 id="org-heading">Class organization</h2></div>
       <div class="sect-body">
         <p class="section-intro">Class positions, led by the Class Leader and the Executive Officer, with the staff sections and the special staff below them.</p>
-        <noscript><p>JavaScript is needed to show the training directorate, class organization and roster.</p></noscript>
+        <noscript><p>JavaScript is needed to show the school leadership, training directorate, class organization and roster.</p></noscript>
         <ul id="org-leads" class="org-grid org-leads"></ul>
         <ul id="org-grid" class="org-grid"></ul>
       </div>
     </section>
 
     <section class="sect" aria-labelledby="roster-heading">
-      <div class="sect-head"><span class="sect-num" aria-hidden="true">03</span><h2 id="roster-heading">Class roster</h2></div>
+      <div class="sect-head"><span class="sect-num" aria-hidden="true">04</span><h2 id="roster-heading">Class roster</h2></div>
       <div class="sect-body">
         <div class="table-wrap">
           <table id="roster-table" class="roster-table">
@@ -234,6 +249,20 @@
     var data;
     try { data = JSON.parse(byId('class-data').textContent); } catch (error) { data = null; }
     if (!data || !Array.isArray(data.roster) || !Array.isArray(data.organization)) return;
+
+    // School leadership: the command group (Commandant emphasised), then the departments and branches.
+    var leadership = data.leadership;
+    if (leadership) {
+      byId('lead-caption').textContent = leadership.caption || '';
+      [['lead-command', leadership.command], ['lead-depts', leadership.departments]].forEach(function (pair) {
+        (pair[1] || []).forEach(function (person, index) {
+          var item = make('li', 'org-card' + (pair[0] === 'lead-command' && index === 0 ? ' is-lead' : ''));
+          item.appendChild(make('p', 'org-position', person.position));
+          item.appendChild(make('p', 'org-name', person.rank + ' ' + person.name));
+          byId(pair[0]).appendChild(item);
+        });
+      });
+    }
 
     // Training directorate: role on the left, rank and name on the right (two lines for a two-person role).
     var directorate = data.directorate;

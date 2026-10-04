@@ -616,7 +616,7 @@ export function loadClass(root = ROOT) {
   const fail = message => { throw new Error(`${path}: ${message}`); };
   const text = value => typeof value === 'string' && value.trim() !== '';
   const allowed = (object, keys) => Object.keys(object).every(key => keys.includes(key));
-  if (!data || typeof data !== 'object' || !allowed(data, ['class', 'name', 'note', 'directorate', 'organization', 'roster'])) fail('only class, name, note, directorate, organization and roster are allowed');
+  if (!data || typeof data !== 'object' || !allowed(data, ['class', 'name', 'note', 'leadership', 'directorate', 'organization', 'roster'])) fail('only class, name, note, leadership, directorate, organization and roster are allowed');
   if (!text(data.class) || (data.name !== undefined && !text(data.name)) || (data.note !== undefined && typeof data.note !== 'string')) fail('class (and name, note) must be text');
   if (!Array.isArray(data.roster) || !data.roster.length) fail('roster must list the members');
   data.roster.forEach((member, index) => {
@@ -624,6 +624,18 @@ export function loadClass(root = ROOT) {
       fail(`roster entry ${index + 1} must be exactly { nr: ${index + 1}, rank, name, commission }`);
     }
   });
+  const lead = data.leadership;
+  if (!lead || typeof lead !== 'object' || !allowed(lead, ['title', 'caption', 'command', 'departments']) || !text(lead.title) || !text(lead.caption)) fail('leadership must be exactly { title, caption, command: [...], departments: [...] }');
+  for (const [key, min, max] of [['command', 1, 6], ['departments', 1, 12]]) {
+    const list = lead[key];
+    if (!Array.isArray(list) || list.length < min || list.length > max) fail(`leadership ${key} must list ${min} to ${max} entries`);
+    const seen = new Set();
+    list.forEach(entry => {
+      if (!entry || !allowed(entry, ['position', 'rank', 'name']) || !text(entry.position) || !text(entry.rank) || !text(entry.name) || entry.position.length > 80 || entry.name.length > 60 || entry.rank.length > 6) fail(`leadership ${key}: every entry must be exactly { position, rank, name } of short texts`);
+      if (seen.has(entry.position)) fail(`leadership position ${entry.position} is listed twice`);
+      seen.add(entry.position);
+    });
+  }
   const dir = data.directorate;
   if (!dir || typeof dir !== 'object' || !allowed(dir, ['title', 'caption', 'roles']) || !text(dir.title) || !text(dir.caption) || !Array.isArray(dir.roles) || !dir.roles.length) fail('directorate must be exactly { title, caption, roles: [{ role, members: [{ rank, name, office, duties, schooling, civilian }] }] }');
   const roles = new Set();

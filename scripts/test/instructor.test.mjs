@@ -224,11 +224,79 @@ export async function classSuite() {
     assert.doesNotMatch(text, /@|\+63/, 'no contact details');
   });
 
-  await T('the training directorate renders first (section 01, before the organization), with the adviser and director emphasised', () => {
+  await T('data integrity: the school leadership lists the command group and the departments, rank + name + position only', () => {
+    const lead = data.leadership;
+    assert.deepEqual(Object.keys(lead).sort(), ['caption', 'command', 'departments', 'title']);
+    assert.equal(lead.title, 'Signal School leadership');
+    assert.equal(lead.caption, "Signal School, ITG, ETC, PA · Camp O'Donnell, Capas, Tarlac");
+    const line = entry => [entry.position, entry.rank, entry.name].join(' | ');
+    assert.deepEqual(lead.command.map(line), [
+      'Commandant | COL | Percival R. Alcanar (GSC)',
+      'Assistant Commandant | MAJ | Jun D. Pandi',
+      'Sergeant Major | MSg | Renato I. Paduit Jr.',
+      'First Sergeant | TSg | Onofre M. Diculin Jr.',
+    ]);
+    assert.deepEqual(lead.departments.map(line), [
+      'Head, Academic Department and Chief, Advance Branch | CPT | Kevyn A. Tejada',
+      'Chief, Non-Academic Branch | MAJ | Artemio B. Fulgosino Jr.',
+      'Chief, Admin Branch | MAJ | Fritz F. Perez',
+      'Branch Chief, Operations Branch | MAJ | Joseph A. Galapia',
+      'Branch Chief, Basic Branch | 1LT | Michael Edward G. Viray',
+      'Chief, Log Section | MAJ | Ar-Jay S. Salan',
+    ]);
+    for (const entry of [...lead.command, ...lead.departments]) assert.deepEqual(Object.keys(entry).sort(), ['name', 'position', 'rank']);
+    const text = JSON.stringify(lead);
+    assert.doesNotMatch(text, /\bO-/, 'no O- serials');
+    assert.doesNotMatch(text, /\d{6}/, 'no serial numbers');
+    assert.doesNotMatch(text, /\(SC\)/, 'no branch/serial suffixes');
+    assert.doesNotMatch(text, /@|\+63/, 'no contact details');
+    for (const word of ['Camarines', 'Pangasinan', 'Taguig', 'Isabela', 'Cabagan', 'Previous']) assert.doesNotMatch(text, new RegExp(word, 'i'), word);
+  });
+
+  await T('the school leadership renders first (section 01) and the later sections are renumbered', () => {
     const doc = runPage(html).document;
-    assert.match(html, /<span class="sect-num" aria-hidden="true">01<\/span><h2 id="dir-heading">Training directorate<\/h2>/);
-    assert.match(html, /aria-hidden="true">02<\/span><h2 id="org-heading">/);
-    assert.match(html, /aria-hidden="true">03<\/span><h2 id="roster-heading">/);
+    assert.match(html, /<span class="sect-num" aria-hidden="true">01<\/span><h2 id="lead-heading">School leadership<\/h2>/);
+    assert.match(html, /aria-hidden="true">02<\/span><h2 id="dir-heading">Training directorate<\/h2>/);
+    assert.match(html, /aria-hidden="true">03<\/span><h2 id="org-heading">/);
+    assert.match(html, /aria-hidden="true">04<\/span><h2 id="roster-heading">/);
+    assert.ok(html.indexOf('id="lead-heading"') < html.indexOf('id="dir-heading"'));
+    assert.equal(doc.getElementById('lead-caption').textContent, data.leadership.caption);
+    for (const [id, list] of [['lead-command', data.leadership.command], ['lead-depts', data.leadership.departments]]) {
+      const cards = doc.getElementById(id).children;
+      assert.deepEqual(cards.map(card => [card.children[0].textContent, card.children[1].textContent]), list.map(entry => [entry.position, `${entry.rank} ${entry.name}`]));
+    }
+    assert.ok(hasClass(doc.getElementById('lead-command').children[0], 'is-lead'));
+    assert.doesNotMatch(doc.body.textContent, /\d{6}|\bO-\d|\(SC\)/);
+  });
+
+  await T('the build rejects a malformed leadership', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'class-'));
+    mkdirSync(join(dir, 'data'));
+    const write = leadership => writeFileSync(join(dir, 'data', 'class.json'), JSON.stringify({ ...data, leadership }));
+    write(data.leadership);
+    assert.doesNotThrow(() => loadClass(dir));
+    const one = { position: 'P', rank: 'MAJ', name: 'X Y' };
+    const bad = [
+      undefined,
+      { ...data.leadership, extra: 1 },
+      { ...data.leadership, title: '' },
+      { ...data.leadership, caption: '' },
+      { ...data.leadership, command: [] },
+      { ...data.leadership, departments: 'x' },
+      { ...data.leadership, command: [{ ...one, serial: 'x' }] },
+      { ...data.leadership, command: [{ position: 'P', rank: 'MAJ' }] },
+      { ...data.leadership, command: [one, one] },
+      { ...data.leadership, command: [{ ...one, name: 'X Y O-13527' }] },
+      { ...data.leadership, command: [{ ...one, name: 'X Y 850075' }] },
+      { ...data.leadership, command: [{ ...one, name: 'X Y (SC)' }] },
+    ];
+    for (const leadership of bad) { write(leadership); assert.throws(() => loadClass(dir), /class\.json/); }
+    rmSync(dir, { recursive: true, force: true });
+  });
+
+  await T('the training directorate renders (section 02, before the organization), with the adviser and director emphasised', () => {
+    const doc = runPage(html).document;
+    assert.match(html, /<span class="sect-num" aria-hidden="true">02<\/span><h2 id="dir-heading">Training directorate<\/h2>/);
     assert.ok(html.indexOf('id="dir-heading"') < html.indexOf('id="org-heading"'));
     assert.equal(doc.getElementById('dir-title').textContent, data.directorate.title);
     const rows = doc.getElementById('dir-list').children;
