@@ -54,47 +54,61 @@ export function splitMessage(text, limit = 3900) {
   return messages;
 }
 
-function escapeHtml(value) {
-  return String(value ?? '').replace(/[&<>"']/g, char => ({
-    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
-  })[char]).replace(/\r?\n/g, '<br>');
-}
-
-// Every line is a complete rich HTML block, so splitting never cuts a tag or entry.
+// Explicit rich segments prevent style inheritance; literal blank lines separate entries.
 export function formatRichSchedule(data, date) {
   const day = data.days.find(item => item.date === date);
   const label = new Intl.DateTimeFormat('en-GB', { timeZone: 'UTC', day: '2-digit', month: 'long', year: 'numeric' })
     .format(new Date(`${date}T00:00:00Z`));
   const header = [
-    '<p><b>SOAC 52–2026</b></p>', '<h2>Tomorrow’s Schedule</h2>',
-    `<p>${day ? `${escapeHtml(day.day)}, ` : ''}${label}<br><i>Philippine time · Asia/Manila</i></p>`, '<hr/>',
+    { type: 'paragraph', text: { type: 'bold', text: 'SOAC 52–2026' } },
+    { type: 'heading', size: 2, text: 'Tomorrow’s Schedule' },
+    { type: 'paragraph', text: [`${day ? `${day.day}, ` : ''}${label}\n`, { type: 'italic', text: 'Philippine time · Asia/Manila' }] },
+    { type: 'divider' },
   ];
-  if (!day) return [...header,
-    '<p>Tomorrow’s schedule has not been uploaded yet. Please check with the Training Directorate.</p>',
-  ].join('\n');
+  if (!day) return { blocks: [...header,
+    { type: 'paragraph', text: 'Tomorrow’s schedule has not been uploaded yet. Please check with the Training Directorate.' },
+  ], skip_entity_detection: true };
   // Stable sort retains source order for simultaneous activities; never alter source data.
   const startTime = block => Number((block.time || '').match(/^\d{4}/)?.[0] ?? Infinity);
   const blocks = [...day.blocks].sort((a, b) => startTime(a) - startTime(b));
-  return [...header, ...blocks.map(block => {
-    const time = escapeHtml((block.time || 'Time not printed').replace(/\s*[-–]\s*/g, ' – '));
+  const text = blocks.flatMap((block, index) => {
+    const time = (block.time || 'Time not printed').replace(/\s*[-–]\s*/g, ' – ');
     const details = [
-      `<b>${time} · ${escapeHtml(block.activity)}</b>`,
-      `Instructor: ${escapeHtml(block.instructor)}`,
-      [block.venue ? `Venue: ${escapeHtml(block.venue)}` : '',
-        block.uniform ? `Uniform: <b>${escapeHtml(block.uniform)}</b>` : ''].filter(Boolean).join(' · '),
-      ...(block.remarks ? [`<i>Note: ${escapeHtml(block.remarks)}</i>`] : []),
-    ].filter(Boolean);
-    return `<p>${details.join('<br>')}</p>`;
-  }), '<hr/>', '<footer><i>Training Directorate announcements take precedence.</i></footer>'].join('\n');
+      ...(index ? ['\n\n'] : []),
+      { type: 'bold', text: `${time} · ${block.activity}` },
+      `\nInstructor: ${block.instructor}`,
+    ];
+    if (block.venue) details.push(`\nVenue: ${block.venue}`);
+    if (block.uniform) details.push(block.venue ? ' · Uniform: ' : '\nUniform: ', { type: 'bold', text: block.uniform });
+    if (block.remarks) details.push('\n', { type: 'italic', text: `Note: ${block.remarks}` });
+    return details;
+  });
+  return { blocks: [...header, { type: 'paragraph', text }, { type: 'divider' },
+    { type: 'footer', text: { type: 'italic', text: 'Training Directorate announcements take precedence.' } }], skip_entity_detection: true };
 }
 
 function richMessages(data, date) {
-  const html = formatRichSchedule(data, date);
-  // Conservative encoded-length limit stays below Telegram's 32768-character rich limit.
-  if (html.split('\n').some(block => block.length > 26000)) {
-    throw new Error('A single schedule entry exceeds the rich message limit; shorten that entry before sending.');
+  const rich = formatRichSchedule(data, date);
+  const text = rich.blocks[4].text;
+  if (!Array.isArray(text)) return [rich];
+  const entries = [[]];
+  for (const segment of text) {
+    if (segment === '\n\n') entries.push([]);
+    else entries.at(-1).push(segment);
   }
-  return splitMessage(html, 26000);
+  const chunks = []; let current = []; let length = 0;
+  for (const entry of entries) {
+    const size = entry.reduce((sum, segment) => sum + (typeof segment === 'string' ? segment : segment.text).length, 0);
+    if (size > 24000) throw new Error('A single schedule entry exceeds the rich message limit; shorten that entry before sending.');
+    if (length + size + 2 > 24000) { chunks.push(current); current = []; length = 0; }
+    if (current.length) { current.push('\n\n'); length += 2; }
+    current.push(...entry); length += size;
+  }
+  if (current.length) chunks.push(current);
+  return chunks.map((text, index) => ({ blocks: [
+    ...rich.blocks.slice(0, 4), { type: 'paragraph', text },
+    ...(index === chunks.length - 1 ? rich.blocks.slice(5) : []),
+  ], skip_entity_detection: true }));
 }
 
 export async function postTomorrow({ now = new Date(), data = loadSchedule(), token, chatId, topicId,
@@ -111,7 +125,7 @@ export async function postTomorrow({ now = new Date(), data = loadSchedule(), to
   }
   if (state.date === date && state.destination === destination && state.complete) return { date, skipped: true };
   const messages = richMessages(data, date);
-  const fingerprint = createHash('sha256').update(messages.join('\n')).digest('hex');
+  const fingerprint = createHash('sha256').update(JSON.stringify(messages)).digest('hex');
   if (state.date !== date || state.destination !== destination) state = { date, destination, fingerprint, sent: 0 };
   else if (state.fingerprint !== fingerprint) throw new Error('Schedule changed during a partial delivery. Inspect the group before retrying.');
   for (let index = state.sent || 0; index < messages.length; index++) {
@@ -119,7 +133,7 @@ export async function postTomorrow({ now = new Date(), data = loadSchedule(), to
     try {
       response = await fetchFn(`https://api.telegram.org/bot${token}/sendRichMessage`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: AbortSignal.timeout(20000),
-        body: JSON.stringify({ chat_id: chatId, rich_message: { html: messages[index], skip_entity_detection: true },
+        body: JSON.stringify({ chat_id: chatId, rich_message: messages[index],
           ...(index === messages.length - 1 ? { reply_markup: { inline_keyboard: [[
             { text: 'Full Schedule', url: `https://atticus-42.github.io/quiz-hub/schedule/?v=day-picker-2#day-${date}` },
             { text: 'Practice Quizzes', url: 'https://atticus-42.github.io/quiz-hub/' },
@@ -132,13 +146,20 @@ export async function postTomorrow({ now = new Date(), data = loadSchedule(), to
     state.sent = index + 1; state.complete = state.sent === messages.length;
     mkdirSync(dirname(statePath), { recursive: true });
     writeFileSync(statePath, JSON.stringify(state));
+    // Only the public schedule text is inspected; never log the response chat or token.
+    const returned = result.result?.rich_message?.blocks?.find(block => block.type === 'paragraph' && Array.isArray(block.text) && block.text.some(segment => segment === '\n\n'));
+    if (returned) {
+      const gaps = returned.text.filter(segment => segment === '\n\n').length;
+      const regular = returned.text.filter(segment => typeof segment === 'string' && segment.includes('Instructor:')).length;
+      console.log(`Telegram format confirmation: ${gaps} blank-line separators; ${regular} regular-text instructor lines.`);
+    }
   }
   return { date, skipped: false, messages: messages.length };
 }
 
 async function main() {
   if (process.argv.includes('--preview')) {
-    console.log(richMessages(loadSchedule(), tomorrowInManila()).join('\n\n')); return;
+    console.log(JSON.stringify(richMessages(loadSchedule(), tomorrowInManila()), null, 2)); return;
   }
   const result = await postTomorrow({ token: process.env.TELEGRAM_BOT_TOKEN,
     chatId: process.env.TELEGRAM_CHAT_ID, topicId: process.env.TELEGRAM_TOPIC_ID });

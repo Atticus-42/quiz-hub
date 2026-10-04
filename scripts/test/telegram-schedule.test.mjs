@@ -6,6 +6,9 @@ import { join } from 'node:path';
 import { tomorrowInManila, formatSchedule, formatRichSchedule, splitMessage, postTomorrow } from '../telegram-schedule.mjs';
 import { loadSchedule } from '../build.mjs';
 
+const plainRich = value => typeof value === 'string' ? value : Array.isArray(value) ? value.map(plainRich).join('') : value?.text ? plainRich(value.text) : '';
+const richText = message => message.blocks.map(block=>plainRich(block.text)).join('\n');
+
 test('tomorrow uses Philippine dates across midnight, month and year boundaries', () => {
   assert.equal(tomorrowInManila(new Date('2026-10-04T13:00:00Z')), '2026-10-05');
   assert.equal(tomorrowInManila(new Date('2026-10-04T16:00:00Z')), '2026-10-06');
@@ -26,16 +29,15 @@ test('every tomorrow block is included, and missing dates are never replaced wit
 });
 test('rich rendering retains every field for the entire week and handles missing dates explicitly', () => {
   const data=loadSchedule();
-  const decode=text=>text.replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&#39;/g,"'");
   for(const day of data.days) {
-    const html=formatRichSchedule(data,day.date);const plain=decode(html);
+    const plain=richText(formatRichSchedule(data,day.date));
     for(const block of day.blocks) {
       for(const field of ['activity','instructor','venue','uniform','remarks']) {
         if(block[field]) assert.ok(plain.includes(block[field]),`${day.date}: missing ${field}`);
       }
     }
   }
-  const missing=formatRichSchedule(data,'2026-10-12');
+  const missing=richText(formatRichSchedule(data,'2026-10-12'));
   assert.match(missing,/has not been uploaded/);assert.doesNotMatch(missing,/Reveille/);
 });
 test('successful posts use the group, optional topic and private credentials; repeat runs are skipped', async () => {
@@ -46,9 +48,13 @@ test('successful posts use the group, optional topic and private credentials; re
     const result=await postTomorrow(options);assert.equal(result.skipped,false);
     assert.equal(calls[0].body.chat_id,'-1001234');assert.equal(calls[0].body.message_thread_id,7);
     assert.match(calls[0].url,/\/sendRichMessage$/);
-    assert.match(calls[0].body.rich_message.html,/<h2>Tomorrow/);
-    assert.match(calls[0].body.rich_message.html,/<b>0430 – 0530 · Reveille &amp; Physical Conditioning<\/b>/);
-    assert.match(calls[0].body.rich_message.html,/<footer><i>Training Directorate/);
+    const rich=calls[0].body.rich_message;
+    assert.ok(rich.blocks.some(block=>block.type==='heading' && block.text==='Tomorrow’s Schedule'));
+    const entries=rich.blocks.find(block=>block.type==='paragraph' && Array.isArray(block.text) && block.text[0]?.type==='bold' && block.text[0].text.startsWith('0430'));
+    assert.deepEqual(entries.text[0],{type:'bold',text:'0430 – 0530 · Reveille & Physical Conditioning'});
+    assert.equal(entries.text[1],'\nInstructor: NAB Personnel');
+    assert.ok(entries.text.includes('\n\n'),'explicit blank line separates each activity');
+    assert.deepEqual(rich.blocks.at(-1),{type:'footer',text:{type:'italic',text:'Training Directorate announcements take precedence.'}});
     assert.equal(calls.at(-1).body.reply_markup.inline_keyboard[0][0].text,'Full Schedule');
     assert.match(calls.at(-1).body.reply_markup.inline_keyboard[0][0].url,/#day-2026-10-05$/);
     assert.equal(calls.at(-1).body.reply_markup.inline_keyboard[0][1].url,'https://atticus-42.github.io/quiz-hub/');
@@ -57,7 +63,7 @@ test('successful posts use the group, optional topic and private credentials; re
     assert.doesNotMatch(readFileSync(statePath,'utf8'),/fake_token|-1001234/);
   } finally {rmSync(dir,{recursive:true,force:true});}
 });
-test('rich schedule preserves all fields chronologically and escapes source HTML', async () => {
+test('rich schedule preserves chronological fields as literal text and scopes bold/italic explicitly', async () => {
   const dir=mkdtempSync(join(tmpdir(),'telegram-test-'));
   try {
     const calls=[];
@@ -69,14 +75,17 @@ test('rich schedule preserves all fields chronologically and escapes source HTML
     await postTomorrow({now:new Date('2026-10-04T13:00:00Z'),data:{days:[{date:'2026-10-05',day:'Monday',blocks}]},
       token:'123:fake_token',chatId:'-1001234',statePath:join(dir,'sent.json'),
       fetchFn:async(url,init)=>{calls.push(JSON.parse(init.body));return {ok:true,status:200,json:async()=>({ok:true})};}});
-    const html=calls[0].rich_message.html;
-    assert.ok(html.indexOf('Early event')<html.indexOf('Late &lt;check&gt;'));
-    assert.ok(html.indexOf('Late &lt;check&gt;')<html.indexOf('Second late event'));
-    assert.match(html,/Instructor: A &amp; B/);assert.match(html,/Venue: Hall &lt;1&gt;/);
-    assert.match(html,/Uniform: <b>AU<\/b>/);assert.match(html,/Bring &quot;notes&quot;/);
-    assert.match(html,/<b>2130 · Late &lt;check&gt;<\/b>/);
-    assert.match(html,/<i>Note: Bring &quot;notes&quot;<\/i>/);
-    assert.doesNotMatch(html,/<details|<tg-spoiler|<check>/);
+    const rich=calls[0].rich_message;const plain=richText(rich);
+    assert.ok(plain.indexOf('Early event')<plain.indexOf('Late <check>'));
+    assert.ok(plain.indexOf('Late <check>')<plain.indexOf('Second late event'));
+    assert.match(plain,/Instructor: A & B/);assert.match(plain,/Venue: Hall <1>/);
+    assert.match(plain,/Uniform: AU/);assert.match(plain,/Bring "notes"/);
+    const spans=rich.blocks.find(block=>block.type==='paragraph' && Array.isArray(block.text) && block.text[0]?.text?.startsWith('0430')).text;
+    assert.ok(spans.some(span=>span.type==='bold' && span.text==='2130 · Late <check>'));
+    assert.ok(spans.some(span=>span.type==='italic' && span.text==='Note: Bring "notes"'));
+    assert.ok(spans.some(span=>typeof span==='string' && span.includes('Instructor: A & B')));
+    assert.ok(spans.some(span=>typeof span==='string' && span.includes('Venue: Hall <1>')));
+    assert.match(plain,/SGOU\n\n2130/);
     assert.equal(blocks[0].activity,'Late <check>');
   } finally {rmSync(dir,{recursive:true,force:true});}
 });
@@ -89,11 +98,10 @@ test('long rich schedules split only between complete entries without losing act
       fetchFn:async(url,init)=>{calls.push(JSON.parse(init.body));return {ok:true,status:200,json:async()=>({ok:true})};}});
     assert.ok(calls.length>1);
     for(const call of calls) {
-      const html=call.rich_message.html;assert.ok(html.length<=26000);
-      assert.equal((html.match(/<p>/g)||[]).length,(html.match(/<\/p>/g)||[]).length);
-      assert.equal((html.match(/<b>/g)||[]).length,(html.match(/<\/b>/g)||[]).length);
+      const text=richText(call.rich_message);assert.ok(text.length<=26000);
+      assert.ok(Array.isArray(call.rich_message.blocks));
     }
-    const full=calls.map(call=>call.rich_message.html).join('\n');
+    const full=calls.map(call=>richText(call.rich_message)).join('\n');
     for(let i=0;i<150;i++) assert.equal(full.split(`Activity ${i}:`).length-1,1);
     assert.equal(calls[0].reply_markup,undefined);assert.ok(calls.at(-1).reply_markup);
   } finally {rmSync(dir,{recursive:true,force:true});}
