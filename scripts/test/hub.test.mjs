@@ -142,9 +142,9 @@ test('MODULES config is generated from lessons/*/lesson.json: unique ids, keys a
   assert.deepEqual([...exams.find((e) => e.key === 'combined').tags].map((tag) => tag.text), ['All four lessons', '30 questions', 'Easy · Medium · Hard']);
   assert.deepEqual([...exams.filter((e) => e.prominent).map((e) => e.key)], ['combined']);
   for (const lesson of lessons.filter((item) => !item.pool)) {
-    const counts = ['easy', 'medium', 'hard'].map((mode) => lesson.counts[mode]);
-    const label = Math.min(...counts) === Math.max(...counts) ? `${counts[0]} questions per mode` : `${Math.min(...counts)}–${Math.max(...counts)} questions per mode`;
-    assert.equal(exams.find((e) => e.key === lesson.key).tags[0].text, label, `${lesson.key} states its bank size`);
+    const counts = ['easy', 'medium', 'hard'].map((mode) => lesson.attempts[mode]);
+    const label = Math.min(...counts) === Math.max(...counts) ? `${counts[0]} questions per attempt` : `${Math.min(...counts)}–${Math.max(...counts)} questions per attempt`;
+    assert.equal(exams.find((e) => e.key === lesson.key).tags[0].text, label, `${lesson.key} states its attempt length`);
   }
   assert.equal(exams.find((e) => e.key === 'signal').title, 'Signal Support in Combined Arms Operations');
   assert.equal(exams.find((e) => e.key === 'signaljoint').title, 'Signal Support in Joint Operations');

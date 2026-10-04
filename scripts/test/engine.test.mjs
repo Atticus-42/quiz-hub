@@ -28,7 +28,8 @@ export async function engineSuite(lesson) {
   const pool = lesson.rules.pool;
   const ref = lesson.rules.ref;
   const text = lessonText(lesson);
-  const count = mode => lesson.counts[mode];
+  // Questions per attempt (a coverage set of the bank, at most 30; a pool exam's fixed count).
+  const count = mode => lesson.attempts[mode];
   const KEY_TOTAL = count('medium');
   const hubHref = `../#${lesson.module}`;
   const itemIdOf = (question, mode) => `${pool ? question.lessonKey : lesson.key}:${mode}:${question.qid}`;
@@ -166,7 +167,7 @@ export async function engineSuite(lesson) {
     for (const button of modeButtons(app)) assert.equal(button.disabled, true);
   });
 
-  await T(pool ? `each difficulty serves ${pool.count} questions of its own pool, balanced ${plain(lesson.poolQuotas).join('/')} across the source lessons` : 'each difficulty asks every question of its own bank, and only those', () => {
+  await T(pool ? `each difficulty serves ${pool.count} questions of its own pool, balanced ${plain(lesson.poolQuotas).join('/')} across the source lessons` : 'each difficulty asks a distinct coverage set of its own bank (at most 30), and only those', () => {
     for (const mode of MODES) {
       const app = loadApp();
       startConfirmed(app, mode);
@@ -178,7 +179,10 @@ export async function engineSuite(lesson) {
       } else {
         assert.equal(attempt.questions.length, count(mode));
         assert.ok(attempt.questions.every(item => item.difficulty === mode), `${mode} attempt mixed difficulties`);
-        assert.deepEqual(attempt.questions.map(item => item.id).sort((a, b) => a - b), Array.from({ length: count(mode) }, (_, index) => index + 1));
+        const ids = attempt.questions.map(item => item.id);
+        assert.equal(new Set(ids).size, ids.length, `${mode} attempt has no duplicates`);
+        assert.ok(ids.every(id => banks[mode].some(source => source.id === id)), `${mode} attempt draws only from its bank`);
+        assert.ok(ids.length <= 30);
         assert.deepEqual(attempt.questions, attempt.questions.map(item => banks[mode].find(source => source.id === item.id)), 'authored question and choice order must be preserved');
       }
       assert.equal(attempt.responses.length, count(mode));
@@ -228,7 +232,7 @@ export async function engineSuite(lesson) {
     assert.deepEqual([...plain(api.shuffleQuestions(source))].sort(), source);
     const attempt = plain(api.createAttempt('medium', banks, seededRandom(3)));
     assert.equal(attempt.mode, 'medium');
-    const expected = pool ? api.sampleQuestions(banks.medium, seededRandom(3)) : api.shuffleQuestions(banks.medium, seededRandom(3));
+    const expected = api.sampleQuestions(banks.medium, seededRandom(3));
     assert.deepEqual(attempt.questions, plain(expected));
     if (pool) assert.notDeepEqual(attempt.questions, plain(api.sampleQuestions(banks.medium, seededRandom(4))), 'a different random draws a different attempt');
     assert.equal(attempt.current, 0);
@@ -649,6 +653,7 @@ export async function engineSuite(lesson) {
     const score = scoreEveryFifth(n);
     assert.deepEqual({ ...payload, finishedAt: undefined, asked: undefined, missed: undefined }, { lesson: lesson.key, name: 'Maria Santos', mode: 'easy', score, total: n, percent: percentOf(score, n), band: bandFor(percentOf(score, n)), finishedAt: undefined, asked: undefined, missed: undefined });
     assert.equal(n, count('easy'), 'the total is the actual number of questions');
+    assert.ok(n <= 30 && payload.total === n, 'the total is the attempt length, at most 30');
     assert.deepEqual(payload.asked, attempt.questions.map(question => itemIdOf(question, 'easy')), 'asked lists every question, in the order asked');
     assert.deepEqual(payload.missed, attempt.questions.filter((_, index) => !everyFifthWrong(index)).map(question => itemIdOf(question, 'easy')));
     assert.ok(payload.asked.every(id => /^[a-z][a-z0-9]{1,23}:easy:[a-z][a-z0-9]{1,23}-e-[0-9]{2,4}$/.test(id)), 'ids are <lessonKey>:<mode>:<qid>');
@@ -938,21 +943,23 @@ export async function engineSuite(lesson) {
   });
 
   if (!pool) {
-    await T('a bank of any size from 1 to 100 sets the attempt length, progress, results and the history total', async () => {
+    await T('a bank of any size from 1 to 100 sets the attempt length (its term cover, at most 30), progress, results and the history total', async () => {
       for (const size of [1, 7]) {
         const fetch = fakeFetch(call => (call.method === 'POST' ? { body: { ok: true } } : okHistory([])));
         const app = loadApp(replaceBank(configuredHtml, 'easy', JSON.stringify(banks.easy.slice(0, size))), { fetch });
+        const length = app.api.attemptLength(banks.easy.slice(0, size));
+        assert.ok(length >= 1 && length <= size);
         assert.equal(plain(app.api.getState()).available, true, `a ${size}-question bank is valid`);
         startConfirmed(app, 'easy');
-        assert.equal(byId(app, 'quiz-progress').getAttribute('max'), String(size));
-        assert.equal(byId(app, 'question-heading').textContent, `Question 1 of ${size}`);
+        assert.equal(byId(app, 'quiz-progress').getAttribute('max'), String(length));
+        assert.equal(byId(app, 'question-heading').textContent, `Question 1 of ${length}`);
         completeAttempt(app);
         byId(app, 'btn-finish').click();
         await settle(app);
-        assert.ok(byId(app, 'results-summary').textContent.includes(`${size} of ${size} correct`));
+        assert.ok(byId(app, 'results-summary').textContent.includes(`${length} of ${length} correct`));
         const payload = JSON.parse(fetch.calls.find(call => call.method === 'POST').body);
-        assert.equal(payload.total, size);
-        assert.equal(payload.asked.length, size);
+        assert.equal(payload.total, length);
+        assert.equal(payload.asked.length, length);
       }
     });
   }
@@ -1264,12 +1271,17 @@ export async function engineSuite(lesson) {
     const questions = attemptOf(app).questions;
     const flag = question => flags[lessonOf(question)]?.[question.qid] ?? '';
     if (!pool) {
-      const random = seededRandom(4);
-      const groups = ['', 'm', 's'].map(value => bank.filter(question => flag(question) === value));
-      const expected = groups.flatMap(group => plain(app.api.shuffleQuestions(group, random)));
-      assert.deepEqual(questions.map(question => question.qid), expected.map(question => question.qid), 'unseen, then missed, then seen; each group shuffled with the injected random');
-      assert.equal(questions.length, bank.length, 'every question of the bank is still asked');
-      assert.deepEqual(plain(app.api.prioritize(bank, plain(app.api.loadProgress('easy')), seededRandom(4))).map(question => question.qid), expected.map(question => question.qid));
+      // Unseen questions come first: a seen or missed question is only asked when it holds a term no unseen question teaches.
+      const unseenTerms = new Set(bank.filter(question => flag(question) === '').flatMap(question => plain(app.api.questionTerms(question))));
+      assert.ok(bank.filter(question => flag(question) === '').length >= questions.length, 'enough unseen questions to fill the attempt');
+      for (const question of questions.filter(item => flag(item) !== '')) {
+        assert.ok(plain(app.api.questionTerms(question)).some(term => !unseenTerms.has(term)), `${question.qid} is only asked for a term no unseen question covers`);
+      }
+      assert.equal(questions.length, count('easy'));
+      const again = loadApp(baseHtml, { globals: { localStorage: storage } });
+      again.api.setRandom(seededRandom(4));
+      startConfirmed(again, 'easy');
+      assert.deepEqual(attemptOf(again).questions.map(question => question.qid), questions.map(question => question.qid), 'the same random and progress give the same attempt');
     } else {
       assertBalancedDraw(questions, 'easy', 'prioritised draw');
       for (const key of ownKeys) {
@@ -1306,11 +1318,11 @@ export async function engineSuite(lesson) {
     assert.equal(after[attempt.questions[2].qid], 's');
     // The next full attempt starts with the questions this device has not seen (none left) then the missed (none).
     byId(app, 'btn-retake').click();
-    assert.equal(attemptOf(app).questions.length, count('medium'), 'a full attempt still asks the whole bank');
+    assert.equal(attemptOf(app).questions.length, count('medium'), 'a full attempt still asks its usual length');
   });
 
-  await T('device progress: without storage, with failing storage or corrupted data the quiz falls back to a plain shuffle; the reset link hides without storage', async () => {
-    const expectedOrder = random => plain(pool ? loadApp().api.sampleQuestions(banks.hard, random) : loadApp().api.shuffleQuestions(banks.hard, random)).map(question => question.qid);
+  await T('device progress: without storage, with failing storage or corrupted data the quiz falls back to a plain draw with no device priority; the reset link hides without storage', async () => {
+    const expectedOrder = random => plain(loadApp().api.sampleQuestions(banks.hard, random)).map(question => question.qid);
     const throwing = { getItem() { throw new Error('denied'); }, setItem() { throw new Error('quota'); }, removeItem() { throw new Error('denied'); } };
     const variants = {
       'no localStorage': {},
@@ -1323,7 +1335,7 @@ export async function engineSuite(lesson) {
       const app = loadApp(baseHtml, options);
       app.api.setRandom(seededRandom(8));
       startConfirmed(app, 'hard');
-      assert.deepEqual(attemptOf(app).questions.map(question => question.qid), expectedOrder(seededRandom(8)), `${name}: a plain shuffle`);
+      assert.deepEqual(attemptOf(app).questions.map(question => question.qid), expectedOrder(seededRandom(8)), `${name}: a plain draw`);
       completeAttempt(app, index => index !== 1);
       byId(app, 'btn-finish').click();
       assert.equal(plain(app.api.getState()).view, 'results', `${name}: the quiz still finishes`);
@@ -1350,9 +1362,129 @@ export async function engineSuite(lesson) {
     assert.equal(byId(app, 'reset-progress-status').getAttribute('role'), 'status');
     app.api.setRandom(seededRandom(2));
     startConfirmed(app, 'easy');
-    const expected = plain(pool ? app.api.sampleQuestions(banks.easy, seededRandom(2)) : app.api.shuffleQuestions(banks.easy, seededRandom(2)));
+    const expected = plain(app.api.sampleQuestions(banks.easy, seededRandom(2)));
     assert.deepEqual(attemptOf(app).questions.map(question => question.qid), expected.map(question => question.qid), 'after a reset every question counts as new');
   });
+
+  // ----- Term coverage: shorter attempts -----
+
+  const termsOfList = (api, list) => new Set(list.flatMap(question => plain(api.questionTerms(question))));
+
+  await T('coverage: every attempt is a duplicate-free set of at most 30 questions of its bank, as long as the build states, and covers every tag/topic when the cover fits', () => {
+    const { api } = loadApp();
+    assert.equal(api.maxAttemptSize, 30);
+    for (const mode of MODES) {
+      for (let seed = 1; seed <= 40; seed++) {
+        const attempt = plain(api.createAttempt(mode, banks, seededRandom(seed)));
+        const ids = attempt.questions.map(question => question.id);
+        assert.equal(attempt.questions.length, count(mode), `${mode}: attempt length`);
+        assert.ok(attempt.questions.length <= 30, `${mode}: never above 30`);
+        assert.equal(new Set(ids).size, ids.length, `${mode}: no duplicates`);
+        assert.ok(attempt.questions.every(question => banks[mode].some(source => source.id === question.id && source.prompt === question.prompt)), `${mode}: only bank questions`);
+        assert.equal(attempt.responses.length, ids.length);
+        if (!pool && api.attemptLength(banks[mode]) < 30) {
+          const all = termsOfList(api, banks[mode]);
+          const got = termsOfList(api, attempt.questions);
+          assert.deepEqual([...all].filter(term => !got.has(term)), [], `${mode} seed ${seed}: every term is covered`);
+        }
+      }
+    }
+  });
+
+  await T('coverage: the build and the engine agree on the attempt length, and a cover larger than 30 keeps questions that add the most terms', () => {
+    const { api } = loadApp();
+    for (const mode of MODES) {
+      if (pool) {
+        assert.equal(count(mode), pool.count);
+        continue;
+      }
+      assert.equal(api.attemptLength(banks[mode]), count(mode), `${mode}: engine and build agree`);
+      // Deterministic greedy reference: the first count(mode) picks.
+      const left = [...banks[mode]];
+      const covered = new Set();
+      for (let round = 0; round < count(mode); round++) {
+        const gain = question => plain(api.questionTerms(question)).filter(term => !covered.has(term)).length;
+        left.sort((a, b) => gain(b) - gain(a));
+        plain(api.questionTerms(left.shift())).forEach(term => covered.add(term));
+      }
+      for (let seed = 1; seed <= 10; seed++) {
+        const got = termsOfList(api, plain(api.createAttempt(mode, banks, seededRandom(seed)).questions));
+        assert.ok(got.size >= covered.size, `${mode} seed ${seed}: covers ${got.size} terms, the greedy reference ${covered.size}`);
+      }
+    }
+  });
+
+  await T('coverage: an attempt is deterministic with an injected random and never mutates the bank', () => {
+    const { api } = loadApp();
+    const before = JSON.stringify(banks.hard);
+    const first = plain(api.createAttempt('hard', banks, seededRandom(11)).questions);
+    assert.deepEqual(plain(api.createAttempt('hard', banks, seededRandom(11)).questions), first);
+    assert.equal(JSON.stringify(banks.hard), before);
+    assert.notDeepEqual(plain(api.createAttempt('hard', banks, seededRandom(12)).questions).map(question => question.id), first.map(question => question.id));
+  });
+
+  if (lesson.key === 'isr') {
+    // Synthetic banks: only the engine's own selection is under test.
+    const fakeQuestion = (n, tags, category = 'Topic') => ({ id: n, qid: `isr-e-${String(n).padStart(2, '0')}`, category, tags, prompt: `p${n}`, options: ['a', 'b', 'c', 'd'], answer: 0, explanation: 'x' });
+    const ids = list => plain(list).map(question => question.id);
+
+    await T('coverage: a small bank is covered tag by tag with the fewest questions', () => {
+      const { api } = loadApp();
+      const bank = [fakeQuestion(1, ['a', 'b', 'c']), fakeQuestion(2, ['a']), fakeQuestion(3, ['b']), fakeQuestion(4, ['c', 'd']), fakeQuestion(5, ['d']), fakeQuestion(6, ['e'])];
+      for (let seed = 1; seed <= 25; seed++) {
+        const picked = api.selectCoverage(bank, {}, seededRandom(seed));
+        assert.deepEqual([...termsOfList(api, plain(picked))].sort(), ['Topic', 'a', 'b', 'c', 'd', 'e'], `seed ${seed}`);
+        assert.equal(picked.length, 3, 'three questions cover everything');
+        assert.ok(ids(picked).includes(1) && ids(picked).includes(6), 'the three-tag question and the lone tag are in');
+      }
+      assert.equal(api.attemptLength(bank), 3);
+    });
+
+    await T('coverage: never more than 30 questions; when the cover needs more, unseen questions rotate in over later attempts', () => {
+      const { api } = loadApp();
+      const bank = Array.from({ length: 80 }, (_, index) => fakeQuestion(index + 1, [`t${index}`, `u${index}`], 'Topic'));
+      assert.equal(api.attemptLength(bank), 30);
+      const progress = { isr: {} };
+      const asked = new Set();
+      for (let attempt = 0; attempt < 2; attempt++) {
+        const picked = plain(api.selectCoverage(bank, progress, seededRandom(attempt + 1)));
+        assert.equal(picked.length, 30);
+        assert.equal(new Set(ids(picked)).size, 30);
+        picked.forEach(question => {
+          assert.ok(!asked.has(question.id), 'questions unseen on this device come before ones already seen');
+          asked.add(question.id);
+          progress.isr[question.qid] = 's';
+        });
+      }
+      const third = plain(api.selectCoverage(bank, progress, seededRandom(3)));
+      assert.equal(third.length, 30);
+      assert.equal(third.filter(question => !asked.has(question.id)).length, 20, 'the 20 questions never asked are all in');
+    });
+
+    await T('coverage: unseen questions come first, then missed ones, then the rest', () => {
+      const { api } = loadApp();
+      const bank = Array.from({ length: 12 }, (_, index) => fakeQuestion(index + 1, [`t${index}`]));
+      const progress = { isr: {} };
+      bank.slice(0, 4).forEach(question => { progress.isr[question.qid] = 's'; });
+      bank.slice(4, 8).forEach(question => { progress.isr[question.qid] = 'm'; });
+      // Every question owns a term, so a full cover needs all 12; cut to 6, the 4 unseen come first, then 2 missed.
+      const picked = ids(api.selectCoverage(bank, progress, seededRandom(5), 6));
+      assert.equal(picked.length, 6);
+      assert.equal(picked.filter(id => id > 8).length, 4, 'all four unseen questions are in');
+      assert.equal(picked.filter(id => id >= 5 && id <= 8).length, 2, 'then missed ones');
+      assert.equal(picked.filter(id => id <= 4).length, 0, 'seen-and-correct questions stay out');
+    });
+
+    await T('coverage: a short cover is padded on request, a single-question bank works and a question without tags is covered by its topic', () => {
+      const { api } = loadApp();
+      const same = Array.from({ length: 10 }, (_, index) => fakeQuestion(index + 1, ['x']));
+      assert.equal(api.attemptLength(same), 1);
+      assert.equal(plain(api.selectCoverage(same, {}, seededRandom(1))).length, 1);
+      assert.equal(plain(api.selectCoverage(same, {}, seededRandom(1), 4)).length, 4);
+      assert.equal(plain(api.selectCoverage([fakeQuestion(1, [])], {}, seededRandom(1))).length, 1);
+      assert.equal(api.attemptLength([fakeQuestion(1, [], 'A'), fakeQuestion(2, [], 'A'), fakeQuestion(3, [], 'B')]), 2);
+    });
+  }
 
   // ----- Keyboard -----
 

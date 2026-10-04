@@ -35,23 +35,24 @@ export default async function combinedChecks({ test, assert, lesson, lessons, lo
     });
   }
 
-  await test('[combined] the sampler deals 8/8/7/7 to the lessons at random, draws inside each lesson and shuffles all 30 (hand-checked with random = 0)', () => {
+  await test('[combined] the sampler deals 8/8/7/7 to the lessons at random, covers terms inside each lesson share and shuffles all 30', () => {
     const api = loadApi();
     assert.deepEqual(plain(api.poolQuotas()), [8, 8, 7, 7]);
-    // Fisher-Yates with every draw 0 rotates an array left by one. Quotas [8,8,7,7] become [8,7,7,8]
-    // (ISR 8, Armor 7, Field Artillery 7, Army Operations 8); each lesson pool starts at its 2nd question;
-    // the final shuffle moves the first pick (ISR's 2nd question) to the end. Bank sizes are read from the
-    // lessons, so appending questions keeps this hand check valid.
     let draws = 0;
-    const zero = () => { draws++; return 0; };
-    const ids = plain(api.sampleQuestions(lesson.banks.easy, zero)).map(item => item.id);
-    const range = (from, to) => Array.from({ length: to - from + 1 }, (_, index) => from + index);
-    const sizes = lesson.pool.lessons.map(key => lessons.find(item => item.key === key).banks.easy.length);
-    const starts = sizes.map((size, index) => sizes.slice(0, index).reduce((sum, value) => sum + value, 0));
-    const dealt = [8, 7, 7, 8];
-    const picks = starts.flatMap((start, index) => range(start + 2, start + 1 + dealt[index]));
-    assert.deepEqual(ids, [...picks.slice(1), picks[0]]);
-    assert.equal(draws, 3 + sizes.reduce((sum, size) => sum + size - 1, 0) + 29, 'quota deal, four lesson shuffles and the final shuffle all use the injected random');
+    const counting = () => { draws++; return 0.5; };
+    const questions = plain(api.sampleQuestions(lesson.banks.easy, counting));
+    assert.ok(draws > 0, 'every random choice uses the injected random');
+    assert.equal(questions.length, 30);
+    assert.equal(new Set(questions.map(item => item.id)).size, 30, 'no duplicates');
+    const shares = lesson.pool.lessons.map(key => questions.filter(item => item.lessonKey === key).length);
+    assert.deepEqual([...shares].sort(), [7, 7, 8, 8]);
+    // Inside a share the first picks are the greedy cover: a lesson's share touches more terms than the same number of arbitrary questions would.
+    for (const key of lesson.pool.lessons) {
+      const own = lesson.banks.easy.filter(item => item.lessonKey === key);
+      const share = questions.filter(item => item.lessonKey === key);
+      const termsOf = list => new Set(list.flatMap(item => plain(api.questionTerms(item))));
+      assert.ok(termsOf(share).size >= termsOf(own.slice(0, share.length)).size, `${key}: the share covers at least as many terms as the first ${share.length} questions`);
+    }
     const lessonCounts = new Map(LESSONS.map(name => [name, new Set()]));
     const seen = new Set();
     for (let index = 1; index <= 200; index++) {
@@ -63,7 +64,17 @@ export default async function combinedChecks({ test, assert, lesson, lessons, lo
       assert.deepEqual(plain(api.sampleQuestions(lesson.banks.hard, seededRandom(seed))), questions, 'the same injected random reproduces the same draw');
     }
     for (const [name, counts] of lessonCounts) assert.deepEqual([...counts].sort(), [7, 8], `${name} receives both 7 and 8 across attempts`);
-    assert.equal(seen.size, lesson.banks.hard.length, 'every question of the pool can be drawn');
+    assert.ok(seen.size > 30, 'different draws ask different questions');
+    // Rotation: marking what was asked as seen makes later draws prefer the questions not yet asked, so a few attempts reach all of them.
+    const progress = Object.fromEntries(lesson.pool.lessons.map(key => [key, {}]));
+    const reached = new Set();
+    for (let attempt = 0; attempt < 40 && reached.size < lesson.banks.hard.length; attempt++) {
+      for (const item of plain(api.sampleQuestions(lesson.banks.hard, seededRandom(attempt + 1), progress))) {
+        reached.add(item.id);
+        progress[item.lessonKey][item.qid] = 's';
+      }
+    }
+    assert.equal(reached.size, lesson.banks.hard.length, 'rotation reaches every question of the pool');
   });
 
   await test('[combined] the page speaks of all four lessons (warning, buttons, lede, lesson analysis)', () => {

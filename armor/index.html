@@ -950,7 +950,7 @@
         <h1>Armor Operations Mastery Quiz</h1>
         <p class="hero-lede">A practice aid for the Fundamentals of Armor Operations lesson: 123 situational questions across Easy, Medium, and Hard.</p>
         <dl class="hero-meta">
-          <div><dt>Questions</dt><dd>43 · 40 · 40 <span class="meta-note">Easy · Medium · Hard</span></dd></div>
+          <div><dt>Questions</dt><dd>30 · 30 · 30 <span class="meta-note">per attempt · Easy · Medium · Hard (banks of 43 · 40 · 40)</span></dd></div>
           <div><dt>Topics</dt><dd>9</dd></div>
           <div><dt>Source</dt><dd>pages 13–83</dd></div>
         </dl>
@@ -1063,17 +1063,17 @@
           <div id="mode-list" class="mode-list" role="group" aria-labelledby="difficulty-heading">
             <button type="button" id="mode-easy" class="mode-button mode-easy" disabled aria-describedby="mode-hint">
               <span class="mode-name"><span class="gauge" aria-hidden="true"><i></i><i></i><i></i></span>Easy</span>
-              <span class="mode-desc">43 questions. One primary doctrinal judgment in each situation.</span>
+              <span class="mode-desc">30 questions per attempt, drawn from 43. One primary doctrinal judgment in each situation.</span>
               <span class="mode-go" aria-hidden="true">Begin →</span>
             </button>
             <button type="button" id="mode-medium" class="mode-button mode-medium" disabled aria-describedby="mode-hint">
               <span class="mode-name"><span class="gauge" aria-hidden="true"><i></i><i></i><i></i></span>Medium</span>
-              <span class="mode-desc">40 questions. Compare, diagnose, and choose among plausible options.</span>
+              <span class="mode-desc">30 questions per attempt, drawn from 40. Compare, diagnose, and choose among plausible options.</span>
               <span class="mode-go" aria-hidden="true">Begin →</span>
             </button>
             <button type="button" id="mode-hard" class="mode-button mode-hard" disabled aria-describedby="mode-hint">
               <span class="mode-name"><span class="gauge" aria-hidden="true"><i></i><i></i><i></i></span>Hard</span>
-              <span class="mode-desc">40 questions. Integrate several concepts under competing constraints.</span>
+              <span class="mode-desc">30 questions per attempt, drawn from 40. Integrate several concepts under competing constraints.</span>
               <span class="mode-go" aria-hidden="true">Begin →</span>
             </button>
           </div>
@@ -1253,8 +1253,12 @@
     var MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h' };
     var LETTERS = ['A', 'B', 'C', 'D'];
     // A lesson bank holds 1 to MAX_BANK_SIZE questions per difficulty (a sanity cap shared with the sheet);
-    // an attempt asks all of them.
+    // an attempt asks a coverage set of them: at most MAX_ATTEMPT_SIZE questions that between them touch every
+    // term (tag or topic) of the bank (see selectCoverage).
     var MAX_BANK_SIZE = 500;
+    var MAX_ATTEMPT_SIZE = 30;
+    // Extra randomised cover runs tried besides the deterministic one; the best run is kept.
+    var COVER_RUNS = 8;
     var LESSON_KEY_PATTERN = /^[a-z][a-z0-9]{1,23}$/;
 
     function byId(id) { return document.getElementById(id); }
@@ -1419,19 +1423,98 @@
       return copy;
     }
 
-    // Draws one pool attempt: the per-lesson shares are dealt to the lessons at random, each lesson's share
-    // is a random subset of its questions, and the picks are then shuffled together. Every draw uses
-    // random(), so an injected generator makes it reproducible.
-    // Within each lesson the device-local priority applies first (see prioritize), so unseen and missed
-    // questions are drawn before ones already answered correctly.
+    // The terms a question teaches: its tags and its topic (category), each once.
+    function questionTerms(question) {
+      var terms = [];
+      (Array.isArray(question.tags) ? question.tags : []).concat([question.category]).forEach(function (term) {
+        if (typeof term === 'string' && term.trim() && terms.indexOf(term) === -1) terms.push(term);
+      });
+      return terms;
+    }
+
+    // One greedy set-cover run over `questions`. Each round takes, among the questions that still add an
+    // uncovered term, the best device-local priority class first (0 unseen, 1 missed, 2 seen), then the most
+    // new terms, then the smallest tie-break key. Stops at `limit` picks or when every term is covered.
+    function coverRun(questions, termLists, classes, keys, limit) {
+      var uncovered = {};
+      termLists.forEach(function (terms) { terms.forEach(function (term) { uncovered[term] = true; }); });
+      var taken = [];
+      var picks = [];
+      var covered = 0;
+      while (picks.length < limit) {
+        var best = -1;
+        var bestGain = 0;
+        for (var i = 0; i < questions.length; i++) {
+          if (taken[i]) continue;
+          var gain = 0;
+          for (var t = 0; t < termLists[i].length; t++) if (uncovered[termLists[i][t]]) gain++;
+          if (!gain) continue;
+          if (best === -1 || classes[i] < classes[best] || (classes[i] === classes[best] && (gain > bestGain || (gain === bestGain && keys[i] < keys[best])))) {
+            best = i;
+            bestGain = gain;
+          }
+        }
+        if (best === -1) break;
+        taken[best] = true;
+        picks.push(best);
+        covered += bestGain;
+        termLists[best].forEach(function (term) { uncovered[term] = false; });
+      }
+      return { picks: picks, covered: covered };
+    }
+
+    function priorityClass(question, progress) {
+      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
+      var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
+      return flag === 'm' ? 1 : flag === 's' ? 2 : 0;
+    }
+
+    // How many questions an attempt asks from `questions`: the size of a deterministic greedy cover of every
+    // term, never more than `limit` (default MAX_ATTEMPT_SIZE) or the bank. Same on every device and attempt.
+    function attemptLength(questions, limit) {
+      var cap = Math.min(limit || MAX_ATTEMPT_SIZE, questions.length);
+      var termLists = Array.prototype.map.call(questions, questionTerms);
+      var zeros = termLists.map(function () { return 0; });
+      var keys = termLists.map(function (_, index) { return index; });
+      return Math.min(cap, coverRun(questions, termLists, zeros, keys, questions.length).picks.length);
+    }
+
+    // The questions of one attempt (before the final shuffle): a greedy set cover of every term of `questions`,
+    // preferring questions unseen on this device, then missed, then others (random tie-breaks). The cover is
+    // cut to `size` questions (those that add the most terms come first) or padded to `size` with the next
+    // best by priority. The best of several randomised runs and the deterministic one is kept (a random run wins
+    // ties), so the cover is never worse than the deterministic greedy cover. Every random choice uses random().
+    function selectCoverage(questions, progress, random, size) {
+      var list = Array.prototype.slice.call(questions);
+      var length = Math.min(size === undefined ? attemptLength(list) : size, list.length);
+      var termLists = list.map(questionTerms);
+      var classes = list.map(function (question) { return priorityClass(question, progress); });
+      var best = coverRun(list, termLists, classes, list.map(function (_, index) { return index; }), length);
+      for (var run = 0; run < COVER_RUNS; run++) {
+        var candidate = coverRun(list, termLists, classes, list.map(function () { return random(); }), length);
+        if (candidate.covered > best.covered || (candidate.covered === best.covered && candidate.picks.length <= best.picks.length)) best = candidate;
+      }
+      var chosen = best.picks.map(function (index) { return list[index]; });
+      if (chosen.length < length) {
+        var rest = list.filter(function (question) { return chosen.indexOf(question) === -1; });
+        chosen = chosen.concat(prioritize(rest, progress, random).slice(0, length - chosen.length));
+      }
+      return chosen;
+    }
+
+    // Draws one attempt. A lesson quiz asks a coverage set of its bank, at most MAX_ATTEMPT_SIZE questions.
+    // A pool exam deals its per-lesson shares to the lessons at random and takes each share as a coverage set
+    // of that lesson's questions; the picks are then shuffled together. Every draw uses random(), so an
+    // injected generator makes it reproducible.
     function sampleQuestions(bank, random, progress) {
       if (typeof random !== 'function') random = Math.random;
-      if (!POOL) return prioritize(bank, progress, random);
+      if (!POOL) return shuffleQuestions(selectCoverage(bank, progress, random), random);
       var quotas = shuffleQuestions(POOL_QUOTAS, random);
       var picked = [];
       POOL.lessons.forEach(function (lesson, index) {
         var pool = Array.prototype.filter.call(bank, function (question) { return question.lessonKey === lesson.key; });
-        picked = picked.concat(prioritize(pool, progress, random).slice(0, quotas[index]));
+        picked = picked.concat(selectCoverage(pool, progress, random, quotas[index]));
       });
       return shuffleQuestions(picked, random);
     }
@@ -1532,7 +1615,7 @@
     // `progress` (optional) is the device-local record from loadProgress(mode).
     function createAttempt(mode, banks, random, progress) {
       if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
-      var questions = POOL ? sampleQuestions(banks[mode], random, progress) : prioritize(banks[mode], progress, random);
+      var questions = sampleQuestions(banks[mode], random, progress);
       return { mode: mode, practice: false, questions: questions, current: 0, responses: blankResponses(questions) };
     }
 
@@ -2772,6 +2855,10 @@
       validateBanks: validateBanks,
       shuffleQuestions: shuffleQuestions,
       sampleQuestions: sampleQuestions,
+      selectCoverage: selectCoverage,
+      attemptLength: attemptLength,
+      questionTerms: questionTerms,
+      maxAttemptSize: MAX_ATTEMPT_SIZE,
       poolQuotas: function () { return POOL_QUOTAS.slice(); },
       createAttempt: createAttempt,
       createPracticeAttempt: createPracticeAttempt,

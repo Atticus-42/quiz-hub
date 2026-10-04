@@ -5,7 +5,7 @@ import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:f
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import {
-  ROOT, MODES, HISTORY_ENDPOINT, build, fillTemplate, scriptJson, escapeHtml, validateQuestion, validateBank, poolQuotas, countLabel,
+  ROOT, MODES, HISTORY_ENDPOINT, build, fillTemplate, scriptJson, escapeHtml, validateQuestion, validateBank, poolQuotas, countLabel, attemptLength,
 } from '../build.mjs';
 import { test, normalize } from './harness.mjs';
 
@@ -117,19 +117,21 @@ export async function buildSuite({ lessons, modules }) {
       for (const dir of ['scripts', 'src', 'lessons', 'data']) cpSync(join(ROOT, dir), join(fixture, dir), { recursive: true });
       const path = join(fixture, 'lessons', 'armor', 'medium.json');
       const bank = JSON.parse(readFileSync(path, 'utf8'));
-      const sizes = MODES.map(mode => JSON.parse(readFileSync(join(fixture, 'lessons', 'armor', `${mode}.json`), 'utf8')).length);
+      const readBank = mode => JSON.parse(readFileSync(join(fixture, 'lessons', 'armor', `${mode}.json`), 'utf8'));
+      const sizes = MODES.map(mode => readBank(mode).length);
       sizes[MODES.indexOf('medium')]++;
       bank.push({ ...bank[0], id: bank.length + 1, qid: `armor-m-${bank.length + 1}`, prompt: 'A brand new appended prompt about armor movement?' });
       writeFileSync(path, JSON.stringify(bank, null, 2));
+      const attempts = MODES.map(mode => attemptLength(readBank(mode)));
       const result = spawnSync(process.execPath, [join(fixture, 'scripts', 'build.mjs')], { encoding: 'utf8' });
       assert.equal(result.status, 0, result.stderr);
       const html = readFileSync(join(fixture, 'armor', 'index.html'), 'utf8');
-      assert.ok(html.includes(`${bank.length} questions. Compare, diagnose`), 'the medium mode states the new bank size');
+      assert.ok(html.includes(`${attempts[1]} questions per attempt, drawn from ${bank.length}. Compare, diagnose`), 'the medium mode states its attempt length and the new bank size');
       assert.ok(html.includes(`${sizes.reduce((sum, size) => sum + size, 0)} situational questions`), 'the lede states the new total');
       const hub = readFileSync(join(fixture, 'index.html'), 'utf8');
-      const low = Math.min(...sizes);
-      const high = Math.max(...sizes);
-      assert.ok(hub.includes(low === high ? `${low} questions per mode` : `${low}–${high} questions per mode`), 'the hub card follows the new bank size');
+      const low = Math.min(...attempts);
+      const high = Math.max(...attempts);
+      assert.ok(hub.includes(low === high ? `${low} questions per attempt` : `${low}–${high} questions per attempt`), 'the hub card states the attempt length');
       const combined = readFileSync(join(fixture, 'combined', 'index.html'), 'utf8');
       assert.ok(combined.includes('A brand new appended prompt about armor movement?'), 'the pool exam picks up the new question');
     } finally {
@@ -213,15 +215,17 @@ export async function buildSuite({ lessons, modules }) {
     });
   }
 
-  await T('hub card tags state each lesson’s questions per mode from the bank sizes', () => {
+  await T('hub card tags state each lesson’s questions per attempt (a coverage set, at most 30)', () => {
     for (const lesson of lessons) {
       const label = countLabel(lesson);
       if (lesson.pool) assert.equal(label, '30 questions');
       else {
-        const counts = MODES.map(mode => lesson.counts[mode]);
+        const counts = MODES.map(mode => lesson.attempts[mode]);
+        counts.forEach((value, index) => assert.equal(value, attemptLength(lesson.banks[MODES[index]]), 'attempt length is the capped greedy cover size'));
+        assert.ok(counts.every(value => value >= 1 && value <= 30));
         const low = Math.min(...counts);
         const high = Math.max(...counts);
-        assert.equal(label, low === high ? `${low} questions per mode` : `${low}–${high} questions per mode`);
+        assert.equal(label, low === high ? `${low} questions per attempt` : `${low}–${high} questions per attempt`);
       }
     }
   });

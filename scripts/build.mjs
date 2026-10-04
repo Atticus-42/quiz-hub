@@ -19,9 +19,11 @@ export const MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h' };
 // The Google Apps Script web app behind the shared class history (apps-script/Code.gs). The only
 // network address any page contacts; written into every page by the build.
 export const HISTORY_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwTNNYOiebIGo46PzM3fUA9VT6XnS740D72prOPg-0OJ5Kvg4W8LVl-xJEo_gxImxqnmg/exec';
-// A lesson bank holds 1..MAX_BANK_SIZE questions per difficulty and an attempt asks all of them; the cap is
-// only a sanity limit shared with the sheet (apps-script/Code.gs MAX_TOTAL).
+// A lesson bank holds 1..MAX_BANK_SIZE questions per difficulty (the cap is only a sanity limit shared with the
+// sheet, apps-script/Code.gs MAX_TOTAL). An attempt asks a coverage set of the bank: at most MAX_ATTEMPT_SIZE
+// questions that touch every tag/topic (see attemptLength, which the engine mirrors).
 export const MAX_BANK_SIZE = 500;
+export const MAX_ATTEMPT_SIZE = 30;
 export const LESSON_KEY_PATTERN = /^[a-z][a-z0-9]{1,23}$/;
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const RESERVED_SLUGS = new Set(['assets', 'src', 'lessons', 'scripts', 'apps-script', 'instructor', 'class', 'data', 'schedule']);
@@ -33,7 +35,7 @@ const DEFAULT_TEXT = {
   studyWarningBody: 'It cannot replace studying the complete {lessonName} lesson, and repeated attempts are not a substitute for that study.',
   studyConfirm: 'I understand that I must study the complete lesson and not rely only on this mock examination.',
   resultsReminder: 'This score is practice feedback only. Study the complete lesson; do not rely only on this mock examination.',
-  modeDescPrefix: '{count} questions.',
+  modeDescPrefix: '{attempt} questions per attempt, drawn from {bank}.',
   topicNoun: 'Topic',
   topicsHeading: 'Topic analysis',
   topicsCaption: 'Correct answers by primary topic. A topic is a strength at 75% or higher and a gap below 75%; the line on each bar marks 75%.',
@@ -53,6 +55,41 @@ const DEFAULT_LEDE = 'A practice aid for the {lessonName} lesson: {total} situat
 // Question validation (mirrored error-for-error by validateQuestion/validateBank in the engine).
 // rules: { key, categoryOrder, ref: { label, min, max, required } | null, pool: { lessons: [{ key, name }], count } | null }
 // ---------------------------------------------------------------------------
+
+// The terms a question teaches: its tags and its topic (category), each once. Mirrors the engine.
+export function questionTerms(question) {
+  const terms = [];
+  for (const term of [...(Array.isArray(question.tags) ? question.tags : []), question.category]) {
+    if (typeof term === 'string' && term.trim() && !terms.includes(term)) terms.push(term);
+  }
+  return terms;
+}
+
+// Questions per attempt from a bank: the size of a deterministic greedy set cover of every term (most new terms
+// first, then bank order), at most MAX_ATTEMPT_SIZE and the bank size. Mirrors attemptLength in the engine.
+export function coverSize(bank) {
+  const lists = bank.map(questionTerms);
+  const uncovered = new Set(lists.flat());
+  const taken = new Set();
+  let picks = 0;
+  for (;;) {
+    let best = -1;
+    let bestGain = 0;
+    lists.forEach((terms, index) => {
+      if (taken.has(index)) return;
+      const gain = terms.filter(term => uncovered.has(term)).length;
+      if (gain > bestGain) { best = index; bestGain = gain; }
+    });
+    if (best === -1) return picks;
+    taken.add(best);
+    picks++;
+    lists[best].forEach(term => uncovered.delete(term));
+  }
+}
+
+export function attemptLength(bank) {
+  return Math.min(MAX_ATTEMPT_SIZE, bank.length, coverSize(bank));
+}
 
 export function poolQuotas(count, lessons) {
   const base = Math.floor(count / lessons);
@@ -291,6 +328,9 @@ export function loadLessons(root = ROOT) {
       }
     }
     lesson.counts = Object.fromEntries(MODES.map(mode => [mode, lesson.pool ? lesson.pool.count : lesson.banks[mode].length]));
+    // Bank sizes, and the questions an attempt asks (a pool exam always asks its fixed count).
+    lesson.bankSizes = Object.fromEntries(MODES.map(mode => [mode, lesson.banks[mode].length]));
+    lesson.attempts = Object.fromEntries(MODES.map(mode => [mode, lesson.pool ? lesson.pool.count : attemptLength(lesson.banks[mode])]));
     lesson.text = { ...DEFAULT_TEXT, ...(lesson.text ?? {}) };
   }
   const moduleOrder = new Map(modules.map((module, index) => [module.id, index]));
@@ -380,13 +420,14 @@ export function moduleNumber(id) {
 // The masthead's reference lines and meta table for one quiz page.
 function mastheadParts(lesson) {
   const mod = moduleNumber(lesson.module);
-  const counts = MODES.map(mode => lesson.counts[mode]);
+  const counts = MODES.map(mode => lesson.attempts[mode]);
+  const banks = MODES.map(mode => lesson.bankSizes[mode]);
   const ref = lesson.rules.ref;
   const reference = lesson.pool
     ? `${lesson.pool.lessons.length} lessons · ${lesson.pool.count} per attempt`
     : `${ref.plural} ${ref.min}–${ref.max}`;
   const rows = [
-    ['Questions', lesson.pool ? `${lesson.pool.count} per attempt` : counts.join(' · '), lesson.pool ? '' : 'Easy · Medium · Hard'],
+    ['Questions', lesson.pool ? `${lesson.pool.count} per attempt` : counts.join(' · '), lesson.pool ? '' : `per attempt · Easy · Medium · Hard (banks of ${banks.join(' · ')})`],
     [lesson.pool ? 'Lessons' : 'Topics', String(lesson.rules.categoryOrder.length), ''],
     ['Source', lesson.pool ? 'Module lessons' : reference, ''],
   ];
@@ -400,7 +441,7 @@ function mastheadParts(lesson) {
 export function renderQuizPage(template, contours, lesson, { endpoint = HISTORY_ENDPOINT, base = '' } = {}) {
   const text = lessonText(lesson);
   const palette = Object.entries(lesson.palette ?? {}).map(([name, value]) => `${name}: ${value};`);
-  const modePrefix = mode => escapeHtml(fill(text.modeDescPrefix, { count: lesson.counts[mode] }));
+  const modePrefix = mode => escapeHtml(fill(text.modeDescPrefix, { bank: lesson.bankSizes[mode], attempt: lesson.attempts[mode] }));
   return fillTemplate(template, {
     BASE_CSS: baseCss(base, '../assets/'),
     FONT_PRELOAD: fontPreloads('../assets/'),
@@ -433,13 +474,13 @@ export function renderQuizPage(template, contours, lesson, { endpoint = HISTORY_
   });
 }
 
-// "25 questions per mode", or "20–30 questions per mode" when the difficulties differ.
+// "30 questions per attempt", or "26–30 questions per attempt" when the difficulties differ.
 export function countLabel(lesson) {
   if (lesson.pool) return `${lesson.pool.count} questions`;
-  const counts = MODES.map(mode => lesson.counts[mode]);
+  const counts = MODES.map(mode => lesson.attempts[mode]);
   const low = Math.min(...counts);
   const high = Math.max(...counts);
-  return low === high ? `${low} questions per mode` : `${low}–${high} questions per mode`;
+  return low === high ? `${low} questions per attempt` : `${low}–${high} questions per attempt`;
 }
 
 function joinNames(names) {
@@ -501,10 +542,10 @@ function hubModuleCard(module) {
   ].join('\n');
 }
 
-// One exam as a numbered contents line: "02.1  ISR Operations ........ 44 / 44 / 40".
+// One exam as a numbered contents line: "02.1  ISR Operations ........ 30 / 30 / 26" (questions per attempt).
 function hubExamCard(exam, source, moduleId) {
   const number = `${moduleNumber(moduleId)}.${source ? source.order : 0}`;
-  const counts = !source ? '' : source.pool ? `${source.pool.count} / attempt` : MODES.map(mode => source.counts[mode]).join(' / ');
+  const counts = !source ? '' : source.pool ? `${source.pool.count} / attempt` : MODES.map(mode => source.attempts[mode]).join(' / ');
   return [
     `        <li${exam.prominent ? ' class="is-prominent"' : ''} id="card-${exam.key}" data-key="${exam.key}">`,
     `          <article class="exam-card" aria-labelledby="title-${exam.key}">`,
