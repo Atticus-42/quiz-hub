@@ -295,7 +295,7 @@
     "tags": [
       "systems list"
     ],
-    "prompt": "Which list correctly names the five signal support systems and technologies in the lesson?",
+    "prompt": "Which list correctly names the five areas the lesson covers under signal support systems and technologies?",
     "options": [
       "Operations focused, interoperable, redundant, scalable, and secured",
       "Physical, cyberspace, electromagnetic spectrum, land, and maritime systems",
@@ -303,7 +303,7 @@
       "Fixed, tactical, special purpose, operations-center systems, and network support and cyber protection"
     ],
     "answer": 3,
-    "explanation": "Slide 18 lists fixed communications, tactical communications, special purpose communications, operations-center systems, and network support and cyber protection. The first distractor is the list of principles (slide 27).",
+    "explanation": "Slide 18 and Handout pp.5-7 cover fixed communications, tactical communications, special purpose communications, operations-center systems, and network support and cyber protection. Only the first three are the main categories of command-and-control communication (Handout p.5); network support and cyber protection are supporting activities, not equipment categories (p.7). The first distractor is the list of principles (slide 27).",
     "sourceSlides": [
       18,
       27
@@ -369,7 +369,7 @@
       "Network support and cyber protection"
     ],
     "answer": 1,
-    "explanation": "Slide 21: special purpose communication systems are commercial devices used to augment fixed and tactical communications, particularly for routine or administrative communication; a commercial video-conferencing platform for an authorized administrative meeting is the slide's example.",
+    "explanation": "Slide 21: special purpose communication systems are commercial devices used to augment fixed and tactical communications, particularly for routine or administrative communication; a commercial video-conferencing platform for an authorized administrative meeting is the slide's example. The Army's own video teleconferencing belongs to the fixed backbone (Handout p.5); a commercial platform used to augment the military systems is special purpose (Handout p.6).",
     "sourceSlides": [
       21
     ]
@@ -405,7 +405,7 @@
       "acronyms",
       "DCO"
     ],
-    "prompt": "In the lesson's discussion of network support and cyber protection, what does DCO stand for?",
+    "prompt": "Among the activities that keep network services available and protected, what is DCO short for?",
     "options": [
       "Defensive Communication Operations",
       "Digital Cyberspace Operations",
@@ -760,7 +760,7 @@
       "C4S annex"
     ],
     "answer": 2,
-    "explanation": "Slide 50: determine the situation before selecting communication systems, and use METAL to guide the Signal Estimate.",
+    "explanation": "Slide 50: determine the situation before selecting communication systems, and use METAL to guide the Signal Estimate. Handout p.13 lists its factors: Mission, Enemy, Troops, Area of Operations and Logistics.",
     "sourceSlides": [
       50
     ]
@@ -803,7 +803,7 @@
       "The SIEM annex"
     ],
     "answer": 0,
-    "explanation": "Slide 58: publish signal plans and orders with the necessary diagrams and instructions, including the C4S annex to the operations order or plan, as required.",
+    "explanation": "Slide 58: publish signal plans and orders with the necessary diagrams and instructions, including the C4S annex to the operations order or plan, as required. Handout p.13: C4S is Command and Control, Communications, and Cyber Systems.",
     "sourceSlides": [
       58
     ]
@@ -905,7 +905,7 @@
       "acronyms",
       "SIEM"
     ],
-    "prompt": "What does SIEM stand for?",
+    "prompt": "In the lesson's list of monitoring activities, SIEM is the abbreviation for which term?",
     "options": [
       "Security Incident and Emergency Management",
       "Signal Information and Event Monitoring",
@@ -1003,6 +1003,463 @@
     "explanation": "Slide 43 closes communication and cyber security with the question: how will the force protect its information and respond to a compromise?",
     "sourceSlides": [
       43
+    ]
+  },
+  {
+    "id": 47,
+    "qid": "signaljoint-e-47",
+    "difficulty": "easy",
+    "category": "Joint Operations Fundamentals",
+    "tags": [
+      "joint synergy",
+      "handout"
+    ],
+    "prompt": "According to the lesson handout, what is joint synergy?",
+    "options": [
+      "The services communicate effectively despite differences in equipment or procedures.",
+      "Each service keeps its own commander and plan while operating in the same area.",
+      "The services achieve a greater effect by operating together than they would apart.",
+      "Infantry, armor, artillery and engineers of the Army fight together as one team."
+    ],
+    "answer": 2,
+    "explanation": "Handout p.1: the strengths of one service can overcome the limitations or reinforce the effects of another; this is joint synergy, a greater effect achieved by operating together. The distractors describe interoperability (slide 11), separate commands (not joint) and combined arms (slide 7).",
+    "sourceSlides": [
+      6
+    ]
+  },
+  {
+    "id": 48,
+    "qid": "signaljoint-e-48",
+    "difficulty": "easy",
+    "category": "Joint Operations Fundamentals",
+    "tags": [
+      "Joint Force Commander",
+      "command relationships",
+      "handout"
+    ],
+    "prompt": "In a joint operation, who coordinates the participating forces, according to the handout?",
+    "options": [
+      "Each service commander, acting separately",
+      "The brigade S6 of the Army element",
+      "The commander of the largest service element",
+      "The Joint Force Commander"
+    ],
+    "answer": 3,
+    "explanation": "Handout p.1: joint operations require clear command relationships; the Joint Force Commander coordinates the participating forces, while the services integrate and synchronize their contributions through joint planning.",
+    "sourceSlides": [
+      6
+    ]
+  },
+  {
+    "id": 49,
+    "qid": "signaljoint-e-49",
+    "difficulty": "easy",
+    "category": "Joint Operations Fundamentals",
+    "tags": [
+      "supported component",
+      "handout"
+    ],
+    "prompt": "According to the handout, what does the supported component in a joint operation have?",
+    "options": [
+      "Primary responsibility for the assigned task",
+      "The duty to assist another component with its task",
+      "Command of the other services for the whole operation",
+      "A role that stays fixed through every phase"
+    ],
+    "answer": 0,
+    "explanation": "Handout p.2: the supported component has primary responsibility for the assigned task; the supporting components provide assistance so that it can accomplish that task. These relationships can change from one phase or task to another.",
+    "sourceSlides": [
+      14
+    ]
+  },
+  {
+    "id": 50,
+    "qid": "signaljoint-e-50",
+    "difficulty": "easy",
+    "category": "Joint Operations Fundamentals",
+    "tags": [
+      "supported component",
+      "sea control",
+      "handout"
+    ],
+    "prompt": "A joint task force's current task is sea control around the Tawi-Tawi island group, with Army and Air Force elements assisting. According to the handout, which component is normally the supported component during this task?",
+    "options": [
+      "Philippine Army component",
+      "Philippine Navy component",
+      "Philippine Air Force component",
+      "The joint signal component"
+    ],
+    "answer": 1,
+    "explanation": "Handout p.2: during sea control operations the Navy component is normally supported; during counter-air operations the Air Force component; during land operations land forces may be supported by air and maritime forces.",
+    "sourceSlides": [
+      14
+    ]
+  },
+  {
+    "id": 51,
+    "qid": "signaljoint-e-51",
+    "difficulty": "easy",
+    "category": "Roles of Signal Support",
+    "tags": [
+      "vigilance net",
+      "handout"
+    ],
+    "prompt": "According to the handout, for which situations is the vigilance net reserved, although it is also used in joint operations?",
+    "options": [
+      "Routine administrative meetings",
+      "Classified orders that need full security",
+      "Emergency and exigent situations",
+      "Network defense during cyber incidents"
+    ],
+    "answer": 2,
+    "explanation": "Handout p.4: the vigilance net is reserved for emergency and exigent situations but is also used in joint operations; it operates in a less secure mode, so ciphertext and double talk are used as mitigation (slide 15).",
+    "sourceSlides": [
+      15
+    ]
+  },
+  {
+    "id": 52,
+    "qid": "signaljoint-e-52",
+    "difficulty": "easy",
+    "category": "Roles of Signal Support",
+    "tags": [
+      "summary table",
+      "coordination and synchronization",
+      "handout"
+    ],
+    "prompt": "In the handout's summary table of roles, what is the importance of \"enable coordination and synchronization\" to the joint force?",
+    "options": [
+      "It enables communication interoperability among services.",
+      "It bridges the communication gaps between the forces.",
+      "It reduces the vulnerabilities in information exchange.",
+      "It helps the participating forces execute a common plan."
+    ],
+    "answer": 3,
+    "explanation": "Handout p.4 table: connect the services - enables communication interoperability; support command and control - links commanders with operating units and supporting assets; relay information across services - bridges communication gaps; enable coordination and synchronization - helps participating forces execute a common plan; apply communication protection measures - reduces vulnerabilities in information exchange.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 53,
+    "qid": "signaljoint-e-53",
+    "difficulty": "easy",
+    "category": "Systems and Technologies",
+    "tags": [
+      "C2 communication categories",
+      "handout"
+    ],
+    "prompt": "According to the handout, what are the three main categories of command-and-control communication?",
+    "options": [
+      "Fixed, tactical, and special purpose communication",
+      "Fixed, tactical, and operations-center communication",
+      "Tactical, special purpose, and network support",
+      "HF, VHF, and UHF radio communication"
+    ],
+    "answer": 0,
+    "explanation": "Handout p.5: command-and-control communication has three main categories - fixed, tactical and special purpose communication. The handout then adds operations-center systems and network support and cyber protection, which it calls supporting activities rather than additional categories of equipment (p.7; slides 18-23).",
+    "sourceSlides": [
+      18
+    ]
+  },
+  {
+    "id": 54,
+    "qid": "signaljoint-e-54",
+    "difficulty": "easy",
+    "category": "Systems and Technologies",
+    "tags": [
+      "acronyms",
+      "BONTEX",
+      "handout"
+    ],
+    "prompt": "In the fixed communications system, what does BONTEX stand for?",
+    "options": [
+      "Bonifacio Network Telephone Exchange",
+      "Bonifacio Telephone Exchange",
+      "Brigade Operations Network Exchange",
+      "Base Operations and Telephone Exchange"
+    ],
+    "answer": 1,
+    "explanation": "Handout p.5: the Bonifacio Telephone Exchange (BONTEX) connects Army telephone systems with Headquarters Philippine Army and GHQ AFP.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 55,
+    "qid": "signaljoint-e-55",
+    "difficulty": "easy",
+    "category": "Systems and Technologies",
+    "tags": [
+      "acronyms",
+      "PANET",
+      "handout"
+    ],
+    "prompt": "Among the fixed communication technologies in the handout, what does PANET stand for?",
+    "options": [
+      "Philippine Armed Forces Network",
+      "Philippine Army Net Exchange Terminal",
+      "Philippine Army Network",
+      "Public Access Network"
+    ],
+    "answer": 2,
+    "explanation": "Handout p.5: the Philippine Army Network (PANET) provides a secured, managed Army intranet for administrative and mission-critical information systems.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 56,
+    "qid": "signaljoint-e-56",
+    "difficulty": "easy",
+    "category": "Systems and Technologies",
+    "tags": [
+      "acronyms",
+      "DBTOCS",
+      "handout"
+    ],
+    "prompt": "What does DBTOCS stand for in the handout's table of fixed communication systems?",
+    "options": [
+      "Digital Brigade Tactical Operations Communication System",
+      "Deployable Battalion Tactical Operations Control System",
+      "Defense Brigade Theater Operations Command Station",
+      "Deployable Brigade Tactical Operations Center System"
+    ],
+    "answer": 3,
+    "explanation": "Handout p.5: the Deployable Brigade Tactical Operations Center System (DBTOCS) extends fixed communication services to Army brigades.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 57,
+    "qid": "signaljoint-e-57",
+    "difficulty": "easy",
+    "category": "Systems and Technologies",
+    "tags": [
+      "tactical communication systems",
+      "voice",
+      "handout"
+    ],
+    "prompt": "According to the handout, what remains the foundation of tactical communication?",
+    "options": [
+      "Voice communication",
+      "Data replication",
+      "Commercial cellular service",
+      "Video teleconferencing"
+    ],
+    "answer": 0,
+    "explanation": "Handout p.5: tactical communication is military-grade communication used both on the move and on the halt, and voice communication remains its foundation.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 58,
+    "qid": "signaljoint-e-58",
+    "difficulty": "easy",
+    "category": "Systems and Technologies",
+    "tags": [
+      "acronyms",
+      "ROIP",
+      "handout"
+    ],
+    "prompt": "Among the tactical communication systems in the handout, what does ROIP stand for?",
+    "options": [
+      "Relay over IP",
+      "Radio over IP",
+      "Remote Operations over IP",
+      "Radio Operator Interface Protocol"
+    ],
+    "answer": 1,
+    "explanation": "Handout p.6: Radio over IP (ROIP) links radio communication through an IP network.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 59,
+    "qid": "signaljoint-e-59",
+    "difficulty": "easy",
+    "category": "Systems and Technologies",
+    "tags": [
+      "tactical radios",
+      "HF VHF UHF",
+      "handout"
+    ],
+    "prompt": "Which radio categories does the handout list under tactical communication systems?",
+    "options": [
+      "LF, MF, and HF radios",
+      "VHF, UHF, and SHF radios",
+      "HF, VHF, and UHF radios",
+      "MF, HF, and VHF radios"
+    ],
+    "answer": 2,
+    "explanation": "Handout p.6 lists High Frequency (HF), Very High Frequency (VHF) and Ultra-High Frequency (UHF) radios, together with the Combat Net Radio system, Radio over IP and ad-hoc network technologies.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 60,
+    "qid": "signaljoint-e-60",
+    "difficulty": "easy",
+    "category": "Systems and Technologies",
+    "tags": [
+      "Mobile Command Center",
+      "operations-center systems",
+      "handout"
+    ],
+    "prompt": "According to the handout, what do Mobile Command Centers (MCCs) allow commanders to do?",
+    "options": [
+      "Connect Army telephones with HPA and GHQ AFP",
+      "Defend PANET against cyber threats and attacks",
+      "Link radio communication through an IP network",
+      "Establish an operations center away from a fixed facility"
+    ],
+    "answer": 3,
+    "explanation": "Handout p.6: Mobile Command Centers (MCCs) allow commanders to establish an operations center away from a fixed facility. The distractors describe BONTEX, DCO and ROIP.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 61,
+    "qid": "signaljoint-e-61",
+    "difficulty": "easy",
+    "category": "Principles of Signal Support",
+    "tags": [
+      "scalable",
+      "operational phases",
+      "handout"
+    ],
+    "prompt": "Under the Scalable principle, networks must be adaptable to which operational phases?",
+    "options": [
+      "Home station, en route, and deployed environments",
+      "Connect, sustain, and recover phases of support",
+      "Primary, alternate, and contingency phases",
+      "Estimate, planning, and publication phases"
+    ],
+    "answer": 0,
+    "explanation": "Handout p.9: signal support expands its services according to the situation, and networks must be adaptable to different operational phases, including support at home station, en route and in deployed environments.",
+    "sourceSlides": [
+      31
+    ]
+  },
+  {
+    "id": 62,
+    "qid": "signaljoint-e-62",
+    "difficulty": "easy",
+    "category": "Planning and Coordination",
+    "tags": [
+      "acronyms",
+      "C4S",
+      "handout"
+    ],
+    "prompt": "In planning and coordinating signal support, what does C4S stand for?",
+    "options": [
+      "Command, Control, Communications, and Computer Systems",
+      "Command and Control, Communications, and Cyber Systems",
+      "Command and Control, Computers, and Signal Support",
+      "Combined Command, Control, and Communications Support"
+    ],
+    "answer": 1,
+    "explanation": "Handout p.13: the planning process uses the broader C4S scope - Command and Control, Communications, and Cyber Systems. The plan is published with the C4S annex (slide 58).",
+    "sourceSlides": [
+      48,
+      58
+    ]
+  },
+  {
+    "id": 63,
+    "qid": "signaljoint-e-63",
+    "difficulty": "easy",
+    "category": "Planning and Coordination",
+    "tags": [
+      "signal estimate",
+      "METAL",
+      "handout"
+    ],
+    "prompt": "Which factors make up METAL, the guide for the signal estimate?",
+    "options": [
+      "Mission, Equipment, Terrain, Assets, Links",
+      "Mission, Enemy, Terrain, Assets, Logistics",
+      "Mission, Enemy, Troops, Area of Operations, Logistics",
+      "Means, Enemy, Troops, Area of Operations, Links"
+    ],
+    "answer": 2,
+    "explanation": "Slide 50 says METAL guides the signal estimate, and Handout p.13 lists its factors: Mission, Enemy, Troops, Area of Operations and Logistics, each with what the planner must determine.",
+    "sourceSlides": [
+      50
+    ]
+  },
+  {
+    "id": 64,
+    "qid": "signaljoint-e-64",
+    "difficulty": "easy",
+    "category": "Security Measures and Protocols",
+    "tags": [
+      "acronyms",
+      "CEOI",
+      "handout"
+    ],
+    "prompt": "Among the documents that guide signal personnel, what does CEOI stand for?",
+    "options": [
+      "Communication-Electronics Standing Instructions",
+      "Command Electronic Operations Information",
+      "Communication-Electronics Order of Issue",
+      "Communication-Electronics Operating Instructions"
+    ],
+    "answer": 3,
+    "explanation": "Handout p.16: the Communication-Electronics Operating Instructions (CEOI) provide specific instructions on what to do when operating C4 systems; the Communication-Electronics Standing Instructions (CESI) explain how to use the items found in the CEOI.",
+    "sourceSlides": [
+      62
+    ]
+  },
+  {
+    "id": 65,
+    "qid": "signaljoint-e-65",
+    "difficulty": "easy",
+    "category": "Security Measures and Protocols",
+    "tags": [
+      "acronyms",
+      "CESI",
+      "handout"
+    ],
+    "prompt": "Which document title does the acronym CESI represent?",
+    "options": [
+      "Communication-Electronics Standing Instructions",
+      "Communication-Electronics Security Instructions",
+      "Communication-Electronics Operating Instructions",
+      "Combat Electronic Signal Instructions"
+    ],
+    "answer": 0,
+    "explanation": "Handout p.16: the Communication-Electronics Standing Instructions (CESI) explain how to use the items found in the Communication-Electronics Operating Instructions (CEOI).",
+    "sourceSlides": [
+      62
+    ]
+  },
+  {
+    "id": 66,
+    "qid": "signaljoint-e-66",
+    "difficulty": "easy",
+    "category": "Security Measures and Protocols",
+    "tags": [
+      "acronyms",
+      "SOC",
+      "handout"
+    ],
+    "prompt": "In monitoring systems and assessing vulnerabilities, what does SOC stand for?",
+    "options": [
+      "Signal Operations Center",
+      "Security Operations Center",
+      "System Operations Control",
+      "Security Oversight Committee"
+    ],
+    "answer": 1,
+    "explanation": "Handout p.17: Security Operations Center (SOC) monitoring detects and supports reactions to security incidents.",
+    "sourceSlides": [
+      67
     ]
   }
 ]

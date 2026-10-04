@@ -72,6 +72,8 @@ Each bank is a JSON array. Each question looks like this:
   qid (delete its `qid` and run `assign-qids`), so its statistics are not mixed with the old version's. Retired so far:
   `armyops-h-24` (now `armyops-h-26`: unity of command in a joint task force instead of civilians reporting to an
   officer) and `armyops-m-14` (now `armyops-m-26`: the stem described Information Operations, the key is Information).
+  The `signaljoint` audit against the student handout (October 2026) retired none: every key held, and its fixes
+  (`signaljoint-e-14`, `-e-17`, `-e-19`, `-e-35`, `-e-37`, `-e-42`, `-m-01`, `-m-13`, `-m-30`) were wording or explanation only.
 - `category` must be one of the lesson's `categoryOrder` topics.
 - `sourceSlides` must fall within `sourceRef` (it is optional for Army Operations).
 - An attempt asks every question of the chosen bank (1–500 per bank). The pool exam asks `pool.count` questions, split evenly across its lessons.
@@ -100,7 +102,7 @@ Copy `lessons/_template/` to `lessons/<key>/`, then:
 - add `hero.svg` (and optionally `hero.css`) and the three banks;
 - add the key to `LESSONS` in `apps-script/Code.gs` and update the deployment.
 
-Then run `assign-qids`, build and verify. See `lessons/_template/README.md`. The Module 3 lesson `signaljoint` (slug `joint-signal`) is registered in `Code.gs`; its `coverage.md` maps each question to the lesson slides.
+Then run `assign-qids`, build and verify. See `lessons/_template/README.md`. The Module 3 lesson `signaljoint` (slug `joint-signal`) is registered in `Code.gs`; its `coverage.md` maps each question to the lesson slides and the official student handout. `sourceSlides` always holds slide numbers (one reference label per lesson); a handout-only question cites the nearest slide and names "Handout p.N" in its explanation.
 
 ## Students' features
 

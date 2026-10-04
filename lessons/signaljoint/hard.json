@@ -979,5 +979,211 @@
     "sourceSlides": [
       8
     ]
+  },
+  {
+    "id": 45,
+    "qid": "signaljoint-h-45",
+    "difficulty": "hard",
+    "category": "Joint Operations Fundamentals",
+    "tags": [
+      "supported component",
+      "matching",
+      "handout"
+    ],
+    "prompt": "Match each task to the component that the handout says is normally supported: (1) land operations; (2) sea control operations; (3) counter-air operations.",
+    "options": [
+      "(1) Army land forces; (2) Navy; (3) Air Force",
+      "(1) Army land forces; (2) Air Force; (3) Navy",
+      "(1) Navy; (2) Navy; (3) Air Force",
+      "(1) Army land forces; (2) Navy; (3) Army land forces"
+    ],
+    "answer": 0,
+    "explanation": "Handout p.2: during land operations, land forces may be supported by air and maritime forces; during sea control operations the Navy component is normally supported; during counter-air operations the Air Force component is normally supported.",
+    "sourceSlides": [
+      6,
+      14
+    ]
+  },
+  {
+    "id": 46,
+    "qid": "signaljoint-h-46",
+    "difficulty": "hard",
+    "category": "Joint Operations Fundamentals",
+    "tags": [
+      "supported and supporting",
+      "phases",
+      "handout"
+    ],
+    "prompt": "In an AFP joint operation to secure an island, the Navy is the supported component while it transports troops and secures the surrounding waters. When the main task becomes securing the land objectives, the Army becomes the supported component. Which statement reflects the lesson?",
+    "options": [
+      "The Navy must remain the supported component until the operation ends.",
+      "Supported and supporting relationships can change as the task changes.",
+      "A change of supported component means the joint commander has changed.",
+      "Only the Army may be the supported component in a joint operation."
+    ],
+    "answer": 1,
+    "explanation": "Handout p.2: during the maritime phase the Navy may be the supported component; when the main task becomes securing land objectives the Army may become supported. Supported and supporting relationships can change with the task, under the same Joint Force Commander.",
+    "sourceSlides": [
+      14
+    ]
+  },
+  {
+    "id": 47,
+    "qid": "signaljoint-h-47",
+    "difficulty": "hard",
+    "category": "Roles of Signal Support",
+    "tags": [
+      "summary table",
+      "matching",
+      "handout"
+    ],
+    "prompt": "Match each role of signal support to its importance in the handout's summary table: (1) connect the services; (2) enable coordination and synchronization; (3) apply communication protection measures.",
+    "options": [
+      "(1) Bridges communication gaps; (2) helps execute a common plan; (3) reduces vulnerabilities in information exchange",
+      "(1) Enables interoperability; (2) links commanders with supporting assets; (3) reduces vulnerabilities in information exchange",
+      "(1) Enables interoperability; (2) helps execute a common plan; (3) reduces vulnerabilities in information exchange",
+      "(1) Enables interoperability; (2) helps execute a common plan; (3) makes the vigilance net fully secure"
+    ],
+    "answer": 2,
+    "explanation": "Handout p.4 table: connect the services - enables communication interoperability; enable coordination and synchronization - helps participating forces execute a common plan; apply communication protection measures - reduces vulnerabilities in information exchange. Bridging gaps belongs to relaying, linking commanders to command and control.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 48,
+    "qid": "signaljoint-h-48",
+    "difficulty": "hard",
+    "category": "Systems and Technologies",
+    "tags": [
+      "fixed communications system",
+      "matching",
+      "handout"
+    ],
+    "prompt": "Match each fixed communication technology to its function: (1) connects Army telephone systems with HPA and GHQ AFP; (2) secured, managed Army intranet; (3) extends fixed services to Army brigades; (4) IP-based telephone services over a data network.",
+    "options": [
+      "(1) PANET; (2) BONTEX; (3) DBTOCS; (4) VoIP",
+      "(1) BONTEX; (2) PANET; (3) VoIP; (4) DBTOCS",
+      "(1) BONTEX; (2) DBTOCS; (3) PANET; (4) ROIP",
+      "(1) BONTEX; (2) PANET; (3) DBTOCS; (4) VoIP"
+    ],
+    "answer": 3,
+    "explanation": "Handout p.5: BONTEX connects Army telephone systems with Headquarters Philippine Army and GHQ AFP; PANET is a secured, managed Army intranet; DBTOCS extends fixed communication services to Army brigades; VoIP enables IP-based telephone services using a data network. ROIP is a tactical technology (p.6).",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 49,
+    "qid": "signaljoint-h-49",
+    "difficulty": "hard",
+    "category": "Systems and Technologies",
+    "tags": [
+      "frequency category",
+      "interoperability",
+      "handout"
+    ],
+    "prompt": "Army troops and a Navy patrol boat both carry VHF radios. The S6 concludes that, because the radios share a frequency category, no link arrangement is needed; on landing, the two cannot talk. Which statement reflects the lesson?",
+    "options": [
+      "A shared frequency category alone does not establish that the radios can communicate.",
+      "VHF radios of all services become compatible once their frequencies are coordinated.",
+      "Tactical radios cannot be used between services, so only fixed systems may be linked.",
+      "Only HF radios can link the services, so VHF radios should not have been issued at all."
+    ],
+    "answer": 0,
+    "explanation": "Handout p.6: a radio's frequency category alone does not establish that it can communicate with another service's equipment; signal personnel must establish a compatible link or an operator-relay arrangement.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 50,
+    "qid": "signaljoint-h-50",
+    "difficulty": "hard",
+    "category": "Systems and Technologies",
+    "tags": [
+      "INO",
+      "DCO",
+      "handout"
+    ],
+    "prompt": "Which pairing of network support activity and purpose is correct according to the handout?",
+    "options": [
+      "INO: defend PANET against cyber threats and attacks, and respond to cyber incidents",
+      "DCO: defend PANET against cyber threats and attacks, and respond to cyber incidents",
+      "DCO: build PANET, and restore connectivity and services after a computer emergency",
+      "INO: collect and analyze activity across IT resources, and detect security incidents"
+    ],
+    "answer": 1,
+    "explanation": "Handout p.7: Defensive Cyberspace Operations (DCO) defend PANET against cyber threats and attacks and respond to cyber incidents; Information Network Operations (INO) build PANET, restore connectivity and services after a computer emergency, and support information-system development and integration. Collecting and analyzing activity is SIEM (p.17).",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 51,
+    "qid": "signaljoint-h-51",
+    "difficulty": "hard",
+    "category": "Planning and Coordination",
+    "tags": [
+      "METAL",
+      "matching",
+      "handout"
+    ],
+    "prompt": "In the signal estimate, match each question to its METAL factor: (1) What personnel and capabilities are available? (2) How will the operating area affect communication? (3) What resources are needed to support the mission?",
+    "options": [
+      "(1) Logistics; (2) Area of Operations; (3) Troops",
+      "(1) Troops; (2) Enemy; (3) Logistics",
+      "(1) Troops; (2) Area of Operations; (3) Logistics",
+      "(1) Troops; (2) Area of Operations; (3) Mission"
+    ],
+    "answer": 2,
+    "explanation": "Handout p.13 table: Mission - what the force must accomplish and what communication it requires; Enemy - enemy signal capabilities; Troops - personnel and capabilities available; Area of Operations - how the area affects communication; Logistics - resources needed to support the mission. Slide 50 names this guide METAL.",
+    "sourceSlides": [
+      50
+    ]
+  },
+  {
+    "id": 52,
+    "qid": "signaljoint-h-52",
+    "difficulty": "hard",
+    "category": "Planning and Coordination",
+    "tags": [
+      "tentative signal plan",
+      "handout"
+    ],
+    "prompt": "Which of the following does the handout NOT list as content of the tentative signal plan?",
+    "options": [
+      "Primary, alternate, contingency, and emergency arrangements",
+      "Interconnections and alternate routing",
+      "Locations of communication centers and facilities",
+      "The C4S annex published to the operations order"
+    ],
+    "answer": 3,
+    "explanation": "Handout p.14: the tentative signal plan covers primary, alternate, contingency and emergency arrangements, allocation of resources, locations of communication centers and facilities, security measures, and interconnections and alternate routing. Publishing with the C4S annex is step 8 (slide 58).",
+    "sourceSlides": [
+      55
+    ]
+  },
+  {
+    "id": 53,
+    "qid": "signaljoint-h-53",
+    "difficulty": "hard",
+    "category": "Planning and Coordination",
+    "tags": [
+      "joint C3 plan",
+      "handout"
+    ],
+    "prompt": "According to the handout, which questions must a joint C3 plan clearly answer?",
+    "options": [
+      "Who communicates with whom, by what means, under whose responsibility, and what happens if communication fails",
+      "What the force must do, what the enemy can do, which troops are available, and which logistics are needed",
+      "Whether the plan is resourced, reflects priorities, defines responsibilities, and includes security measures",
+      "Who needs to communicate, what they exchange, where they operate, and whether their systems work together"
+    ],
+    "answer": 0,
+    "explanation": "Handout p.15: a joint C3 plan must clearly answer who communicates with whom, by what means, under whose responsibility, and what happens if communication fails. The distractors paraphrase METAL (p.13), the validation checklist (slide 57) and the system-selection questions (slide 24).",
+    "sourceSlides": [
+      58
+    ]
   }
 ]

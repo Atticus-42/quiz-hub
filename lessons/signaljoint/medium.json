@@ -8,7 +8,7 @@
       "service contributions",
       "Philippine Army"
     ],
-    "prompt": "What does the Philippine Army contribute to a joint operation, according to the lesson?",
+    "prompt": "According to the service contribution table, what is the Philippine Army's part in a joint operation?",
     "options": [
       "Maritime capabilities, including forces for sea control and the transport of Army troops between the islands.",
       "Air capabilities, including forces for counter-air operations and air support to troops on the ground.",
@@ -271,7 +271,7 @@
     "tags": [
       "operations-center systems"
     ],
-    "prompt": "At a brigade tactical operations center, reports from sensors and communication devices are brought together so that the commander can see them and coordinate with supporting air and naval elements. Which category of signal support system is described?",
+    "prompt": "At a brigade tactical operations center, reports from sensors and communication devices are brought together so that the commander can see them and coordinate with supporting air and naval elements. Which of the lesson's signal support systems and technologies is described?",
     "options": [
       "Fixed communications system",
       "Operations-center systems",
@@ -279,7 +279,7 @@
       "Network support and cyber protection"
     ],
     "answer": 1,
-    "explanation": "Slide 22: operations-center systems bring information to the commander; the operations center is the facility where information from sensors and communication devices becomes available to the commander.",
+    "explanation": "Slide 22 and Handout p.6: operations-center systems bring information to the commander; the operations center is the facility where information from sensors and communication devices becomes available to the commander, and signal support services converge there.",
     "sourceSlides": [
       22
     ]
@@ -645,7 +645,7 @@
       "CEOI and CESI"
     ],
     "answer": 3,
-    "explanation": "Slide 51: the planner obtains guidance from the commander, other staff, higher, subordinate and adjacent units, SOPs, and the CEOI and CESI, which provide operating instructions and explain their use.",
+    "explanation": "Slide 51: the planner obtains guidance from the commander, other staff, higher, subordinate and adjacent units, SOPs, and the CEOI and CESI, which provide operating instructions and explain their use. Handout p.16: the CEOI gives specific instructions on what to do when operating C4 systems, and the CESI explains how to use the items found in the CEOI.",
     "sourceSlides": [
       51
     ]
@@ -1020,6 +1020,553 @@
     "explanation": "Slide 64: equipment may fall into an adversary's hands and compromise operational frequencies; equipment loss can affect the security of the wider communication network.",
     "sourceSlides": [
       64
+    ]
+  },
+  {
+    "id": 48,
+    "qid": "signaljoint-m-48",
+    "difficulty": "medium",
+    "category": "Joint Operations Fundamentals",
+    "tags": [
+      "joint synergy",
+      "handout"
+    ],
+    "prompt": "In an island operation, Navy ships carry an Army battalion across waters it cannot cross alone, and Air Force aircraft add aerial support that reinforces the battalion's effects ashore. Which concept from the lesson does this illustrate?",
+    "options": [
+      "Combined arms",
+      "Redundancy",
+      "Interoperability",
+      "Joint synergy"
+    ],
+    "answer": 3,
+    "explanation": "Handout p.1: the strengths of one service can overcome the limitations or reinforce the effects of another; this is joint synergy. Combined arms is infantry, armor, artillery and engineers working together (slide 7); interoperability concerns communication between services (slide 11).",
+    "sourceSlides": [
+      6,
+      7
+    ]
+  },
+  {
+    "id": 49,
+    "qid": "signaljoint-m-49",
+    "difficulty": "medium",
+    "category": "Joint Operations Fundamentals",
+    "tags": [
+      "common mission",
+      "handout"
+    ],
+    "prompt": "According to the handout, why does having Army, Navy and Air Force personnel in the same area not, by itself, make a joint operation?",
+    "options": [
+      "Their activities must contribute to a common mission through coordinated command and action.",
+      "The services must also share a single communication network and give up their own systems.",
+      "Each service must first complete a combined arms operation before it can join the others.",
+      "A joint operation also needs a cyber force as a fourth service under its own commander."
+    ],
+    "answer": 0,
+    "explanation": "Handout p.1: having Army, Navy and Air Force personnel in the same area does not, by itself, explain a joint operation; their activities must contribute to a common mission through coordinated command and action.",
+    "sourceSlides": [
+      6
+    ]
+  },
+  {
+    "id": 50,
+    "qid": "signaljoint-m-50",
+    "difficulty": "medium",
+    "category": "Roles of Signal Support",
+    "tags": [
+      "command and control",
+      "embedded operators",
+      "handout"
+    ],
+    "prompt": "According to the handout, what does embedding another service's radio operators at the tactical operations center closest to the operating units and decision-makers achieve?",
+    "options": [
+      "It removes the need for compatible equipment and for any agreed procedures between services.",
+      "It simplifies the radio net and gives the commander direct contact with supporting assets.",
+      "It makes the vigilance net fully secure without the use of ciphertext or double talk.",
+      "It relays information between Army troops ashore and the naval element they work alongside."
+    ],
+    "answer": 1,
+    "explanation": "Handout p.3 (role 2, enable effective command and control): embedding radio operators from another service at the tactical operations center simplifies the operational radio net and gives the combat commander direct contact with supporting assets. Relaying from alongside a naval element is role 3 (slide 13).",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 51,
+    "qid": "signaljoint-m-51",
+    "difficulty": "medium",
+    "category": "Systems and Technologies",
+    "tags": [
+      "DBTOCS",
+      "fixed communications system",
+      "handout"
+    ],
+    "prompt": "A brigade moves from garrison to a field site in Lanao del Sur, and the S6 extends the fixed communication services of the Army backbone to the brigade there. Which technology from the handout is he using?",
+    "options": [
+      "BONTEX",
+      "ROIP",
+      "DBTOCS",
+      "PANET"
+    ],
+    "answer": 2,
+    "explanation": "Handout p.5: the Deployable Brigade Tactical Operations Center System (DBTOCS) extends fixed communication services to Army brigades. BONTEX connects Army telephone systems with HPA and GHQ AFP, PANET is the Army intranet, and ROIP is a tactical technology.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 52,
+    "qid": "signaljoint-m-52",
+    "difficulty": "medium",
+    "category": "Systems and Technologies",
+    "tags": [
+      "PANET",
+      "handout"
+    ],
+    "prompt": "How does the handout describe the Philippine Army Network (PANET)?",
+    "options": [
+      "A telephone exchange that connects Army telephone systems with HPA and GHQ AFP.",
+      "A deployable system that extends fixed communication services to Army brigades.",
+      "A combat net radio system that organizes communication among participating stations.",
+      "A secured, managed Army intranet for administrative and mission-critical information systems."
+    ],
+    "answer": 3,
+    "explanation": "Handout p.5: PANET provides a secured, managed Army intranet for administrative and mission-critical information systems. The distractors describe BONTEX, DBTOCS and the Combat Net Radio system.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 53,
+    "qid": "signaljoint-m-53",
+    "difficulty": "medium",
+    "category": "Systems and Technologies",
+    "tags": [
+      "CNR",
+      "tactical communication systems",
+      "handout"
+    ],
+    "prompt": "In the handout's tactical communication systems, what does the Combat Net Radio (CNR) system do?",
+    "options": [
+      "Organizes radio communication among participating stations.",
+      "Links radio communication through an IP network.",
+      "Supports networks established for an operational requirement.",
+      "Enables IP-based telephone services using a data network."
+    ],
+    "answer": 0,
+    "explanation": "Handout p.6: the Combat Net Radio (CNR) system organizes radio communication among participating stations. Radio over IP links radio through an IP network, ad-hoc network technologies support networks established for an operational requirement, and VoIP (a fixed technology) gives IP-based telephone services.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 54,
+    "qid": "signaljoint-m-54",
+    "difficulty": "medium",
+    "category": "Systems and Technologies",
+    "tags": [
+      "ROIP",
+      "handout"
+    ],
+    "prompt": "A battalion in Sultan Kudarat links a company's tactical radio net to its headquarters by carrying the radio traffic through the brigade's IP network. Which technology from the handout is this?",
+    "options": [
+      "Voice over Internet Protocol (VoIP)",
+      "Radio over IP (ROIP)",
+      "Combat Net Radio (CNR) system",
+      "Ad-hoc network technologies"
+    ],
+    "answer": 1,
+    "explanation": "Handout p.6: Radio over IP (ROIP) links radio communication through an IP network. VoIP (p.5) enables IP-based telephone services over a data network; CNR organizes radio communication among stations.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 55,
+    "qid": "signaljoint-m-55",
+    "difficulty": "medium",
+    "category": "Systems and Technologies",
+    "tags": [
+      "VoIP",
+      "fixed communications system",
+      "handout"
+    ],
+    "prompt": "What does Voice over Internet Protocol (VoIP) do in the fixed communications system described in the handout?",
+    "options": [
+      "Links tactical radio communication through an IP network.",
+      "Connects Army telephone systems with HPA and GHQ AFP.",
+      "Enables IP-based telephone services using a data network.",
+      "Extends fixed communication services to Army brigades."
+    ],
+    "answer": 2,
+    "explanation": "Handout p.5: VoIP enables IP-based telephone services using a data network. ROIP links radio through an IP network (p.6), BONTEX connects Army telephone systems with HPA and GHQ AFP, and DBTOCS extends fixed services to brigades.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 56,
+    "qid": "signaljoint-m-56",
+    "difficulty": "medium",
+    "category": "Systems and Technologies",
+    "tags": [
+      "tactical communication systems",
+      "equipment selection",
+      "handout"
+    ],
+    "prompt": "According to the handout, what determines the appropriate equipment for tactical communication?",
+    "options": [
+      "The newest technology available to the service",
+      "The frequency category shared by each service's radios",
+      "The equipment that the operators personally prefer",
+      "The mission, environment, and communication requirements"
+    ],
+    "answer": 3,
+    "explanation": "Handout p.6: the appropriate equipment depends on the mission, environment and communication requirements; a radio's frequency category alone does not establish that it can communicate with another service's equipment.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 57,
+    "qid": "signaljoint-m-57",
+    "difficulty": "medium",
+    "category": "Systems and Technologies",
+    "tags": [
+      "Mobile Command Center",
+      "handout"
+    ],
+    "prompt": "After a typhoon damages a brigade headquarters building in Tacloban, the commander sets up an operations center in a mobile facility away from the fixed building and keeps directing relief operations. Which capability from the handout is being used?",
+    "options": [
+      "Mobile Command Center (MCC)",
+      "Bonifacio Telephone Exchange (BONTEX)",
+      "Philippine Army Network (PANET)",
+      "Combat Net Radio (CNR) system"
+    ],
+    "answer": 0,
+    "explanation": "Handout p.6: Mobile Command Centers (MCCs) allow commanders to establish an operations center away from a fixed facility; the operations center is where signal support services converge and information becomes available to the commander.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 58,
+    "qid": "signaljoint-m-58",
+    "difficulty": "medium",
+    "category": "Systems and Technologies",
+    "tags": [
+      "INO",
+      "network support",
+      "handout"
+    ],
+    "prompt": "After a computer emergency knocks out PANET services at a division headquarters, a signal team restores connectivity and services, then resumes building the network and integrating new information systems. Which network support activity is this?",
+    "options": [
+      "Defensive Cyberspace Operations (DCO)",
+      "Information Network Operations (INO)",
+      "Security Information and Event Management",
+      "Network Access Control (NAC)"
+    ],
+    "answer": 1,
+    "explanation": "Handout p.7: Information Network Operations (INO) build PANET, restore connectivity and services after a computer emergency, and support information-system development and integration. DCO defends PANET against cyber threats and responds to cyber incidents.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 59,
+    "qid": "signaljoint-m-59",
+    "difficulty": "medium",
+    "category": "Systems and Technologies",
+    "tags": [
+      "DCO",
+      "network support",
+      "handout"
+    ],
+    "prompt": "During a joint operation, hostile actors attack PANET. A signal team defends the network against the attack and responds to the resulting cyber incident. Which activity from the handout is this?",
+    "options": [
+      "Information Network Operations (INO)",
+      "Network Access Control (NAC)",
+      "Defensive Cyberspace Operations (DCO)",
+      "Endpoint security"
+    ],
+    "answer": 2,
+    "explanation": "Handout p.7: Defensive Cyberspace Operations (DCO) defend PANET against cyber threats and attacks and respond to cyber incidents. INO builds and restores the network; NAC and endpoint security are security technologies (p.17).",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 60,
+    "qid": "signaljoint-m-60",
+    "difficulty": "medium",
+    "category": "Principles of Signal Support",
+    "tags": [
+      "operations focused",
+      "enabling capability",
+      "handout"
+    ],
+    "prompt": "Under the Operations focused principle, how does the handout describe communication?",
+    "options": [
+      "As the main effort of the operation",
+      "As a separate function of each service",
+      "As an administrative support task",
+      "As an enabling capability"
+    ],
+    "answer": 3,
+    "explanation": "Handout p.8: communication is an enabling capability, and signal support should never become the factor that limits the commander's ability to execute the mission, through problems such as discharged batteries or units losing contact with their headquarters.",
+    "sourceSlides": [
+      28
+    ]
+  },
+  {
+    "id": 61,
+    "qid": "signaljoint-m-61",
+    "difficulty": "medium",
+    "category": "Principles of Signal Support",
+    "tags": [
+      "operations focused",
+      "joint planning",
+      "handout"
+    ],
+    "prompt": "For joint operations, what does the Operations focused principle tell planners to consider when planning communication?",
+    "options": [
+      "Who must communicate, when they need contact, and how long the operation will last",
+      "Which service owns the newest radios, and how many sets each service can provide",
+      "Which phases need support at home station, en route, and in deployed environments",
+      "Which links can be made fully secure so that no protective measure is needed"
+    ],
+    "answer": 0,
+    "explanation": "Handout p.8: plan communication around what the participating forces need to accomplish - who must communicate, when they need contact, and how long the operation will last. Home station, en route and deployed phases belong to Scalable (p.9).",
+    "sourceSlides": [
+      28
+    ]
+  },
+  {
+    "id": 62,
+    "qid": "signaljoint-m-62",
+    "difficulty": "medium",
+    "category": "Principles of Signal Support",
+    "tags": [
+      "interoperable",
+      "standardization",
+      "handout"
+    ],
+    "prompt": "According to the handout, what does the Interoperable principle require among communication and automated information systems?",
+    "options": [
+      "Multiple paths and data replication",
+      "Compatibility and standardization",
+      "Expansion as new forces join",
+      "Separation of each service's network"
+    ],
+    "answer": 1,
+    "explanation": "Handout p.8: Army units must be able to communicate within the Army and with other major services, which requires compatibility and standardization among communication and automated information systems. Multiple paths belong to Redundant and expansion to Scalable.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 63,
+    "qid": "signaljoint-m-63",
+    "difficulty": "medium",
+    "category": "Principles of Signal Support",
+    "tags": [
+      "redundant",
+      "single point of failure",
+      "handout"
+    ],
+    "prompt": "For joint operations, what does the Redundant principle warn planners to avoid?",
+    "options": [
+      "Lending Army equipment to another service before its security is checked",
+      "Adjusting the communication arrangements when new forces join the operation",
+      "Making essential coordination depend entirely on one device, link, or network",
+      "Using commercial devices for routine or administrative traffic at any time"
+    ],
+    "answer": 2,
+    "explanation": "Handout p.9: under Redundant, avoid making essential coordination depend entirely on a single device, link or network; a backup must be available and usable when the main means fails.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 64,
+    "qid": "signaljoint-m-64",
+    "difficulty": "medium",
+    "category": "Principles of Signal Support",
+    "tags": [
+      "scalable",
+      "joint operations",
+      "handout"
+    ],
+    "prompt": "Under the Scalable principle, which changes must communication support accommodate in joint operations?",
+    "options": [
+      "Jamming, interception, cyberattacks, and compromised frequencies during the operation",
+      "Island separation, mountains, dense vegetation, urban structures, and typhoon damage",
+      "Equipment availability, personnel shortages, existing commitments, and limited funds",
+      "Additional forces, new headquarters, changing locations, and increased information requirements"
+    ],
+    "answer": 3,
+    "explanation": "Handout p.9: communication support must accommodate additional forces, new headquarters, changing locations and increased information requirements. The distractors are recovery threats (step 5), terrain challenges and resource checks.",
+    "sourceSlides": [
+      31
+    ]
+  },
+  {
+    "id": 65,
+    "qid": "signaljoint-m-65",
+    "difficulty": "medium",
+    "category": "Tactical Considerations",
+    "tags": [
+      "communication-site location",
+      "handout"
+    ],
+    "prompt": "Which factors does the handout list for locating communication centers and facilities?",
+    "options": [
+      "Terrain, propagation conditions, unit disposition, projected operations, accessibility, and logistics",
+      "Enemy jamming, interception, cyberattacks, compromised frequencies, and the loss of equipment",
+      "Mission, enemy, troops, area of operations, logistics, and the commander's stated intent",
+      "Availability, serviceability, maintenance readiness, reserves, operator training, and funds"
+    ],
+    "answer": 0,
+    "explanation": "Handout p.11 (unit movement and communication-site location): the location of communication centers and facilities considers terrain, propagation conditions, unit disposition, projected operations, accessibility and logistical requirements.",
+    "sourceSlides": [
+      39
+    ]
+  },
+  {
+    "id": 66,
+    "qid": "signaljoint-m-66",
+    "difficulty": "medium",
+    "category": "Planning and Coordination",
+    "tags": [
+      "Command and Control Communication",
+      "definitions",
+      "handout"
+    ],
+    "prompt": "How does the handout define Command and Control Communication?",
+    "options": [
+      "Determining communication requirements, organizing resources, and ensuring services can communicate.",
+      "Employing information and communication technology to facilitate C2 in support of Army operations.",
+      "Protecting equipment, networks and information while keeping the commander able to communicate.",
+      "Assessing the practical factors that keep communications effective during a mission."
+    ],
+    "answer": 1,
+    "explanation": "Handout p.13: Command and Control Communication is employing information and communication technology to facilitate command and control in support of Army operations; planning uses the broader C4S scope. The distractors define planning and coordinating (slide 48), security (slide 60) and tactical considerations (slide 35).",
+    "sourceSlides": [
+      48
+    ]
+  },
+  {
+    "id": 67,
+    "qid": "signaljoint-m-67",
+    "difficulty": "medium",
+    "category": "Planning and Coordination",
+    "tags": [
+      "signal estimate",
+      "revision",
+      "handout"
+    ],
+    "prompt": "According to the handout, when must the signal estimate be revised?",
+    "options": [
+      "Only after the C4S annex has been published to the units",
+      "Only when the Joint Force Commander is replaced",
+      "When the situation changes or new information becomes available",
+      "Never, because it is fixed once the plan is validated"
+    ],
+    "answer": 2,
+    "explanation": "Handout p.13: the estimate must be revised when the situation changes or new information becomes available; during execution the planner keeps updating it as conditions change (p.15, slide 58).",
+    "sourceSlides": [
+      50
+    ]
+  },
+  {
+    "id": 68,
+    "qid": "signaljoint-m-68",
+    "difficulty": "medium",
+    "category": "Planning and Coordination",
+    "tags": [
+      "communication requirements",
+      "supported and supporting",
+      "handout"
+    ],
+    "prompt": "For joint operations, the handout says communication requirements must be aligned with what?",
+    "options": [
+      "The equipment that each service already owns and prefers to operate in the field",
+      "The incident-response plan maintained by the CSIRT of each participating service",
+      "The commercial devices that happen to be available in the area of operations",
+      "The supported and supporting relationships assigned by the Joint Force Commander"
+    ],
+    "answer": 3,
+    "explanation": "Handout p.14: for joint operations, include the joint headquarters and relevant Army, Navy and Air Force elements, and align the requirements with the supported and supporting relationships assigned by the Joint Force Commander.",
+    "sourceSlides": [
+      51
+    ]
+  },
+  {
+    "id": 69,
+    "qid": "signaljoint-m-69",
+    "difficulty": "medium",
+    "category": "Planning and Coordination",
+    "tags": [
+      "command relationships",
+      "coordination requirements",
+      "handout"
+    ],
+    "prompt": "At a coordination conference, the S6 and his Navy and Air Force counterparts agree which headquarters directs the operation and which components support each task. Which coordination requirement of the tentative signal plan are they settling?",
+    "options": [
+      "Command relationships",
+      "Communication links",
+      "Responsibilities",
+      "Spectrum use"
+    ],
+    "answer": 0,
+    "explanation": "Slide 56 and Handout p.15: command relationships - which headquarters directs the operation and which components support each task. Communication links are the units that require connections; responsibilities are who installs, operates, maintains and restores each link.",
+    "sourceSlides": [
+      56
+    ]
+  },
+  {
+    "id": 70,
+    "qid": "signaljoint-m-70",
+    "difficulty": "medium",
+    "category": "Security Measures and Protocols",
+    "tags": [
+      "CESI",
+      "CEOI",
+      "handout"
+    ],
+    "prompt": "According to the handout, what is the purpose of the Communication-Electronics Standing Instructions (CESI)?",
+    "options": [
+      "They give specific instructions for operating C4 systems.",
+      "They explain how to use the items found in the CEOI.",
+      "They enforce policies on access by users and devices.",
+      "They collect and analyze activity across IT resources."
+    ],
+    "answer": 1,
+    "explanation": "Handout p.16: the CESI explains how to use the items found in the CEOI, while the CEOI provides specific instructions on what to do when operating C4 systems. The other options describe NAC and SIEM.",
+    "sourceSlides": [
+      62
+    ]
+  },
+  {
+    "id": 71,
+    "qid": "signaljoint-m-71",
+    "difficulty": "medium",
+    "category": "Security Measures and Protocols",
+    "tags": [
+      "security definition",
+      "procedures",
+      "handout"
+    ],
+    "prompt": "According to the handout, what does security in signal support operations require?",
+    "options": [
+      "Protective equipment alone, since installed devices keep the network secure",
+      "Blocking every link between services so that no compromise can spread",
+      "Both protective measures and procedures that personnel consistently follow",
+      "Commercial devices in place of tactical radios for all sensitive traffic"
+    ],
+    "answer": 2,
+    "explanation": "Handout p.16: security means protecting communication equipment, networks and information while maintaining the commander's ability to communicate, and it requires both protective measures and procedures that personnel consistently follow.",
+    "sourceSlides": [
+      60
     ]
   }
 ]
