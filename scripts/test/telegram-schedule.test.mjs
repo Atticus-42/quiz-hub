@@ -47,14 +47,14 @@ test('successful posts use the group, optional topic and private credentials; re
       fetchFn:async(url,init)=>{calls.push({url,body:JSON.parse(init.body)});return {ok:true,status:200,json:async()=>({ok:true})};}};
     const result=await postTomorrow(options);assert.equal(result.skipped,false);
     assert.equal(calls[0].body.chat_id,'-1001234');assert.equal(calls[0].body.message_thread_id,7);
-    assert.match(calls[0].url,/\/sendRichMessage$/);
-    const rich=calls[0].body.rich_message;
-    assert.ok(rich.blocks.some(block=>block.type==='heading' && block.text==='Tomorrow’s Schedule'));
-    const entries=rich.blocks.find(block=>block.type==='paragraph' && Array.isArray(block.text) && block.text[0]?.type==='bold' && block.text[0].text.startsWith('0430'));
-    assert.deepEqual(entries.text[0],{type:'bold',text:'0430 – 0530 · Reveille & Physical Conditioning'});
-    assert.equal(entries.text[1],'\nInstructor: NAB Personnel');
-    assert.ok(entries.text.includes('\n\n'),'explicit blank line separates each activity');
-    assert.deepEqual(rich.blocks.at(-1),{type:'footer',text:{type:'italic',text:'Training Directorate announcements take precedence.'}});
+    assert.match(calls[0].url,/\/sendMessage$/);
+    const message=calls[0].body;
+    const styled=message.entities.map(entity=>({type:entity.type,text:message.text.slice(entity.offset,entity.offset+entity.length)}));
+    assert.ok(styled.some(span=>span.type==='bold' && span.text==='0430 – 0530 · Reveille & Physical Conditioning'));
+    assert.ok(styled.some(span=>span.type==='italic' && span.text==='Training Directorate announcements take precedence.'));
+    assert.ok(!styled.some(span=>span.text.includes('Instructor:')||span.text.includes('Venue:')));
+    assert.ok(message.text.includes('\n\n'),'explicit blank line separates each activity');
+    assert.equal(message.rich_message,undefined);
     assert.equal(calls.at(-1).body.reply_markup.inline_keyboard[0][0].text,'Full Schedule');
     assert.match(calls.at(-1).body.reply_markup.inline_keyboard[0][0].url,/#day-2026-10-05$/);
     assert.equal(calls.at(-1).body.reply_markup.inline_keyboard[0][1].url,'https://atticus-42.github.io/quiz-hub/');
@@ -75,16 +75,15 @@ test('rich schedule preserves chronological fields as literal text and scopes bo
     await postTomorrow({now:new Date('2026-10-04T13:00:00Z'),data:{days:[{date:'2026-10-05',day:'Monday',blocks}]},
       token:'123:fake_token',chatId:'-1001234',statePath:join(dir,'sent.json'),
       fetchFn:async(url,init)=>{calls.push(JSON.parse(init.body));return {ok:true,status:200,json:async()=>({ok:true})};}});
-    const rich=calls[0].rich_message;const plain=richText(rich);
+    const plain=calls[0].text;
     assert.ok(plain.indexOf('Early event')<plain.indexOf('Late <check>'));
     assert.ok(plain.indexOf('Late <check>')<plain.indexOf('Second late event'));
     assert.match(plain,/Instructor: A & B/);assert.match(plain,/Venue: Hall <1>/);
     assert.match(plain,/Uniform: AU/);assert.match(plain,/Bring "notes"/);
-    const spans=rich.blocks.find(block=>block.type==='paragraph' && Array.isArray(block.text) && block.text[0]?.text?.startsWith('0430')).text;
+    const spans=calls[0].entities.map(entity=>({type:entity.type,text:plain.slice(entity.offset,entity.offset+entity.length)}));
     assert.ok(spans.some(span=>span.type==='bold' && span.text==='2130 · Late <check>'));
     assert.ok(spans.some(span=>span.type==='italic' && span.text==='Note: Bring "notes"'));
-    assert.ok(spans.some(span=>typeof span==='string' && span.includes('Instructor: A & B')));
-    assert.ok(spans.some(span=>typeof span==='string' && span.includes('Venue: Hall <1>')));
+    assert.ok(!spans.some(span=>span.text.includes('Instructor:')||span.text.includes('Venue:')));
     assert.match(plain,/SGOU\n\n2130/);
     assert.equal(blocks[0].activity,'Late <check>');
   } finally {rmSync(dir,{recursive:true,force:true});}
@@ -98,10 +97,10 @@ test('long rich schedules split only between complete entries without losing act
       fetchFn:async(url,init)=>{calls.push(JSON.parse(init.body));return {ok:true,status:200,json:async()=>({ok:true})};}});
     assert.ok(calls.length>1);
     for(const call of calls) {
-      const text=richText(call.rich_message);assert.ok(text.length<=26000);
-      assert.ok(Array.isArray(call.rich_message.blocks));
+      assert.ok(call.text.length<=3900);
+      for(const entity of call.entities) assert.ok(entity.offset>=0 && entity.offset+entity.length<=call.text.length);
     }
-    const full=calls.map(call=>richText(call.rich_message)).join('\n');
+    const full=calls.map(call=>call.text).join('\n');
     for(let i=0;i<150;i++) assert.equal(full.split(`Activity ${i}:`).length-1,1);
     assert.equal(calls[0].reply_markup,undefined);assert.ok(calls.at(-1).reply_markup);
   } finally {rmSync(dir,{recursive:true,force:true});}
