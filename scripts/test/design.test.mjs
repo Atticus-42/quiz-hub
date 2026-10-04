@@ -47,7 +47,7 @@ const PAIRS = [
   ['--color-focus', '--color-olive-dark', 3, 'focus ring on dark bands'],
 ];
 
-const PAGES = ['index.html', 'class/index.html', 'instructor/index.html'];
+const PAGES = ['index.html', 'class/index.html', 'schedule/index.html', 'instructor/index.html'];
 
 export async function designSuite({ lessons }) {
   const T = (name, run) => test(`[design] ${name}`, run);

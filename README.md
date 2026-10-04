@@ -17,6 +17,7 @@ The whole site is published from this repository with GitHub Pages at https://at
 
 - **Instructor view** (`/quiz-hub/instructor/`): question analysis.
 - **Our class** (`/quiz-hub/class/`): class organization and roster.
+- **Weekly training schedule** (`/quiz-hub/schedule/`): this week's timetable, with today highlighted and a Now / Next panel; linked from the hub header and the class page.
 
 The old per-lesson repositories now only redirect to these URLs.
 
@@ -39,6 +40,8 @@ No login, analytics, cookies, external fonts or scripts. Everything is inline HT
 | `lessons/<key>/checks.mjs` | Optional lesson-specific tests |
 | `lessons/combined/lesson.json` | A *pool* exam: `pool.lessons` and `pool.count`; it has no banks of its own |
 | `data/class.json` | The approved public class data (rank, name, commissioning source, positions only) |
+| `data/schedule.json`, `data/schedules/` | This week's training schedule, and the archive of every week's file |
+| `src/schedule/` | The weekly schedule page template |
 | `apps-script/Code.gs`, `SETUP.md` | The Google Apps Script web app behind the class history and item analysis |
 | `scripts/build.mjs` | Builds every page; the hub's `MODULES` are generated from the `lesson.json` files |
 | `scripts/verify.mjs` | The test gate |
@@ -103,6 +106,23 @@ Copy `lessons/_template/` to `lessons/<key>/`, then:
 - add the key to `LESSONS` in `apps-script/Code.gs` and update the deployment.
 
 Then run `assign-qids`, build and verify. See `lessons/_template/README.md`. The Module 3 lesson `signaljoint` (slug `joint-signal`) is registered in `Code.gs`; its `coverage.md` maps each question to the lesson slides and the official student handout. `sourceSlides` always holds slide numbers (one reference label per lesson); a handout-only question cites the nearest slide and names "Handout p.N" in its explanation.
+
+## Updating the weekly schedule
+
+The schedule page shows whatever `data/schedule.json` holds. Each week:
+
+1. Copy last week's file to `data/schedules/<start>_<end>.json` named by the new week's dates (for example `2026-10-12_2026-10-18.json`) and transcribe the new weekly training schedule into it, row by row, exactly as printed:
+   - `week`: `{ number, of, start, end }` (dates `YYYY-MM-DD`, Monday to Sunday); `prepared` is the "Date Prepared".
+   - `days`: one entry per date, in order, with `day` matching the date's weekday.
+   - each block: `time` (`"0830-1100"`, a single `"2130"`, or `""` when the schedule prints none), `activity`, `kind` (`"lecture"` for the green academic rows, `"exam"` for the yellow exam/assessment rows, otherwise `"routine"`), `instructor` (PRI SME/ALT SME as printed), `uniform`, `venue` (`null` when blank), and when present `class`, `periods` (PDS) and `remarks`.
+2. Copy that file over `data/schedule.json`.
+3. Rebuild and test:
+   ```sh
+   node scripts/build.mjs && node scripts/verify.mjs
+   ```
+   (the tests check this week's exact contents, so update the expectations at the top of `scripts/test/schedule.test.mjs` for the new week).
+
+The page is public: instructors appear as rank + name (or a duty title) only. Never copy serial numbers, service numbers, phone numbers, e-mail or home addresses, nor the signature block; the build rejects `@`, `+63`, `O-<digits>`, `(SC)` and any run of 5 or more digits. A subject that names a quiz lesson (ISR, Armor, Field Artillery, Army Operations, Signal Support in Combined Arms Operations, Signal Support in Joint Operations) links to that quiz automatically (`SCHEDULE_QUIZ_MATCH` in `scripts/build.mjs`). To preview a given moment, open `schedule/?now=2026-10-05T13:10`.
 
 ## Students' features
 

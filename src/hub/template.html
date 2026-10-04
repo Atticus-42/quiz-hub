@@ -45,7 +45,7 @@
     .hero-meta { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-7); margin: var(--space-5) 0 0; padding-top: var(--space-3); border-top: 1px solid var(--color-text); }
     .hero-meta dt { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
     .hero-meta dd { margin: var(--space-1) 0 0; font-family: var(--font-mono); font-size: 0.9375rem; font-weight: 500; font-variant-numeric: tabular-nums; }
-    .hero-nav { margin: var(--space-5) 0 0; }
+    .hero-nav { display: flex; flex-wrap: wrap; gap: 0 var(--space-6); margin: var(--space-5) 0 0; }
     .hero-link {
       display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px;
       color: var(--color-text); font-size: var(--text-ui); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.3em;
@@ -275,7 +275,7 @@
         <dl class="hero-meta">
             {{HUB_META}}
         </dl>
-        <p class="hero-nav"><a class="hero-link" id="class-link" href="class/">Our class: Bandwidth Brothers</a></p>
+        <p class="hero-nav"><a class="hero-link" id="schedule-link" href="schedule/">This week's schedule</a><a class="hero-link" id="class-link" href="class/">Our class: Bandwidth Brothers</a></p>
       </div>
       <div class="hero-art" aria-hidden="true">
         <svg viewBox="0 0 240 180" aria-hidden="true" focusable="false">

@@ -3,6 +3,7 @@
 //   <slug>/index.html          one quiz page per lesson or pool exam (src/engine/template.html)
 //   instructor/index.html      the instructor's question analysis (src/instructor/template.html)
 //   class/index.html           the class page (src/class/template.html, data/class.json)
+//   schedule/index.html        this week's training schedule (src/schedule/template.html, data/schedule.json)
 //
 //   node scripts/build.mjs                         build into the repository (what GitHub Pages serves)
 //   node scripts/build.mjs --out DIR --endpoint ""  build a copy elsewhere, e.g. a local preview with class
@@ -23,7 +24,7 @@ export const HISTORY_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwTNNYO
 export const MAX_BANK_SIZE = 500;
 export const LESSON_KEY_PATTERN = /^[a-z][a-z0-9]{1,23}$/;
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const RESERVED_SLUGS = new Set(['assets', 'src', 'lessons', 'scripts', 'apps-script', 'instructor', 'class', 'data']);
+const RESERVED_SLUGS = new Set(['assets', 'src', 'lessons', 'scripts', 'apps-script', 'instructor', 'class', 'data', 'schedule']);
 // Art expectations checked by the tests when a lesson.json gives none (a lesson may also ship no hero.css).
 const DEFAULT_ART = { groups: [], nested: {}, labels: [], classes: [], stilled: [], staticPattern: '\\.hero-art' };
 
@@ -676,6 +677,163 @@ export function renderClass(template, contours, data, { base = '' } = {}) {
   });
 }
 
+// ---------------------------------------------------------------------------
+// Weekly training schedule (data/schedule.json, this week's copy of the schedule; archived in data/schedules/)
+// ---------------------------------------------------------------------------
+
+export const SCHEDULE_DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+export const SCHEDULE_KINDS = ['lecture', 'exam', 'routine'];
+// The schedule is public: no e-mail, +63 phone, O-<digits> serial, 6-digit service number (or any longer digit run).
+export const SCHEDULE_FORBIDDEN = [/@/, /\+63/, /\bO-\d/, /\d{5,}/, /\(SC\)/];
+// A scheduled subject links to the quiz of the lesson it names (lesson key: pattern on the activity text).
+export const SCHEDULE_QUIZ_MATCH = {
+  isr: /\bISR\b/i,
+  armor: /\bArmor\b/i,
+  fieldartillery: /\bField Artillery\b/i,
+  armyops: /\bArmy Operations\b/i,
+  signal: /\bSignal Support in Combined Arms Operations\b/i,
+  signaljoint: /\bSignal Support in Joint Operations\b/i,
+};
+const DATE_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
+const TIME_PATTERN = /^(?:([01]\d|2[0-3])([0-5]\d)(?:-([01]\d|2[0-3])([0-5]\d))?)?$/;
+
+function parseDate(text) {
+  const match = DATE_PATTERN.exec(text ?? '');
+  if (!match) return null;
+  const date = new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])));
+  return date.toISOString().slice(0, 10) === text ? date : null;
+}
+
+// "0830-1100" -> { start: 510, end: 660 }; "2130" -> { start: 1290, end: null }; "" (not printed) -> null.
+export function parseScheduleTime(text) {
+  const match = TIME_PATTERN.exec(text ?? 'x');
+  if (!match) throw new Error(`time "${text}" must be HHMM, HHMM-HHMM or empty`);
+  if (!match[1]) return null;
+  const start = Number(match[1]) * 60 + Number(match[2]);
+  const end = match[3] ? Number(match[3]) * 60 + Number(match[4]) : null;
+  if (end !== null && end <= start) throw new Error(`time "${text}" must end after it starts`);
+  return { start, end };
+}
+
+export function scheduleQuiz(activity, lessons) {
+  for (const [key, pattern] of Object.entries(SCHEDULE_QUIZ_MATCH)) {
+    const lesson = lessons.find(item => item.key === key && !item.pool);
+    if (lesson && pattern.test(activity)) return { key, name: lesson.name, url: `../${lesson.slug}/` };
+  }
+  return null;
+}
+
+export function loadSchedule(root = ROOT, file = join(root, 'data', 'schedule.json')) {
+  const data = readJson(file);
+  const fail = message => { throw new Error(`${file}: ${message}`); };
+  const text = (value, max = 120) => typeof value === 'string' && value.trim() !== '' && value === value.trim() && value.length <= max;
+  const allowed = (object, keys) => object && typeof object === 'object' && !Array.isArray(object) && Object.keys(object).every(key => keys.includes(key));
+  if (!allowed(data, ['course', 'unit', 'week', 'students', 'prepared', 'days'])) fail('only course, unit, week, students, prepared and days are allowed');
+  if (!text(data.course, 40) || !text(data.unit)) fail('course and unit must be short texts');
+  if (data.students !== undefined && (!Number.isInteger(data.students) || data.students < 1 || data.students > 200)) fail('students must be a whole number');
+  if (data.prepared !== undefined && !parseDate(data.prepared)) fail('prepared must be a YYYY-MM-DD date');
+  const week = data.week;
+  if (!allowed(week, ['number', 'of', 'start', 'end']) || !Number.isInteger(week.number) || !Number.isInteger(week.of) || week.number < 1 || week.number > week.of) fail('week must be { number, of, start, end } with 1 <= number <= of');
+  const start = parseDate(week.start);
+  const end = parseDate(week.end);
+  if (!start || !end || end < start || (end - start) / 86400000 > 6) fail('week start and end must be YYYY-MM-DD dates at most 7 days apart');
+  if (!Array.isArray(data.days) || data.days.length !== (end - start) / 86400000 + 1) fail('days must list every date from week start to week end');
+  data.days.forEach((day, index) => {
+    const expected = new Date(start.getTime() + index * 86400000).toISOString().slice(0, 10);
+    if (!allowed(day, ['date', 'day', 'blocks']) || day.date !== expected) fail(`day ${index + 1} must be { date: "${expected}", day, blocks }`);
+    if (day.day !== SCHEDULE_DAYS[parseDate(day.date).getUTCDay()]) fail(`${day.date} is a ${SCHEDULE_DAYS[parseDate(day.date).getUTCDay()]}, not "${day.day}"`);
+    if (!Array.isArray(day.blocks) || !day.blocks.length || day.blocks.length > 40) fail(`${day.date}: blocks must list 1 to 40 time blocks`);
+    day.blocks.forEach((block, at) => {
+      const where = `${day.date} block ${at + 1}`;
+      if (!allowed(block, ['time', 'activity', 'kind', 'periods', 'class', 'instructor', 'uniform', 'venue', 'remarks'])) fail(`${where}: only time, activity, kind, periods, class, instructor, uniform, venue and remarks are allowed`);
+      if (typeof block.time !== 'string') fail(`${where}: time must be text ("" when the schedule prints none)`);
+      try { parseScheduleTime(block.time); } catch (error) { fail(`${where}: ${error.message}`); }
+      if (!text(block.activity)) fail(`${where}: activity must be a nonempty text`);
+      if (!SCHEDULE_KINDS.includes(block.kind)) fail(`${where}: kind must be one of ${SCHEDULE_KINDS.join(', ')}`);
+      if (block.periods !== undefined && (!Number.isInteger(block.periods) || block.periods < 1 || block.periods > 12)) fail(`${where}: periods must be a whole number from 1 to 12`);
+      for (const key of ['class', 'uniform', 'remarks']) if (block[key] !== undefined && !text(block[key])) fail(`${where}: ${key}, when present, must be a nonempty text`);
+      if (!text(block.instructor, 80)) fail(`${where}: instructor must be rank + name (or a duty title) of at most 80 characters`);
+      if (!(block.venue === null || text(block.venue, 80))) fail(`${where}: venue must be null or a short text`);
+    });
+  });
+  const serialized = JSON.stringify(data);
+  for (const pattern of SCHEDULE_FORBIDDEN) if (pattern.test(serialized)) fail(`contains text that looks like private data (${pattern})`);
+  return data;
+}
+
+// "2026-10-05" -> "05 Oct 2026" (the schedule's own style).
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+export function scheduleDate(text, { year = true } = {}) {
+  const [y, m, d] = text.split('-');
+  return `${d} ${MONTHS[Number(m) - 1]}${year ? ` ${y}` : ''}`;
+}
+
+export function scheduleRange(week) {
+  const [ys, ms] = week.start.split('-');
+  const [ye, me] = week.end.split('-');
+  if (ys === ye && ms === me) return `${week.start.slice(8)}–${scheduleDate(week.end)}`;
+  return `${scheduleDate(week.start, { year: ys !== ye })} – ${scheduleDate(week.end)}`;
+}
+
+export function ordinal(n) {
+  if (n % 100 >= 11 && n % 100 <= 13) return `${n}th`;
+  return `${n}${({ 1: 'st', 2: 'nd', 3: 'rd' })[n % 10] ?? 'th'}`;
+}
+const KIND_LABELS = { lecture: 'Lecture', exam: 'Exam', routine: 'Routine' };
+
+function scheduleBlock(block, lessons) {
+  const span = parseScheduleTime(block.time);
+  const timeText = block.time ? block.time.replace('-', '–') : '—';
+  const attrs = span ? ` data-start="${span.start}"${span.end !== null ? ` data-end="${span.end}"` : ''}` : '';
+  const quiz = scheduleQuiz(block.activity, lessons);
+  const uniform = block.uniform ? `<span class="sr-only">Uniform: </span><span class="uniform">${escapeHtml(block.uniform)}</span>` : '';
+  const extra = [block.class ? `For ${escapeHtml(block.class)}` : '', block.periods ? `${block.periods} period${block.periods === 1 ? '' : 's'}` : ''].filter(Boolean);
+  return [
+    `            <li class="blk is-${block.kind}"${attrs}>`,
+    `              <p class="blk-time"><span class="sr-only">${block.time ? 'Time' : 'Time not printed'}: </span><span class="mono">${escapeHtml(timeText)}</span>${block.kind !== 'routine' ? ` <span class="blk-kind">${KIND_LABELS[block.kind]}</span>` : ''}<span class="blk-flag" aria-hidden="true"></span></p>`,
+    `              <p class="blk-title">${escapeHtml(block.activity)}</p>`,
+    ...(quiz ? [`              <p class="blk-quiz"><a href="${quiz.url}" data-quiz="${quiz.key}">Practice quiz<span class="sr-only">: ${escapeHtml(quiz.name)}</span> <span aria-hidden="true">&#8594;</span></a></p>`] : []),
+    `              <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>${escapeHtml(block.instructor)}</p>`,
+    `              <p class="blk-meta blk-where">${block.venue ? `<span class="sr-only">Venue: </span>${escapeHtml(block.venue)}` : ''}${block.venue && uniform ? '<span class="sep" aria-hidden="true"> · </span>' : ''}${uniform}</p>`,
+    ...(extra.length ? [`              <p class="blk-meta blk-extra">${extra.join(' · ')}</p>`] : []),
+    ...(block.remarks ? [`              <p class="blk-meta blk-remarks">${escapeHtml(block.remarks)}</p>`] : []),
+    '            </li>',
+  ].join('\n');
+}
+
+export function renderSchedule(template, contours, data, lessons, { base = '' } = {}) {
+  const academic = data.days.flatMap(day => day.blocks).filter(block => block.kind !== 'routine').length;
+  const days = data.days.map(day => [
+    `        <section class="day" id="day-${day.date}" data-date="${day.date}" aria-labelledby="day-h-${day.date}">`,
+    `          <h2 class="day-head" id="day-h-${day.date}"><span class="day-name">${escapeHtml(day.day)}</span> <span class="day-date mono">${escapeHtml(scheduleDate(day.date, { year: false }))}</span><span class="day-today" hidden> · Today</span></h2>`,
+    '          <ol class="blocks">',
+    ...day.blocks.map(block => scheduleBlock(block, lessons)),
+    '          </ol>',
+    '        </section>',
+  ].join('\n')).join('\n');
+  const dayNav = data.days.map(day => `<li><a href="#day-${day.date}" data-date="${day.date}"><span>${escapeHtml(day.day.slice(0, 3))}</span> <span class="mono">${escapeHtml(day.date.slice(8))}</span></a></li>`).join('\n          ');
+  const week = data.week;
+  return fillTemplate(template, {
+    BASE_CSS: baseCss(base, '../assets/'),
+    FONT_PRELOAD: fontPreloads('../assets/'),
+    CONTOURS: contours.trim(),
+    WEEK_LABEL: escapeHtml(`${ordinal(week.number)} week of ${week.of}`),
+    WEEK_RANGE: escapeHtml(scheduleRange(week)),
+    COURSE: escapeHtml(data.course),
+    UNIT: escapeHtml(data.unit),
+    SCHEDULE_META: [
+      ['Week', `${week.number} of ${week.of}`],
+      ['Dates', scheduleRange(week)],
+      ['Academic blocks', String(academic)],
+      ...(data.students ? [['Students', String(data.students)]] : []),
+    ].map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('\n          '),
+    PREPARED: escapeHtml(data.prepared ? `Schedule prepared ${scheduleDate(data.prepared)}.` : ''),
+    DAY_NAV: dayNav,
+    DAYS: days,
+    SCHEDULE_DATA: scriptJson({ start: week.start, end: week.end, range: scheduleRange(week), days: data.days.map(day => day.date) }),
+  });
+}
+
 // Builds every page; returns { path: html } for the files written.
 export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, write = true } = {}) {
   const { modules, lessons } = loadLessons(root);
@@ -686,6 +844,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   for (const lesson of lessons) pages[`${lesson.slug}/index.html`] = renderQuizPage(engine, contours, lesson, { endpoint, base });
   pages['index.html'] = renderHub(readFileSync(join(root, 'src', 'hub', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base });
   pages['class/index.html'] = renderClass(readFileSync(join(root, 'src', 'class', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadClass(root), { base });
+  pages['schedule/index.html'] = renderSchedule(readFileSync(join(root, 'src', 'schedule', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadSchedule(root), lessons, { base });
   pages['instructor/index.html'] = renderInstructor(readFileSync(join(root, 'src', 'instructor', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base });
   if (write) {
     for (const [path, html] of Object.entries(pages)) {

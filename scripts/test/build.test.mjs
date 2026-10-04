@@ -77,12 +77,13 @@ export async function buildSuite({ lessons, modules }) {
 
   await T('every committed page is a fresh build (run node scripts/build.mjs), with the real endpoint written once per page', () => {
     const pages = build({ write: false });
-    const expectedPages = ['index.html', 'class/index.html', 'instructor/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
+    const expectedPages = ['index.html', 'class/index.html', 'schedule/index.html', 'instructor/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
     assert.deepEqual(Object.keys(pages).sort(), expectedPages.sort());
     for (const slug of ['isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal', 'combined']) assert.ok(expectedPages.includes(`${slug}/index.html`), slug);
     for (const [path, html] of Object.entries(pages)) {
       assert.equal(readFileSync(join(ROOT, path), 'utf8'), html, `${path} is stale: run node scripts/build.mjs`);
-      if (path !== 'class/index.html') assert.equal(html.split(`var HISTORY_ENDPOINT = '${HISTORY_ENDPOINT}';`).length - 1, 1, `${path} declares the endpoint once`);
+      if (path === 'class/index.html' || path === 'schedule/index.html') assert.ok(!html.includes('HISTORY_ENDPOINT') && !html.includes('script.google.com'), `${path} never contacts the history endpoint`);
+      else assert.equal(html.split(`var HISTORY_ENDPOINT = '${HISTORY_ENDPOINT}';`).length - 1, 1, `${path} declares the endpoint once`);
       assert.doesNotMatch(html, /\{\{[A-Z_]+\}\}/, `${path} has no unfilled placeholder`);
     }
     const preview = build({ write: false, endpoint: '' });

@@ -397,7 +397,8 @@ export async function classSuite() {
     assert.match(html, /grid-template-columns: repeat\(auto-fill, minmax\(min\(100%, 14rem\), 1fr\)\)/, 'cards reflow to one column on phones');
     assert.match(html, /\.table-wrap \{ max-width: 100%; overflow-x: auto; \}/);
     assert.match(html, /body \{[^}]*overflow-wrap: anywhere;/);
-    assert.deepEqual([...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../']);
+    assert.deepEqual([...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../', '../schedule/']);
+    assert.match(html, /<a class="hub-link" id="schedule-link" href="\.\.\/schedule\/">This week's schedule /);
     assert.doesNotMatch(html, /https?:\/\//);
   });
 }

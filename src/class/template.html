@@ -23,6 +23,7 @@
     .hero { color: var(--color-text); }
     .hero-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); padding-block: var(--space-2); border-bottom: 1px solid var(--color-text); }
     .hero-bar .fig-line { margin: 0; color: var(--color-muted); }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); margin: 0; }
     .hub-link {
       display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px;
       color: var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
@@ -152,7 +153,10 @@
   </div>
   <header class="hero">
     <div class="wrap hero-bar">
-      <a class="hub-link" href="../"><span aria-hidden="true">&#8592;</span> All quizzes</a>
+      <p class="hero-links">
+        <a class="hub-link" href="../"><span aria-hidden="true">&#8592;</span> All quizzes</a>
+        <a class="hub-link" id="schedule-link" href="../schedule/">This week's schedule <span aria-hidden="true">&#8594;</span></a>
+      </p>
       <p class="fig-line label" aria-hidden="true">Fig. 1 — Bandwidth Brothers, SOAC 52 - 2026</p>
     </div>
     <div class="wrap hero-inner">
