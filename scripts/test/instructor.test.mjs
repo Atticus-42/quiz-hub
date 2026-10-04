@@ -1,6 +1,7 @@
 // The instructor's question analysis page (instructor/index.html) and the class page (class/index.html).
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { readFileSync, mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
+import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { ROOT, MODES, CLASS_FORBIDDEN, loadClass } from '../build.mjs';
 import { test, plain, findAll, isShown, hasClass, parseHtml, appScripts, runPage, withEndpoint, fakeFetch, TEST_ENDPOINT, loadCodeGs, withoutFontPreloads } from './harness.mjs';
@@ -188,12 +189,77 @@ export async function classSuite() {
     assert.equal(data.class, 'SOAC 52 - 2026');
   });
 
+  await T('data integrity: the training directorate lists the 7 roles in order, each member only { rank, name }, no private data', () => {
+    const dir = data.directorate;
+    assert.deepEqual(Object.keys(dir).sort(), ['roles', 'title']);
+    assert.equal(dir.title, 'Signal Officer Advance Course CL 52-26 — Training Directorate');
+    assert.deepEqual(dir.roles.map(entry => entry.role), ['Class Adviser', 'Course/Program Director', 'Course NCO', 'Asst Course NCO', 'Module NCO', 'Program NCO', 'Psychomotor NCO']);
+    assert.deepEqual(dir.roles.map(entry => entry.members.length), [1, 1, 1, 1, 2, 2, 2]);
+    assert.equal(new Set(dir.roles.map(entry => entry.role)).size, dir.roles.length);
+    for (const entry of dir.roles) {
+      assert.deepEqual(Object.keys(entry).sort(), ['members', 'role']);
+      for (const member of entry.members) {
+        assert.deepEqual(Object.keys(member).sort(), ['name', 'rank']);
+        assert.match(member.rank, /^(MAJ|CPT|TSg|SSg|Sgt|Cpl|PFC)$/);
+        assert.ok(member.name.trim().length > 3);
+      }
+    }
+    assert.deepEqual(dir.roles[0].members, [{ rank: 'MAJ', name: 'Fritz F. Perez' }]);
+    assert.deepEqual(dir.roles[1].members, [{ rank: 'CPT', name: 'Kevyn A. Tejada' }]);
+    const text = JSON.stringify(dir);
+    assert.doesNotMatch(text, /\d{6}/, 'no serial numbers');
+    assert.doesNotMatch(text, /\bO-/, 'no O- serials');
+    assert.doesNotMatch(text, /\(SC\)|\([A-Z]{2,4}\)/, 'no branch/serial suffixes');
+    assert.doesNotMatch(JSON.stringify(dir.roles), /@|\+63|\d/, 'no contact details or digits in roles and members');
+  });
+
+  await T('the training directorate renders first (section 01, before the organization), with the adviser and director emphasised', () => {
+    const doc = runPage(html).document;
+    assert.match(html, /<span class="sect-num" aria-hidden="true">01<\/span><h2 id="dir-heading">Training directorate<\/h2>/);
+    assert.match(html, /aria-hidden="true">02<\/span><h2 id="org-heading">/);
+    assert.match(html, /aria-hidden="true">03<\/span><h2 id="roster-heading">/);
+    assert.ok(html.indexOf('id="dir-heading"') < html.indexOf('id="org-heading"'));
+    assert.equal(doc.getElementById('dir-title').textContent, data.directorate.title);
+    const rows = doc.getElementById('dir-list').children;
+    assert.equal(rows.length, 7);
+    rows.forEach((row, index) => {
+      const entry = data.directorate.roles[index];
+      assert.equal(row.children[0].textContent, entry.role);
+      assert.deepEqual(row.children[1].children.map(item => item.textContent), entry.members.map(member => `${member.rank} ${member.name}`));
+      assert.equal(hasClass(row, 'is-lead'), index < 2, `${entry.role} emphasis`);
+    });
+    const pageText = doc.body.textContent;
+    assert.doesNotMatch(pageText, /\d{6}|\bO-\d|\(SC\)/);
+  });
+
+  await T('the build rejects a malformed directorate', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'class-'));
+    mkdirSync(join(dir, 'data'));
+    const write = directorate => writeFileSync(join(dir, 'data', 'class.json'), JSON.stringify({ ...data, directorate }));
+    write(data.directorate);
+    assert.doesNotThrow(() => loadClass(dir));
+    const bad = [
+      undefined,
+      { ...data.directorate, extra: 1 },
+      { title: '', roles: data.directorate.roles },
+      { title: 't', roles: [] },
+      { title: 't', roles: [{ role: 'A', members: [{ rank: 'MAJ', name: 'X Y', serial: 'O-123456' }] }] },
+      { title: 't', roles: [{ role: 'A', members: [] }] },
+      { title: 't', roles: [{ role: 'A', members: [{ rank: 'MAJ', name: 'X Y' }] }, { role: 'A', members: [{ rank: 'CPT', name: 'Z W' }] }] },
+      { title: 't', roles: [{ role: 'A', members: [{ rank: 'MAJ', name: 'X Y (SC)' }] }] },
+      { title: 't', roles: [{ role: 'A', members: [{ rank: 'MAJ', name: 'X 850075' }] }] },
+    ];
+    for (const directorate of bad) { write(directorate); assert.throws(() => loadClass(dir), /class\.json/); }
+    rmSync(dir, { recursive: true, force: true });
+  });
+
   await T('the built page never contains an e-mail sign, +63 phone prefix, O-<digits> serial number or long digit run', () => {
     // Stylesheets legitimately hold @media and @font-face rules; everything else (text, data, markup) never has an @.
     assert.doesNotMatch(html.replace(/<style\b[^>]*>[\s\S]*?<\/style>/g, ''), /@/);
     assert.doesNotMatch(html, /\+63/);
     assert.doesNotMatch(html, /\bO-\d/);
     for (const pattern of CLASS_FORBIDDEN) assert.doesNotMatch(JSON.stringify(data), pattern);
+    assert.doesNotMatch(html, /\(SC\)/);
   });
 
   await T('renders the organization (Class Leader and Ex-O first and emphasised), the roster table and the captioned photo with textContent', () => {

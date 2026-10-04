@@ -608,7 +608,7 @@ export function renderInstructor(template, contours, modules, lessons, { endpoin
 // ---------------------------------------------------------------------------
 
 // Patterns that must never appear on the class page: e-mail, Philippine phone numbers, AFP serial numbers.
-export const CLASS_FORBIDDEN = [/@/, /\+63/, /\bO-\d/, /\d{5,}/];
+export const CLASS_FORBIDDEN = [/@/, /\+63/, /\bO-\d/, /\d{5,}/, /\(SC\)/];
 
 export function loadClass(root = ROOT) {
   const path = join(root, 'data', 'class.json');
@@ -616,13 +616,24 @@ export function loadClass(root = ROOT) {
   const fail = message => { throw new Error(`${path}: ${message}`); };
   const text = value => typeof value === 'string' && value.trim() !== '';
   const allowed = (object, keys) => Object.keys(object).every(key => keys.includes(key));
-  if (!data || typeof data !== 'object' || !allowed(data, ['class', 'name', 'note', 'organization', 'roster'])) fail('only class, name, note, organization and roster are allowed');
+  if (!data || typeof data !== 'object' || !allowed(data, ['class', 'name', 'note', 'directorate', 'organization', 'roster'])) fail('only class, name, note, directorate, organization and roster are allowed');
   if (!text(data.class) || (data.name !== undefined && !text(data.name)) || (data.note !== undefined && typeof data.note !== 'string')) fail('class (and name, note) must be text');
   if (!Array.isArray(data.roster) || !data.roster.length) fail('roster must list the members');
   data.roster.forEach((member, index) => {
     if (!member || !allowed(member, ['nr', 'rank', 'name', 'commission']) || member.nr !== index + 1 || !text(member.rank) || !text(member.name) || !text(member.commission)) {
       fail(`roster entry ${index + 1} must be exactly { nr: ${index + 1}, rank, name, commission }`);
     }
+  });
+  const dir = data.directorate;
+  if (!dir || typeof dir !== 'object' || !allowed(dir, ['title', 'roles']) || !text(dir.title) || !Array.isArray(dir.roles) || !dir.roles.length) fail('directorate must be exactly { title, roles: [{ role, members: [{ rank, name }] }] }');
+  const roles = new Set();
+  dir.roles.forEach((entry, index) => {
+    if (!entry || !allowed(entry, ['role', 'members']) || !text(entry.role) || !Array.isArray(entry.members) || !entry.members.length) fail(`directorate role ${index + 1} must be { role, members: [{ rank, name }] }`);
+    if (roles.has(entry.role)) fail(`directorate role ${entry.role} is listed twice`);
+    roles.add(entry.role);
+    entry.members.forEach(member => {
+      if (!member || !allowed(member, ['rank', 'name']) || !text(member.rank) || !text(member.name)) fail(`directorate role ${entry.role}: every member must be exactly { rank, name }`);
+    });
   });
   if (!Array.isArray(data.organization)) fail('organization must be a list');
   const positions = new Set();
