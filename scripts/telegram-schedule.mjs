@@ -76,9 +76,9 @@ export function formatRichSchedule(data, date) {
     const details = [
       ...(index ? ['\n\n'] : []),
       { type: 'bold', text: `${time} · ${block.activity}` },
-      `\nInstructor: ${block.instructor}`,
+      '\n', { type: 'italic', text: `Instructor: ${block.instructor}` },
     ];
-    if (block.venue) details.push(`\nVenue: ${block.venue}`);
+    if (block.venue) details.push('\n', { type: 'italic', text: `Venue: ${block.venue}` });
     if (block.uniform) details.push(block.venue ? ' · Uniform: ' : '\nUniform: ', { type: 'bold', text: block.uniform });
     if (block.remarks) details.push('\n', { type: 'italic', text: `Note: ${block.remarks}` });
     return details;
@@ -99,8 +99,8 @@ function richMessages(data, date) {
   const chunks = []; let current = []; let length = 0;
   for (const entry of entries) {
     const size = entry.reduce((sum, segment) => sum + (typeof segment === 'string' ? segment : segment.text).length, 0);
-    if (size > 3300) throw new Error('A single schedule entry exceeds the message limit; shorten that entry before sending.');
-    if (length + size + 2 > 3300) { chunks.push(current); current = []; length = 0; }
+    if (size > 24000) throw new Error('A single schedule entry exceeds the rich message limit; shorten that entry before sending.');
+    if (length + size + 2 > 24000) { chunks.push(current); current = []; length = 0; }
     if (current.length) { current.push('\n\n'); length += 2; }
     current.push(...entry); length += size;
   }
@@ -109,27 +109,6 @@ function richMessages(data, date) {
     ...rich.blocks.slice(0, 4), { type: 'paragraph', text },
     ...(index === chunks.length - 1 ? rich.blocks.slice(5) : []),
   ], skip_entity_detection: true }));
-}
-
-// Regular Telegram entities use UTF-16 offsets, matching JavaScript string lengths.
-function standardMessage(rich) {
-  let text = ''; const entities = [];
-  const append = value => {
-    if (typeof value === 'string') { text += value; return; }
-    if (Array.isArray(value)) { value.forEach(append); return; }
-    const offset = text.length;
-    append(value.text);
-    if (['bold', 'italic'].includes(value.type) && text.length > offset) {
-      entities.push({ type: value.type, offset, length: text.length - offset });
-    }
-  };
-  for (const block of rich.blocks) {
-    if (block.type === 'divider') continue;
-    if (text) text += '\n\n';
-    append(block.type === 'heading' ? { type: 'bold', text: block.text } : block.text);
-  }
-  if (text.length > 3900) throw new Error('Formatted schedule part exceeds the message limit; shorten the entry before sending.');
-  return { text, entities, link_preview_options: { is_disabled: true } };
 }
 
 export async function postTomorrow({ now = new Date(), data = loadSchedule(), token, chatId, topicId,
@@ -145,16 +124,16 @@ export async function postTomorrow({ now = new Date(), data = loadSchedule(), to
     try { state = JSON.parse(readFileSync(statePath, 'utf8')); } catch { throw new Error('Saved delivery state is invalid; inspect it before sending.'); }
   }
   if (state.date === date && state.destination === destination && state.complete) return { date, skipped: true };
-  const messages = richMessages(data, date).map(standardMessage);
+  const messages = richMessages(data, date);
   const fingerprint = createHash('sha256').update(JSON.stringify(messages)).digest('hex');
   if (state.date !== date || state.destination !== destination) state = { date, destination, fingerprint, sent: 0 };
   else if (state.fingerprint !== fingerprint) throw new Error('Schedule changed during a partial delivery. Inspect the group before retrying.');
   for (let index = state.sent || 0; index < messages.length; index++) {
     let response;
     try {
-      response = await fetchFn(`https://api.telegram.org/bot${token}/sendMessage`, {
+      response = await fetchFn(`https://api.telegram.org/bot${token}/sendRichMessage`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: AbortSignal.timeout(20000),
-        body: JSON.stringify({ chat_id: chatId, ...messages[index],
+        body: JSON.stringify({ chat_id: chatId, rich_message: messages[index],
           ...(index === messages.length - 1 ? { reply_markup: { inline_keyboard: [[
             { text: 'Full Schedule', url: `https://atticus-42.github.io/quiz-hub/schedule/?v=day-picker-2#day-${date}` },
             { text: 'Practice Quizzes', url: 'https://atticus-42.github.io/quiz-hub/' },
@@ -168,10 +147,12 @@ export async function postTomorrow({ now = new Date(), data = loadSchedule(), to
     mkdirSync(dirname(statePath), { recursive: true });
     writeFileSync(statePath, JSON.stringify(state));
     // Only the public schedule text is inspected; never log the response chat or token.
-    if (result.result?.text && result.result?.entities) {
-      const bold = result.result.entities.filter(entity => entity.type === 'bold').length;
-      const italic = result.result.entities.filter(entity => entity.type === 'italic').length;
-      console.log(`Telegram format confirmation: ${bold} bold spans; ${italic} italic spans; regular formatted message.`);
+    const returned = result.result?.rich_message?.blocks?.find(block => block.type === 'paragraph' && Array.isArray(block.text) && block.text.some(segment => segment === '\n\n'));
+    if (returned) {
+      const gaps = returned.text.filter(segment => segment === '\n\n').length;
+      const bold = returned.text.filter(segment => segment?.type === 'bold').length;
+      const italic = returned.text.filter(segment => segment?.type === 'italic').length;
+      console.log(`Telegram format confirmation: ${gaps} blank-line separators; ${bold} bold spans; ${italic} italic spans.`);
     }
   }
   return { date, skipped: false, messages: messages.length };
@@ -179,7 +160,7 @@ export async function postTomorrow({ now = new Date(), data = loadSchedule(), to
 
 async function main() {
   if (process.argv.includes('--preview')) {
-    console.log(JSON.stringify(richMessages(loadSchedule(), tomorrowInManila()).map(standardMessage), null, 2)); return;
+    console.log(JSON.stringify(richMessages(loadSchedule(), tomorrowInManila()), null, 2)); return;
   }
   const result = await postTomorrow({ token: process.env.TELEGRAM_BOT_TOKEN,
     chatId: process.env.TELEGRAM_CHAT_ID, topicId: process.env.TELEGRAM_TOPIC_ID });
