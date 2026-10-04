@@ -47,7 +47,7 @@ test('successful posts use the group, optional topic and private credentials; re
     assert.equal(calls[0].body.chat_id,'-1001234');assert.equal(calls[0].body.message_thread_id,7);
     assert.match(calls[0].url,/\/sendRichMessage$/);
     assert.match(calls[0].body.rich_message.html,/<h2>Tomorrow/);
-    assert.match(calls[0].body.rich_message.html,/<b>0430–0530 · Reveille &amp; Physical Conditioning<\/b>/);
+    assert.match(calls[0].body.rich_message.html,/<b>0430 – 0530 · Reveille &amp; Physical Conditioning<\/b>/);
     assert.match(calls[0].body.rich_message.html,/<footer><i>Training Directorate/);
     assert.equal(calls.at(-1).body.reply_markup.inline_keyboard[0][0].text,'Full Schedule');
     assert.match(calls.at(-1).body.reply_markup.inline_keyboard[0][0].url,/#day-2026-10-05$/);
@@ -74,6 +74,8 @@ test('rich schedule preserves all fields chronologically and escapes source HTML
     assert.ok(html.indexOf('Late &lt;check&gt;')<html.indexOf('Second late event'));
     assert.match(html,/Instructor: A &amp; B/);assert.match(html,/Venue: Hall &lt;1&gt;/);
     assert.match(html,/Uniform: <b>AU<\/b>/);assert.match(html,/Bring &quot;notes&quot;/);
+    assert.match(html,/<b>2130 · Late &lt;check&gt;<\/b>/);
+    assert.match(html,/<i>Note: Bring &quot;notes&quot;<\/i>/);
     assert.doesNotMatch(html,/<details|<tg-spoiler|<check>/);
     assert.equal(blocks[0].activity,'Late <check>');
   } finally {rmSync(dir,{recursive:true,force:true});}

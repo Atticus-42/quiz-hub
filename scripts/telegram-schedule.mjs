@@ -76,7 +76,7 @@ export function formatRichSchedule(data, date) {
   const startTime = block => Number((block.time || '').match(/^\d{4}/)?.[0] ?? Infinity);
   const blocks = [...day.blocks].sort((a, b) => startTime(a) - startTime(b));
   return [...header, ...blocks.map(block => {
-    const time = escapeHtml((block.time || 'Time not printed').replace(/-/g, '–'));
+    const time = escapeHtml((block.time || 'Time not printed').replace(/\s*[-–]\s*/g, ' – '));
     const details = [
       `<b>${time} · ${escapeHtml(block.activity)}</b>`,
       `Instructor: ${escapeHtml(block.instructor)}`,
