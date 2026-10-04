@@ -166,6 +166,8 @@ export async function scheduleSuite({ lessons }) {
   });
 
   await T('day picker: today or Monday opens alone; clicking another day replaces it; Go to today restores today', () => {
+    const staticDoc = parseHtml(html);
+    assert.deepEqual(data.days.filter(day => !staticDoc.getElementById(`day-${day.date}`).hidden).map(day => day.date), ['2026-10-05'], 'only Monday is visible even before the script runs');
     const page = load('2026-10-07T08:15');
     const doc = page.document;
     const visible = () => data.days.filter(day => !doc.getElementById(`day-${day.date}`).hidden).map(day => day.date);

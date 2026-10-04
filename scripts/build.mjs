@@ -804,7 +804,7 @@ function scheduleBlock(block, lessons) {
 export function renderSchedule(template, contours, data, lessons, { base = '' } = {}) {
   const academic = data.days.flatMap(day => day.blocks).filter(block => block.kind !== 'routine').length;
   const days = data.days.map(day => [
-    `        <section class="day" id="day-${day.date}" data-date="${day.date}" aria-labelledby="day-h-${day.date}">`,
+    `        <section class="day" id="day-${day.date}" data-date="${day.date}" aria-labelledby="day-h-${day.date}"${day.date !== data.days[0].date ? ' hidden' : ''}>`,
     `          <h2 class="day-head" id="day-h-${day.date}"><span class="day-name">${escapeHtml(day.day)}</span> <span class="day-date mono">${escapeHtml(scheduleDate(day.date, { year: false }))}</span><span class="day-today" hidden> · Today</span></h2>`,
     '          <ol class="blocks">',
     ...day.blocks.map(block => scheduleBlock(block, lessons)),
