@@ -1195,8 +1195,8 @@ export async function engineSuite(lesson) {
     assert.deepEqual([...found].sort(), ['../assets/banner-1600.jpg', '../assets/banner-800.jpg', '../assets/class-photo-1600.jpg', '../assets/class-photo-800.jpg']);
     for (const file of found) assert.ok(existsSync(resolve(dirname(pagePath), file)), `${file} must exist`);
     const css = builtHtml.match(/<style>([\s\S]*?)<\/style>/)[1];
-    // Plate I scales to the image's natural ratio on all screen sizes.
-    assert.match(css, /\.banner img \{[^}]*height: auto;[^}]*aspect-ratio: auto; object-fit: contain; max-height: none;/);
+    // Plate I keeps the approved title-and-soldiers frame on all screen sizes.
+    assert.match(css, /\.banner img \{[^}]*height: auto;[^}]*aspect-ratio: 1127 \/ 291; object-fit: cover; object-position: 50% 62%; max-height: none;/);
     assert.match(css, /\.class-photo \{[^}]*max-width: var\(--page-max\);/);
     assert.match(css, /@media print \{[\s\S]*\.banner, \.class-photo[^{]*\{ display: none !important; \}/);
     assert.match(css, /body:not\(\[data-view="landing"\]\) \.banner, body:not\(\[data-view="landing"\]\) \.class-photo \{ display: none; \}/);
