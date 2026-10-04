@@ -1548,8 +1548,8 @@ export async function engineSuite(lesson) {
     assert.equal(hint.parentNode, quiz, 'the hint belongs to the quiz view');
     assert.ok(quiz.children.indexOf(hint) > quiz.children.indexOf(actions), 'the hint follows the question controls');
     const hintKeys = findAll(hint, node => node.localName === 'kbd').map(node => node.textContent);
-    assert.deepEqual(hintKeys, ['→', 'A', 'D', 'Enter', '←', '↑', '↓', '?'], 'hint shows → / A–D, Enter, ←, ↑ ↓ and ?, each in its own <kbd>');
-    assert.match(hint.textContent.replace(/\s+/g, ' '), /^Keyboard: → or A–D choose · Enter check \/ next · ← previous · ↑ ↓ scroll · \? help$/);
+    assert.deepEqual(hintKeys, ['←', '→', 'A', 'D', 'Enter', 'Z', '↑', '↓', '?'], 'hint shows answer arrows, Enter and Z');
+    assert.match(hint.textContent.replace(/\s+/g, ' '), /^Keyboard: ← → or A–D choose · Enter check \/ next · Z previous · ↑ ↓ scroll · \? help$/);
     const resultsHint = byId(app, 'results-keyboard-hint');
     assert.ok(findAll(byId(app, 'view-results'), node => node === resultsHint).length, 'results view has its own hint');
     assert.deepEqual(findAll(resultsHint, node => node.localName === 'kbd').map(node => node.textContent), ['R', 'C', 'M', '?']);
@@ -1557,18 +1557,17 @@ export async function engineSuite(lesson) {
     assert.equal(help.localName, 'details');
     assert.equal(findAll(help, node => node.localName === 'summary')[0]?.textContent, 'Keyboard shortcuts');
     const helpKeys = findAll(help, node => node.localName === 'kbd').map(node => node.textContent);
-    for (const key of ['→', 'A', 'D', '1', '4', 'Enter', '←', '↑', '↓', 'N', 'Page Down', 'P', 'Page Up', 'R', 'C', 'M', 'S', '?', 'H']) assert.ok(helpKeys.includes(key), `help lists ${key}`);
+    for (const key of ['→', 'A', 'D', '1', '4', 'Enter', '←', 'Z', '↑', '↓', 'R', 'C', 'M', 'S', '?', 'H']) assert.ok(helpKeys.includes(key), `help lists ${key}`);
     const helpText = help.textContent.replace(/\s+/g, ' ');
     assert.match(helpText, /→ ?Select the next answer: A, B, C, D, then back to A \(with nothing chosen yet, A\); it is not checked until you press Enter/);
-    assert.match(helpText, /← ?Previous question \(your answers stay as they are\)/);
+    assert.match(helpText, /Z ?Previous question \(your answers stay as they are\)/);
+    assert.match(helpText, /← ?Select the previous answer/);
     assert.match(helpText, /↑ ↓ ?Scroll the page \(they never change your answer\)/);
-    assert.match(helpText, /N or Page Down ?Also: next question/);
-    assert.match(helpText, /P or Page Up ?Also: previous question/);
     assert.match(helpText, /M ?On the results page: retry only the questions you missed \(practice, not saved to the class history\)/);
     assert.equal(isShown(help), false, 'no shortcut list in the landing view');
     startConfirmed(app);
     assert.ok(isShown(help) && isShown(hint), 'hint and list show in the quiz view');
-    for (const [id, keys] of [['btn-check', 'Enter'], ['btn-next', 'Enter N'], ['btn-prev', 'ArrowLeft P'], ['btn-finish', 'Enter'], ['btn-retake', 'R'], ['btn-choose', 'C'], ['btn-retry-missed', 'M'], ['btn-sound', 'S']]) {
+    for (const [id, keys] of [['btn-check', 'Enter'], ['btn-next', 'Enter'], ['btn-prev', 'Z'], ['btn-finish', 'Enter'], ['btn-retake', 'R'], ['btn-choose', 'C'], ['btn-retry-missed', 'M'], ['btn-sound', 'S']]) {
       assert.equal(byId(app, id).getAttribute('aria-keyshortcuts'), keys, `${id} advertises its shortcut`);
     }
     const { rules } = parseCss(stylesheetText(builtHtml));
@@ -1638,7 +1637,7 @@ export async function engineSuite(lesson) {
         assert.equal(press(app, key, { [modifier]: true }).defaultPrevented, false, `${modifier}+${key} is left alone`);
       }
     }
-    for (const key of ['b', '2', 'Enter', 's', '?', 'ArrowLeft', 'n', 'p', 'PageUp']) {
+    for (const key of ['b', '2', 'Enter', 's', '?', 'z', 'n', 'p', 'PageUp']) {
       assert.equal(press(app, key, { repeat: true }).defaultPrevented, false, `a held ${key} does not repeat`);
     }
     app.document.dispatchEvent(keyEvent(app.document, 'b', { defaultPrevented: true }));
@@ -1752,66 +1751,47 @@ export async function engineSuite(lesson) {
     assert.deepEqual(changes, [(before + 1) % 4]);
   });
 
-  await T('keyboard: ← goes to the previous question (also after Check), focuses the heading, never changes an answer, does nothing on question 1 and ignores key repeat', () => {
-    const app = loadApp();
-    startConfirmed(app, 'easy');
-    const changes = watchChanges(app);
-    for (const target of [app.document.body, byId(app, 'question-heading')]) {
-      assert.equal(press(app, 'ArrowLeft', { target }).defaultPrevented, false, `← on ${target.id || target.localName} does nothing on question 1`);
+  await T('keyboard: ← cycles backwards through answers without navigating or double native radio movement', () => {
+    const app = loadApp(); startConfirmed(app, 'easy');
+    for (const expected of [3, 2, 1, 0, 3]) {
+      const event = pressWithNativeRadio(app, 'ArrowLeft');
+      assert.ok(event.defaultPrevented);
+      assertSelected(app, expected, 'one left-arrow step');
       assert.equal(attemptOf(app).current, 0);
+      assert.equal(attemptOf(app).responses[0].checked, false);
     }
-    press(app, 'b');
-    let event = pressWithNativeRadio(app, 'ArrowLeft');
-    assert.equal(event.defaultPrevented, true, '← on a focused answer on question 1 still blocks the native radio move');
-    assert.equal(attemptOf(app).current, 0);
-    assertSelected(app, 1, '← on question 1');
-    assert.deepEqual(changes, [], 'the selection never moved');
+    assert.ok(pressWithNativeRadio(app, 'ArrowLeft', {repeat:true}).defaultPrevented);
+    assertSelected(app, 2, 'held left arrow cycles');
     press(app, 'Enter');
+    const selected = attemptOf(app).responses[0].selected;
+    pressWithNativeRadio(app, 'ArrowLeft');
+    assert.equal(attemptOf(app).responses[0].selected, selected, 'checked answer stays locked');
+    assert.equal(attemptOf(app).current, 0);
+  });
+
+  await T('keyboard: Z goes back, Enter checks/advances, X is unused, and answers survive navigation', () => {
+    const app = loadApp(); startConfirmed(app, 'easy');
+    assert.equal(press(app, 'z').defaultPrevented, false, 'no previous question before question 1');
+    press(app, 'b'); press(app, 'Enter'); press(app, 'Enter');
+    assert.equal(attemptOf(app).current, 1);
+    press(app, 'c');
+    assert.ok(press(app, 'Z').defaultPrevented);
+    assert.equal(attemptOf(app).current, 0);
+    assert.equal(app.document.activeElement?.id, 'question-heading');
+    assert.deepEqual(attemptOf(app).responses.slice(0,2).map(response=>response.selected), [1,2]);
     press(app, 'Enter');
     assert.equal(attemptOf(app).current, 1);
-    press(app, 'ArrowRight');
-    press(app, 'ArrowRight');
-    assert.equal(attemptOf(app).responses[1].selected, 1);
-    event = pressWithNativeRadio(app, 'ArrowLeft');
-    assert.equal(event.defaultPrevented, true, '← goes back from an unchecked question, even with an answer focused');
-    assert.equal(attemptOf(app).current, 0);
-    assert.equal(app.document.activeElement?.id, 'question-heading', 'focus moves to the heading, as with Previous question');
-    assert.equal(attemptOf(app).responses[1].selected, 1, 'the unchecked answer on question 2 was kept');
-    assert.equal(attemptOf(app).responses[0].selected, 1, 'the checked answer on question 1 is unchanged');
-    assert.equal(press(app, 'ArrowRight').defaultPrevented, false, '→ never navigates, even from a checked question');
-    assert.equal(attemptOf(app).current, 0);
-    assert.ok(press(app, 'n').defaultPrevented);
+    assert.equal(press(app, 'x').defaultPrevented, false);
+    assert.equal(attemptOf(app).current, 1);
+    assert.equal(press(app, 'z', {repeat:true}).defaultPrevented, false);
     assert.equal(attemptOf(app).current, 1);
     press(app, 'Enter');
     assert.equal(attemptOf(app).responses[1].checked, true);
-    assert.ok(press(app, 'ArrowLeft').defaultPrevented, '← goes back after Check too');
+    assert.ok(press(app, 'z').defaultPrevented);
     assert.equal(attemptOf(app).current, 0);
-    assert.equal(app.document.activeElement?.id, 'question-heading');
-    press(app, 'Enter');
-    press(app, 'Enter');
-    assert.equal(attemptOf(app).current, 2);
-    assert.equal(press(app, 'ArrowLeft', { repeat: true }).defaultPrevented, false, 'a held ← does not skip questions');
-    assert.equal(attemptOf(app).current, 2);
-    press(app, 'a');
-    event = pressWithNativeRadio(app, 'ArrowLeft', { repeat: true });
-    assert.equal(event.defaultPrevented, true, 'a held ← on a focused answer still blocks the native radio move');
-    assert.equal(attemptOf(app).current, 2);
-    assertSelected(app, 0, 'held ← on question 3');
-    for (const expected of [1, 0]) {
-      assert.ok(press(app, 'ArrowLeft').defaultPrevented);
-      assert.equal(attemptOf(app).current, expected);
-    }
-    assert.equal(press(app, 'ArrowLeft').defaultPrevented, false, 'no wrap-around before question 1');
-    assert.equal(attemptOf(app).current, 0);
-    assert.deepEqual(attemptOf(app).responses.slice(0, 3).map(response => response.selected), [1, 1, 0], '← never changed an answer');
-    const done = loadApp();
-    startConfirmed(done, 'easy');
-    completeAttempt(done);
+    const done = loadApp(); startConfirmed(done, 'easy'); completeAttempt(done);
     const last = count('easy') - 1;
-    assert.equal(attemptOf(done).current, last);
-    assert.equal(press(done, 'ArrowRight', { target: done.document.body }).defaultPrevented, false, '→ never moves past the last question');
-    assert.equal(attemptOf(done).current, last);
-    assert.ok(press(done, 'ArrowLeft', { target: done.document.body }).defaultPrevented);
+    assert.ok(press(done, 'z', {target:done.document.body}).defaultPrevented);
     assert.equal(attemptOf(done).current, last - 1);
   });
 
@@ -1859,39 +1839,13 @@ export async function engineSuite(lesson) {
     assert.deepEqual(bare.consoleErrors, []);
   });
 
-  await T('keyboard: N/P and Page Down/Page Up stay quiet aliases for next / previous question (no skip, no wrap)', () => {
-    const app = loadApp();
-    startConfirmed(app, 'easy');
-    for (const key of ['p', 'P', 'PageUp', 'n', 'N', 'PageDown']) {
-      assert.equal(press(app, key).defaultPrevented, false, `${key} cannot leave an unchecked question 1`);
-      assert.equal(attemptOf(app).current, 0);
-    }
-    press(app, 'a');
-    press(app, 'Enter');
-    for (const [key, expected] of [['N', 1], ['p', 0], ['PageDown', 1], ['PageUp', 0], ['n', 1]]) {
-      assert.ok(press(app, key).defaultPrevented, `${key} navigates`);
-      assert.equal(attemptOf(app).current, expected);
-      assert.equal(app.document.activeElement?.id, 'question-heading');
-    }
-    for (const key of ['n', 'N', 'PageDown']) {
-      assert.equal(press(app, key).defaultPrevented, false, `${key} cannot skip the unchecked question 2`);
-      assert.equal(attemptOf(app).current, 1);
-    }
-    press(app, 'b');
-    assert.ok(press(app, 'P', { target: radios(app)[1] }).defaultPrevented, 'P still goes back from a focused answer');
-    assert.equal(attemptOf(app).current, 0);
-    assert.equal(attemptOf(app).responses[1].selected, 1);
-    const done = loadApp();
-    startConfirmed(done, 'easy');
-    completeAttempt(done);
-    for (const key of ['n', 'PageDown']) {
-      assert.equal(press(done, key, { target: done.document.body }).defaultPrevented, false, `${key}: no wrap-around past the last question`);
-      assert.equal(attemptOf(done).current, count('easy') - 1);
-    }
-    done.api.goToQuestion(0);
-    for (const key of ['p', 'PageUp']) {
-      assert.equal(press(done, key).defaultPrevented, false, `${key}: no wrap-around before the first question`);
-      assert.equal(attemptOf(done).current, 0);
+  await T('keyboard: legacy N/P and Page keys never navigate questions', () => {
+    const app = loadApp(); startConfirmed(app, 'easy');
+    press(app, 'a'); press(app, 'Enter'); press(app, 'Enter');
+    const before = plain(attemptOf(app));
+    for (const key of ['p', 'P', 'PageUp', 'n', 'N', 'PageDown', 'x', 'X']) {
+      assert.equal(press(app, key).defaultPrevented, false, key + ' is not question navigation');
+      assert.deepEqual(plain(attemptOf(app)), before);
     }
   });
 

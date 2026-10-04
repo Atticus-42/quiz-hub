@@ -1124,12 +1124,12 @@
       <p id="validation-message" class="validation-message" role="alert" tabindex="-1" hidden></p>
       <div id="answer-feedback" class="feedback" tabindex="-1" hidden></div>
       <div class="quiz-actions">
-        <button type="button" id="btn-prev" class="secondary" aria-keyshortcuts="ArrowLeft P">Previous question</button>
+        <button type="button" id="btn-prev" class="secondary" aria-keyshortcuts="Z">Previous question</button>
         <button type="button" id="btn-check" aria-keyshortcuts="Enter">Check answer</button>
-        <button type="button" id="btn-next" aria-keyshortcuts="Enter N">Next question</button>
+        <button type="button" id="btn-next" aria-keyshortcuts="Enter">Next question</button>
         <button type="button" id="btn-finish" aria-keyshortcuts="Enter">View results</button>
       </div>
-      <p id="keyboard-hint" class="keyboard-hint"><span class="hint-label">Keyboard:</span> <span class="hint-item"><kbd>→</kbd> or <kbd>A</kbd>–<kbd>D</kbd> choose</span> · <span class="hint-item"><kbd>Enter</kbd> check / next</span> · <span class="hint-item"><kbd>←</kbd> previous</span> · <span class="hint-item"><kbd>↑</kbd> <kbd>↓</kbd> scroll</span> · <span class="hint-item"><kbd>?</kbd> help</span></p>
+      <p id="keyboard-hint" class="keyboard-hint"><span class="hint-label">Keyboard:</span> <span class="hint-item"><kbd>←</kbd> <kbd>→</kbd> or <kbd>A</kbd>–<kbd>D</kbd> choose</span> · <span class="hint-item"><kbd>Enter</kbd> check / next</span> · <span class="hint-item"><kbd>Z</kbd> previous</span> · <span class="hint-item"><kbd>↑</kbd> <kbd>↓</kbd> scroll</span> · <span class="hint-item"><kbd>?</kbd> help</span></p>
     </section>
 
     <section id="view-results" class="view view-results" hidden aria-labelledby="results-heading">
@@ -1183,10 +1183,9 @@
         <dt><kbd>→</kbd></dt><dd>Select the next answer: A, B, C, D, then back to A (with nothing chosen yet, A); it is not checked until you press Enter</dd>
         <dt><kbd>A</kbd>–<kbd>D</kbd> or <kbd>1</kbd>–<kbd>4</kbd></dt><dd>Choose that answer (it is not checked until you press Enter)</dd>
         <dt><kbd>Enter</kbd></dt><dd>Check the answer; once checked, go to the next question; on the last question, view results</dd>
-        <dt><kbd>←</kbd></dt><dd>Previous question (your answers stay as they are)</dd>
+        <dt><kbd>←</kbd></dt><dd>Select the previous answer: D, C, B, A, then back to D (with nothing chosen yet, D); it is not checked until you press Enter</dd>
+        <dt><kbd>Z</kbd></dt><dd>Previous question (your answers stay as they are)</dd>
         <dt><kbd>↑</kbd> <kbd>↓</kbd></dt><dd>Scroll the page (they never change your answer)</dd>
-        <dt><kbd>N</kbd> or <kbd>Page Down</kbd></dt><dd>Also: next question</dd>
-        <dt><kbd>P</kbd> or <kbd>Page Up</kbd></dt><dd>Also: previous question</dd>
         <dt><kbd>R</kbd></dt><dd>On the results page: retake the same difficulty</dd>
         <dt><kbd>C</kbd></dt><dd>On the results page: choose another difficulty</dd>
         <dt><kbd>M</kbd></dt><dd>On the results page: retry only the questions you missed (practice, not saved to the class history)</dd>
@@ -2332,15 +2331,15 @@
 
     // ----- Keyboard shortcuts -----
     // One document-level keydown listener, registered once in init(). It only acts in the quiz and
-    // results views, leaves typing, modified keys and key repeats (except → and ↑ / ↓) alone, and calls
+    // results views, leaves typing, modified keys and key repeats (except arrow keys) alone, and calls
     // preventDefault only for keys it handles. Every shortcut goes through the same functions as the buttons, so
     // validation, focus, live-region announcements and sound cues match clicking exactly.
 
     var OPTION_KEYS = { a: 0, b: 1, c: 2, d: 3, '1': 0, '2': 1, '3': 2, '4': 3 };
-    // Arrow keys: → chooses the next answer, ← goes to the previous question, ↑ / ↓ only scroll the page.
+    // Arrow keys: ← / → choose answers, ↑ / ↓ only scroll the page. Z goes to the previous question.
     var ARROW_KEYS = ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'];
-    // Held keys that may auto-repeat: → keeps cycling, ↑ / ↓ keep scrolling. All others (← included) act once per press.
-    var REPEATABLE_KEYS = ['ArrowRight', 'ArrowUp', 'ArrowDown'];
+    // Held arrows cycle answers or scroll. Question navigation acts once per press.
+    var REPEATABLE_KEYS = ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown'];
     var ARROW_SCROLL_PX = 80;
     // Enter on these is a native activation (click or toggle); handling it too would act twice.
     var NATIVE_ENTER_TAGS = ['BUTTON', 'A', 'SUMMARY'];
@@ -2402,21 +2401,21 @@
         }
         return true;
       }
-      if (key === 'ArrowRight') {
-        // → only chooses: the next answer, A, B, C, D, then back to A (nothing chosen yet: A). It never checks and
+      if (key === 'ArrowRight' || key === 'ArrowLeft') {
+        // Arrows only choose answers. Right advances, left reverses, with wrap-around. Neither checks and
         // does nothing once the answer is checked. handleKeydown's preventDefault stops the browser's own
         // radio-group arrow move, so each press changes the selection exactly once.
         if (response.checked) return false;
         var count = Math.min(question.options.length, ui.radios.length);
         if (!count) return false;
-        var next = response.selected === null ? 0 : (response.selected + 1) % count;
+        var direction = key === 'ArrowRight' ? 1 : -1;
+        var next = response.selected === null ? (direction === 1 ? 0 : count - 1) : (response.selected + direction + count) % count;
         selectAnswer(next);
         ui.radios[next].focus();
         return true;
       }
-      // ← (like P and Page Up) goes to the previous question, checked or not; it never wraps or changes an answer.
-      if (key === 'ArrowLeft' || key === 'p' || key === 'PageUp') return goToQuestion(attempt.current - 1);
-      if (key === 'n' || key === 'PageDown') return goToQuestion(attempt.current + 1);
+      // Z goes to the previous question; it never wraps or changes an answer.
+      if (key === 'z') return goToQuestion(attempt.current - 1);
       // ↑ / ↓ just scroll. Off a radio the browser does that itself; on a focused answer it would change the
       // selection instead, so scroll by hand (and handleKeydown cancels the native move).
       if (key === 'ArrowUp' || key === 'ArrowDown') {
