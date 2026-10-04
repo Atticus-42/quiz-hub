@@ -1,0 +1,66 @@
+name: Tomorrow's schedule to Telegram
+
+on:
+  schedule:
+    # 13:00 UTC is 21:00 Philippine time (Asia/Manila).
+    - cron: '0 13 * * *'
+  workflow_dispatch:
+    inputs:
+      preview_only:
+        description: Preview tomorrow's post without sending it
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: telegram-schedule
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check configuration
+        id: config
+        env:
+          BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        shell: bash
+        run: |
+          if [ -n "$BOT_TOKEN" ] && [ -n "$CHAT_ID" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "Telegram is not connected. Add TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID in repository Actions secrets." >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Preview
+        if: github.event_name == 'workflow_dispatch' && inputs.preview_only
+        run: node scripts/telegram-schedule.mjs --preview
+      - name: Restore delivery state
+        id: restore
+        if: steps.config.outputs.ready == 'true' && !(github.event_name == 'workflow_dispatch' && inputs.preview_only)
+        uses: actions/cache/restore@v4
+        with:
+          path: .telegram-state
+          key: telegram-schedule-state-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: telegram-schedule-state-
+      - name: Send tomorrow's schedule
+        if: steps.config.outputs.ready == 'true' && !(github.event_name == 'workflow_dispatch' && inputs.preview_only)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_TOPIC_ID: ${{ secrets.TELEGRAM_TOPIC_ID }}
+        run: node scripts/telegram-schedule.mjs
+      - name: Save delivery state
+        if: always() && steps.restore.outcome == 'success'
+        uses: actions/cache/save@v4
+        with:
+          path: .telegram-state
+          key: telegram-schedule-state-${{ github.run_id }}-${{ github.run_attempt }}

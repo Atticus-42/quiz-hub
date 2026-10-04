@@ -109,6 +109,8 @@ Then run `assign-qids`, build and verify. See `lessons/_template/README.md`. The
 
 ## Updating the weekly schedule
 
+The daily Telegram sender targets 21:00 Philippine time with tomorrow's activities. See [TELEGRAM-SETUP.md](TELEGRAM-SETUP.md) for the one-time bot/group connection, private secrets, preview and timing limitations.
+
 The schedule page shows whatever `data/schedule.json` holds. Each week:
 
 1. Copy last week's file to `data/schedules/<start>_<end>.json` named by the new week's dates (for example `2026-10-12_2026-10-18.json`) and transcribe the new weekly training schedule into it, row by row, exactly as printed:
