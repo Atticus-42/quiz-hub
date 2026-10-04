@@ -625,14 +625,19 @@ export function loadClass(root = ROOT) {
     }
   });
   const dir = data.directorate;
-  if (!dir || typeof dir !== 'object' || !allowed(dir, ['title', 'roles']) || !text(dir.title) || !Array.isArray(dir.roles) || !dir.roles.length) fail('directorate must be exactly { title, roles: [{ role, members: [{ rank, name }] }] }');
+  if (!dir || typeof dir !== 'object' || !allowed(dir, ['title', 'caption', 'roles']) || !text(dir.title) || !text(dir.caption) || !Array.isArray(dir.roles) || !dir.roles.length) fail('directorate must be exactly { title, caption, roles: [{ role, members: [{ rank, name, office, duties, schooling, civilian }] }] }');
   const roles = new Set();
   dir.roles.forEach((entry, index) => {
-    if (!entry || !allowed(entry, ['role', 'members']) || !text(entry.role) || !Array.isArray(entry.members) || !entry.members.length) fail(`directorate role ${index + 1} must be { role, members: [{ rank, name }] }`);
+    if (!entry || !allowed(entry, ['role', 'members']) || !text(entry.role) || !Array.isArray(entry.members) || !entry.members.length) fail(`directorate role ${index + 1} must be { role, members: [...] }`);
     if (roles.has(entry.role)) fail(`directorate role ${entry.role} is listed twice`);
     roles.add(entry.role);
     entry.members.forEach(member => {
-      if (!member || !allowed(member, ['rank', 'name']) || !text(member.rank) || !text(member.name)) fail(`directorate role ${entry.role}: every member must be exactly { rank, name }`);
+      if (!member || !allowed(member, ['rank', 'name', 'office', 'duties', 'schooling', 'civilian']) || !text(member.rank) || !text(member.name)) fail(`directorate role ${entry.role}: every member must be exactly { rank, name, office, duties, schooling, civilian }`);
+      if (!(member.office === null || (text(member.office) && member.office.length <= 60))) fail(`directorate member ${member.name}: office must be null or text of at most 60 characters`);
+      for (const [key, max] of [['duties', 6], ['schooling', 20], ['civilian', 6]]) {
+        const list = member[key];
+        if (!Array.isArray(list) || list.length > max || !list.every(item => text(item) && item.length <= 120)) fail(`directorate member ${member.name}: ${key} must be a list of at most ${max} non-empty texts of at most 120 characters`);
+      }
     });
   });
   if (!Array.isArray(data.organization)) fail('organization must be a list');

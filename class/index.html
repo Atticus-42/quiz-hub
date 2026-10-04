@@ -372,12 +372,24 @@
     .dir-row { display: grid; grid-template-columns: minmax(0, 14rem) minmax(0, 1fr); column-gap: var(--col-gap); align-items: baseline; padding: var(--space-3) 0; border-bottom: 1px solid var(--color-hairline); }
     .dir-role { margin: 0; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
     .dir-people { margin: 0; padding: 0; list-style: none; }
-    .dir-people li { font-weight: 600; line-height: 1.4; }
-    .dir-people li + li { margin-top: var(--space-1); }
+    .dir-caption { margin: calc(var(--space-2) * -1) 0 var(--space-4); font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.04em; color: var(--color-muted); }
+    .dir-people li { line-height: 1.4; }
+    .dir-people li + li { margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--color-hairline); }
+    .dir-who { font-weight: 600; }
+    .dir-office { margin: var(--space-1) 0 0; font-size: var(--text-meta); color: var(--color-muted); }
+    .dir-duties { margin: var(--space-1) 0 0; font-size: var(--text-meta); line-height: 1.45; }
+    .dir-quals { margin-top: var(--space-2); font-size: var(--text-meta); }
+    .dir-quals summary { display: inline-block; cursor: pointer; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-signal-text); padding: var(--space-1) 0; }
+    .dir-quals summary:focus-visible { outline: 2px solid var(--color-signal); outline-offset: 2px; }
+    .dir-quals-group { margin: var(--space-2) 0 0; font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted); }
+    .dir-quals ul { margin: var(--space-1) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--color-hairline); }
+    .dir-quals li { display: grid; grid-template-columns: minmax(0, 1fr) 3.25rem; column-gap: var(--space-3); padding: var(--space-1) 0; border-bottom: 1px solid var(--color-hairline); line-height: 1.4; font-weight: 400; }
+    .dir-quals li + li { margin-top: 0; padding-top: var(--space-1); border-top: 0; }
+    .dir-year { grid-column: 2; grid-row: 1; text-align: right; font-family: var(--font-mono); font-size: var(--text-label); color: var(--color-muted); }
     .dir-rank { display: inline-block; min-width: 2.75rem; font-family: var(--font-mono); font-size: 0.875rem; font-weight: 500; color: var(--color-muted); }
     .dir-row.is-lead { padding: var(--space-4) var(--space-4) var(--space-4) var(--space-4); background: var(--color-surface); border: 1px solid var(--color-text); border-left: 4px solid var(--color-signal); margin-bottom: var(--space-2); }
     .dir-row.is-lead .dir-role { color: var(--color-signal-text); }
-    .dir-row.is-lead .dir-people li { font-size: var(--text-h4); }
+    .dir-row.is-lead .dir-who { font-size: var(--text-h4); }
     .roster-table th[scope="row"] { font-weight: 600; font-size: var(--text-ui); }
     .roster-table td { font-family: var(--font-mono); font-size: 0.875rem; }
     .roster-table td.num { width: 3.5rem; text-align: left; color: var(--color-muted); }
@@ -407,6 +419,7 @@
     .topo, .banner, .hub-link { display: none !important; }
     .strip, .hero-bar, .class-photo { display: none !important; }
     .org-card, .dir-row { break-inside: avoid; }
+    .dir-quals summary { color: #000; }
     tr { break-inside: avoid; }
   </style>
 </head>
@@ -459,6 +472,7 @@
       <div class="sect-head"><span class="sect-num" aria-hidden="true">01</span><h2 id="dir-heading">Training directorate</h2></div>
       <div class="sect-body">
         <p id="dir-title" class="dir-title"></p>
+        <p id="dir-caption" class="dir-caption"></p>
         <ul id="dir-list" class="dir-list"></ul>
       </div>
     </section>
@@ -492,7 +506,7 @@
 
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
 
-  <script type="application/json" id="class-data">{"class":"SOAC 52 - 2026","name":"Bandwidth Brothers","note":"Public-safe subset of the class roster: rank, name, commissioning source and class positions only. No serial numbers, contact details, addresses or ratings.","directorate":{"title":"Signal Officer Advance Course CL 52-26 — Training Directorate","roles":[{"role":"Class Adviser","members":[{"rank":"MAJ","name":"Fritz F. Perez"}]},{"role":"Course/Program Director","members":[{"rank":"CPT","name":"Kevyn A. Tejada"}]},{"role":"Course NCO","members":[{"rank":"TSg","name":"Onofre M. Diculin Jr."}]},{"role":"Asst Course NCO","members":[{"rank":"Sgt","name":"Amel A. Callo Jr."}]},{"role":"Module NCO","members":[{"rank":"TSg","name":"Divina D. Umalla"},{"rank":"Cpl","name":"Ryan G. Marquez"}]},{"role":"Program NCO","members":[{"rank":"SSg","name":"Damaso L. Pamittan Jr."},{"rank":"PFC","name":"Joshua C. Fundador"}]},{"role":"Psychomotor NCO","members":[{"rank":"Cpl","name":"Jerald M. Lanoy"},{"rank":"Cpl","name":"Jerica M. Putian"}]}]},"organization":[{"position":"Class Leader","member":6},{"position":"Executive Officer (Ex-O)","member":5},{"position":"S1","member":16},{"position":"Assistant S1","member":18},{"position":"S2","member":20},{"position":"Assistant S2","member":17},{"position":"S3","member":25},{"position":"Assistant S3","member":10},{"position":"S4","member":13},{"position":"Assistant S4","member":15},{"position":"S6","member":22},{"position":"Assistant S6","member":24},{"position":"S7","member":19},{"position":"Assistant S7","member":14},{"position":"AAR Officer","member":7},{"position":"Assistant AAR Officer","member":21},{"position":"KMO","member":4},{"position":"Assistant KMO","member":9},{"position":"PT Officer","member":12},{"position":"Assistant PT Officer","member":23},{"position":"Finance / Mess Officer","member":3},{"position":"Assistant Finance / Mess Officer","member":8}],"roster":[{"nr":1,"rank":"CPT","name":"Roland D. Diolata","commission":"OCC CL 52-19"},{"nr":2,"rank":"1LT","name":"Berlinda B. Gad-icon","commission":"OPC CL 71-19"},{"nr":3,"rank":"1LT","name":"Mark R. Pabiania","commission":"OCC CL 53-20"},{"nr":4,"rank":"1LT","name":"Nigel Dwight V. Anub","commission":"OCC CL 53-20"},{"nr":5,"rank":"1LT","name":"Don Riyadh B. Beduya","commission":"OCC CL 53-20"},{"nr":6,"rank":"1LT","name":"Jan Lemrolf B. Francisco","commission":"OCC CL 49-17"},{"nr":7,"rank":"1LT","name":"Rena Sheina Mae D. Aldamia","commission":"OCC CL 54-20"},{"nr":8,"rank":"1LT","name":"Queenejean A. Vales","commission":"OPC CL 72-20"},{"nr":9,"rank":"1LT","name":"John Anthony B. Guia","commission":"OPC CL 72-20"},{"nr":10,"rank":"1LT","name":"Jonnel B. Regalario","commission":"OCC CL 54-20"},{"nr":11,"rank":"1LT","name":"Mark Jason V. Paquiz","commission":"PMA CL 21"},{"nr":12,"rank":"1LT","name":"Ariel S. Marzan","commission":"PMA CL 21"},{"nr":13,"rank":"1LT","name":"Riel Alexander C. Toniza","commission":"PMA CL 21"},{"nr":14,"rank":"1LT","name":"Karl C. Cosadio","commission":"OCC CL 55-21"},{"nr":15,"rank":"1LT","name":"Mohammad Ujaid L. Abdulhalim","commission":"OCC CL 55-21"},{"nr":16,"rank":"1LT","name":"Elaine Marey N. Paasa","commission":"PMA CL 22"},{"nr":17,"rank":"1LT","name":"Eric Jan B. Intoy","commission":"PMA CL 22"},{"nr":18,"rank":"1LT","name":"Renmil John B. Trompeta","commission":"PMA CL 22"},{"nr":19,"rank":"1LT","name":"Daniel Deo A. Raqueño","commission":"PMA CL 22"},{"nr":20,"rank":"1LT","name":"Junril E. Escartin","commission":"OCC ROTC CL 01"},{"nr":21,"rank":"1LT","name":"Ginalyn B. Ballaso","commission":"OCC ROTC CL 01"},{"nr":22,"rank":"1LT","name":"Kiergie B. Mariano","commission":"OCC CL 56-22"},{"nr":23,"rank":"1LT","name":"Raymond B. Yagyagan","commission":"OCC CL 56-22"},{"nr":24,"rank":"1LT","name":"Art Lester S. Galasinao","commission":"OCC CL 56-22"},{"nr":25,"rank":"1LT","name":"Jobert Kevin Luke B. Salon","commission":"OCC ROTC CL 02"},{"nr":26,"rank":"1LT","name":"Roden S. Zamora","commission":"OCC CL 57-22"}]}</script>
+  <script type="application/json" id="class-data">{"class":"SOAC 52 - 2026","name":"Bandwidth Brothers","note":"Public-safe subset of the class roster: rank, name, commissioning source and class positions only. No serial numbers, contact details, addresses or ratings.","directorate":{"title":"Signal Officer Advance Course CL 52-26 — Training Directorate","roles":[{"role":"Class Adviser","members":[{"rank":"MAJ","name":"Fritz F. Perez","office":"Admin Branch","duties":["Chief, Admin Branch","Class Adviser, SOAC CL 52-26"],"schooling":["OCC Class 38-2011","Signal Officer Basic Course (SOBC)","Signal Officer Advance Course (SOAC)","MEWIOC","L3Harris 7800H/7800V Trainor's Training","Motorola P25 SRX2200 Trainor's Training"],"civilian":["BS Electronics and Communications Engineering, MSU-IIT"]}]},{"role":"Course/Program Director","members":[{"rank":"CPT","name":"Kevyn A. Tejada","office":"Academic Department","duties":["Head, Academic Department","Chief, Advance Branch","Course Director, SOAC CL 52-26"],"schooling":["SOBC 2019","SOAC 2025","ICC","ISC"],"civilian":["Business Administration, major in Financial Management"]}]},{"role":"Course NCO","members":[{"rank":"TSg","name":"Onofre M. Diculin Jr.","office":"Command Section","duties":["First Sergeant","Course NCO, SOAC CL 52-26"],"schooling":["Candidate Soldier Course CL 96-2004 with SFOOC","SROC 2005","Scout Ranger Course 2007","Basic Airborne Course 2012","Signal NCO Basic Course 2013","Instructor Development Training 2014","Drill Master Course 2017","Signal NCO Advance Course 2019","PA Marksmanship Development Trainers Training 2021"],"civilian":[]}]},{"role":"Asst Course NCO","members":[{"rank":"Sgt","name":"Arnel A. Callo Jr.","office":"Personnel on special duty","duties":["Wide Area Network NCO","Assistant Course NCO, SOAC"],"schooling":["Candidate Soldier Course with JWMOC","SNCOBC","Harris RF5800H-MP031 HF/VHF Tactical Radio Operation and Maintenance","Online Information System Course","Cable Splicing and Telephone Installer Training","Intro to Cybersecurity Training","Night Fighting System Operation and Maintenance Training","Visual Graphic Design Training","CompTIA A+ Network Training","CCNA 200-301 Training","Python Programming Essentials","E-Lynx Radio Operation and Maintenance Trainer's Training","Exercise CARABAROO 2024 (Darwin, Australia)"],"civilian":[]}]},{"role":"Module NCO","members":[{"rank":"TSg","name":"Divina D. Umalla","office":"Admin Branch","duties":["Branch NCO, Admin Branch","Module NCO, SOAC/SNCOAC"],"schooling":["Candidate Soldier Course 2006","Signal NCO Basic Course 2013","Instructor Development Training 2022","AGS NCO Advance Course 2024"],"civilian":[]},{"rank":"Cpl","name":"Ryan G. Marquez","office":"Personnel on special duty","duties":["Module NCO, SOAC"],"schooling":["Candidate Soldier Course 2019","AutoCAD with SketchUp Training","Engineer Combat Support Operation and Orientation Training","ATR Cascading and Workshop","Incident Command System Training","SNCOBC CL 134-2026"],"civilian":[]}]},{"role":"Program NCO","members":[{"rank":"SSg","name":"Damaso L. Pamittan Jr.","office":"Operations Branch","duties":["Branch NCO, Operations Branch","Program NCO, SOAC/SNCOAC/SNCOBC"],"schooling":["Candidate Soldier Course with JWMOC CL 205-2009","Outside Plant Engineering Course 2010","HF DATACOM Operation and Maintenance Training","Harris RF5800H-MP031 HF/VHF Tactical Radio Operation and Maintenance Training","UHF Radio Operation and Maintenance Training","Signal NCO Basic Course CL 65-2012","Computer System Servicing Course 2014","Information Technology Essential Course 2016","NFS Level 3 Operation and Maintenance Training","RF 7800V-HH and RF 7800H-MP Communications System","Signal NCO Advance Course CL 65-2022 (Rank Top 1)","Instructor Development Training CL 92-2024"],"civilian":["BS Criminology"]},{"rank":"PFC","name":"Joshua C. Fundador","office":"Admin Branch","duties":["Supply NCO, Logistics Section","Program NCO, SOAC/SOBC/SNCOAC/SNCOBC"],"schooling":["Mortar Gunner Training","Instructor Development Training 2024","Tactical Radio Operation and Maintenance Course"],"civilian":[]}]},{"role":"Psychomotor NCO","members":[{"rank":"Cpl","name":"Jerald M. Lanoy","office":"Non-Academic Branch","duties":["Branch NCO, Non-Academic Branch","Psychomotor NCO"],"schooling":["Candidate Soldier Course with JWMOC 2018","Instructor Development Training 2022","Force Protection and Security Training 2022","Drill Master Course 2025"],"civilian":[]},{"rank":"Cpl","name":"Jerica M. Putian","office":null,"duties":[],"schooling":[],"civilian":[]}]}],"caption":"Signal School, ITG, ETC, PA · Camp O'Donnell, Capas, Tarlac · 3rd Training Period CY 2026"},"organization":[{"position":"Class Leader","member":6},{"position":"Executive Officer (Ex-O)","member":5},{"position":"S1","member":16},{"position":"Assistant S1","member":18},{"position":"S2","member":20},{"position":"Assistant S2","member":17},{"position":"S3","member":25},{"position":"Assistant S3","member":10},{"position":"S4","member":13},{"position":"Assistant S4","member":15},{"position":"S6","member":22},{"position":"Assistant S6","member":24},{"position":"S7","member":19},{"position":"Assistant S7","member":14},{"position":"AAR Officer","member":7},{"position":"Assistant AAR Officer","member":21},{"position":"KMO","member":4},{"position":"Assistant KMO","member":9},{"position":"PT Officer","member":12},{"position":"Assistant PT Officer","member":23},{"position":"Finance / Mess Officer","member":3},{"position":"Assistant Finance / Mess Officer","member":8}],"roster":[{"nr":1,"rank":"CPT","name":"Roland D. Diolata","commission":"OCC CL 52-19"},{"nr":2,"rank":"1LT","name":"Berlinda B. Gad-icon","commission":"OPC CL 71-19"},{"nr":3,"rank":"1LT","name":"Mark R. Pabiania","commission":"OCC CL 53-20"},{"nr":4,"rank":"1LT","name":"Nigel Dwight V. Anub","commission":"OCC CL 53-20"},{"nr":5,"rank":"1LT","name":"Don Riyadh B. Beduya","commission":"OCC CL 53-20"},{"nr":6,"rank":"1LT","name":"Jan Lemrolf B. Francisco","commission":"OCC CL 49-17"},{"nr":7,"rank":"1LT","name":"Rena Sheina Mae D. Aldamia","commission":"OCC CL 54-20"},{"nr":8,"rank":"1LT","name":"Queenejean A. Vales","commission":"OPC CL 72-20"},{"nr":9,"rank":"1LT","name":"John Anthony B. Guia","commission":"OPC CL 72-20"},{"nr":10,"rank":"1LT","name":"Jonnel B. Regalario","commission":"OCC CL 54-20"},{"nr":11,"rank":"1LT","name":"Mark Jason V. Paquiz","commission":"PMA CL 21"},{"nr":12,"rank":"1LT","name":"Ariel S. Marzan","commission":"PMA CL 21"},{"nr":13,"rank":"1LT","name":"Riel Alexander C. Toniza","commission":"PMA CL 21"},{"nr":14,"rank":"1LT","name":"Karl C. Cosadio","commission":"OCC CL 55-21"},{"nr":15,"rank":"1LT","name":"Mohammad Ujaid L. Abdulhalim","commission":"OCC CL 55-21"},{"nr":16,"rank":"1LT","name":"Elaine Marey N. Paasa","commission":"PMA CL 22"},{"nr":17,"rank":"1LT","name":"Eric Jan B. Intoy","commission":"PMA CL 22"},{"nr":18,"rank":"1LT","name":"Renmil John B. Trompeta","commission":"PMA CL 22"},{"nr":19,"rank":"1LT","name":"Daniel Deo A. Raqueño","commission":"PMA CL 22"},{"nr":20,"rank":"1LT","name":"Junril E. Escartin","commission":"OCC ROTC CL 01"},{"nr":21,"rank":"1LT","name":"Ginalyn B. Ballaso","commission":"OCC ROTC CL 01"},{"nr":22,"rank":"1LT","name":"Kiergie B. Mariano","commission":"OCC CL 56-22"},{"nr":23,"rank":"1LT","name":"Raymond B. Yagyagan","commission":"OCC CL 56-22"},{"nr":24,"rank":"1LT","name":"Art Lester S. Galasinao","commission":"OCC CL 56-22"},{"nr":25,"rank":"1LT","name":"Jobert Kevin Luke B. Salon","commission":"OCC ROTC CL 02"},{"nr":26,"rank":"1LT","name":"Roden S. Zamora","commission":"OCC CL 57-22"}]}</script>
   <script>
   (function () {
     'use strict';
@@ -518,20 +532,56 @@
     var directorate = data.directorate;
     if (directorate && Array.isArray(directorate.roles)) {
       byId('dir-title').textContent = directorate.title || '';
+      byId('dir-caption').textContent = directorate.caption || '';
       directorate.roles.forEach(function (entry) {
         var row = make('li', 'dir-row' + (/^(Class Adviser|Course\/Program Director)$/i.test(entry.role) ? ' is-lead' : ''));
         row.appendChild(make('p', 'dir-role', entry.role));
         var people = make('ul', 'dir-people');
         entry.members.forEach(function (person) {
           var item = make('li');
-          item.appendChild(make('span', 'dir-rank', person.rank));
-          item.appendChild(document.createTextNode(' '));
-          item.appendChild(make('span', 'dir-name', person.name));
+          var who = make('div', 'dir-who');
+          who.appendChild(make('span', 'dir-rank', person.rank));
+          who.appendChild(document.createTextNode(' '));
+          who.appendChild(make('span', 'dir-name', person.name));
+          item.appendChild(who);
+          if (person.office) item.appendChild(make('p', 'dir-office', person.office));
+          if (person.duties && person.duties.length) item.appendChild(make('p', 'dir-duties', person.duties.join(' · ')));
+          var groups = [['Military schooling', person.schooling || []], ['Civilian education', person.civilian || []]].filter(function (group) { return group[1].length; });
+          var count = groups.reduce(function (sum, group) { return sum + group[1].length; }, 0);
+          if (count) {
+            var details = make('details', 'dir-quals');
+            details.appendChild(make('summary', null, 'Schooling & training (' + count + ')'));
+            groups.forEach(function (group) {
+              if (groups.length > 1) details.appendChild(make('p', 'dir-quals-group', group[0]));
+              var list = make('ul');
+              group[1].forEach(function (entryText) {
+                var match = /^(.*\S)\s+((?:19|20)\d{2})$/.exec(entryText);
+                var li = make('li');
+                li.appendChild(make('span', 'dir-qual', match ? match[1] : entryText));
+                if (match) li.appendChild(make('span', 'dir-year', match[2]));
+                list.appendChild(li);
+              });
+              details.appendChild(list);
+            });
+            item.appendChild(details);
+          }
           people.appendChild(item);
         });
         row.appendChild(people);
         byId('dir-list').appendChild(row);
       });
+    }
+
+    // Print: expand every qualification list, then restore what was open.
+    var wasOpen = [];
+    if (typeof window.addEventListener === 'function') {
+    window.addEventListener('beforeprint', function () {
+      wasOpen = [];
+      Array.prototype.forEach.call(document.querySelectorAll('.dir-quals'), function (node) { wasOpen.push(node.open); node.open = true; });
+    });
+    window.addEventListener('afterprint', function () {
+      Array.prototype.forEach.call(document.querySelectorAll('.dir-quals'), function (node, index) { node.open = !!wasOpen[index]; });
+    });
     }
 
     var byNr = {};

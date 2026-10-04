@@ -189,9 +189,10 @@ export async function classSuite() {
     assert.equal(data.class, 'SOAC 52 - 2026');
   });
 
-  await T('data integrity: the training directorate lists the 7 roles in order, each member only { rank, name }, no private data', () => {
+  await T('data integrity: the training directorate lists the 7 roles in order, each member with a public-safe profile, no private data', () => {
     const dir = data.directorate;
-    assert.deepEqual(Object.keys(dir).sort(), ['roles', 'title']);
+    assert.deepEqual(Object.keys(dir).sort(), ['caption', 'roles', 'title']);
+    assert.equal(dir.caption, "Signal School, ITG, ETC, PA · Camp O'Donnell, Capas, Tarlac · 3rd Training Period CY 2026");
     assert.equal(dir.title, 'Signal Officer Advance Course CL 52-26 — Training Directorate');
     assert.deepEqual(dir.roles.map(entry => entry.role), ['Class Adviser', 'Course/Program Director', 'Course NCO', 'Asst Course NCO', 'Module NCO', 'Program NCO', 'Psychomotor NCO']);
     assert.deepEqual(dir.roles.map(entry => entry.members.length), [1, 1, 1, 1, 2, 2, 2]);
@@ -199,18 +200,28 @@ export async function classSuite() {
     for (const entry of dir.roles) {
       assert.deepEqual(Object.keys(entry).sort(), ['members', 'role']);
       for (const member of entry.members) {
-        assert.deepEqual(Object.keys(member).sort(), ['name', 'rank']);
+        assert.deepEqual(Object.keys(member).sort(), ['civilian', 'duties', 'name', 'office', 'rank', 'schooling']);
+        assert.ok(member.office === null || (typeof member.office === 'string' && member.office.trim() !== ''));
+        for (const key of ['duties', 'schooling', 'civilian']) assert.ok(Array.isArray(member[key]) && member[key].every(item => typeof item === 'string' && item.trim() !== ''), `${member.name} ${key}`);
         assert.match(member.rank, /^(MAJ|CPT|TSg|SSg|Sgt|Cpl|PFC)$/);
         assert.ok(member.name.trim().length > 3);
       }
     }
-    assert.deepEqual(dir.roles[0].members, [{ rank: 'MAJ', name: 'Fritz F. Perez' }]);
-    assert.deepEqual(dir.roles[1].members, [{ rank: 'CPT', name: 'Kevyn A. Tejada' }]);
+    assert.deepEqual(dir.roles[0].members.map(m => `${m.rank} ${m.name}`), ['MAJ Fritz F. Perez']);
+    assert.deepEqual(dir.roles[1].members.map(m => `${m.rank} ${m.name}`), ['CPT Kevyn A. Tejada']);
+    const members = dir.roles.flatMap(entry => entry.members);
+    assert.equal(members.length, 10);
+    assert.ok(members.every(m => m.duties.length || m.name === 'Jerica M. Putian'));
+    assert.deepEqual(members.filter(m => !m.office && !m.duties.length && !m.schooling.length && !m.civilian.length).map(m => m.name), ['Jerica M. Putian']);
+    assert.ok(members.some(m => m.name === 'Arnel A. Callo Jr.' && m.rank === 'Sgt'), 'corrected name');
+    assert.doesNotMatch(JSON.stringify(dir), /Amel/);
+    for (const word of ['Burauen', 'Llnera', 'Binondo', 'Cabanatuan', 'Tuguegarao', 'Fairview', 'Dipaculao']) assert.doesNotMatch(JSON.stringify(dir), new RegExp(word, 'i'), word);
     const text = JSON.stringify(dir);
     assert.doesNotMatch(text, /\d{6}/, 'no serial numbers');
     assert.doesNotMatch(text, /\bO-/, 'no O- serials');
-    assert.doesNotMatch(text, /\(SC\)|\([A-Z]{2,4}\)/, 'no branch/serial suffixes');
-    assert.doesNotMatch(JSON.stringify(dir.roles), /@|\+63|\d/, 'no contact details or digits in roles and members');
+    assert.doesNotMatch(text, /\(SC\)/, 'no branch/serial suffixes');
+    assert.doesNotMatch(JSON.stringify(dir.roles.map(entry => [entry.role, entry.members.map(m => [m.rank, m.name])])), /@|\+63|\d/, 'no contact details or digits in roles, ranks and names');
+    assert.doesNotMatch(text, /@|\+63/, 'no contact details');
   });
 
   await T('the training directorate renders first (section 01, before the organization), with the adviser and director emphasised', () => {
@@ -225,9 +236,22 @@ export async function classSuite() {
     rows.forEach((row, index) => {
       const entry = data.directorate.roles[index];
       assert.equal(row.children[0].textContent, entry.role);
-      assert.deepEqual(row.children[1].children.map(item => item.textContent), entry.members.map(member => `${member.rank} ${member.name}`));
+      assert.deepEqual(row.children[1].children.map(item => findAll(item, node => hasClass(node, 'dir-who'))[0].textContent), entry.members.map(member => `${member.rank} ${member.name}`));
+      row.children[1].children.forEach((item, at) => {
+        const member = entry.members[at];
+        const details = findAll(item, node => node.localName === 'details');
+        const count = member.schooling.length + member.civilian.length;
+        assert.equal(details.length, count ? 1 : 0, `${member.name} details`);
+        if (count) {
+          assert.equal(details[0].getAttribute('open'), null, 'collapsed by default');
+          assert.equal(findAll(details[0], node => node.localName === 'summary')[0].textContent, `Schooling & training (${count})`);
+        } else assert.equal(findAll(item, node => node.localName === 'p').length, 0, 'name only');
+      });
       assert.equal(hasClass(row, 'is-lead'), index < 2, `${entry.role} emphasis`);
     });
+    assert.equal(doc.getElementById('dir-caption').textContent, data.directorate.caption);
+    assert.ok(html.includes("make('details', 'dir-quals')"));
+    assert.ok(html.includes('beforeprint'));
     const pageText = doc.body.textContent;
     assert.doesNotMatch(pageText, /\d{6}|\bO-\d|\(SC\)/);
   });
@@ -248,6 +272,10 @@ export async function classSuite() {
       { title: 't', roles: [{ role: 'A', members: [{ rank: 'MAJ', name: 'X Y' }] }, { role: 'A', members: [{ rank: 'CPT', name: 'Z W' }] }] },
       { title: 't', roles: [{ role: 'A', members: [{ rank: 'MAJ', name: 'X Y (SC)' }] }] },
       { title: 't', roles: [{ role: 'A', members: [{ rank: 'MAJ', name: 'X 850075' }] }] },
+      { ...data.directorate, caption: '' },
+      { ...data.directorate, roles: [{ role: 'A', members: [{ rank: 'MAJ', name: 'X Y', office: 'O', duties: [''], schooling: [], civilian: [] }] }] },
+      { ...data.directorate, roles: [{ role: 'A', members: [{ rank: 'MAJ', name: 'X Y', office: 'O', duties: ['d'], schooling: 'x', civilian: [] }] }] },
+      { ...data.directorate, roles: [{ role: 'A', members: [{ rank: 'MAJ', name: 'X Y', office: 'O', duties: ['d'], schooling: [], civilian: [], serial: 'x' }] }] },
     ];
     for (const directorate of bad) { write(directorate); assert.throws(() => loadClass(dir), /class\.json/); }
     rmSync(dir, { recursive: true, force: true });
