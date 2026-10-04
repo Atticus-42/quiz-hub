@@ -5,7 +5,7 @@ import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:f
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import {
-  ROOT, MODES, HISTORY_ENDPOINT, build, fillTemplate, scriptJson, escapeHtml, validateQuestion, validateBank, poolQuotas, countLabel, attemptLength,
+  ROOT, MODES, HISTORY_ENDPOINT, build, fillTemplate, scriptJson, escapeHtml, validateQuestion, validateBank, poolQuotas, countLabel, attemptLength, checkLessonConfig,
 } from '../build.mjs';
 import { test, normalize } from './harness.mjs';
 
@@ -58,9 +58,15 @@ export async function buildSuite({ lessons, modules }) {
     const many = Array.from({ length: 501 }, (_, index) => ({ ...question, id: index + 1, qid: `armor-e-${String(index + 1).padStart(3, '0')}` }));
     assert.deepEqual(validateBank(many, 'easy', rules), ['bank must contain at most 500 questions (found 501)']);
     assert.deepEqual(validateBank(many.slice(0, 500), 'easy', rules), []);
-    assert.deepEqual(poolQuotas(30, 4), [8, 8, 7, 7]);
+    assert.deepEqual(poolQuotas(60, 4), [15, 15, 15, 15]);
     assert.deepEqual(poolQuotas(30, 5), [6, 6, 6, 6, 6]);
     assert.deepEqual(poolQuotas(10, 3), [4, 3, 3]);
+  });
+
+  await T('a pool exam attempt length must be from 50 to 69 questions', () => {
+    const combined = JSON.parse(readFileSync(join(ROOT, 'lessons', 'combined', 'lesson.json'), 'utf8'));
+    for (const count of [50, 60, 69]) checkLessonConfig({ ...combined, pool: { ...combined.pool, count } }, 'lessons/combined');
+    for (const count of [30, 49, 70, 500]) assert.throws(() => checkLessonConfig({ ...combined, pool: { ...combined.pool, count } }, 'lessons/combined'), /from 50 to 69/);
   });
 
   await T('every lesson folder loads: unique keys, slugs and qids; modules exist; the combined exam is a pool of the four Module 2 lessons', () => {
@@ -68,7 +74,7 @@ export async function buildSuite({ lessons, modules }) {
     assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined', 'isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal']);
     assert.deepEqual(modules.map(module => module.id), ['module-2', 'module-3']);
     const combined = lessons.find(lesson => lesson.key === 'combined');
-    assert.deepEqual(combined.pool, { lessons: ['isr', 'armor', 'fieldartillery', 'armyops'], count: 30 });
+    assert.deepEqual(combined.pool, { lessons: ['isr', 'armor', 'fieldartillery', 'armyops'], count: 60 });
     assert.deepEqual(combined.rules.pool.lessons.map(lesson => lesson.name), ['ISR Operations', 'Armor Operations', 'Field Artillery Operations', 'Army Operations']);
     const qids = lessons.filter(lesson => !lesson.pool).flatMap(lesson => MODES.flatMap(mode => lesson.banks[mode].map(item => item.qid)));
     assert.equal(new Set(qids).size, qids.length, 'qids are unique across every lesson');
@@ -218,7 +224,7 @@ export async function buildSuite({ lessons, modules }) {
   await T('hub card tags state each lesson’s questions per attempt (a coverage set, at most 30)', () => {
     for (const lesson of lessons) {
       const label = countLabel(lesson);
-      if (lesson.pool) assert.equal(label, '30 questions');
+      if (lesson.pool) assert.equal(label, '60 questions');
       else {
         const counts = MODES.map(mode => lesson.attempts[mode]);
         counts.forEach((value, index) => assert.equal(value, attemptLength(lesson.banks[MODES[index]]), 'attempt length is the capped greedy cover size'));

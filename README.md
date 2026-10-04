@@ -7,7 +7,7 @@ The whole site is published from this repository with GitHub Pages at https://at
 
   | Module | Exam | Lesson key | URL |
   | --- | --- | --- | --- |
-  | Module 2 | Combined Exam (30 questions drawn across the four lessons) | `combined` | `/quiz-hub/combined/` |
+  | Module 2 | Combined Exam (60 questions drawn across the four lessons) | `combined` | `/quiz-hub/combined/` |
   | Module 2 | ISR Operations | `isr` | `/quiz-hub/isr/` |
   | Module 2 | Armor Operations | `armor` | `/quiz-hub/armor/` |
   | Module 2 | Field Artillery Operations | `fieldartillery` | `/quiz-hub/field-artillery/` |
@@ -79,7 +79,7 @@ Each bank is a JSON array. Each question looks like this:
   (`signaljoint-e-14`, `-e-17`, `-e-19`, `-e-35`, `-e-37`, `-e-42`, `-m-01`, `-m-13`, `-m-30`) were wording or explanation only.
 - `category` must be one of the lesson's `categoryOrder` topics.
 - `sourceSlides` must fall within `sourceRef` (it is optional for Army Operations).
-- Banks hold 1–500 questions, all kept. An attempt asks a *coverage set* of the chosen bank, at most 30 questions: a greedy set cover over each question's `tags` and `category` so every distinct term appears at least once (questions unseen on this device first, then previously missed, then others; random tie-breaks), then shuffled. If covering everything needs more than 30, the 30 that add the most new terms are kept and later attempts rotate in the rest, because unseen questions come first. The length is shown on the mode buttons and hub cards (for example "30 questions per attempt, drawn from 66"). Give every question accurate `tags`: they decide what an attempt covers. The pool exam asks `pool.count` questions, split evenly across its lessons, each share chosen the same way.
+- Banks hold 1–500 questions, all kept. An attempt asks a *coverage set* of the chosen bank, at most 30 questions: a greedy set cover over each question's `tags` and `category` so every distinct term appears at least once (questions unseen on this device first, then previously missed, then others; random tie-breaks), then shuffled. If covering everything needs more than 30, the 30 that add the most new terms are kept and later attempts rotate in the rest, because unseen questions come first. The length is shown on the mode buttons and hub cards (for example "30 questions per attempt, drawn from 66"). Give every question accurate `tags`: they decide what an attempt covers. The pool exam asks `pool.count` questions (60, 15 per lesson; the build rejects a count outside 50-69), split evenly across its lessons, each share chosen the same way.
 
 **Appending questions** (for example the course-style questions written in parallel) is a plain append, then a rebuild:
 

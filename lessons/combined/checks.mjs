@@ -35,17 +35,17 @@ export default async function combinedChecks({ test, assert, lesson, lessons, lo
     });
   }
 
-  await test('[combined] the sampler deals 8/8/7/7 to the lessons at random, covers terms inside each lesson share and shuffles all 30', () => {
+  await test('[combined] the sampler deals 15 each to the lessons at random, covers terms inside each lesson share and shuffles all 60', () => {
     const api = loadApi();
-    assert.deepEqual(plain(api.poolQuotas()), [8, 8, 7, 7]);
+    assert.deepEqual(plain(api.poolQuotas()), [15, 15, 15, 15]);
     let draws = 0;
     const counting = () => { draws++; return 0.5; };
     const questions = plain(api.sampleQuestions(lesson.banks.easy, counting));
     assert.ok(draws > 0, 'every random choice uses the injected random');
-    assert.equal(questions.length, 30);
-    assert.equal(new Set(questions.map(item => item.id)).size, 30, 'no duplicates');
+    assert.equal(questions.length, 60);
+    assert.equal(new Set(questions.map(item => item.id)).size, 60, 'no duplicates');
     const shares = lesson.pool.lessons.map(key => questions.filter(item => item.lessonKey === key).length);
-    assert.deepEqual([...shares].sort(), [7, 7, 8, 8]);
+    assert.deepEqual([...shares].sort(), [15, 15, 15, 15]);
     // Inside a share the first picks are the greedy cover: a lesson's share touches more terms than the same number of arbitrary questions would.
     for (const key of lesson.pool.lessons) {
       const own = lesson.banks.easy.filter(item => item.lessonKey === key);
@@ -58,13 +58,13 @@ export default async function combinedChecks({ test, assert, lesson, lessons, lo
     for (let index = 1; index <= 200; index++) {
       const seed = Math.imul(index, 0x9e3779b1) >>> 0;
       const questions = plain(api.sampleQuestions(lesson.banks.hard, seededRandom(seed)));
-      assert.equal(questions.length, 30);
+      assert.equal(questions.length, 60);
       LESSONS.forEach(name => lessonCounts.get(name).add(questions.filter(item => item.lesson === name).length));
       questions.forEach(item => seen.add(item.id));
       assert.deepEqual(plain(api.sampleQuestions(lesson.banks.hard, seededRandom(seed))), questions, 'the same injected random reproduces the same draw');
     }
-    for (const [name, counts] of lessonCounts) assert.deepEqual([...counts].sort(), [7, 8], `${name} receives both 7 and 8 across attempts`);
-    assert.ok(seen.size > 30, 'different draws ask different questions');
+    for (const [name, counts] of lessonCounts) assert.deepEqual([...counts].sort(), [15], `${name} always receives 15`);
+    assert.ok(seen.size > 60, 'different draws ask different questions');
     // Rotation: marking what was asked as seen makes later draws prefer the questions not yet asked, so a few attempts reach all of them.
     const progress = Object.fromEntries(lesson.pool.lessons.map(key => [key, {}]));
     const reached = new Set();
@@ -80,7 +80,7 @@ export default async function combinedChecks({ test, assert, lesson, lessons, lo
   await test('[combined] the page speaks of all four lessons (warning, buttons, lede, lesson analysis)', () => {
     assert.match(lesson.text.studyWarningLead, /ALL four lessons/);
     assert.equal(lesson.text.topicNoun, 'Lesson');
-    assert.equal(lesson.pool.count, 30);
+    assert.equal(lesson.pool.count, 60);
     assert.match(lesson.lede, /\{count\} situational questions/);
   });
 }

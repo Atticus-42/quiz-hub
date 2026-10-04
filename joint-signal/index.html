@@ -1307,7 +1307,7 @@
       if (!config || typeof config !== 'object' || !LESSON_KEY_PATTERN.test(config.key) || typeof config.title !== 'string') return null;
       if (!config.text || typeof config.text !== 'object' || !Array.isArray(config.text.bands) || config.text.bands.length !== 4) return null;
       if (config.pool) {
-        if (!Number.isInteger(config.pool.count) || config.pool.count < 1 || config.pool.count > MAX_BANK_SIZE) return null;
+        if (!Number.isInteger(config.pool.count) || config.pool.count < 1 || config.pool.count > MAX_BANK_SIZE || config.pool.count < 50 || config.pool.count > 69) return null;
         if (!Array.isArray(config.pool.lessons) || !config.pool.lessons.length || !config.pool.lessons.every(function (lesson) { return lesson && LESSON_KEY_PATTERN.test(lesson.key) && typeof lesson.name === 'string' && lesson.name.trim(); })) return null;
       } else if (!strings(config.categoryOrder)) {
         return null;
@@ -1338,7 +1338,7 @@
     ];
 
     // Questions per source lesson in a pool attempt: the count split as evenly as possible, larger shares
-    // first (30 over four lessons is 8, 8, 7, 7). Each attempt deals these shares to the lessons at random.
+    // first (60 over four lessons is 15 each). Each attempt deals these shares to the lessons at random.
     function poolQuotas(count, lessons) {
       var base = Math.floor(count / lessons);
       var extra = count % lessons;

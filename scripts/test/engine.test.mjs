@@ -653,7 +653,7 @@ export async function engineSuite(lesson) {
     const score = scoreEveryFifth(n);
     assert.deepEqual({ ...payload, finishedAt: undefined, asked: undefined, missed: undefined }, { lesson: lesson.key, name: 'Maria Santos', mode: 'easy', score, total: n, percent: percentOf(score, n), band: bandFor(percentOf(score, n)), finishedAt: undefined, asked: undefined, missed: undefined });
     assert.equal(n, count('easy'), 'the total is the actual number of questions');
-    assert.ok(n <= 30 && payload.total === n, 'the total is the attempt length, at most 30');
+    assert.ok(n <= (pool ? 69 : 30) && payload.total === n, 'the total is the attempt length (a lesson exam at most 30, the combined exam 50-69)');
     assert.deepEqual(payload.asked, attempt.questions.map(question => itemIdOf(question, 'easy')), 'asked lists every question, in the order asked');
     assert.deepEqual(payload.missed, attempt.questions.filter((_, index) => !everyFifthWrong(index)).map(question => itemIdOf(question, 'easy')));
     assert.ok(payload.asked.every(id => /^[a-z][a-z0-9]{1,23}:easy:[a-z][a-z0-9]{1,23}-e-[0-9]{2,4}$/.test(id)), 'ids are <lessonKey>:<mode>:<qid>');
@@ -1378,7 +1378,7 @@ export async function engineSuite(lesson) {
         const attempt = plain(api.createAttempt(mode, banks, seededRandom(seed)));
         const ids = attempt.questions.map(question => question.id);
         assert.equal(attempt.questions.length, count(mode), `${mode}: attempt length`);
-        assert.ok(attempt.questions.length <= 30, `${mode}: never above 30`);
+        assert.ok(attempt.questions.length <= (pool ? 69 : 30), `${mode}: never above the cap`);
         assert.equal(new Set(ids).size, ids.length, `${mode}: no duplicates`);
         assert.ok(attempt.questions.every(question => banks[mode].some(source => source.id === question.id && source.prompt === question.prompt)), `${mode}: only bank questions`);
         assert.equal(attempt.responses.length, ids.length);

@@ -24,6 +24,9 @@ export const HISTORY_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwTNNYO
 // questions that touch every tag/topic (see attemptLength, which the engine mirrors).
 export const MAX_BANK_SIZE = 500;
 export const MAX_ATTEMPT_SIZE = 30;
+// A pool (combined) exam asks POOL_MIN_ATTEMPT..POOL_MAX_ATTEMPT questions per attempt (owner rule).
+export const POOL_MIN_ATTEMPT = 50;
+export const POOL_MAX_ATTEMPT = 69;
 export const LESSON_KEY_PATTERN = /^[a-z][a-z0-9]{1,23}$/;
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const RESERVED_SLUGS = new Set(['assets', 'src', 'lessons', 'scripts', 'apps-script', 'instructor', 'class', 'data', 'schedule']);
@@ -190,7 +193,7 @@ function fill(template, values) {
   return String(template).replace(/\{(\w+)\}/g, (match, name) => (Object.prototype.hasOwnProperty.call(values, name) ? String(values[name]) : match));
 }
 
-function checkLessonConfig(config, dir) {
+export function checkLessonConfig(config, dir) {
   const fail = message => { throw new Error(`${join(dir, 'lesson.json')}: ${message}`); };
   if (!LESSON_KEY_PATTERN.test(config.key ?? '')) fail('key must be 2-24 lowercase letters or digits, starting with a letter');
   if (config.key !== dir.split(/[\\/]/).at(-1)) fail(`key "${config.key}" must match the folder name`);
@@ -203,6 +206,7 @@ function checkLessonConfig(config, dir) {
   if (config.pool) {
     if (!Array.isArray(config.pool.lessons) || config.pool.lessons.length < 2) fail('pool.lessons must list at least two lesson keys');
     if (!Number.isInteger(config.pool.count) || config.pool.count < 1 || config.pool.count > MAX_BANK_SIZE) fail(`pool.count must be an integer from 1 to ${MAX_BANK_SIZE}`);
+    if (config.pool.count < POOL_MIN_ATTEMPT || config.pool.count > POOL_MAX_ATTEMPT) fail(`pool.count (the attempt length) must be from ${POOL_MIN_ATTEMPT} to ${POOL_MAX_ATTEMPT}`);
     if (typeof config.lede !== 'string') fail('a pool exam needs its own lede');
   } else {
     if (typeof config.lessonName !== 'string' || !config.lessonName.trim()) fail('lessonName must be a nonempty string');
