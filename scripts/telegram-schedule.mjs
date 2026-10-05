@@ -137,6 +137,8 @@ export async function postTomorrow({ now = new Date(), data = loadSchedule(), to
           ...(index === messages.length - 1 ? { reply_markup: { inline_keyboard: [[
             { text: 'Full Schedule', url: `https://atticus-42.github.io/quiz-hub/schedule/?v=day-picker-2#day-${date}` },
             { text: 'Practice Quizzes', url: 'https://atticus-42.github.io/quiz-hub/' },
+          ], [
+            { text: 'Training Directorate', url: 'https://atticus-42.github.io/quiz-hub/class/#dir-heading' },
           ]] } } : {}), ...(topicId ? { message_thread_id: Number(topicId) } : {}) }),
       });
     } catch { throw new Error('Telegram request did not finish; check the group before retrying to avoid an uncertain duplicate.'); }

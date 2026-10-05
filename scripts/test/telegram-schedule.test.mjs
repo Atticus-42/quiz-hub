@@ -58,6 +58,9 @@ test('successful posts use the group, optional topic and private credentials; re
     assert.equal(calls.at(-1).body.reply_markup.inline_keyboard[0][0].text,'Full Schedule');
     assert.match(calls.at(-1).body.reply_markup.inline_keyboard[0][0].url,/#day-2026-10-05$/);
     assert.equal(calls.at(-1).body.reply_markup.inline_keyboard[0][1].url,'https://atticus-42.github.io/quiz-hub/');
+    assert.deepEqual(calls.at(-1).body.reply_markup.inline_keyboard[1],[
+      {text:'Training Directorate',url:'https://atticus-42.github.io/quiz-hub/class/#dir-heading'},
+    ]);
     assert.equal((await postTomorrow(options)).skipped,true);
     assert.equal(calls.length,result.messages);
     assert.doesNotMatch(readFileSync(statePath,'utf8'),/fake_token|-1001234/);

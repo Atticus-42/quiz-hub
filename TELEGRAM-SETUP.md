@@ -16,6 +16,7 @@ For a private group's chat ID, add the bot and send a command addressed to it in
 ## What it sends
 
 - Tomorrow's date is calculated in Asia/Manila.
+- A Training Directorate button links directly to the class page's directorate section.
 - Every activity includes time, instructor, venue and uniform when provided, plus a direct link to that selected day.
 - Uses Telegram's Rich Messages API with explicit text segments: a native heading, dividers, bold times/activity titles and uniforms, and an italic footer. Instructor/venue details and notes are italic for clear secondary emphasis. Literal blank lines separate activities. All activities stay visible in chronological order; no emojis, spoilers or collapsed sections. Full Schedule and Practice Quizzes buttons appear below the last part. Font weight varies by Telegram client, but every style is explicitly specified in the payload.
 - It reads `data/schedule.json` checked out from `main`, so future updates use the same data as the website.
