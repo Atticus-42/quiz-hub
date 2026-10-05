@@ -152,7 +152,12 @@ export async function postTomorrow({ now = new Date(), date: requestedDate, data
     } catch { throw new Error('Telegram request did not finish; check the group before retrying to avoid an uncertain duplicate.'); }
     let result;
     try { result = await response.json(); } catch { throw new Error('Telegram returned an unreadable response; check the group before retrying.'); }
-    if (!response.ok || !result.ok) throw new Error(`Telegram rejected the post (HTTP ${response.status}); check bot membership and permission to send messages.`);
+    if (!response.ok || !result.ok) {
+      const reason = String(result.description || 'No additional details')
+        .replaceAll(token, '[redacted]').replaceAll(chatId, '[redacted]')
+        .replace(/https?:\/\/\S+|\b\d+:[A-Za-z0-9_-]+|-?\d{6,}/g, '[redacted]').slice(0, 240);
+      throw new Error(`Telegram rejected the post (HTTP ${response.status}): ${reason}`);
+    }
     state.sent = index + 1; state.complete = state.sent === messages.length;
     mkdirSync(dirname(statePath), { recursive: true });
     writeFileSync(statePath, JSON.stringify(state));

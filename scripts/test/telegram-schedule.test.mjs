@@ -145,5 +145,8 @@ test('missing credentials and failed Telegram posts fail without leaking the tok
       fetchFn:async()=>{throw Error('https://api.telegram.org/bot123:fake_token/sendMessage');}}),error=>!error.message.includes('fake_token'));
     await assert.rejects(postTomorrow({token:'123:fake_token',chatId:'-1001234',statePath:join(dir,'sent.json'),
       fetchFn:async()=>({ok:false,status:403,json:async()=>({ok:false})})}),/rejected/);
+    await assert.rejects(postTomorrow({token:'123:fake_token',chatId:'-1001234',statePath:join(dir,'sent.json'),
+      fetchFn:async()=>({ok:false,status:400,json:async()=>({ok:false,description:'Bad Request: chat not found 123:fake_token -1001234 https://secret.example'})})}),
+      error=>error.message.includes('chat not found') && !/fake_token|1001234|secret.example/.test(error.message));
   } finally {rmSync(dir,{recursive:true,force:true});}
 });
