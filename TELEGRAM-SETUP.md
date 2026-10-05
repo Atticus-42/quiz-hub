@@ -2,6 +2,8 @@
 
 The workflow `.github/workflows/telegram-schedule.yml` targets **21:00 Asia/Manila daily** (13:00 UTC). GitHub Actions may delay or miss scheduled runs; delivery at exactly 21:00 is not guaranteed. Scheduled workflows in public repositories can be disabled after 60 days without activity. No paid service is required.
 
+Backup attempts run at **21:15, 21:30 and 21:45 Manila** using the same sender, concurrency group and cached delivery state. A completed post for that date is skipped; failed attempts can be retried. These times are also best-effort, not a guarantee. Do not clear the delivery-state cache to force a retry after uncertain delivery.
+
 ## Connect the bot once
 
 1. In Telegram, open the verified [@BotFather](https://t.me/BotFather), send `/newbot`, and complete its name/username steps. Keep the token private.

@@ -4,6 +4,8 @@ on:
   schedule:
     # 13:00 UTC is 21:00 Philippine time (Asia/Manila).
     - cron: '0 13 * * *'
+    # Backup attempts at 21:15, 21:30 and 21:45 Manila; shared state skips completed posts.
+    - cron: '15,30,45 13 * * *'
   workflow_dispatch:
     inputs:
       preview_only:
