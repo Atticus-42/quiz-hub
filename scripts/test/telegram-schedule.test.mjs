@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { mkdtempSync, readFileSync, rmSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { tomorrowInManila, formatSchedule, formatRichSchedule, splitMessage, postTomorrow } from '../telegram-schedule.mjs';
@@ -8,6 +8,38 @@ import { loadSchedule } from '../build.mjs';
 
 const plainRich = value => typeof value === 'string' ? value : Array.isArray(value) ? value.map(plainRich).join('') : value?.text ? plainRich(value.text) : '';
 const richText = message => message.blocks.map(block=>plainRich(block.text)).join('\n');
+
+test('automatic posts are forbidden outside the 21:00 Philippine minute without touching delivery state', async () => {
+  const dir=mkdtempSync(join(tmpdir(),'telegram-window-test-'));
+  try {
+    for(const iso of ['2026-10-05T12:59:59Z','2026-10-05T13:01:00Z','2026-10-05T21:08:12Z']) {
+      let calls=0;
+      const statePath=join(dir,'sent.json');
+      const result=await postTomorrow({scheduled:true,now:new Date(iso),token:'123:fake_token',chatId:'-1001234',statePath,
+        fetchFn:async()=>{calls++;return {ok:true,status:200,json:async()=>({ok:true})};}});
+      assert.equal(result.reason,'outside-window');
+      assert.equal(calls,0);
+      assert.equal(existsSync(statePath),false);
+    }
+  } finally {rmSync(dir,{recursive:true,force:true});}
+});
+
+test('automatic posts at 21:00 succeed once; crossing 21:01 before the network call skips delivery', async () => {
+  const dir=mkdtempSync(join(tmpdir(),'telegram-window-test-'));
+  try {
+    let calls=0;
+    const now=new Date('2026-10-06T13:00:59Z');
+    const options={scheduled:true,now,sendClock:()=>now,token:'123:fake_token',chatId:'-1001234',statePath:join(dir,'sent.json'),
+      fetchFn:async()=>{calls++;return {ok:true,status:200,json:async()=>({ok:true})};}};
+    assert.equal((await postTomorrow(options)).skipped,false);
+    assert.equal((await postTomorrow(options)).skipped,true);
+    assert.equal(calls,1);
+    const missed=await postTomorrow({...options,statePath:join(dir,'late.json'),sendClock:()=>new Date('2026-10-06T13:01:00Z')});
+    assert.equal(missed.reason,'outside-window');
+    assert.equal(calls,1);
+    assert.equal(existsSync(join(dir,'late.json')),false);
+  } finally {rmSync(dir,{recursive:true,force:true});}
+});
 
 test('menus appear at their mess periods with the source notice', () => {
   const data=loadSchedule();

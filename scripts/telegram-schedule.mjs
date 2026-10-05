@@ -115,8 +115,13 @@ function richMessages(data, date, title) {
   ], skip_entity_detection: true }));
 }
 
-export async function postTomorrow({ now = new Date(), date: requestedDate, data = loadSchedule(), token, chatId, topicId,
+const withinAutomaticWindow = now => new Intl.DateTimeFormat('en-GB', {
+  timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
+}).format(now) === '21:00';
+
+export async function postTomorrow({ now = new Date(), scheduled = false, sendClock = () => new Date(), date: requestedDate, data = loadSchedule(), token, chatId, topicId,
   statePath = join(ROOT, '.telegram-state', 'sent.json'), fetchFn = fetch } = {}) {
+  if (scheduled && !withinAutomaticWindow(now)) return { skipped: true, reason: 'outside-window' };
   if (!/^\d+:[A-Za-z0-9_-]+$/.test(token || '') || !/^-\d+$/.test(chatId || '')) {
     throw new Error('Configure TELEGRAM_BOT_TOKEN and the numeric group TELEGRAM_CHAT_ID in GitHub Actions secrets.');
   }
@@ -140,6 +145,7 @@ export async function postTomorrow({ now = new Date(), date: requestedDate, data
   for (let index = state.sent || 0; index < messages.length; index++) {
     let response, result;
     for (let attempt = 0; attempt < 2; attempt++) {
+    if (scheduled && !withinAutomaticWindow(sendClock())) return { skipped: true, reason: 'outside-window' };
     try {
       response = await fetchFn(`https://api.telegram.org/bot${token}/sendRichMessage`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: AbortSignal.timeout(20000),
@@ -189,9 +195,11 @@ async function main() {
     console.log(JSON.stringify(richMessages(loadSchedule(), date || tomorrowInManila(), date ? 'Daily Schedule' : undefined), null, 2)); return;
   }
   const result = await postTomorrow({ token: process.env.TELEGRAM_BOT_TOKEN, date,
+    scheduled: process.env.GITHUB_EVENT_NAME === 'schedule',
     ...(date ? { statePath: join(ROOT, '.telegram-state', `manual-${date}.json`) } : {}),
     chatId: process.env.TELEGRAM_CHAT_ID, topicId: process.env.TELEGRAM_TOPIC_ID });
-  console.log(result.skipped ? `Schedule for ${result.date} was already sent.` : `Schedule for ${result.date} sent (${result.messages} message(s)).`);
+  console.log(result.reason === 'outside-window' ? 'Skipped automatic delivery outside 21:00–21:00:59 Asia/Manila; no late catch-up post.' :
+    result.skipped ? `Schedule for ${result.date} was already sent.` : `Schedule for ${result.date} sent (${result.messages} message(s)).`);
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {
   main().catch(error => { console.error(error.message); process.exitCode = 1; });

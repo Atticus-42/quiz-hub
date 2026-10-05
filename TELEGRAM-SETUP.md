@@ -2,7 +2,7 @@
 
 The workflow `.github/workflows/telegram-schedule.yml` targets **21:00 Asia/Manila daily** (13:00 UTC). GitHub Actions may delay or miss scheduled runs; delivery at exactly 21:00 is not guaranteed. Scheduled workflows in public repositories can be disabled after 60 days without activity. No paid service is required.
 
-Backup attempts run at **21:15, 21:30 and 21:45 Manila** using the same sender, concurrency group and cached delivery state. A completed post for that date is skipped; failed attempts can be retried. These times are also best-effort, not a guarantee. Do not clear the delivery-state cache to force a retry after uncertain delivery.
+Automatic posts are permitted **only during 21:00–21:00:59 Asia/Manila**. The sender checks the time at startup and again before each Telegram request, including a migration retry. Late scheduled runs are skipped, never caught up in the morning. There are no backup scheduled times. A GitHub delay may therefore mean no post that day. Cached delivery state still skips completed posts; do not clear it to force a resend after uncertain delivery. Explicitly requested manual sends are exempt from this automatic time window.
 
 ## Connect the bot once
 
