@@ -397,6 +397,7 @@
     .blk-meta { font-size: var(--text-meta); line-height: 1.4; color: var(--color-muted); }
     .blk-where .sep { color: var(--color-rule); }
     .uniform { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.04em; }
+    .blk-menu { margin: 0.6rem 0 0; padding-top: 0.5rem; border-top: 1px solid var(--color-hairline); font-size: 0.95rem; line-height: 1.5; }
     .blk-extra { font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.04em; }
     .blk-quiz a { display: inline-flex; align-items: center; gap: var(--space-1); min-height: 44px; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
     .blk.is-now { background: var(--color-paper); outline: 2px solid var(--color-signal); outline-offset: -2px; border-left-color: var(--color-signal); }
@@ -442,6 +443,7 @@
       .day-today { display: none; }
       .blk, .blk.is-now { padding: 0.4mm 0.8mm 0.4mm 1mm; border-left-width: 2pt; border-bottom: 0.25pt solid #999; background: none; outline: 0; break-inside: avoid; }
       .blk p { display: inline; }
+      .blk .blk-menu { display: block; margin: 0.4mm 0 0; padding: 0; border: 0; font-size: 5.8pt; line-height: 1.15; }
       .blk-time, .blk-time .mono { font-size: 6.5pt; color: #000; font-weight: 600; }
       .blk-kind { font-size: 5.5pt; }
       .blk-title, .is-routine .blk-title, .blk.is-past .blk-title { font-size: 6.5pt; font-weight: 600; color: #000; }
@@ -538,6 +540,7 @@
               <p class="blk-title">Morning Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">PHILARPAT</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Pork Tocino · Tomato &amp; Cucumber Salad · Non-Beef tapa · Coffee · Soup</p>
             </li>
             <li class="blk is-routine" data-start="420" data-end="480">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">0700–0800</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -557,6 +560,7 @@
               <p class="blk-title">Noon Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">PHILARPAT</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Grilled Pork Chop · Pakbet · Non - (Grilled Chicken) · Soup · Chocolate Bar · Juice</p>
             </li>
             <li class="blk is-exam" data-start="780" data-end="810">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1300–1330</span> <span class="blk-kind">Exam</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -583,6 +587,7 @@
               <p class="blk-title">Evening Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Fried Fish (Bilong - Bilong) · Dinengdeng · Non - (Fried Pork) · Dessert (Sweetened Saging Saba)</p>
             </li>
             <li class="blk is-routine" data-start="1080" data-end="1140">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1800–1900</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -642,6 +647,7 @@
               <p class="blk-title">Morning Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Fried Fish (Galunggong) · Salted Egg and Tomato · Non - (Fried Pork) · Coffee · Soup</p>
             </li>
             <li class="blk is-routine" data-start="420" data-end="480">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">0700–0800</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -667,6 +673,7 @@
               <p class="blk-title">Noon Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Beef Stroganoff · Garlic Butter Vegetable · Non - (Pork stroganoff) · Soup · Dessert (Apple) · Juice</p>
             </li>
             <li class="blk is-lecture" data-start="810" data-end="900">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1330–1500</span> <span class="blk-kind">Lecture</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -686,6 +693,7 @@
               <p class="blk-title">Evening Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Pork Bicol Express · Steamed Petchay with Garlic · Non - (Chicken bicol express) · Dessert (Macapuno Pandan Jelly)</p>
             </li>
             <li class="blk is-routine" data-start="1080" data-end="1140">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1800–1900</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -745,6 +753,7 @@
               <p class="blk-title">Morning Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Pork Garlic Longganisa · Sarciadong Itlog · Non - (Beef Longanisa) · Coffee · Soup</p>
             </li>
             <li class="blk is-routine" data-start="420" data-end="480">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">0700–0800</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -770,6 +779,7 @@
               <p class="blk-title">Noon Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">PHILARPAT</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Pork Sinigang · Buttered Corn &amp; Carrots · Non -(Pork kinamatisan) · Soup · Dessert (Chicken Paksiw) · Juice</p>
             </li>
             <li class="blk is-exam" data-start="780" data-end="810">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1300–1330</span> <span class="blk-kind">Exam</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -795,6 +805,7 @@
               <p class="blk-title">Evening Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Chicken Inasal · Cucumber venegar Salad with onion · Non - (Pork barbeque) · Dessert (Manggo Sago) · Chicken Sotanghon Soup</p>
             </li>
             <li class="blk is-routine" data-start="1080" data-end="1140">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1800–1900</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -854,6 +865,7 @@
               <p class="blk-title">Morning Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Pork Gising - Gising · Sliced Banana · Non - (Pork tapa) · Coffee · Soup (Misua Patola)</p>
             </li>
             <li class="blk is-routine" data-start="420" data-end="480">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">0700–0800</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -879,6 +891,7 @@
               <p class="blk-title">Noon Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Chicken Teriyaki · Macaroni Salad · Non - (Pork Teriyaki) · Mushroom Soup · Dessert · Juice</p>
             </li>
             <li class="blk is-lecture" data-start="810" data-end="900">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1330–1500</span> <span class="blk-kind">Lecture</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -898,6 +911,7 @@
               <p class="blk-title">Evening Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Grilled Tuna · Atsara · Non - (Grilled Pork) · Dessert (Buco Pandan)</p>
             </li>
             <li class="blk is-routine" data-start="1080" data-end="1140">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1800–1900</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -957,6 +971,7 @@
               <p class="blk-title">Morning Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Ginisang Ampalaya with Egg · Fried Tuyo (2 pcs) · Soup · Non - (Ampalaya Con Carne) · Coffee</p>
             </li>
             <li class="blk is-routine" data-start="420" data-end="480">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">0700–0800</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -976,6 +991,7 @@
               <p class="blk-title">Noon Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">PHILARPAT</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Beef Steak · Chopsuey · Non - (Pork Steak) · Beef Soup · Dessert (Orange) · Juice</p>
             </li>
             <li class="blk is-lecture" data-start="810" data-end="900">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1330–1500</span> <span class="blk-kind">Lecture</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -995,6 +1011,7 @@
               <p class="blk-title">Evening Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Pork Sisig · Ginisang Kangkong with Garlic · Non - (Chicken Sisig) · Dessert Chocolate)</p>
             </li>
             <li class="blk is-routine" data-start="1080" data-end="1140">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1800–1900</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -1048,6 +1065,7 @@
               <p class="blk-title">Morning Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Pork Maling · Scrambled egg · Non - (Chicken maling) · Coffee · Soup</p>
             </li>
             <li class="blk is-routine" data-start="420" data-end="480">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">0700–0800</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -1066,6 +1084,7 @@
               <p class="blk-title">Noon Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">PHILARPAT</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Pork Kinilaw · Sitaw kalabasa guisado · Non - (chicken kinilaw) · Dessert · Soup · Juice</p>
             </li>
             <li class="blk is-routine" data-start="780" data-end="1020">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1300–1700</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -1078,6 +1097,7 @@
               <p class="blk-title">Evening Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Chicken Tinola · Ginisang patola with giniling · Non- (Pork tinola) · Dessert</p>
             </li>
             <li class="blk is-routine" data-start="1080" data-end="1140">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1800–1900</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -1125,6 +1145,7 @@
               <p class="blk-title">Morning Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Skinless Longanisa · Boiled egg · Non - (Beef longanisa) · Coffee · Macaroni soup</p>
             </li>
             <li class="blk is-routine" data-start="420" data-end="660">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">0700–1100</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -1137,6 +1158,7 @@
               <p class="blk-title">Noon Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">PHILARPAT</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Chicken Caldereta · Tepura vegtables · Non - (Pork Caldereta) · Dessert · Soup · Juice</p>
             </li>
             <li class="blk is-routine" data-start="780" data-end="1020">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1300–1700</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -1149,6 +1171,7 @@
               <p class="blk-title">Evening Mess</p>
               <p class="blk-meta blk-who"><span class="sr-only">Instructor: </span>Duty Tac NCO</p>
               <p class="blk-meta blk-where"><span class="sr-only">Venue: </span>Calugas MH<span class="sep" aria-hidden="true"> · </span><span class="sr-only">Uniform: </span><span class="uniform">AU</span></p>
+              <p class="blk-menu"><strong>Menu</strong><br>Fish fillet · Stirfry vegetable · Non - fried pork · Dessert</p>
             </li>
             <li class="blk is-routine" data-start="1080" data-end="1140">
               <p class="blk-time"><span class="sr-only">Time: </span><span class="mono">1800–1900</span><span class="blk-flag" aria-hidden="true"></span></p>
@@ -1189,7 +1212,7 @@
           </ol>
         </section>
     </div>
-    <p class="note" id="schedule-note">Schedule prepared 30 Sep 2026. Times, venues and uniforms (AU, SGOU, PHILARPAT) are as printed on the official weekly training schedule; announcements by the Training Directorate take precedence.</p>
+    <p class="note" id="schedule-note">Schedule prepared 30 Sep 2026. PAALALA: Ang Menu ay nag babago depende sa presyo at supply ng mga bilihin . Salamat po Times, venues and uniforms (AU, SGOU, PHILARPAT) are as printed on the official weekly training schedule; announcements by the Training Directorate take precedence.</p>
   </main>
 
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>

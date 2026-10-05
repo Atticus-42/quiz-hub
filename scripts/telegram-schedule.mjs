@@ -33,7 +33,9 @@ export function formatSchedule(data, date) {
       `Instructor: ${block.instructor}`,
       [block.venue ? `Venue: ${block.venue}` : '', block.uniform ? `Uniform: ${block.uniform}` : ''].filter(Boolean).join(' · '),
       ...(block.remarks ? [`Note: ${block.remarks}`] : []), '',
+      ...(block.menu ? [`Menu: ${block.menu.join(' · ')}`, ''] : []),
     ]),
+    ...(data.menuNotice ? [data.menuNotice] : []),
     'Training Directorate announcements take precedence.', url,
   ].join('\n');
 }
@@ -55,13 +57,13 @@ export function splitMessage(text, limit = 3900) {
 }
 
 // Explicit rich segments prevent style inheritance; literal blank lines separate entries.
-export function formatRichSchedule(data, date) {
+export function formatRichSchedule(data, date, title = 'Tomorrow’s Schedule') {
   const day = data.days.find(item => item.date === date);
   const label = new Intl.DateTimeFormat('en-GB', { timeZone: 'UTC', day: '2-digit', month: 'long', year: 'numeric' })
     .format(new Date(`${date}T00:00:00Z`));
   const header = [
     { type: 'paragraph', text: { type: 'bold', text: 'SOAC 52–2026' } },
-    { type: 'heading', size: 2, text: 'Tomorrow’s Schedule' },
+    { type: 'heading', size: 2, text: title },
     { type: 'paragraph', text: [`${day ? `${day.day}, ` : ''}${label}\n`, { type: 'italic', text: 'Philippine time · Asia/Manila' }] },
     { type: 'divider' },
   ];
@@ -81,14 +83,16 @@ export function formatRichSchedule(data, date) {
     if (block.venue) details.push('\n', { type: 'italic', text: `Venue: ${block.venue}` });
     if (block.uniform) details.push(block.venue ? ' · Uniform: ' : '\nUniform: ', { type: 'bold', text: block.uniform });
     if (block.remarks) details.push('\n', { type: 'italic', text: `Note: ${block.remarks}` });
+    if (block.menu) details.push('\n', { type: 'bold', text: 'Menu: ' }, block.menu.join(' · '));
     return details;
   });
   return { blocks: [...header, { type: 'paragraph', text }, { type: 'divider' },
+    ...(data.menuNotice ? [{ type: 'paragraph', text: { type: 'italic', text: data.menuNotice } }] : []),
     { type: 'footer', text: { type: 'italic', text: 'Training Directorate announcements take precedence.' } }], skip_entity_detection: true };
 }
 
-function richMessages(data, date) {
-  const rich = formatRichSchedule(data, date);
+function richMessages(data, date, title) {
+  const rich = formatRichSchedule(data, date, title);
   const text = rich.blocks[4].text;
   if (!Array.isArray(text)) return [rich];
   const entries = [[]];
@@ -111,20 +115,24 @@ function richMessages(data, date) {
   ], skip_entity_detection: true }));
 }
 
-export async function postTomorrow({ now = new Date(), data = loadSchedule(), token, chatId, topicId,
+export async function postTomorrow({ now = new Date(), date: requestedDate, data = loadSchedule(), token, chatId, topicId,
   statePath = join(ROOT, '.telegram-state', 'sent.json'), fetchFn = fetch } = {}) {
   if (!/^\d+:[A-Za-z0-9_-]+$/.test(token || '') || !/^-\d+$/.test(chatId || '')) {
     throw new Error('Configure TELEGRAM_BOT_TOKEN and the numeric group TELEGRAM_CHAT_ID in GitHub Actions secrets.');
   }
   if (topicId && !/^\d+$/.test(topicId)) throw new Error('TELEGRAM_TOPIC_ID must be a positive numeric topic ID.');
-  const date = tomorrowInManila(now);
+  const date = requestedDate || tomorrowInManila(now);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(date) || !Number.isFinite(Date.parse(`${date}T00:00:00Z`)) || new Date(`${date}T00:00:00Z`).toISOString().slice(0, 10) !== date) throw new Error('Provide a valid YYYY-MM-DD date.');
+  if (requestedDate && !data.days.some(day => day.date === date)) throw new Error('The requested date has no uploaded schedule.');
+  const today = new Date(new Date(`${tomorrowInManila(now)}T00:00:00Z`).getTime() - 86400000).toISOString().slice(0, 10);
+  const title = requestedDate ? (date === today ? 'Today’s Schedule' : 'Daily Schedule') : 'Tomorrow’s Schedule';
   const destination = createHash('sha256').update(`${chatId}:${topicId || ''}`).digest('hex');
   let state = {};
   if (existsSync(statePath)) {
     try { state = JSON.parse(readFileSync(statePath, 'utf8')); } catch { throw new Error('Saved delivery state is invalid; inspect it before sending.'); }
   }
   if (state.date === date && state.destination === destination && state.complete) return { date, skipped: true };
-  const messages = richMessages(data, date);
+  const messages = richMessages(data, date, title);
   const fingerprint = createHash('sha256').update(JSON.stringify(messages)).digest('hex');
   if (state.date !== date || state.destination !== destination) state = { date, destination, fingerprint, sent: 0 };
   else if (state.fingerprint !== fingerprint) throw new Error('Schedule changed during a partial delivery. Inspect the group before retrying.');
@@ -161,10 +169,12 @@ export async function postTomorrow({ now = new Date(), data = loadSchedule(), to
 }
 
 async function main() {
+  const date = process.env.SCHEDULE_DATE || undefined;
   if (process.argv.includes('--preview')) {
-    console.log(JSON.stringify(richMessages(loadSchedule(), tomorrowInManila()), null, 2)); return;
+    console.log(JSON.stringify(richMessages(loadSchedule(), date || tomorrowInManila(), date ? 'Daily Schedule' : undefined), null, 2)); return;
   }
-  const result = await postTomorrow({ token: process.env.TELEGRAM_BOT_TOKEN,
+  const result = await postTomorrow({ token: process.env.TELEGRAM_BOT_TOKEN, date,
+    ...(date ? { statePath: join(ROOT, '.telegram-state', `manual-${date}.json`) } : {}),
     chatId: process.env.TELEGRAM_CHAT_ID, topicId: process.env.TELEGRAM_TOPIC_ID });
   console.log(result.skipped ? `Schedule for ${result.date} was already sent.` : `Schedule for ${result.date} sent (${result.messages} message(s)).`);
 }

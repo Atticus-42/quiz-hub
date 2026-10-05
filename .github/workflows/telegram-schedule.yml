@@ -10,6 +10,10 @@ on:
         description: Preview tomorrow's post without sending it
         type: boolean
         default: true
+      schedule_date:
+        description: Optional YYYY-MM-DD for an explicitly requested manual post (blank keeps tomorrow)
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -42,6 +46,8 @@ jobs:
           fi
       - name: Preview
         if: github.event_name == 'workflow_dispatch' && inputs.preview_only
+        env:
+          SCHEDULE_DATE: ${{ inputs.schedule_date }}
         run: node scripts/telegram-schedule.mjs --preview
       - name: Restore delivery state
         id: restore
@@ -57,6 +63,7 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           TELEGRAM_TOPIC_ID: ${{ secrets.TELEGRAM_TOPIC_ID }}
+          SCHEDULE_DATE: ${{ github.event_name == 'workflow_dispatch' && inputs.schedule_date || '' }}
         run: node scripts/telegram-schedule.mjs
       - name: Save delivery state
         if: always() && steps.restore.outcome == 'success'

@@ -16,6 +16,8 @@ For a private group's chat ID, add the bot and send a command addressed to it in
 ## What it sends
 
 - Tomorrow's date is calculated in Asia/Manila.
+- Mess periods include their date-matched menus from the 05–11 October workbook, with its price/supply change notice. Source wording, including “Non” entries, is preserved.
+- For an explicitly requested manual post of today's uploaded schedule, set `schedule_date` to its YYYY-MM-DD date. Leave it blank for normal tomorrow posts. Manual-date posts have separate duplicate tracking and do not change the nightly 21:00 schedule.
 - A Training Directorate button links directly to the class page's directorate section.
 - Every activity includes time, instructor, venue and uniform when provided, plus a direct link to that selected day.
 - Uses Telegram's Rich Messages API with explicit text segments: a native heading, dividers, bold times/activity titles and uniforms, and an italic footer. Instructor/venue details and notes are italic for clear secondary emphasis. Literal blank lines separate activities. All activities stay visible in chronological order; no emojis, spoilers or collapsed sections. Full Schedule and Practice Quizzes buttons appear below the last part. Font weight varies by Telegram client, but every style is explicitly specified in the payload.

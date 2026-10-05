@@ -9,6 +9,34 @@ import { loadSchedule } from '../build.mjs';
 const plainRich = value => typeof value === 'string' ? value : Array.isArray(value) ? value.map(plainRich).join('') : value?.text ? plainRich(value.text) : '';
 const richText = message => message.blocks.map(block=>plainRich(block.text)).join('\n');
 
+test('menus appear at their mess periods with the source notice', () => {
+  const data=loadSchedule();
+  assert.equal(data.days.filter(day=>day.blocks.filter(block=>block.menu?.length).length===3).length,7);
+  assert.deepEqual(data.days[0].blocks.find(block=>block.activity==='Morning Mess').menu,
+    ['Pork Tocino','Tomato & Cucumber Salad','Non-Beef tapa','Coffee','Soup']);
+  for(const day of data.days) {
+    const text=richText(formatRichSchedule(data,day.date));
+    for(const block of day.blocks) for(const item of block.menu || []) assert.ok(text.includes(item));
+    assert.ok(text.includes(data.menuNotice));
+  }
+});
+
+test('an explicit manual date posts today without changing the default tomorrow target', async () => {
+  const dir=mkdtempSync(join(tmpdir(),'telegram-date-test-'));
+  try {
+    const calls=[];
+    const options={now:new Date('2026-10-05T04:00:00Z'),date:'2026-10-05',token:'123:fake_token',chatId:'-1001234',statePath:join(dir,'manual.json'),
+      fetchFn:async(url,init)=>{calls.push(JSON.parse(init.body));return {ok:true,status:200,json:async()=>({ok:true})};}};
+    const result=await postTomorrow(options);
+    assert.equal(result.date,'2026-10-05');
+    assert.match(richText(calls[0].rich_message),/Today’s Schedule/);
+    assert.match(calls[0].reply_markup.inline_keyboard[0][0].url,/#day-2026-10-05$/);
+    assert.equal((await postTomorrow(options)).skipped,true);
+    assert.equal(tomorrowInManila(options.now),'2026-10-06');
+    await assert.rejects(postTomorrow({...options,date:'2026-02-30'}),/valid.*date/i);
+  } finally {rmSync(dir,{recursive:true,force:true});}
+});
+
 test('tomorrow uses Philippine dates across midnight, month and year boundaries', () => {
   assert.equal(tomorrowInManila(new Date('2026-10-04T13:00:00Z')), '2026-10-05');
   assert.equal(tomorrowInManila(new Date('2026-10-04T16:00:00Z')), '2026-10-06');

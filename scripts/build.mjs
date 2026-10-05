@@ -773,7 +773,8 @@ export function loadSchedule(root = ROOT, file = join(root, 'data', 'schedule.js
   const fail = message => { throw new Error(`${file}: ${message}`); };
   const text = (value, max = 120) => typeof value === 'string' && value.trim() !== '' && value === value.trim() && value.length <= max;
   const allowed = (object, keys) => object && typeof object === 'object' && !Array.isArray(object) && Object.keys(object).every(key => keys.includes(key));
-  if (!allowed(data, ['course', 'unit', 'week', 'students', 'prepared', 'days'])) fail('only course, unit, week, students, prepared and days are allowed');
+  if (!allowed(data, ['course', 'unit', 'week', 'students', 'prepared', 'days', 'menuNotice'])) fail('only course, unit, week, students, prepared, days and menuNotice are allowed');
+  if (data.menuNotice !== undefined && !text(data.menuNotice, 300)) fail('menuNotice must be a short text');
   if (!text(data.course, 40) || !text(data.unit)) fail('course and unit must be short texts');
   if (data.students !== undefined && (!Number.isInteger(data.students) || data.students < 1 || data.students > 200)) fail('students must be a whole number');
   if (data.prepared !== undefined && !parseDate(data.prepared)) fail('prepared must be a YYYY-MM-DD date');
@@ -790,7 +791,8 @@ export function loadSchedule(root = ROOT, file = join(root, 'data', 'schedule.js
     if (!Array.isArray(day.blocks) || !day.blocks.length || day.blocks.length > 40) fail(`${day.date}: blocks must list 1 to 40 time blocks`);
     day.blocks.forEach((block, at) => {
       const where = `${day.date} block ${at + 1}`;
-      if (!allowed(block, ['time', 'activity', 'kind', 'periods', 'class', 'instructor', 'uniform', 'venue', 'remarks'])) fail(`${where}: only time, activity, kind, periods, class, instructor, uniform, venue and remarks are allowed`);
+      if (!allowed(block, ['time', 'activity', 'kind', 'periods', 'class', 'instructor', 'uniform', 'venue', 'remarks', 'menu'])) fail(`${where}: only time, activity, kind, periods, class, instructor, uniform, venue, remarks and menu are allowed`);
+      if (block.menu !== undefined && (!['Morning Mess', 'Noon Mess', 'Evening Mess'].includes(block.activity) || !Array.isArray(block.menu) || !block.menu.length || block.menu.length > 12 || !block.menu.every(item => text(item)))) fail(`${where}: menu must list 1 to 12 short texts at a mess period`);
       if (typeof block.time !== 'string') fail(`${where}: time must be text ("" when the schedule prints none)`);
       try { parseScheduleTime(block.time); } catch (error) { fail(`${where}: ${error.message}`); }
       if (!text(block.activity)) fail(`${where}: activity must be a nonempty text`);
@@ -842,6 +844,7 @@ function scheduleBlock(block, lessons) {
     `              <p class="blk-meta blk-where">${block.venue ? `<span class="sr-only">Venue: </span>${escapeHtml(block.venue)}` : ''}${block.venue && uniform ? '<span class="sep" aria-hidden="true"> · </span>' : ''}${uniform}</p>`,
     ...(extra.length ? [`              <p class="blk-meta blk-extra">${extra.join(' · ')}</p>`] : []),
     ...(block.remarks ? [`              <p class="blk-meta blk-remarks">${escapeHtml(block.remarks)}</p>`] : []),
+    ...(block.menu ? [`              <p class="blk-menu"><strong>Menu</strong><br>${block.menu.map(escapeHtml).join(' · ')}</p>`] : []),
     '            </li>',
   ].join('\n');
 }
@@ -872,7 +875,7 @@ export function renderSchedule(template, contours, data, lessons, { base = '' } 
       ['Academic blocks', String(academic)],
       ...(data.students ? [['Students', String(data.students)]] : []),
     ].map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('\n          '),
-    PREPARED: escapeHtml(data.prepared ? `Schedule prepared ${scheduleDate(data.prepared)}.` : ''),
+    PREPARED: escapeHtml([data.prepared ? `Schedule prepared ${scheduleDate(data.prepared)}.` : '', data.menuNotice || ''].filter(Boolean).join(' ')),
     DAY_NAV: dayNav,
     DAYS: days,
     SCHEDULE_DATA: scriptJson({ start: week.start, end: week.end, range: scheduleRange(week), days: data.days.map(day => day.date) }),

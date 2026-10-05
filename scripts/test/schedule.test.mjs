@@ -21,6 +21,20 @@ export async function scheduleSuite({ lessons }) {
   const dayBlocks = (doc, date) => findAll(doc.getElementById(`day-${date}`), node => node.localName === 'li');
   const titleOf = node => byClass(node, 'blk-title')[0].textContent;
 
+  await T('each day renders its three menus inside the matching mess blocks', () => {
+    const doc = load('2026-10-05T10:00').document;
+    for (const day of data.days) {
+      const rendered = dayBlocks(doc, day.date);
+      for (const block of day.blocks.filter(block => block.menu)) {
+        const entry = rendered.find(node => titleOf(node) === block.activity);
+        const menu = byClass(entry, 'blk-menu');
+        assert.equal(menu.length, 1);
+        for (const item of block.menu) assert.ok(menu[0].textContent.includes(item));
+      }
+    }
+    assert.ok(doc.getElementById('schedule-note').textContent.includes(data.menuNotice));
+  });
+
   await T('data integrity: week 3 of 12, Monday 05 to Sunday 11 Oct 2026, every block transcribed from the PDF', () => {
     assert.equal(data.course, 'SOAC CL 52-26');
     assert.deepEqual(data.week, { number: 3, of: 12, start: '2026-10-05', end: '2026-10-11' });
