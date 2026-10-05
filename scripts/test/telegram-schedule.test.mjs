@@ -42,6 +42,22 @@ test('tomorrow uses Philippine dates across midnight, month and year boundaries'
   assert.equal(tomorrowInManila(new Date('2026-10-04T16:00:00Z')), '2026-10-06');
   assert.equal(tomorrowInManila(new Date('2026-12-31T13:00:00Z')), '2027-01-01');
 });
+test('Telegram-directed group migration retries the same post once at the new group ID', async () => {
+  const dir=mkdtempSync(join(tmpdir(),'telegram-migration-test-'));
+  try {
+    const calls=[];
+    const options={now:new Date('2026-10-04T13:00:00Z'),token:'123:fake_token',chatId:'-1001234',statePath:join(dir,'sent.json'),
+      fetchFn:async(url,init)=>{calls.push(JSON.parse(init.body));return calls.length===1
+        ? {ok:false,status:400,json:async()=>({ok:false,description:'Bad Request: group chat was upgraded to a supergroup chat',parameters:{migrate_to_chat_id:-100999999}})}
+        : {ok:true,status:200,json:async()=>({ok:true})};}};
+    assert.equal((await postTomorrow(options)).skipped,false);
+    assert.equal(calls.length,2);
+    assert.equal(calls[1].chat_id,'-100999999');
+    assert.deepEqual(calls[1].rich_message,calls[0].rich_message);
+    assert.equal((await postTomorrow(options)).skipped,true);
+    assert.doesNotMatch(readFileSync(options.statePath,'utf8'),/100999999|fake_token/);
+  } finally {rmSync(dir,{recursive:true,force:true});}
+});
 test('every tomorrow block is included, and missing dates are never replaced with another week', () => {
   const data = loadSchedule(); const text = formatSchedule(data,'2026-10-05');
   for (const block of data.days[0].blocks) {

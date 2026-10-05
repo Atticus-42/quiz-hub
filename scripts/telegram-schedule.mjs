@@ -136,12 +136,14 @@ export async function postTomorrow({ now = new Date(), date: requestedDate, data
   const fingerprint = createHash('sha256').update(JSON.stringify(messages)).digest('hex');
   if (state.date !== date || state.destination !== destination) state = { date, destination, fingerprint, sent: 0 };
   else if (state.fingerprint !== fingerprint) throw new Error('Schedule changed during a partial delivery. Inspect the group before retrying.');
+  let resolvedChatId = chatId;
   for (let index = state.sent || 0; index < messages.length; index++) {
-    let response;
+    let response, result;
+    for (let attempt = 0; attempt < 2; attempt++) {
     try {
       response = await fetchFn(`https://api.telegram.org/bot${token}/sendRichMessage`, {
         method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: AbortSignal.timeout(20000),
-        body: JSON.stringify({ chat_id: chatId, rich_message: messages[index],
+        body: JSON.stringify({ chat_id: resolvedChatId, rich_message: messages[index],
           ...(index === messages.length - 1 ? { reply_markup: { inline_keyboard: [[
             { text: 'Full Schedule', url: `https://atticus-42.github.io/quiz-hub/schedule/?v=day-picker-2#day-${date}` },
             { text: 'Practice Quizzes', url: 'https://atticus-42.github.io/quiz-hub/' },
@@ -150,8 +152,16 @@ export async function postTomorrow({ now = new Date(), date: requestedDate, data
           ]] } } : {}), ...(topicId ? { message_thread_id: Number(topicId) } : {}) }),
       });
     } catch { throw new Error('Telegram request did not finish; check the group before retrying to avoid an uncertain duplicate.'); }
-    let result;
     try { result = await response.json(); } catch { throw new Error('Telegram returned an unreadable response; check the group before retrying.'); }
+    // A rejected migration response guarantees no post; retry only the server-specified same group's new ID.
+    const migrated = result.parameters?.migrate_to_chat_id;
+    if (attempt === 0 && response.status === 400 && !result.ok && Number.isSafeInteger(migrated) && migrated < 0 && /group chat was upgraded to a supergroup chat/i.test(result.description || '')) {
+      resolvedChatId = String(migrated);
+      console.log('Following Telegram-confirmed migration of the destination group.');
+      continue;
+    }
+    break;
+    }
     if (!response.ok || !result.ok) {
       const reason = String(result.description || 'No additional details')
         .replaceAll(token, '[redacted]').replaceAll(chatId, '[redacted]')
