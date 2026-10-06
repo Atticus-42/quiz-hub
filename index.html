@@ -562,10 +562,10 @@
       <div class="hero-copy">
         <p class="eyebrow">Philippine Army · Mastery Quizzes</p>
         <h1>Choose your module, then your exam</h1>
-        <p class="hero-lede">Start with the module you are studying. Each lesson quiz practises one topic in Easy, Medium or Hard mode; Module 2 also has a Combined Exam across all four lessons. Class results for the module are summarised below.</p>
+        <p class="hero-lede">Start with the module you are studying. Choose a lesson quiz or the module examination in Easy, Medium or Hard mode. Module 2 covers four lessons; Module 3 covers Combined Arms, Joint and Coalition Operations. Class results for the module are summarised below.</p>
         <dl class="hero-meta">
             <div><dt>Modules</dt><dd>2</dd></div>
-            <div><dt>Exams</dt><dd>8</dd></div>
+            <div><dt>Exams</dt><dd>9</dd></div>
             <div><dt>Questions</dt><dd>937</dd></div>
             <div><dt>Modes</dt><dd>Easy · Medium · Hard</dd></div>
         </dl>
@@ -623,13 +623,12 @@
           </a>
         </li>
         <li>
-          <a class="module-card" id="pick-module-3" href="#module-3" aria-labelledby="pick-title-module-3" aria-describedby="pick-meta-module-3 pick-desc-module-3 pick-note-module-3 overview-module-3">
+          <a class="module-card" id="pick-module-3" href="#module-3" aria-labelledby="pick-title-module-3" aria-describedby="pick-meta-module-3 pick-desc-module-3 overview-module-3">
             <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 03</span></span>
             <span class="vol-num" aria-hidden="true">03</span>
-            <span class="card-kicker" id="pick-meta-module-3">3 lessons</span>
+            <span class="card-kicker" id="pick-meta-module-3">3 lessons + Module 3 Exam</span>
             <span class="module-title" id="pick-title-module-3">Module 3</span>
-            <span class="card-desc" id="pick-desc-module-3">Signal Support in Combined Arms Operations, Signal Support in Joint Operations and Signal Support in Coalition Operations</span>
-            <span class="tag module-note" id="pick-note-module-3">More lessons coming</span>
+            <span class="card-desc" id="pick-desc-module-3">Signal Support in Combined Arms Operations, Signal Support in Joint Operations, Signal Support in Coalition Operations and the Module 3 Exam</span>
             <span class="module-overview" id="overview-module-3"></span>
             <span class="module-cta"><span class="cta-choose">Choose Module 3</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
           </a>
@@ -739,9 +738,26 @@
         <a class="change-module" id="change-module-3" href="#choose-module">Change module</a>
       </div>
       <div class="sect-body">
-      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes. More Module 3 lessons are coming.</p>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Module 3 Exam has 45 questions.</p>
       <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
       <ul class="exam-grid" id="exam-grid-module-3">
+        <li class="is-prominent" id="card-modulethree" data-key="modulethree">
+          <article class="exam-card" aria-labelledby="title-modulethree">
+            <p class="toc-num" aria-hidden="true">03.0</p>
+            <div class="toc-main">
+              <p class="card-kicker">Module examination</p>
+              <div class="toc-line"><h3 class="card-title" id="title-modulethree">Module 3 Exam</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">45 / attempt</span></div>
+              <p class="card-desc">45 questions: 15 each from Combined Arms, Joint and Coalition Operations.</p>
+              <ul class="card-meta">
+                <li class="tag tag-comprehensive">All three lessons</li>
+                <li class="tag">45 questions</li>
+                <li class="tag">Easy · Medium · Hard</li>
+              </ul>
+            </div>
+            <div class="card-stats" id="stats-modulethree" aria-live="polite"></div>
+            <a class="start-link" href="module-3-exam/">Start exam<span class="sr-only">: Module 3 Exam</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
         <li id="card-signal" data-key="signal">
           <article class="exam-card" aria-labelledby="title-signal">
             <p class="toc-num" aria-hidden="true">03.1</p>
@@ -964,9 +980,32 @@
       {
         "id": "module-3",
         "title": "Module 3",
-        "meta": "3 lessons",
-        "description": "Signal Support in Combined Arms Operations, Signal Support in Joint Operations and Signal Support in Coalition Operations",
+        "meta": "3 lessons + Module 3 Exam",
+        "description": "Signal Support in Combined Arms Operations, Signal Support in Joint Operations, Signal Support in Coalition Operations and the Module 3 Exam",
         "exams": [
+          {
+            "key": "modulethree",
+            "lesson": "modulethree",
+            "title": "Module 3 Exam",
+            "description": "45 questions: 15 each from Combined Arms, Joint and Coalition Operations.",
+            "url": "module-3-exam/",
+            "kicker": "Module examination",
+            "tags": [
+              {
+                "text": "All three lessons",
+                "comprehensive": true
+              },
+              {
+                "text": "45 questions",
+                "comprehensive": false
+              },
+              {
+                "text": "Easy · Medium · Hard",
+                "comprehensive": false
+              }
+            ],
+            "prominent": true
+          },
           {
             "key": "signal",
             "lesson": "signal",
@@ -1021,8 +1060,7 @@
               }
             ]
           }
-        ],
-        "note": "More lessons coming"
+        ]
       }
     ];
     // Flat list of every exam; each exam remembers its module id.

@@ -23,7 +23,8 @@ var LESSONS = {
   signal: 'Signal Support History',          // Signal Support in Combined Arms Operations quiz (Module 3)
   signaljoint: 'Signal Joint Operations History', // Signal Support in Joint Operations quiz (Module 3)
   coalition: 'Signal Coalition Operations History', // Signal Support in Coalition Operations quiz (Module 3)
-  combined: 'Combined Exam History'          // 30-question exam drawn from the Module 2 lessons; add more lines here for future lessons
+  combined: 'Combined Exam History',         // Module 2 pool exam
+  modulethree: 'Module 3 Exam History'       // 45 questions, 15 each from the three Module 3 lessons
 };
 // Only for pages from before version 7 that send no total: their attempt length was fixed.
 var LEGACY_TOTALS = { combined: 30 };

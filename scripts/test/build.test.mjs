@@ -70,8 +70,8 @@ export async function buildSuite({ lessons, modules }) {
   });
 
   await T('every lesson folder loads: unique keys, slugs and qids; modules exist; the combined exam is a pool of the four Module 2 lessons', () => {
-    assert.deepEqual(lessons.map(lesson => lesson.key), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops', 'signal', 'signaljoint', 'coalition']);
-    assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined', 'isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal', 'coalition-signal']);
+    assert.deepEqual(lessons.map(lesson => lesson.key), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops', 'modulethree', 'signal', 'signaljoint', 'coalition']);
+    assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined', 'isr', 'armor', 'field-artillery', 'army-operations', 'module-3-exam', 'signal-support', 'joint-signal', 'coalition-signal']);
     assert.deepEqual(modules.map(module => module.id), ['module-2', 'module-3']);
     const combined = lessons.find(lesson => lesson.key === 'combined');
     assert.deepEqual(combined.pool, { lessons: ['isr', 'armor', 'fieldartillery', 'armyops'], count: 60 });
@@ -158,7 +158,7 @@ export async function buildSuite({ lessons, modules }) {
       writeFileSync(join(dir, 'hero.svg'), '<svg viewBox="0 0 480 250" aria-hidden="true" focusable="false"><path d="M0 0H10"/></svg>');
       for (const mode of MODES) {
         // Placeholder fixtures only (never real content): enough to exercise the build.
-        const bank = Array.from({ length: 4 }, (_, index) => ({ id: index + 1, difficulty: mode, category: 'Test topic', tags: ['t'], prompt: `Fixture ${mode} ${index}?`, options: ['w', 'x', 'y', 'z'], answer: index, explanation: 'Fixture.', sourceSlides: [1] }));
+        const bank = Array.from({ length: 16 }, (_, index) => ({ id: index + 1, difficulty: mode, category: 'Test topic', tags: ['t'], prompt: `Fixture ${mode} ${index}?`, options: ['w', 'x', 'y', 'z'], answer: index % 4, explanation: 'Fixture.', sourceSlides: [1] }));
         writeFileSync(join(dir, `${mode}.json`), JSON.stringify(bank));
       }
       let result = spawnSync(process.execPath, [join(fixture, 'scripts', 'assign-qids.mjs'), 'signaljoint'], { encoding: 'utf8' });
@@ -173,7 +173,7 @@ export async function buildSuite({ lessons, modules }) {
       const panel = hub.match(/<section class="exam-panel" id="module-3"[\s\S]*?<\/section>/)[0];
       assert.ok(panel.indexOf('id="card-signal"') < panel.indexOf('id="card-signaljoint"'), 'second Module 3 lesson after Signal Support');
       assert.match(panel, /<a class="start-link" href="joint-signal\/">/);
-      assert.match(hub, /3 lessons<\/span>/);
+      assert.match(hub, /3 lessons \+ Module 3 Exam<\/span>/);
       assert.match(readFileSync(join(fixture, 'instructor', 'index.html'), 'utf8'), /signaljoint:hard:signaljoint-h-04/);
       assert.match(readFileSync(join(ROOT, 'apps-script', 'Code.gs'), 'utf8'), /signaljoint: 'Signal Joint Operations History'/, 'the sheet already knows the lesson');
     } finally {
@@ -258,7 +258,7 @@ export async function buildSuite({ lessons, modules }) {
   await T('hub card tags state each lesson’s questions per attempt (the whole bank, at most 50)', () => {
     for (const lesson of lessons) {
       const label = countLabel(lesson);
-      if (lesson.pool) assert.equal(label, '60 questions');
+      if (lesson.pool) assert.equal(label, `${lesson.pool.count} questions`);
       else {
         const counts = MODES.map(mode => lesson.attempts[mode]);
         counts.forEach((value, index) => assert.equal(value, attemptLength(lesson.banks[MODES[index]]), 'a lesson attempt is the whole bank'));

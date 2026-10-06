@@ -95,7 +95,7 @@ export async function instructorSuite({ lessons }) {
     assert.equal(page.byId('sort-rate').parentNode.getAttribute('aria-sort'), 'none');
     assert.equal(page.api.setModule('module-9'), false);
     assert.equal(page.api.setLesson('isr'), false, 'a lesson of another module is refused');
-    assert.match(page.byId('pool-note').hidden ? '' : page.byId('pool-note').textContent, /^$/, 'Module 3 has no pool exam');
+    assert.match(page.byId('pool-note').textContent, /Module 3 Exam attempts count towards each question’s own lesson and difficulty/);
     page.byId('module-module-2').click();
     assert.match(page.byId('pool-note').textContent, /Combined Exam attempts count towards each question’s own lesson and difficulty/);
   });

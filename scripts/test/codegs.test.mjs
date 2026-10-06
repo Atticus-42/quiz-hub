@@ -6,7 +6,7 @@ import { ROOT } from '../build.mjs';
 import { test, plain, loadCodeGs, FakeSheet } from './harness.mjs';
 
 const OLD_HEADERS = ['Received', 'Name', 'Mode', 'Score', 'Total', 'Percent', 'Band', 'Finished'];
-const TABS = { isr: 'History', armor: 'Armor History', fieldartillery: 'Field Artillery History', armyops: 'Army Operations History', signal: 'Signal Support History', signaljoint: 'Signal Joint Operations History', coalition: 'Signal Coalition Operations History', combined: 'Combined Exam History' };
+const TABS = { isr: 'History', armor: 'Armor History', fieldartillery: 'Field Artillery History', armyops: 'Army Operations History', signal: 'Signal Support History', signaljoint: 'Signal Joint Operations History', coalition: 'Signal Coalition Operations History', combined: 'Combined Exam History', modulethree: 'Module 3 Exam History' };
 
 export async function codeGsSuite() {
   const source = readFileSync(join(ROOT, 'apps-script', 'Code.gs'), 'utf8');

@@ -125,14 +125,14 @@ test('MODULES config is generated from lessons/*/lesson.json: unique ids, keys a
   assert.equal(modules[0].description, 'ISR Operations, Armor Operations, Field Artillery Operations, Army Operations and the Combined Exam');
   assert.equal(modules[1].title, 'Module 3');
   assert.ok(modules[1].description.startsWith('Signal Support in Combined Arms Operations'));
-  assert.equal(modules[1].note, 'More lessons coming');
+  assert.equal(modules[1].note, undefined);
   const exams = ctx.EXAMS;
   assert.equal(exams.length, EXAM_COUNT, 'EXAMS is the flat list of all module exams');
   assert.equal(new Set(exams.map((e) => e.key)).size, EXAM_COUNT);
   assert.equal(new Set(exams.map((e) => e.lesson)).size, EXAM_COUNT);
   assert.equal(new Set(exams.map((e) => e.url)).size, EXAM_COUNT);
   assert.deepEqual(MODULE_2.slice(0, 5), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops']);
-  assert.deepEqual(MODULE_3, ['signal', 'signaljoint', 'coalition']);
+  assert.deepEqual(MODULE_3, ['modulethree', 'signal', 'signaljoint', 'coalition']);
   for (const e of exams) {
     assert.equal(e.url, EXPECTED[e.key], `url for ${e.key}`);
     assert.equal(e.lesson, e.key);
@@ -140,7 +140,8 @@ test('MODULES config is generated from lessons/*/lesson.json: unique ids, keys a
     assert.ok(MODULE_EXAMS[e.module].includes(e.key), `module back-reference for ${e.key}`);
   }
   assert.deepEqual([...exams.find((e) => e.key === 'combined').tags].map((tag) => tag.text), ['All four lessons', '60 questions', 'Easy · Medium · Hard']);
-  assert.deepEqual([...exams.filter((e) => e.prominent).map((e) => e.key)], ['combined']);
+  assert.deepEqual([...exams.filter((e) => e.prominent).map((e) => e.key)], ['combined','modulethree']);
+  assert.deepEqual([...exams.find((e) => e.key === 'modulethree').tags].map((tag) => tag.text), ['All three lessons', '45 questions', 'Easy · Medium · Hard']);
   for (const lesson of lessons.filter((item) => !item.pool)) {
     const counts = ['easy', 'medium', 'hard'].map((mode) => lesson.attempts[mode]);
     const label = Math.min(...counts) === Math.max(...counts) ? `${counts[0]} questions per attempt` : `${Math.min(...counts)}–${Math.max(...counts)} questions per attempt`;
@@ -323,6 +324,7 @@ function dataset() {
     armyops: { ok: true, rows: [] },
     combined: { ok: true, rows: Array.from({ length: 12 }, (_, i) => row({ name: `C${i}`, mode: 'hard', percent: 50 + i, score: 15, total: 30, finishedAt: iso(2026, 9, 10 + i, 12, 0) })) },
     // The deployed sheet script does not know these lessons yet.
+    modulethree: { ok: false, error: 'unknown lesson' },
     signal: { ok: false, error: 'unknown lesson' },
     signaljoint: { ok: false, error: 'unknown lesson' },
     coalition: { ok: false, error: 'unknown lesson' }
@@ -484,7 +486,7 @@ test('markup: landmarks, headings, labelled filter group, viewport, lang', () =>
     assert.match(html, new RegExp(`<h2 id="exams-heading-${id}" tabindex="-1">.*Choose your exam`), `step 2 heading ${id}`);
     assert.match(html, new RegExp(`<a class="change-module" id="change-${id}" href="#choose-module">Change module</a>`));
   }
-  assert.match(html, /<span class="tag module-note" id="pick-note-module-3">More lessons coming<\/span>/);
+  assert.doesNotMatch(html, /id="pick-note-module-3"/);
   assert.match(html, /<p id="route-announcer" class="sr-only" role="status" aria-live="polite"><\/p>/);
   assert.match(html, /:focus-visible \{ outline: 3px solid var\(--color-focus\)/);
   assert.match(html, /min-height: 44px/);
@@ -571,7 +573,7 @@ test('no hash: only the module chooser, with per-module overviews from all six l
 });
 
 test('hash on load selects the module: its panel, aria-current, scoped tables, no focus steal', async () => {
-  const data = { ...dataset(), signal: { ok: true, rows: [row({ name: 'Lim', mode: 'medium', percent: 84, score: 21, finishedAt: iso(2026, 10, 1, 9, 0) })] }, signaljoint: { ok: true, rows: [] }, coalition: { ok: true, rows: [] } };
+  const data = { ...dataset(), modulethree: { ok: true, rows: [] }, signal: { ok: true, rows: [row({ name: 'Lim', mode: 'medium', percent: 84, score: 21, finishedAt: iso(2026, 10, 1, 9, 0) })] }, signaljoint: { ok: true, rows: [] }, coalition: { ok: true, rows: [] } };
   const { doc } = await renderHub(data, null, '#module-3');
   assert.equal(doc.getElementById('module-3').hidden, false);
   assert.equal(doc.getElementById('module-2').hidden, true);
@@ -579,7 +581,7 @@ test('hash on load selects the module: its panel, aria-current, scoped tables, n
   assert.equal(doc.getElementById('pick-module-3').getAttribute('aria-current'), 'true');
   assert.equal(doc.getElementById('pick-module-2').getAttribute('aria-current'), 'false');
   assert.equal(doc.getElementById('history-module-label').textContent, ' · Module 3');
-  assert.deepEqual(rowsOf(doc, 'summary-body').map((tr) => tr.children[0].textContent), ['Signal Support in Combined Arms Operations', 'Signal Support in Joint Operations', 'Signal Support in Coalition Operations']);
+  assert.deepEqual(rowsOf(doc, 'summary-body').map((tr) => tr.children[0].textContent), ['Module 3 Exam', 'Signal Support in Combined Arms Operations', 'Signal Support in Joint Operations', 'Signal Support in Coalition Operations']);
   assert.deepEqual(rowsOf(doc, 'recent-body').map(cellTexts), [['Lim', 'Signal Support in Combined Arms Operations', 'Medium', '21 / 25', '84%', 'Proficient', '2026-10-01 09:00']]);
   assert.equal(doc.getElementById('overview-module-3').textContent, '1 class attempt');
   assert.match(doc.getElementById('history-status').className, /status-ready/);
@@ -614,7 +616,7 @@ test('choosing a module by click: hash, focus to the exam heading, announcement;
 
   doc.getElementById('pick-module-3').click();
   assert.equal(doc.activeElement, doc.getElementById('exams-heading-module-3'));
-  assert.equal(doc.getElementById('route-announcer').textContent, 'Module 3 selected. Choose your exam: 3 exams available.');
+  assert.equal(doc.getElementById('route-announcer').textContent, 'Module 3 selected. Choose your exam: 4 exams available.');
   // Ctrl/Cmd-click keeps the browser default (open in a new tab).
   const mod = doc.getElementById('pick-module-2').click({ ctrlKey: true });
   assert.equal(mod.defaultPrevented, false);
@@ -641,11 +643,11 @@ test('history is scoped to the selected module: tables, filter and Refresh fetch
   const data = dataset();
   const { doc, f, win } = await renderHub(data, null, '#module-3');
   assert.equal(f.calls.length, EXAM_COUNT);
-  assert.equal(lessonsOf(f.calls)[0], 'signal', 'selected module requested first');
+  assert.equal(lessonsOf(f.calls)[0], 'modulethree', 'selected module requested first');
   doc.getElementById('history-refresh').click();
   await tick();
   assert.deepEqual(lessonsOf(f.calls.slice(EXAM_COUNT)), MODULE_3, 'Refresh on Module 3 fetches only its lessons');
-  assert.deepEqual(rowsOf(doc, 'summary-body').map((tr) => cellTexts(tr).slice(0, 2)), [['Signal Support in Combined Arms Operations', 'Not available yet'], ['Signal Support in Joint Operations', 'Not available yet'], ['Signal Support in Coalition Operations', 'Not available yet']]);
+  assert.deepEqual(rowsOf(doc, 'summary-body').map((tr) => cellTexts(tr).slice(0, 2)), [['Module 3 Exam', 'Not available yet'], ['Signal Support in Combined Arms Operations', 'Not available yet'], ['Signal Support in Joint Operations', 'Not available yet'], ['Signal Support in Coalition Operations', 'Not available yet']]);
   assert.equal(rowsOf(doc, 'recent-body').length, 0);
   // Switching modules reuses the cached lessons, then Refresh fetches just Module 2's five.
   win.navigate('#module-2');

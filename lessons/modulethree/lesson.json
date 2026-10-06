@@ -1,0 +1,31 @@
+{
+  "key": "modulethree",
+  "slug": "module-3-exam",
+  "module": "module-3",
+  "order": 0,
+  "prominent": true,
+  "name": "Module 3 Exam",
+  "title": "Module 3 Mastery Exam",
+  "eyebrow": "Philippine Army · Module 3 · Comprehensive Examination",
+  "lede": "A balanced examination across Signal Support in Combined Arms, Joint and Coalition Operations. Each difficulty draws {count} shuffled questions: 15 from each lesson, with explanations and lesson-by-lesson feedback.",
+  "hubDescription": "{count} questions: 15 each from Combined Arms, Joint and Coalition Operations.",
+  "hubKicker": "Module examination",
+  "hubTags": [{"text":"All three lessons","comprehensive":true},{"text":"{count} questions"}],
+  "historyLesson": "modulethree",
+  "pool": {"lessons":["signal","signaljoint","coalition"],"count":45},
+  "palette": {"--lesson-accent":"#d9541e"},
+  "text": {
+    "studyWarningLead": "This module mock examination is a practice aid only. Study all three Module 3 lessons before taking it.",
+    "studyWarningBody": "Complete Signal Support in Combined Arms Operations, Signal Support in Joint Operations and Signal Support in Coalition Operations. A shuffled mock examination cannot replace study of the full lessons.",
+    "studyConfirm": "I understand that I must study all three Module 3 lessons completely and not rely only on this mock examination.",
+    "resultsReminder": "This score is practice feedback only. Study all three Module 3 lessons completely.",
+    "modeDescPrefix": "{attempt} questions per attempt, drawn from {bank} across all three lessons.",
+    "topicNoun": "Lesson",
+    "topicsHeading": "Lesson analysis",
+    "topicsCaption": "Correct answers by lesson. Each lesson contributes 15 questions; the line marks the 75% proficiency threshold.",
+    "gapsHeading": "Lessons to review",
+    "strengthsEmpty": "No lesson reached 75% in this attempt.",
+    "gapsEmpty": "No gaps in this attempt. Keep studying all three lessons.",
+    "bands": ["Consistent command of all three lessons at this difficulty.","Solid understanding. Restudy the lessons listed as gaps.","Partial understanding. Restudy all three lessons before retaking.","Study all three lessons completely again before another attempt."]
+  }
+}

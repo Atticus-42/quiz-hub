@@ -13,6 +13,7 @@ The whole site is published from this repository with GitHub Pages at https://at
   | Module 2 | Field Artillery Operations | `fieldartillery` | `/quiz-hub/field-artillery/` |
   | Module 2 | Army Operations | `armyops` | `/quiz-hub/army-operations/` |
   | Module 3 | Signal Support in Combined Arms Operations | `signal` | `/quiz-hub/signal-support/` |
+  | Module 3 | Module 3 Exam (45 questions, 15 from each lesson, per difficulty) | `modulethree` | `/quiz-hub/module-3-exam/` |
   | Module 3 | Signal Support in Joint Operations | `signaljoint` | `/quiz-hub/joint-signal/` |
 | Module 3 | Signal Support in Coalition Operations | `coalition` | `/quiz-hub/coalition-signal/` |
 
@@ -81,7 +82,7 @@ Each bank is a JSON array. Each question looks like this:
   (`signaljoint-e-14`, `-e-17`, `-e-19`, `-e-35`, `-e-37`, `-e-42`, `-m-01`, `-m-13`, `-m-30`) were wording or explanation only.
 - `category` must be one of the lesson's `categoryOrder` topics.
 - `sourceSlides` must fall within `sourceRef` (it is optional for Army Operations).
-- Banks hold 1–50 questions each (owner rule, enforced by the build and the tests). A lesson attempt serves the **whole bank** of the chosen mode (up to 50 questions): questions not yet seen on this device first, then previously missed, then the rest, each group shuffled. Every topic/term of the lesson (tags and `category`) must be covered by the union of its three difficulties, not necessarily by each one; every topic must still appear in each mode. The length is shown on the mode buttons and hub cards (for example "50 questions per attempt"). Give every question accurate `tags`: they decide what the union covers. The pool exam asks `pool.count` questions (60, 15 per lesson; the build rejects a count outside 50-69), split evenly across its lessons, each share a greedy term cover of that lesson's bank (unseen first).
+- Banks hold 1–50 questions each (owner rule, enforced by the build and the tests). A lesson attempt serves the **whole bank** of the chosen mode (up to 50 questions): questions not yet seen on this device first, then previously missed, then the rest, each group shuffled. Every topic/term of the lesson (tags and `category`) must be covered by the union of its three difficulties, not necessarily by each one; every topic must still appear in each mode. The length is shown on the mode buttons and hub cards (for example "50 questions per attempt"). Give every question accurate `tags`: they decide what the union covers. Pool exams ask `pool.count` questions, split evenly across their lessons, each share a greedy term cover of that lesson's bank (unseen first). Module 2 asks 60 questions (15 per lesson; allowed range 50–69). Module 3 asks 45 questions (15 per lesson; allowed range 45–50).
 
 **Appending questions** (for example the course-style questions written in parallel) is a plain append, then a rebuild:
 

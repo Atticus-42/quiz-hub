@@ -206,7 +206,9 @@ export function checkLessonConfig(config, dir) {
   if (config.pool) {
     if (!Array.isArray(config.pool.lessons) || config.pool.lessons.length < 2) fail('pool.lessons must list at least two lesson keys');
     if (!Number.isInteger(config.pool.count)) fail('pool.count must be an integer');
-    if (config.pool.count < POOL_MIN_ATTEMPT || config.pool.count > POOL_MAX_ATTEMPT) fail(`pool.count (the attempt length) must be from ${POOL_MIN_ATTEMPT} to ${POOL_MAX_ATTEMPT}`);
+    const min = config.module === 'module-3' ? 45 : POOL_MIN_ATTEMPT;
+    const max = config.module === 'module-3' ? 50 : POOL_MAX_ATTEMPT;
+    if (config.pool.count < min || config.pool.count > max) fail(`pool.count (the attempt length) must be from ${min} to ${max}`);
     if (typeof config.lede !== 'string') fail('a pool exam needs its own lede');
   } else {
     if (typeof config.lessonName !== 'string' || !config.lessonName.trim()) fail('lessonName must be a nonempty string');
@@ -387,6 +389,7 @@ export function quizConfig(lesson) {
   const text = lessonText(lesson);
   return {
     key: lesson.key,
+    module: lesson.module,
     title: lesson.title,
     categoryOrder: lesson.rules.categoryOrder,
     sourceRef: lesson.rules.ref ? { label: lesson.rules.ref.label, min: lesson.rules.ref.min, max: lesson.rules.ref.max, required: lesson.rules.ref.required } : null,
