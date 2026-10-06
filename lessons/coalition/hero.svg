@@ -1,0 +1,83 @@
+<svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
+  <g class="plate-grid" fill="none" stroke="currentColor">
+    <path class="grid-cross" d="M77 50h6M80 47v6M157 50h6M160 47v6M237 50h6M240 47v6M317 50h6M320 47v6M397 50h6M400 47v6M77 100h6M80 97v6M157 100h6M160 97v6M237 100h6M240 97v6M317 100h6M320 97v6M397 100h6M400 97v6M77 150h6M80 147v6M157 150h6M160 147v6M237 150h6M240 147v6M317 150h6M320 147v6M397 150h6M400 147v6"/>
+    <path class="thin" d="M80 0v6M160 0v6M240 0v6M320 0v6M400 0v6M80 244v6M160 244v6M240 244v6M320 244v6M400 244v6M0 50h6M0 100h6M0 150h6M0 200h6M474 50h6M474 100h6M474 150h6M474 200h6"/>
+  </g>
+  <text class="t-title" x="12" y="20">SIGNAL SUPPORT · COALITION OPERATIONS</text>
+  <text class="t-mute" x="12" y="33">PHILIPPINE ARMY · PARTNER NATION</text>
+  <text class="t-mute" x="468" y="20" text-anchor="end">INTEROPERABILITY</text>
+  <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+    <path class="hill ink" d="M0 214C60 208 130 216 200 212C260 209 330 215 480 213"/>
+    <path class="thin faint" d="M0 226C70 222 130 228 200 225M280 225C340 222 410 227 480 224M0 238C80 234 140 240 210 237M270 237C340 234 410 239 480 236"/>
+  </g>
+  <g class="link-lines" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="5 3">
+    <path class="link-line" d="M66 70L240 118"/>
+    <path class="link-line" d="M240 118L414 70"/>
+    <path class="link-line" d="M240 136V186"/>
+  </g>
+  <g class="partner-node ink" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+    <path class="pf" d="M411 78H417V166H411Z"/>
+    <path class="thin" d="M410 108H418M410 138H418"/>
+    <path d="M398 80L414 66L430 80M404 74L424 74"/>
+    <circle class="acc-f" cx="414" cy="70" r="2.5"/>
+    <path class="pf" d="M366 164H462V200H366Z"/>
+    <path class="thin" d="M376 174H408V192H376ZM418 176H452M418 184H452"/>
+    <path class="pf" d="M360 198H468V207H360Z"/>
+    <path class="thin" d="M372 207v5M392 207v5M436 207v5M456 207v5"/>
+  </g>
+  <text x="414" y="244" text-anchor="middle">PARTNER NATION</text>
+  <g class="liaison-node ink" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+    <circle class="pf" cx="226" cy="193" r="4"/>
+    <path class="pf" d="M219 210V203Q219 199 226 199Q233 199 233 203V210Z"/>
+    <circle class="pf" cx="254" cy="193" r="4"/>
+    <path class="pf" d="M247 210V203Q247 199 254 199Q261 199 261 203V210Z"/>
+    <path class="thin" d="M236 203H244M240 189V199"/>
+  </g>
+  <text x="240" y="244" text-anchor="middle">LIAISON</text>
+  <text x="96" y="244" text-anchor="middle">PHILIPPINE ARMY</text>
+  <g id="dust" fill="none" class="acc" stroke-width="1">
+    <circle class="dust-puff" cx="66" cy="70" r="6"/>
+    <circle class="dust-puff" cx="66" cy="70" r="10"/>
+    <circle class="dust-puff" cx="66" cy="70" r="14"/>
+  </g>
+  <g id="tank" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+    <g id="tank-gun" class="ink">
+      <path class="pf" d="M63 78H69V166H63Z"/>
+      <path class="thin" d="M62 108H70M62 138H70"/>
+      <path d="M52 80H80M56 74L66 68L76 74"/>
+      <circle class="acc-f" cx="66" cy="70" r="2.5"/>
+    </g>
+    <g class="ink army-node">
+      <path class="pf" d="M34 164H110V200H34Z"/>
+      <path class="thin" d="M44 174H70V192H44ZM80 176H102M80 184H102"/>
+      <path class="pf" d="M112 200V178L120 168H144L154 182V200Z"/>
+      <path class="thin" d="M124 172H142L148 182H124Z"/>
+      <path class="pf" d="M28 198H160V207H28Z"/>
+      <circle class="pf" cx="52" cy="206" r="8.5"/><circle class="thin" cx="52" cy="206" r="3"/>
+      <circle class="pf" cx="82" cy="206" r="8.5"/><circle class="thin" cx="82" cy="206" r="3"/>
+      <circle class="pf" cx="138" cy="206" r="8.5"/><circle class="thin" cx="138" cy="206" r="3"/>
+      <path d="M96 164V154"/>
+      <g transform="translate(98 152) rotate(-35)">
+        <path class="pf" d="M-14 0A14 7 0 0 0 14 0Z"/>
+        <path class="thin" d="M0 2V-12"/>
+        <circle class="ink-f" cx="0" cy="-13" r="2"/>
+      </g>
+    </g>
+    <g id="muzzle-blast" class="acc">
+      <path d="M110 128A9 9 0 0 1 114 137"/>
+      <path d="M114 121A16 16 0 0 1 121 137"/>
+      <path d="M118 114A23 23 0 0 1 128 137"/>
+    </g>
+  </g>
+  <g id="objective" fill="none" stroke="currentColor" stroke-width="1.2">
+    <circle class="impact-pulse" cx="240" cy="118" r="26" stroke-width="1.6"/>
+    <path class="pf" d="M232 101L246 109V127L232 135L218 127V109Z"/>
+    <path class="pf" d="M248 101L262 109V127L248 135L234 127V109Z"/>
+    <circle class="acc-f" cx="240" cy="118" r="3.5"/>
+    <path class="thin" d="M240 108V114M240 122V128"/>
+    <text class="t-acc" x="240" y="92" text-anchor="middle">COALITION GATEWAY</text>
+  </g>
+  <g id="shell">
+    <rect class="acc-f" x="-5" y="-4" width="10" height="8"/>
+  </g>
+</svg>

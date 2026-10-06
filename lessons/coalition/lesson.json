@@ -1,0 +1,74 @@
+{
+  "key": "coalition",
+  "slug": "coalition-signal",
+  "module": "module-3",
+  "order": 3,
+  "name": "Signal Support in Coalition Operations",
+  "title": "Signal Support in Coalition Operations Mastery Quiz",
+  "eyebrow": "Philippine Army · Module 3 · Signal Support in Coalition Operations",
+  "lessonName": "Signal Support in Coalition Operations",
+  "hubDescription": "Signal Support in Coalition Operations lesson.",
+  "lede": "Test your command of how signal support lets Philippine Army and partner-nation forces communicate in coalition operations: interoperability and the key components, the roles and challenges of signal support, systems and technologies, the eight principles, tactical considerations, the six-step planning sequence, and security measures and protocols. {total} situational questions across Easy, Medium, and Hard.",
+  "historyLesson": "coalition",
+  "categoryOrder": [
+    "Coalition Fundamentals",
+    "Key Components of Signal Support",
+    "Roles and Importance",
+    "Challenges in Signal Support",
+    "Systems and Technologies",
+    "Principles of Signal Support",
+    "Tactical Considerations",
+    "Planning and Coordination",
+    "Security Measures and Protocols"
+  ],
+  "sourceRef": {
+    "label": "slide",
+    "plural": "slides",
+    "min": 2,
+    "max": 15,
+    "required": true
+  },
+  "palette": {
+    "--lesson-accent": "#b8452a"
+  },
+  "art": {
+    "groups": [
+      "tank",
+      "tank-gun",
+      "muzzle-blast",
+      "shell",
+      "dust",
+      "objective"
+    ],
+    "nested": {
+      "tank": [
+        "tank-gun",
+        "muzzle-blast"
+      ]
+    },
+    "labels": [
+      "SIGNAL SUPPORT · COALITION OPERATIONS",
+      "PHILIPPINE ARMY",
+      "PARTNER NATION",
+      "COALITION GATEWAY",
+      "LIAISON",
+      "INTEROPERABILITY"
+    ],
+    "classes": [
+      "link-line",
+      "army-node",
+      "partner-node",
+      "liaison-node"
+    ],
+    "forbidden": "JOINT|COMBINED ARMS|INFANTRY|ARTILLERY|COMMANDER|OBJECTIVE|AIR FORCE|NAVY",
+    "stilled": [
+      "#tank-gun",
+      "#muzzle-blast",
+      "#shell",
+      "#dust .dust-puff",
+      "#objective .impact-pulse",
+      ".link-line"
+    ],
+    "staticPattern": "#tank|#objective$|\\.link-line|\\.partner-node|\\.liaison-node|\\.hero-art"
+  }
+}

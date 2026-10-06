@@ -22,6 +22,7 @@ var LESSONS = {
   armyops: 'Army Operations History',        // Introduction to Army Operations quiz
   signal: 'Signal Support History',          // Signal Support in Combined Arms Operations quiz (Module 3)
   signaljoint: 'Signal Joint Operations History', // Signal Support in Joint Operations quiz (Module 3)
+  coalition: 'Signal Coalition Operations History', // Signal Support in Coalition Operations quiz (Module 3)
   combined: 'Combined Exam History'          // 30-question exam drawn from the Module 2 lessons; add more lines here for future lessons
 };
 // Only for pages from before version 7 that send no total: their attempt length was fixed.

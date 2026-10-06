@@ -14,6 +14,7 @@ The whole site is published from this repository with GitHub Pages at https://at
   | Module 2 | Army Operations | `armyops` | `/quiz-hub/army-operations/` |
   | Module 3 | Signal Support in Combined Arms Operations | `signal` | `/quiz-hub/signal-support/` |
   | Module 3 | Signal Support in Joint Operations | `signaljoint` | `/quiz-hub/joint-signal/` |
+| Module 3 | Signal Support in Coalition Operations | `coalition` | `/quiz-hub/coalition-signal/` |
 
 - **Instructor view** (`/quiz-hub/instructor/`): question analysis.
 - **Our class** (`/quiz-hub/class/`): class organization and roster.

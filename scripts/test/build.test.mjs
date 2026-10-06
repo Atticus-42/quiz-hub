@@ -70,8 +70,8 @@ export async function buildSuite({ lessons, modules }) {
   });
 
   await T('every lesson folder loads: unique keys, slugs and qids; modules exist; the combined exam is a pool of the four Module 2 lessons', () => {
-    assert.deepEqual(lessons.map(lesson => lesson.key), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops', 'signal', 'signaljoint']);
-    assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined', 'isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal']);
+    assert.deepEqual(lessons.map(lesson => lesson.key), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops', 'signal', 'signaljoint', 'coalition']);
+    assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined', 'isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal', 'coalition-signal']);
     assert.deepEqual(modules.map(module => module.id), ['module-2', 'module-3']);
     const combined = lessons.find(lesson => lesson.key === 'combined');
     assert.deepEqual(combined.pool, { lessons: ['isr', 'armor', 'fieldartillery', 'armyops'], count: 60 });
@@ -85,7 +85,7 @@ export async function buildSuite({ lessons, modules }) {
     const pages = build({ write: false });
     const expectedPages = ['index.html', 'class/index.html', 'schedule/index.html', 'instructor/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
     assert.deepEqual(Object.keys(pages).sort(), expectedPages.sort());
-    for (const slug of ['isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal', 'combined']) assert.ok(expectedPages.includes(`${slug}/index.html`), slug);
+    for (const slug of ['isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal', 'coalition-signal', 'combined']) assert.ok(expectedPages.includes(`${slug}/index.html`), slug);
     for (const [path, html] of Object.entries(pages)) {
       assert.equal(readFileSync(join(ROOT, path), 'utf8'), html, `${path} is stale: run node scripts/build.mjs`);
       if (path === 'class/index.html' || path === 'schedule/index.html') assert.ok(!html.includes('HISTORY_ENDPOINT') && !html.includes('script.google.com'), `${path} never contacts the history endpoint`);
@@ -173,7 +173,7 @@ export async function buildSuite({ lessons, modules }) {
       const panel = hub.match(/<section class="exam-panel" id="module-3"[\s\S]*?<\/section>/)[0];
       assert.ok(panel.indexOf('id="card-signal"') < panel.indexOf('id="card-signaljoint"'), 'second Module 3 lesson after Signal Support');
       assert.match(panel, /<a class="start-link" href="joint-signal\/">/);
-      assert.match(hub, /2 lessons<\/span>/);
+      assert.match(hub, /3 lessons<\/span>/);
       assert.match(readFileSync(join(fixture, 'instructor', 'index.html'), 'utf8'), /signaljoint:hard:signaljoint-h-04/);
       assert.match(readFileSync(join(ROOT, 'apps-script', 'Code.gs'), 'utf8'), /signaljoint: 'Signal Joint Operations History'/, 'the sheet already knows the lesson');
     } finally {
