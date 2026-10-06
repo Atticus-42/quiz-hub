@@ -117,7 +117,7 @@ function richMessages(data, date, title) {
 
 const withinAutomaticWindow = now => new Intl.DateTimeFormat('en-GB', {
   timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
-}).format(now) === '21:00';
+}).format(now) === '19:00';
 
 export async function postTomorrow({ now = new Date(), scheduled = false, sendClock = () => new Date(), date: requestedDate, data = loadSchedule(), token, chatId, topicId,
   statePath = join(ROOT, '.telegram-state', 'sent.json'), fetchFn = fetch } = {}) {
@@ -198,7 +198,7 @@ async function main() {
     scheduled: process.env.GITHUB_EVENT_NAME === 'schedule',
     ...(date ? { statePath: join(ROOT, '.telegram-state', `manual-${date}.json`) } : {}),
     chatId: process.env.TELEGRAM_CHAT_ID, topicId: process.env.TELEGRAM_TOPIC_ID });
-  console.log(result.reason === 'outside-window' ? 'Skipped automatic delivery outside 21:00–21:00:59 Asia/Manila; no late catch-up post.' :
+  console.log(result.reason === 'outside-window' ? 'Skipped automatic delivery outside 19:00–19:00:59 Asia/Manila; no late catch-up post.' :
     result.skipped ? `Schedule for ${result.date} was already sent.` : `Schedule for ${result.date} sent (${result.messages} message(s)).`);
 }
 if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) {

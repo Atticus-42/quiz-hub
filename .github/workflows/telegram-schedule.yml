@@ -2,8 +2,8 @@ name: Tomorrow's schedule to Telegram
 
 on:
   schedule:
-    # 13:00 UTC is 21:00 Philippine time (Asia/Manila).
-    - cron: '0 13 * * *'
+    # 11:00 UTC is 19:00 Philippine time (Asia/Manila).
+    - cron: '0 11 * * *'
   workflow_dispatch:
     inputs:
       preview_only:

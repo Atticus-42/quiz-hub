@@ -112,7 +112,7 @@ Then run `assign-qids`, build and verify. See `lessons/_template/README.md`. The
 
 ## Updating the weekly schedule
 
-The daily Telegram sender targets 21:00 Philippine time with tomorrow's activities. See [TELEGRAM-SETUP.md](TELEGRAM-SETUP.md) for the one-time bot/group connection, private secrets, preview and timing limitations.
+The daily Telegram sender targets 19:00 Philippine time with tomorrow's activities. See [TELEGRAM-SETUP.md](TELEGRAM-SETUP.md) for the one-time bot/group connection, private secrets, preview and timing limitations.
 
 The schedule page shows whatever `data/schedule.json` holds. Each week:
 
