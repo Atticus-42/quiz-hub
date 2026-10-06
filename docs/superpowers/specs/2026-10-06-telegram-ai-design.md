@@ -1,6 +1,6 @@
 # SOAC52 conversational Telegram bot
 
-Status: proposed design, awaiting written-spec approval. No chat service is activated.
+Status: approved by the owner on 2026-10-06. No chat service is activated.
 
 ## Outcome and approved direction
 
