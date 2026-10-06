@@ -1,7 +1,7 @@
 # Coverage map: Signal Support in Joint Operations (signaljoint)
 
 Item ids (positions in the current banks): E = easy.json, M = medium.json, H = hard.json. (S) = scenario-to-term item, (O) = objective item.
-Totals (after the October 2026 trim to at most 50 per difficulty): easy 50, medium 50, hard 50, giving 150 items; the 40 retired items are listed at the end. Every bank still covers every topic (hard keeps its Operational Environment item).
+Totals (after the October 2026 trim to at most 50 per difficulty): easy 50, medium 50, hard 50, giving 150 items; the 47 retired items are listed at the end. Every bank still covers every topic (hard keeps its Operational Environment item).
 
 Sources: the slide deck (slides 6-70) and the official student handout "Signal Support in Joint Operations - Student Handouts" (18 pages, IAW PAM 6-0102). Where the handout is explicit it is authoritative; slides remain valid where consistent. `sourceSlides` always holds slide numbers (the engine has one reference label per lesson); a handout-only item cites the nearest matching slide, names "Handout p.N" in its explanation and carries the tag `handout`. Handout items added in October 2026 are the items tagged `handout`.
 
@@ -34,7 +34,8 @@ Image-only slides (no text): slide 8 is a joint-operations diagram (Land-PA, Mar
 | Topic / term | Items |
 |---|---|
 | Domains: Maritime-PN (also Air-PAF and Land-PA as options) | E4 (O) |
-| Three signal environments (physical, cyberspace, EMS) | E5 (O), H41 (S) |
+| Three signal environments (physical, cyberspace, EMS) | H41 (S) |
+| EMS: radio waves, satellite links, LOS, BLOS | E5 (S), H41 (S) |
 | Physical environment: terrain, weather, people, equipment | E6 (O) |
 | Cyberspace environment: networks, data, information, protection | M4 (S) |
 
@@ -46,7 +47,8 @@ Image-only slides (no text): slide 8 is a joint-operations diagram (Land-PA, Mar
 | Interoperability definition | E7 (O) |
 | Role 2 Enable effective command and control | M7 (S); E45 (O, timely communication) |
 | Role 3 Facilitate coordination between operating troops and supporting assets (embedded relay operators) | M5 (S) |
-| Role 4 Support the synchronization of joint activities | E11 (S), H11 (S, not achieved) |
+| Role 4 Support the synchronization of joint activities | H11 (S, not achieved) |
+| Another service's operators at the TOC simplify the radio net and give direct contact with supporting assets (Handout p.3) | E9 (O) |
 | Joint planning; supported/supporting roles | M34 (O) |
 | Role 5 Apply communication protection measures (less secure mode; ciphertext, double talk) | M10 (S), H12 (S, neglected), E12 (O), H1 (O, not fully secure) |
 | Vigilance net reserved for emergency and exigent situations (Handout p.4) | E38 (O) |
@@ -64,7 +66,7 @@ Image-only slides (no text): slide 8 is a joint-operations diagram (Land-PA, Mar
 | PANET = Philippine Army Network (secured, managed Army intranet) (Handout p.5) | E42 (O), H45 (O) |
 | VoIP (IP-based telephone services over a data network) (Handout p.5) | M40 (O), H45 (O) |
 | DBTOCS = Deployable Brigade Tactical Operations Center System (extends fixed services to brigades) (Handout p.5) | M37 (S), H45 (O) |
-| Fixed VTC, email and collaboration systems vs commercial VTC (Handout pp.5-6) | E17 explanation |
+| Fixed VTC, email and collaboration systems vs commercial VTC (Handout pp.5-6) | H15 explanation |
 | Voice is the foundation of tactical communication (Handout p.5) | E43 (O) |
 | HF, VHF, UHF radios (Handout p.6) | E44 (O) |
 | CNR = Combat Net Radio (organizes radio communication among stations) (Handout p.6) | M38 (O) |
@@ -74,6 +76,7 @@ Image-only slides (no text): slide 8 is a joint-operations diagram (Land-PA, Mar
 | Frequency category alone does not establish interoperability (Handout p.6) | H46 (S) |
 | Commercial devices: VTC platforms, cellular phones, satellite phones (Handout p.6) | M26 (S), H15 (S) |
 | MCC = Mobile Command Centers (operations center away from a fixed facility); services converge at the operations center (Handout p.6) | E60 (O), M57 (S), M13 explanation |
+| Operations-center systems (information from sensors and communication devices reaches the commander; services converge there) (Handout p.6) | E14 (S) |
 | Fixed communications system (backbone; wired and wireless; voice and data) | E12 (O) |
 | Fixed connection to another service needs approved arrangements and compatible systems | H14 (S) |
 | Tactical communication systems (operating troops; on the move and on the halt) | E13 (S) |
@@ -84,6 +87,7 @@ Image-only slides (no text): slide 8 is a joint-operations diagram (Land-PA, Mar
 | INO purpose: build PANET, restore after a computer emergency, IS development and integration (Handout p.7) | M42 (S), H47 (O) |
 | DCO purpose: defend PANET, respond to cyber incidents (Handout p.7) | H47 (O) |
 | Requirement first, then technology | M9 (O) |
+| Required: signal estimate, signal planning and EMS management | M9 (O) |
 | Five planner questions: who / what / where / work together / protected-sustained-restored | E20, M17, H42 (O) |
 | Practical arrangements (lend equipment, embed Army operators, embed other-service operators at TOC) | H2 (O) |
 | Effectiveness depends on compatible equipment, trained operators, coordinated procedures, protection | M11 (O) |
@@ -97,10 +101,12 @@ Image-only slides (no text): slide 8 is a joint-operations diagram (Land-PA, Mar
 | Interoperable requires compatibility and standardization (Handout p.8) | M44 (O) |
 | Redundant in joint ops: no single device, link or network (Handout p.9) | M45 (O) |
 | Scalable phases: home station, en route, deployed (Handout p.9) | E46 (O) |
-| Interoperable (within Army and with other services; a working link is needed) | M12 (S), H7 (S) |
+| Interoperable (within Army and with other services; a working link is needed) | H7 (S) |
+| Operations focused in joint ops: who must communicate, when, how long (Handout p.8) | H4 (S) |
+| Scalable in joint ops: more forces, new HQ, changing locations, more information (Handout p.9) | M12 (O) |
 | Redundant (multiple paths, backups, self-healing, data replication; usable backup) | M21 (O), E22 (S), H5 (S, compromised) |
 | Scalable | E23 (S), H6 (S, compromised) |
-| Secured | E24 (S), H4 (S, compromised), H8 (S) |
+| Secured | H7 (S), H9 (O) |
 | Summary phrases (serve, connect, survive, adapt, protect) | H8 (O) |
 | Question to ask per principle | H9 (O) |
 
@@ -133,7 +139,8 @@ Image-only slides (no text): slide 8 is a joint-operations diagram (Land-PA, Mar
 | Step 1 Signal estimate; METAL guides it | H21 (S) |
 | METAL factors: Mission, Enemy, Troops, Area of Operations, Logistics (Handout p.13 table) | H48 (O) |
 | Estimate revised when the situation changes (Handout p.13) | M48 (O) |
-| Step 2 Communication requirements; sources incl. CEOI and CESI; who, what, when | M22 (S), M20 (O), M21 (O) |
+| Step 2 Communication requirements; sources incl. CEOI and CESI; who, what, when | M22 (S), M20 (O) |
+| Coordination requirement: command relationships (Handout p.15) | M21 (S) |
 | Align requirements with supported/supporting relationships assigned by the JFC (Handout p.14) | M49 (O) |
 | Step 3 Available resources (equipment, personnel, funds) | M23 (S), H3 (O) |
 | Step 4 Establish priorities | H22 (S) |
@@ -174,8 +181,8 @@ Acronyms the handout expands (BONTEX, PANET, VoIP, DBTOCS, ROIP, CNR, MCC, C4S, 
 
 Owner rule: at most 50 questions per difficulty, with every topic/term covered by the union of the three difficulties. Only questions whose terms (tags, topics and the rows above) were still covered by another question were removed. Their qids are retired and never reused (see `retired.json`).
 
-- Easy: signaljoint-e-01, signaljoint-e-08, signaljoint-e-12, signaljoint-e-22, signaljoint-e-23, signaljoint-e-24, signaljoint-e-25, signaljoint-e-26, signaljoint-e-35, signaljoint-e-36, signaljoint-e-41, signaljoint-e-46, signaljoint-e-47, signaljoint-e-56, signaljoint-e-58, signaljoint-e-63
-- Medium: signaljoint-m-04, signaljoint-m-07, signaljoint-m-10, signaljoint-m-12, signaljoint-m-13, signaljoint-m-14, signaljoint-m-16, signaljoint-m-20, signaljoint-m-21, signaljoint-m-26, signaljoint-m-42, signaljoint-m-46, signaljoint-m-47, signaljoint-m-50, signaljoint-m-52, signaljoint-m-57, signaljoint-m-59, signaljoint-m-61, signaljoint-m-64, signaljoint-m-69, signaljoint-m-70
-- Hard: signaljoint-h-05, signaljoint-h-22, signaljoint-h-42
+- Easy: signaljoint-e-01, signaljoint-e-08, signaljoint-e-12, signaljoint-e-22, signaljoint-e-23, signaljoint-e-24, signaljoint-e-25, signaljoint-e-26, signaljoint-e-35, signaljoint-e-36, signaljoint-e-41, signaljoint-e-46, signaljoint-e-47, signaljoint-e-56, signaljoint-e-58, signaljoint-e-63, signaljoint-e-06, signaljoint-e-11, signaljoint-e-17
+- Medium: signaljoint-m-04, signaljoint-m-07, signaljoint-m-10, signaljoint-m-12, signaljoint-m-13, signaljoint-m-14, signaljoint-m-16, signaljoint-m-20, signaljoint-m-21, signaljoint-m-26, signaljoint-m-42, signaljoint-m-46, signaljoint-m-47, signaljoint-m-50, signaljoint-m-52, signaljoint-m-57, signaljoint-m-59, signaljoint-m-61, signaljoint-m-64, signaljoint-m-69, signaljoint-m-70, signaljoint-m-15, signaljoint-m-19, signaljoint-m-31
+- Hard: signaljoint-h-05, signaljoint-h-22, signaljoint-h-42, signaljoint-h-04
 
-Rows whose only question was retired (the topic is still covered at tag level by other questions, so no tag, topic or page lost its coverage): EMS (radio waves, satellite links, LOS, BLOS); operations-center systems (information from sensors/devices reaches the commander); signal estimate, signal planning and EMS management; another service's operators at the TOC (Handout p.3); operations focused in joint ops (Handout p.8); scalable in joint ops (Handout p.9); coordination requirement: command relationships (Handout p.15).
+Re-covered (October 2026 follow-up): the seven rows that had lost their only question (EMS; operations-center systems; signal estimate, signal planning and EMS management; another service's operators at the TOC; operations focused in joint ops; scalable in joint ops; coordination requirement: command relationships) each have a new question again. Each replaced a question in the same category whose terms were covered elsewhere, so every bank is still 50 and no other row lost coverage: E5 (EMS) replaced the "three environments" item (H41 still covers it), E14 (operations-center systems) replaced the second special purpose item (H15 still covers it), E9 (TOC operators) replaced the synchronization scenario (H11 still covers it), M9 (the requirement-first item now also asks for the three required activities), M12 (scalable changes) replaced the interoperable scenario (H7 still covers it), M21 (command relationships) replaced the "who, what, when" objective item (M22 still covers it) and H4 (operations focused: who, when, how long) replaced the secured-compromised scenario (H7 and H9 still cover Secured). Their old qids are retired in the lists above; the new items are signaljoint-e-67, e-68, e-69, m-72, m-73, m-74 and h-54.

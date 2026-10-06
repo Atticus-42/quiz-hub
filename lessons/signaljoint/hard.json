@@ -67,24 +67,25 @@
   },
   {
     "id": 4,
-    "qid": "signaljoint-h-04",
+    "qid": "signaljoint-h-54",
     "difficulty": "hard",
     "category": "Principles of Signal Support",
     "tags": [
-      "secured",
-      "compromised"
+      "operations focused",
+      "joint planning",
+      "handout"
     ],
-    "prompt": "During a joint exercise in Zambales, the Army-Navy link works perfectly, both sides use compatible radios, and the link stays up the whole time. However, sensitive orders are passed over a convenient connection that does not meet the applicable security requirements. Which principle of signal support was compromised?",
+    "prompt": "Planning communication for a joint task force, an S6 lists which service owns the newest radios and how many sets each can provide, but never asks who must communicate, when they need contact, or how long the operation will last. Which principle of signal support has he neglected, and what does it tell planners to consider?",
     "options": [
-      "Secured",
-      "Interoperable",
-      "Operations focused",
-      "Redundant"
+      "Operations focused - plan around who must communicate, when contact is needed and how long the operation lasts",
+      "Scalable - plan for additional forces, new headquarters, changing locations and more information",
+      "Interoperable - plan for compatibility and standardization among communication systems",
+      "Redundant - plan so that no single device, link or network can stop the communication"
     ],
     "answer": 0,
-    "explanation": "Slide 32: a convenient or interoperable system still needs appropriate protection; assess both the ability to communicate and the protection of the information exchanged. Interoperability and continuity were achieved, so the failure is in Secured.",
+    "explanation": "Handout p.8: for joint operations, plan communication around what the participating forces need to accomplish - who must communicate, when they need contact, and how long the operation will last. Scalable (p.9) covers additional forces and new headquarters, Interoperable covers compatibility and standardization, and Redundant covers avoiding a single device, link or network.",
     "sourceSlides": [
-      32
+      28
     ]
   },
   {

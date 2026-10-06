@@ -177,21 +177,23 @@
   },
   {
     "id": 9,
-    "qid": "signaljoint-m-15",
+    "qid": "signaljoint-m-72",
     "difficulty": "medium",
     "category": "Systems and Technologies",
     "tags": [
-      "requirement before technology"
+      "requirement before technology",
+      "signal estimate",
+      "spectrum management"
     ],
-    "prompt": "When determining which systems to use in joint operations, where does the lesson say the planner should begin?",
+    "prompt": "According to the lesson, how should the planner determine which systems to use in joint operations, and which three activities are required?",
     "options": [
-      "With the newest technology, then fit the requirement",
-      "With each service's own equipment, then assign tasks",
-      "With the security policy, then decide who communicates",
-      "With the requirement, then select the technology"
+      "Start with the requirement, then pick the technology, requiring connecting, sustaining and recovering plans for every service link.",
+      "Start with the newest technology, then fit the requirement, requiring a signal estimate, signal planning and spectrum management.",
+      "Start with each service's own equipment, then assign tasks, requiring network access control, endpoint security and event management.",
+      "Start with the requirement, then pick the technology, requiring a signal estimate, signal planning and electromagnetic spectrum management."
     ],
     "answer": 3,
-    "explanation": "Slide 24: we begin with the requirement, then select the technology.",
+    "explanation": "Slide 24 and Handout p.7: we begin with the requirement, then select the technology; require a signal estimate, signal planning and electromagnetic spectrum management, emphasizing communication interoperability among the major services.",
     "sourceSlides": [
       24
     ]
@@ -241,24 +243,25 @@
   },
   {
     "id": 12,
-    "qid": "signaljoint-m-19",
+    "qid": "signaljoint-m-73",
     "difficulty": "medium",
     "category": "Principles of Signal Support",
     "tags": [
-      "interoperable",
-      "working link"
+      "scalable",
+      "joint operations",
+      "handout"
     ],
-    "prompt": "An Army tactical operations center and the supporting Air Force assets both have serviceable radios, but no working link exists between them. The S6 arranges to lend equipment and embed radio operators so that the two can communicate. Which principle of signal support is being applied?",
+    "prompt": "Under the Scalable principle, which changes must communication support accommodate in joint operations?",
     "options": [
-      "Redundant",
-      "Scalable",
-      "Interoperable",
-      "Secured"
+      "Jamming, interception, cyberattacks, and compromised frequencies that appear during the operation",
+      "Island separation, mountains, dense vegetation, urban structures, and typhoon damage to assets",
+      "Additional forces, new headquarters, changing locations, and increased information requirements",
+      "Equipment availability, personnel shortages, existing commitments, and limited funds on hand"
     ],
     "answer": 2,
-    "explanation": "Slide 29: Interoperable; owning radios is insufficient, the participating services must establish a working communication link, and lending equipment or embedding radio operators are possible arrangements.",
+    "explanation": "Handout p.9: communication support must accommodate additional forces, new headquarters, changing locations and increased information requirements. The distractors are recovery threats (step 5), terrain challenges (tactical considerations) and resource checks (step 3).",
     "sourceSlides": [
-      29
+      31
     ]
   },
   {
@@ -436,24 +439,24 @@
   },
   {
     "id": 21,
-    "qid": "signaljoint-m-31",
+    "qid": "signaljoint-m-74",
     "difficulty": "medium",
     "category": "Planning and Coordination",
     "tags": [
-      "communication requirements",
-      "lesson"
+      "command relationships",
+      "coordination requirements",
+      "handout"
     ],
-    "prompt": "When determining communication requirements, what must the planner identify according to the lesson?",
+    "prompt": "At a coordination conference, the S6 and his Navy and Air Force counterparts agree which headquarters directs the operation and which components support each task. Which coordination requirement of the tentative signal plan are they settling?",
     "options": [
-      "Which frequencies the enemy is jamming, and how to change them",
-      "Who must communicate with whom, what they must exchange, and when the connection is required",
-      "Which commercial devices are available, and who owns each of them",
-      "Who installs, operates, maintains, and restores each link"
+      "Communication links",
+      "Command relationships",
+      "Security and recovery",
+      "Interoperability"
     ],
     "answer": 1,
-    "explanation": "Slide 51 lesson: identify who must communicate with whom, what information they must exchange, and when the connection is required. Who installs, operates, maintains and restores each link is agreed later as Responsibilities (slide 56).",
+    "explanation": "Slide 56 and Handout p.15: command relationships - which headquarters directs the operation and which components support each task. Communication links are the units and headquarters that require connections; security and recovery is the protection measures and actions during disruption; interoperability is compatible equipment, configurations, procedures and operator arrangements.",
     "sourceSlides": [
-      51,
       56
     ]
   },

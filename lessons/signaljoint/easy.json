@@ -89,21 +89,22 @@
   },
   {
     "id": 5,
-    "qid": "signaljoint-e-06",
+    "qid": "signaljoint-e-67",
     "difficulty": "easy",
     "category": "Operational Environment",
     "tags": [
-      "signal operational environments"
+      "electromagnetic spectrum",
+      "radio waves and satellite links"
     ],
-    "prompt": "Which three signal operational environments are shown in the lesson's joint operational environment illustration?",
+    "prompt": "A joint headquarters depends on radio waves and satellite links, and its S6 must plan for both line-of-sight and beyond line-of-sight connections between the services. Which signal operational environment, as shown in the lesson's illustration, is the S6 working in?",
     "options": [
-      "Land, maritime, and air domains of the three services",
-      "Physical, cyberspace, and electromagnetic spectrum",
-      "Connect, sustain, and recover",
-      "Fixed, tactical, and special purpose"
+      "Physical environment, with its terrain and weather",
+      "Electromagnetic spectrum",
+      "Cyberspace environment, with its networks and data",
+      "Maritime domain of the Philippine Navy"
     ],
     "answer": 1,
-    "explanation": "Slide 8 shows the physical environment, the cyberspace environment and the electromagnetic spectrum. Land, maritime and air are the service domains; Connect-Sustain-Recover is the framework at the bottom of the slide.",
+    "explanation": "Slide 8 labels the electromagnetic spectrum with radio waves, satellite links, line-of-sight and beyond line-of-sight. The physical environment is terrain, weather, people and equipment; cyberspace is networks, data, information and protection; the maritime domain is a service domain, not a signal environment.",
     "sourceSlides": [
       8
     ]
@@ -178,23 +179,25 @@
   },
   {
     "id": 9,
-    "qid": "signaljoint-e-11",
+    "qid": "signaljoint-e-68",
     "difficulty": "easy",
     "category": "Roles of Signal Support",
     "tags": [
-      "synchronization of joint activities"
+      "command and control",
+      "embedded operators",
+      "handout"
     ],
-    "prompt": "For an island operation, the Navy transports the troops, the Air Force provides its assigned air support, and the Army conducts the land tasks. The services exchange readiness reports and coordinate changes so that each contribution occurs at the right time. Which role of signal support is being applied?",
+    "prompt": "According to the handout, what does embedding another service's radio operators at the tactical operations center closest to the operating units and decision-makers achieve?",
     "options": [
-      "Connect the participating services",
-      "Support the synchronization of joint activities",
-      "Apply communication protection measures",
-      "Enable effective command and control"
+      "It removes the need for compatible equipment and for any agreed procedures.",
+      "It simplifies the radio net and gives the commander direct contact with supporting assets.",
+      "It makes the vigilance net fully secure without ciphertext or double talk.",
+      "It relays information between Army troops ashore and a naval element."
     ],
     "answer": 1,
-    "explanation": "Slide 14 uses exactly this example for supporting the synchronization of joint activities: each service's contribution must occur at the appropriate time and support the common mission.",
+    "explanation": "Handout p.3 (role 2, enable effective command and control): embedding radio operators from another service at the tactical operations center simplifies the operational radio net and gives the combat commander direct contact with supporting assets, for example an Air Force radio operator at an Army tactical operations center. Relaying from alongside a naval element is role 3 (slide 13).",
     "sourceSlides": [
-      14
+      12
     ]
   },
   {
@@ -287,23 +290,24 @@
   },
   {
     "id": 14,
-    "qid": "signaljoint-e-17",
+    "qid": "signaljoint-e-69",
     "difficulty": "easy",
     "category": "Systems and Technologies",
     "tags": [
-      "special purpose communication systems"
+      "operations-center systems",
+      "sensors and communication devices"
     ],
-    "prompt": "Brigade staff offices hold a routine administrative meeting on an authorized commercial video-conferencing platform to supplement their military systems. Which category of signal support system is being used?",
+    "prompt": "A tactical operations center receives Army reports and coordinates with supporting air and naval elements through established communication links, so the commander can see the information from sensors and communication devices in one place. Which of the lesson's signal support systems is being described?",
     "options": [
       "Fixed communications system",
-      "Special purpose communication systems",
+      "Operations-center systems",
       "Tactical communication systems",
       "Network support and cyber protection"
     ],
     "answer": 1,
-    "explanation": "Slide 21: special purpose communication systems are commercial devices used to augment fixed and tactical communications, particularly for routine or administrative communication; a commercial video-conferencing platform for an authorized administrative meeting is the slide's example. The Army's own video teleconferencing belongs to the fixed backbone (Handout p.5); a commercial platform used to augment the military systems is special purpose (Handout p.6).",
+    "explanation": "Slide 22 and Handout p.6: operations-center systems bring information to the commander; the operations center is the facility where information from sensors and communication devices becomes available to the commander, and signal support services converge there.",
     "sourceSlides": [
-      21
+      22
     ]
   },
   {

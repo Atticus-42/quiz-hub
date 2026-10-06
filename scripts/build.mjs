@@ -741,6 +741,7 @@ export const SCHEDULE_QUIZ_MATCH = {
   armyops: /\bArmy Operations\b/i,
   signal: /\bSignal Support in Combined Arms Operations\b/i,
   signaljoint: /\bSignal Support in Joint Operations\b/i,
+  coalition: /\bCoalition Operations\b/i,
 };
 const DATE_PATTERN = /^(\d{4})-(\d{2})-(\d{2})$/;
 const TIME_PATTERN = /^(?:([01]\d|2[0-3])([0-5]\d)(?:-([01]\d|2[0-3])([0-5]\d))?)?$/;

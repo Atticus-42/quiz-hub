@@ -78,7 +78,7 @@ Each bank is a JSON array. Each question looks like this:
   qid (delete its `qid` and run `assign-qids`), so its statistics are not mixed with the old version's. Retired so far:
   `armyops-h-24` (now `armyops-h-26`: unity of command in a joint task force instead of civilians reporting to an
   officer) and `armyops-m-14` (now `armyops-m-26`: the stem described Information Operations, the key is Information).
-  The October 2026 size trim (at most 50 per difficulty, full term coverage across the three modes) removed only questions whose terms another question still covers, and retired their qids, which `assign-qids` never issues again (`lessons/<key>/retired.json`): `signal` 31 (easy 14, medium 17), `signaljoint` 40 (easy 16, medium 21, hard 3) and `coalition` 3 (medium); the lists are in `lessons/signaljoint/coverage.md`, `lessons/coalition/coverage.md` and the `retired.json` files. The `signaljoint` audit against the student handout (October 2026) retired none: every key held, and its fixes
+  The October 2026 size trim (at most 50 per difficulty, full term coverage across the three modes) removed only questions whose terms another question still covers, and retired their qids, which `assign-qids` never issues again (`lessons/<key>/retired.json`): `signal` 31 (easy 14, medium 17), `signaljoint` 47 (easy 19, medium 24, hard 4) and `coalition` 3 (medium); the lists are in `lessons/signaljoint/coverage.md`, `lessons/coalition/coverage.md` and the `retired.json` files. The `signaljoint` audit against the student handout (October 2026) retired none: every key held, and its fixes
   (`signaljoint-e-14`, `-e-17`, `-e-19`, `-e-35`, `-e-37`, `-e-42`, `-m-01`, `-m-13`, `-m-30`) were wording or explanation only.
 - `category` must be one of the lesson's `categoryOrder` topics.
 - `sourceSlides` must fall within `sourceRef` (it is optional for Army Operations).
@@ -127,7 +127,7 @@ The schedule page shows whatever `data/schedule.json` holds. Each week:
    ```
    (the tests check this week's exact contents, so update the expectations at the top of `scripts/test/schedule.test.mjs` for the new week).
 
-The page is public: instructors appear as rank + name (or a duty title) only. Never copy serial numbers, service numbers, phone numbers, e-mail or home addresses, nor the signature block; the build rejects `@`, `+63`, `O-<digits>`, `(SC)` and any run of 5 or more digits. A subject that names a quiz lesson (ISR, Armor, Field Artillery, Army Operations, Signal Support in Combined Arms Operations, Signal Support in Joint Operations) links to that quiz automatically (`SCHEDULE_QUIZ_MATCH` in `scripts/build.mjs`). To preview a given moment, open `schedule/?now=2026-10-05T13:10`.
+The page is public: instructors appear as rank + name (or a duty title) only. Never copy serial numbers, service numbers, phone numbers, e-mail or home addresses, nor the signature block; the build rejects `@`, `+63`, `O-<digits>`, `(SC)` and any run of 5 or more digits. A subject that names a quiz lesson (ISR, Armor, Field Artillery, Army Operations, Signal Support in Combined Arms Operations, Signal Support in Joint Operations, Coalition Operations) links to that quiz automatically (`SCHEDULE_QUIZ_MATCH` in `scripts/build.mjs`). To preview a given moment, open `schedule/?now=2026-10-05T13:10`.
 
 ## Students' features
 

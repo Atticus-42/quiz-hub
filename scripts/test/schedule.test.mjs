@@ -173,7 +173,7 @@ export async function scheduleSuite({ lessons }) {
     assert.match(css, /@media print \{[\s\S]*\.now-next, \.week-nav, \.legend, \.blk-quiz/);
     assert.match(css, /\.blk, \.blk\.is-now \{[^}]*break-inside: avoid;/, 'a block never splits across columns or pages');
     const hrefs = [...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]);
-    assert.deepEqual(hrefs.filter(href => !href.startsWith('#')), ['../', '../class/', '../joint-signal/']);
+    assert.deepEqual(hrefs.filter(href => !href.startsWith('#')), ['../', '../class/', '../joint-signal/', '../coalition-signal/', '../coalition-signal/']);
     assert.doesNotMatch(html, /https?:\/\//);
     const code = appScripts(parseHtml(html)).map(script => script.textContent).join('\n');
     assert.doesNotMatch(code, /innerHTML|outerHTML|insertAdjacentHTML|document\.write|fetch\(|XMLHttpRequest|localStorage|sendBeacon/);
@@ -268,24 +268,27 @@ export async function scheduleSuite({ lessons }) {
     assert.equal(live.document.getElementById('now-next').hidden, false);
   });
 
-  await T('quiz links: a subject that names a quiz lesson links to that quiz; look-alikes (C4ISTAR, Coalition Operations) do not', () => {
+  await T('quiz links: a subject that names a quiz lesson links to that quiz; Coalition Operations links to the coalition quiz; look-alikes (C4ISTAR) do not', () => {
     const doc = load('2026-10-05T08:00').document;
     const links = findAll(doc.getElementById('week'), node => node.localName === 'a');
     assert.deepEqual(links.map(link => [link.getAttribute('href'), link.getAttribute('data-quiz'), titleOf(link.parentNode.parentNode)]), [
       ['../joint-signal/', 'signaljoint', 'Topic exam on Signal Support in Joint Operations'],
+      ['../coalition-signal/', 'coalition', 'Lecture on Signal Support in Coalition Operations'],
+      ['../coalition-signal/', 'coalition', 'Topic exam on Signal Support in Coalition Operations'],
     ]);
     assert.equal(links[0].textContent, 'Practice quiz: Signal Support in Joint Operations →');
     for (const link of links) assert.ok(existsSync(join(ROOT, 'schedule', link.getAttribute('href'), 'index.html')), `${link.getAttribute('href')} is a built quiz page`);
     const expected = {
       'Lecture on ISR Operations': 'isr', 'Topic exam on Armor Operations': 'armor', 'Field Artillery Operations (cont’n)': 'fieldartillery',
       'Introduction to Army Operations': 'armyops', 'Signal Support in Combined Arms Operations': 'signal', 'Topic exam on Signal Support in Joint Operations': 'signaljoint',
+      'Lecture on Signal Support in Coalition Operations': 'coalition', 'Coalition Operations': 'coalition',
     };
     for (const [activity, key] of Object.entries(expected)) {
       const quiz = scheduleQuiz(activity, lessons);
       assert.equal(quiz?.key, key, activity);
       assert.equal(quiz.url, `../${lessons.find(lesson => lesson.key === key).slug}/`);
     }
-    for (const activity of ['Lecture on C4ISTAR Sensors Integration', 'Lecture on Signal Support in Coalition Operations', 'C2 Applications (PA BMS/ATAK)', 'Lecture on Fundamentals of Protection', 'Rock March']) {
+    for (const activity of ['Lecture on C4ISTAR Sensors Integration', 'C2 Applications (PA BMS/ATAK)', 'Lecture on Fundamentals of Protection', 'Rock March']) {
       assert.equal(scheduleQuiz(activity, lessons), null, activity);
     }
   });
