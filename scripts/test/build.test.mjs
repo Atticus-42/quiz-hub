@@ -1,11 +1,11 @@
 // The build: template filling, validators, lesson loading, generated pages, and every question bank.
 import assert from 'node:assert/strict';
 import { spawnSync } from 'node:child_process';
-import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import {
-  ROOT, MODES, HISTORY_ENDPOINT, build, fillTemplate, scriptJson, escapeHtml, validateQuestion, validateBank, poolQuotas, countLabel, attemptLength, checkLessonConfig,
+  ROOT, MODES, HISTORY_ENDPOINT, build, fillTemplate, scriptJson, escapeHtml, validateQuestion, validateBank, poolQuotas, countLabel, attemptLength, checkLessonConfig, questionTerms,
 } from '../build.mjs';
 import { test, normalize } from './harness.mjs';
 
@@ -49,15 +49,15 @@ export async function buildSuite({ lessons, modules }) {
     assert.deepEqual(validateQuestion({ ...question, qid: 'armor-e-1' }, 'easy', 1, rules), ['qid must be "armor-e-" followed by 2 to 4 digits']);
   });
 
-  await T('validateBank: 1 to 500 questions, sequential ids, unique qids; pool banks need every lesson’s largest share', () => {
+  await T('validateBank: 1 to 50 questions, sequential ids, unique qids; pool banks need every lesson’s largest share', () => {
     assert.deepEqual(validateBank([question], 'easy', rules), []);
     assert.deepEqual(validateBank([], 'easy', rules), ['bank must contain at least 1 question']);
     assert.deepEqual(validateBank('x', 'easy', rules), ['bank must be an array of questions']);
     assert.deepEqual(validateBank([question, { ...question, id: 2 }], 'easy', rules), ['question 2: qid armor-e-01 is used more than once']);
     assert.deepEqual(validateBank([question, { ...question, id: 3, qid: 'armor-e-02' }], 'easy', rules), ['question 2: id must be integer 2']);
-    const many = Array.from({ length: 501 }, (_, index) => ({ ...question, id: index + 1, qid: `armor-e-${String(index + 1).padStart(3, '0')}` }));
-    assert.deepEqual(validateBank(many, 'easy', rules), ['bank must contain at most 500 questions (found 501)']);
-    assert.deepEqual(validateBank(many.slice(0, 500), 'easy', rules), []);
+    const many = Array.from({ length: 51 }, (_, index) => ({ ...question, id: index + 1, qid: `armor-e-${String(index + 1).padStart(3, '0')}` }));
+    assert.deepEqual(validateBank(many, 'easy', rules), ['bank must contain at most 50 questions (found 51)']);
+    assert.deepEqual(validateBank(many.slice(0, 50), 'easy', rules), []);
     assert.deepEqual(poolQuotas(60, 4), [15, 15, 15, 15]);
     assert.deepEqual(poolQuotas(30, 5), [6, 6, 6, 6, 6]);
     assert.deepEqual(poolQuotas(10, 3), [4, 3, 3]);
@@ -132,7 +132,7 @@ export async function buildSuite({ lessons, modules }) {
       const result = spawnSync(process.execPath, [join(fixture, 'scripts', 'build.mjs')], { encoding: 'utf8' });
       assert.equal(result.status, 0, result.stderr);
       const html = readFileSync(join(fixture, 'armor', 'index.html'), 'utf8');
-      assert.ok(html.includes(`${attempts[1]} questions per attempt, drawn from ${bank.length}. Compare, diagnose`), 'the medium mode states its attempt length and the new bank size');
+      assert.ok(html.includes(`${attempts[1]} questions per attempt. Compare, diagnose`), 'the medium mode states its attempt length and the new bank size');
       assert.ok(html.includes(`${sizes.reduce((sum, size) => sum + size, 0)} situational questions`), 'the lede states the new total');
       const hub = readFileSync(join(fixture, 'index.html'), 'utf8');
       const low = Math.min(...attempts);
@@ -221,14 +221,48 @@ export async function buildSuite({ lessons, modules }) {
     });
   }
 
-  await T('hub card tags state each lesson’s questions per attempt (a coverage set, at most 30)', () => {
+  await T('every lesson bank has at most 50 questions, and the three modes together cover every tag and topic of the lesson', () => {
+    for (const lesson of lessons.filter(item => !item.pool)) {
+      for (const mode of MODES) assert.ok(lesson.banks[mode].length >= 1 && lesson.banks[mode].length <= 50, `${lesson.key} ${mode} holds ${lesson.banks[mode].length}`);
+      const all = MODES.flatMap(mode => lesson.banks[mode]);
+      const terms = new Set(all.flatMap(question => questionTerms(question)));
+      for (const category of lesson.rules.categoryOrder) {
+        assert.ok(terms.has(category), `${lesson.key}: the union has no ${category} question`);
+        for (const mode of MODES) assert.ok(lesson.banks[mode].some(question => question.category === category), `${lesson.key} ${mode}: no ${category} question`);
+      }
+      // Union coverage: every term is taught by some question of some mode (a tag is never an orphan of a removed question).
+      for (const term of terms) assert.ok(all.some(question => questionTerms(question).includes(term)), `${lesson.key}: ${term}`);
+    }
+  });
+
+  await T('retired qids are never in a bank again; coverage.md rows still point at existing items', () => {
+    for (const lesson of lessons.filter(item => !item.pool)) {
+      const dir = join(ROOT, 'lessons', lesson.key);
+      const retiredPath = join(dir, 'retired.json');
+      if (existsSync(retiredPath)) {
+        const retired = JSON.parse(readFileSync(retiredPath, 'utf8'));
+        const inBanks = new Set(MODES.flatMap(mode => lesson.banks[mode].map(question => question.qid)));
+        for (const qid of retired) assert.ok(!inBanks.has(qid), `${lesson.key}: retired ${qid} is back in a bank`);
+      }
+      const coveragePath = join(dir, 'coverage.md');
+      if (!existsSync(coveragePath)) continue;
+      const letters = { E: 'easy', M: 'medium', H: 'hard' };
+      for (const line of readFileSync(coveragePath, 'utf8').split(/\r?\n/)) {
+        const row = line.match(/^\| (.+?) \| ((?:[EMH]\d+ \([SO]\)(?:, )?)+) \|$/);
+        if (!row) continue;
+        for (const [, letter, number] of row[2].matchAll(/([EMH])(\d+) \([SO]\)/g)) assert.ok(Number(number) >= 1 && Number(number) <= lesson.banks[letters[letter]].length, `${lesson.key} coverage.md: ${letter}${number} is not in the bank (${row[1]})`);
+      }
+    }
+  });
+
+  await T('hub card tags state each lesson’s questions per attempt (the whole bank, at most 50)', () => {
     for (const lesson of lessons) {
       const label = countLabel(lesson);
       if (lesson.pool) assert.equal(label, '60 questions');
       else {
         const counts = MODES.map(mode => lesson.attempts[mode]);
-        counts.forEach((value, index) => assert.equal(value, attemptLength(lesson.banks[MODES[index]]), 'attempt length is the capped greedy cover size'));
-        assert.ok(counts.every(value => value >= 1 && value <= 30));
+        counts.forEach((value, index) => assert.equal(value, attemptLength(lesson.banks[MODES[index]]), 'a lesson attempt is the whole bank'));
+        assert.ok(counts.every((value, index) => value >= 1 && value <= 50 && value === lesson.banks[MODES[index]].length));
         const low = Math.min(...counts);
         const high = Math.max(...counts);
         assert.equal(label, low === high ? `${low} questions per attempt` : `${low}–${high} questions per attempt`);

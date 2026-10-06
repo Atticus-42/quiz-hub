@@ -39,6 +39,7 @@ No login, analytics, cookies, external fonts or scripts. Everything is inline HT
 | `lessons/<key>/hero.svg`, `hero.css` | The lesson's artwork and its animation |
 | `lessons/<key>/{easy,medium,hard}.json` | The question banks |
 | `lessons/<key>/checks.mjs` | Optional lesson-specific tests |
+| `lessons/<key>/retired.json` | Optional: qids removed from the banks; never reissued by `assign-qids` |
 | `lessons/combined/lesson.json` | A *pool* exam: `pool.lessons` and `pool.count`; it has no banks of its own |
 | `data/class.json` | The approved public class data (rank, name, commissioning source, positions only) |
 | `data/schedule.json`, `data/schedules/` | This week's training schedule, and the archive of every week's file |
@@ -76,11 +77,11 @@ Each bank is a JSON array. Each question looks like this:
   qid (delete its `qid` and run `assign-qids`), so its statistics are not mixed with the old version's. Retired so far:
   `armyops-h-24` (now `armyops-h-26`: unity of command in a joint task force instead of civilians reporting to an
   officer) and `armyops-m-14` (now `armyops-m-26`: the stem described Information Operations, the key is Information).
-  The `signaljoint` audit against the student handout (October 2026) retired none: every key held, and its fixes
+  The October 2026 size trim (at most 50 per difficulty, full term coverage across the three modes) removed only questions whose terms another question still covers, and retired their qids, which `assign-qids` never issues again (`lessons/<key>/retired.json`): `signal` 31 (easy 14, medium 17), `signaljoint` 40 (easy 16, medium 21, hard 3) and `coalition` 3 (medium); the lists are in `lessons/signaljoint/coverage.md`, `lessons/coalition/coverage.md` and the `retired.json` files. The `signaljoint` audit against the student handout (October 2026) retired none: every key held, and its fixes
   (`signaljoint-e-14`, `-e-17`, `-e-19`, `-e-35`, `-e-37`, `-e-42`, `-m-01`, `-m-13`, `-m-30`) were wording or explanation only.
 - `category` must be one of the lesson's `categoryOrder` topics.
 - `sourceSlides` must fall within `sourceRef` (it is optional for Army Operations).
-- Banks hold 1–500 questions, all kept. An attempt asks a *coverage set* of the chosen bank, at most 30 questions: a greedy set cover over each question's `tags` and `category` so every distinct term appears at least once (questions unseen on this device first, then previously missed, then others; random tie-breaks), then shuffled. If covering everything needs more than 30, the 30 that add the most new terms are kept and later attempts rotate in the rest, because unseen questions come first. The length is shown on the mode buttons and hub cards (for example "30 questions per attempt, drawn from 66"). Give every question accurate `tags`: they decide what an attempt covers. The pool exam asks `pool.count` questions (60, 15 per lesson; the build rejects a count outside 50-69), split evenly across its lessons, each share chosen the same way.
+- Banks hold 1–50 questions each (owner rule, enforced by the build and the tests). A lesson attempt serves the **whole bank** of the chosen mode (up to 50 questions): questions not yet seen on this device first, then previously missed, then the rest, each group shuffled. Every topic/term of the lesson (tags and `category`) must be covered by the union of its three difficulties, not necessarily by each one; every topic must still appear in each mode. The length is shown on the mode buttons and hub cards (for example "50 questions per attempt"). Give every question accurate `tags`: they decide what the union covers. The pool exam asks `pool.count` questions (60, 15 per lesson; the build rejects a count outside 50-69), split evenly across its lessons, each share a greedy term cover of that lesson's bank (unseen first).
 
 **Appending questions** (for example the course-style questions written in parallel) is a plain append, then a rebuild:
 

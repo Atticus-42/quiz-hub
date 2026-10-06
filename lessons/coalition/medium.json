@@ -77,12 +77,12 @@
     ],
     "prompt": "Handout p.2 asks: if one participating force can communicate internally but cannot exchange the required information with another coalition force, is the Signal problem solved?",
     "options": [
-      "No, because signal support exists to let participating forces exchange the information the mission needs",
+      "Yes, because each force's own network already meets that force's command and control needs fully",
       "Yes, because interoperability applies only among the staffs of one nation's participating forces",
       "No, but only because the forces lack common encryption equipment and common cryptographic keys",
-      "Yes, because each force's own network already meets that force's command and control needs fully"
+      "No, because signal support exists to let participating forces exchange the information the mission needs"
     ],
-    "answer": 0,
+    "answer": 3,
     "explanation": "Handout p.2 and slide 2: signal support must do more than provide a working radio or network; it must enable forces to exchange the information the mission requires.",
     "sourceSlides": [
       2
@@ -498,28 +498,6 @@
   },
   {
     "id": 24,
-    "qid": "coalition-m-24",
-    "difficulty": "medium",
-    "category": "Systems and Technologies",
-    "tags": [
-      "security interoperability",
-      "handout"
-    ],
-    "prompt": "What does security interoperability mean, according to Handout p.3?",
-    "options": [
-      "All participating forces are required to use the same cryptographic equipment and keys",
-      "Security procedures are agreed only after the information has already been shared",
-      "Every participant is entitled to access all of the information that is shared",
-      "Information can be shared while the applicable security requirements are maintained"
-    ],
-    "answer": 3,
-    "explanation": "Handout p.3: security interoperability - information can be shared while maintaining applicable security requirements.",
-    "sourceSlides": [
-      12
-    ]
-  },
-  {
-    "id": 25,
     "qid": "coalition-m-25",
     "difficulty": "medium",
     "category": "Systems and Technologies",
@@ -541,7 +519,7 @@
     ]
   },
   {
-    "id": 26,
+    "id": 25,
     "qid": "coalition-m-26",
     "difficulty": "medium",
     "category": "Systems and Technologies",
@@ -563,7 +541,7 @@
     ]
   },
   {
-    "id": 27,
+    "id": 26,
     "qid": "coalition-m-27",
     "difficulty": "medium",
     "category": "Systems and Technologies",
@@ -585,7 +563,7 @@
     ]
   },
   {
-    "id": 28,
+    "id": 27,
     "qid": "coalition-m-28",
     "difficulty": "medium",
     "category": "Systems and Technologies",
@@ -607,7 +585,7 @@
     ]
   },
   {
-    "id": 29,
+    "id": 28,
     "qid": "coalition-m-29",
     "difficulty": "medium",
     "category": "Systems and Technologies",
@@ -630,7 +608,7 @@
     ]
   },
   {
-    "id": 30,
+    "id": 29,
     "qid": "coalition-m-30",
     "difficulty": "medium",
     "category": "Systems and Technologies",
@@ -652,29 +630,7 @@
     ]
   },
   {
-    "id": 31,
-    "qid": "coalition-m-31",
-    "difficulty": "medium",
-    "category": "Principles of Signal Support",
-    "tags": [
-      "responsive principle",
-      "handout"
-    ],
-    "prompt": "Which principle means that Signal support can adapt as operational conditions and requirements change?",
-    "options": [
-      "Reliable",
-      "Responsive",
-      "Secure",
-      "Continuous"
-    ],
-    "answer": 1,
-    "explanation": "Handout p.3: Responsive - Signal support can adapt as operational conditions and requirements change.",
-    "sourceSlides": [
-      14
-    ]
-  },
-  {
-    "id": 32,
+    "id": 30,
     "qid": "coalition-m-32",
     "difficulty": "medium",
     "category": "Principles of Signal Support",
@@ -696,7 +652,7 @@
     ]
   },
   {
-    "id": 33,
+    "id": 31,
     "qid": "coalition-m-33",
     "difficulty": "medium",
     "category": "Principles of Signal Support",
@@ -718,7 +674,7 @@
     ]
   },
   {
-    "id": 34,
+    "id": 32,
     "qid": "coalition-m-34",
     "difficulty": "medium",
     "category": "Principles of Signal Support",
@@ -740,7 +696,7 @@
     ]
   },
   {
-    "id": 35,
+    "id": 33,
     "qid": "coalition-m-35",
     "difficulty": "medium",
     "category": "Principles of Signal Support",
@@ -762,7 +718,7 @@
     ]
   },
   {
-    "id": 36,
+    "id": 34,
     "qid": "coalition-m-36",
     "difficulty": "medium",
     "category": "Principles of Signal Support",
@@ -784,7 +740,7 @@
     ]
   },
   {
-    "id": 37,
+    "id": 35,
     "qid": "coalition-m-37",
     "difficulty": "medium",
     "category": "Tactical Considerations",
@@ -806,7 +762,7 @@
     ]
   },
   {
-    "id": 38,
+    "id": 36,
     "qid": "coalition-m-38",
     "difficulty": "medium",
     "category": "Tactical Considerations",
@@ -827,7 +783,7 @@
     ]
   },
   {
-    "id": 39,
+    "id": 37,
     "qid": "coalition-m-39",
     "difficulty": "medium",
     "category": "Tactical Considerations",
@@ -848,7 +804,7 @@
     ]
   },
   {
-    "id": 40,
+    "id": 38,
     "qid": "coalition-m-40",
     "difficulty": "medium",
     "category": "Tactical Considerations",
@@ -869,7 +825,7 @@
     ]
   },
   {
-    "id": 41,
+    "id": 39,
     "qid": "coalition-m-41",
     "difficulty": "medium",
     "category": "Tactical Considerations",
@@ -891,7 +847,7 @@
     ]
   },
   {
-    "id": 42,
+    "id": 40,
     "qid": "coalition-m-42",
     "difficulty": "medium",
     "category": "Tactical Considerations",
@@ -913,7 +869,7 @@
     ]
   },
   {
-    "id": 43,
+    "id": 41,
     "qid": "coalition-m-43",
     "difficulty": "medium",
     "category": "Planning and Coordination",
@@ -935,7 +891,7 @@
     ]
   },
   {
-    "id": 44,
+    "id": 42,
     "qid": "coalition-m-44",
     "difficulty": "medium",
     "category": "Planning and Coordination",
@@ -957,7 +913,7 @@
     ]
   },
   {
-    "id": 45,
+    "id": 43,
     "qid": "coalition-m-45",
     "difficulty": "medium",
     "category": "Planning and Coordination",
@@ -979,7 +935,7 @@
     ]
   },
   {
-    "id": 46,
+    "id": 44,
     "qid": "coalition-m-46",
     "difficulty": "medium",
     "category": "Planning and Coordination",
@@ -1001,7 +957,7 @@
     ]
   },
   {
-    "id": 47,
+    "id": 45,
     "qid": "coalition-m-47",
     "difficulty": "medium",
     "category": "Planning and Coordination",
@@ -1023,7 +979,7 @@
     ]
   },
   {
-    "id": 48,
+    "id": 46,
     "qid": "coalition-m-48",
     "difficulty": "medium",
     "category": "Planning and Coordination",
@@ -1045,7 +1001,7 @@
     ]
   },
   {
-    "id": 49,
+    "id": 47,
     "qid": "coalition-m-49",
     "difficulty": "medium",
     "category": "Security Measures and Protocols",
@@ -1066,28 +1022,7 @@
     ]
   },
   {
-    "id": 50,
-    "qid": "coalition-m-50",
-    "difficulty": "medium",
-    "category": "Security Measures and Protocols",
-    "tags": [
-      "security procedures and user discipline"
-    ],
-    "prompt": "A coalition watch officer briefs every operator on the approved security procedures and checks that each one follows them on every shift. Which security consideration is being applied?",
-    "options": [
-      "Incident reporting",
-      "Access control",
-      "Cyber protection",
-      "Security procedures and user discipline"
-    ],
-    "answer": 3,
-    "explanation": "Handout p.5 lists security procedures and user discipline as a security consideration.",
-    "sourceSlides": [
-      14
-    ]
-  },
-  {
-    "id": 51,
+    "id": 48,
     "qid": "coalition-m-51",
     "difficulty": "medium",
     "category": "Security Measures and Protocols",
@@ -1109,7 +1044,7 @@
     ]
   },
   {
-    "id": 52,
+    "id": 49,
     "qid": "coalition-m-52",
     "difficulty": "medium",
     "category": "Security Measures and Protocols",
@@ -1131,7 +1066,7 @@
     ]
   },
   {
-    "id": 53,
+    "id": 50,
     "qid": "coalition-m-53",
     "difficulty": "medium",
     "category": "Security Measures and Protocols",

@@ -19,7 +19,10 @@ for (const key of readdirSync(lessonsDir)) {
     if (!existsSync(path)) continue;
     const bank = JSON.parse(readFileSync(path, 'utf8'));
     const prefix = `${key}-${MODE_LETTERS[mode]}-`;
-    let next = Math.max(0, ...bank.map(item => (typeof item.qid === 'string' && item.qid.startsWith(prefix) ? Number(item.qid.slice(prefix.length)) || 0 : 0))) + 1;
+    // qids listed in lessons/<key>/retired.json were removed from the banks and are never issued again
+    const retiredPath = join(lessonsDir, key, 'retired.json');
+    const retired = existsSync(retiredPath) ? JSON.parse(readFileSync(retiredPath, 'utf8')) : [];
+    let next = Math.max(0, ...[...bank.map(item => item.qid), ...retired].map(qid => (typeof qid === 'string' && qid.startsWith(prefix) ? Number(qid.slice(prefix.length)) || 0 : 0))) + 1;
     let added = 0;
     const out = bank.map((item, index) => {
       const { id, qid, ...rest } = item;

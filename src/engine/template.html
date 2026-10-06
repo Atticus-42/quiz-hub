@@ -832,11 +832,10 @@
     var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
     var MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h' };
     var LETTERS = ['A', 'B', 'C', 'D'];
-    // A lesson bank holds 1 to MAX_BANK_SIZE questions per difficulty (a sanity cap shared with the sheet);
-    // an attempt asks a coverage set of them: at most MAX_ATTEMPT_SIZE questions that between them touch every
-    // term (tag or topic) of the bank (see selectCoverage).
-    var MAX_BANK_SIZE = 500;
-    var MAX_ATTEMPT_SIZE = 30;
+    // A lesson bank holds 1 to MAX_BANK_SIZE (50) questions per difficulty (owner rule) and an attempt serves the
+    // whole bank, unseen-first and shuffled. Only a pool exam draws a coverage set of each lesson (selectCoverage).
+    var MAX_BANK_SIZE = 50;
+    var MAX_ATTEMPT_SIZE = 50;
     // Extra randomised cover runs tried besides the deterministic one; the best run is kept.
     var COVER_RUNS = 8;
     var LESSON_KEY_PATTERN = /^[a-z][a-z0-9]{1,23}$/;
@@ -856,7 +855,7 @@
       if (!config || typeof config !== 'object' || !LESSON_KEY_PATTERN.test(config.key) || typeof config.title !== 'string') return null;
       if (!config.text || typeof config.text !== 'object' || !Array.isArray(config.text.bands) || config.text.bands.length !== 4) return null;
       if (config.pool) {
-        if (!Number.isInteger(config.pool.count) || config.pool.count < 1 || config.pool.count > MAX_BANK_SIZE || config.pool.count < 50 || config.pool.count > 69) return null;
+        if (!Number.isInteger(config.pool.count) || config.pool.count < 50 || config.pool.count > 69) return null;
         if (!Array.isArray(config.pool.lessons) || !config.pool.lessons.length || !config.pool.lessons.every(function (lesson) { return lesson && LESSON_KEY_PATTERN.test(lesson.key) && typeof lesson.name === 'string' && lesson.name.trim(); })) return null;
       } else if (!strings(config.categoryOrder)) {
         return null;
@@ -1050,9 +1049,14 @@
       return flag === 'm' ? 1 : flag === 's' ? 2 : 0;
     }
 
-    // How many questions an attempt asks from `questions`: the size of a deterministic greedy cover of every
-    // term, never more than `limit` (default MAX_ATTEMPT_SIZE) or the bank. Same on every device and attempt.
-    function attemptLength(questions, limit) {
+    // How many questions a lesson attempt asks from `questions`: the whole bank (at most MAX_ATTEMPT_SIZE).
+    function attemptLength(questions) {
+      return Math.min(MAX_ATTEMPT_SIZE, questions.length);
+    }
+
+    // The size of a deterministic greedy cover of every term of `questions`, never more than `limit` (default
+    // MAX_ATTEMPT_SIZE) or the length of the list. Same on every device and attempt.
+    function coverLength(questions, limit) {
       var cap = Math.min(limit || MAX_ATTEMPT_SIZE, questions.length);
       var termLists = Array.prototype.map.call(questions, questionTerms);
       var zeros = termLists.map(function () { return 0; });
@@ -1067,7 +1071,7 @@
     // ties), so the cover is never worse than the deterministic greedy cover. Every random choice uses random().
     function selectCoverage(questions, progress, random, size) {
       var list = Array.prototype.slice.call(questions);
-      var length = Math.min(size === undefined ? attemptLength(list) : size, list.length);
+      var length = Math.min(size === undefined ? coverLength(list) : size, list.length);
       var termLists = list.map(questionTerms);
       var classes = list.map(function (question) { return priorityClass(question, progress); });
       var best = coverRun(list, termLists, classes, list.map(function (_, index) { return index; }), length);
@@ -1083,13 +1087,14 @@
       return chosen;
     }
 
-    // Draws one attempt. A lesson quiz asks a coverage set of its bank, at most MAX_ATTEMPT_SIZE questions.
+    // Draws one attempt. A lesson quiz asks its whole bank (at most 50 questions): unseen first, then missed, then
+    // the rest, shuffled.
     // A pool exam deals its per-lesson shares to the lessons at random and takes each share as a coverage set
     // of that lesson's questions; the picks are then shuffled together. Every draw uses random(), so an
     // injected generator makes it reproducible.
     function sampleQuestions(bank, random, progress) {
       if (typeof random !== 'function') random = Math.random;
-      if (!POOL) return shuffleQuestions(selectCoverage(bank, progress, random), random);
+      if (!POOL) return prioritize(bank, progress, random);
       var quotas = shuffleQuestions(POOL_QUOTAS, random);
       var picked = [];
       POOL.lessons.forEach(function (lesson, index) {
@@ -2437,6 +2442,7 @@
       sampleQuestions: sampleQuestions,
       selectCoverage: selectCoverage,
       attemptLength: attemptLength,
+      coverLength: coverLength,
       questionTerms: questionTerms,
       maxAttemptSize: MAX_ATTEMPT_SIZE,
       poolQuotas: function () { return POOL_QUOTAS.slice(); },

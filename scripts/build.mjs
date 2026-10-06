@@ -19,11 +19,10 @@ export const MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h' };
 // The Google Apps Script web app behind the shared class history (apps-script/Code.gs). The only
 // network address any page contacts; written into every page by the build.
 export const HISTORY_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwTNNYOiebIGo46PzM3fUA9VT6XnS740D72prOPg-0OJ5Kvg4W8LVl-xJEo_gxImxqnmg/exec';
-// A lesson bank holds 1..MAX_BANK_SIZE questions per difficulty (the cap is only a sanity limit shared with the
-// sheet, apps-script/Code.gs MAX_TOTAL). An attempt asks a coverage set of the bank: at most MAX_ATTEMPT_SIZE
-// questions that touch every tag/topic (see attemptLength, which the engine mirrors).
-export const MAX_BANK_SIZE = 500;
-export const MAX_ATTEMPT_SIZE = 30;
+// A lesson bank holds 1..MAX_BANK_SIZE (50) questions per difficulty (owner rule). A lesson attempt serves the whole
+// bank, so MAX_ATTEMPT_SIZE equals the bank cap; a pool exam draws its own count (see POOL_MIN_ATTEMPT).
+export const MAX_BANK_SIZE = 50;
+export const MAX_ATTEMPT_SIZE = 50;
 // A pool (combined) exam asks POOL_MIN_ATTEMPT..POOL_MAX_ATTEMPT questions per attempt (owner rule).
 export const POOL_MIN_ATTEMPT = 50;
 export const POOL_MAX_ATTEMPT = 69;
@@ -38,7 +37,7 @@ const DEFAULT_TEXT = {
   studyWarningBody: 'It cannot replace studying the complete {lessonName} lesson, and repeated attempts are not a substitute for that study.',
   studyConfirm: 'I understand that I must study the complete lesson and not rely only on this mock examination.',
   resultsReminder: 'This score is practice feedback only. Study the complete lesson; do not rely only on this mock examination.',
-  modeDescPrefix: '{attempt} questions per attempt, drawn from {bank}.',
+  modeDescPrefix: '{attempt} questions per attempt.',
   topicNoun: 'Topic',
   topicsHeading: 'Topic analysis',
   topicsCaption: 'Correct answers by primary topic. A topic is a strength at 75% or higher and a gap below 75%; the line on each bar marks 75%.',
@@ -68,8 +67,8 @@ export function questionTerms(question) {
   return terms;
 }
 
-// Questions per attempt from a bank: the size of a deterministic greedy set cover of every term (most new terms
-// first, then bank order), at most MAX_ATTEMPT_SIZE and the bank size. Mirrors attemptLength in the engine.
+// Number of questions in a deterministic greedy set cover of every term (most new terms first, then bank order).
+// Used by the tests and by the pool exam's per-lesson shares; mirrors coverLength in the engine.
 export function coverSize(bank) {
   const lists = bank.map(questionTerms);
   const uncovered = new Set(lists.flat());
@@ -90,8 +89,9 @@ export function coverSize(bank) {
   }
 }
 
+// A lesson attempt serves the whole bank of the mode (at most 50). Mirrors attemptLength in the engine.
 export function attemptLength(bank) {
-  return Math.min(MAX_ATTEMPT_SIZE, bank.length, coverSize(bank));
+  return Math.min(MAX_ATTEMPT_SIZE, bank.length);
 }
 
 export function poolQuotas(count, lessons) {
@@ -205,7 +205,7 @@ export function checkLessonConfig(config, dir) {
   if (!Number.isInteger(config.order)) fail('order must be an integer');
   if (config.pool) {
     if (!Array.isArray(config.pool.lessons) || config.pool.lessons.length < 2) fail('pool.lessons must list at least two lesson keys');
-    if (!Number.isInteger(config.pool.count) || config.pool.count < 1 || config.pool.count > MAX_BANK_SIZE) fail(`pool.count must be an integer from 1 to ${MAX_BANK_SIZE}`);
+    if (!Number.isInteger(config.pool.count)) fail('pool.count must be an integer');
     if (config.pool.count < POOL_MIN_ATTEMPT || config.pool.count > POOL_MAX_ATTEMPT) fail(`pool.count (the attempt length) must be from ${POOL_MIN_ATTEMPT} to ${POOL_MAX_ATTEMPT}`);
     if (typeof config.lede !== 'string') fail('a pool exam needs its own lede');
   } else {
@@ -478,7 +478,7 @@ export function renderQuizPage(template, contours, lesson, { endpoint = HISTORY_
   });
 }
 
-// "30 questions per attempt", or "26–30 questions per attempt" when the difficulties differ.
+// "50 questions per attempt", or "41–50 questions per attempt" when the difficulties differ.
 export function countLabel(lesson) {
   if (lesson.pool) return `${lesson.pool.count} questions`;
   const counts = MODES.map(mode => lesson.attempts[mode]);

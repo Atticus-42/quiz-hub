@@ -1,29 +1,6 @@
 [
   {
     "id": 1,
-    "qid": "signaljoint-e-01",
-    "difficulty": "easy",
-    "category": "Joint Operations Fundamentals",
-    "tags": [
-      "joint operations",
-      "definitions"
-    ],
-    "prompt": "According to the lesson, what are joint operations?",
-    "options": [
-      "Operations of infantry, armor, artillery and engineers working together within the Philippine Army.",
-      "Operations of one AFP service acting alone while the other services remain on standby.",
-      "Operations of two or more AFP services, each working under its own separate commander.",
-      "Operations of two or more AFP services working under a single commander toward a common mission."
-    ],
-    "answer": 3,
-    "explanation": "Slide 6 defines joint operations as military operations involving two or more AFP services working under a single commander to accomplish a common mission. Infantry, armor, artillery and engineers working together is combined arms (slide 7).",
-    "sourceSlides": [
-      6,
-      7
-    ]
-  },
-  {
-    "id": 2,
     "qid": "signaljoint-e-02",
     "difficulty": "easy",
     "category": "Joint Operations Fundamentals",
@@ -45,7 +22,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 2,
     "qid": "signaljoint-e-03",
     "difficulty": "easy",
     "category": "Joint Operations Fundamentals",
@@ -67,7 +44,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 3,
     "qid": "signaljoint-e-04",
     "difficulty": "easy",
     "category": "Joint Operations Fundamentals",
@@ -89,7 +66,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 4,
     "qid": "signaljoint-e-05",
     "difficulty": "easy",
     "category": "Operational Environment",
@@ -111,7 +88,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": 5,
     "qid": "signaljoint-e-06",
     "difficulty": "easy",
     "category": "Operational Environment",
@@ -132,7 +109,7 @@
     ]
   },
   {
-    "id": 7,
+    "id": 6,
     "qid": "signaljoint-e-07",
     "difficulty": "easy",
     "category": "Operational Environment",
@@ -141,41 +118,19 @@
     ],
     "prompt": "In the lesson's illustration, which signal operational environment is described by terrain, weather, people and equipment?",
     "options": [
-      "Physical environment",
-      "Cyberspace environment",
       "Electromagnetic spectrum",
+      "Cyberspace environment",
+      "Physical environment",
       "Maritime domain"
     ],
-    "answer": 0,
+    "answer": 2,
     "explanation": "Slide 8 labels the physical environment with terrain, weather, people and equipment; cyberspace with networks, data, information and protection; and the electromagnetic spectrum with radio waves, satellite links, line-of-sight and beyond line-of-sight.",
     "sourceSlides": [
       8
     ]
   },
   {
-    "id": 8,
-    "qid": "signaljoint-e-08",
-    "difficulty": "easy",
-    "category": "Roles of Signal Support",
-    "tags": [
-      "connect the participating services",
-      "interoperability"
-    ],
-    "prompt": "During a landing on an island off Palawan, Army troops cannot talk to the supporting Navy element because their radios differ. The S6 provides compatible communication equipment so that both elements can coordinate their activities. Which role of signal support is being applied?",
-    "options": [
-      "Enable effective command and control",
-      "Connect the participating services",
-      "Support the synchronization of joint activities",
-      "Apply communication protection measures"
-    ],
-    "answer": 1,
-    "explanation": "Slide 11: connecting the participating services rests on interoperability; the example is Army troops in an island operation given compatible equipment to communicate with a supporting Navy element.",
-    "sourceSlides": [
-      11
-    ]
-  },
-  {
-    "id": 9,
+    "id": 7,
     "qid": "signaljoint-e-09",
     "difficulty": "easy",
     "category": "Roles of Signal Support",
@@ -200,7 +155,7 @@
     ]
   },
   {
-    "id": 10,
+    "id": 8,
     "qid": "signaljoint-e-10",
     "difficulty": "easy",
     "category": "Roles of Signal Support",
@@ -222,7 +177,7 @@
     ]
   },
   {
-    "id": 11,
+    "id": 9,
     "qid": "signaljoint-e-11",
     "difficulty": "easy",
     "category": "Roles of Signal Support",
@@ -243,30 +198,7 @@
     ]
   },
   {
-    "id": 12,
-    "qid": "signaljoint-e-12",
-    "difficulty": "easy",
-    "category": "Roles of Signal Support",
-    "tags": [
-      "communication protection measures",
-      "vigilance net"
-    ],
-    "prompt": "According to the lesson, which measures mitigate the vulnerability of communication that operates in a less secure mode?",
-    "options": [
-      "Data replication and self-healing",
-      "Network access control and SIEM",
-      "Ciphertext and double talk",
-      "Lending equipment and relaying"
-    ],
-    "answer": 2,
-    "explanation": "Slides 15 and 65: communication in a less secure mode (the vigilance net) is susceptible to attack and eavesdropping, and ciphertext and double talk are identified as mitigation measures.",
-    "sourceSlides": [
-      15,
-      65
-    ]
-  },
-  {
-    "id": 13,
+    "id": 10,
     "qid": "signaljoint-e-13",
     "difficulty": "easy",
     "category": "Roles of Signal Support",
@@ -288,7 +220,7 @@
     ]
   },
   {
-    "id": 14,
+    "id": 11,
     "qid": "signaljoint-e-14",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -310,7 +242,7 @@
     ]
   },
   {
-    "id": 15,
+    "id": 12,
     "qid": "signaljoint-e-15",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -320,12 +252,12 @@
     ],
     "prompt": "Which signal support system does the lesson call the communication backbone?",
     "options": [
-      "Fixed communications system",
+      "Operations-center systems",
       "Tactical communication systems",
       "Special purpose communication systems",
-      "Operations-center systems"
+      "Fixed communications system"
     ],
-    "answer": 0,
+    "answer": 3,
     "explanation": "Slides 19 and 25: the fixed communications system is the communication backbone, combining wired and wireless technologies for the Army's voice and data communications.",
     "sourceSlides": [
       19,
@@ -333,7 +265,7 @@
     ]
   },
   {
-    "id": 16,
+    "id": 13,
     "qid": "signaljoint-e-16",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -354,7 +286,7 @@
     ]
   },
   {
-    "id": 17,
+    "id": 14,
     "qid": "signaljoint-e-17",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -375,7 +307,7 @@
     ]
   },
   {
-    "id": 18,
+    "id": 15,
     "qid": "signaljoint-e-18",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -397,7 +329,7 @@
     ]
   },
   {
-    "id": 19,
+    "id": 16,
     "qid": "signaljoint-e-19",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -419,7 +351,7 @@
     ]
   },
   {
-    "id": 20,
+    "id": 17,
     "qid": "signaljoint-e-20",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -441,7 +373,7 @@
     ]
   },
   {
-    "id": 21,
+    "id": 18,
     "qid": "signaljoint-e-21",
     "difficulty": "easy",
     "category": "Principles of Signal Support",
@@ -462,112 +394,7 @@
     ]
   },
   {
-    "id": 22,
-    "qid": "signaljoint-e-22",
-    "difficulty": "easy",
-    "category": "Principles of Signal Support",
-    "tags": [
-      "redundant"
-    ],
-    "prompt": "A joint headquarters in Zamboanga keeps an approved alternative communication link available in case its main connection fails, and its operators have practiced changing over to it. Which principle of signal support is being applied?",
-    "options": [
-      "Redundant",
-      "Scalable",
-      "Interoperable",
-      "Operations focused"
-    ],
-    "answer": 0,
-    "explanation": "Slide 30: redundancy supports continued communication through multiple transmission paths and backups; the slide's example is a joint headquarters with an approved alternative link that operators know how to use.",
-    "sourceSlides": [
-      30
-    ]
-  },
-  {
-    "id": 23,
-    "qid": "signaljoint-e-23",
-    "difficulty": "easy",
-    "category": "Principles of Signal Support",
-    "tags": [
-      "scalable"
-    ],
-    "prompt": "An operation in the Sulu Sea begins with Army and Navy elements only. When Air Force elements join in the second phase, the signal officer adjusts the communication arrangements to include them. Which principle of signal support is being applied?",
-    "options": [
-      "Redundant",
-      "Secured",
-      "Operations focused",
-      "Scalable"
-    ],
-    "answer": 3,
-    "explanation": "Slide 31: scalable signal support expands its services according to the situation; the example is adjusting arrangements when Air Force elements join an Army-Navy operation.",
-    "sourceSlides": [
-      31
-    ]
-  },
-  {
-    "id": 24,
-    "qid": "signaljoint-e-24",
-    "difficulty": "easy",
-    "category": "Principles of Signal Support",
-    "tags": [
-      "secured"
-    ],
-    "prompt": "Army and Navy systems in a joint task force are already compatible, but before linking them the S6 confirms that the connection meets the applicable security requirements. Which principle of signal support is being applied?",
-    "options": [
-      "Secured",
-      "Interoperable",
-      "Scalable",
-      "Redundant"
-    ],
-    "answer": 0,
-    "explanation": "Slide 32: security remains a guiding principle regardless of technology or service; connections between services must follow applicable security requirements, and an interoperable system still needs appropriate protection.",
-    "sourceSlides": [
-      32
-    ]
-  },
-  {
-    "id": 25,
-    "qid": "signaljoint-e-25",
-    "difficulty": "easy",
-    "category": "Principles of Signal Support",
-    "tags": [
-      "operations focused"
-    ],
-    "prompt": "Before choosing any equipment, a brigade S6 starts from what the commander must achieve and makes sure the equipment, power and operators needed will be available throughout the task, so that communication never limits the mission. Which principle of signal support is being applied?",
-    "options": [
-      "Scalable",
-      "Operations focused",
-      "Redundant",
-      "Interoperable"
-    ],
-    "answer": 1,
-    "explanation": "Slide 28: signal support should never become the factor that limits the commander's ability to execute the mission; start with the operational requirement when choosing equipment.",
-    "sourceSlides": [
-      28
-    ]
-  },
-  {
-    "id": 26,
-    "qid": "signaljoint-e-26",
-    "difficulty": "easy",
-    "category": "Principles of Signal Support",
-    "tags": [
-      "interoperable"
-    ],
-    "prompt": "Under the Interoperable principle, Army units must be able to communicate with whom?",
-    "options": [
-      "Only with their own higher Army headquarters",
-      "Only with units of the same branch",
-      "Only with the joint headquarters",
-      "Within the Army and with the other major services"
-    ],
-    "answer": 3,
-    "explanation": "Slide 29: Army units must be able to communicate within the Army and with other major services.",
-    "sourceSlides": [
-      29
-    ]
-  },
-  {
-    "id": 27,
+    "id": 19,
     "qid": "signaljoint-e-27",
     "difficulty": "easy",
     "category": "Tactical Considerations",
@@ -592,7 +419,7 @@
     ]
   },
   {
-    "id": 28,
+    "id": 20,
     "qid": "signaljoint-e-28",
     "difficulty": "easy",
     "category": "Tactical Considerations",
@@ -614,7 +441,7 @@
     ]
   },
   {
-    "id": 29,
+    "id": 21,
     "qid": "signaljoint-e-29",
     "difficulty": "easy",
     "category": "Tactical Considerations",
@@ -636,7 +463,7 @@
     ]
   },
   {
-    "id": 30,
+    "id": 22,
     "qid": "signaljoint-e-30",
     "difficulty": "easy",
     "category": "Tactical Considerations",
@@ -657,7 +484,7 @@
     ]
   },
   {
-    "id": 31,
+    "id": 23,
     "qid": "signaljoint-e-31",
     "difficulty": "easy",
     "category": "Tactical Considerations",
@@ -678,7 +505,7 @@
     ]
   },
   {
-    "id": 32,
+    "id": 24,
     "qid": "signaljoint-e-32",
     "difficulty": "easy",
     "category": "Tactical Considerations",
@@ -700,7 +527,7 @@
     ]
   },
   {
-    "id": 33,
+    "id": 25,
     "qid": "signaljoint-e-33",
     "difficulty": "easy",
     "category": "Tactical Considerations",
@@ -722,7 +549,7 @@
     ]
   },
   {
-    "id": 34,
+    "id": 26,
     "qid": "signaljoint-e-34",
     "difficulty": "easy",
     "category": "Planning and Coordination",
@@ -744,50 +571,7 @@
     ]
   },
   {
-    "id": 35,
-    "qid": "signaljoint-e-35",
-    "difficulty": "easy",
-    "category": "Planning and Coordination",
-    "tags": [
-      "signal estimate",
-      "METAL"
-    ],
-    "prompt": "According to the lesson, what is used to guide the Signal Estimate?",
-    "options": [
-      "CSR framework",
-      "PACE plan",
-      "METAL",
-      "C4S annex"
-    ],
-    "answer": 2,
-    "explanation": "Slide 50: determine the situation before selecting communication systems, and use METAL to guide the Signal Estimate. Handout p.13 lists its factors: Mission, Enemy, Troops, Area of Operations and Logistics.",
-    "sourceSlides": [
-      50
-    ]
-  },
-  {
-    "id": 36,
-    "qid": "signaljoint-e-36",
-    "difficulty": "easy",
-    "category": "Planning and Coordination",
-    "tags": [
-      "available resources"
-    ],
-    "prompt": "When determining available resources, which three resources does the lesson's table tell the planner to check?",
-    "options": [
-      "Equipment, frequencies, and terrain",
-      "Personnel, weather, and time",
-      "Links, priorities, and reports",
-      "Equipment, personnel, and funds"
-    ],
-    "answer": 3,
-    "explanation": "Slide 52's table lists Equipment, Personnel and Funds, with what to check for each; plan around resources that can actually be provided and sustained.",
-    "sourceSlides": [
-      52
-    ]
-  },
-  {
-    "id": 37,
+    "id": 27,
     "qid": "signaljoint-e-37",
     "difficulty": "easy",
     "category": "Planning and Coordination",
@@ -809,7 +593,7 @@
     ]
   },
   {
-    "id": 38,
+    "id": 28,
     "qid": "signaljoint-e-38",
     "difficulty": "easy",
     "category": "Security Measures and Protocols",
@@ -831,7 +615,7 @@
     ]
   },
   {
-    "id": 39,
+    "id": 29,
     "qid": "signaljoint-e-39",
     "difficulty": "easy",
     "category": "Security Measures and Protocols",
@@ -854,7 +638,7 @@
     ]
   },
   {
-    "id": 40,
+    "id": 30,
     "qid": "signaljoint-e-40",
     "difficulty": "easy",
     "category": "Security Measures and Protocols",
@@ -875,29 +659,7 @@
     ]
   },
   {
-    "id": 41,
-    "qid": "signaljoint-e-41",
-    "difficulty": "easy",
-    "category": "Security Measures and Protocols",
-    "tags": [
-      "acronyms",
-      "NAC"
-    ],
-    "prompt": "What does NAC stand for among the lesson's security technologies?",
-    "options": [
-      "Network Activity Center",
-      "Node Access Control",
-      "Network Access Control",
-      "Network Authentication Code"
-    ],
-    "answer": 2,
-    "explanation": "Slide 66: Network Access Control (NAC) enforces policies governing access by users and devices.",
-    "sourceSlides": [
-      66
-    ]
-  },
-  {
-    "id": 42,
+    "id": 31,
     "qid": "signaljoint-e-42",
     "difficulty": "easy",
     "category": "Security Measures and Protocols",
@@ -919,7 +681,7 @@
     ]
   },
   {
-    "id": 43,
+    "id": 32,
     "qid": "signaljoint-e-43",
     "difficulty": "easy",
     "category": "Security Measures and Protocols",
@@ -941,7 +703,7 @@
     ]
   },
   {
-    "id": 44,
+    "id": 33,
     "qid": "signaljoint-e-44",
     "difficulty": "easy",
     "category": "Security Measures and Protocols",
@@ -962,7 +724,7 @@
     ]
   },
   {
-    "id": 45,
+    "id": 34,
     "qid": "signaljoint-e-45",
     "difficulty": "easy",
     "category": "Roles of Signal Support",
@@ -984,51 +746,7 @@
     ]
   },
   {
-    "id": 46,
-    "qid": "signaljoint-e-46",
-    "difficulty": "easy",
-    "category": "Tactical Considerations",
-    "tags": [
-      "consideration questions",
-      "communication and cyber security"
-    ],
-    "prompt": "Which tactical consideration asks, \"How will the force protect its information and respond to a compromise?\"",
-    "options": [
-      "Spectrum management and electronic threats",
-      "Communication and cyber security",
-      "Equipment, personnel, and sustainment",
-      "Terrain, distance, and weather"
-    ],
-    "answer": 1,
-    "explanation": "Slide 43 closes communication and cyber security with the question: how will the force protect its information and respond to a compromise?",
-    "sourceSlides": [
-      43
-    ]
-  },
-  {
-    "id": 47,
-    "qid": "signaljoint-e-47",
-    "difficulty": "easy",
-    "category": "Joint Operations Fundamentals",
-    "tags": [
-      "joint synergy",
-      "handout"
-    ],
-    "prompt": "According to the lesson handout, what is joint synergy?",
-    "options": [
-      "The services communicate effectively despite differences in equipment or procedures.",
-      "Each service keeps its own commander and plan while operating in the same area.",
-      "The services achieve a greater effect by operating together than they would apart.",
-      "Infantry, armor, artillery and engineers of the Army fight together as one team."
-    ],
-    "answer": 2,
-    "explanation": "Handout p.1: the strengths of one service can overcome the limitations or reinforce the effects of another; this is joint synergy, a greater effect achieved by operating together. The distractors describe interoperability (slide 11), separate commands (not joint) and combined arms (slide 7).",
-    "sourceSlides": [
-      6
-    ]
-  },
-  {
-    "id": 48,
+    "id": 35,
     "qid": "signaljoint-e-48",
     "difficulty": "easy",
     "category": "Joint Operations Fundamentals",
@@ -1051,7 +769,7 @@
     ]
   },
   {
-    "id": 49,
+    "id": 36,
     "qid": "signaljoint-e-49",
     "difficulty": "easy",
     "category": "Joint Operations Fundamentals",
@@ -1073,7 +791,7 @@
     ]
   },
   {
-    "id": 50,
+    "id": 37,
     "qid": "signaljoint-e-50",
     "difficulty": "easy",
     "category": "Joint Operations Fundamentals",
@@ -1096,7 +814,7 @@
     ]
   },
   {
-    "id": 51,
+    "id": 38,
     "qid": "signaljoint-e-51",
     "difficulty": "easy",
     "category": "Roles of Signal Support",
@@ -1118,7 +836,7 @@
     ]
   },
   {
-    "id": 52,
+    "id": 39,
     "qid": "signaljoint-e-52",
     "difficulty": "easy",
     "category": "Roles of Signal Support",
@@ -1141,7 +859,7 @@
     ]
   },
   {
-    "id": 53,
+    "id": 40,
     "qid": "signaljoint-e-53",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -1163,7 +881,7 @@
     ]
   },
   {
-    "id": 54,
+    "id": 41,
     "qid": "signaljoint-e-54",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -1186,7 +904,7 @@
     ]
   },
   {
-    "id": 55,
+    "id": 42,
     "qid": "signaljoint-e-55",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -1209,30 +927,7 @@
     ]
   },
   {
-    "id": 56,
-    "qid": "signaljoint-e-56",
-    "difficulty": "easy",
-    "category": "Systems and Technologies",
-    "tags": [
-      "acronyms",
-      "DBTOCS",
-      "handout"
-    ],
-    "prompt": "What does DBTOCS stand for in the handout's table of fixed communication systems?",
-    "options": [
-      "Digital Brigade Tactical Operations Communication System",
-      "Deployable Battalion Tactical Operations Control System",
-      "Defense Brigade Theater Operations Command Station",
-      "Deployable Brigade Tactical Operations Center System"
-    ],
-    "answer": 3,
-    "explanation": "Handout p.5: the Deployable Brigade Tactical Operations Center System (DBTOCS) extends fixed communication services to Army brigades.",
-    "sourceSlides": [
-      19
-    ]
-  },
-  {
-    "id": 57,
+    "id": 43,
     "qid": "signaljoint-e-57",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -1255,30 +950,7 @@
     ]
   },
   {
-    "id": 58,
-    "qid": "signaljoint-e-58",
-    "difficulty": "easy",
-    "category": "Systems and Technologies",
-    "tags": [
-      "acronyms",
-      "ROIP",
-      "handout"
-    ],
-    "prompt": "Among the tactical communication systems in the handout, what does ROIP stand for?",
-    "options": [
-      "Relay over IP",
-      "Radio over IP",
-      "Remote Operations over IP",
-      "Radio Operator Interface Protocol"
-    ],
-    "answer": 1,
-    "explanation": "Handout p.6: Radio over IP (ROIP) links radio communication through an IP network.",
-    "sourceSlides": [
-      20
-    ]
-  },
-  {
-    "id": 59,
+    "id": 44,
     "qid": "signaljoint-e-59",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -1301,7 +973,7 @@
     ]
   },
   {
-    "id": 60,
+    "id": 45,
     "qid": "signaljoint-e-60",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -1324,7 +996,7 @@
     ]
   },
   {
-    "id": 61,
+    "id": 46,
     "qid": "signaljoint-e-61",
     "difficulty": "easy",
     "category": "Principles of Signal Support",
@@ -1347,7 +1019,7 @@
     ]
   },
   {
-    "id": 62,
+    "id": 47,
     "qid": "signaljoint-e-62",
     "difficulty": "easy",
     "category": "Planning and Coordination",
@@ -1371,30 +1043,7 @@
     ]
   },
   {
-    "id": 63,
-    "qid": "signaljoint-e-63",
-    "difficulty": "easy",
-    "category": "Planning and Coordination",
-    "tags": [
-      "signal estimate",
-      "METAL",
-      "handout"
-    ],
-    "prompt": "Which factors make up METAL, the guide for the signal estimate?",
-    "options": [
-      "Mission, Equipment, Terrain, Assets, Links",
-      "Mission, Enemy, Terrain, Assets, Logistics",
-      "Mission, Enemy, Troops, Area of Operations, Logistics",
-      "Means, Enemy, Troops, Area of Operations, Links"
-    ],
-    "answer": 2,
-    "explanation": "Slide 50 says METAL guides the signal estimate, and Handout p.13 lists its factors: Mission, Enemy, Troops, Area of Operations and Logistics, each with what the planner must determine.",
-    "sourceSlides": [
-      50
-    ]
-  },
-  {
-    "id": 64,
+    "id": 48,
     "qid": "signaljoint-e-64",
     "difficulty": "easy",
     "category": "Security Measures and Protocols",
@@ -1417,7 +1066,7 @@
     ]
   },
   {
-    "id": 65,
+    "id": 49,
     "qid": "signaljoint-e-65",
     "difficulty": "easy",
     "category": "Security Measures and Protocols",
@@ -1440,7 +1089,7 @@
     ]
   },
   {
-    "id": 66,
+    "id": 50,
     "qid": "signaljoint-e-66",
     "difficulty": "easy",
     "category": "Security Measures and Protocols",
