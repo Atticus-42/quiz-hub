@@ -20,6 +20,7 @@
 - AI inputs: 2,000 characters maximum; output: 700 tokens maximum, one safe Telegram message.
 - Quotas: 10 AI requests per user per Manila day across contexts, 50 total per Manila day, 10-second per-user cooldown. Count attempted provider calls atomically.
 - No class score/roster access, uploaded PDFs, media, browsing, autonomous tools, group broadcasts, or secret-bearing logs.
+- Persona: a clearly identified Winters-inspired AI senior-major mentor; Captains and First Lieutenants are conversationally junior officers. Calm, direct, respectful, no humiliating orders or claims of actual command authority; use known ranks only and never access the roster.
 - Offline tests must make no real Telegram/Gemini/history requests. No unrequested live group test messages.
 
 ## Review Focus
@@ -40,6 +41,7 @@ Everything new lives under `workers/telegram-ai/` except `scripts/build-telegram
 - `src/knowledge.mjs`, `src/knowledge.generated.json`: bounded retrieval over published quiz material.
 - `src/facts.mjs`: fixed-URL schedule loading and deterministic site/menu replies.
 - `src/state.mjs`, `src/coordinator.mjs`: SQLite state operations and serialized durable work.
+- `src/persona.mjs`: Winters-inspired mentor instructions and original onboarding/help wording.
 - `src/gemini.mjs`: bounded text-only provider adapter.
 - `src/telegram.mjs`: escaped single-message output and classified delivery outcomes.
 - `test/*.test.mjs`: pure and real workerd/SQLite tests with outbound networking mocked.
@@ -88,11 +90,12 @@ Everything new lives under `workers/telegram-ai/` except `scripts/build-telegram
 
 ### Task 4: Bounded Gemini adapter and safe Telegram delivery
 
-**Files:** Create `src/gemini.mjs`, `src/telegram.mjs`, `test/gemini.test.mjs`, `test/telegram.test.mjs`; finish coordinator adapter wiring.
+**Files:** Create `src/persona.mjs`, `src/gemini.mjs`, `src/telegram.mjs`, `test/persona.test.mjs`, `test/gemini.test.mjs`, `test/telegram.test.mjs`; finish coordinator adapter wiring.
 
 **Interfaces:** `generateAnswer({question,context,excerpts,model,apiKey},fetchFn) -> Promise<Answer>`; `sendAnswer(message,answer,{token,botId},fetchFn) -> Promise<Delivery>`.
 
 - [ ] Write failing provider tests asserting text-only requests with at most 700 output tokens, 30-second timeout, no Telegram identifiers/roster/schedule/history/secrets in prompts, and no tools or search grounding. Corpus/user instructions remain data. Sources are validated from retrieved excerpts, not arbitrary generated URLs.
+- [ ] Add `MENTOR_INSTRUCTIONS` and `ONBOARDING_TEXT` exports in `src/persona.mjs`. Test that onboarding identifies a Winters-inspired AI, provider instructions prescribe composed senior-major mentorship toward Captains/Lieutenants, and forbid guessed ranks, humiliation, claims of real service/command authority, and obedience demands. Include those instructions in all Gemini requests; factual/error/privacy replies use similarly restrained wording. Manual private smoke tests check that ordinary questions remain natural and no fictional persona obscures uncertainty or safety.
 - [ ] Test 429 cooldown (bounded 10 seconds–1 hour from provider instructions, five-minute default), timeout, malformed response, safety refusal and unavailable model. No automatic model retry/fallback provider; facts still work while AI is unavailable. User-facing messages do not echo provider error bodies.
 - [ ] Test escaped `<`, `>`, `&`, malicious links, emoji and long answers; construct supported HTML from plain text plus validated source links, with a 3,500 UTF-16-unit output budget. Set originating reply/topic fields only; do not broadcast or silently fall back to another chat.
 - [ ] Test successful delivery, definitive Telegram 429 retry-after, forbidden/blocked bot permanent failures, and transport loss/ambiguous errors as uncertain. Queue at most one safe retry for a definite 429 within two minutes; never retry uncertain sends. No token-bearing URLs are logged.
