@@ -30,7 +30,7 @@ export async function instructorSuite({ lessons }) {
     const img = fig[1].match(/<img[^>]*>/)[0];
     for (const f of ['pft-1-800.jpg', 'pft-1-1600.jpg']) assert.ok(existsSync(join(ROOT, 'assets', f)), `${f} exists`);
     assert.ok(!existsSync(join(ROOT, 'assets', 'pft-1-2000.jpg')), 'no 2000 variant');
-    assert.match(img, /srcset="\.\.\/assets\/pft-1-800\.jpg 800w, \.\.\/assets\/pft-1-1600\.jpg 1600w"/);
+    assert.match(img, /srcset="\.\.\/assets\/pft-1-800\.jpg(\?v=\d+)? 800w, \.\.\/assets\/pft-1-1600\.jpg(\?v=\d+)? 1600w"/);
     assert.match(img, /sizes="100vw"/); assert.match(img, /width="1600"/); assert.match(img, /height="900"/);
     assert.match(img, /loading="lazy"/); assert.match(img, /decoding="async"/);
     assert.match(img, /alt="Bandwidth Brothers, SOAC 52 - 2026, in PT uniform at the Signal School emblem"/);
