@@ -47,6 +47,12 @@
     .class-photo figcaption { width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin: 0 auto; border-top: 0; color: var(--color-paper); }
     .class-photo figcaption::before { color: var(--color-khaki); }
 
+    /* Figure PFT 1: the class in PT uniform, full colour, full width of the page column. */
+    .pft-figure { margin: var(--space-7) 0 0; padding: 0; break-inside: avoid; page-break-inside: avoid; }
+    .pft-figure img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; filter: none; border-radius: 0; }
+    .pft-figure figcaption { margin: 0; padding: var(--space-2) 0; border-top: 1px solid var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text); }
+    @media print { .pft-figure img { max-height: 60vh; width: auto; max-width: 100%; filter: none; -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+
     h2 { font-size: var(--text-h3); }
     .section-intro { max-width: 40rem; color: var(--color-muted); }
 
@@ -226,6 +232,11 @@
         <p id="class-note" class="note"></p>
       </div>
     </section>
+
+    <figure class="pft-figure" id="pft-1">
+      <img src="../assets/pft-1-1600.jpg" srcset="../assets/pft-1-800.jpg 800w, ../assets/pft-1-1600.jpg 1600w" sizes="100vw" width="1600" height="900" loading="lazy" decoding="async" alt="Bandwidth Brothers, SOAC 52 - 2026, in PT uniform at the Signal School emblem">
+      <figcaption>FIGURE PFT 1 &mdash; BANDWIDTH BROTHERS, SOAC 52 - 2026 &middot; SIGNAL SCHOOL</figcaption>
+    </figure>
   </main>
 
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>

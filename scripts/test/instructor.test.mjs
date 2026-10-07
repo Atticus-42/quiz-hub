@@ -1,6 +1,6 @@
 // The instructor's question analysis page (instructor/index.html) and the class page (class/index.html).
 import assert from 'node:assert/strict';
-import { readFileSync, mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
+import { readFileSync, existsSync, mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { ROOT, MODES, CLASS_FORBIDDEN, loadClass } from '../build.mjs';
@@ -22,6 +22,21 @@ export async function instructorSuite({ lessons }) {
   }
   const itemsBody = rows => ({ ok: true, kind: 'items', version: 7, rows });
   const rowsOf = page => page.byId('items-body').children;
+
+  await T('Figure PFT 1 on the class page: files exist, srcset 800w/1600w, lazy 16:9, alt and caption', () => {
+    const classHtml = readFileSync(join(ROOT, 'class', 'index.html'), 'utf8');
+    const fig = classHtml.match(/<figure class="pft-figure"[^>]*>([\s\S]*?)<\/figure>/);
+    assert.ok(fig, 'PFT figure present');
+    const img = fig[1].match(/<img[^>]*>/)[0];
+    for (const f of ['pft-1-800.jpg', 'pft-1-1600.jpg']) assert.ok(existsSync(join(ROOT, 'assets', f)), `${f} exists`);
+    assert.ok(!existsSync(join(ROOT, 'assets', 'pft-1-2000.jpg')), 'no 2000 variant');
+    assert.match(img, /srcset="\.\.\/assets\/pft-1-800\.jpg 800w, \.\.\/assets\/pft-1-1600\.jpg 1600w"/);
+    assert.match(img, /sizes="100vw"/); assert.match(img, /width="1600"/); assert.match(img, /height="900"/);
+    assert.match(img, /loading="lazy"/); assert.match(img, /decoding="async"/);
+    assert.match(img, /alt="Bandwidth Brothers, SOAC 52 - 2026, in PT uniform at the Signal School emblem"/);
+    assert.match(fig[1], /<figcaption>FIGURE PFT 1 /);
+    assert.ok(classHtml.indexOf('id="roster-table"') < classHtml.indexOf('class="pft-figure"'), 'after the roster');
+  });
 
   await T('loads ?action=items&lesson=all from the endpoint only (GET, no cookies) and shows every bank question with its counts', async () => {
     const a = armor.banks.easy;
