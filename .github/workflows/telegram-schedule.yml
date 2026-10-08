@@ -1,9 +1,7 @@
 name: Tomorrow's schedule to Telegram
 
 on:
-  schedule:
-    # 11:00 UTC is 19:00 Philippine time (Asia/Manila).
-    - cron: '0 11 * * *'
+  # Automatic delivery is owned by Cloudflare; this workflow is manual only.
   workflow_dispatch:
     inputs:
       preview_only:
@@ -24,6 +22,7 @@ concurrency:
 
 jobs:
   post:
+    if: github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
