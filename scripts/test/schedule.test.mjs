@@ -21,6 +21,26 @@ export async function scheduleSuite({ lessons }) {
   const dayBlocks = (doc, date) => findAll(doc.getElementById(`day-${date}`), node => node.localName === 'li');
   const titleOf = node => byClass(node, 'blk-title')[0].textContent;
 
+  await T('next week is separate, complete and does not reuse last week menus', () => {
+    const next = loadSchedule(ROOT, join(ROOT, 'data', 'schedules', '2026-10-12_2026-10-18.json'));
+    assert.deepEqual(next.week, {number:4, of:12, start:'2026-10-12', end:'2026-10-18'});
+    assert.equal(next.prepared, '2026-10-06');
+    assert.deepEqual(next.days.map(day => day.blocks.length), [15,15,15,17,15,14,13]);
+    assert.equal(next.days.flatMap(day => day.blocks).filter(block => block.menu).length, 0);
+    assert.equal(next.days[0].blocks[4].activity, 'CPA Programming');
+    assert.equal(next.days[1].blocks[10].time, '2100-2130', 'unusual printed Tuesday time preserved');
+    assert.equal(next.days[4].blocks.at(-2).time, '', 'unprinted Friday TATTOO time remains blank');
+    const nextHtml = readFileSync(join(ROOT, 'schedule-2026-10-12', 'index.html'), 'utf8');
+    const doc = runPage(nextHtml, {globals:{__SCHEDULE_NOW:'2026-10-12T09:00'}}).document;
+    const sections = findAll(doc.getElementById('week'), node => node.localName === 'section');
+    assert.equal(sections.length, 7);
+    assert.equal(sections.filter(node => !node.hidden).length, 1);
+    for(const day of next.days) assert.equal(dayBlocks(doc, day.date).length, day.blocks.length);
+    assert.equal(doc.getElementById('schedule-week').textContent.split('.')[0], '4th week of 12, 12–18 Oct 2026');
+    assert.ok(html.includes('../schedule-2026-10-12/'));
+    assert.ok(nextHtml.includes('../schedule/'));
+  });
+
   await T('each day renders its three menus inside the matching mess blocks', () => {
     const doc = load('2026-10-05T10:00').document;
     for (const day of data.days) {
@@ -173,7 +193,7 @@ export async function scheduleSuite({ lessons }) {
     assert.match(css, /@media print \{[\s\S]*\.now-next, \.week-nav, \.legend, \.blk-quiz/);
     assert.match(css, /\.blk, \.blk\.is-now \{[^}]*break-inside: avoid;/, 'a block never splits across columns or pages');
     const hrefs = [...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]);
-    assert.deepEqual(hrefs.filter(href => !href.startsWith('#')), ['../', '../class/', '../joint-signal/', '../coalition-signal/', '../coalition-signal/']);
+    assert.deepEqual(hrefs.filter(href => !href.startsWith('#')), ['../', '../class/', '../schedule-2026-10-12/', '../joint-signal/', '../coalition-signal/', '../coalition-signal/']);
     assert.doesNotMatch(html, /https?:\/\//);
     const code = appScripts(parseHtml(html)).map(script => script.textContent).join('\n');
     assert.doesNotMatch(code, /innerHTML|outerHTML|insertAdjacentHTML|document\.write|fetch\(|XMLHttpRequest|localStorage|sendBeacon/);

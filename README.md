@@ -116,6 +116,8 @@ The daily Telegram sender targets 19:00 Philippine time with tomorrow's activiti
 
 The schedule page shows whatever `data/schedule.json` holds. Each week:
 
+The 12–18 October 2026 schedule is published separately at `schedule-2026-10-12/`, rendered with the same day-picker template from `data/schedules/2026-10-12_2026-10-18.json`. The current page and Telegram source remain 5–11 October until a deliberate weekly activation. No menus were provided in the new Word schedule, so none are copied from the previous week. To regenerate the dated page, use `renderSchedule` in `scripts/build.mjs` with that dated JSON, the shared CSS/contours and a return link to `../schedule/`. It is a retained dated snapshot, not replaced by the normal current-week build.
+
 1. Copy last week's file to `data/schedules/<start>_<end>.json` named by the new week's dates (for example `2026-10-12_2026-10-18.json`) and transcribe the new weekly training schedule into it, row by row, exactly as printed:
    - `week`: `{ number, of, start, end }` (dates `YYYY-MM-DD`, Monday to Sunday); `prepared` is the "Date Prepared".
    - `days`: one entry per date, in order, with `day` matching the date's weekday.
