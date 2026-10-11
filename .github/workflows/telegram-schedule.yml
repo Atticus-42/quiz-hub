@@ -12,6 +12,10 @@ on:
         description: Optional YYYY-MM-DD for an explicitly requested manual post (blank keeps tomorrow)
         type: string
         default: ''
+      resend:
+        description: Explicitly resend a corrected schedule (manual only)
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -50,7 +54,7 @@ jobs:
         run: node scripts/telegram-schedule.mjs --preview
       - name: Restore delivery state
         id: restore
-        if: steps.config.outputs.ready == 'true' && !(github.event_name == 'workflow_dispatch' && inputs.preview_only)
+        if: steps.config.outputs.ready == 'true' && !inputs.resend && !(github.event_name == 'workflow_dispatch' && inputs.preview_only)
         uses: actions/cache/restore@v4
         with:
           path: .telegram-state

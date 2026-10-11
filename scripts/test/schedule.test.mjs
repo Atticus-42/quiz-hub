@@ -41,7 +41,9 @@ export async function scheduleSuite({ lessons }) {
     assert.deepEqual(next.week, {number:4, of:12, start:'2026-10-12', end:'2026-10-18'});
     assert.equal(next.prepared, '2026-10-06');
     assert.deepEqual(next.days.map(day => day.blocks.length), [15,15,15,17,15,14,13]);
-    assert.equal(next.days.flatMap(day => day.blocks).filter(block => block.menu).length, 0);
+    assert.equal(next.days.flatMap(day => day.blocks).filter(block => block.menu).length, 21);
+    assert.deepEqual(next.days[0].blocks.find(block => block.activity === 'Noon Mess').menu,
+      ['Chicken inasal', 'Pickled cucumber and carrots', 'Non- Pork liempo', 'Sinigang soup', 'Buko pandan', 'Juice']);
     assert.equal(next.days[0].blocks[4].activity, 'CPA Programming');
     assert.equal(next.days[1].blocks[10].time, '2100-2130', 'unusual printed Tuesday time preserved');
     assert.equal(next.days[4].blocks.at(-2).time, '', 'unprinted Friday TATTOO time remains blank');
