@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { ROOT, SCHEDULE_FORBIDDEN, loadSchedule, parseScheduleTime, scheduleQuiz, scheduleRange, ordinal } from '../build.mjs';
+import { ROOT, SCHEDULE_FORBIDDEN, loadSchedule, parseScheduleTime, scheduleQuiz, scheduleRange, ordinal, renderSchedule } from '../build.mjs';
 import { test, runPage, findAll, hasClass, appScripts, parseHtml, withoutFontPreloads } from './harness.mjs';
 
 const RANKS = ['COL', 'LTC', 'MAJ', 'CPT', '1LT', '2LT', 'MSg', 'TSg', 'SSg', 'Sgt', 'Cpl', 'PFC', 'Pvt'];
@@ -13,13 +13,28 @@ const DUTY_TITLES = ['NAB Personnel', 'FSgt', 'Duty Tac NCO', 'Organic Pers & St
 
 export async function scheduleSuite({ lessons }) {
   const T = (name, run) => test(`[schedule] ${name}`, run);
-  const html = readFileSync(join(ROOT, 'schedule', 'index.html'), 'utf8');
-  const data = loadSchedule();
+  // Retain the week-3 transcription and clock edge-case regressions using its archived data.
+  // The active feed and built main page are checked separately below.
+  const data = loadSchedule(ROOT, join(ROOT,'data','schedules','2026-10-05_2026-10-11.json'));
+  const html = renderSchedule(readFileSync(join(ROOT,'src','schedule','template.html'),'utf8'),
+    readFileSync(join(ROOT,'src','engine','contours.svg'),'utf8'), data, lessons,
+    {base:readFileSync(join(ROOT,'src','shared','base.css'),'utf8')});
   const blocks = data.days.flatMap(day => day.blocks.map(block => ({ ...block, date: day.date })));
   const load = (now, extra = {}) => runPage(html, { globals: { __SCHEDULE_NOW: now, ...extra } });
   const byClass = (root, name) => findAll(root, node => hasClass(node, name));
   const dayBlocks = (doc, date) => findAll(doc.getElementById(`day-${date}`), node => node.localName === 'li');
   const titleOf = node => byClass(node, 'blk-title')[0].textContent;
+
+  await T('active bot feed and main page contain the uploaded October 12 schedule', () => {
+    const active = loadSchedule();
+    assert.deepEqual(active, loadSchedule(ROOT, join(ROOT,'data','schedules','2026-10-12_2026-10-18.json')));
+    const monday = active.days.find(day => day.date === '2026-10-12');
+    assert.equal(monday.blocks.length, 15);
+    assert.equal(monday.blocks[4].activity, 'CPA Programming');
+    const doc = runPage(readFileSync(join(ROOT,'schedule','index.html'),'utf8'), {globals:{__SCHEDULE_NOW:'2026-10-12T09:00'}}).document;
+    assert.equal(dayBlocks(doc, '2026-10-12').length, 15);
+    assert.equal(doc.getElementById('schedule-week').textContent.split('.')[0], '4th week of 12, 12–18 Oct 2026');
+  });
 
   await T('next week is separate, complete and does not reuse last week menus', () => {
     const next = loadSchedule(ROOT, join(ROOT, 'data', 'schedules', '2026-10-12_2026-10-18.json'));
@@ -76,7 +91,7 @@ export async function scheduleSuite({ lessons }) {
     for (const block of blocks.filter(item => item.kind === 'lecture' && item.class === 'SOAC CL 52-26' && item.date !== '2026-10-05')) assert.ok([2, 3].includes(block.periods), `${block.date} ${block.time} periods`);
   });
 
-  await T('this week is archived in data/schedules/ under its dates, identical to data/schedule.json', () => {
+  await T('dated schedules retain valid archives, including the week-3 regression fixture', () => {
     const name = `${data.week.start}_${data.week.end}.json`;
     assert.ok(readdirSync(join(ROOT, 'data', 'schedules')).includes(name), name);
     assert.deepEqual(JSON.parse(readFileSync(join(ROOT, 'data', 'schedules', name), 'utf8')), data);

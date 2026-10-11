@@ -3,8 +3,30 @@ import assert from 'node:assert/strict';
 import { mkdtempSync, readFileSync, rmSync, existsSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { tomorrowInManila, formatSchedule, formatRichSchedule, splitMessage, postTomorrow } from '../telegram-schedule.mjs';
-import { loadSchedule } from '../build.mjs';
+import { tomorrowInManila, formatSchedule, formatRichSchedule, splitMessage, postTomorrow as postCurrentTomorrow } from '../telegram-schedule.mjs';
+import { loadSchedule as loadCurrentSchedule } from '../build.mjs';
+
+// The original menu/date regression cases use their fixed archived week, not whichever week is active.
+const loadSchedule = () => loadCurrentSchedule(undefined, join('data','schedules','2026-10-05_2026-10-11.json'));
+const postTomorrow = options => postCurrentTomorrow({data:loadSchedule(), ...options});
+
+test('the active October 12 schedule is delivered in full without an unavailable notice', async () => {
+  const data=loadCurrentSchedule();
+  const dir=mkdtempSync(join(tmpdir(),'telegram-week4-test-'));
+  const calls=[];
+  try {
+    const result=await postCurrentTomorrow({now:new Date('2026-10-11T11:10:00Z'),data,
+      token:'123:fake_token',chatId:'-1001234',statePath:join(dir,'sent.json'),
+      fetchFn:async(url,init)=>{calls.push(JSON.parse(init.body));return {ok:true,status:200,json:async()=>({ok:true})};}});
+    assert.equal(result.date,'2026-10-12');
+    assert.equal(calls.length,1);
+    const text=JSON.stringify(calls[0].rich_message);
+    for(const block of data.days[0].blocks) assert.ok(text.includes(block.activity));
+    assert.ok(text.includes('CPA Programming'));
+    assert.doesNotMatch(text,/not been uploaded/);
+    assert.doesNotMatch(text,/Pork Tocino/);
+  } finally {rmSync(dir,{recursive:true,force:true});}
+});
 
 const plainRich = value => typeof value === 'string' ? value : Array.isArray(value) ? value.map(plainRich).join('') : value?.text ? plainRich(value.text) : '';
 const richText = message => message.blocks.map(block=>plainRich(block.text)).join('\n');
