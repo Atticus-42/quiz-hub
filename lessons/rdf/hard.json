@@ -1,0 +1,647 @@
+[
+  {
+    "id": 1,
+    "qid": "rdf-h-01",
+    "difficulty": "hard",
+    "category": "Roles and Applications",
+    "tags": [
+      "radio direction finding",
+      "roles and applications",
+      "classroom scenario"
+    ],
+    "prompt": "A disaster-response tabletop has two proposals: use a simulated beacon direction as a navigation aid, or publish it as the verified survivor position needed by C2. Which assessment best reconciles the relevant lessons?",
+    "options": [
+      "Both proposals are supported because humanitarian response turns direction into position",
+      "Only the C2 proposal is supported because navigation requires visual landmarks in this lesson",
+      "Neither proposal is supported because a direction has value only after identity is established",
+      "The navigation contribution is supported; the verified-position claim exceeds the observation"
+    ],
+    "answer": 3,
+    "explanation": "Slides 12, 14–15, and 26 support humanitarian, navigation, rescue, and coordination roles, while slide 30 defines arrival direction. Accepting both is the closest distractor because both serve legitimate objectives, but those objectives do not make the observation a verified survivor position.",
+    "sourceSlides": [
+      12,
+      14,
+      15,
+      26,
+      30
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "rdf-h-02",
+    "difficulty": "hard",
+    "category": "Roles and Applications",
+    "tags": [
+      "radio direction finding",
+      "roles and applications",
+      "classroom scenario"
+    ],
+    "prompt": "An authorized classroom monitoring exercise receives a directional observation from an unlabeled source. Reviewers propose either investigating a possible interference concern or declaring an unauthorized broadcaster identified. Which judgment fits the lesson?",
+    "options": [
+      "The broadcaster is identified because interference monitoring is a named RDF application",
+      "A possible monitoring lead is supported; broadcaster identity and authorization remain unresolved",
+      "The source is authorized because civilian communications include licensed broadcasting services",
+      "No monitoring lead exists because unidentified RF sources cannot have an arrival direction"
+    ],
+    "answer": 1,
+    "explanation": "Slides 13 and 16 describe monitoring and interference applications, and slide 19 lists civilian examples with different authorization statuses. Identifying an unauthorized broadcaster is the closest distractor because it matches a possible concern, but slide 30's directional information does not establish that source classification or status.",
+    "sourceSlides": [
+      13,
+      16,
+      19,
+      30
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "rdf-h-03",
+    "difficulty": "hard",
+    "category": "Roles and Applications",
+    "tags": [
+      "radio direction finding",
+      "roles and applications",
+      "classroom scenario"
+    ],
+    "prompt": "A rescue tabletop team says an RDF direction can inform response coordination. A reviewer argues it cannot be used until it independently resolves exact location and survivor identity. Which response is best?",
+    "options": [
+      "The direction can contribute to coordination while those additional claims remain unconfirmed",
+      "The reviewer is correct because rescue support begins only after RDF establishes survivor identity",
+      "The team is correct because coordination makes the directional report a complete location finding",
+      "Both are correct because a distress context removes the distinction between direction and identity"
+    ],
+    "answer": 0,
+    "explanation": "Slides 15 and 24 support rescue applications, and slide 26 supports coordinated response. Requiring a complete location first is the closest distractor because location matters, but slide 30's limited directional result can contribute information without independently establishing identity or a precise position.",
+    "sourceSlides": [
+      15,
+      24,
+      26,
+      30
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "rdf-h-04",
+    "difficulty": "hard",
+    "category": "Roles and Applications",
+    "tags": [
+      "radio direction finding",
+      "roles and applications",
+      "classroom scenario"
+    ],
+    "prompt": "A classroom committee sees radar and broadcast examples plus phase and timing diagrams. It proposes assigning every source category a single exclusive RDF comparison method. Which conclusion is best supported?",
+    "options": [
+      "The deck establishes phase comparison for every radar and timing comparison for every broadcast",
+      "The deck establishes timing comparison for every radar and phase comparison for every broadcast",
+      "The deck presents source examples and method concepts without establishing that exclusive mapping",
+      "The deck establishes that different source categories cannot share any directional measurement concept"
+    ],
+    "answer": 2,
+    "explanation": "Slides 18–19 describe source examples, while slides 27–28 describe phase and arrival-time comparisons. Either specific category-to-method assignment is the closest distractor because both kinds of information appear, but the provided descriptions do not establish an exclusive mapping between them.",
+    "sourceSlides": [
+      13,
+      18,
+      19,
+      27,
+      28
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "rdf-h-05",
+    "difficulty": "hard",
+    "category": "Roles and Applications",
+    "tags": [
+      "radio direction finding",
+      "roles and applications",
+      "classroom scenario"
+    ],
+    "prompt": "A training planner cites the beacon-navigation example and the mention of triangulation to claim the deck teaches a complete positioning procedure. Which review is most accurate?",
+    "options": [
+      "It supports a complete procedure because mentioning triangulation supplies every needed measurement",
+      "It supports the application and training concept, but does not supply a complete procedure",
+      "It supports no navigation learning because the deck defines DOA as an angle relative to a system",
+      "It supports precise positioning from any beacon bearing because navigation is an intended application"
+    ],
+    "answer": 1,
+    "explanation": "Slide 14 gives a navigation application and slide 25 names triangulation as a training concept; slide 30 defines arrival direction. Claiming a complete procedure from that mention is the closest distractor, but an objective and application do not provide detailed procedural instruction.",
+    "sourceSlides": [
+      14,
+      25,
+      30
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "rdf-h-06",
+    "difficulty": "hard",
+    "category": "RF Source Categories",
+    "tags": [
+      "radio direction finding",
+      "rf source categories",
+      "classroom scenario"
+    ],
+    "prompt": "A review panel wants a source-category question with exactly one answer. One proposal asks whether radar is in 'military communications' or 'radar sources.' How should the item be revised?",
+    "options": [
+      "Avoid that exclusive choice because the deck includes radar in overlapping examples",
+      "Keep that exclusive choice because a separate radar slide cancels the earlier radar example",
+      "Keep that exclusive choice because the heading communications excludes every radar emission",
+      "Replace the source labels with phase and timing because source category determines the method"
+    ],
+    "answer": 0,
+    "explanation": "Slides 17 and 18 include radar in overlapping source descriptions, with slide 19 adding civilian examples. Treating a later heading as cancellation is the closest distractor because separate headings can suggest categories, but the slides do not make those example sets mutually exclusive.",
+    "sourceSlides": [
+      17,
+      18,
+      19
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "rdf-h-07",
+    "difficulty": "hard",
+    "category": "RF Source Categories",
+    "tags": [
+      "radio direction finding",
+      "rf source categories",
+      "classroom scenario"
+    ],
+    "prompt": "A report lists 'possible civilian communication or distress beacon' after receiving a single simulated direction. A reviewer says the distress context proves the beacon interpretation. Which conclusion is most defensible?",
+    "options": [
+      "Select the distress-beacon interpretation because a rescue objective determines the received source",
+      "Select the civilian interpretation because the deck lists civilian communication before emergency beacons",
+      "Confirm both interpretations because each listed source category produces a direction of arrival",
+      "Keep both source possibilities provisional; context and direction do not establish the subtype"
+    ],
+    "answer": 3,
+    "explanation": "Slides 19–20 list civilian communication and emergency source examples, and slide 24 describes rescue use. Selecting a beacon from context is the closest distractor because it fits the exercise, but slide 30's arrival direction does not independently establish which possible source generated the signal.",
+    "sourceSlides": [
+      19,
+      20,
+      24,
+      30
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "rdf-h-08",
+    "difficulty": "hard",
+    "category": "RF Source Categories",
+    "tags": [
+      "radio direction finding",
+      "rf source categories",
+      "classroom scenario"
+    ],
+    "prompt": "An instructor supplies a radar label for one classroom signal and a cellular label for another. Both demonstrations use phase differences. Which conclusion is warranted?",
+    "options": [
+      "The shared phase principle proves that the instructor supplied the same source category twice",
+      "The different source labels prove that one phase-based demonstration must instead measure timing",
+      "The given source labels differ while the measurement descriptions can share a phase principle",
+      "The shared phase principle proves that both demonstrations identify the exact transmitting equipment"
+    ],
+    "answer": 2,
+    "explanation": "Slides 18–19 provide radar and cellular source examples; slides 27 and 29 describe phase-based directional concepts. Inferring the same source category is the closest distractor because the measurement principle is shared, but source context and compared quantity describe different aspects of the demonstration.",
+    "sourceSlides": [
+      18,
+      19,
+      27,
+      29,
+      30
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "rdf-h-09",
+    "difficulty": "hard",
+    "category": "RF Source Categories",
+    "tags": [
+      "radio direction finding",
+      "rf source categories",
+      "classroom scenario"
+    ],
+    "prompt": "A classroom record explicitly names a radio broadcast and records its arrival direction. Reviewers disagree whether this establishes civilian source classification, licensed status, or the operator's identity. Which assessment best separates the claims?",
+    "options": [
+      "The supplied broadcast label supports the civilian example; status and identity need separate evidence",
+      "The supplied broadcast label supports civilian classification and licensed status, but not operator identity",
+      "The recorded direction supports the operator's identity and civilian classification, but not licensed status",
+      "The recorded direction supports all three claims because broadcasting is named among civilian sources"
+    ],
+    "answer": 0,
+    "explanation": "Slide 19 supports radio broadcasting as a civilian communications example, but includes licensed and unauthorized transmissions. Extending the supplied label to licensed status is the closest distractor; slide 30's direction does not supply authorization evidence or establish the identity of the person operating the source.",
+    "sourceSlides": [
+      19,
+      30
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "rdf-h-10",
+    "difficulty": "hard",
+    "category": "Direction of Arrival and Bearings",
+    "tags": [
+      "radio direction finding",
+      "direction of arrival and bearings",
+      "classroom scenario"
+    ],
+    "prompt": "A coordination slide summarizes one simulated beacon observation as 'a useful navigation bearing, therefore a verified point.' Which edit retains the defensible conclusion with the least change?",
+    "options": [
+      "Keep the verified-point claim and remove the navigation value because a point replaces an angle",
+      "Keep both claims and add that integration into C2 supplies the range missing from the observation",
+      "Keep the navigation value and remove the claim that the bearing independently verifies a point",
+      "Remove both claims because the absence of verified position makes the direction meaningless"
+    ],
+    "answer": 2,
+    "explanation": "Slides 14 and 26 support navigation and coordination uses, while slide 30 defines arrival direction. Removing both is the closest distractor because the point claim is unsupported, but that overcorrection discards a directional contribution that the source explicitly presents as useful.",
+    "sourceSlides": [
+      14,
+      26,
+      30
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "rdf-h-11",
+    "difficulty": "hard",
+    "category": "Direction of Arrival and Bearings",
+    "tags": [
+      "radio direction finding",
+      "direction of arrival and bearings",
+      "classroom scenario"
+    ],
+    "prompt": "During a rescue coordination tabletop, phase-comparison and TDOA diagrams each accompany a simulated distress-signal direction. A draft says both use timing and therefore verify survivor position. Which replacement best fits the evidence?",
+    "options": [
+      "Report both comparisons as timing and retain directional support, while leaving the survivor's exact position unverified",
+      "Report phase and timing as different comparisons and verify the survivor's exact position because both support rescue",
+      "Report phase and timing as different comparisons but withhold coordination value until exact survivor identity is verified",
+      "Report phase and timing as different comparisons that support direction, with exact survivor position still unverified"
+    ],
+    "answer": 3,
+    "explanation": "Slides 27–28 distinguish phase from arrival-time comparisons, while slides 15 and 26 support rescue coordination. Keeping both comparisons as timing is the closest distractor because it preserves the position limit, but a useful directional report must also retain the actual compared quantity and avoid converting direction into verified position.",
+    "sourceSlides": [
+      15,
+      26,
+      27,
+      28,
+      30
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "rdf-h-12",
+    "difficulty": "hard",
+    "category": "Direction of Arrival and Bearings",
+    "tags": [
+      "radio direction finding",
+      "direction of arrival and bearings",
+      "classroom scenario"
+    ],
+    "prompt": "A navigation tabletop has phase-based diagrams labeled phase comparison and interferometric RDF, plus a beacon direction sent to C2. A draft treats the two labels as independent proof of a precise beacon position. Which report best combines the concepts?",
+    "options": [
+      "The labels use different compared quantities; the beacon direction may support navigation and coordination without verifying a point",
+      "The labels share a phase principle; the beacon direction may support navigation and coordination without verifying a point",
+      "The labels share a phase principle; using both names verifies a precise beacon position for the coordination cell",
+      "The labels share a phase principle; the beacon direction has no navigation value until an independently verified position is supplied"
+    ],
+    "answer": 1,
+    "explanation": "Slides 27 and 29 share a phase principle, while slides 14 and 26 support navigation and coordination alongside slide 30's directional definition. Treating the two labels as independent position evidence is the closest distractor: different names for overlapping concepts do not add a position measurement.",
+    "sourceSlides": [
+      14,
+      26,
+      27,
+      29,
+      30
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "rdf-h-13",
+    "difficulty": "hard",
+    "category": "Direction of Arrival and Bearings",
+    "tags": [
+      "radio direction finding",
+      "direction of arrival and bearings",
+      "classroom scenario"
+    ],
+    "prompt": "A rescue exercise observes a signal arriving from a reported direction. One analyst treats this as a useful directional lead; another treats it as verification of a caller's claimed location. Which conclusion is justified?",
+    "options": [
+      "Retain the directional lead and leave the caller's precise-location claim unverified",
+      "Retain both: the distress purpose supplies the missing location evidence",
+      "Reject the directional lead because only verified geographic points can contribute to a rescue scenario",
+      "Retain only the location verification because a rescue application changes DOA from angle to point"
+    ],
+    "answer": 0,
+    "explanation": "Slides 15 and 24 describe rescue applications, while slide 30 defines direction of arrival. Accepting both interpretations is the closest distractor because they concern the same signal, but the caller's claim and the directional observation are different evidence; one direction alone does not verify a precise point.",
+    "sourceSlides": [
+      15,
+      24,
+      30
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "rdf-h-14",
+    "difficulty": "hard",
+    "category": "Measurement Method Concepts",
+    "tags": [
+      "radio direction finding",
+      "measurement method concepts",
+      "classroom scenario"
+    ],
+    "prompt": "A reviewer proposes two quiz keys: 'interferometric RDF cannot compare phase because phase comparison already does' and 'TDOA is distinguished by arrival-time differences.' Which treatment is correct?",
+    "options": [
+      "Retain both claims because every named method must use a mutually exclusive quantity",
+      "Reject the timing distinction and retain the exclusivity claim",
+      "Reject both claims because every direction-finding description compares only signal phase",
+      "Reject the exclusivity claim and retain the timing distinction"
+    ],
+    "answer": 3,
+    "explanation": "Slides 27 and 29 both use phase differences, while slide 28 describes arrival-time differences. Retaining both claims is the closest distractor because the method names differ, but different labels do not establish exclusive quantities when the source explicitly gives overlapping phase descriptions.",
+    "sourceSlides": [
+      27,
+      28,
+      29
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "rdf-h-15",
+    "difficulty": "hard",
+    "category": "Measurement Method Concepts",
+    "tags": [
+      "radio direction finding",
+      "measurement method concepts",
+      "classroom scenario"
+    ],
+    "prompt": "A classroom demonstration compares phase in one case and arrival times in another. A student argues that because both infer direction, the observations can be reported interchangeably as timing measurements. Which assessment is strongest?",
+    "options": [
+      "Their shared purpose lets both be reported as timing measurements",
+      "Their directional purpose is shared, but the compared quantities should remain distinct",
+      "Their compared quantities differ, so one must report source identity instead of arrival direction",
+      "Their compared quantities differ, so neither can be discussed within the lesson's RDF concepts"
+    ],
+    "answer": 1,
+    "explanation": "Slides 27–29 distinguish phase comparisons from arrival-time differences, and slide 30 defines directional output. Calling both timing measurements is the closest distractor because the output purpose is common, but reporting should preserve the actual compared quantity rather than substituting another method's description.",
+    "sourceSlides": [
+      27,
+      28,
+      29,
+      30
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "rdf-h-16",
+    "difficulty": "hard",
+    "category": "Measurement Method Concepts",
+    "tags": [
+      "radio direction finding",
+      "measurement method concepts",
+      "classroom scenario"
+    ],
+    "prompt": "Two diagrams compare phase across receiving antenna elements. One is headed 'phase comparison' and the other 'interferometric.' A reviewer demands that only one can support DOA. Which reply fits the source?",
+    "options": [
+      "Only phase comparison supports DOA because the interferometric heading implies arrival-time measurement",
+      "Only interferometric RDF supports DOA because phase comparison cannot compare antenna observations",
+      "Both descriptions support directional inference; their different headings do not make phase use exclusive",
+      "Neither supports DOA because phase differences establish transmitter ownership rather than signal direction"
+    ],
+    "answer": 2,
+    "explanation": "Slides 27 and 29 both relate phase differences across antennas or elements to directional inference, consistent with slide 30. Accepting only the interferometric label is the closest distractor because that slide explicitly mentions DOA, but slide 27 also describes phase differences used for direction.",
+    "sourceSlides": [
+      27,
+      29,
+      30
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "rdf-h-17",
+    "difficulty": "hard",
+    "category": "Measurement Method Concepts",
+    "tags": [
+      "radio direction finding",
+      "measurement method concepts",
+      "classroom scenario"
+    ],
+    "prompt": "A classroom table lists phase comparison as 'phase to identity,' TDOA as 'arrival-time differences to direction,' and interferometric RDF as 'phase to direction.' Which correction best fits all three source descriptions?",
+    "options": [
+      "Change phase comparison to arrival-time differences and retain its identity output",
+      "Change TDOA to phase differences because the other two rows share a directional purpose",
+      "Keep the compared quantities and change the phase-comparison output to directional inference",
+      "Change interferometric RDF to identity because phase comparison already supplies a phase method"
+    ],
+    "answer": 2,
+    "explanation": "Slides 27 and 29 both connect phase differences with direction, while slide 28 describes arrival-time differences for direction finding. Changing TDOA to phase is the closest distractor because the outputs share a purpose, but the timing distinction remains and the identity output is unsupported.",
+    "sourceSlides": [
+      27,
+      28,
+      29
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "rdf-h-18",
+    "difficulty": "hard",
+    "category": "Interpretation and Limitations",
+    "tags": [
+      "radio direction finding",
+      "interpretation and limitations",
+      "classroom scenario"
+    ],
+    "prompt": "A monitoring exercise report has one arrival angle and the analyst's phrase 'possibly unauthorized.' A summary changes this to 'unauthorized operator identified.' Which review best addresses both changes?",
+    "options": [
+      "The summary turns a provisional status and a direction into unsupported status and identity findings",
+      "The summary correctly resolves status because monitoring exercises concern suspicious transmissions",
+      "The summary correctly resolves identity because every received direction must belong to a transmitter",
+      "The summary overstates identity only; 'possibly unauthorized' already establishes unauthorized status"
+    ],
+    "answer": 0,
+    "explanation": "Slides 16 and 22 describe monitoring concerns, slide 19 includes different authorization statuses, and slide 30 defines direction. Correcting identity only is the closest distractor because that overclaim is clear, but the word 'possibly' also leaves authorization unresolved and cannot support a confirmed status.",
+    "sourceSlides": [
+      16,
+      19,
+      22,
+      30
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "rdf-h-19",
+    "difficulty": "hard",
+    "category": "Interpretation and Limitations",
+    "tags": [
+      "radio direction finding",
+      "interpretation and limitations",
+      "classroom scenario"
+    ],
+    "prompt": "A simulated distress-beacon direction reaches C2 and resembles a navigation example. One reviewer says those two contexts independently confirm exact location; another retains only directional support. Which judgment is best?",
+    "options": [
+      "Confirm exact location because two applicable contexts are equivalent to two independent measurements",
+      "Retain directional support because relevant contexts do not add a missing position measurement",
+      "Confirm source identity because navigation and rescue both depend on knowing the transmitter",
+      "Reject all response relevance because the observation lacks a separately established exact location"
+    ],
+    "answer": 1,
+    "explanation": "Slides 14, 24, and 26 establish relevant navigation, rescue, and coordination contexts; slide 30 defines the directional observation. Treating two contexts as two measurements is the closest distractor, but multiple applications of the same observation do not add independent positional evidence.",
+    "sourceSlides": [
+      14,
+      24,
+      26,
+      30
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "rdf-h-20",
+    "difficulty": "hard",
+    "category": "Interpretation and Limitations",
+    "tags": [
+      "radio direction finding",
+      "interpretation and limitations",
+      "classroom scenario"
+    ],
+    "prompt": "A student combines a radar example with a phase-based diagram and concludes that the angle identifies an exact military equipment model. Which revision best preserves the supplied facts?",
+    "options": [
+      "Keep the exact model because the example is military and phase is compared",
+      "Remove the phase interpretation because radar examples exclude phase-comparison measurements",
+      "Remove the radar label because interferometric and phase-comparison descriptions overlap",
+      "Retain the radar example and phase-based direction; leave the exact model unestablished"
+    ],
+    "answer": 3,
+    "explanation": "Slides 17–18 provide radar examples, slides 27 and 29 describe phase-based directional inference, and slide 30 defines DOA. Retaining the exact model is the closest distractor because the clues sound specific, but a broad example and measurement principle do not establish an equipment identity.",
+    "sourceSlides": [
+      17,
+      18,
+      27,
+      29,
+      30
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "rdf-h-21",
+    "difficulty": "hard",
+    "category": "Interpretation and Limitations",
+    "tags": [
+      "radio direction finding",
+      "interpretation and limitations",
+      "classroom scenario"
+    ],
+    "prompt": "A classroom review reports a phase-based directional result and a timing-based directional result. A student says using two methods now establishes the equipment owner. Which conclusion best separates measurement evidence from the new claim?",
+    "options": [
+      "The directional results can be discussed, but neither method description establishes equipment ownership",
+      "The ownership claim is established because different compared quantities supply different owner identities",
+      "The phase result establishes ownership while the timing result establishes only signal arrival direction",
+      "The timing result establishes ownership while the phase result establishes only signal arrival direction"
+    ],
+    "answer": 0,
+    "explanation": "Slides 27–29 describe phase and timing comparisons used for directional inference, and slide 30 defines arrival direction. Accepting ownership from two methods is the closest distractor because there is more measurement information, but neither described quantity supplies evidence of who owns the equipment.",
+    "sourceSlides": [
+      27,
+      28,
+      29,
+      30
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "rdf-h-22",
+    "difficulty": "hard",
+    "category": "C2 Integration and Responsible Use",
+    "tags": [
+      "radio direction finding",
+      "c2 integration and responsible use",
+      "classroom scenario"
+    ],
+    "prompt": "A rescue tabletop C2 summary must choose between 'confirmed survivor position' and 'reported distress-signal direction available for assessment.' Which wording best balances usefulness and evidence?",
+    "options": [
+      "Use the confirmed position wording; response urgency supplies the distance missing from the report",
+      "Use the confirmed position wording; C2 integration independently verifies every incoming observation",
+      "Use the reported direction wording; it supports coordination without asserting a verified point",
+      "Reject both wordings; a report cannot support response until it contains a confirmed identity"
+    ],
+    "answer": 2,
+    "explanation": "Slide 24 supports rescue use, slide 26 supports coordination, and slide 30 defines arrival direction. Rejecting both is the closest distractor because an exact point is unavailable, but the direction can still inform assessment without being promoted to a verified survivor location.",
+    "sourceSlides": [
+      24,
+      26,
+      30
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "rdf-h-23",
+    "difficulty": "hard",
+    "category": "C2 Integration and Responsible Use",
+    "tags": [
+      "radio direction finding",
+      "c2 integration and responsible use",
+      "classroom scenario"
+    ],
+    "prompt": "An authorized classroom coordination cell receives 'unknown source; reported direction; possibly unauthorized.' Which version should it pass into a non-sensitive exercise briefing?",
+    "options": [
+      "Preserve direction and confirm unauthorized status in place of suspicion",
+      "Preserve the provisional assessment but replace unknown source with a verified operator identity",
+      "Preserve the direction and infer an exact point because coordination requires a common location",
+      "Preserve the direction and the provisional assessment, with source identity still unknown"
+    ],
+    "answer": 3,
+    "explanation": "Slide 22 describes monitoring concerns, slide 26 connects information with coordination, and slide 30 defines direction. Confirming unauthorized status is the closest distractor because the original report raises that possibility, but passing information onward does not resolve its provisional status or establish source identity.",
+    "sourceSlides": [
+      22,
+      26,
+      30
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "rdf-h-24",
+    "difficulty": "hard",
+    "category": "C2 Integration and Responsible Use",
+    "tags": [
+      "radio direction finding",
+      "c2 integration and responsible use",
+      "classroom scenario"
+    ],
+    "prompt": "A classroom team proposes two C2 practices: include a directional monitoring observation in a broader assessment, or let its monitoring label certify interference and automatically settle the response. Which assessment follows the deck?",
+    "options": [
+      "The second is required because C2 integration makes a monitoring label proof of interference",
+      "The first preserves RDF's supporting role; the second adds unsupported certainty and decision authority",
+      "Both are required because a direction-finding role and a final decision are the same function",
+      "Neither is supported because monitoring information cannot contribute until exact distance is confirmed"
+    ],
+    "answer": 1,
+    "explanation": "Slides 13 and 16 give monitoring applications, and slide 26 describes information supporting coordination and response. Rejecting both is the closest distractor because the observation is incomplete, but slide 30's directional information can contribute while interference and the final response remain broader assessment questions.",
+    "sourceSlides": [
+      13,
+      16,
+      26,
+      30
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "rdf-h-25",
+    "difficulty": "hard",
+    "category": "C2 Integration and Responsible Use",
+    "tags": [
+      "radio direction finding",
+      "c2 integration and responsible use",
+      "classroom scenario"
+    ],
+    "prompt": "An after-action classroom review credits RDF with helping the response discussion, but a draft says the system independently verified all survivors' locations and identities. Which final statement is justified?",
+    "options": [
+      "Credit the directional contribution to coordination and remove unsupported location and identity claims",
+      "Credit all claims because a successful humanitarian exercise confirms every measurement interpretation",
+      "Remove all RDF credit because directional information cannot contribute without exact positions",
+      "Keep the location claim only because rescue applications turn each arrival angle into a verified point"
+    ],
+    "answer": 0,
+    "explanation": "Slides 12 and 24 describe humanitarian and rescue roles, and slide 26 describes coordination support. Removing all credit is the closest distractor because the draft overstates the result, but slide 30 still supports a directional contribution without establishing precise survivor locations or identities.",
+    "sourceSlides": [
+      12,
+      24,
+      26,
+      30
+    ]
+  }
+]

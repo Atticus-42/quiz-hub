@@ -1,0 +1,623 @@
+[
+  {
+    "id": 1,
+    "qid": "intcycle-h-01",
+    "difficulty": "hard",
+    "category": "Information and Intelligence",
+    "tags": [
+      "intelligence product",
+      "processed information",
+      "contradictory evidence"
+    ],
+    "prompt": "A Philippine Army tabletop team has translated shelter reports and a polished dashboard. Two totals still conflict, but the leader needs an assessment now. Which product is best justified?",
+    "options": [
+      "Deliver the polished dashboard, using its common format as the basis for accepting both totals",
+      "Select the more recent total for the assessment and omit the disagreement to preserve clarity",
+      "Deliver the complete source archive, leaving the leader to determine the meaning of each total",
+      "Provide supported findings, explain the unresolved conflict and limit the conclusion accordingly"
+    ],
+    "answer": 3,
+    "explanation": "The team can interpret the usable information while explicitly retaining the conflict that limits its conclusion. Translation and visualization help prepare and communicate material, but they do not resolve the evidence. A polished dashboard alone would obscure the remaining analytical problem.",
+    "sourceSlides": [
+      10,
+      12,
+      13,
+      19,
+      20
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "intcycle-h-02",
+    "difficulty": "hard",
+    "category": "Information and Intelligence",
+    "tags": [
+      "iterative cycle",
+      "evolving needs",
+      "assessment revision"
+    ],
+    "prompt": "After dissemination, a new bulletin weakens one briefing finding, while the exercise leader asks a related new question. What response best reflects the cycle?",
+    "options": [
+      "Answer the new question first and preserve the old finding until the next scheduled review",
+      "Review the affected finding and refine information requirements for the leader's new question",
+      "Withdraw all earlier findings before checking which conclusions the bulletin actually affects",
+      "Resend the original assessment with a new date because the issue concerns product dissemination"
+    ],
+    "answer": 1,
+    "explanation": "The cycle responds to changing information and requirements, so both the affected finding and the new question deserve review. Withdrawing every finding would exceed what the new evidence establishes. Revisiting relevant work preserves useful understanding while allowing justified changes to the assessment.",
+    "sourceSlides": [
+      11,
+      12,
+      13,
+      14
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "intcycle-h-03",
+    "difficulty": "hard",
+    "category": "Information and Intelligence",
+    "tags": [
+      "decision support",
+      "coverage limitations",
+      "confidence"
+    ],
+    "prompt": "A briefing combines several reports from the same reported shelters but no data from others. Which conclusion best fits the evidence for a support review?",
+    "options": [
+      "Assess the reported shelters and state that wider coverage remains an information gap",
+      "Extend the finding to all shelters because repeated reports create a sufficiently large dataset",
+      "Infer stable demand at the missing shelters because no reports describe an increase there",
+      "Withhold every observation until the team can establish a complete picture of all shelters"
+    ],
+    "answer": 0,
+    "explanation": "The available material supports an assessment of the shelters it describes, with a clear limitation on wider coverage. More reports about the same places do not establish knowledge of unreported ones. Useful decision support can state a bounded conclusion without claiming complete certainty.",
+    "sourceSlides": [
+      10,
+      13,
+      19
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "intcycle-h-04",
+    "difficulty": "hard",
+    "category": "Planning and Direction",
+    "tags": [
+      "requirements",
+      "priorities",
+      "resource allocation"
+    ],
+    "prompt": "A short classroom review must explain a specific support gap. Most available files concern a broader background topic, and staff time is limited. What should direct effort?",
+    "options": [
+      "Complete the large background review first because the file volume indicates a substantial need",
+      "Divide staff equally among topics so all available folders receive consistent review effort",
+      "Prioritize the specific decision requirement and the information gaps that affect answering it",
+      "Use the background files to draft a recommendation and define the requirement after briefing"
+    ],
+    "answer": 2,
+    "explanation": "Planning and direction aligns requirements and resources with mission objectives, so the specific decision need should shape the review. The larger background folder may still contain useful material, but its size does not establish priority or resolve the support question on its own.",
+    "sourceSlides": [
+      12,
+      14
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "intcycle-h-05",
+    "difficulty": "hard",
+    "category": "Planning and Direction",
+    "tags": [
+      "commander collaboration",
+      "requirement revision",
+      "evolving needs"
+    ],
+    "prompt": "The leader asks for 'current shelter needs,' but staff disagree whether the decision concerns present demand or likely changes. What should happen before the review expands?",
+    "options": [
+      "Clarify the intended decision with the leader and adjust the information requirements accordingly",
+      "Produce two complete assessments before asking the leader which interpretation meets the need",
+      "Use the interpretation supported by existing slides and record the alternative in an appendix",
+      "Collect all available reports first and let the resulting material determine the briefing question"
+    ],
+    "answer": 0,
+    "explanation": "The ambiguity affects what information and analysis the task requires, making clarification part of planning and direction. Producing two full assessments could consume limited effort without establishing the intended decision. Collaboration should define the need before the team expands its work.",
+    "sourceSlides": [
+      12,
+      14
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "intcycle-h-06",
+    "difficulty": "hard",
+    "category": "Planning and Direction",
+    "tags": [
+      "environment assessment",
+      "priorities",
+      "resource coordination"
+    ],
+    "prompt": "A tabletop storm update changes the support concern, but the team has nearly finished an earlier review. Which direction best balances completed work and the changed need?",
+    "options": [
+      "Finish the earlier review in full before checking how it relates to the changed support concern",
+      "Discard the earlier review and recreate every dataset before evaluating the new requirements",
+      "Keep the original priorities and ask the audience to infer the effects of the changed concern",
+      "Reassess priorities and retain completed work that still helps answer the changed decision need"
+    ],
+    "answer": 3,
+    "explanation": "A changing environment can require revised priorities, while relevant completed work may still support the new decision. The cycle's iterative character does not require abandoning all earlier work. Keeping priorities unchanged, however, could leave the team answering a superseded requirement.",
+    "sourceSlides": [
+      11,
+      12,
+      14
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "intcycle-h-07",
+    "difficulty": "hard",
+    "category": "Planning and Direction",
+    "tags": [
+      "information gaps",
+      "mission alignment",
+      "collection requirements"
+    ],
+    "prompt": "Reviewers discover that a draft cannot answer whether the exercise support gap is changing over time. Which follow-up direction is most useful?",
+    "options": [
+      "Request more files across subjects so the larger dataset gives the analyst additional context",
+      "Redesign the dashboard so the existing snapshot communicates the possible demand change clearly",
+      "Specify the missing time comparison that the analyst needs to answer the decision question",
+      "Request a firmer recommendation so the product can answer the question with greater confidence"
+    ],
+    "answer": 2,
+    "explanation": "The discovered gap should become a focused information requirement tied to the decision. A question about change needs a relevant time comparison, consistent with trend analysis. More files or a redesigned display would not necessarily supply the missing basis for that comparison.",
+    "sourceSlides": [
+      12,
+      14,
+      18
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "intcycle-h-08",
+    "difficulty": "hard",
+    "category": "Collection Disciplines",
+    "tags": [
+      "OSINT",
+      "COMINT",
+      "source and medium"
+    ],
+    "prompt": "A student classifies a public disaster bulletin as COMINT because it arrived by email, while classifying a recorded authorized interview as ELINT. Which review is best?",
+    "options": [
+      "Keep both labels because the delivery network and recording equipment define the source type",
+      "Classify the public bulletin as OSINT and the human source's authorized account as HUMINT",
+      "Classify both as SIGINT because each source became electronic material before staff review",
+      "Classify both as IMINT because a display can show the material as text or other visual content"
+    ],
+    "answer": 1,
+    "explanation": "The source distinctions concern openly available material and human accounts, rather than the mere presence of email or recording equipment. COMINT and ELINT are SIGINT categories with different subject matter. Electronic handling does not make every digitally stored source a SIGINT input.",
+    "sourceSlides": [
+      12,
+      15
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "intcycle-h-09",
+    "difficulty": "hard",
+    "category": "Collection Disciplines",
+    "tags": [
+      "SIGINT",
+      "COMINT",
+      "ELINT",
+      "taxonomy limits"
+    ],
+    "prompt": "A classroom packet contains translated simulated communications and a sorted table of noncommunication radar emissions. Both are displayed as charts, but neither has been assessed. Which review note correctly addresses source category and stage?",
+    "options": [
+      "Retain COMINT and ELINT under SIGINT; translation and sorting prepare inputs, but assessment remains",
+      "Retain COMINT and ELINT under SIGINT; their translated and sorted form completes analysis and production",
+      "Reclassify both as IMINT because they appear in charts; retain analysis as the next unfinished task",
+      "Reclassify both as ELINT because they are electronic; translation and sorting complete their assessment"
+    ],
+    "answer": 0,
+    "explanation": "COMINT and ELINT distinguish communications from noncommunication emissions within SIGINT; chart presentation does not change their source categories. Translation and sorting make inputs usable, but significance still requires analysis. Correct labels alone do not justify treating the prepared packet as a completed assessment.",
+    "sourceSlides": [
+      12,
+      13,
+      15
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "intcycle-h-10",
+    "difficulty": "hard",
+    "category": "Collection Disciplines",
+    "tags": [
+      "surveillance",
+      "interception",
+      "signal analysis",
+      "activity boundaries"
+    ],
+    "prompt": "An abstract exercise describes repeated monitoring for change, capture of a transmitted signal, and evaluation of its significance as three separate activities. Which review preserves their distinctions?",
+    "options": [
+      "Use interception for all three activities because each can occur before a final product is written",
+      "Use production for monitoring, collection for capture and dissemination for significance review",
+      "Use surveillance for monitoring, interception for capture and signal analysis for significance review",
+      "Use surveillance for all three activities because monitoring provides context for later understanding"
+    ],
+    "answer": 2,
+    "explanation": "The source assigns repeated monitoring, signal capture and evaluation different activity meanings. Keeping those labels distinct prevents capture from being mistaken for interpretation or monitoring. The scenario tests conceptual boundaries and does not ask how to conduct any signal collection activity.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "intcycle-h-11",
+    "difficulty": "hard",
+    "category": "Collection Disciplines",
+    "tags": [
+      "mixed disciplines",
+      "collection and analysis",
+      "source diversity"
+    ],
+    "prompt": "A training image and a public bulletin describe the same shelter issue differently. What does the presence of two collection disciplines establish by itself?",
+    "options": [
+      "Prefer the training image because the visible source provides a firmer basis than a written bulletin",
+      "Prefer the public bulletin because publication gives its stated figures a stronger status than imagery",
+      "Treat the two disciplines as mutual validation because their different source types reduce uncertainty",
+      "Recognize different collection inputs and analyze the disagreement before selecting a supported finding"
+    ],
+    "answer": 3,
+    "explanation": "Multiple disciplines provide different inputs, but their presence alone does not decide which account is better supported. The disagreement remains an analytical problem. Neither imagery nor open publication receives automatic precedence from the lesson's description of collection categories and later analysis.",
+    "sourceSlides": [
+      12,
+      13,
+      18
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "intcycle-h-12",
+    "difficulty": "hard",
+    "category": "Processing and Exploitation",
+    "tags": [
+      "data sorting",
+      "translation",
+      "stage boundaries"
+    ],
+    "prompt": "A team translates reports, standardizes their dates and notices an apparent rise in demand. Which handoff most clearly separates preparation from assessment?",
+    "options": [
+      "Hand usable material and the observed pattern to analysis without treating its meaning as settled",
+      "Record the rise as an established finding because the reports now use consistent dates and language",
+      "Send only the final chart to analysis because preparation has already resolved the source context",
+      "Return all material to collection because a pattern cannot be recorded during the processing stage"
+    ],
+    "answer": 0,
+    "explanation": "Translation and sorting prepare material for analysis, and an observed pattern can be flagged without declaring its meaning settled. The next stage interprets and synthesizes the usable information. Consistent formatting makes a comparison possible but does not complete the assessment of the apparent rise.",
+    "sourceSlides": [
+      12,
+      13,
+      17,
+      18
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "intcycle-h-13",
+    "difficulty": "hard",
+    "category": "Processing and Exploitation",
+    "tags": [
+      "context",
+      "data interpretation",
+      "ambiguity"
+    ],
+    "prompt": "Two fictional reports use the word 'capacity' differently. Their figures look contradictory after sorting. What preparation best supports a meaningful later comparison?",
+    "options": [
+      "Average the two figures so the analyst receives a single value that is easier to interpret",
+      "Clarify what each capacity figure describes before deciding whether the numbers can be compared",
+      "Use the larger figure so the briefing accounts for the greater apparent support requirement",
+      "Use identical wording for both headings so the figures can enter the same comparison table"
+    ],
+    "answer": 1,
+    "explanation": "Processing should preserve usable meaning, so the team needs to clarify what each figure describes before comparing them. Identical wording does not ensure identical concepts. Averaging figures that refer to different things could create a tidy value without resolving the underlying contextual problem.",
+    "sourceSlides": [
+      12,
+      13,
+      17
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "intcycle-h-14",
+    "difficulty": "hard",
+    "category": "Processing and Exploitation",
+    "tags": [
+      "decryption concept",
+      "access",
+      "analytical limits"
+    ],
+    "prompt": "An authorized classroom decoding demonstration succeeds, but the readable message is incomplete and its significance unclear. Which status should accompany it?",
+    "options": [
+      "Label it a completed assessment because successful access supplies the basis for accepting its content",
+      "Label it a final recommendation because the accessible content can now be presented to the leader",
+      "Label it an invalid source because processing failed to produce a complete analytical conclusion",
+      "Label it a usable but incomplete input whose meaning still needs interpretation before assessment"
+    ],
+    "answer": 3,
+    "explanation": "Successful access changes the material's usability, not the completeness or significance of its content. The readable message can enter analysis with its limitations visible. Calling it a completed assessment would merge processing with the later interpretation and production needed for decision support.",
+    "sourceSlides": [
+      12,
+      13,
+      17
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "intcycle-h-15",
+    "difficulty": "hard",
+    "category": "Analysis and Production",
+    "tags": [
+      "correlation",
+      "trend analysis",
+      "method selection"
+    ],
+    "prompt": "The leader asks both how shelter demand changed over several days and how it relates to supply requests. Which analytical plan best fits both questions?",
+    "options": [
+      "Sort once by sender and use that arrangement to explain both the change and the relationship",
+      "Compare only the latest totals so differences in reporting days do not complicate the briefing",
+      "Use trend analysis for change over time and correlation for the relationship between the measures",
+      "Chart each file separately so the briefing can present both subjects without further interpretation"
+    ],
+    "answer": 2,
+    "explanation": "Trend analysis addresses change over time, while correlation examines relationships among pieces of information. The two questions therefore call for different but complementary analytical views. A latest-total snapshot could support current awareness, but it would not by itself answer either requested comparison.",
+    "sourceSlides": [
+      13,
+      18
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "intcycle-h-16",
+    "difficulty": "hard",
+    "category": "Analysis and Production",
+    "tags": [
+      "trend analysis",
+      "comparability",
+      "limitations"
+    ],
+    "prompt": "A draft calls demand 'steadily rising,' but one day covers fewer shelters than the others. What review response best addresses the conclusion?",
+    "options": [
+      "Check whether the observations are comparable and qualify the trend if the coverage gap affects it",
+      "Accept the wording because placing the totals in date order establishes a meaningful time trend",
+      "Replace the incomplete day's total with the highest value to represent the possible missing demand",
+      "Retain the wording but remove the dates so the coverage difference does not distract the audience"
+    ],
+    "answer": 0,
+    "explanation": "A claim about change should reflect what the observations can support, including differences that affect comparison. Dates alone do not make the totals equivalent evidence of a steady rise. The team should examine the coverage issue before choosing language stronger than the information permits.",
+    "sourceSlides": [
+      13,
+      18,
+      19
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "intcycle-h-17",
+    "difficulty": "hard",
+    "category": "Analysis and Production",
+    "tags": [
+      "correlation",
+      "causal limits",
+      "production"
+    ],
+    "prompt": "Shelter demand and supply requests rose together in the exercise dataset. A draft says demand caused every request increase. Which revision best supports a decision?",
+    "options": [
+      "Retain the causal explanation but place its supporting comparison in the appendix for later review",
+      "Omit the relationship because correlation cannot provide useful understanding without proof of cause",
+      "Replace the explanation with a recommendation so the briefing can focus on the decision required",
+      "Report the observed relationship while explaining that this comparison has not established its cause"
+    ],
+    "answer": 3,
+    "explanation": "Correlation can reveal a relevant relationship without establishing that one measure caused all changes in the other. The revision retains useful analysis while limiting the claim to its support. Removing the relationship completely would lose information that may still help the decision-maker understand the issue.",
+    "sourceSlides": [
+      13,
+      18,
+      19
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "intcycle-h-18",
+    "difficulty": "hard",
+    "category": "Analysis and Production",
+    "tags": [
+      "pattern analysis",
+      "trend analysis",
+      "recurring characteristics"
+    ],
+    "prompt": "An artificial signal-label dataset contains recurring shapes across entries but no time sequence. The draft calls this a time trend. Which correction best fits the available data?",
+    "options": [
+      "Keep the trend label because recurrence across entries demonstrates change across successive periods",
+      "Describe recurring characteristics as a pattern without claiming that they establish change over time",
+      "Assign dates from the order of entries and use that sequence to analyze a possible time trend",
+      "Discard the dataset because an artificial source cannot support the lesson's pattern-analysis distinction"
+    ],
+    "answer": 1,
+    "explanation": "Recurring characteristics can support a pattern description, while a trend requires consideration of change over time. Without a time sequence, the stronger label is unsupported. The artificial labels allow conceptual method selection without examining real signals or developing operational collection or exploitation procedures.",
+    "sourceSlides": [
+      18
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "intcycle-h-19",
+    "difficulty": "hard",
+    "category": "Analysis and Production",
+    "tags": [
+      "production",
+      "findings",
+      "recommendations",
+      "uncertainty"
+    ],
+    "prompt": "A short tabletop briefing must recommend further review of a support issue despite an unresolved report conflict. Which structure best supports an informed decision?",
+    "options": [
+      "Present the recommendation with the archive, allowing recipients to reconstruct the supporting analysis",
+      "Present the conflicting totals alone so the audience can choose a recommendation during discussion",
+      "Present supported findings, explain how the conflict limits them and connect a recommendation to that analysis",
+      "Present the strongest conclusion without the conflict so the short briefing gives a clear direction"
+    ],
+    "answer": 2,
+    "explanation": "A useful product connects findings and analysis to its recommendation while showing a conflict that affects the judgment. A source archive alone does not explain that connection. Clear reasoning lets the recipient understand both the proposed next step and the limits of the assessment supporting it.",
+    "sourceSlides": [
+      13,
+      19
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "intcycle-h-20",
+    "difficulty": "hard",
+    "category": "Dissemination and C2 Integration",
+    "tags": [
+      "real-time updates",
+      "visualization",
+      "integration"
+    ],
+    "prompt": "A revised assessment changes a support assumption, but the current dashboard and planning summary still show the old one. Which response best integrates the update?",
+    "options": [
+      "Update the affected displays and review planning assumptions in light of the revised assessment",
+      "Send the revised file and treat a delivery notification as evidence that the plan has changed",
+      "Update the dashboard's date but keep the old conclusion to preserve consistency across displays",
+      "Archive the revision and leave the planning summary until users request a review of the change"
+    ],
+    "answer": 0,
+    "explanation": "Integration requires the revised understanding to inform current situational awareness and plans. Receipt of a file alone does not establish that the changed assumption reached those uses. The affected display and planning summary should reflect the assessment where the revision matters to decisions.",
+    "sourceSlides": [
+      13,
+      20
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "intcycle-h-21",
+    "difficulty": "hard",
+    "category": "Dissemination and C2 Integration",
+    "tags": [
+      "timeliness",
+      "assessment limitations",
+      "relevant recipients"
+    ],
+    "prompt": "An authorized leader needs a short assessment before a discussion. One relevant issue remains uncertain, but supported findings are available. Which delivery best serves the stated need?",
+    "options": [
+      "Wait until the uncertainty disappears even if the assessment arrives after the decision discussion",
+      "Deliver supported findings before the discussion and make the unresolved issue clear to the leader",
+      "Deliver only raw files before the discussion because an unresolved issue prevents useful assessment",
+      "Deliver a firm conclusion before the discussion and omit the unresolved issue from the brief"
+    ],
+    "answer": 1,
+    "explanation": "The product can support the decision in time while accurately communicating its limitation. Timeliness does not justify hiding uncertainty, and an unresolved issue does not erase every supported finding. Sending raw files alone would shift the analytical task back to the recipient.",
+    "sourceSlides": [
+      10,
+      13,
+      19,
+      20
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "intcycle-h-22",
+    "difficulty": "hard",
+    "category": "Dissemination and C2 Integration",
+    "tags": [
+      "visualization",
+      "data sharing",
+      "decision context"
+    ],
+    "prompt": "A clear chart reaches authorized staff, but its caption drops the assessment's limited coverage and staff use it for a wider planning assumption. What correction matters most?",
+    "options": [
+      "Increase the chart's resolution so staff can read the same finding more clearly during planning",
+      "Send the chart to more staff so a broader audience can consider the planning assumption it supports",
+      "Restore the coverage limitation and review the wider assumption that relied on the incomplete caption",
+      "Change the chart's colors and retain the assumption because delivery reached authorized staff members"
+    ],
+    "answer": 2,
+    "explanation": "The missing limitation changes what the chart appears to support, so correction should address both the display and its use in planning. Authorized delivery is necessary for appropriate sharing, but it does not ensure the product's analytical meaning survives visualization and integration.",
+    "sourceSlides": [
+      13,
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "intcycle-h-23",
+    "difficulty": "hard",
+    "category": "OPSEC and Ethical Handling",
+    "tags": [
+      "authorized access",
+      "threat awareness",
+      "secure communication"
+    ],
+    "prompt": "An unexpected account requests the full exercise assessment through a familiar-looking message, citing urgency. What response best combines decision support with OPSEC?",
+    "options": [
+      "Verify the requester's authorization and use the approved route for any assessment sharing permitted",
+      "Send the assessment because the message's familiar appearance provides sufficient evidence of authorization",
+      "Remove the title and send the content so the recipient can meet the urgent stated information need",
+      "Forward the product to a broader group so another participant can decide whether the request is valid"
+    ],
+    "answer": 0,
+    "explanation": "Threat awareness and authorized access require checking the request rather than relying on its appearance or urgency. Permitted sharing should then use the approved communication route. Removing a title does not resolve whether the account may receive the substantive information in the assessment.",
+    "sourceSlides": [
+      21
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "intcycle-h-24",
+    "difficulty": "hard",
+    "category": "OPSEC and Ethical Handling",
+    "tags": [
+      "legal compliance",
+      "civilian harm",
+      "information control"
+    ],
+    "prompt": "An assessment's reasoning is useful for a public exercise summary, but its source appendix contains unnecessary civilian identifiers. Which handling best fits the lesson?",
+    "options": [
+      "Release the complete appendix because explaining the reasoning requires publishing every underlying detail",
+      "Prepare a permitted summary that explains the findings without disclosing unnecessary civilian identifiers",
+      "Withhold the entire summary because the source material contains some details about individual civilians",
+      "Share the appendix informally so a useful explanation can reach readers without a formal release step"
+    ],
+    "answer": 1,
+    "explanation": "Ethical handling considers legal compliance, civilian harm and the balance between transparency and security. A permitted summary can explain findings without disclosing unnecessary identifying details. Publishing the whole appendix is not required merely because the assessment should communicate its supporting reasoning.",
+    "sourceSlides": [
+      19,
+      21
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "intcycle-h-25",
+    "difficulty": "hard",
+    "category": "OPSEC and Ethical Handling",
+    "tags": [
+      "transparency and security",
+      "authorized access",
+      "C2 sharing"
+    ],
+    "prompt": "A partner in a disaster tabletop needs a general finding, while the detailed assessment has access restrictions. What is the best basis for sharing?",
+    "options": [
+      "Share the complete assessment because participating in the exercise establishes a common information need",
+      "Withhold all general findings without checking whether the access rules allow an appropriate summary",
+      "Put the full assessment on a public link so the partner can coordinate without an access delay",
+      "Confirm what the partner may receive and provide a useful summary through an authorized sharing route"
+    ],
+    "answer": 3,
+    "explanation": "The lesson supports useful information sharing alongside authorized access and information control. Checking what may be shared allows an appropriate summary to support coordination. Participation alone does not establish permission for every restricted detail, while blanket withholding can miss a permitted way to communicate useful findings.",
+    "sourceSlides": [
+      13,
+      20,
+      21
+    ]
+  }
+]

@@ -28,7 +28,7 @@ Version 7 is backward compatible:
 
 ## Adding a lesson
 
-The tab names live in `LESSONS` at the top of `Code.gs`. A new lesson's key must be added there, followed by an updated deployment (above), before its attempts are accepted. `signaljoint` is already listed.
+The tab names live in `LESSONS` at the top of `Code.gs`. A new lesson's key must be added there, followed by an updated deployment (above), before its attempts are accepted. `intcycle` (Intelligence Cycle History) and `rdf` (RDF History) are registered for Module 5. The existing deployment was updated to revision 8 on 19 October 2026, retaining the same public URL and permissions; the payload protocol remains version 7. Read-only checks for both new lesson keys returned `ok: true`. No synthetic attempts were added to the live class sheet.
 
 ## Privacy and housekeeping
 

@@ -70,9 +70,9 @@ export async function buildSuite({ lessons, modules }) {
   });
 
   await T('every lesson folder loads: unique keys, slugs and qids; modules exist; the combined exam is a pool of the four Module 2 lessons', () => {
-    assert.deepEqual(lessons.map(lesson => lesson.key), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops', 'modulethree', 'signal', 'signaljoint', 'coalition']);
-    assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined', 'isr', 'armor', 'field-artillery', 'army-operations', 'module-3-exam', 'signal-support', 'joint-signal', 'coalition-signal']);
-    assert.deepEqual(modules.map(module => module.id), ['module-2', 'module-3']);
+    assert.deepEqual(lessons.map(lesson => lesson.key), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops', 'modulethree', 'signal', 'signaljoint', 'coalition', 'intcycle', 'rdf']);
+    assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined', 'isr', 'armor', 'field-artillery', 'army-operations', 'module-3-exam', 'signal-support', 'joint-signal', 'coalition-signal', 'intelligence-cycle', 'radio-direction-finding']);
+    assert.deepEqual(modules.map(module => module.id), ['module-2', 'module-3', 'module-5']);
     const combined = lessons.find(lesson => lesson.key === 'combined');
     assert.deepEqual(combined.pool, { lessons: ['isr', 'armor', 'fieldartillery', 'armyops'], count: 60 });
     assert.deepEqual(combined.rules.pool.lessons.map(lesson => lesson.name), ['ISR Operations', 'Armor Operations', 'Field Artillery Operations', 'Army Operations']);

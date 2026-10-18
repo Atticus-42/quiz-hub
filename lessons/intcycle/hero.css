@@ -1,0 +1,10 @@
+.cycle-pulse { animation: cycle-emphasis 4s ease-out 1; }
+.cycle-pulse:nth-child(2) { animation-delay: .1s; }
+.cycle-pulse:nth-child(3) { animation-delay: .2s; }
+.cycle-pulse:nth-child(4) { animation-delay: .3s; }
+.cycle-pulse:nth-child(5) { animation-delay: .4s; }
+@keyframes cycle-emphasis { 0%,100% { stroke-width:1.4; } 45% { stroke-width:3; } }
+@media (prefers-reduced-motion: reduce) {
+  .cycle-pulse, .cycle-pulse:nth-child(2), .cycle-pulse:nth-child(3), .cycle-pulse:nth-child(4), .cycle-pulse:nth-child(5) { animation:none !important; transition:none !important; }
+  .cycle-pulse { stroke-width:1.4; }
+}

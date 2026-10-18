@@ -1,0 +1,605 @@
+[
+  {
+    "id": 1,
+    "qid": "rdf-e-01",
+    "difficulty": "easy",
+    "category": "Roles and Applications",
+    "tags": [
+      "radio direction finding",
+      "roles and applications",
+      "classroom scenario"
+    ],
+    "prompt": "During an authorized Philippine Army classroom exercise, a team must explain how RDF could help a typhoon response. Which contribution fits the lesson?",
+    "options": [
+      "Establishing the medical condition of every person transmitting",
+      "Confirming the identity of a transmitter from its direction",
+      "Indicating the arrival direction of a received distress signal",
+      "Determining the exact distance to an emergency radio source"
+    ],
+    "answer": 2,
+    "explanation": "Slides 12–13 connect RDF with disaster response and emergency distress signals. Indicating signal direction fits that supporting role; exact distance is the closest alternative, but slide 30 defines a direction of arrival rather than a range measurement.",
+    "sourceSlides": [
+      12,
+      13,
+      30
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "rdf-e-02",
+    "difficulty": "easy",
+    "category": "Roles and Applications",
+    "tags": [
+      "radio direction finding",
+      "roles and applications",
+      "classroom scenario"
+    ],
+    "prompt": "A navigation tabletop describes a radio beacon received when visual landmarks are unavailable. What useful information could RDF contribute?",
+    "options": [
+      "A direction associated with the received beacon",
+      "The remaining travel time along the intended route",
+      "The team's independently verified position",
+      "The current reliability of the beacon operator's report"
+    ],
+    "answer": 0,
+    "explanation": "Slide 14 describes radio beacon direction as a navigation aid when visual landmarks or GPS are unavailable. A verified position is the closest distractor, but a direction can support navigation without independently establishing the receiving team's position or the beacon's distance.",
+    "sourceSlides": [
+      14
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "rdf-e-03",
+    "difficulty": "easy",
+    "category": "Roles and Applications",
+    "tags": [
+      "radio direction finding",
+      "roles and applications",
+      "classroom scenario"
+    ],
+    "prompt": "In a search-and-rescue classroom scenario, a distress transmission is received from a remote area. Which statement best describes the role taught for RDF?",
+    "options": [
+      "It can establish whether the caller requires urgent treatment",
+      "It can verify that the caller's description of terrain is correct",
+      "It can determine how many survivors are at the transmitter",
+      "It can provide directional information to support a search"
+    ],
+    "answer": 3,
+    "explanation": "Slides 15 and 24 describe RDF support to search and rescue through distress signals in remote areas. Assessing urgency is the closest distractor because it matters to a response, but the slides describe directional support rather than medical assessment from the RF signal.",
+    "sourceSlides": [
+      15,
+      24
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "rdf-e-04",
+    "difficulty": "easy",
+    "category": "Roles and Applications",
+    "tags": [
+      "radio direction finding",
+      "roles and applications",
+      "classroom scenario"
+    ],
+    "prompt": "A spectrum-monitoring discussion concerns an unidentified transmission affecting a training broadcast. Which RDF contribution matches the source?",
+    "options": [
+      "Determining the operator's intent from the bearing alone",
+      "Providing directional information about the received RF source",
+      "Confirming the transmission's legal status from its direction",
+      "Identifying the radio's owner from a single directional report"
+    ],
+    "answer": 1,
+    "explanation": "Slides 13 and 16 connect RDF with spectrum monitoring and interference sources. Legal status is the closest alternative because regulation is mentioned, but a directional observation supports investigation; it does not itself establish authorization, ownership, or the operator's intent.",
+    "sourceSlides": [
+      13,
+      16
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "rdf-e-05",
+    "difficulty": "easy",
+    "category": "Roles and Applications",
+    "tags": [
+      "radio direction finding",
+      "roles and applications",
+      "classroom scenario"
+    ],
+    "prompt": "A student claims the RDF lesson applies only to combat. Which classroom example most directly challenges that claim?",
+    "options": [
+      "Using distress-signal direction to support disaster rescue",
+      "Using the bearing to certify the transmitter's equipment type",
+      "Using one observation to confirm exact survivor position",
+      "Using the bearing to assess the condition of rescue personnel"
+    ],
+    "answer": 0,
+    "explanation": "Slide 12 includes disaster response and humanitarian missions, while slide 24 gives search-and-rescue examples involving distress signals. Exact survivor position is the closest distractor because rescue seeks locations, but the lesson's directional contribution does not by itself establish a precise position.",
+    "sourceSlides": [
+      12,
+      24
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "rdf-e-06",
+    "difficulty": "easy",
+    "category": "RF Source Categories",
+    "tags": [
+      "radio direction finding",
+      "rf source categories",
+      "classroom scenario"
+    ],
+    "prompt": "A classroom card describes a signal explicitly identified as a licensed radio broadcast. Which source grouping is supported by the deck?",
+    "options": [
+      "Emergency distress beacon sources",
+      "Individual radio handsets",
+      "Civilian communications sources",
+      "Military communications sources"
+    ],
+    "answer": 2,
+    "explanation": "Slide 19 includes radio and television broadcasting among civilian communications sources. Emergency beacons are the closest alternative because both involve RF transmissions, but the scenario identifies an ordinary licensed broadcast and gives no distress purpose or emergency beacon evidence.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "rdf-e-07",
+    "difficulty": "easy",
+    "category": "RF Source Categories",
+    "tags": [
+      "radio direction finding",
+      "rf source categories",
+      "classroom scenario"
+    ],
+    "prompt": "A rescue tabletop names a generic distress beacon but gives no specific beacon type. Which characterization stays within the taught material?",
+    "options": [
+      "A broadcast service with confirmed licensing status",
+      "An emergency RF source that can support a rescue scenario",
+      "A radio whose specific equipment label follows from its bearing",
+      "A communications source whose operator identity is already known"
+    ],
+    "answer": 1,
+    "explanation": "Slides 20 and 24 connect distress signals with emergency and rescue applications. Naming a specific equipment type is the closest distractor, but the generic description and a bearing do not identify that subtype; the bank therefore uses the broader distress-beacon description.",
+    "sourceSlides": [
+      20,
+      24
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "rdf-e-08",
+    "difficulty": "easy",
+    "category": "RF Source Categories",
+    "tags": [
+      "radio direction finding",
+      "rf source categories",
+      "classroom scenario"
+    ],
+    "prompt": "An instructor explicitly identifies one demonstration signal as radar and another as television broadcasting. Which comparison follows the source descriptions?",
+    "options": [
+      "Only the television example qualifies as an RF source in this lesson",
+      "Only the radar example can have a direction at a receiver",
+      "The two examples must have the same operating purpose because both radiate",
+      "Both are RF sources, although the examples have different functions"
+    ],
+    "answer": 3,
+    "explanation": "Slide 18 describes radar as an RF source, and slide 19 includes television broadcasting among civilian communications sources. Shared purpose is the closest alternative, but being RF sources establishes a common signal domain without making their functions identical or identifying a particular emitter.",
+    "sourceSlides": [
+      18,
+      19
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "rdf-e-09",
+    "difficulty": "easy",
+    "category": "RF Source Categories",
+    "tags": [
+      "radio direction finding",
+      "rf source categories",
+      "classroom scenario"
+    ],
+    "prompt": "A lesson worksheet lists tactical radios and civilian cellular systems as examples. Which interpretation uses the deck's categories appropriately?",
+    "options": [
+      "They are examples of communications-related RF sources",
+      "They must use the same measurement method because both communicate",
+      "Their bearing alone reliably identifies the equipment",
+      "They prove the deck's RF source categories never overlap in practice"
+    ],
+    "answer": 0,
+    "explanation": "Slides 17 and 19 present military and civilian communications examples, including tactical radios and cellular systems. A shared measurement method is the closest distractor: a source category describes an example's context, while slides 27–29 discuss separate concepts for measuring signal direction.",
+    "sourceSlides": [
+      17,
+      19,
+      27,
+      28,
+      29
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "rdf-e-10",
+    "difficulty": "easy",
+    "category": "Direction of Arrival and Bearings",
+    "tags": [
+      "radio direction finding",
+      "direction of arrival and bearings",
+      "classroom scenario"
+    ],
+    "prompt": "A training receiver reports a direction of arrival for a simulated radio signal. What does that result directly express?",
+    "options": [
+      "The physical distance between the receiver and the transmitter",
+      "The registered identity associated with the transmitting equipment",
+      "The precise geographic position of the signal's originating station",
+      "The received signal's arrival direction relative to the RDF system"
+    ],
+    "answer": 3,
+    "explanation": "Slide 30 defines direction of arrival as an azimuthal arrival angle relative to the RDF system. Exact geographic position is the closest distractor because it also concerns location, but the definition provides a direction, not an independently established point or distance.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "rdf-e-11",
+    "difficulty": "easy",
+    "category": "Direction of Arrival and Bearings",
+    "tags": [
+      "radio direction finding",
+      "direction of arrival and bearings",
+      "classroom scenario"
+    ],
+    "prompt": "A classroom report contains only one bearing and labels it 'exact transmitter location.' Which revision is most justified?",
+    "options": [
+      "Label it as an approximate transmitter distance",
+      "Label it as the confirmed identity of the transmitting radio operator",
+      "Label it as a reported arrival direction relative to the system",
+      "Label it as the verified position of both the transmitter and receiver"
+    ],
+    "answer": 2,
+    "explanation": "Slide 30 describes a direction relative to the RDF system. Relabeling the result as arrival direction preserves that evidence; approximate distance is the closest distractor, but distance is a different quantity and cannot be inferred merely by renaming a single directional observation.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "rdf-e-12",
+    "difficulty": "easy",
+    "category": "Direction of Arrival and Bearings",
+    "tags": [
+      "radio direction finding",
+      "direction of arrival and bearings",
+      "classroom scenario"
+    ],
+    "prompt": "A tabletop navigator says a beacon direction is useful, so it must also specify distance. Which response best applies the lesson?",
+    "options": [
+      "Direction establishes distance whenever the beacon has a known purpose",
+      "Direction can aid navigation without supplying distance by itself",
+      "Direction establishes the receiver's position whenever landmarks are absent",
+      "A beacon direction supplies its exact geographic position"
+    ],
+    "answer": 1,
+    "explanation": "Slide 14 explains that beacon direction can assist navigation, and slide 30 defines the result as an arrival angle. Exact position is the closest alternative because navigation uses positions, but usefulness as an aid does not turn one direction into a distance measurement.",
+    "sourceSlides": [
+      14,
+      30
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "rdf-e-13",
+    "difficulty": "easy",
+    "category": "Direction of Arrival and Bearings",
+    "tags": [
+      "radio direction finding",
+      "direction of arrival and bearings",
+      "classroom scenario"
+    ],
+    "prompt": "Two students discuss what a single classroom DOA result says about an unknown transmitter. Which claim is supported?",
+    "options": [
+      "It verifies which person operated the transmitting radio",
+      "It establishes that the transmitter belongs to a particular organization",
+      "It indicates the direction from which the RF signal is arriving",
+      "It determines the transmitter's distance from the receiving equipment"
+    ],
+    "answer": 2,
+    "explanation": "Slide 30 defines DOA in terms of signal arrival direction relative to the RDF system. Distance is the closest distractor because both relate to spatial interpretation, but the definition does not supply range; identity and organizational affiliation require evidence beyond an arrival angle.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "rdf-e-14",
+    "difficulty": "easy",
+    "category": "Measurement Method Concepts",
+    "tags": [
+      "radio direction finding",
+      "measurement method concepts",
+      "classroom scenario"
+    ],
+    "prompt": "One simulated measurement compares signal phase at antennas, while another compares arrival times. Which distinction matches the deck?",
+    "options": [
+      "The first compares phase; the second compares timing",
+      "The first compares timing; the second compares phase",
+      "Both compare only the messages carried in the transmission",
+      "Both establish transmitter identity through different antenna readings"
+    ],
+    "answer": 0,
+    "explanation": "Slide 27 describes phase comparison across antennas, while slide 28 describes differences in arrival time. Reversing those quantities is the closest distractor because both methods compare received signals, but the source distinguishes the particular quantity compared rather than the transmitter's identity.",
+    "sourceSlides": [
+      27,
+      28
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "rdf-e-15",
+    "difficulty": "easy",
+    "category": "Measurement Method Concepts",
+    "tags": [
+      "radio direction finding",
+      "measurement method concepts",
+      "classroom scenario"
+    ],
+    "prompt": "A classroom summary says phase comparison and interferometric RDF share a measurement idea. Which description supports that summary?",
+    "options": [
+      "Both use only the written content of a message to establish direction",
+      "Both use phase differences across antenna observations to infer direction",
+      "Both require arrival-time differences as their defining comparison",
+      "Both determine source distance without needing any other information"
+    ],
+    "answer": 1,
+    "explanation": "Slides 27 and 29 both describe phase differences across antennas or antenna elements for directional inference. Arrival-time differences are the closest distractor because slide 28 presents another comparison method, but that timing description does not replace the shared phase principle in these two slides.",
+    "sourceSlides": [
+      27,
+      28,
+      29
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "rdf-e-16",
+    "difficulty": "easy",
+    "category": "Measurement Method Concepts",
+    "tags": [
+      "radio direction finding",
+      "measurement method concepts",
+      "classroom scenario"
+    ],
+    "prompt": "A classroom diagram highlights differences in when the same signal reaches separated antennas. Which interpretation best fits the measurement being illustrated?",
+    "options": [
+      "It compares the operator's message meaning",
+      "It illustrates proof of the transmitter's registered identity",
+      "It illustrates phase comparison without any timing information",
+      "It illustrates a comparison of arrival times"
+    ],
+    "answer": 3,
+    "explanation": "Slide 28 describes time difference of arrival using differences in signal arrival times at spatially separated antennas. Phase comparison is the closest distractor because it also compares received signals, but the scenario explicitly highlights timing rather than the phase quantity described on slides 27 and 29.",
+    "sourceSlides": [
+      27,
+      28,
+      29
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "rdf-e-17",
+    "difficulty": "easy",
+    "category": "Measurement Method Concepts",
+    "tags": [
+      "radio direction finding",
+      "measurement method concepts",
+      "classroom scenario"
+    ],
+    "prompt": "A student treats an interferometric directional result as an equipment identity check. Which correction best follows the source?",
+    "options": [
+      "Its phase comparison supports an inference about signal direction",
+      "Its phase comparison directly establishes the equipment owner",
+      "Its phase comparison proves the purpose of the transmission",
+      "Its phase comparison directly reports the message's authorization"
+    ],
+    "answer": 0,
+    "explanation": "Slide 29 relates phase differences to direction of arrival, and slide 30 defines that arrival direction. Equipment ownership is the closest distractor because a source may be under discussion, but neither the measurement comparison nor its directional result establishes who owns the equipment.",
+    "sourceSlides": [
+      27,
+      29,
+      30
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "rdf-e-18",
+    "difficulty": "easy",
+    "category": "Interpretation and Limitations",
+    "tags": [
+      "radio direction finding",
+      "interpretation and limitations",
+      "classroom scenario"
+    ],
+    "prompt": "A rescue exercise receives one simulated distress-signal bearing. Which statement keeps the conclusion proportional to that observation?",
+    "options": [
+      "The bearing confirms the exact number of survivors at the source",
+      "The bearing establishes that the caller's reported location is precise",
+      "The bearing supports a directional lead for the exercise",
+      "The bearing confirms that the transmitter is at a measured distance"
+    ],
+    "answer": 2,
+    "explanation": "Slide 15 supports using distress-signal direction in search and rescue, while slide 30 defines direction of arrival. A confirmed distance is the closest distractor because it could help a search, but a single directional observation alone does not supply that additional spatial quantity.",
+    "sourceSlides": [
+      15,
+      30
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "rdf-e-19",
+    "difficulty": "easy",
+    "category": "Interpretation and Limitations",
+    "tags": [
+      "radio direction finding",
+      "interpretation and limitations",
+      "classroom scenario"
+    ],
+    "prompt": "A student uses a bearing from a simulated civilian transmission to claim the operator is unlicensed. What is the strongest assessment?",
+    "options": [
+      "The bearing alone confirms that the source is a licensed broadcaster",
+      "The bearing alone establishes that the source is an emergency beacon",
+      "The bearing alone identifies which person is responsible for the signal",
+      "The bearing alone does not establish the transmission's authorization"
+    ],
+    "answer": 3,
+    "explanation": "Slide 19 includes both licensed and unauthorized transmissions among civilian examples, while slide 30 describes only arrival direction. Declaring the source licensed is the closest distractor because it is the opposite authorization judgment, but neither status follows from a bearing alone.",
+    "sourceSlides": [
+      19,
+      30
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "rdf-e-20",
+    "difficulty": "easy",
+    "category": "Interpretation and Limitations",
+    "tags": [
+      "radio direction finding",
+      "interpretation and limitations",
+      "classroom scenario"
+    ],
+    "prompt": "During training, a student says studying triangulation means any single directional observation is already a precise position. Which response is justified?",
+    "options": [
+      "Mentioning triangulation means the bearing must also identify the transmitter",
+      "Mentioning triangulation does not make one arrival direction a precise position",
+      "Mentioning triangulation means every classroom bearing includes a measured range",
+      "Mentioning triangulation removes the need to distinguish an angle from a position"
+    ],
+    "answer": 1,
+    "explanation": "Slide 25 names triangulation as a training concept, while slide 30 defines DOA as an arrival angle. An included range is the closest distractor because it would add spatial information, but the mention of a broader concept does not supply measurements absent from the observation.",
+    "sourceSlides": [
+      25,
+      30
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "rdf-e-21",
+    "difficulty": "easy",
+    "category": "Interpretation and Limitations",
+    "tags": [
+      "radio direction finding",
+      "interpretation and limitations",
+      "classroom scenario"
+    ],
+    "prompt": "A classroom monitoring note records only an unexplained RF direction. Which additional claim should remain unconfirmed?",
+    "options": [
+      "That the note concerns the direction of a received RF signal",
+      "That the source is deliberately interfering with another service",
+      "That the observation can be considered in a monitoring discussion",
+      "That the angle is reported relative to the receiving RDF system"
+    ],
+    "answer": 1,
+    "explanation": "Slide 16 gives monitoring applications, and slide 30 defines the directional information RDF provides. A monitoring context is the closest distractor because interference may be investigated there, but that context and a direction alone do not establish deliberate interference or the transmitter's intent.",
+    "sourceSlides": [
+      16,
+      30
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "rdf-e-22",
+    "difficulty": "easy",
+    "category": "C2 Integration and Responsible Use",
+    "tags": [
+      "radio direction finding",
+      "c2 integration and responsible use",
+      "classroom scenario"
+    ],
+    "prompt": "An authorized disaster-response tabletop shares an RDF observation with its coordination cell. Which report best preserves its meaning?",
+    "options": [
+      "A reported signal direction, clearly identified as a directional observation",
+      "A confirmed survivor position, described without additional supporting observations",
+      "A verified transmitter identity, inferred from the observed arrival direction",
+      "A measured transmitter distance, inferred from the role of the coordination cell"
+    ],
+    "answer": 0,
+    "explanation": "Slide 26 describes RDF information supporting coordination and response, while slide 30 defines a direction of arrival. A confirmed position is the closest distractor because coordination may need locations, but sharing a report does not increase the evidential scope of its original directional observation.",
+    "sourceSlides": [
+      26,
+      30
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "rdf-e-23",
+    "difficulty": "easy",
+    "category": "C2 Integration and Responsible Use",
+    "tags": [
+      "radio direction finding",
+      "c2 integration and responsible use",
+      "classroom scenario"
+    ],
+    "prompt": "A classroom coordinator asks why RDF information should be integrated into command and control. Which explanation follows the lesson?",
+    "options": [
+      "It automatically determines the final decision for every response team",
+      "It replaces the need to consider information from other exercise participants",
+      "It certifies the accuracy of every report submitted through the same system",
+      "It can support coordination, resource decisions, and response"
+    ],
+    "answer": 3,
+    "explanation": "Slide 26 connects RDF integration with coordination, resources, and response using timely information. Automatic decision making is the closest distractor because decisions may benefit from that information, but supporting a decision does not mean the directional report determines the complete response by itself.",
+    "sourceSlides": [
+      26
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "rdf-e-24",
+    "difficulty": "easy",
+    "category": "C2 Integration and Responsible Use",
+    "tags": [
+      "radio direction finding",
+      "c2 integration and responsible use",
+      "classroom scenario"
+    ],
+    "prompt": "An instructor prepares a non-sensitive classroom briefing about a simulated unknown transmission. Which wording is best supported?",
+    "options": [
+      "Report the source as unauthorized because the exercise concerns monitoring",
+      "Report the equipment owner as verified because the report enters C2",
+      "Report the observed direction and keep the source's identity unconfirmed",
+      "Report the transmitter's exact position because the direction is available"
+    ],
+    "answer": 2,
+    "explanation": "Slides 22 and 26 place monitoring information in a broader coordination context, while slide 30 limits DOA to arrival direction. Unauthorized status is the closest distractor because monitoring can concern suspicious transmissions, but suspicion does not make identity or authorization a finding from direction alone.",
+    "sourceSlides": [
+      22,
+      26,
+      30
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "rdf-e-25",
+    "difficulty": "easy",
+    "category": "C2 Integration and Responsible Use",
+    "tags": [
+      "radio direction finding",
+      "c2 integration and responsible use",
+      "classroom scenario"
+    ],
+    "prompt": "A response coordinator receives a simulated distress-signal direction. Which use best reflects RDF's supporting role?",
+    "options": [
+      "Include the directional observation in the broader exercise assessment",
+      "Treat the direction as a complete account of every survivor's needs",
+      "Treat the direction as a verified identity for the person transmitting",
+      "Treat the direction as an independent confirmation of exact source distance"
+    ],
+    "answer": 0,
+    "explanation": "Slides 24 and 26 connect rescue-related RDF information with coordinated response, while slide 30 defines arrival direction. Exact distance is the closest distractor because it could inform coordination, but the directional report should contribute to assessment without claiming measurements it does not contain.",
+    "sourceSlides": [
+      24,
+      26,
+      30
+    ]
+  }
+]

@@ -16,12 +16,16 @@ The whole site is published from this repository with GitHub Pages at https://at
   | Module 3 | Module 3 Exam (45 questions, 15 from each lesson, per difficulty) | `modulethree` | `/quiz-hub/module-3-exam/` |
   | Module 3 | Signal Support in Joint Operations | `signaljoint` | `/quiz-hub/joint-signal/` |
 | Module 3 | Signal Support in Coalition Operations | `coalition` | `/quiz-hub/coalition-signal/` |
+  | Module 5 | Intelligence Cycle | `intcycle` | `/quiz-hub/intelligence-cycle/` |
+  | Module 5 | Radio Direction Finding | `rdf` | `/quiz-hub/radio-direction-finding/` |
 
 - **Instructor view** (`/quiz-hub/instructor/`): question analysis.
 - **Our class** (`/quiz-hub/class/`): class organization and roster.
 - **Weekly training schedule** (`/quiz-hub/schedule/`): click a day to show its timetable; today opens automatically within the week, with a Now / Next panel. Printing includes every day. Linked from the hub header and class page.
 
 The old per-lesson repositories now only redirect to these URLs.
+
+Module 5 currently contains only the two individual lesson quizzes, each with 25 questions per difficulty (75 per lesson). No Module 5 combined exam is included. The questions use authorized training, classroom review and humanitarian-response examples. Their `coverage.md` files map content to the supplied decks and record source ambiguities. RDF calibration, equipment setup, detailed system parameters and error-mitigation procedures are not tested because the supplied deck lists them in its outline without developing them. Raw slide decks are not published on the public site.
 
 No login, analytics, cookies, external fonts or scripts. Everything is inline HTML/CSS/JS, plus the shared files in `assets/` (photos, the self-hosted fonts and the paper grain).
 
@@ -53,6 +57,7 @@ The `index.html` files are generated. Never edit them by hand; always rebuild an
 
 ```sh
 node scripts/build.mjs && node scripts/verify.mjs
+node --test scripts/test/module5.test.mjs
 ```
 
 The tests never contact the class history sheet: they clear the endpoint or use a fake network.

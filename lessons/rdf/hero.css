@@ -1,0 +1,5 @@
+.reception-pulse { animation: reception-emphasis 4s ease-out 1; }
+@keyframes reception-emphasis { 0%,100% { opacity:1; } 40% { opacity:.35; } }
+@media (prefers-reduced-motion: reduce) {
+  .reception-pulse { animation:none !important; transition:none !important; opacity:1; }
+}

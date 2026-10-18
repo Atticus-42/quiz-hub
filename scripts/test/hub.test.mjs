@@ -23,6 +23,7 @@ for (const lesson of [...lessons].sort((a, b) => Number(Boolean(b.prominent)) - 
 const EXAM_COUNT = lessons.length;
 const MODULE_2 = MODULE_EXAMS['module-2'];
 const MODULE_3 = MODULE_EXAMS['module-3'];
+const MODULE_5 = MODULE_EXAMS['module-5'];
 
 // ---------- Small fake DOM: enough for the hub's rendering code. ----------
 class FakeNode {
@@ -115,7 +116,7 @@ const row = (over = {}) => ({ name: 'Cruz', mode: 'easy', score: 20, total: 25, 
 // --- Config ---
 test('MODULES config is generated from lessons/*/lesson.json: unique ids, keys and URLs, exact URLs', () => {
   const modules = ctx.MODULES;
-  assert.deepEqual([...modules].map((m) => m.id), ['module-2', 'module-3']);
+  assert.deepEqual([...modules].map((m) => m.id), ['module-2', 'module-3', 'module-5']);
   assert.equal(new Set(modules.map((m) => m.id)).size, modules.length);
   for (const m of modules) {
     assert.ok(m.title && m.description, `title/description for ${m.id}`);
@@ -133,6 +134,7 @@ test('MODULES config is generated from lessons/*/lesson.json: unique ids, keys a
   assert.equal(new Set(exams.map((e) => e.url)).size, EXAM_COUNT);
   assert.deepEqual(MODULE_2.slice(0, 5), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops']);
   assert.deepEqual(MODULE_3, ['modulethree', 'signal', 'signaljoint', 'coalition']);
+  assert.deepEqual(MODULE_5, ['intcycle', 'rdf']);
   for (const e of exams) {
     assert.equal(e.url, EXPECTED[e.key], `url for ${e.key}`);
     assert.equal(e.lesson, e.key);
@@ -352,7 +354,7 @@ test('init fetches the selected module first, then the rest for the overview, al
   assert.equal(f.calls.length, EXAM_COUNT, 'each lesson fetched once');
   assert.equal(peak, EXAM_COUNT, 'parallel requests');
   assert.deepEqual(lessonsOf(f.calls).slice(0, MODULE_2.length).sort(), [...MODULE_2].sort());
-  assert.deepEqual(lessonsOf(f.calls).slice(MODULE_2.length), MODULE_3);
+  assert.deepEqual(lessonsOf(f.calls).slice(MODULE_2.length), [...MODULE_3, ...MODULE_5]);
   assert.equal(doc.getElementById('history-app').hidden, false);
   assert.equal(doc.getElementById('history-refresh').hidden, false);
 });
