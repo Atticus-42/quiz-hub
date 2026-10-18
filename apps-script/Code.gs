@@ -26,7 +26,8 @@ var LESSONS = {
   combined: 'Combined Exam History',         // Module 2 pool exam
   modulethree: 'Module 3 Exam History',      // 45 questions, 15 each from the three Module 3 lessons
   intcycle: 'Intelligence Cycle History',    // Module 5 individual lesson
-  rdf: 'RDF History'                         // Module 5 individual lesson
+  rdf: 'RDF History',                        // Module 5 individual lesson
+  sigint: 'SIGINT History'                   // Module 5 individual lesson
 };
 // Only for pages from before version 7 that send no total: their attempt length was fixed.
 var LEGACY_TOTALS = { combined: 30 };

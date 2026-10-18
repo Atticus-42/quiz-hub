@@ -1,0 +1,596 @@
+[
+  {
+    "id": 1,
+    "qid": "sigint-h-01",
+    "difficulty": "hard",
+    "category": "Intelligence and SIGINT Foundations",
+    "tags": [
+      "integration",
+      "evidence boundaries"
+    ],
+    "prompt": "A fictional relief review has three inputs: a signals summary supporting a notice change, a copied briefing repeating it, and a separate account leaving the change uncertain. The decision is due soon. Which assessment best follows the lesson?",
+    "options": [
+      "Treat the two matching documents as corroboration and qualify only the separate account",
+      "Present the separate account alone because acknowledged uncertainty makes it more reliable than any signals summary",
+      "Explain the shared origin, assess the separate account, and deliver a bounded finding before the decision",
+      "Combine all three statements into a definite conclusion because integration requires eliminating disagreement before dissemination"
+    ],
+    "answer": 2,
+    "explanation": "Slide 12 calls for evaluation, analysis and integration, while slide 20 recognizes substantiation needs. The copied briefing does not add separate support, and the uncertain account must be assessed. Timely delivery on slides 19 and 22 supports presenting the bounded finding rather than manufacturing certainty from the document count.",
+    "sourceSlides": [
+      12,
+      19,
+      20,
+      22
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "sigint-h-02",
+    "difficulty": "hard",
+    "category": "Intelligence and SIGINT Foundations",
+    "tags": [
+      "objectives versus proof",
+      "professional training"
+    ],
+    "prompt": "A fictional course review claims that teaching secure intelligence communication proves both the students' assessments and a unit's capabilities are reliable. Which revision preserves what the lesson actually supports?",
+    "options": [
+      "State that instruction proves assessment reliability while leaving the fictional unit's capabilities outside the course review",
+      "State that secure communication guarantees correct conclusions once every student finishes the professional technical training requirement",
+      "State that professional training proves a unit's capabilities if the classroom products use the cycle's five stage names",
+      "Describe training and secure communication as objectives, then evaluate assessment quality from the actual evidence provided"
+    ],
+    "answer": 3,
+    "explanation": "Slide 11 identifies secure communication and professional technical training as broad objectives, not performance validation. Slide 12 still requires evaluation and analysis, and slide 20 recognizes limitations. Secure delivery can support responsible handling, but it does not establish that the content of a particular assessment is accurate.",
+    "sourceSlides": [
+      11,
+      12,
+      20
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "sigint-h-03",
+    "difficulty": "hard",
+    "category": "Intelligence and SIGINT Foundations",
+    "tags": [
+      "decision requirement",
+      "evaluation priority"
+    ],
+    "prompt": "A classroom team has time to complete one final review before an authorized briefing. The packet is organized and securely deliverable, but its conclusion rests on an unexamined claim central to the decision. What deserves priority?",
+    "options": [
+      "Evaluate the central claim and its limits so the briefing can explain what the evidence supports",
+      "Expand the evidence appendix before briefing so planners can evaluate the central claim themselves",
+      "Confirm delivery to the right recipients and defer the unexamined claim until their follow-up",
+      "Retain the packet's conclusion with a general caution that some information may be incomplete"
+    ],
+    "answer": 0,
+    "explanation": "Slide 12 makes evaluation and analysis central to producing intelligence relevant to planning. The unexamined claim directly affects the conclusion, so a general caution cannot replace reviewing its support. Slides 19 and 20 require attention to accuracy and limitations even when the material is organized and delivery is ready.",
+    "sourceSlides": [
+      12,
+      19,
+      20
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "sigint-h-04",
+    "difficulty": "hard",
+    "category": "Intelligence and SIGINT Foundations",
+    "tags": [
+      "scope discipline",
+      "planning assessment"
+    ],
+    "prompt": "An instructor asks students to explain how supplied signals material could support a fictional planning question. A draft instead promises guaranteed answers and adds unsupported operational capability claims. Which revision best meets the assignment?",
+    "options": [
+      "Keep the promises but remove the unit name so the capability claims become valid classroom analysis",
+      "Link supported information to the planning question and distinguish useful contributions from unresolved limitations",
+      "Retain capability claims as conclusions because the lesson's timely intelligence aim makes those claims self-validating",
+      "Replace the planning explanation with a component list because equipment names alone establish intelligence usefulness"
+    ],
+    "answer": 1,
+    "explanation": "Slide 10's timely support aim and slide 12's planning relevance concern the usefulness of evaluated information. Neither supports guarantees about every answer or claims about a particular capability. Slide 20's limitations should remain visible, so the revised draft should explain the material's supported contribution and what remains unresolved.",
+    "sourceSlides": [
+      10,
+      12,
+      20
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "sigint-h-05",
+    "difficulty": "hard",
+    "category": "COMINT and ELINT",
+    "tags": [
+      "mixed packet",
+      "source classification"
+    ],
+    "prompt": "A fictional digital packet contains a transcript of exercise speech, a written assessment of noncommunication signals, and a cover email. The reviewer must classify the substantive inputs. Which approach is sound?",
+    "options": [
+      "Classify the substantive inputs as COMINT because their written forms convey information",
+      "Classify everything as ELINT because the transcript and assessment exist as electronic files rather than physical events",
+      "Classify only the audio-derived transcript because a written assessment cannot preserve a noncommunication signal basis",
+      "Classify the transcript as COMINT and the noncommunication assessment as ELINT, apart from the packet's delivery"
+    ],
+    "answer": 3,
+    "explanation": "Slides 13 and 15 distinguish communications, including speech, from noncommunication signals. The assessment's written format and the packet's email delivery do not change those underlying bases. Treating the whole packet as COMINT because of the cover email confuses how the material reaches reviewers with what its substantive inputs represent.",
+    "sourceSlides": [
+      13,
+      15
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "sigint-h-06",
+    "difficulty": "hard",
+    "category": "COMINT and ELINT",
+    "tags": [
+      "content and identity",
+      "substantiation"
+    ],
+    "prompt": "Two supplied fictional messages use the same name and describe the same postponed meeting. The packet does not establish whether they share a speaker or source. Which assessment best separates the supported claims?",
+    "options": [
+      "Report the repeated meeting statement while leaving common identity and independent confirmation unresolved",
+      "Treat the repeated name as proof of a common speaker and the two files as independent event confirmation",
+      "Treat the two files as independent identity checks because repeated message content removes the need for substantiation",
+      "Discard both messages because uncertain speaker identity prevents their stated meeting content from having analytical value"
+    ],
+    "answer": 0,
+    "explanation": "Slide 15 permits COMINT to provide content and possible identity clues, but it does not make either automatic proof of the other. Slide 20 recognizes substantiation needs. Repeated names and statements support describing the content, while shared identity and independent confirmation remain separate questions without supporting evidence.",
+    "sourceSlides": [
+      15,
+      20
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "sigint-h-07",
+    "difficulty": "hard",
+    "category": "COMINT and ELINT",
+    "tags": [
+      "noncommunication information",
+      "evaluation"
+    ],
+    "prompt": "An artificial packet includes only a noncommunication signal summary. One reviewer says it cannot be SIGINT without words; another says being ELINT makes its planning conclusion certain. Which response resolves both errors?",
+    "options": [
+      "Treat the summary as raw data until communication content establishes its intelligence value",
+      "Agree with the second reviewer because noncommunication signals establish conclusions without the interpretive limitations of voice content",
+      "Recognize ELINT within the lesson's SIGINT coverage and still evaluate the evidence behind the planning conclusion",
+      "Reclassify the summary as COMINT once students discuss it so the claim becomes eligible for intelligence evaluation"
+    ],
+    "answer": 2,
+    "explanation": "Slide 13 includes ELINT for noncommunication signals within SIGINT, so words are not required for that classification. Slides 12 and 20 still require evaluation and attention to limitations. A source category identifies the information's basis; it does not independently validate every conclusion drawn from that information.",
+    "sourceSlides": [
+      12,
+      13,
+      20
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "sigint-h-08",
+    "difficulty": "hard",
+    "category": "COMINT and ELINT",
+    "tags": [
+      "possible location clue",
+      "claim separation"
+    ],
+    "prompt": "A fictional voice excerpt says, 'We are at the classroom annex.' The draft concludes that a named participant is there now and that the quoted statement was true. No separate support is supplied. Which edit is best?",
+    "options": [
+      "Keep the location claim but qualify identity because the excerpt names no speaker",
+      "Keep the quoted content while qualifying the speaker, timing, and factual location claims as unconfirmed",
+      "Remove the quote because a communications excerpt cannot contribute any information without a confirmed participant identity",
+      "Convert the excerpt to ELINT because any unconfirmed location statement no longer has a communications source basis"
+    ],
+    "answer": 1,
+    "explanation": "Slide 15 describes voice content and possible identity or location information as COMINT benefits, not automatic verification of every assertion. Slide 20's limitations support separating the quotation from stronger claims about truth, identity and present location. Keeping the content preserves its value without asserting facts the supplied packet does not establish.",
+    "sourceSlides": [
+      15,
+      20
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "sigint-h-09",
+    "difficulty": "hard",
+    "category": "RDF Roles and Components",
+    "tags": [
+      "estimate integration",
+      "claim limits"
+    ],
+    "prompt": "A fictional tabletop report contains an RDF estimate and an uncertain communications interpretation. The writer uses the estimate to label both the interpretation and the speaker identity as confirmed. What is the best review comment?",
+    "options": [
+      "Retain the directional estimate but assess the interpretation and identity claims on their own supporting evidence",
+      "Use the estimate to strengthen the identity claim, while qualifying the uncertain interpretation",
+      "Omit the estimate until the communication's meaning is settled, then assess both together",
+      "Use the communication's apparent meaning to confirm the estimate, while leaving identity uncertain"
+    ],
+    "answer": 0,
+    "explanation": "Slide 17 supports RDF's broad direction estimation role, while slide 23 includes analytical functions. Directional information does not, by itself, settle a communication's meaning or a participant's identity. Slides 12 and 20 require evaluating those separate claims and preserving the limitations of the supplied evidence.",
+    "sourceSlides": [
+      12,
+      17,
+      20,
+      23
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "sigint-h-10",
+    "difficulty": "hard",
+    "category": "RDF Roles and Components",
+    "tags": [
+      "diagram authority",
+      "source dependence"
+    ],
+    "prompt": "A classroom briefing presents one fictional direction estimate, the Doppler Antenna illustration, and the Receiver and Bearing Processor label as three agreeing sources. Which revision makes the evidence count defensible?",
+    "options": [
+      "Count the estimate and equipment illustration separately because they present different supporting material",
+      "Count the two component references as stronger sources because equipment depictions are less ambiguous than fictional report wording",
+      "Identify the estimate as the report input and the equipment material as explanatory context without separate confirmation",
+      "Remove the estimate and use the component references alone because equipment context establishes the result's accuracy independently"
+    ],
+    "answer": 2,
+    "explanation": "Slide 17's picture and component labels explain the RDF equipment at a broad level. They are not separate observations validating a particular supplied estimate. Slide 20's substantiation warning therefore cannot be satisfied by counting the equipment illustration and its labels as additional confirmations of that report.",
+    "sourceSlides": [
+      17,
+      20
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "sigint-h-11",
+    "difficulty": "hard",
+    "category": "RDF Roles and Components",
+    "tags": [
+      "function scope",
+      "analysis boundaries"
+    ],
+    "prompt": "A draft function summary says RDF only handles voice messages and that advanced analysis guarantees exact conclusions. Which replacement best reflects the lesson without adding performance claims?",
+    "options": [
+      "RDF concerns voice messages alone, while a component diagram establishes whether advanced analysis has produced exact conclusions",
+      "The lesson presents direction finding and analytical functions across communications and noncommunication signals without guaranteeing individual results",
+      "RDF concerns noncommunication signals alone, while advanced analysis replaces the need to evaluate uncertain communications information",
+      "The lesson presents component names as sufficient evidence that every direction estimate establishes an exact location and identity"
+    ],
+    "answer": 1,
+    "explanation": "Slide 23 gives broad functions for communications and noncommunication signals, including direction finding and advanced analysis. Slide 19's accuracy aim does not guarantee each result, and slide 20 recognizes limitations. Restricting the functions to voice would narrow the stated scope, while exactness claims would exceed the supplied evidence.",
+    "sourceSlides": [
+      19,
+      20,
+      23
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "sigint-h-12",
+    "difficulty": "hard",
+    "category": "RDF Roles and Components",
+    "tags": [
+      "component versus assessment",
+      "decision support"
+    ],
+    "prompt": "A training team accurately names both RDF components but cannot explain how its supplied directional information affects the fictional planning question. Its leader calls the briefing complete. Which response best identifies the remaining work?",
+    "options": [
+      "The briefing is complete because recognizing both component names proves that the directional information answers the planning question",
+      "The team should replace the question with a component-identification task because equipment labels establish the only relevant learning outcome",
+      "The briefing needs additional equipment photographs so the existing conclusion acquires support from a larger number of illustrations",
+      "The team should evaluate the information's significance and limits rather than treating component recognition as a completed assessment"
+    ],
+    "answer": 3,
+    "explanation": "Slide 17 supports component recognition, but slide 12 defines intelligence through evaluation, analysis and integration relevant to planning. Slide 23 also presents analytical functions alongside direction finding. More pictures would expand the equipment description without explaining whether the supplied information supports a useful answer to the exercise question.",
+    "sourceSlides": [
+      12,
+      17,
+      23
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "sigint-h-13",
+    "difficulty": "hard",
+    "category": "Accuracy Timeliness and Relevance",
+    "tags": [
+      "changed requirement",
+      "timely limits"
+    ],
+    "prompt": "A fictional assessment was accurate for yesterday's classroom question. Today's planners need a different answer before a near deadline, and only part of the existing assessment is relevant. Which response best balances the lesson's quality aims?",
+    "options": [
+      "Reuse the supported relevant portion, state the remaining gap, and deliver it for the current decision",
+      "Send the earlier assessment on time with a note that the question has changed",
+      "Hold the relevant portion until the remaining gap is filled to preserve one complete answer",
+      "Update the conclusion for today's question while retaining yesterday's supporting analysis"
+    ],
+    "answer": 0,
+    "explanation": "Slides 19 and 22 connect quality and delivery to the current requirement. Supported relevant material can inform today's decision if the remaining gap is visible. Simply noting that the question changed does not establish which findings still fit, while changing a conclusion without reassessing its support risks overstating what the old analysis establishes.",
+    "sourceSlides": [
+      19,
+      20,
+      22
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "sigint-h-14",
+    "difficulty": "hard",
+    "category": "Accuracy Timeliness and Relevance",
+    "tags": [
+      "evidence quality",
+      "delivery window"
+    ],
+    "prompt": "Two fictional products can reach authorized planners before the exercise decision. One answers the requirement with a qualified supported finding; the other offers a confident answer based on an unresolved ambiguity. Which choice is strongest?",
+    "options": [
+      "Use the confident answer but add a general uncertainty note instead of identifying the unresolved meaning",
+      "Send both answers as equally supported alternatives and let the planners choose between their conclusions",
+      "Choose the supported qualified finding because timeliness and relevance do not erase the unresolved evidence problem",
+      "Delay the supported finding until the ambiguous product can be resolved into one complete briefing"
+    ],
+    "answer": 2,
+    "explanation": "Slides 19 and 20 support timely, relevant findings that accurately represent their evidence and limitations. The two products do not have equal support, so passing them to planners as equivalent avoids the required evaluation. A general uncertainty note also fails to expose the specific ambiguity on which the confident answer depends.",
+    "sourceSlides": [
+      19,
+      20,
+      22
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "sigint-h-15",
+    "difficulty": "hard",
+    "category": "Accuracy Timeliness and Relevance",
+    "tags": [
+      "relevance versus volume",
+      "review priorities"
+    ],
+    "prompt": "A fictional briefing already contains a supported answer to its main question. A late packet adds many technical details about an unrelated issue, and incorporating it would delay release past the meeting. What is the best response?",
+    "options": [
+      "Incorporate the late packet before release so planners can judge whether its technical detail matters",
+      "Deliver the relevant supported assessment on time and assess the extra material against any actual requirement",
+      "Attach the late packet without review and keep the main finding unchanged to meet the deadline",
+      "Replace the main finding with a short notice that a more detailed packet is awaiting review"
+    ],
+    "answer": 1,
+    "explanation": "Slide 19 emphasizes relevance and timeliness alongside accuracy, while slide 22 begins with mission needs. The unrelated packet has not been shown to serve a requirement, so incorporating it at the cost of timely delivery adds no established decision value. Attaching it without review similarly bypasses the evaluation required by slide 12.",
+    "sourceSlides": [
+      12,
+      19,
+      22
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "sigint-h-16",
+    "difficulty": "hard",
+    "category": "Accuracy Timeliness and Relevance",
+    "tags": [
+      "quality audit",
+      "separate judgments"
+    ],
+    "prompt": "A fictional report is delivered securely before the deadline and addresses the correct exercise question. A review then finds its key conclusion rests on a claim copied from one uncertain source. Which audit judgment is most precise?",
+    "options": [
+      "Mark the report ready because timing and relevance are established, noting source uncertainty in an appendix",
+      "Retain the conclusion's confidence but seek separate support for the copied claim after the decision",
+      "Downgrade the report's relevance because the central uncertainty has not yet been resolved",
+      "Timing and relevance are strengths, but the conclusion's support still needs reassessment and visible qualification"
+    ],
+    "answer": 3,
+    "explanation": "Slide 19 lists distinct quality aims, so the right subject and timely delivery do not establish the conclusion's accuracy. Slide 20's substantiation limitation matters when one uncertain source underlies that conclusion. Burying a source note in an appendix without reassessing the claim's confidence would leave its central evidentiary weakness unresolved.",
+    "sourceSlides": [
+      19,
+      20,
+      22
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "sigint-h-17",
+    "difficulty": "hard",
+    "category": "Corroboration and Source Limitations",
+    "tags": [
+      "apparent agreement",
+      "independent support"
+    ],
+    "prompt": "Two fictional reports agree on an event, but one paraphrases the other. A third independently prepared classroom record disagrees on a detail important to the requirement. Which assessment best reflects the limitation?",
+    "options": [
+      "Treat the two agreeing reports as a majority that outweighs the third record without examining the origin of their claims",
+      "Recognize the dependent agreement, assess the separate record, and explain the unresolved detail's effect on the conclusion",
+      "Reject the separate record because disagreement with a signals report makes information from another discipline unsuitable for substantiation",
+      "Delete the disputed detail from the requirement so the existing agreement can be presented as complete confirmation for planners"
+    ],
+    "answer": 1,
+    "explanation": "Slide 20 recognizes that SIGINT may need substantiation from other disciplines, and slide 12 requires evaluation and integration. Dependent agreement adds no independent basis for the claim, while the separate record deserves assessment. Changing the requirement to hide the conflict would avoid the decision problem rather than resolve its evidentiary limits.",
+    "sourceSlides": [
+      12,
+      20
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "sigint-h-18",
+    "difficulty": "hard",
+    "category": "Corroboration and Source Limitations",
+    "tags": [
+      "unavailable clarification",
+      "bounded conclusion"
+    ],
+    "prompt": "A fictional phrase could mean either that a relief discussion ended or that it was canceled. Source clarification is unavailable. Both readings support one minor finding, but only one supports the draft's main recommendation. What is best?",
+    "options": [
+      "State the shared supported finding and qualify the recommendation pending relevant substantiation of the disputed meaning",
+      "Adopt the reading supporting the recommendation while noting that direct clarification was unavailable",
+      "Suppress the shared finding because uncertainty about the recommendation makes every part of the fictional excerpt equally unusable",
+      "Present both readings as simultaneous facts because including more possibilities makes the recommendation complete without further assessment"
+    ],
+    "answer": 0,
+    "explanation": "Slide 20's clarification limit does not make every possible conclusion equally uncertain. Slide 12 requires evaluating what the information actually supports, so the shared finding can be retained while the recommendation remains qualified. Choosing the convenient reading would conceal the unresolved meaning on which the stronger recommendation depends.",
+    "sourceSlides": [
+      12,
+      20
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "sigint-h-19",
+    "difficulty": "hard",
+    "category": "Corroboration and Source Limitations",
+    "tags": [
+      "partial corroboration",
+      "claim-specific review"
+    ],
+    "prompt": "A separate classroom record supports the time mentioned in a fictional communications excerpt but says nothing about the excerpt's speaker or the claimed event outcome. How should the assessment use that support?",
+    "options": [
+      "Treat the timing agreement as confirmation of the excerpt's other claims as well",
+      "Ignore the record entirely because useful substantiation must confirm every detail of a communications excerpt in a single report",
+      "Use the timing agreement for that detail while keeping the identity and outcome claims separately qualified",
+      "Reclassify the excerpt as noncommunication information because a separate record has replaced the need to analyze its spoken content"
+    ],
+    "answer": 2,
+    "explanation": "Slide 20 allows for substantiation, but its value depends on what the additional information actually supports. Slide 15's possible content and identity benefits remain subject to evaluation under slide 12. Agreement about time therefore supports that detail without automatically establishing the speaker's identity or the event's outcome.",
+    "sourceSlides": [
+      12,
+      15,
+      20
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "sigint-h-20",
+    "difficulty": "hard",
+    "category": "Security and Deception",
+    "tags": [
+      "compromise warning",
+      "claim-specific confidence"
+    ],
+    "prompt": "A fictional packet contains a report from a compromised channel and a separate exercise record supporting only one of its claims. A draft labels the entire report either 'confirmed' or 'false.' Which revision is best?",
+    "options": [
+      "Treat the separately supported detail as sufficient confirmation of the whole report",
+      "Mark the entire report false because the possibility of disinformation establishes that none of its statements can be accurate",
+      "Remove the compromise warning because independent support for any detail makes security history irrelevant to the finished assessment",
+      "Retain the warning, distinguish the supported claim, and reassess the remaining claims on their own evidence"
+    ],
+    "answer": 3,
+    "explanation": "Slide 20 warns that compromise can permit deception and that SIGINT may require substantiation. Separate support for one claim helps evaluate that claim but does not validate the entire report. Conversely, the possibility of deception is not proof that all statements are false, so the assessment should preserve those distinctions.",
+    "sourceSlides": [
+      12,
+      20
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "sigint-h-21",
+    "difficulty": "hard",
+    "category": "Security and Deception",
+    "tags": [
+      "need to know",
+      "qualified dissemination"
+    ],
+    "prompt": "A fictional assessment contains a useful qualified finding and a security-compromise warning. Its intended authorized planners need both for an imminent exercise decision; a wider classroom group is merely curious. Which handoff is best?",
+    "options": [
+      "Deliver the finding with its warning to the planners who need it using the authorized arrangement",
+      "Send the finding promptly and keep the warning in the review file for later questions",
+      "Send the qualified assessment to the wider group to obtain feedback before informing the planners",
+      "Give planners only the compromise warning while postponing the useful finding until further substantiation"
+    ],
+    "answer": 0,
+    "explanation": "Slide 20's compromise warning affects the finding's interpretation, while slides 11 and 22 support secure, timely communication to those who need to know. Filing the warning separately would deprive planners of a qualification they need with the finding. A wider feedback audience also fails the stated need-to-know constraint.",
+    "sourceSlides": [
+      11,
+      20,
+      22
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "sigint-h-22",
+    "difficulty": "hard",
+    "category": "Security and Deception",
+    "tags": [
+      "changed recipients",
+      "current need"
+    ],
+    "prompt": "A fictional exercise changes its planning question and recipient responsibilities at the same time. The previous distribution list includes people with no current need; the updated assessment is ready before the deadline. What should guide release?",
+    "options": [
+      "Use the previous list because its earlier approval permanently establishes need for every later product in the same classroom exercise",
+      "Match the updated product and recipient list to the current need, then deliver through the authorized communication arrangement",
+      "Send the product to every participant because a changed question creates a need to know for anyone who attended the exercise",
+      "Delay release until the original responsibilities return because the cycle cannot support dissemination when recipients and questions both change"
+    ],
+    "answer": 1,
+    "explanation": "Slide 22 ties requirements to mission needs and dissemination to timely delivery on a need-to-know basis. When both change, the product and audience should reflect the current exercise decision. Slide 11's secure communication objective supports using the authorized arrangement; an old list alone does not establish present need.",
+    "sourceSlides": [
+      11,
+      22
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "sigint-h-23",
+    "difficulty": "hard",
+    "category": "SIGINT Cycle and Dissemination",
+    "tags": [
+      "cycle diagnosis",
+      "analysis gap"
+    ],
+    "prompt": "A classroom workflow clarified the requirement, gathered the permitted fictional packet, prepared readable data, and securely sent it to authorized planners. The planners still cannot tell what the data implies. Which diagnosis best fits the five-stage cycle?",
+    "options": [
+      "Requirements failed because any unanswered planning question proves that no mission need was ever identified at the beginning",
+      "Gather more material because additional data should resolve the planners' remaining interpretive gap",
+      "Analysis was not adequately completed even though preparation and an authorized delivery had already occurred",
+      "Dissemination alone failed because securely sending readable data automatically completes every earlier stage of the intelligence cycle"
+    ],
+    "answer": 2,
+    "explanation": "Slide 22 defines analysis as converting data into intelligence and separates it from processing and dissemination. Readable data and successful delivery do not establish that its significance has been assessed. Slide 12 reinforces the missing work: evaluated, integrated meaning relevant to the planners' question, rather than simply a usable packet.",
+    "sourceSlides": [
+      12,
+      22
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "sigint-h-24",
+    "difficulty": "hard",
+    "category": "SIGINT Cycle and Dissemination",
+    "tags": [
+      "feedback",
+      "reusable evidence"
+    ],
+    "prompt": "After a fictional briefing, planners narrow the question. Some prepared data remains useful, but the earlier conclusion no longer answers the need. Which next pass through the cycle is most appropriate?",
+    "options": [
+      "Refine the requirement, review reusable material against it, and analyze a conclusion for the narrowed question",
+      "Refine requirements and circulate prepared data, leaving planners to develop the revised interpretation",
+      "Preserve the earlier conclusion as the answer while noting that the question has narrowed",
+      "Begin a fresh packet before checking whether existing prepared material addresses the narrowed question"
+    ],
+    "answer": 0,
+    "explanation": "Slide 22's return from dissemination to requirements supports revision when the question changes. Existing material can be assessed against the narrowed need, but analysis must still establish a fitting conclusion. Circulating prepared data leaves that analytical work undone, while beginning a new packet before reviewing reusable information overlooks what may already answer the question.",
+    "sourceSlides": [
+      12,
+      19,
+      22
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "sigint-h-25",
+    "difficulty": "hard",
+    "category": "SIGINT Cycle and Dissemination",
+    "tags": [
+      "stage boundaries",
+      "purposeful handoff"
+    ],
+    "prompt": "A team has enough supplied fictional material to answer the current requirement. It proposes gathering additional classroom copies instead of resolving a conflict, then emailing the copies to a broad list before the deadline. Which revision best fits the cycle?",
+    "options": [
+      "Increase the copy count and retain the broad list because more material and faster circulation establish a completed intelligence product",
+      "Resolve the conflict only after dissemination because sending material to more recipients automatically supplies the analysis needed for the requirement",
+      "Revise the requirement to fit the clearer report, then circulate that report before the deadline",
+      "Analyze the conflict against the requirement and deliver a qualified assessment promptly to the recipients who need it"
+    ],
+    "answer": 3,
+    "explanation": "Slide 22 separates gathering, analysis and need-to-know dissemination, and slide 12 requires evaluation and integration. More copies do not resolve the evidentiary conflict or explain its significance. A timely qualified assessment addresses the actual need while preserving the limitation, rather than using volume and broad circulation as substitutes for analysis.",
+    "sourceSlides": [
+      12,
+      19,
+      20,
+      22
+    ]
+  }
+]

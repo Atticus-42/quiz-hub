@@ -134,7 +134,7 @@ test('MODULES config is generated from lessons/*/lesson.json: unique ids, keys a
   assert.equal(new Set(exams.map((e) => e.url)).size, EXAM_COUNT);
   assert.deepEqual(MODULE_2.slice(0, 5), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops']);
   assert.deepEqual(MODULE_3, ['modulethree', 'signal', 'signaljoint', 'coalition']);
-  assert.deepEqual(MODULE_5, ['intcycle', 'rdf']);
+  assert.deepEqual(MODULE_5, ['intcycle', 'rdf', 'sigint']);
   for (const e of exams) {
     assert.equal(e.url, EXPECTED[e.key], `url for ${e.key}`);
     assert.equal(e.lesson, e.key);

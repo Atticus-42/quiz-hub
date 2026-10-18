@@ -18,6 +18,7 @@ The whole site is published from this repository with GitHub Pages at https://at
 | Module 3 | Signal Support in Coalition Operations | `coalition` | `/quiz-hub/coalition-signal/` |
   | Module 5 | Intelligence Cycle | `intcycle` | `/quiz-hub/intelligence-cycle/` |
   | Module 5 | Radio Direction Finding | `rdf` | `/quiz-hub/radio-direction-finding/` |
+  | Module 5 | Signals Intelligence (SIGINT) | `sigint` | `/quiz-hub/signals-intelligence/` |
 
 - **Instructor view** (`/quiz-hub/instructor/`): question analysis.
 - **Our class** (`/quiz-hub/class/`): class organization and roster.
@@ -25,7 +26,7 @@ The whole site is published from this repository with GitHub Pages at https://at
 
 The old per-lesson repositories now only redirect to these URLs.
 
-Module 5 currently contains only the two individual lesson quizzes, each with 25 questions per difficulty (75 per lesson). No Module 5 combined exam is included. The questions use authorized training, classroom review and humanitarian-response examples. Their `coverage.md` files map content to the supplied decks and record source ambiguities. RDF calibration, equipment setup, detailed system parameters and error-mitigation procedures are not tested because the supplied deck lists them in its outline without developing them. Raw slide decks are not published on the public site.
+Module 5 currently contains three individual lesson quizzes, each with 25 questions per difficulty (75 per lesson). No Module 5 combined exam is included. The questions use authorized training, classroom review and humanitarian-response examples. Their `coverage.md` files map content to the supplied decks and record source ambiguities. RDF calibration, equipment setup, detailed system parameters and error-mitigation procedures are not tested because the supplied deck lists them in its outline without developing them. The SIGINT quiz covers concepts and evidence review, not practical interception, targeting, equipment operation or decryption procedures. Raw slide decks are not published on the public site.
 
 No login, analytics, cookies, external fonts or scripts. Everything is inline HTML/CSS/JS, plus the shared files in `assets/` (photos, the self-hosted fonts and the paper grain).
 

@@ -1,0 +1,5 @@
+.signal-review { animation: signal-review-emphasis 4s ease-out 1; }
+@keyframes signal-review-emphasis { 0%,100% { stroke-opacity:1; } 45% { stroke-opacity:.4; } }
+@media (prefers-reduced-motion: reduce) {
+  .signal-review { animation:none !important; transition:none !important; stroke-opacity:1; }
+}
