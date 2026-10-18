@@ -2,10 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { formatSchedule } from '../telegram-schedule.mjs';
-const current=JSON.parse(readFileSync(new URL('../../data/schedule.json',import.meta.url)));
-const archive=JSON.parse(readFileSync(new URL('../../data/schedules/2026-10-12_2026-10-18.json',import.meta.url)));
-test('week 4 has all 21 meals and identical active/archive data',()=>{
-  assert.deepEqual(current,archive);
+const current=JSON.parse(readFileSync(new URL('../../data/schedules/2026-10-12_2026-10-18.json',import.meta.url)));
+test('archived week 4 retains all 21 meals',()=>{
   assert.equal(current.days.flatMap(d=>d.blocks.filter(b=>Array.isArray(b.menu)&&b.menu.length)).length,21);
   const monday=current.days[0];
   assert.deepEqual(monday.blocks.find(b=>b.activity==='Morning Mess').menu,['Daing na bangus','Sarciadong itlog','Non- Fried Pork','Soup','Coffee']);
