@@ -17,10 +17,10 @@ async function request(method,body,{token,fetch=globalThis.fetch}) {
   }
   return data.result;
 }
-export async function sendApprovedPair(p,{token,chatId,fetch=globalThis.fetch,now=()=>new Date(),onReceipt=()=>{}}={}) {
+export async function sendApprovedPair(p,{token,chatId,approvedNow=false,fetch=globalThis.fetch,now=()=>new Date(),onReceipt=()=>{}}={}) {
   if(!token||!chatId)throw new Error('Missing Telegram credentials; nothing sent.');
   const delta=now().getTime()-Date.parse(p.targetAt);
-  if(!Number.isFinite(delta)||delta<0||delta>=60000)throw new Error('Outside the approved 0700H minute; nothing sent.');
+  if(approvedNow!==true&&(!Number.isFinite(delta)||delta<0||delta>=60000))throw new Error('Outside the approved 0700H minute; nothing sent.');
   const receipt={photoMessageId:null,textMessageId:null};
   const form=new FormData();form.set('chat_id',chatId);form.set('parse_mode','HTML');form.set('caption',p.caption);
   form.set('photo',new Blob([Buffer.from(p.imageBase64,'base64')],{type:'image/png'}),p.imageName);
@@ -68,12 +68,13 @@ async function main() {
   };
   try {
     const p=loadPacket();
-    if(process.argv.includes('--plan')) {const eligible=dueWindow(p)&&process.env.GITHUB_RUN_ATTEMPT==='1';if(process.env.GITHUB_OUTPUT)appendFileSync(process.env.GITHUB_OUTPUT,`due=${eligible}\n`);console.log(eligible?'Approved date window.':'Outside approved date window; nothing sent.');return;}
+    const approvedNow=process.env.PATCH_SEND_NOW==='true'&&process.env.GITHUB_EVENT_NAME==='workflow_dispatch';
+    if(process.argv.includes('--plan')) {const eligible=(approvedNow||dueWindow(p))&&process.env.GITHUB_RUN_ATTEMPT==='1';if(process.env.GITHUB_OUTPUT)appendFileSync(process.env.GITHUB_OUTPUT,`due=${eligible}\n`);console.log(eligible?'Approved send window.':'Outside approved date window; nothing sent.');return;}
     if(process.argv.includes('--preflight')) {await verifyDestination(p);console.log('Verified approved bot and class group; no messages sent.');return;}
     if(process.argv.includes('--wait')) {const ms=Date.parse(p.targetAt)-Date.now();if(ms<=-60000||ms>20*60000)throw new Error('Cannot wait outside approved start window.');if(ms>0)await new Promise(r=>setTimeout(r,ms));return;}
     if(!process.argv.includes('--send')||process.env.GITHUB_RUN_ATTEMPT!=='1'||process.env.PATCH_CLAIM_SAVED!=='true')throw new Error('Unarmed or repeated execution; nothing sent.');
     const credentials=await verifyDestination(p);
-    receipt=await sendApprovedPair(p,{...credentials,onReceipt:r=>{receipt=r;record('partial');}});record('sent');
+    receipt=await sendApprovedPair(p,{...credentials,approvedNow,onReceipt:r=>{receipt=r;record('partial');}});record('sent');
   } catch(error) {record('stopped',error.message);process.exitCode=1;}
 }
 if(process.argv[1]&&pathToFileURL(process.argv[1]).href===import.meta.url)await main();

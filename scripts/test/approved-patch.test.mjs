@@ -25,3 +25,9 @@ test('no sends before or after the approved minute, or with missing credentials'
   assert.equal(dueWindow(payload,new Date('2026-10-19T22:45:00Z')),true);
   assert.equal(dueWindow(payload,new Date('2026-10-20T22:45:00Z')),false);
 });
+
+test('new explicit send-now approval permits immediate delivery outside original minute',async()=>{
+  let count=0;
+  const result=await sendApprovedPair(payload,{token:'test-token',chatId:'-1001',approvedNow:true,now:()=>new Date('2026-10-19T22:00:00Z'),fetch:async()=>ok(++count)});
+  assert.deepEqual(result,{photoMessageId:1,textMessageId:2});assert.equal(count,2);
+});

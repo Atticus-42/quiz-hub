@@ -1,8 +1,11 @@
-name: Approved patch post - 20 October 0700H
+name: Approved patch announcement - once only
 on:
-  schedule:
-    - cron: '45 22 * * *'
   workflow_dispatch:
+    inputs:
+      send_now:
+        description: Send the already approved photo and exact text now, once only
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -14,23 +17,24 @@ jobs:
     timeout-minutes: 25
     env:
       PATCH_POST_KEY: ${{ secrets.PATCH_POST_20261020_KEY }}
+      PATCH_SEND_NOW: ${{ github.event_name == 'workflow_dispatch' && inputs.send_now }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - name: Read-only preflight
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' && !inputs.send_now
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: node scripts/approved-patch.mjs --preflight
       - name: Check single approved date
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' || inputs.send_now
         id: plan
         run: node scripts/approved-patch.mjs --plan
       - name: Wait for 0700H Philippine time
-        if: steps.plan.outputs.due == 'true'
+        if: steps.plan.outputs.due == 'true' && !inputs.send_now
         run: node scripts/approved-patch.mjs --wait
       - uses: actions/cache/restore@v4
         if: steps.plan.outputs.due == 'true'
