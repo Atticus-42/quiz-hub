@@ -1,0 +1,78 @@
+name: Approved patch post - 20 October 0700H
+on:
+  schedule:
+    - cron: '45 22 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: approved-patch-20261020
+  cancel-in-progress: false
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      PATCH_POST_KEY: ${{ secrets.PATCH_POST_20261020_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Read-only preflight
+        if: github.event_name == 'workflow_dispatch'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node scripts/approved-patch.mjs --preflight
+      - name: Check single approved date
+        if: github.event_name == 'schedule'
+        id: plan
+        run: node scripts/approved-patch.mjs --plan
+      - name: Wait for 0700H Philippine time
+        if: steps.plan.outputs.due == 'true'
+        run: node scripts/approved-patch.mjs --wait
+      - uses: actions/cache/restore@v4
+        if: steps.plan.outputs.due == 'true'
+        id: claim
+        with:
+          path: .telegram-patch-once
+          key: approved-patch-20261020-claimed
+      - name: Claim this single send attempt
+        if: steps.plan.outputs.due == 'true' && steps.claim.outputs.cache-hit != 'true'
+        run: mkdir -p .telegram-patch-once && printf '%s' "$GITHUB_RUN_ID" > .telegram-patch-once/claim
+      - uses: actions/cache/save@v4
+        if: steps.plan.outputs.due == 'true' && steps.claim.outputs.cache-hit != 'true'
+        id: save
+        with:
+          path: .telegram-patch-once
+          key: approved-patch-20261020-claimed
+      - name: Remove local claim before restoring durable copy
+        if: steps.plan.outputs.due == 'true' && steps.claim.outputs.cache-hit != 'true' && steps.save.outcome == 'success'
+        run: node -e "require('fs').unlinkSync('.telegram-patch-once/claim')"
+      - name: Restore durable claim before any message
+        uses: actions/cache/restore@v4
+        if: steps.plan.outputs.due == 'true' && steps.claim.outputs.cache-hit != 'true' && steps.save.outcome == 'success'
+        id: confirm
+        with:
+          path: .telegram-patch-once
+          key: approved-patch-20261020-claimed
+          fail-on-cache-miss: true
+      - name: Verify this run owns the durable claim
+        if: steps.plan.outputs.due == 'true' && steps.claim.outputs.cache-hit != 'true' && steps.confirm.outputs.cache-hit == 'true'
+        id: owner
+        run: node -e "const fs=require('fs');if(fs.readFileSync('.telegram-patch-once/claim','utf8')!==process.env.GITHUB_RUN_ID)throw new Error('Claim belongs to another run; no send');fs.appendFileSync(process.env.GITHUB_OUTPUT,'verified=true\n')"
+      - name: Send approved photo and reply once
+        if: steps.owner.outputs.verified == 'true'
+        env:
+          PATCH_CLAIM_SAVED: 'true'
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: node scripts/approved-patch.mjs --send
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: patch-receipt
+          path: patch-receipt.json
+          if-no-files-found: ignore
+          retention-days: 7
