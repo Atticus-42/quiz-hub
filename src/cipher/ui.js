@@ -29,8 +29,10 @@ function paintWorking(){
   if(latest.details.length>30)$('method-notes').append(element('p','Further null insertions are included in the exact input below.'));
   $('alphabet-chart').replaceChildren();
   if(latest.alphabet){const wrap=element('section',undefined,'grid-section');wrap.append(element('h3','Plain ↔ cipher alphabet'));
-    // Split into two blocks so both alphabet halves stay readable on phones.
-    for(let start=0;start<26;start+=13){const t=table(['PLAIN',...ABC.slice(start,start+13)],[['CIPHER',...latest.alphabet.slice(start,start+13)]]);wrap.append(t);}
+    // Laptops get the lesson's single A–Z row; phones get two halves. Shifted charts circle cipher A, as the PDF does.
+    const highlight=['dsacs','rsacs'].includes(selected)?'A':'';
+    const full=table(['PLAIN',...ABC],[['CIPHER',...latest.alphabet]],{highlight});full.classList.add('alphabet-full');wrap.append(full);
+    for(let start=0;start<26;start+=13){const t=table(['PLAIN',...ABC.slice(start,start+13)],[['CIPHER',...latest.alphabet.slice(start,start+13)]],{highlight});t.classList.add('alphabet-half');wrap.append(t);}
     $('alphabet-chart').append(wrap);
   }
   pairIndex=Math.min(pairIndex,Math.max(0,latest.steps.length-1));paintGrids();

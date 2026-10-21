@@ -380,6 +380,12 @@
     .cipher-table td,.cipher-table th { padding:.6rem .65rem; border:1px solid var(--color-hairline); text-align:center; white-space:nowrap; }
     .cipher-table th { background:var(--color-selected); font-weight:500; }.cipher-table td.empty { color:var(--color-muted); background:rgba(0,0,0,.03); }
     .cipher-table .lit { background:var(--desk-dark); color:var(--desk-lime); outline:2px solid var(--color-signal); outline-offset:-2px; }
+    .alphabet-half { display:none; }
+    .alphabet-full .cipher-table,.alphabet-half .cipher-table { width:100%; min-width:0; table-layout:fixed; }
+    .alphabet-full td,.alphabet-full th,.alphabet-half td,.alphabet-half th { padding:.6rem 0; }
+    .alphabet-full th:first-child,.alphabet-full td:first-child { width:5.5rem; }
+    .alphabet-half .cipher-table { font-size:.8rem; }.alphabet-half th:first-child,.alphabet-half td:first-child { width:4.6rem; }
+    @media(max-width:760px) { .alphabet-full { display:none; }.alphabet-half { display:block; } }
     .playfair-grid .cipher-table { min-width:0; width:auto; }.playfair-grid td { width:3.2rem; height:3.2rem; font-size:1.1rem; }
     .grid-section { margin:1.4rem 0; min-width:0; }.grid-section h3 { margin:0; font-size:1.05rem; }.grid-output { font:400 .8rem/1.7 var(--font-mono); overflow-wrap:anywhere; color:var(--color-muted); }
     .pair-controls { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; margin:1rem 0; }.pair-controls button { min-height:44px; border:1px solid var(--color-rule); padding:.4rem .8rem; background:var(--color-paper); color:var(--color-text); cursor:pointer; }
@@ -658,8 +664,10 @@ function paintWorking(){
   if(latest.details.length>30)$('method-notes').append(element('p','Further null insertions are included in the exact input below.'));
   $('alphabet-chart').replaceChildren();
   if(latest.alphabet){const wrap=element('section',undefined,'grid-section');wrap.append(element('h3','Plain ↔ cipher alphabet'));
-    // Split into two blocks so both alphabet halves stay readable on phones.
-    for(let start=0;start<26;start+=13){const t=table(['PLAIN',...ABC.slice(start,start+13)],[['CIPHER',...latest.alphabet.slice(start,start+13)]]);wrap.append(t);}
+    // Laptops get the lesson's single A–Z row; phones get two halves. Shifted charts circle cipher A, as the PDF does.
+    const highlight=['dsacs','rsacs'].includes(selected)?'A':'';
+    const full=table(['PLAIN',...ABC],[['CIPHER',...latest.alphabet]],{highlight});full.classList.add('alphabet-full');wrap.append(full);
+    for(let start=0;start<26;start+=13){const t=table(['PLAIN',...ABC.slice(start,start+13)],[['CIPHER',...latest.alphabet.slice(start,start+13)]],{highlight});t.classList.add('alphabet-half');wrap.append(t);}
     $('alphabet-chart').append(wrap);
   }
   pairIndex=Math.min(pairIndex,Math.max(0,latest.steps.length-1));paintGrids();
