@@ -11,7 +11,7 @@ test('October 22 classes use PHILARPAT only in SNCOAC ROOM 306',()=>{
   const classes=day.blocks.filter(b=>['lecture','exam'].includes(b.kind));
   assert.equal(classes.length,2);
   for(const block of classes){assert.equal(block.uniform,'PHILARPAT');assert.equal(block.venue,'SNCOAC ROOM 306');}
-  assert.match(classes[0].remarks,/PHILARPAT only/);
+  assert.equal(classes[0].remarks,undefined);
   assert.equal(day.blocks[0].uniform,'AU');
   const rich=JSON.stringify(formatRichSchedule(data,day.date));
   assert.ok(rich.includes('PHILARPAT'));assert.ok(!rich.includes('SGOU'));
