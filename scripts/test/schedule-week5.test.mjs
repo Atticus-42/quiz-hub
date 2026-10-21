@@ -3,15 +3,14 @@ import assert from 'node:assert/strict';
 import { loadSchedule } from '../build.mjs';
 import { formatRichSchedule } from '../telegram-schedule.mjs';
 import { readFileSync } from 'node:fs';
-test('October 22 classes use PHILARPAT only without SGOU mislabeled as a venue',()=>{
+test('October 22 classes use PHILARPAT only in SNCOAC ROOM 306',()=>{
   const data=loadSchedule();
   const archive=JSON.parse(readFileSync(new URL('../../data/schedules/2026-10-19_2026-10-25.json',import.meta.url),'utf8'));
   const day=data.days.find(d=>d.date==='2026-10-22');
   assert.deepEqual(day,archive.days.find(d=>d.date===day.date));
   const classes=day.blocks.filter(b=>['lecture','exam'].includes(b.kind));
   assert.equal(classes.length,3);
-  for(const block of classes){assert.equal(block.uniform,'PHILARPAT');assert.notEqual(block.venue,'SGOU');}
-  assert.equal(classes[1].venue,null);
+  for(const block of classes){assert.equal(block.uniform,'PHILARPAT');assert.equal(block.venue,'SNCOAC ROOM 306');}
   assert.match(classes[1].remarks,/PHILARPAT only/);
   assert.equal(day.blocks[0].uniform,'AU');
   const rich=JSON.stringify(formatRichSchedule(data,day.date));
