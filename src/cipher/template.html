@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#192e27">
+  <meta name="description" content="Encipher and decipher with all eight systems from the SOAC Codes & Ciphers lesson. See the answer, alphabet chart, Playfair pairs and transposition grids.">
+  <title>Cipher Desk · Bandwidth Brothers</title>
+  {{FONT_PRELOAD}}
+  <style>{{BASE_CSS}}
+{{DESK_CSS}}</style>
+</head>
+<body>
+  <a class="skip-link" href="#desk">Skip to cipher desk</a>
+  <header class="desk-top"><a href="../">← All quizzes</a><span>BANDWIDTH BROTHERS <span class="top-divider">/</span> SOAC 52–2026</span><a href="../#module-5">Module 5</a></header>
+  <main class="desk-wrap">
+    <section class="desk-hero" aria-labelledby="page-title">
+      <div><p class="eyebrow">LESSON TOOLS <span>FIELD NOTE 08</span></p><h1 id="page-title">Cipher<span>desk.</span></h1><p class="hero-description">You do the working.<br>Get the answer here.</p><p class="hero-small">Choose your system, enter the key and message, then compare the result with your solution.</p></div>
+      <div class="cipher-emblem" aria-hidden="true"><svg viewBox="0 0 280 280" focusable="false"><circle cx="140" cy="140" r="128"/><circle cx="140" cy="140" r="109" class="fine"/><g class="rotor"><path d="M140 5v26M140 249v26M5 140h26M249 140h26"/><circle cx="140" cy="140" r="85" stroke-dasharray="2 14"/><path d="M62 62l20 20M198 198l20 20M62 218l20-20M198 82l20-20"/></g><path d="M96 140h88M173 132l12 8-12 8" class="arrow"/><text x="140" y="98">A B C D E</text><text x="140" y="192" class="cipher-letters">S T U V W</text><text x="140" y="248" class="seal-text">READ · RESOLVE · REVIEW</text></svg><span class="emblem-note">8 SYSTEMS / ONE WORKBENCH</span></div>
+    </section>
+
+    <section id="desk" class="workbench" aria-labelledby="choose-heading">
+      <div class="system-heading"><h2 id="choose-heading"><span class="section-number">01</span> Choose your system</h2><span class="small-mono">Codes &amp; Ciphers · lesson conventions</span></div>
+      <div id="systems" class="system-grid" role="group" aria-label="Cipher system"></div>
+      <div class="method-intro"><div><span id="method-family" class="eyebrow"></span><h2 id="method-title"></h2><p id="method-description"></p></div><span id="source-reference" class="reference-chip"></span></div>
+
+      <div class="desk-columns">
+        <form id="cipher-form" class="input-panel" novalidate>
+          <div class="panel-heading"><h3><span class="section-number">02</span> Set up your message</h3><button type="button" id="load-example" class="text-button">Load example ↗</button></div>
+          <fieldset class="direction"><legend class="sr-only">Operation</legend><label><input type="radio" name="direction" value="decode" checked><span>Decipher <small>Cipher → plain</small></span></label><label><input type="radio" name="direction" value="encode"><span>Encipher <small>Plain → cipher</small></span></label></fieldset>
+          <div id="count-fields" class="field-row"><label>Indicator count<input id="count" type="number" min="1" max="26" value="9" inputmode="numeric"></label><label id="shift-field">Shift direction<select id="shift"><option value="right">Right · ROMEO</option><option value="left">Left · LIMA</option></select></label></div>
+          <p id="count-note" class="field-note">Lesson counting: NINE = 8 actual positions. A maps to S with a right shift.</p>
+          <label id="phrase-field" hidden>Keyword / key phrase<input id="phrase" type="text" value="THE DANCE OF THE CHIMPANZEES" maxlength="250" autocomplete="off" spellcheck="false"><span class="field-note">Enter the actual assigned phrase; a key number alone cannot determine it.</span></label>
+          <label id="interval-field" hidden>Decimation interval<input id="interval" type="number" min="1" max="100" value="4" inputmode="numeric"></label>
+          <label id="key1-field" hidden>Key 1 · column order<input id="key1" type="text" inputmode="text" autocomplete="off" spellcheck="false" maxlength="150"><span class="field-note">Numbers separated by spaces, each rank used once.</span></label>
+          <label id="key2-field" hidden>Key 2 · column order<input id="key2" type="text" inputmode="text" autocomplete="off" spellcheck="false" maxlength="150"></label>
+          <div id="padding-fields" class="field-row" hidden><label>End padding<select id="padding"><option value="five">Complete groups of five</option><option value="none">Pairs only / no extra groups</option></select></label><label id="null-field">Playfair null<select id="null-letter"><option>X</option><option>Q</option><option>Z</option></select></label></div>
+          <p id="padding-note" class="field-note" hidden></p>
+          <label class="message-label"><span id="message-label">Ciphertext</span><textarea id="message" rows="5" maxlength="5000" spellcheck="false" autocomplete="off" aria-describedby="message-note">KLMVQ ZSJVP</textarea></label>
+          <div class="input-foot"><span id="message-note" class="field-note">Message body only. Omit headers and external indicators.</span><button type="button" id="clear" class="text-button">Clear</button></div>
+          <p class="local-note"><span aria-hidden="true">●</span> Calculated on your device. Updates as you type.</p>
+        </form>
+
+        <section class="answer-panel" aria-labelledby="answer-title">
+          <div class="answer-top"><h3 id="answer-title"><span class="section-number">03</span> Your answer</h3><span id="answer-state" class="answer-state">READY</span></div>
+          <p id="answer-kind" class="eyebrow">DECIPHERED TEXT</p>
+          <pre id="answer" tabindex="0">STUDY HARDX</pre>
+          <p id="answer-message" class="answer-message" role="status" aria-live="polite"></p>
+          <div id="answer-stats" class="answer-stats"></div>
+          <div class="answer-controls"><button type="button" id="copy-answer">Copy answer</button><button type="button" id="reverse">Reverse this result ⇄</button></div>
+          <label class="group-toggle"><input id="group-five" type="checkbox" checked> Display in groups of five</label>
+          <div class="answer-bottom"><span class="small-mono">COUNTER-CHECK YOUR WORK</span><p>Spacing is for readability. Nulls stay visible; remove them only when you know they were added.</p></div>
+        </section>
+      </div>
+
+      <section id="working" class="working" aria-labelledby="working-title">
+        <div class="panel-heading"><h2 id="working-title">Show me the working</h2><span class="small-mono">FOLLOW THE LETTERS</span></div>
+        <div id="method-notes" class="method-notes"></div>
+        <div id="alphabet-chart"></div>
+        <div id="grids"></div>
+        <details id="trace-details"><summary>Letter-by-letter trace <span id="trace-count"></span></summary><div id="trace"></div></details>
+        <div class="prepared"><span class="small-mono">EXACT INPUT USED</span><code id="prepared"></code><p>Uppercase, without spaces or punctuation; includes any nulls inserted before enciphering.</p></div>
+      </section>
+    </section>
+
+    <details class="indicator-panel"><summary><span class="section-number">+</span> External indicator helper <small>No-borrow arithmetic · pp. 9, 11–12</small></summary>
+      <p>Build the five-digit subtraction group, or recover the four key digits. The last digit is the sum of the first four, modulo 10.</p>
+      <form id="indicator-form" class="indicator-form"><label>Operation<select id="indicator-mode"><option value="build">Build indicator</option><option value="recover">Recover key numbers</option></select></label><label>Daily subtractor<input id="subtractor" value="2851" inputmode="numeric" maxlength="4" autocomplete="off"></label><label><span id="indicator-input-label">Key digits (e.g. 0504)</span><input id="key-digits" value="0504" inputmode="numeric" maxlength="5" autocomplete="off"></label><div class="indicator-answer"><span class="small-mono">RESULT</span><output id="indicator-result" aria-live="polite">23577</output></div></form>
+      <p id="indicator-explanation">For a single transposition, key 05 is entered as 0005. For double transposition, keys 05 and 04 become 0504. The message count is a separate five-digit group.</p>
+    </details>
+    <footer class="desk-footer"><p>Based on <strong>Codes &amp; Ciphers</strong>, 12-page lesson handout. Chart references appear with each system. Playfair’s demonstration uses the lesson’s HYPNOTIZED square; its null convention is shown above.</p><p>Bandwidth Brothers · SOAC 52–2026 · For training purposes</p><a href="../#module-5">Back to Module 5 →</a></footer>
+    <noscript><p class="no-js">Enable JavaScript to calculate cipher answers.</p></noscript>
+  </main>
+  <script type="module">
+{{ENGINE}}
+{{UI}}
+  </script>
+</body>
+</html>

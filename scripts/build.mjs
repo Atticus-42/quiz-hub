@@ -28,7 +28,7 @@ export const POOL_MIN_ATTEMPT = 50;
 export const POOL_MAX_ATTEMPT = 69;
 export const LESSON_KEY_PATTERN = /^[a-z][a-z0-9]{1,23}$/;
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const RESERVED_SLUGS = new Set(['assets', 'src', 'lessons', 'scripts', 'apps-script', 'instructor', 'class', 'data', 'schedule']);
+const RESERVED_SLUGS = new Set(['assets', 'src', 'lessons', 'scripts', 'apps-script', 'instructor', 'class', 'data', 'schedule', 'codes-ciphers']);
 // Art expectations checked by the tests when a lesson.json gives none (a lesson may also ship no hero.css).
 const DEFAULT_ART = { groups: [], nested: {}, labels: [], classes: [], stilled: [], staticPattern: '\\.hero-art' };
 
@@ -898,6 +898,12 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   pages['class/index.html'] = renderClass(readFileSync(join(root, 'src', 'class', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadClass(root), { base });
   pages['schedule/index.html'] = renderSchedule(readFileSync(join(root, 'src', 'schedule', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadSchedule(root), lessons, { base });
   pages['instructor/index.html'] = renderInstructor(readFileSync(join(root, 'src', 'instructor', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base });
+  pages['codes-ciphers/index.html'] = fillTemplate(readFileSync(join(root, 'src', 'cipher', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), {
+    BASE_CSS: baseCss(base, '../assets/'), FONT_PRELOAD: fontPreloads('../assets/'),
+    DESK_CSS: readFileSync(join(root, 'src', 'cipher', 'desk.css'), 'utf8').replace(/\r\n/g, '\n'),
+    ENGINE: readFileSync(join(root, 'src', 'cipher', 'engine.mjs'), 'utf8').replace(/\r\n/g, '\n'),
+    UI: readFileSync(join(root, 'src', 'cipher', 'ui.js'), 'utf8').replace(/\r\n/g, '\n'),
+  });
   if (write) {
     for (const [path, html] of Object.entries(pages)) {
       mkdirSync(dirname(join(out, path)), { recursive: true });

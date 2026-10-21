@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#192e27">
+  <meta name="description" content="Encipher and decipher with all eight systems from the SOAC Codes & Ciphers lesson. See the answer, alphabet chart, Playfair pairs and transposition grids.">
+  <title>Cipher Desk · Bandwidth Brothers</title>
+  <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-Regular-Latin1.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-SemiBold-Latin1.woff2" as="font" type="font/woff2" crossorigin>
+  <style>    /* =====================================================================
+       FIELD MANUAL DESIGN SYSTEM (src/shared/base.css). The build writes this
+       sheet into every page (hub, quizzes, class page, instructor view) at
+       the top of its one style element, with the assets placeholder replaced
+       by the page's path to assets/. Edit it here, never in a built page.
+
+       Type. IBM Plex Sans Condensed (text, headings, UI) and IBM Plex Mono
+       (numbers, codes, references, kbd), self-hosted Latin-1 subsets under
+       the SIL Open Font License (assets/fonts/OFL.txt), font-display: swap.
+       The subsets have no arrows; per-glyph fallback draws them from the
+       system stack. The metric-matched fallback faces keep line breaks close
+       to Plex while the files load, so the swap does not shift the layout.
+       Scale (ratio 1.25 from 16px): 12 label · 14 meta · 16 UI · 18 body ·
+       20 · 25 · 31 · 39-76 display. Body 18px, measure 60-75ch.
+
+       Colour. WCAG 2.1 contrast, computed (scripts/test checks them again):
+         --color-text      #1e211b on --color-paper #f3efe4   14.18:1  body
+         --color-muted     #4a4c40 on paper                    7.62:1  secondary text
+         --color-accent    #4b5320 on paper                    7.15:1  olive drab: links, primary buttons
+                           paper on --color-accent             7.15:1  button text
+         --color-olive-dark #2e3418: paper on it              11.28:1  dark bands, selected covers
+         --color-khaki     #c9b98f on olive-dark                6.68:1  labels on dark bands
+         --color-signal    #d9541e on paper                    3.49:1  non-text only: progress, current
+                           item, focus ring (UI >= 3:1); never small text
+         --color-signal-text #a8431a on paper                  5.25:1  orange text (small)
+         --color-signal-light #e68a5c on olive-dark            5.03:1  orange text on dark bands
+         --color-rule      #7d7865 on paper                    3.85:1  control borders (UI >= 3:1)
+         --color-hairline  #c8c2ae                                     decorative rules only
+         --color-correct   #2f6b2f on paper 5.60:1, on --color-correct-bg #e6ebd8 5.28:1, paper on it 5.60:1
+         --color-incorrect #a32a1c on paper 6.29:1, on --color-incorrect-bg #f3e2da 5.75:1, paper on it 6.29:1
+         --color-text on --color-sunken #e9e6d6               13.00:1
+         --color-accent on --color-selected #e3e6d0            6.45:1  selected answer (text 12.80:1)
+         --color-focus = signal orange, 3px: 3.49:1 on paper, 3.23:1 on olive-dark
+       Corners are square (2px at most); 1px hairlines replace boxes; shadows
+       only for true layering. Motion 120-200ms, no bounce, off under
+       prefers-reduced-motion.
+       ===================================================================== */
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Regular-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: italic; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Italic-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Medium-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-SemiBold-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Bold-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexMono-Regular-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/IBMPlexMono-Medium-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/IBMPlexMono-SemiBold-Latin1.woff2") format("woff2"); }
+    /* Metric-matched fallbacks (measured: Plex Sans Condensed sets 1.108x Arial Narrow, 0.909x Arial; Plex Mono 1.091x Consolas). */
+    @font-face { font-family: "Plex Condensed Fallback"; src: local("Arial Narrow"), local("ArialNarrow"); size-adjust: 110.8%; ascent-override: 92.5%; descent-override: 24.8%; line-gap-override: 0%; }
+    @font-face { font-family: "Plex Condensed Fallback Wide"; src: local("Arial"), local("Helvetica"); size-adjust: 90.9%; ascent-override: 112.8%; descent-override: 30.3%; line-gap-override: 0%; }
+    @font-face { font-family: "Plex Mono Fallback"; src: local("Consolas"), local("Menlo"); size-adjust: 109.1%; ascent-override: 94%; descent-override: 25.2%; line-gap-override: 0%; }
+
+    :root {
+      --color-paper: #f3efe4;
+      --color-surface: #f3efe4;
+      --color-sunken: #e9e6d6;
+      --color-selected: #e3e6d0;
+      --color-text: #1e211b;
+      --color-muted: #4a4c40;
+      --color-accent: #4b5320;
+      --color-accent-hover: #2e3418;
+      --color-accent-text: #f3efe4;
+      --color-olive-dark: #2e3418;
+      --color-khaki: #c9b98f;
+      --color-signal: #d9541e;
+      --color-signal-text: #a8431a;
+      --color-signal-light: #e68a5c;
+      --color-rule: #7d7865;
+      --color-hairline: #c8c2ae;
+      --color-correct: #2f6b2f;
+      --color-correct-bg: #e6ebd8;
+      --color-incorrect: #a32a1c;
+      --color-incorrect-bg: #f3e2da;
+      --color-focus: #d9541e;
+
+      /* Margin topography: olive contours, shown only in the page margins and the masthead band. */
+      --topo-line: #4b5320;
+      --topo-line-major: #2e3418;
+      --topo-minor-opacity: 0.1;
+      --topo-major-opacity: 0.16;
+      --topo-major-width: 1.2;
+      --grain: url("../assets/paper-grain.svg");
+
+      --font-sans: "IBM Plex Sans Condensed", "Plex Condensed Fallback", "Plex Condensed Fallback Wide", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --font-mono: "IBM Plex Mono", "Plex Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+
+      --text-label: 0.75rem;
+      --text-meta: 0.875rem;
+      --text-ui: 1rem;
+      --text-body: 1.125rem;
+      --text-h4: 1.25rem;
+      --text-h3: 1.5625rem;
+      --text-h2: 1.953rem;
+      --text-h1: clamp(2.44rem, 1.55rem + 3.6vw, 4.77rem);
+      --text-display: clamp(4rem, 2.2rem + 7.5vw, 7.45rem);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --space-7: 3rem;
+      --space-8: 4.5rem;
+      --space-9: 6rem;
+
+      --radius: 2px;
+      --page-max: 84rem;
+      --gutter: clamp(1rem, 3.2vw, 3rem);
+      --col-gap: clamp(1rem, 2vw, 2rem);
+      --rail: minmax(0, 3fr);
+      --body: minmax(0, 9fr);
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+      --speed: 160ms;
+      --shadow-layer: 0 1px 0 rgba(30, 33, 27, 0.08), 0 12px 32px rgba(30, 33, 27, 0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--color-paper); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--color-paper) var(--grain);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-size: var(--text-ui);
+      line-height: 1.5;
+      font-kerning: normal;
+      overflow-wrap: anywhere;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { margin: 0; font-weight: 600; line-height: 1.12; letter-spacing: -0.01em; text-wrap: balance; }
+    p { margin: 0 0 var(--space-3); }
+    a { color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+    a:hover { color: var(--color-text); text-decoration-thickness: 2px; }
+    strong { font-weight: 600; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    /* Uppercase small label: the manual's running heads, captions and table heads. */
+    .label {
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.4;
+    }
+    .wrap { width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin-inline: auto; }
+
+    /* Classification strip: the first line of every page. */
+    .strip { position: relative; z-index: 2; background: var(--color-olive-dark); color: var(--color-khaki); }
+    .strip-inner {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 var(--space-5);
+      min-height: 2rem; padding-block: 0.375rem;
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .strip-inner p { margin: 0; }
+    .strip-ref { color: var(--color-paper); letter-spacing: 0.08em; }
+    .strip .sep { padding-inline: 0.5em; color: var(--color-signal-light); }
+    @media (max-width: 600px) { .strip-inner { letter-spacing: 0.08em; } .strip-ref { display: none; } }
+
+    /* Paper with margin topography: a fixed, clipped, inert contour layer masked to the page edges and the masthead band. */
+    .terrain, .topo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - var(--page-max) / 2 - 2rem), transparent calc(50% - var(--page-max) / 2 + 3rem), transparent calc(50% + var(--page-max) / 2 - 3rem), #000 calc(50% + var(--page-max) / 2 + 2rem)), linear-gradient(180deg, #000 0, #000 9rem, transparent 26rem);
+      mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - var(--page-max) / 2 - 2rem), transparent calc(50% - var(--page-max) / 2 + 3rem), transparent calc(50% + var(--page-max) / 2 - 3rem), #000 calc(50% + var(--page-max) / 2 + 2rem)), linear-gradient(180deg, #000 0, #000 9rem, transparent 26rem);
+    }
+    .terrain svg, .topo svg { display: block; width: 100%; height: 100%; }
+    .terrain .contours, .topo .contours { fill: none; stroke-linejoin: round; stroke-linecap: round; }
+    .terrain .contours path, .topo .contours path { stroke: var(--topo-line); stroke-opacity: var(--topo-minor-opacity); stroke-width: 1; vector-effect: non-scaling-stroke; }
+    .terrain .contours path.major, .topo .contours path.major { stroke: var(--topo-line-major); stroke-opacity: var(--topo-major-opacity); stroke-width: var(--topo-major-width); }
+
+    /* Plate I: frame the title and complete soldiers as in the approved reference. */
+    .banner { position: relative; z-index: 1; width: 100%; background: #d8cfae; line-height: 0; overflow: hidden; isolation: isolate; }
+    .banner picture { display: block; }
+    .banner img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 1127 / 291; object-fit: cover; object-position: 50% 62%; max-height: none;
+      filter: grayscale(1) contrast(1.45) brightness(0.95);
+      mix-blend-mode: multiply;
+    }
+    /* Duotone: the multiply above maps white to khaki paper; lighten lifts black to ink. */
+    .banner::before { content: ""; position: absolute; inset: 0; z-index: 1; background: #1e211b; mix-blend-mode: lighten; pointer-events: none; }
+    .plate-caption {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 var(--space-5);
+      margin-block: 0; padding-block: var(--space-2);
+      border-bottom: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted);
+    }
+    .plate-caption b { font-weight: 600; color: var(--color-text); }
+
+    /* Figure: the SOAC 52 - 2026 class photograph. */
+    .class-photo {
+      position: relative; z-index: 1;
+      width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin: var(--space-8) auto 0;
+      background: var(--color-surface);
+    }
+    .class-photo img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 62%;
+      border-radius: 0; filter: grayscale(1) sepia(0.22) contrast(1.06);
+    }
+    .class-photo figcaption {
+      display: flex; flex-wrap: wrap; gap: 0 var(--space-4);
+      margin: 0; padding: var(--space-2) 0; border-top: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text);
+    }
+    .class-photo figcaption::before { content: var(--fig-photo, "Fig. 3") " \2014  Bandwidth Brothers,"; color: var(--color-muted); font-weight: 500; }
+
+    /* Buttons: square, hairline-precise, 44px targets. */
+    button {
+      font: inherit;
+      min-height: 44px;
+      min-width: 44px;
+      padding: var(--space-2) var(--space-5);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius);
+      background: var(--color-accent);
+      color: var(--color-accent-text);
+      font-family: var(--font-sans);
+      font-size: var(--text-ui);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: background-color var(--speed) var(--ease), border-color var(--speed) var(--ease), color var(--speed) var(--ease);
+    }
+    button:hover:not(:disabled) { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+    button.secondary { background: transparent; color: var(--color-text); border-color: var(--color-rule); }
+    button.secondary:hover:not(:disabled) { background: var(--color-sunken); color: var(--color-text); border-color: var(--color-text); }
+    button.compact { padding: var(--space-1) var(--space-4); font-size: var(--text-meta); }
+    button:disabled { cursor: not-allowed; opacity: 0.5; }
+    :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    /* Headings that receive focus from script (tabindex=-1, never reached by Tab) are marked by an orange underline, not a box. */
+    [tabindex="-1"]:focus-visible { outline: 3px solid transparent; text-decoration: underline; text-decoration-color: var(--color-signal); text-decoration-thickness: 3px; text-underline-offset: 0.3em; }
+    .strip :focus-visible, .on-dark :focus-visible { outline-color: var(--color-signal-light); }
+    .arrow-r::after { content: "\00a0\2192"; font-family: var(--font-mono); }
+    .arrow-l::before { content: "\2190\00a0"; font-family: var(--font-mono); }
+
+    /* Section with a margin rail: number and heading in the rail, content to the right (stacked on narrow screens). */
+    .sect { display: grid; grid-template-columns: var(--rail) var(--body); column-gap: var(--col-gap); padding-block: var(--space-7); border-top: 1px solid var(--color-text); }
+    .sect-head { min-width: 0; }
+    .sect-num { display: block; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; color: var(--color-signal-text); }
+    .sect-head h2 { margin-top: var(--space-2); font-size: var(--text-h3); }
+    .sect-body { min-width: 0; }
+    @media (max-width: 900px) {
+      .sect { grid-template-columns: 1fr; row-gap: var(--space-4); padding-block: var(--space-6); }
+    }
+
+    /* Tags: square-cornered labels with a text name, never colour alone. */
+    .tag {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      padding: 0.0625rem 0.5rem; border: 1px solid currentColor; border-radius: var(--radius);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.6;
+      white-space: nowrap;
+    }
+
+    /* Tables: hairline rules, Mono heads and tabular numerals. */
+    .table-wrap { max-width: 100%; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; background: transparent; font-variant-numeric: tabular-nums; }
+    caption { padding-bottom: var(--space-3); text-align: left; color: var(--color-muted); font-size: var(--text-meta); }
+    th, td { padding: var(--space-3) var(--space-3) var(--space-3) 0; border-bottom: 1px solid var(--color-hairline); text-align: left; vertical-align: baseline; }
+    thead th { padding-block: var(--space-2); border-bottom: 1px solid var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    td.num, th.num, .num { font-family: var(--font-mono); font-size: 0.9375rem; text-align: right; }
+
+    kbd {
+      display: inline-block;
+      min-width: 1.7em;
+      padding: 0 0.35em;
+      border: 1px solid var(--color-rule);
+      border-bottom-width: 2px;
+      border-radius: var(--radius);
+      background: var(--color-paper);
+      color: var(--color-text);
+      font-family: var(--font-mono);
+      font-size: 0.8em;
+      font-weight: 500;
+      line-height: 1.55;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .site-footer { position: relative; z-index: 1; }
+    .colophon {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-5);
+      margin-top: var(--space-8); padding-block: var(--space-4) var(--space-7); border-top: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted);
+    }
+    :root { --desk-dark:#192e27; --desk-lime:#d2e99c; }
+    .skip-link { position:absolute; top:-5rem; left:1rem; z-index:100; padding:1rem; background:var(--color-paper); color:var(--color-text); }.skip-link:focus { top:1rem; }
+    .desk-top { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:1rem max(1rem,calc((100vw - 1240px)/2)); background:var(--desk-dark); color:var(--color-paper); font:500 .75rem var(--font-mono); letter-spacing:.06em; }
+    .desk-top a { color:inherit; text-decoration:none; min-height:44px; display:flex; align-items:center; }
+    .top-divider { color:var(--desk-lime); margin:0 .6rem; }
+    .desk-wrap { width:min(1240px,calc(100% - 2.5rem)); margin:auto; }
+    .desk-hero { display:flex; align-items:center; justify-content:space-between; gap:3rem; padding:3.5rem 0 3rem; }
+    .eyebrow,.small-mono { font:500 .72rem var(--font-mono); letter-spacing:.12em; }
+    .eyebrow { margin:0 0 1rem; }
+    .desk-hero .eyebrow span { color:var(--color-muted); margin-left:1.5rem; }
+    .desk-hero h1 { font-size:clamp(4rem,8vw,7rem); line-height:.9; margin:0 0 1.3rem; font-weight:700; letter-spacing:-.06em; }
+    .desk-hero h1 span { color:var(--color-accent); }
+    .hero-description { font-size:clamp(1.5rem,3vw,2.25rem); line-height:1.2; margin:0 0 1rem; }
+    .hero-small { max-width:29rem; color:var(--color-muted); font-size:1.1rem; margin:0; }
+    .cipher-emblem { width:260px; flex:none; text-align:center; color:var(--color-accent); }
+    .cipher-emblem svg { width:100%; fill:none; stroke:currentColor; stroke-width:1.2; }
+    .cipher-emblem text { fill:currentColor; stroke:none; text-anchor:middle; font:500 22px var(--font-mono); letter-spacing:2px; }
+    .cipher-emblem .seal-text { font-size:8px; letter-spacing:1px; }
+    .cipher-emblem .arrow { stroke:var(--color-signal-text); stroke-width:2; }
+    .fine { opacity:.4; }.rotor { transform-origin:140px 140px; animation:turn-dial 55s linear infinite; }
+    @keyframes turn-dial { to { transform:rotate(360deg); } }
+    .emblem-note { display:block; margin-top:.7rem; font:500 .65rem var(--font-mono); letter-spacing:.12em; }
+    .system-heading,.panel-heading { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+    .system-heading { border-top:2px solid var(--color-text); padding:1.3rem 0; }
+    .system-heading h2,.panel-heading h2,.panel-heading h3 { font-size:1.2rem; margin:0; }
+    .section-number { font:500 .75rem var(--font-mono); color:var(--color-signal-text); margin-right:.6rem; }
+    .system-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.5rem; }
+    .system-grid button { display:flex; align-items:center; gap:.8rem; text-align:left; background:transparent; border:1px solid var(--color-rule); color:var(--color-text); padding:.8rem 1rem; min-height:68px; font:500 1.05rem var(--font-sans); cursor:pointer; }
+    .system-grid .system-no { flex:0 0 1.4rem; font:400 .75rem var(--font-mono); color:var(--color-muted); }
+    .system-grid button:hover { background:var(--color-selected); }
+    .system-grid button[aria-pressed="true"] { background:var(--desk-dark); color:var(--color-paper); border-color:var(--desk-dark); }
+    .system-grid button[aria-pressed="true"] .system-no { color:var(--desk-lime); }
+    .method-intro { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding:2rem 0 1.3rem; }
+    .method-intro h2 { font-size:1.8rem; margin:.2rem 0; }.method-intro p { margin:0; color:var(--color-muted); }
+    .method-intro .eyebrow { font-size:.65rem; color:var(--color-accent); }
+    .reference-chip { white-space:nowrap; padding:.5rem .7rem; border:1px solid var(--color-hairline); font:400 .7rem var(--font-mono); }
+    .desk-columns { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:1.5rem; align-items:start; }
+    .input-panel { padding:1.5rem; border:1px solid var(--color-rule); background:rgba(255,255,255,.22); }
+    .text-button { background:none; border:0; padding:.5rem .15rem; min-height:44px; color:var(--color-accent); font:500 .85rem var(--font-sans); text-decoration:underline; cursor:pointer; white-space:nowrap; }
+    .text-button:hover:not(:disabled),.pair-controls button:hover:not(:disabled) { background:var(--color-selected); color:var(--color-text); }
+    .direction { display:flex; padding:0; border:0; margin:1.2rem 0; gap:.5rem; }
+    .direction label { flex:1; margin:0; position:relative; cursor:pointer; }
+    .direction input { position:absolute; opacity:0; width:1px; height:1px; }
+    .direction span { display:block; padding:.75rem; border:1px solid var(--color-rule); font-size:1.05rem; text-align:center; }
+    .direction small { display:block; font-size:.8rem; font-weight:400; }
+    .direction input:checked+span { background:var(--color-selected); border:2px solid var(--color-accent); padding:calc(.75rem - 1px); }
+    .direction input:focus-visible+span { outline:3px solid var(--color-focus); outline-offset:2px; }
+    .input-panel label,.indicator-form label { display:block; font-weight:600; font-size:.9rem; margin:.8rem 0; min-width:0; }
+    .input-panel input:not([type="radio"]),.input-panel select,.input-panel textarea,.indicator-form input,.indicator-form select { width:100%; border:1px solid var(--color-rule); background:var(--color-paper); color:var(--color-text); border-radius:2px; margin-top:.4rem; padding:.7rem; font:400 1rem var(--font-mono); min-height:44px; }
+    .input-panel select,.indicator-form select { font-family:var(--font-sans); }
+    .input-panel textarea { resize:vertical; font-size:1.2rem; line-height:1.6; letter-spacing:.06em; }
+    .field-row { display:flex; gap:1rem; }.field-row>label { flex:1; }
+    .field-note { display:block; font-size:.82rem; line-height:1.4; color:var(--color-muted); font-weight:400; margin:.5rem 0; }
+    .input-foot { display:flex; align-items:start; gap:1rem; justify-content:space-between; }
+    .local-note { border-top:1px dashed var(--color-hairline); padding-top:1rem; margin:1rem 0 0; font-size:.8rem; color:var(--color-muted); }
+    .local-note span { color:var(--color-correct); font-size:.6rem; margin-right:.4rem; }
+    .answer-panel { color:#f5f5e9; background:var(--desk-dark); padding:1.7rem; border-top:5px solid var(--desk-lime); position:sticky; top:1rem; min-height:390px; }
+    .answer-top { display:flex; justify-content:space-between; align-items:center; gap:1rem; padding-bottom:1.3rem; border-bottom:1px solid #637266; margin-bottom:1.5rem; }
+    .answer-top h3 { margin:0; font-size:1.15rem; }.answer-top .section-number { color:var(--desk-lime); }
+    .answer-state { color:var(--desk-lime); font:500 .65rem var(--font-mono); letter-spacing:.1em; }
+    .answer-panel .eyebrow { color:#b6c7b7; font-size:.65rem; }
+    #answer { background:none; padding:0; margin:.8rem 0 1rem; color:var(--desk-lime); font:500 clamp(1.4rem,2.8vw,2rem)/1.6 var(--font-mono); white-space:pre-wrap; overflow-wrap:anywhere; max-height:320px; overflow:auto; letter-spacing:.06em; }
+    .answer-message { font-size:.9rem; color:#e6c6a5; min-height:1.5em; }.answer-stats { display:flex; gap:1.5rem; font:400 .72rem var(--font-mono); color:#b6c7b7; margin:1rem 0 1.4rem; }
+    .answer-controls { display:flex; gap:.6rem; flex-wrap:wrap; }
+    .answer-controls button { background:var(--desk-lime); color:var(--desk-dark); border:1px solid var(--desk-lime); padding:.7rem 1rem; min-height:44px; font:600 1rem var(--font-sans); cursor:pointer; }
+    .answer-controls button+button { background:transparent; color:var(--desk-lime); }
+    .answer-controls button:hover:not(:disabled) { background:#e7f4c8; color:var(--desk-dark); border-color:#e7f4c8; }
+    button:disabled { opacity:.45; cursor:default; }
+    .group-toggle { display:flex; align-items:center; gap:.6rem; font-size:.9rem; margin:1rem 0; min-height:44px; }.group-toggle input { accent-color:var(--desk-lime); width:18px; height:18px; }
+    .answer-bottom { border-top:1px dashed #637266; margin-top:1rem; padding-top:1.2rem; color:#b6c7b7; }.answer-bottom p { font-size:.9rem; margin:.6rem 0 0; }
+    .working { padding:2rem 0; }.working .panel-heading { border-bottom:1px solid var(--color-rule); padding-bottom:1rem; }
+    .method-notes { font-size:.95rem; margin:1rem 0; overflow-wrap:anywhere; }.method-notes p { margin:.4rem 0; }
+    .table-scroll { overflow-x:auto; max-width:100%; margin:.8rem 0 1.5rem; padding-bottom:.3rem; }
+    .cipher-table { border-collapse:collapse; font:400 .9rem var(--font-mono); width:max-content; min-width:min(100%,400px); }
+    .cipher-table td,.cipher-table th { padding:.6rem .65rem; border:1px solid var(--color-hairline); text-align:center; white-space:nowrap; }
+    .cipher-table th { background:var(--color-selected); font-weight:500; }.cipher-table td.empty { color:var(--color-muted); background:rgba(0,0,0,.03); }
+    .cipher-table .lit { background:var(--desk-dark); color:var(--desk-lime); outline:2px solid var(--color-signal); outline-offset:-2px; }
+    .playfair-grid .cipher-table { min-width:0; width:auto; }.playfair-grid td { width:3.2rem; height:3.2rem; font-size:1.1rem; }
+    .grid-section { margin:1.4rem 0; min-width:0; }.grid-section h3 { margin:0; font-size:1.05rem; }.grid-output { font:400 .8rem/1.7 var(--font-mono); overflow-wrap:anywhere; color:var(--color-muted); }
+    .pair-controls { display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; margin:1rem 0; }.pair-controls button { min-height:44px; border:1px solid var(--color-rule); padding:.4rem .8rem; background:var(--color-paper); color:var(--color-text); cursor:pointer; }
+    .pair-controls span { font:500 .85rem var(--font-mono); }.pair-rule { margin:.5rem 0; }
+    details summary { cursor:pointer; min-height:44px; padding:.7rem 0; font-weight:600; }
+    #trace-count { font:400 .75rem var(--font-mono); margin-left:1rem; color:var(--color-muted); }
+    .trace-list { display:flex; flex-wrap:wrap; gap:.5rem; padding:.5rem 0; list-style:none; }
+    .trace-list li { padding:.5rem .7rem; background:var(--color-sunken); font:400 .85rem var(--font-mono); }.trace-list small { display:block; margin-top:.4rem; font:400 .75rem var(--font-sans); }
+    .prepared { border-left:3px solid var(--color-accent); padding:.7rem 1rem; margin:1rem 0; background:var(--color-sunken); }.prepared code { display:block; margin:.5rem 0; overflow-wrap:anywhere; font:400 .95rem/1.6 var(--font-mono); }.prepared p { margin:0; color:var(--color-muted); font-size:.82rem; }
+    .indicator-panel { border-top:2px solid var(--color-text); border-bottom:1px solid var(--color-rule); padding:1rem 0; }.indicator-panel summary { font-size:1.2rem; }.indicator-panel summary small { font-size:.8rem; font-weight:400; color:var(--color-muted); margin-left:.8rem; }
+    .indicator-form { display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:1rem; align-items:end; }.indicator-answer { padding:.75rem 1rem; margin:.8rem 0; background:var(--desk-dark); color:var(--desk-lime); }.indicator-answer output { display:block; font:500 1.5rem var(--font-mono); overflow-wrap:anywhere; }.indicator-panel p { font-size:.95rem; color:var(--color-muted); }
+    .desk-footer { padding:2rem 0 3rem; display:grid; gap:.5rem; color:var(--color-muted); font-size:.85rem; }.desk-footer p { margin:0; max-width:62rem; }.desk-footer a { justify-self:start; padding:.8rem 0; color:var(--color-accent); }
+    button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible,pre:focus-visible { outline:3px solid var(--color-focus); outline-offset:3px; }
+    .no-js { border:2px solid var(--color-incorrect); padding:1rem; }
+    @media(max-width:850px) { .desk-columns { grid-template-columns:1fr; }.answer-panel { position:static; min-height:0; }.cipher-emblem { width:190px; }.system-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }.indicator-form { grid-template-columns:1fr 1fr; }.system-heading>.small-mono { display:none; } }
+    @media(max-width:520px) { .desk-top { padding:.5rem 1rem; font-size:.65rem; }.desk-top>span { display:none; }.desk-wrap { width:calc(100% - 2rem); }.desk-hero { padding:2rem 0; gap:1rem; }.cipher-emblem { width:100px; align-self:flex-start; margin-top:2rem; }.emblem-note { display:none; }.desk-hero h1 { font-size:3.8rem; }.hero-small { font-size:.95rem; }.desk-hero .eyebrow { font-size:.6rem; }.desk-hero .eyebrow span { display:none; }.hero-description { font-size:1.4rem; }.system-grid button { padding:.65rem; gap:.5rem; font-size:.95rem; min-height:62px; }.method-intro { align-items:start; }.method-intro h2 { font-size:1.5rem; }.reference-chip { font-size:.6rem; padding:.4rem; }.input-panel,.answer-panel { padding:1rem; }.panel-heading { gap:.5rem; }.panel-heading h3 { font-size:1.05rem; }.field-row { gap:.5rem; }.working .panel-heading>.small-mono { display:none; }.indicator-panel summary small { display:block; margin:.4rem 0 0 1rem; }.answer-controls button { flex:1; padding:.65rem; font-size:.9rem; } }
+    @media(max-width:520px) { .desk-hero { display:block; }.cipher-emblem { display:none; } }
+    @media(prefers-reduced-motion:reduce) { .rotor { animation:none; } }
+    @media print { .desk-top,.cipher-emblem,.system-grid,.input-panel,.answer-controls,.group-toggle,.indicator-panel,.desk-footer a { display:none; }.desk-hero { padding:1rem 0; }.desk-hero h1 { font-size:2rem; }.desk-columns { display:block; }.answer-panel { background:white; color:black; border:2px solid black; position:static; min-height:0; }.answer-panel * { color:black!important; }#answer { max-height:none; }.table-scroll { overflow:visible; }.desk-wrap { width:100%; }.rotor { animation:none; } }
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#desk">Skip to cipher desk</a>
+  <header class="desk-top"><a href="../">← All quizzes</a><span>BANDWIDTH BROTHERS <span class="top-divider">/</span> SOAC 52–2026</span><a href="../#module-5">Module 5</a></header>
+  <main class="desk-wrap">
+    <section class="desk-hero" aria-labelledby="page-title">
+      <div><p class="eyebrow">LESSON TOOLS <span>FIELD NOTE 08</span></p><h1 id="page-title">Cipher<span>desk.</span></h1><p class="hero-description">You do the working.<br>Get the answer here.</p><p class="hero-small">Choose your system, enter the key and message, then compare the result with your solution.</p></div>
+      <div class="cipher-emblem" aria-hidden="true"><svg viewBox="0 0 280 280" focusable="false"><circle cx="140" cy="140" r="128"/><circle cx="140" cy="140" r="109" class="fine"/><g class="rotor"><path d="M140 5v26M140 249v26M5 140h26M249 140h26"/><circle cx="140" cy="140" r="85" stroke-dasharray="2 14"/><path d="M62 62l20 20M198 198l20 20M62 218l20-20M198 82l20-20"/></g><path d="M96 140h88M173 132l12 8-12 8" class="arrow"/><text x="140" y="98">A B C D E</text><text x="140" y="192" class="cipher-letters">S T U V W</text><text x="140" y="248" class="seal-text">READ · RESOLVE · REVIEW</text></svg><span class="emblem-note">8 SYSTEMS / ONE WORKBENCH</span></div>
+    </section>
+
+    <section id="desk" class="workbench" aria-labelledby="choose-heading">
+      <div class="system-heading"><h2 id="choose-heading"><span class="section-number">01</span> Choose your system</h2><span class="small-mono">Codes &amp; Ciphers · lesson conventions</span></div>
+      <div id="systems" class="system-grid" role="group" aria-label="Cipher system"></div>
+      <div class="method-intro"><div><span id="method-family" class="eyebrow"></span><h2 id="method-title"></h2><p id="method-description"></p></div><span id="source-reference" class="reference-chip"></span></div>
+
+      <div class="desk-columns">
+        <form id="cipher-form" class="input-panel" novalidate>
+          <div class="panel-heading"><h3><span class="section-number">02</span> Set up your message</h3><button type="button" id="load-example" class="text-button">Load example ↗</button></div>
+          <fieldset class="direction"><legend class="sr-only">Operation</legend><label><input type="radio" name="direction" value="decode" checked><span>Decipher <small>Cipher → plain</small></span></label><label><input type="radio" name="direction" value="encode"><span>Encipher <small>Plain → cipher</small></span></label></fieldset>
+          <div id="count-fields" class="field-row"><label>Indicator count<input id="count" type="number" min="1" max="26" value="9" inputmode="numeric"></label><label id="shift-field">Shift direction<select id="shift"><option value="right">Right · ROMEO</option><option value="left">Left · LIMA</option></select></label></div>
+          <p id="count-note" class="field-note">Lesson counting: NINE = 8 actual positions. A maps to S with a right shift.</p>
+          <label id="phrase-field" hidden>Keyword / key phrase<input id="phrase" type="text" value="THE DANCE OF THE CHIMPANZEES" maxlength="250" autocomplete="off" spellcheck="false"><span class="field-note">Enter the actual assigned phrase; a key number alone cannot determine it.</span></label>
+          <label id="interval-field" hidden>Decimation interval<input id="interval" type="number" min="1" max="100" value="4" inputmode="numeric"></label>
+          <label id="key1-field" hidden>Key 1 · column order<input id="key1" type="text" inputmode="text" autocomplete="off" spellcheck="false" maxlength="150"><span class="field-note">Numbers separated by spaces, each rank used once.</span></label>
+          <label id="key2-field" hidden>Key 2 · column order<input id="key2" type="text" inputmode="text" autocomplete="off" spellcheck="false" maxlength="150"></label>
+          <div id="padding-fields" class="field-row" hidden><label>End padding<select id="padding"><option value="five">Complete groups of five</option><option value="none">Pairs only / no extra groups</option></select></label><label id="null-field">Playfair null<select id="null-letter"><option>X</option><option>Q</option><option>Z</option></select></label></div>
+          <p id="padding-note" class="field-note" hidden></p>
+          <label class="message-label"><span id="message-label">Ciphertext</span><textarea id="message" rows="5" maxlength="5000" spellcheck="false" autocomplete="off" aria-describedby="message-note">KLMVQ ZSJVP</textarea></label>
+          <div class="input-foot"><span id="message-note" class="field-note">Message body only. Omit headers and external indicators.</span><button type="button" id="clear" class="text-button">Clear</button></div>
+          <p class="local-note"><span aria-hidden="true">●</span> Calculated on your device. Updates as you type.</p>
+        </form>
+
+        <section class="answer-panel" aria-labelledby="answer-title">
+          <div class="answer-top"><h3 id="answer-title"><span class="section-number">03</span> Your answer</h3><span id="answer-state" class="answer-state">READY</span></div>
+          <p id="answer-kind" class="eyebrow">DECIPHERED TEXT</p>
+          <pre id="answer" tabindex="0">STUDY HARDX</pre>
+          <p id="answer-message" class="answer-message" role="status" aria-live="polite"></p>
+          <div id="answer-stats" class="answer-stats"></div>
+          <div class="answer-controls"><button type="button" id="copy-answer">Copy answer</button><button type="button" id="reverse">Reverse this result ⇄</button></div>
+          <label class="group-toggle"><input id="group-five" type="checkbox" checked> Display in groups of five</label>
+          <div class="answer-bottom"><span class="small-mono">COUNTER-CHECK YOUR WORK</span><p>Spacing is for readability. Nulls stay visible; remove them only when you know they were added.</p></div>
+        </section>
+      </div>
+
+      <section id="working" class="working" aria-labelledby="working-title">
+        <div class="panel-heading"><h2 id="working-title">Show me the working</h2><span class="small-mono">FOLLOW THE LETTERS</span></div>
+        <div id="method-notes" class="method-notes"></div>
+        <div id="alphabet-chart"></div>
+        <div id="grids"></div>
+        <details id="trace-details"><summary>Letter-by-letter trace <span id="trace-count"></span></summary><div id="trace"></div></details>
+        <div class="prepared"><span class="small-mono">EXACT INPUT USED</span><code id="prepared"></code><p>Uppercase, without spaces or punctuation; includes any nulls inserted before enciphering.</p></div>
+      </section>
+    </section>
+
+    <details class="indicator-panel"><summary><span class="section-number">+</span> External indicator helper <small>No-borrow arithmetic · pp. 9, 11–12</small></summary>
+      <p>Build the five-digit subtraction group, or recover the four key digits. The last digit is the sum of the first four, modulo 10.</p>
+      <form id="indicator-form" class="indicator-form"><label>Operation<select id="indicator-mode"><option value="build">Build indicator</option><option value="recover">Recover key numbers</option></select></label><label>Daily subtractor<input id="subtractor" value="2851" inputmode="numeric" maxlength="4" autocomplete="off"></label><label><span id="indicator-input-label">Key digits (e.g. 0504)</span><input id="key-digits" value="0504" inputmode="numeric" maxlength="5" autocomplete="off"></label><div class="indicator-answer"><span class="small-mono">RESULT</span><output id="indicator-result" aria-live="polite">23577</output></div></form>
+      <p id="indicator-explanation">For a single transposition, key 05 is entered as 0005. For double transposition, keys 05 and 04 become 0504. The message count is a separate five-digit group.</p>
+    </details>
+    <footer class="desk-footer"><p>Based on <strong>Codes &amp; Ciphers</strong>, 12-page lesson handout. Chart references appear with each system. Playfair’s demonstration uses the lesson’s HYPNOTIZED square; its null convention is shown above.</p><p>Bandwidth Brothers · SOAC 52–2026 · For training purposes</p><a href="../#module-5">Back to Module 5 →</a></footer>
+    <noscript><p class="no-js">Enable JavaScript to calculate cipher answers.</p></noscript>
+  </main>
+  <script type="module">
+// Classroom conventions follow Codes & Ciphers.pdf (12 pages), including inclusive DSACS counts.
+export const ABC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+export const KEY05 = '3 8 17 4 11 14 1 6 19 12 18 16 7 5 15 9 2 13 10';
+export const KEY04 = '12 1 16 13 6 17 20 2 19 7 10 3 14 18 15 11 4 9 5 8';
+export const SYSTEMS = [
+  {id:'dsacs',name:'Direct standard',short:'DSACS',pages:'1–2',family:'Substitution',description:'Slide the alphabet left or right. The lesson counts the starting position as 1.'},
+  {id:'rsacs',name:'Reverse standard',short:'RSACS',pages:'2',family:'Substitution',description:'Reverse the alphabet, beginning with the letter at the indicated position.'},
+  {id:'keyword',name:'Keyword mixed',short:'KEYWORD',pages:'4',family:'Substitution',description:'Keep each key letter once, then append the unused alphabet.'},
+  {id:'decimation',name:'Decimation',short:'DECIMATION',pages:'3',family:'Substitution',description:'Count around the keyed alphabet, removing every selected letter as you go.'},
+  {id:'numerical',name:'Numerical key mixed',short:'NUMERICAL',pages:'5–6',family:'Substitution',description:'Rank the unique key letters alphabetically, then read their columns in rank order.'},
+  {id:'playfair',name:'Playfair',short:'PLAYFAIR',pages:'6–7',family:'Digraph',description:'Use a 5 × 5 square and work in pairs. I and J share one cell.'},
+  {id:'single',name:'Single transposition',short:'SINGLE',pages:'8–10',family:'Transposition',description:'Write across the grid, then read down columns in numbered order.'},
+  {id:'double',name:'Double transposition',short:'DOUBLE',pages:'10–12',family:'Transposition',description:'Apply two column orders. Decipher in the reverse order: key 2, then key 1.'},
+];
+const mod = (n,m) => ((n%m)+m)%m;
+function integer(value,min,max,label) {
+  if(String(value).trim()===''||!Number.isInteger(Number(value))||Number(value)<min||Number(value)>max)throw new Error(`${label} must be a whole number from ${min} to ${max}.`);
+  return Number(value);
+}
+export function clean(value,digits=false) {
+  const text=String(value).toUpperCase();
+  if(/[^A-Z0-9\s.,;:'"!?()\-–—/]/.test(text))throw new Error('Use A–Z letters, spaces and ordinary punctuation only.');
+  if(!digits&&/[0-9]/.test(text))throw new Error('This system uses letters only. Spell out numbers, or remove the message header.');
+  return text.replace(digits?/[^A-Z0-9]/g:/[^A-Z]/g,'');
+}
+export function keyed(phrase,playfair=false) {
+  let key=clean(phrase);
+  if(!key)throw new Error('Enter the assigned keyword or key phrase.');
+  if(key.length>200)throw new Error('Keep the key phrase within 200 letters.');
+  if(playfair)key=key.replaceAll('J','I');
+  const unique=[...new Set(key)].join('');
+  return {unique,alphabet:[...new Set(unique+(playfair?ABC.replace('J',''):ABC))].join('')};
+}
+export function sequence(value) {
+  const parts=String(value).trim().split(/[\s,]+/);
+  if(parts.length>40||parts.some(x=>!/^\d+$/.test(x)))throw new Error('Enter a column order as numbers separated by spaces, for example 3 1 4 2.');
+  const nums=parts.map(Number);
+  if(new Set(nums).size!==nums.length||nums.some(n=>n<1||n>nums.length))throw new Error(`The column order must use every number from 1 to ${nums.length} exactly once.`);
+  return nums;
+}
+export function transpose(text,key,decode=false) {
+  const width=key.length, rows=Array.from({length:Math.ceil(text.length/width)},()=>Array(width).fill(''));
+  const order=key.map((rank,col)=>({rank,col})).sort((a,b)=>a.rank-b.rank);
+  let offset=0;
+  if(decode) {
+    for(const {col} of order)for(let row=0;row<rows.length;row++)if(row*width+col<text.length)rows[row][col]=text[offset++];
+  } else [...text].forEach((ch,i)=>{rows[Math.floor(i/width)][i%width]=ch;});
+  const columns=order.map(({rank,col})=>({rank,col,text:rows.map(row=>row[col]).join('')}));
+  return {output:decode?rows.flat().join(''):columns.map(c=>c.text).join(''),rows,headers:key,columns};
+}
+function substitution(options) {
+  const {system}=options;
+  const details=[];let alphabet,grid=null;
+  if(system==='dsacs') {
+    const count=integer(options.count,1,26,'Indicator count');
+    if(!['right','left'].includes(options.shift))throw new Error('Choose a left or right shift.');
+    const offset=(count-1)*(options.shift==='right'?-1:1);
+    alphabet=[...ABC].map((_,i)=>ABC[mod(i+offset,26)]).join('');
+    details.push(`Count ${count} includes the starting position: ${count-1} actual position${count===2?'':'s'} ${options.shift}. Plain A maps to ${alphabet[0]}.`);
+  } else if(system==='rsacs') {
+    const count=integer(options.count,1,26,'Indicator count');
+    alphabet=[...ABC].map((_,i)=>ABC[mod(count-1-i,26)]).join('');
+    details.push(`Begin at alphabet position ${count} (${alphabet[0]}), then work backwards.`);
+  } else {
+    const key=keyed(options.phrase);alphabet=key.alphabet;
+    details.push(`Unique key: ${key.unique}`,`Completed keyed alphabet: ${key.alphabet}`);
+    if(system==='decimation') {
+      const interval=integer(options.interval,1,100,'Interval'), remaining=[...alphabet], picks=[];let cursor=0;
+      while(remaining.length){cursor=(cursor+interval-1)%remaining.length;picks.push(remaining.splice(cursor,1)[0]);}
+      alphabet=picks.join('');details.push(`Select every ${interval}${interval===1?'st':interval===2?'nd':interval===3?'rd':'th'} remaining letter. Resume counting after the removed letter; removed letters no longer count.`);
+    } else if(system==='numerical') {
+      const sorted=[...key.unique].sort(), ranks=[...key.unique].map(c=>sorted.indexOf(c)+1);
+      grid=transpose(alphabet,ranks);alphabet=grid.output;
+      details.push('Rank the unique key alphabetically. Read each column from top to bottom in rank order; empty cells contribute nothing.');
+    }
+  }
+  return {alphabet,details,grid};
+}
+function preparePairs(text,nullLetter,groupPadding) {
+  const pairs=[],insertions=[];
+  const other=ch=>ch===nullLetter?(nullLetter==='Q'?'X':'Q'):nullLetter;
+  for(let i=0;i<text.length;){const a=text[i],b=text[i+1];
+    if(!b||a===b){const filler=other(a);pairs.push(a+filler);insertions.push(`${a}${filler}: inserted ${filler} ${b?'between repeated letters':'after the final unpaired letter'}.`);i++;}
+    else {pairs.push(a+b);i+=2;}
+  }
+  if(groupPadding)while((pairs.length*2)%5!==0){pairs.push(nullLetter+other(nullLetter));insertions.push(`${pairs.at(-1)}: end padding for an even letter count divisible by five.`);}
+  return {pairs,insertions};
+}
+function playfair(text,options,decode) {
+  const {alphabet}=keyed(options.phrase,true), rows=Array.from({length:5},(_,r)=>[...alphabet.slice(r*5,r*5+5)]);
+  const nullLetter=options.nullLetter||'X';
+  if(!['X','Q','Z'].includes(nullLetter))throw new Error('Choose X, Q or Z as the Playfair null.');
+  if(decode&&text.length%2)throw new Error('Playfair ciphertext needs an even number of letters. Check for a missing letter.');
+  if(decode&&text.includes('J'))throw new Error('The Playfair square uses I for the I/J cell. Replace ciphertext J with I.');
+  const normalized=text.replaceAll('J','I');
+  const prepared=decode?{pairs:normalized.match(/.{2}/g)||[],insertions:[]}:preparePairs(normalized,nullLetter,options.padding==='five');
+  const step=decode?-1:1;
+  const steps=prepared.pairs.map(pair=>{
+    if(pair[0]===pair[1])throw new Error(`The identical pair ${pair} is not valid Playfair ciphertext under this lesson's rules.`);
+    const a=alphabet.indexOf(pair[0]),b=alphabet.indexOf(pair[1]);let ar=Math.floor(a/5),ac=a%5,br=Math.floor(b/5),bc=b%5,rule;
+    if(ar===br){ac=mod(ac+step,5);bc=mod(bc+step,5);rule=decode?'Same row: left':'Same row: right';}
+    else if(ac===bc){ar=mod(ar+step,5);br=mod(br+step,5);rule=decode?'Same column: up':'Same column: down';}
+    else {[ac,bc]=[bc,ac];rule='Rectangle: keep each letter’s row';}
+    return {input:pair,output:rows[ar][ac]+rows[br][bc],rule};
+  });
+  return {output:steps.map(s=>s.output).join(''),prepared:prepared.pairs.join(''),steps,grid:{rows,headers:null},details:[
+    'I and J share a cell; J is represented by I.',
+    decode?'Null letters are retained. Remove only the nulls that you know were added.':`Split repeated letters within a pair using ${nullLetter}; use ${nullLetter==='Q'?'X':'Q'} if the repeated letter is itself ${nullLetter}.`,
+    ...(!decode&&options.padding==='five'?['The lesson requests groups of five and complete pairs. This mode pads to a multiple of 10, alternating nulls to avoid identical pairs. Use pair-only padding if your exercise does not require final five-letter groups.']:[]),
+    ...prepared.insertions,
+  ]};
+}
+export function solve(options) {
+  const spec=SYSTEMS.find(s=>s.id===options.system);if(!spec)throw new Error('Choose a cipher system.');
+  const decode=options.direction==='decode';
+  if(!['decode','encode'].includes(options.direction))throw new Error('Choose encipher or decipher.');
+  const isTransposition=['single','double'].includes(options.system);
+  const text=clean(options.text,isTransposition);
+  if(!text)throw new Error('Enter the message body to see its answer.');
+  if(text.length>2000)throw new Error('Please use at most 2,000 characters per message.');
+  const result={system:spec.id,source:spec.pages,input:text,prepared:text,output:'',details:[],grids:[],steps:[],alphabet:null};
+  if(options.system==='playfair') {
+    const value=playfair(text,options,decode);Object.assign(result,value);result.grids=[{...value.grid,title:'Playfair square'}];
+  } else if(isTransposition) {
+    const first=sequence(options.key1),second=options.system==='double'?sequence(options.key2):null;
+    let working=text;
+    if(!decode&&options.padding==='five')working=working.padEnd(Math.ceil(working.length/5)*5,'X');
+    result.prepared=working;
+    const keys=second?(decode?[[second,'Key 2'],[first,'Key 1']]:[[first,'Key 1'],[second,'Key 2']]):[[first,'Key 1']];
+    for(const [key,title] of keys){const stage=transpose(working,key,decode);result.grids.push({...stage,title});result.steps.push({input:working,output:stage.output,rule:`${title}: ${decode?'fill columns by rank, read rows':'fill rows, read columns by rank'}`});working=stage.output;}
+    result.output=working;result.details.push(`Digits are kept. ${decode?'Empty cells are inferred from the exact ciphertext length; nulls are retained.':options.padding==='five'?`${result.prepared.length-text.length} X null(s) added before the first pass, to complete a group of five.`:'No nulls added; incomplete final rows stay incomplete.'}`);
+    if(second)result.details.push(decode?'Reverse the passes: key 2 first, then key 1.':'The second pass uses the entire first result, with no additional padding.');
+  } else {
+    const value=substitution(options);result.alphabet=value.alphabet;result.details=value.details;
+    if(value.grid)result.grids=[{...value.grid,title:'Numerical key chart'}];
+    const from=decode?value.alphabet:ABC,to=decode?ABC:value.alphabet;
+    result.output=[...text].map(c=>to[from.indexOf(c)]).join('');
+    result.steps=[...text].map((c,i)=>({input:c,output:result.output[i],rule:`Column ${from.indexOf(c)+1}`}));
+  }
+  return result;
+}
+export function indicator(subtractor,value,recover=false) {
+  if(!/^\d{4}$/.test(subtractor))throw new Error('The daily subtractor must contain exactly four digits.');
+  if(!(recover?/^\d{5}$/:/^\d{4}$/).test(value))throw new Error(recover?'Enter the five-digit indicator.':'Enter four key digits, for example 0005 or 0504.');
+  if(recover&&[...value.slice(0,4)].reduce((sum,d)=>sum+Number(d),0)%10!==Number(value[4]))throw new Error('The indicator check digit does not match. Check the five digits you copied.');
+  const digits=[...subtractor].map((d,i)=>String(mod(Number(d)-Number(value[i]),10))).join('');
+  return recover?digits:digits+([...digits].reduce((sum,d)=>sum+Number(d),0)%10);
+}
+export const groupFive=text=>(text.match(/.{1,5}/g)||[]).join(' ');
+
+const $=id=>document.getElementById(id);
+let selected='dsacs', latest=null, pairIndex=0, pending;
+const element=(tag,text,className)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node;};
+function direction(){return document.querySelector('input[name="direction"]:checked').value;}
+function options(){return {system:selected,direction:direction(),text:$('message').value,count:$('count').value,shift:$('shift').value,phrase:$('phrase').value,interval:$('interval').value,key1:$('key1').value,key2:$('key2').value,padding:$('padding').value,nullLetter:$('null-letter').value};}
+function table(headers,rows,{square=false,highlight=''}={}) {
+  const wrap=element('div',undefined,'table-scroll'),t=element('table',undefined,'cipher-table');
+  if(headers){const head=element('thead'),row=element('tr');headers.forEach(value=>{const cell=element('th',String(value));cell.scope='col';row.append(cell);});head.append(row);t.append(head);}
+  const body=element('tbody');rows.forEach(row=>{const tr=element('tr');row.forEach(value=>{const cell=element('td',value==='I'&&square?'I/J':value||'·');if(!value)cell.className='empty';if(value&&highlight.includes(value))cell.classList.add('lit');tr.append(cell);});body.append(tr);});t.append(body);wrap.append(t);return wrap;
+}
+function paintGrids(){
+  $('grids').replaceChildren();if(!latest)return;
+  latest.grids.forEach((grid,i)=>{
+    const box=element('section',undefined,'grid-section'+(selected==='playfair'?' playfair-grid':''));box.append(element('h3',grid.title));
+    const pair=selected==='playfair'?latest.steps[pairIndex]:null;
+    box.append(table(grid.headers,grid.rows.slice(0,80),{square:!!pair,highlight:pair?pair.input:''}));
+    if(grid.rows.length>80)box.append(element('p','First 80 rows shown. The answer uses the full message.','field-note'));
+    if(pair){
+      const controls=element('div',undefined,'pair-controls');const previous=element('button','← Previous pair'),next=element('button','Next pair →');previous.type=next.type='button';previous.disabled=pairIndex===0;next.disabled=pairIndex===latest.steps.length-1;
+      previous.addEventListener('click',()=>{pairIndex--;paintGrids();});next.addEventListener('click',()=>{pairIndex++;paintGrids();});
+      controls.append(previous,element('span',`${pairIndex+1} / ${latest.steps.length} · ${pair.input} → ${pair.output}`),next);box.append(controls,element('p',pair.rule+'. Highlighted cells show the input pair.','pair-rule'));
+    } else if(grid.columns)box.append(element('p','Column readout: '+grid.columns.map(c=>`${c.rank}: ${c.text||'∅'}`).join(' / '),'grid-output'));
+    if(['single','double'].includes(selected))box.append(element('p',`Pass ${i+1} result: ${groupFive(grid.output)}`,'grid-output'));
+    $('grids').append(box);
+  });
+}
+function paintWorking(){
+  $('method-notes').replaceChildren();latest.details.slice(0,30).forEach(note=>$('method-notes').append(element('p',note)));
+  if(latest.details.length>30)$('method-notes').append(element('p','Further null insertions are included in the exact input below.'));
+  $('alphabet-chart').replaceChildren();
+  if(latest.alphabet){const wrap=element('section',undefined,'grid-section');wrap.append(element('h3','Plain ↔ cipher alphabet'));
+    // Split into two blocks so both alphabet halves stay readable on phones.
+    for(let start=0;start<26;start+=13){const t=table(['PLAIN',...ABC.slice(start,start+13)],[['CIPHER',...latest.alphabet.slice(start,start+13)]]);wrap.append(t);}
+    $('alphabet-chart').append(wrap);
+  }
+  pairIndex=Math.min(pairIndex,Math.max(0,latest.steps.length-1));paintGrids();
+  $('trace').replaceChildren();const list=element('ol',undefined,'trace-list');
+  latest.steps.slice(0,100).forEach((step,i)=>{const li=element('li',`${i+1}. ${step.input} → ${step.output}`);li.append(element('small',step.rule));list.append(li);});
+  $('trace').append(list);$('trace-count').textContent=`${latest.steps.length} ${selected==='playfair'?'pairs':['single','double'].includes(selected)?'passes':'letters'}`;
+  if(latest.steps.length>100)$('trace').append(element('p','First 100 steps shown. The answer includes every step.','field-note'));
+  $('prepared').textContent=latest.prepared;
+}
+function update(){
+  clearTimeout(pending);const decode=direction()==='decode';
+  $('message-label').textContent=decode?'Ciphertext':'Plaintext';$('answer-kind').textContent=decode?'DECIPHERED TEXT':'ENCIPHERED TEXT';
+  $('padding-fields').hidden=!['playfair','single','double'].includes(selected)||decode;
+  $('null-field').hidden=selected!=='playfair';
+  $('padding-note').hidden=$('padding-fields').hidden;
+  $('padding-note').textContent=selected==='playfair'?($('padding').value==='five'?'Groups of five + complete pairs: pad to a multiple of 10. Null pairs alternate to avoid XX.':'Only split repeated pairs and complete the final pair. No extra five-letter groups.'):'X nulls complete the final group of five before the first pass. Choose no extra groups to preserve the exact input length.';
+  const count=Number($('count').value);
+  $('count-note').textContent=selected==='dsacs'?`The lesson counts the starting position as 1. Count ${count||'—'} means ${count?count-1:'—'} actual shifts ${$('shift').value}.`:'The indicator is the starting letter’s alphabet position: 10 starts with J, then I, H, G…';
+  try {
+    latest=solve(options());$('answer').textContent=$('group-five').checked?groupFive(latest.output):latest.output;
+    $('answer-state').textContent='ANSWER READY';$('answer-message').textContent='';$('answer-stats').textContent=`${latest.output.length} characters · ${Math.ceil(latest.output.length/5)} display groups`;
+    $('working').hidden=false;paintWorking();$('copy-answer').disabled=$('reverse').disabled=false;
+  } catch(error){
+    latest=null;$('answer').textContent='—';$('answer-state').textContent=$('message').value.trim()?'CHECK INPUT':'AWAITING MESSAGE';$('answer-message').textContent=error.message;$('answer-stats').textContent='';$('working').hidden=true;$('copy-answer').disabled=$('reverse').disabled=true;
+  }
+}
+function choose(id){
+  selected=id;pairIndex=0;const spec=SYSTEMS.find(s=>s.id===id);
+  document.querySelectorAll('[data-system]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.system===id)));
+  $('method-title').textContent=spec.name;$('method-family').textContent=spec.family.toUpperCase();$('method-description').textContent=spec.description;$('source-reference').textContent='PDF p. '+spec.pages;
+  $('count-fields').hidden=$('count-note').hidden=!['dsacs','rsacs'].includes(id);$('shift-field').hidden=id!=='dsacs';
+  $('phrase-field').hidden=!['keyword','decimation','numerical','playfair'].includes(id);$('interval-field').hidden=id!=='decimation';$('key1-field').hidden=!['single','double'].includes(id);$('key2-field').hidden=id!=='double';
+  $('phrase').value=id==='numerical'?'WHERE THE ZEBRAS FEED':id==='playfair'?'HYPNOTIZED':'THE DANCE OF THE CHIMPANZEES';
+  $('count').value=id==='rsacs'?'10':'9';
+  update();
+}
+function example(){
+  const examples={dsacs:'KLMVQ ZSJVP',rsacs:'RQPGL CJSGM',keyword:'THEDANCOFIMPZSBGJKLQRUVWXY',decimation:'DOPGQWHCZKVEIJXNBYMUSATFRL',numerical:'ANBMDQEIXFPHGVRJYSOTKWCUZL',playfair:'BALLOON',single:'C9NS0 MUNOP AU2ET IGPXL T0CIB ALXMD',double:'90NXU GX0BP DLPAI CTSI2 TNCMA EOMUL'};
+  choose(selected);$('shift').value='right';$('interval').value='4';$('key1').value=KEY05;$('key2').value=KEY04;$('padding').value='five';$('null-letter').value='X';
+  document.querySelector(`input[name="direction"][value="${selected==='playfair'?'encode':'decode'}"]`).checked=true;
+  $('message').value=examples[selected];pairIndex=0;update();
+}
+SYSTEMS.forEach((spec,i)=>{const button=element('button');button.type='button';button.dataset.system=spec.id;button.setAttribute('aria-pressed',String(spec.id===selected));button.append(element('span',String(i+1).padStart(2,'0'),'system-no'),element('span',spec.name));button.addEventListener('click',()=>choose(spec.id));$('systems').append(button);});
+$('key1').value=KEY05;$('key2').value=KEY04;
+$('cipher-form').addEventListener('submit',event=>{event.preventDefault();update();});
+$('cipher-form').addEventListener('input',()=>{latest=null;$('copy-answer').disabled=$('reverse').disabled=true;$('answer-state').textContent='UPDATING';clearTimeout(pending);pending=setTimeout(update,150);});
+$('cipher-form').addEventListener('change',update);
+$('load-example').addEventListener('click',example);$('clear').addEventListener('click',()=>{$('message').value='';update();$('message').focus();});
+$('group-five').addEventListener('change',update);
+$('reverse').addEventListener('click',()=>{if(!latest)return;const text=latest.output;document.querySelector(`input[name="direction"][value="${direction()==='decode'?'encode':'decode'}"]`).checked=true;$('message').value=text;pairIndex=0;update();});
+$('copy-answer').addEventListener('click',async()=>{if(!latest)return;const value=$('group-five').checked?groupFive(latest.output):latest.output;try{await navigator.clipboard.writeText(value);$('answer-message').textContent='Answer copied.';}catch{$('answer').focus();const range=document.createRange();range.selectNodeContents($('answer'));const selection=window.getSelection();selection.removeAllRanges();selection.addRange(range);$('answer-message').textContent='Answer selected. Use your device’s Copy command.';}});
+function updateIndicator(){const recover=$('indicator-mode').value==='recover';$('indicator-input-label').textContent=recover?'Five-digit indicator':'Key digits (e.g. 0504)';try{$('indicator-result').textContent=indicator($('subtractor').value.trim(),$('key-digits').value.trim(),recover);}catch(error){$('indicator-result').textContent='—';$('indicator-explanation').textContent=error.message;return;}$('indicator-explanation').textContent=recover?'Recovered key digits: first two digits identify key 1; last two identify key 2. In a single-transposition exercise, 0005 means key 05.':'Subtract each digit without borrowing. Append the units digit of the sum. Single key 05 → 0005; double keys 05 and 04 → 0504.';}
+$('indicator-form').addEventListener('submit',event=>{event.preventDefault();updateIndicator();});$('indicator-form').addEventListener('input',updateIndicator);$('indicator-mode').addEventListener('change',()=>{$('key-digits').value=$('indicator-mode').value==='recover'?'23577':'0504';updateIndicator();});
+choose('dsacs');updateIndicator();
+
+  </script>
+</body>
+</html>

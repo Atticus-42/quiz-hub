@@ -139,6 +139,13 @@ The page is public: instructors appear as rank + name (or a duty title) only. Ne
 
 ## Students' features
 
+- **Cipher Desk** (`codes-ciphers/`). A Module 5 lesson tool linked from the hub. Students enter a message and key to see the computed answer immediately. All eight systems from the 12-page *Codes & Ciphers* handout support encipherment and decipherment, with charts and working steps. The indicator helper performs no-borrow subtraction and validates the check digit. Calculations stay in the browser and do not use class history or the bot.
+  - Source: `src/cipher/`; generated page: `codes-ciphers/index.html`. Rebuild with `node scripts/build.mjs`.
+  - DSACS uses the handout's inclusive count: FIVE means four actual positions. Reverse standard starts at the indicated alphabet position.
+  - Playfair retains I/J ambiguity and nulls. Its explicit group-padding option uses an even multiple of five (10), with alternating nulls to avoid identical pairs; pair-only padding is also available. These padding choices are explained on the page because the handout does not fully specify the null sequence.
+  - Transposition preserves digits, handles incomplete rows, and reverses key order for double decipherment. Assigned keys are entered directly; example CEOI keys are not treated as an operational key database.
+  - `node --test scripts/test/cipher.test.mjs` checks the handout's vectors, boundary cases and inverse transforms. It also runs through the normal verification gate.
+
 - **Retry my mistakes.** On the results page, *Retry the N questions I missed* (or the **M** key) starts a practice round with only those questions, reshuffled. It has its own results and is never sent to the class history.
 - **Unseen first.** Each attempt asks the questions this browser has not shown yet first, then the ones last missed, then the rest, each group shuffled. The pool exam applies the same order within each lesson's share.
   - The record lives only in this browser's `localStorage`: question codes with seen/missed flags, and no name.

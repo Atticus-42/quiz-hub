@@ -4,6 +4,7 @@
 // lesson's own lessons/<key>/checks.mjs, if any), 3. apps-script/Code.gs in a sandbox, 4. the hub,
 // 5. the instructor page, the class page and the weekly schedule, 6. the shared design system (fonts, assets, contrast, overflow).
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
@@ -26,6 +27,10 @@ for (const lesson of lessons.filter(item => item.pool)) {
 }
 
 await buildSuite({ modules, lessons });
+await test('[cipher] lesson vectors, padding, inverse transforms and invalid inputs', () => {
+  const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/cipher.test.mjs')], { encoding: 'utf8' });
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+});
 for (const lesson of lessons) {
   await engineSuite(lesson);
   const checks = join(lesson.dir, 'checks.mjs');
