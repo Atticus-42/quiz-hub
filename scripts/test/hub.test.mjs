@@ -194,10 +194,19 @@ test('no external URLs except the history endpoint; quiz, class and instructor l
   assert.ok(!/@import/i.test(css), 'no CSS imports');
   for (const target of cssUrls(css)) assert.ok(isLocalAsset(target) && !target.startsWith('../') && existsSync(join(root, target)), `url(${target}) must be a same-origin assets/ file on disk`);
   const hrefs = [...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map((m) => m[1]);
-    const allowedHref = new Set([...Object.values(EXPECTED), 'class/', 'schedule/?v=day-picker-2', 'instructor/', 'codes-ciphers/', '#main', '#choose-module', ...Object.keys(MODULE_EXAMS).map((id) => `#${id}`)]);
+    const allowedHref = new Set([...Object.values(EXPECTED), './', 'class/', 'schedule/?v=day-picker-2', 'instructor/', 'codes-ciphers/', '#main', '#choose-module', ...Object.keys(MODULE_EXAMS).map((id) => `#${id}`)]);
   assert.deepEqual(hrefs.filter((href) => !allowedHref.has(href)), [], 'every link is a quiz folder, the class or instructor page, or an in-page fragment');
   const nonAsset = html.replace(/<(?:img|source)\b[^>]*>/gi, (tag) => (/\b(?:src|srcset)="(?:assets\/[\w-]+\.jpg(?: [\w.]+)?(?:, )?)+"/.test(tag) && !/\/\/|https?:/i.test(tag) ? '' : tag));
   assert.ok(!/<(img|iframe|video|audio|source|object|embed)\b/i.test(nonAsset), 'no embedded media except same-origin assets/ images');
+});
+
+test('Cipher Desk has a top-level navigation tab and no module assignment', () => {
+  assert.match(html, /<nav class="site-tabs wrap"[\s\S]*?id="cipher-tab" href="codes-ciphers\/"/);
+  assert.ok(!html.includes('MODULE 5 · LESSON TOOL'));
+  assert.ok(!html.includes('class="cipher-tool"'));
+  const desk = readFileSync(join(root, 'codes-ciphers/index.html'), 'utf8');
+  assert.ok(!desk.includes('#module-5'));
+  assert.match(desk, /aria-current="page">Codes &amp; Ciphers/);
 });
 
 test('script never uses HTML-string sinks or storage', () => {
