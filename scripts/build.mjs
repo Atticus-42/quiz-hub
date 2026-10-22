@@ -903,6 +903,8 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
     DESK_CSS: readFileSync(join(root, 'src', 'cipher', 'desk.css'), 'utf8').replace(/\r\n/g, '\n'),
     ENGINE: readFileSync(join(root, 'src', 'cipher', 'engine.mjs'), 'utf8').replace(/\r\n/g, '\n'),
     UI: readFileSync(join(root, 'src', 'cipher', 'ui.js'), 'utf8').replace(/\r\n/g, '\n'),
+    SCAN_PARSER: readFileSync(join(root, 'src', 'cipher', 'scan-parser.mjs'), 'utf8').replace(/\r\n/g, '\n'),
+    SCAN_UI: readFileSync(join(root, 'src', 'cipher', 'scan-ui.js'), 'utf8').replace(/\r\n/g, '\n'),
   });
   if (write) {
     for (const [path, html] of Object.entries(pages)) {
