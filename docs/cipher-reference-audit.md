@@ -18,19 +18,19 @@ Checked 22 October 2026. These are classical teaching ciphers, not secure modern
 ## Playfair correction
 
 - Work in digraphs: BALLOON becomes BA LX LO ON, not a separator between every adjacent repeated letter. BOOKKEEPER already splits into BO OK KE EP ER.
-- Default filler is X; Q separates a literal X. Other selected fillers remain explicit.
+- The class requires X as the only generated filler. An XX conflict or lone final X reports an error rather than substituting Q/Z; naturally occurring Q/Z remain valid message letters.
 - A lone final plaintext letter requires a filler. Five-letter **display** groups do not: eight ciphertext letters display as five plus three.
 - Prepared input and trace show pairs; answer and clipboard use five-letter groups when that display option is checked.
 - Deciphering removes display spaces before rebuilding pairs. I/J share one cell. Odd-length ciphertext remains an error, not silently repaired.
 - Retain filler letters in the deciphered result: automatic removal could destroy genuine X, Q or Z letters.
-- Extra padding to complete five-letter groups is an exercise convention, not a universal Playfair requirement. It needs an even multiple of five to preserve pairs. Following the class owner's clarification on 22 October, the UI defaults to this option and opens Playfair in Encipher mode. Select Extra end padding → None for standard pair-only preparation.
+- Following the class owner's final clarification on 22 October, extra padding to complete five-letter groups is manual. CipherDesk only prepares pairs and spaces the result; it does not add full-group nulls. Playfair opens in Encipher mode.
 
 Transposition's existing default and class worked answers are unchanged. Its five-group padding is distinct from filling a complete rectangular grid. Operational indicator conventions remain handout-specific.
 
 ## Sources and proof
 
 1. US Army, *TM 32-220: Basic Cryptography* (1950), [official NSA archive](https://www.nsa.gov/Portals/75/documents/news-features/declassified-documents/friedman-documents/publications/FOLDER_238/41748889078809.pdf), [readable mirror](https://www.cipherchallenge.org/wp-content/uploads/2023/12/Basic-Cryptography-Army-Field-Manual-1950.pdf). Section numbers above refer to the manual, not PDF viewer pages.
-2. Brian Harvey, *Computer Science Logo Style*, [Playfair chapter](https://people.eecs.berkeley.edu/~bh/v1ch12/playfair.html). Uses Q as filler and permits either I/J notation; fixtures normalize J to I for comparison.
+2. Brian Harvey, *Computer Science Logo Style*, [Playfair chapter](https://people.eecs.berkeley.edu/~bh/v1ch12/playfair.html). Uses Q as filler and permits either I/J notation; fixtures supply the already-prepared reference pairs explicitly and normalize J to I. CipherDesk itself generates only X fillers.
 3. American Cryptogram Association, [Complete Columnar Transposition](https://www.cryptogram.org/downloads/aca.info/ciphers/CompleteColTransposition.pdf). Test supplies the example's prepared plaintext, including its final X.
 4. Open-source cross-check: [pycipher Playfair implementation](https://github.com/jameslyons/pycipher/blob/master/pycipher/playfair.py). Its transformation rules were inspected, but its preprocessing is not used as the reference oracle. No dependency or code was imported.
 

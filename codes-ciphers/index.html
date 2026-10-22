@@ -459,7 +459,7 @@
             <label id="scan-phrase-field">Keyword / key phrase<input id="scan-phrase" maxlength="250" spellcheck="false" placeholder="Actual assigned phrase"></label><label id="scan-interval-field">Decimation interval<input id="scan-interval" type="number" min="1" max="100"></label>
             <label id="scan-key1-field">Key 1 · column order<input id="scan-key1" maxlength="150" placeholder="e.g. 3 1 2"></label><label id="scan-key2-field">Key 2 · column order<input id="scan-key2" maxlength="150" placeholder="Actual second column order"></label></div>
             <label>Message to process<textarea id="scan-text" rows="5" maxlength="5000" spellcheck="false"></textarea></label>
-            <p class="field-note">Enciphering uses the selected system’s padding setting. Playfair defaults to complete five-letter groups with automatic fillers. Review padding and null settings after applying.</p>
+            <p class="field-note">Playfair uses X only for pair preparation, with no extra group padding. Transposition uses its selected padding setting. Review the working after applying.</p>
             <label class="scan-confirm"><input id="scan-confirm" type="checkbox"> I checked the detected system, key and message against the image.</label>
             <button id="scan-apply" type="submit" disabled>Use these details →</button><p id="scan-review-error" role="alert"></p>
           </form>
@@ -479,9 +479,9 @@
           <label id="interval-field" hidden>Decimation interval<input id="interval" type="number" min="1" max="100" value="4" inputmode="numeric"></label>
           <label id="key1-field" hidden>Key 1 · column order<input id="key1" type="text" inputmode="text" autocomplete="off" spellcheck="false" maxlength="150"><span class="field-note">Numbers separated by spaces, each rank used once.</span></label>
           <label id="key2-field" hidden>Key 2 · column order<input id="key2" type="text" inputmode="text" autocomplete="off" spellcheck="false" maxlength="150"></label>
-          <div id="padding-fields" class="field-row" hidden><label>Extra end padding<select id="padding"><option value="none">None · Playfair still completes pairs</option><option value="five">Add nulls for full five-letter groups</option></select></label><label id="null-field">Playfair filler<select id="null-letter"><option>X</option><option>Q</option><option>Z</option></select></label></div>
+          <div id="padding-fields" class="field-row" hidden><label>Extra end padding<select id="padding"><option value="none">None</option><option value="five">Add nulls for full five-letter groups</option></select></label></div><input id="null-letter" type="hidden" value="X">
           <p id="padding-note" class="field-note" hidden></p>
-          <p id="playfair-note" class="field-note" hidden><strong>Solve by pairs. Present in fives.</strong> BALLOON → BA LX LO ON. Insert a filler only when identical letters would share a pair. With the default X filler, use Q when X itself needs a separator. While deciphering, ignore five-letter spaces and rebuild pairs from the start. I/J share a cell; fillers stay visible.</p>
+          <p id="playfair-note" class="field-note" hidden><strong>Solve by pairs. Present in fives. X filler only.</strong> BALLOON → BA LX LO ON. X separates identical paired letters and completes a lone final letter. No extra letters are added to fill five-letter groups; additional padding is manual. If this would create XX, check the input—no substitute filler is used. I/J share a cell; deciphering retains fillers.</p>
           <label class="message-label"><span id="message-label">Ciphertext</span><textarea id="message" rows="5" maxlength="5000" spellcheck="false" autocomplete="off" aria-describedby="message-note">KLMVQ ZSJVP</textarea></label>
           <div class="input-foot"><span id="message-note" class="field-note">Message body only. Omit headers and external indicators.</span><button type="button" id="clear" class="text-button">Clear</button></div>
           <p class="local-note"><span aria-hidden="true">●</span> Calculated on your device. Updates as you type.</p>
@@ -601,23 +601,24 @@ function substitution(options) {
   }
   return {alphabet,details,grid};
 }
-function preparePairs(text,nullLetter,groupPadding) {
+function preparePairs(text) {
   const pairs=[],insertions=[];
-  const other=ch=>ch===nullLetter?(nullLetter==='Q'?'X':'Q'):nullLetter;
   for(let i=0;i<text.length;){const a=text[i],b=text[i+1];
-    if(!b||a===b){const filler=other(a);pairs.push(a+filler);insertions.push(`${a}${filler}: inserted ${filler} ${b?'between repeated letters':'after the final unpaired letter'}.`);i++;}
+    if(!b||a===b){
+      if(a==='X')throw new Error('X-only preparation would create an XX pair. Check repeated X letters or a lone final X; no alternate filler is added.');
+      pairs.push(a+'X');insertions.push(`${a}X: inserted X ${b?'between repeated letters':'after the final unpaired letter'}.`);i++;
+    }
     else {pairs.push(a+b);i+=2;}
   }
-  if(groupPadding)while((pairs.length*2)%5!==0){pairs.push(nullLetter+other(nullLetter));insertions.push(`${pairs.at(-1)}: end padding for an even letter count divisible by five.`);}
   return {pairs,insertions};
 }
 function playfair(text,options,decode) {
   const {alphabet}=keyed(options.phrase,true), rows=Array.from({length:5},(_,r)=>[...alphabet.slice(r*5,r*5+5)]);
   const nullLetter=options.nullLetter||'X';
-  if(!['X','Q','Z'].includes(nullLetter))throw new Error('Choose X, Q or Z as the Playfair null.');
+  if(nullLetter!=='X')throw new Error('Playfair uses X only as its filler.');
   if(decode&&text.length%2)throw new Error('Playfair ciphertext needs an even number of letters. Check for a missing letter.');
   const normalized=text.replaceAll('J','I');
-  const prepared=decode?{pairs:normalized.match(/.{2}/g)||[],insertions:[]}:preparePairs(normalized,nullLetter,options.padding==='five');
+  const prepared=decode?{pairs:normalized.match(/.{2}/g)||[],insertions:[]}:preparePairs(normalized);
   const step=decode?-1:1;
   const steps=prepared.pairs.map(pair=>{
     if(pair[0]===pair[1])throw new Error(`The identical pair ${pair} is not valid Playfair ciphertext under this lesson's rules.`);
@@ -629,9 +630,9 @@ function playfair(text,options,decode) {
   });
   return {output:steps.map(s=>s.output).join(''),prepared:prepared.pairs.join(''),steps,grid:{rows,headers:null},details:[
     'I and J share a cell; J is represented by I in both plaintext and ciphertext.',
-    decode?'Null letters are retained. Remove only the nulls that you know were added.':`Split repeated letters within a pair using ${nullLetter}; use ${nullLetter==='Q'?'X':'Q'} if the repeated letter is itself ${nullLetter}.`,
+    decode?'Null letters are retained. Remove only the nulls that you know were added.':'X is the only filler, used to split identical paired letters or complete a lone final letter. An XX pair requires review; no alternate filler is substituted.',
     'Solve in pairs; display groups of five do not change the letters or the pair boundaries. A short final display group is valid.',
-    ...(!decode&&options.padding==='five'?['Optional extra padding is enabled: pad to a multiple of 10 with alternating nulls. Use this only when the exercise explicitly requires full five-letter groups.']:[]),
+    'No extra letters are added to complete five-letter display groups. Any additional group padding is manual.',
     ...prepared.insertions,
   ]};
 }
@@ -675,7 +676,7 @@ export const groupFive=text=>(text.match(/.{1,5}/g)||[]).join(' ');
 
 const $=id=>document.getElementById(id);
 let selected='dsacs', latest=null, pairIndex=0, pending, playfairOpened=false;
-const paddingPreferences={playfair:'five',single:'five',double:'five'};
+const paddingPreferences={single:'five',double:'five'};
 function paddingForSystem(id){return id===selected?$('padding').value:paddingPreferences[id]||'none';}
 const element=(tag,text,className)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node;};
 function direction(){return document.querySelector('input[name="direction"]:checked').value;}
@@ -723,11 +724,11 @@ function paintWorking(){
 function update(){
   clearTimeout(pending);const decode=direction()==='decode';
   $('message-label').textContent=decode?'Ciphertext':'Plaintext';$('answer-kind').textContent=decode?'DECIPHERED TEXT':'ENCIPHERED TEXT';
-  $('padding-fields').hidden=!['playfair','single','double'].includes(selected)||decode;
-  $('null-field').hidden=selected!=='playfair';
+  $('padding-fields').hidden=!['single','double'].includes(selected)||decode;
+
   $('playfair-note').hidden=selected!=='playfair';
   $('padding-note').hidden=$('padding-fields').hidden;
-  $('padding-note').textContent=selected==='playfair'?($('padding').value==='five'?'Complete five-letter groups: fillers are added automatically, including extra null pairs at the end. No need to add a trailing X yourself.':'Standard preparation: split identical letters within a pair and complete a lone final letter. The final display group may be shorter than five.'):'Lesson option: X nulls complete the final group of five before the first pass. This does not necessarily fill the rectangle. Choose no extra padding for an incomplete-rectangle exercise.';
+  $('padding-note').textContent='Lesson option: X nulls complete the final group of five before the first pass. This does not necessarily fill the rectangle. Choose no extra padding for an incomplete-rectangle exercise.';
   const count=Number($('count').value);
   $('count-note').textContent=selected==='dsacs'?`The lesson counts the starting position as 1. Count ${count||'—'} means ${count?count-1:'—'} actual shifts ${$('shift').value}.`:'The indicator is the starting letter’s alphabet position: 10 starts with J, then I, H, G…';
   try {
@@ -753,7 +754,7 @@ function choose(id){
 }
 function example(){
   const examples={dsacs:'KLMVQ ZSJVP',rsacs:'RQPGL CJSGM',keyword:'THEDANCOFIMPZSBGJKLQRUVWXY',decimation:'DOPGQWHCZKVEIJXNBYMUSATFRL',numerical:'ANBMDQEIXFPHGVRJYSOTKWCUZL',playfair:'BALLOON',single:'C9NS0 MUNOP AU2ET IGPXL T0CIB ALXMD',double:'90NXU GX0BP DLPAI CTSI2 TNCMA EOMUL'};
-  choose(selected);$('shift').value='right';$('interval').value='4';$('key1').value=KEY05;$('key2').value=KEY04;$('padding').value='five';$('null-letter').value='X';
+  choose(selected);$('shift').value='right';$('interval').value='4';$('key1').value=KEY05;$('key2').value=KEY04;$('padding').value=selected==='playfair'?'none':'five';$('null-letter').value='X';
   document.querySelector(`input[name="direction"][value="${selected==='playfair'?'encode':'decode'}"]`).checked=true;
   $('message').value=examples[selected];pairIndex=0;update();
 }

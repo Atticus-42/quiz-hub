@@ -1,6 +1,6 @@
 const $=id=>document.getElementById(id);
 let selected='dsacs', latest=null, pairIndex=0, pending, playfairOpened=false;
-const paddingPreferences={playfair:'five',single:'five',double:'five'};
+const paddingPreferences={single:'five',double:'five'};
 function paddingForSystem(id){return id===selected?$('padding').value:paddingPreferences[id]||'none';}
 const element=(tag,text,className)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node;};
 function direction(){return document.querySelector('input[name="direction"]:checked').value;}
@@ -48,11 +48,11 @@ function paintWorking(){
 function update(){
   clearTimeout(pending);const decode=direction()==='decode';
   $('message-label').textContent=decode?'Ciphertext':'Plaintext';$('answer-kind').textContent=decode?'DECIPHERED TEXT':'ENCIPHERED TEXT';
-  $('padding-fields').hidden=!['playfair','single','double'].includes(selected)||decode;
-  $('null-field').hidden=selected!=='playfair';
+  $('padding-fields').hidden=!['single','double'].includes(selected)||decode;
+
   $('playfair-note').hidden=selected!=='playfair';
   $('padding-note').hidden=$('padding-fields').hidden;
-  $('padding-note').textContent=selected==='playfair'?($('padding').value==='five'?'Complete five-letter groups: fillers are added automatically, including extra null pairs at the end. No need to add a trailing X yourself.':'Standard preparation: split identical letters within a pair and complete a lone final letter. The final display group may be shorter than five.'):'Lesson option: X nulls complete the final group of five before the first pass. This does not necessarily fill the rectangle. Choose no extra padding for an incomplete-rectangle exercise.';
+  $('padding-note').textContent='Lesson option: X nulls complete the final group of five before the first pass. This does not necessarily fill the rectangle. Choose no extra padding for an incomplete-rectangle exercise.';
   const count=Number($('count').value);
   $('count-note').textContent=selected==='dsacs'?`The lesson counts the starting position as 1. Count ${count||'—'} means ${count?count-1:'—'} actual shifts ${$('shift').value}.`:'The indicator is the starting letter’s alphabet position: 10 starts with J, then I, H, G…';
   try {
@@ -78,7 +78,7 @@ function choose(id){
 }
 function example(){
   const examples={dsacs:'KLMVQ ZSJVP',rsacs:'RQPGL CJSGM',keyword:'THEDANCOFIMPZSBGJKLQRUVWXY',decimation:'DOPGQWHCZKVEIJXNBYMUSATFRL',numerical:'ANBMDQEIXFPHGVRJYSOTKWCUZL',playfair:'BALLOON',single:'C9NS0 MUNOP AU2ET IGPXL T0CIB ALXMD',double:'90NXU GX0BP DLPAI CTSI2 TNCMA EOMUL'};
-  choose(selected);$('shift').value='right';$('interval').value='4';$('key1').value=KEY05;$('key2').value=KEY04;$('padding').value='five';$('null-letter').value='X';
+  choose(selected);$('shift').value='right';$('interval').value='4';$('key1').value=KEY05;$('key2').value=KEY04;$('padding').value=selected==='playfair'?'none':'five';$('null-letter').value='X';
   document.querySelector(`input[name="direction"][value="${selected==='playfair'?'encode':'decode'}"]`).checked=true;
   $('message').value=examples[selected];pairIndex=0;update();
 }

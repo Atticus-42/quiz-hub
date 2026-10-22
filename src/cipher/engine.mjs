@@ -76,23 +76,24 @@ function substitution(options) {
   }
   return {alphabet,details,grid};
 }
-function preparePairs(text,nullLetter,groupPadding) {
+function preparePairs(text) {
   const pairs=[],insertions=[];
-  const other=ch=>ch===nullLetter?(nullLetter==='Q'?'X':'Q'):nullLetter;
   for(let i=0;i<text.length;){const a=text[i],b=text[i+1];
-    if(!b||a===b){const filler=other(a);pairs.push(a+filler);insertions.push(`${a}${filler}: inserted ${filler} ${b?'between repeated letters':'after the final unpaired letter'}.`);i++;}
+    if(!b||a===b){
+      if(a==='X')throw new Error('X-only preparation would create an XX pair. Check repeated X letters or a lone final X; no alternate filler is added.');
+      pairs.push(a+'X');insertions.push(`${a}X: inserted X ${b?'between repeated letters':'after the final unpaired letter'}.`);i++;
+    }
     else {pairs.push(a+b);i+=2;}
   }
-  if(groupPadding)while((pairs.length*2)%5!==0){pairs.push(nullLetter+other(nullLetter));insertions.push(`${pairs.at(-1)}: end padding for an even letter count divisible by five.`);}
   return {pairs,insertions};
 }
 function playfair(text,options,decode) {
   const {alphabet}=keyed(options.phrase,true), rows=Array.from({length:5},(_,r)=>[...alphabet.slice(r*5,r*5+5)]);
   const nullLetter=options.nullLetter||'X';
-  if(!['X','Q','Z'].includes(nullLetter))throw new Error('Choose X, Q or Z as the Playfair null.');
+  if(nullLetter!=='X')throw new Error('Playfair uses X only as its filler.');
   if(decode&&text.length%2)throw new Error('Playfair ciphertext needs an even number of letters. Check for a missing letter.');
   const normalized=text.replaceAll('J','I');
-  const prepared=decode?{pairs:normalized.match(/.{2}/g)||[],insertions:[]}:preparePairs(normalized,nullLetter,options.padding==='five');
+  const prepared=decode?{pairs:normalized.match(/.{2}/g)||[],insertions:[]}:preparePairs(normalized);
   const step=decode?-1:1;
   const steps=prepared.pairs.map(pair=>{
     if(pair[0]===pair[1])throw new Error(`The identical pair ${pair} is not valid Playfair ciphertext under this lesson's rules.`);
@@ -104,9 +105,9 @@ function playfair(text,options,decode) {
   });
   return {output:steps.map(s=>s.output).join(''),prepared:prepared.pairs.join(''),steps,grid:{rows,headers:null},details:[
     'I and J share a cell; J is represented by I in both plaintext and ciphertext.',
-    decode?'Null letters are retained. Remove only the nulls that you know were added.':`Split repeated letters within a pair using ${nullLetter}; use ${nullLetter==='Q'?'X':'Q'} if the repeated letter is itself ${nullLetter}.`,
+    decode?'Null letters are retained. Remove only the nulls that you know were added.':'X is the only filler, used to split identical paired letters or complete a lone final letter. An XX pair requires review; no alternate filler is substituted.',
     'Solve in pairs; display groups of five do not change the letters or the pair boundaries. A short final display group is valid.',
-    ...(!decode&&options.padding==='five'?['Optional extra padding is enabled: pad to a multiple of 10 with alternating nulls. Use this only when the exercise explicitly requires full five-letter groups.']:[]),
+    'No extra letters are added to complete five-letter display groups. Any additional group padding is manual.',
     ...prepared.insertions,
   ]};
 }

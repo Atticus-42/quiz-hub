@@ -31,14 +31,15 @@ test('PDF p. 7: Playfair square and all three rules, including wraparound and I/
   }
   assert.equal(crypt('playfair','JI',opts).prepared,'IXIX');
 });
-test('Playfair handles repeated letters, literal X, odd lengths and explicit five-group padding',()=>{
+test('Playfair uses X only for pairs and never pads display groups',()=>{
   const pair=crypt('playfair','BALLOON',{phrase:'HYPNOTIZED'});assert.equal(pair.prepared,'BALXLOON');assert.equal(pair.output,'CBRURYHO');
-  const five=crypt('playfair','BALLOON',{phrase:'HYPNOTIZED',padding:'five'});assert.equal(five.prepared,'BALXLOONXQ');assert.equal(five.output,'CBRURYHOWR');
-  for(const text of ['X','XX','XXX','HELLO','JIGGLE','EXXON','BALLOON'])for(const padding of ['none','five']){
+  const five=crypt('playfair','BALLOON',{phrase:'HYPNOTIZED',padding:'five'});assert.equal(five.prepared,'BALXLOON');assert.equal(five.output,'CBRURYHO');
+  for(const text of ['HELLO','JIGGLE','EXXON','BALLOON','AX','QZ'])for(const padding of ['none','five']){
     const enc=crypt('playfair',text,{phrase:'HYPNOTIZED',padding});assert.ok(enc.prepared.match(/.{2}/g).every(p=>p[0]!==p[1]));
     assert.equal(crypt('playfair',enc.output,{phrase:'HYPNOTIZED',direction:'decode'}).output,enc.prepared);
-    if(padding==='five')assert.equal(enc.output.length%10,0);
   }
+  for(const text of ['X','XX','XXX','AXX'])assert.throws(()=>crypt('playfair',text,{phrase:'KEY'}),/X-only/);
+  for(const nullLetter of ['Q','Z'])assert.throws(()=>crypt('playfair','HELLO',{phrase:'KEY',nullLetter}),/X only/);
 });
 test('PDF pp. 8–12: single and double transposition, including digits and nulls',()=>{
   const text='SUBMIT COMPLIANCE NLT 02 AUG 09 PD';const single='C9NS0MUNOPAU2ETIGPXLT0CIBALXMD',double='90NXUGX0BPDLPAICTSI2TNCMAEOMUL';
@@ -83,9 +84,10 @@ test('TM 32-220 §§42–48: independently published substitution alphabets',()=
   assert.equal(crypt('numerical',ABC,{phrase:'TELEPHONY'}).output,'EBMZHFSLCQNIVOGUPDRTAKXYJW');
 });
 
-test('Berkeley Playfair examples: filler variant and shared I/J ciphertext cell',()=>{
-  const options={phrase:'KEYWORD',nullLetter:'Q'};
-  for(const [plain,cipher] of [["Why, don't you?",'YIEAESVKEZ'],['Come to the window.','LCNKZKVFYOGQCEBX'],['the big wheel','VFWDLHYJWNOG']]){
+test('Berkeley Playfair prepared examples and shared I/J ciphertext cell',()=>{
+  const options={phrase:'KEYWORD'};
+  // Q is explicitly supplied reference text, never generated as a filler by CipherDesk.
+  for(const [plain,cipher] of [["Why, don't you?",'YIEAESVKEZ'],['COMETOTHEWINDOWQ','LCNKZKVFYOGQCEBX'],['THEBIGWHEQEL','VFWDLHYJWNOG']]){
     const enc=crypt('playfair',plain,options);
     assert.equal(enc.output,cipher.replaceAll('J','I'));
     assert.equal(crypt('playfair',cipher,{...options,direction:'decode'}).output,enc.prepared);
@@ -98,11 +100,6 @@ test('Playfair works in pairs but display groups in fives never add letters',()=
   assert.equal(groupFive(enc.output),'CBRUR YHO');
   assert.equal(crypt('playfair',groupFive(enc.output),{phrase:'HYPNOTIZED',direction:'decode'}).output,'BALXLOON');
   assert.equal(crypt('playfair','BOOKKEEPER',{phrase:'KEY'}).prepared,'BOOKKEEPER');
-  for(const nullLetter of ['X','Q','Z']){
-    const enc=crypt('playfair',nullLetter.repeat(3),{phrase:'KEY',nullLetter});
-    assert.ok(enc.steps.every(s=>s.input[0]!==s.input[1]));
-    assert.equal(crypt('playfair',enc.output,{phrase:'KEY',direction:'decode',nullLetter}).output,enc.prepared);
-  }
 });
 
 test('ACA complete columnar and TM 32-220 §95 double transposition published vectors',()=>{
