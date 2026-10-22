@@ -91,7 +91,6 @@ function playfair(text,options,decode) {
   const nullLetter=options.nullLetter||'X';
   if(!['X','Q','Z'].includes(nullLetter))throw new Error('Choose X, Q or Z as the Playfair null.');
   if(decode&&text.length%2)throw new Error('Playfair ciphertext needs an even number of letters. Check for a missing letter.');
-  if(decode&&text.includes('J'))throw new Error('The Playfair square uses I for the I/J cell. Replace ciphertext J with I.');
   const normalized=text.replaceAll('J','I');
   const prepared=decode?{pairs:normalized.match(/.{2}/g)||[],insertions:[]}:preparePairs(normalized,nullLetter,options.padding==='five');
   const step=decode?-1:1;
@@ -104,9 +103,10 @@ function playfair(text,options,decode) {
     return {input:pair,output:rows[ar][ac]+rows[br][bc],rule};
   });
   return {output:steps.map(s=>s.output).join(''),prepared:prepared.pairs.join(''),steps,grid:{rows,headers:null},details:[
-    'I and J share a cell; J is represented by I.',
+    'I and J share a cell; J is represented by I in both plaintext and ciphertext.',
     decode?'Null letters are retained. Remove only the nulls that you know were added.':`Split repeated letters within a pair using ${nullLetter}; use ${nullLetter==='Q'?'X':'Q'} if the repeated letter is itself ${nullLetter}.`,
-    ...(!decode&&options.padding==='five'?['The lesson requests groups of five and complete pairs. This mode pads to a multiple of 10, alternating nulls to avoid identical pairs. Use pair-only padding if your exercise does not require final five-letter groups.']:[]),
+    'Solve in pairs; display groups of five do not change the letters or the pair boundaries. A short final display group is valid.',
+    ...(!decode&&options.padding==='five'?['Optional extra padding is enabled: pad to a multiple of 10 with alternating nulls. Use this only when the exercise explicitly requires full five-letter groups.']:[]),
     ...prepared.insertions,
   ]};
 }

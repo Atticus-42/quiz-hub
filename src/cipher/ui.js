@@ -1,5 +1,7 @@
 const $=id=>document.getElementById(id);
 let selected='dsacs', latest=null, pairIndex=0, pending;
+const paddingPreferences={playfair:'none',single:'five',double:'five'};
+function paddingForSystem(id){return id===selected?$('padding').value:paddingPreferences[id]||'none';}
 const element=(tag,text,className)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node;};
 function direction(){return document.querySelector('input[name="direction"]:checked').value;}
 function options(){return {system:selected,direction:direction(),text:$('message').value,count:$('count').value,shift:$('shift').value,phrase:$('phrase').value,interval:$('interval').value,key1:$('key1').value,key2:$('key2').value,padding:$('padding').value,nullLetter:$('null-letter').value};}
@@ -40,15 +42,17 @@ function paintWorking(){
   latest.steps.slice(0,100).forEach((step,i)=>{const li=element('li',`${i+1}. ${step.input} → ${step.output}`);li.append(element('small',step.rule));list.append(li);});
   $('trace').append(list);$('trace-count').textContent=`${latest.steps.length} ${selected==='playfair'?'pairs':['single','double'].includes(selected)?'passes':'letters'}`;
   if(latest.steps.length>100)$('trace').append(element('p','First 100 steps shown. The answer includes every step.','field-note'));
-  $('prepared').textContent=latest.prepared;
+  $('prepared').textContent=selected==='playfair'?(latest.prepared.match(/.{1,2}/g)||[]).join(' '):latest.prepared;
+  $('trace-label').textContent=selected==='playfair'?'Pair-by-pair trace':'Letter-by-letter trace';
 }
 function update(){
   clearTimeout(pending);const decode=direction()==='decode';
   $('message-label').textContent=decode?'Ciphertext':'Plaintext';$('answer-kind').textContent=decode?'DECIPHERED TEXT':'ENCIPHERED TEXT';
   $('padding-fields').hidden=!['playfair','single','double'].includes(selected)||decode;
   $('null-field').hidden=selected!=='playfair';
+  $('playfair-note').hidden=selected!=='playfair';
   $('padding-note').hidden=$('padding-fields').hidden;
-  $('padding-note').textContent=selected==='playfair'?($('padding').value==='five'?'Groups of five + complete pairs: pad to a multiple of 10. Null pairs alternate to avoid XX.':'Only split repeated pairs and complete the final pair. No extra five-letter groups.'):'X nulls complete the final group of five before the first pass. Choose no extra groups to preserve the exact input length.';
+  $('padding-note').textContent=selected==='playfair'?($('padding').value==='five'?'Extra padding selected: add null pairs until the length is divisible by 10. Use only when instructed.':'Standard preparation: split identical letters within a pair and complete a lone final letter. The answer is still displayed in fives.'):'Lesson option: X nulls complete the final group of five before the first pass. This does not necessarily fill the rectangle. Choose no extra padding for an incomplete-rectangle exercise.';
   const count=Number($('count').value);
   $('count-note').textContent=selected==='dsacs'?`The lesson counts the starting position as 1. Count ${count||'—'} means ${count?count-1:'—'} actual shifts ${$('shift').value}.`:'The indicator is the starting letter’s alphabet position: 10 starts with J, then I, H, G…';
   try {
@@ -60,7 +64,9 @@ function update(){
   }
 }
 function choose(id){
+  if(Object.hasOwn(paddingPreferences,selected))paddingPreferences[selected]=$('padding').value;
   selected=id;pairIndex=0;const spec=SYSTEMS.find(s=>s.id===id);
+  $('padding').value=paddingPreferences[id]||'none';
   document.querySelectorAll('[data-system]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.system===id)));
   $('method-title').textContent=spec.name;$('method-family').textContent=spec.family.toUpperCase();$('method-description').textContent=spec.description;$('source-reference').textContent='PDF p. '+spec.pages;
   $('count-fields').hidden=$('count-note').hidden=!['dsacs','rsacs'].includes(id);$('shift-field').hidden=id!=='dsacs';
@@ -71,7 +77,7 @@ function choose(id){
 }
 function example(){
   const examples={dsacs:'KLMVQ ZSJVP',rsacs:'RQPGL CJSGM',keyword:'THEDANCOFIMPZSBGJKLQRUVWXY',decimation:'DOPGQWHCZKVEIJXNBYMUSATFRL',numerical:'ANBMDQEIXFPHGVRJYSOTKWCUZL',playfair:'BALLOON',single:'C9NS0 MUNOP AU2ET IGPXL T0CIB ALXMD',double:'90NXU GX0BP DLPAI CTSI2 TNCMA EOMUL'};
-  choose(selected);$('shift').value='right';$('interval').value='4';$('key1').value=KEY05;$('key2').value=KEY04;$('padding').value='five';$('null-letter').value='X';
+  choose(selected);$('shift').value='right';$('interval').value='4';$('key1').value=KEY05;$('key2').value=KEY04;$('padding').value=selected==='playfair'?'none':'five';$('null-letter').value='X';
   document.querySelector(`input[name="direction"][value="${selected==='playfair'?'encode':'decode'}"]`).checked=true;
   $('message').value=examples[selected];pairIndex=0;update();
 }

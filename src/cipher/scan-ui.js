@@ -63,7 +63,7 @@
       if(!SYSTEMS.some(s=>s.id===values.system))throw new Error('Choose the cipher system.');
       if(!values.direction)throw new Error('Choose encipher or decipher.');
       if(values.system==='dsacs'&&!values.shift)throw new Error('Choose the stated shift direction.');
-      const config={...values,padding:$('padding').value,nullLetter:$('null-letter').value};solve(config);
+      const config={...values,padding:paddingForSystem(values.system),nullLetter:$('null-letter').value};solve(config);
       choose(values.system);for(const field of ['count','shift','phrase','interval','key1','key2'])$(field).value=values[field];
       $('message').value=values.text;document.querySelector(`input[name="direction"][value="${values.direction}"]`).checked=true;pairIndex=0;update();
       status('Reviewed details applied to Cipher Desk.');$('cipher-form').scrollIntoView({block:'start',behavior:'auto'});$('message').focus({preventScroll:true});

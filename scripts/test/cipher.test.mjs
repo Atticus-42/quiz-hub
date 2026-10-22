@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {solve,indicator,keyed,sequence,transpose,ABC,KEY05,KEY04} from '../../src/cipher/engine.mjs';
+import {solve,indicator,keyed,sequence,transpose,groupFive,ABC,KEY05,KEY04} from '../../src/cipher/engine.mjs';
 const crypt=(system,text,extra={})=>solve({system,text,direction:'encode',padding:'none',...extra});
 const key='THE DANCE OF THE CHIMPANZEES';
 test('PDF pp. 1–2: inclusive direct shifts and reverse chart reproduce all worked messages',()=>{
@@ -69,8 +69,49 @@ test('invalid inputs produce actionable errors instead of plausible wrong answer
   for(const value of ['','1 1 2','1 3','A B C','0 1','1.5 2'])assert.throws(()=>sequence(value));
   assert.throws(()=>crypt('playfair','ABC',{phrase:'KEY',direction:'decode'}),/even number/);
   assert.throws(()=>crypt('playfair','AA',{phrase:'KEY',direction:'decode'}),/identical pair/);
-  assert.throws(()=>crypt('playfair','JA',{phrase:'KEY',direction:'decode'}),/uses I/);
+  assert.equal(crypt('playfair','JA',{phrase:'KEY',direction:'decode'}).output,crypt('playfair','IA',{phrase:'KEY',direction:'decode'}).output);
   assert.throws(()=>crypt('keyword','<script>',{phrase:'KEY'}),/Use A/);
   assert.throws(()=>crypt('keyword','A'.repeat(2001),{phrase:'KEY'}),/2,000/);
   assert.throws(()=>crypt('wrong','TEST'),/Choose a cipher/);
+});
+
+test('TM 32-220 §§42–48: independently published substitution alphabets',()=>{
+  assert.equal(crypt('dsacs',ABC,{count:17,shift:'left'}).output,'QRSTUVWXYZABCDEFGHIJKLMNOP');
+  assert.equal(crypt('rsacs',ABC,{count:17}).output,'QPONMLKJIHGFEDCBAZYXWVUTSR');
+  assert.equal(crypt('keyword',ABC,{phrase:'GOVERNMENT'}).output,'GOVERNMTABCDFHIJKLPQSUWXYZ');
+  assert.equal(crypt('decimation',ABC,{phrase:'SING A SONG OF SIX PENCE',interval:7}).output,'FHTIEMZPQNDWCVBSLXAGOKYJRU');
+  assert.equal(crypt('numerical',ABC,{phrase:'TELEPHONY'}).output,'EBMZHFSLCQNIVOGUPDRTAKXYJW');
+});
+
+test('Berkeley Playfair examples: filler variant and shared I/J ciphertext cell',()=>{
+  const options={phrase:'KEYWORD',nullLetter:'Q'};
+  for(const [plain,cipher] of [["Why, don't you?",'YIEAESVKEZ'],['Come to the window.','LCNKZKVFYOGQCEBX'],['the big wheel','VFWDLHYJWNOG']]){
+    const enc=crypt('playfair',plain,options);
+    assert.equal(enc.output,cipher.replaceAll('J','I'));
+    assert.equal(crypt('playfair',cipher,{...options,direction:'decode'}).output,enc.prepared);
+  }
+});
+
+test('Playfair works in pairs but display groups in fives never add letters',()=>{
+  const enc=crypt('playfair','BALLOON',{phrase:'HYPNOTIZED'});
+  assert.deepEqual(enc.steps.map(s=>s.input),['BA','LX','LO','ON']);
+  assert.equal(groupFive(enc.output),'CBRUR YHO');
+  assert.equal(crypt('playfair',groupFive(enc.output),{phrase:'HYPNOTIZED',direction:'decode'}).output,'BALXLOON');
+  assert.equal(crypt('playfair','BOOKKEEPER',{phrase:'KEY'}).prepared,'BOOKKEEPER');
+  for(const nullLetter of ['X','Q','Z']){
+    const enc=crypt('playfair',nullLetter.repeat(3),{phrase:'KEY',nullLetter});
+    assert.ok(enc.steps.every(s=>s.input[0]!==s.input[1]));
+    assert.equal(crypt('playfair',enc.output,{phrase:'KEY',direction:'decode',nullLetter}).output,enc.prepared);
+  }
+});
+
+test('ACA complete columnar and TM 32-220 §95 double transposition published vectors',()=>{
+  const single=crypt('single','FILLEDBLOCKX',{key1:'3 1 2'});
+  assert.equal(single.output,'IELKLDOXFLBC');
+  assert.equal(crypt('single',single.output,{key1:'3 1 2',direction:'decode'}).output,'FILLEDBLOCKX');
+  const options={key1:'4 7 12 3 11 8 1 13 5 10 9 2 6',key2:'4 7 12 3 11 8 1 13 5 10 9 2 6'};
+  const plain='OUR ATTACK SLOWING UP IN FRONT OF HILL ONE THOUSAND YARDS SOUTHEAST OF GOLDENVILLE STOP REQUEST PROMPT REENFORCEMENT';
+  const cipher='PTRUTOGTTIRLOPPDUSVOSOSAUAOREACORSHEEDNFWTULCNNESTQOFOYKFFHRPUORANTLTELNLESGLOEROMONAIHIESENETNMDIT';
+  assert.equal(crypt('double',plain,options).output,cipher);
+  assert.equal(crypt('double',cipher,{...options,direction:'decode'}).output,plain.replaceAll(' ',''));
 });
