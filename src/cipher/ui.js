@@ -1,6 +1,6 @@
 const $=id=>document.getElementById(id);
-let selected='dsacs', latest=null, pairIndex=0, pending;
-const paddingPreferences={playfair:'none',single:'five',double:'five'};
+let selected='dsacs', latest=null, pairIndex=0, pending, playfairOpened=false;
+const paddingPreferences={playfair:'five',single:'five',double:'five'};
 function paddingForSystem(id){return id===selected?$('padding').value:paddingPreferences[id]||'none';}
 const element=(tag,text,className)=>{const node=document.createElement(tag);if(text!==undefined)node.textContent=text;if(className)node.className=className;return node;};
 function direction(){return document.querySelector('input[name="direction"]:checked').value;}
@@ -52,7 +52,7 @@ function update(){
   $('null-field').hidden=selected!=='playfair';
   $('playfair-note').hidden=selected!=='playfair';
   $('padding-note').hidden=$('padding-fields').hidden;
-  $('padding-note').textContent=selected==='playfair'?($('padding').value==='five'?'Extra padding selected: add null pairs until the length is divisible by 10. Use only when instructed.':'Standard preparation: split identical letters within a pair and complete a lone final letter. The answer is still displayed in fives.'):'Lesson option: X nulls complete the final group of five before the first pass. This does not necessarily fill the rectangle. Choose no extra padding for an incomplete-rectangle exercise.';
+  $('padding-note').textContent=selected==='playfair'?($('padding').value==='five'?'Complete five-letter groups: fillers are added automatically, including extra null pairs at the end. No need to add a trailing X yourself.':'Standard preparation: split identical letters within a pair and complete a lone final letter. The final display group may be shorter than five.'):'Lesson option: X nulls complete the final group of five before the first pass. This does not necessarily fill the rectangle. Choose no extra padding for an incomplete-rectangle exercise.';
   const count=Number($('count').value);
   $('count-note').textContent=selected==='dsacs'?`The lesson counts the starting position as 1. Count ${count||'—'} means ${count?count-1:'—'} actual shifts ${$('shift').value}.`:'The indicator is the starting letter’s alphabet position: 10 starts with J, then I, H, G…';
   try {
@@ -60,12 +60,13 @@ function update(){
     $('answer-state').textContent='ANSWER READY';$('answer-message').textContent='';$('answer-stats').textContent=`${latest.output.length} characters · ${Math.ceil(latest.output.length/5)} display groups`;
     $('working').hidden=false;paintWorking();$('copy-answer').disabled=$('reverse').disabled=false;
   } catch(error){
-    latest=null;$('answer').textContent='—';$('answer-state').textContent=$('message').value.trim()?'CHECK INPUT':'AWAITING MESSAGE';$('answer-message').textContent=error.message;$('answer-stats').textContent='';$('working').hidden=true;$('copy-answer').disabled=$('reverse').disabled=true;
+    latest=null;$('answer').textContent='—';$('answer-state').textContent=$('message').value.trim()?'CHECK INPUT':'AWAITING MESSAGE';$('answer-message').textContent=error.message+(selected==='playfair'&&decode?' Decipher expects encrypted text. To encrypt a normal sentence, select Encipher.':'');$('answer-stats').textContent='';$('working').hidden=true;$('copy-answer').disabled=$('reverse').disabled=true;
   }
 }
 function choose(id){
   if(Object.hasOwn(paddingPreferences,selected))paddingPreferences[selected]=$('padding').value;
   selected=id;pairIndex=0;const spec=SYSTEMS.find(s=>s.id===id);
+  if(id==='playfair'&&!playfairOpened){document.querySelector('input[name="direction"][value="encode"]').checked=true;playfairOpened=true;}
   $('padding').value=paddingPreferences[id]||'none';
   document.querySelectorAll('[data-system]').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.system===id)));
   $('method-title').textContent=spec.name;$('method-family').textContent=spec.family.toUpperCase();$('method-description').textContent=spec.description;$('source-reference').textContent='PDF p. '+spec.pages;
@@ -77,7 +78,7 @@ function choose(id){
 }
 function example(){
   const examples={dsacs:'KLMVQ ZSJVP',rsacs:'RQPGL CJSGM',keyword:'THEDANCOFIMPZSBGJKLQRUVWXY',decimation:'DOPGQWHCZKVEIJXNBYMUSATFRL',numerical:'ANBMDQEIXFPHGVRJYSOTKWCUZL',playfair:'BALLOON',single:'C9NS0 MUNOP AU2ET IGPXL T0CIB ALXMD',double:'90NXU GX0BP DLPAI CTSI2 TNCMA EOMUL'};
-  choose(selected);$('shift').value='right';$('interval').value='4';$('key1').value=KEY05;$('key2').value=KEY04;$('padding').value=selected==='playfair'?'none':'five';$('null-letter').value='X';
+  choose(selected);$('shift').value='right';$('interval').value='4';$('key1').value=KEY05;$('key2').value=KEY04;$('padding').value='five';$('null-letter').value='X';
   document.querySelector(`input[name="direction"][value="${selected==='playfair'?'encode':'decode'}"]`).checked=true;
   $('message').value=examples[selected];pairIndex=0;update();
 }

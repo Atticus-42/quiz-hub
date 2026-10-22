@@ -11,7 +11,7 @@ Checked 22 October 2026. These are classical teaching ciphers, not secure modern
 | Keyword mixed | Army §46 | GOVERNMENT example matches. |
 | Decimation | Army §48 | Interval-7 example matches. This is elimination counting, not modular-multiplication substitution; retain the lesson's interval-4 example. |
 | Numerical key mixed | Army §47 | TELEPHONY example matches. |
-| Playfair | Army §117; Harvey's Berkeley examples | Row, column and rectangle rules match. Corrected default extra padding and accepted ciphertext J in the shared I/J cell. |
+| Playfair | Army §117; Harvey's Berkeley examples | Row, column and rectangle rules match. Distinguished display grouping from extra padding and accepted ciphertext J in the shared I/J cell. |
 | Single transposition | ACA Complete Columnar; Army §§27–28 | ACA key 3-1-2 example matches; existing incomplete-row tests also pass. |
 | Double transposition | Army §95 | Published two-pass example matches in both directions. |
 
@@ -23,7 +23,7 @@ Checked 22 October 2026. These are classical teaching ciphers, not secure modern
 - Prepared input and trace show pairs; answer and clipboard use five-letter groups when that display option is checked.
 - Deciphering removes display spaces before rebuilding pairs. I/J share one cell. Odd-length ciphertext remains an error, not silently repaired.
 - Retain filler letters in the deciphered result: automatic removal could destroy genuine X, Q or Z letters.
-- Extra padding to complete five-letter groups remains an opt-in exercise convention, not a universal Playfair requirement. It needs an even multiple of five to preserve pairs.
+- Extra padding to complete five-letter groups is an exercise convention, not a universal Playfair requirement. It needs an even multiple of five to preserve pairs. Following the class owner's clarification on 22 October, the UI defaults to this option and opens Playfair in Encipher mode. Select Extra end padding → None for standard pair-only preparation.
 
 Transposition's existing default and class worked answers are unchanged. Its five-group padding is distinct from filling a complete rectangular grid. Operational indicator conventions remain handout-specific.
 

@@ -55,7 +55,7 @@
             <label id="scan-phrase-field">Keyword / key phrase<input id="scan-phrase" maxlength="250" spellcheck="false" placeholder="Actual assigned phrase"></label><label id="scan-interval-field">Decimation interval<input id="scan-interval" type="number" min="1" max="100"></label>
             <label id="scan-key1-field">Key 1 · column order<input id="scan-key1" maxlength="150" placeholder="e.g. 3 1 2"></label><label id="scan-key2-field">Key 2 · column order<input id="scan-key2" maxlength="150" placeholder="Actual second column order"></label></div>
             <label>Message to process<textarea id="scan-text" rows="5" maxlength="5000" spellcheck="false"></textarea></label>
-            <p class="field-note">Enciphering uses the selected system’s padding setting. Playfair starts with pair-only preparation; results display in fives. Review padding and null settings after applying.</p>
+            <p class="field-note">Enciphering uses the selected system’s padding setting. Playfair defaults to complete five-letter groups with automatic fillers. Review padding and null settings after applying.</p>
             <label class="scan-confirm"><input id="scan-confirm" type="checkbox"> I checked the detected system, key and message against the image.</label>
             <button id="scan-apply" type="submit" disabled>Use these details →</button><p id="scan-review-error" role="alert"></p>
           </form>
