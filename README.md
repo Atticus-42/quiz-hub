@@ -118,6 +118,8 @@ Then run `assign-qids`, build and verify. See `lessons/_template/README.md`. The
 
 ## Updating the weekly schedule
 
+Week 6 (26 October–1 November) is published separately at `schedule-2026-10-26/`. The public `data/schedule.json` feed includes both active and upcoming days so the bot can answer and post next week's dates. `loadSchedule()` returns only the active week for rendering; `loadSchedule(ROOT, undefined, {allDays:true})` returns the validated full feed. The main schedule links both weeks and opens the matching dated page from Monday in Philippine time (or immediately for a next-week day link). No new menus were provided for week 6. Printed overlaps, unusual venues and missing times are retained and noted.
+
 The daily Telegram sender targets 19:00 Philippine time with tomorrow's activities. See [TELEGRAM-SETUP.md](TELEGRAM-SETUP.md) for the one-time bot/group connection, private secrets, preview and timing limitations.
 
 The schedule page shows whatever `data/schedule.json` holds. Each week:

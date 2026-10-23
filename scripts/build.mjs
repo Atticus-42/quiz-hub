@@ -772,7 +772,7 @@ export function scheduleQuiz(activity, lessons) {
   return null;
 }
 
-export function loadSchedule(root = ROOT, file = join(root, 'data', 'schedule.json')) {
+export function loadSchedule(root = ROOT, file = join(root, 'data', 'schedule.json'), { allDays = false } = {}) {
   const data = readJson(file);
   const fail = message => { throw new Error(`${file}: ${message}`); };
   const text = (value, max = 120) => typeof value === 'string' && value.trim() !== '' && value === value.trim() && value.length <= max;
@@ -786,8 +786,10 @@ export function loadSchedule(root = ROOT, file = join(root, 'data', 'schedule.js
   if (!allowed(week, ['number', 'of', 'start', 'end']) || !Number.isInteger(week.number) || !Number.isInteger(week.of) || week.number < 1 || week.number > week.of) fail('week must be { number, of, start, end } with 1 <= number <= of');
   const start = parseDate(week.start);
   const end = parseDate(week.end);
-  if (!start || !end || end < start || (end - start) / 86400000 > 6) fail('week start and end must be YYYY-MM-DD dates at most 7 days apart');
-  if (!Array.isArray(data.days) || data.days.length !== (end - start) / 86400000 + 1) fail('days must list every date from week start to week end');
+  const feedLength = start && end ? (end - start) / 86400000 + 1 : 0;
+  if (!start || !end || end < start || feedLength > 28 || (feedLength > 7 && feedLength % 7)) fail('week dates must cover one week or complete consecutive weeks, up to 28 days');
+  const weekLength = Math.min(feedLength, 7);
+  if (!Array.isArray(data.days) || data.days.length !== feedLength) fail('days must list every date in the published feed');
   data.days.forEach((day, index) => {
     const expected = new Date(start.getTime() + index * 86400000).toISOString().slice(0, 10);
     if (!allowed(day, ['date', 'day', 'blocks']) || day.date !== expected) fail(`day ${index + 1} must be { date: "${expected}", day, blocks }`);
@@ -809,7 +811,7 @@ export function loadSchedule(root = ROOT, file = join(root, 'data', 'schedule.js
   });
   const serialized = JSON.stringify(data);
   for (const pattern of SCHEDULE_FORBIDDEN) if (pattern.test(serialized)) fail(`contains text that looks like private data (${pattern})`);
-  return data;
+  return allDays ? data : { ...data, week: {...week, end: new Date(start.getTime()+(weekLength-1)*86400000).toISOString().slice(0,10)}, days: data.days.slice(0, weekLength) };
 }
 
 // "2026-10-05" -> "05 Oct 2026" (the schedule's own style).
@@ -897,6 +899,17 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   pages['index.html'] = renderHub(readFileSync(join(root, 'src', 'hub', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base });
   pages['class/index.html'] = renderClass(readFileSync(join(root, 'src', 'class', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadClass(root), { base });
   pages['schedule/index.html'] = renderSchedule(readFileSync(join(root, 'src', 'schedule', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadSchedule(root), lessons, { base });
+  // The public feed includes upcoming dates for the bot; the main page keeps the active week.
+  const activeSchedule = loadSchedule(root);
+  const upcoming = readdirSync(join(root, 'data', 'schedules')).filter(name => /^\d{4}-\d{2}-\d{2}_\d{4}-\d{2}-\d{2}\.json$/.test(name) && name.slice(0,10) > activeSchedule.week.start)
+    .map(name => loadSchedule(root, join(root, 'data', 'schedules', name))).sort((a,b) => a.week.start.localeCompare(b.week.start));
+  const weekLinks = `<nav aria-label="Available weeks"><p class="legend"><a href="../schedule/?week=${activeSchedule.week.start}">${escapeHtml(scheduleRange(activeSchedule.week))}</a>` + upcoming.map(data => ` · <a href="../schedule-${data.week.start}/">${escapeHtml(scheduleRange(data.week))}</a>`).join('') + '</p></nav>';
+  if(upcoming.length){
+    pages['schedule/index.html'] = pages['schedule/index.html'].replace('<nav class="week-nav"', weekLinks + '<nav class="week-nav"');
+    const rollover = `<script>(function(){if(!window.location)return;if(new URLSearchParams(location.search).get('week')==='${activeSchedule.week.start}')return;const weeks=${scriptJson(upcoming.map(data=>({start:data.week.start,end:data.week.end})))};const today=(window.__SCHEDULE_NOW||new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Manila',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())).slice(0,10);const requested=location.hash.match(/^#day-(\\d{4}-\\d{2}-\\d{2})$/)?.[1];const week=weeks.find(w=>(requested||today)>=w.start&&(requested||today)<=w.end);if(week)location.replace('../schedule-'+week.start+'/'+location.search+location.hash);})();</script>`;
+    pages['schedule/index.html'] = pages['schedule/index.html'].replace('</body>',rollover+'</body>');
+    for(const data of upcoming)pages[`schedule-${data.week.start}/index.html`] = renderSchedule(readFileSync(join(root,'src','schedule','template.html'),'utf8'),contours,data,lessons,{base}).replace('<nav class="week-nav"',weekLinks+'<nav class="week-nav"');
+  }
   pages['instructor/index.html'] = renderInstructor(readFileSync(join(root, 'src', 'instructor', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base });
   pages['codes-ciphers/index.html'] = fillTemplate(readFileSync(join(root, 'src', 'cipher', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), {
     BASE_CSS: baseCss(base, '../assets/'), FONT_PRELOAD: fontPreloads('../assets/'),

@@ -119,7 +119,7 @@ const withinAutomaticWindow = now => new Intl.DateTimeFormat('en-GB', {
   timeZone: 'Asia/Manila', hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
 }).format(now) === '19:00';
 
-export async function postTomorrow({ now = new Date(), scheduled = false, sendClock = () => new Date(), date: requestedDate, data = loadSchedule(), token, chatId, topicId,
+export async function postTomorrow({ now = new Date(), scheduled = false, sendClock = () => new Date(), date: requestedDate, data = loadSchedule(ROOT, undefined, {allDays:true}), token, chatId, topicId,
   statePath = join(ROOT, '.telegram-state', 'sent.json'), fetchFn = fetch } = {}) {
   if (scheduled && !withinAutomaticWindow(now)) return { skipped: true, reason: 'outside-window' };
   if (!/^\d+:[A-Za-z0-9_-]+$/.test(token || '') || !/^-\d+$/.test(chatId || '')) {
@@ -192,7 +192,7 @@ export async function postTomorrow({ now = new Date(), scheduled = false, sendCl
 async function main() {
   const date = process.env.SCHEDULE_DATE || undefined;
   if (process.argv.includes('--preview')) {
-    console.log(JSON.stringify(richMessages(loadSchedule(), date || tomorrowInManila(), date ? 'Daily Schedule' : undefined), null, 2)); return;
+    console.log(JSON.stringify(richMessages(loadSchedule(ROOT, undefined, {allDays:true}), date || tomorrowInManila(), date ? 'Daily Schedule' : undefined), null, 2)); return;
   }
   const result = await postTomorrow({ token: process.env.TELEGRAM_BOT_TOKEN, date,
     scheduled: process.env.GITHUB_EVENT_NAME === 'schedule',

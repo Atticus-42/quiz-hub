@@ -506,7 +506,7 @@
       <p class="nn-foot" id="nn-foot"><a id="nn-jump" href="#week">Go to today</a></p>
     </section>
 
-    <nav class="week-nav" aria-label="Days of the week">
+    <nav aria-label="Available weeks"><p class="legend"><a href="../schedule/?week=2026-10-19">19–25 Oct 2026</a> · <a href="../schedule-2026-10-26/">26 Oct – 01 Nov 2026</a></p></nav><nav class="week-nav" aria-label="Days of the week">
       <ul>
           <li><a href="#day-2026-10-19" data-date="2026-10-19"><span>Mon</span> <span class="mono">19</span></a></li>
           <li><a href="#day-2026-10-20" data-date="2026-10-20"><span>Tue</span> <span class="mono">20</span></a></li>
@@ -1368,5 +1368,5 @@
     window.__schedule = { localDate: localDate, state: state, update: update, selectDay: selectDay, initial: current };
   }());
   </script>
-</body>
+<script>(function(){if(!window.location)return;if(new URLSearchParams(location.search).get('week')==='2026-10-19')return;const weeks=[{"start":"2026-10-26","end":"2026-11-01"}];const today=(window.__SCHEDULE_NOW||new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Manila',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())).slice(0,10);const requested=location.hash.match(/^#day-(\d{4}-\d{2}-\d{2})$/)?.[1];const week=weeks.find(w=>(requested||today)>=w.start&&(requested||today)<=w.end);if(week)location.replace('../schedule-'+week.start+'/'+location.search+location.hash);})();</script></body>
 </html>
