@@ -69,6 +69,12 @@
         <form id="cipher-form" class="input-panel" novalidate>
           <div class="panel-heading"><h3><span class="section-number">02</span> Set up your message</h3><button type="button" id="load-example" class="text-button">Load example ↗</button></div>
           <fieldset class="direction"><legend class="sr-only">Operation</legend><label><input type="radio" name="direction" value="decode" checked><span>Decipher <small>Cipher → plain</small></span></label><label><input type="radio" name="direction" value="encode"><span>Encipher <small>Plain → cipher</small></span></label></fieldset>
+          <div class="key-generator">
+            <label id="generate-columns-field" hidden>Columns per key<input id="generate-columns" type="number" min="2" max="40" value="10" inputmode="numeric"></label>
+            <button type="button" id="generate-key">Generate shift</button>
+            <p class="field-note">Creates new practice settings below—not the missing key to existing ciphertext. Your message stays unchanged.</p>
+            <p id="generate-status" class="field-note" role="status" aria-live="polite"></p>
+          </div>
           <div id="count-fields" class="field-row"><label>Indicator count<input id="count" type="number" min="1" max="26" value="9" inputmode="numeric"></label><label id="shift-field">Shift direction<select id="shift"><option value="right">Right · ROMEO</option><option value="left">Left · LIMA</option></select></label></div>
           <p id="count-note" class="field-note">Lesson counting: NINE = 8 actual positions. A maps to S with a right shift.</p>
           <label id="phrase-field" hidden>Keyword / key phrase<input id="phrase" type="text" value="THE DANCE OF THE CHIMPANZEES" maxlength="250" autocomplete="off" spellcheck="false"><span class="field-note">Enter the actual assigned phrase; a key number alone cannot determine it.</span></label>

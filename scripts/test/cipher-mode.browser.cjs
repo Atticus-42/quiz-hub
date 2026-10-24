@@ -35,6 +35,33 @@ const server=http.createServer((req,res)=>{
     assert.equal(await page.locator('input[name="direction"]:checked').inputValue(),'decode','Do not override an explicitly selected mode');
     await page.locator('input[value="encode"]').check();await page.waitForFunction(()=>document.getElementById('answer-state').textContent==='ANSWER READY');
     await page.setViewportSize({width:375,height:812});assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));assert.deepEqual(errors,[]);
-    console.log('PASS: Playfair encipher default, X-only pair fillers, no automatic group padding, XX warning, decipher mode and mobile width.');
+    for(const width of [1440,375]){
+      await page.setViewportSize({width,height:900});
+      for(const system of ['dsacs','rsacs','keyword','decimation','numerical','playfair','single','double']){
+        await page.locator(`[data-system="${system}"]`).click();
+        await page.locator('input[value="encode"]').check();
+        await page.locator('#message').fill('MEET AT DAWN');
+        if(['single','double'].includes(system))await page.locator('#generate-columns').fill('8');
+        await page.locator('#generate-key').click();
+        assert.match(await page.locator('#generate-status').textContent(),/^Generated/);
+        assert.equal(await page.locator('#message').inputValue(),'MEET AT DAWN');
+        assert.equal(await page.locator('input[name="direction"]:checked').inputValue(),'encode');
+        assert.equal(await page.locator('#answer-state').textContent(),'ANSWER READY');
+        if(['single','double'].includes(system))assert.equal((await page.locator('#key1').inputValue()).split(' ').length,8);
+        if(system==='double')assert.notEqual(await page.locator('#key1').inputValue(),await page.locator('#key2').inputValue());
+        const prepared=(await page.locator('#prepared').textContent()).replaceAll(' ','');
+        await page.locator('#reverse').click();
+        assert.equal((await page.locator('#answer').textContent()).replaceAll(' ',''),prepared);
+        await page.locator('#generate-key').click();
+        assert.equal(await page.locator('input[name="direction"]:checked').inputValue(),'decode');
+        assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+      }
+    }
+    const previousKey=await page.locator('#key1').inputValue();
+    await page.locator('#generate-columns').fill('41');await page.locator('#generate-key').click();
+    assert.match(await page.locator('#generate-status').textContent(),/Column count/);
+    assert.equal(await page.locator('#key1').inputValue(),previousKey);
+    assert.deepEqual(errors,[]);
+    console.log('PASS: Playfair conventions; all eight generators preserve text/mode, round trip, validate columns and fit desktop/mobile.');
   }finally{await browser.close();server.close();}
 })().catch(e=>{console.error(e);server.close();process.exitCode=1;});

@@ -74,7 +74,18 @@ function choose(id){
   $('phrase-field').hidden=!['keyword','decimation','numerical','playfair'].includes(id);$('interval-field').hidden=id!=='decimation';$('key1-field').hidden=!['single','double'].includes(id);$('key2-field').hidden=id!=='double';
   $('phrase').value=id==='numerical'?'WHERE THE ZEBRAS FEED':id==='playfair'?'HYPNOTIZED':'THE DANCE OF THE CHIMPANZEES';
   $('count').value=id==='rsacs'?'10':'9';
+  $('generate-columns-field').hidden=!['single','double'].includes(id);
+  $('generate-key').textContent=({dsacs:'Generate shift',rsacs:'Generate indicator',decimation:'Generate phrase + interval',single:'Generate column order',double:'Generate both column orders'})[id]||'Generate key phrase';
+  $('generate-status').textContent='';
   update();
+}
+function generateKey(){
+  try{
+    const settings=generateSettings(selected,{columns:$('generate-columns').value});
+    Object.entries(settings).forEach(([id,value])=>{$(id).value=value;});
+    pairIndex=0;update();
+    $('generate-status').textContent='Generated. Settings are editable; keep them to decipher your result.';
+  }catch(error){$('generate-status').textContent=error.message;}
 }
 function example(){
   const examples={dsacs:'KLMVQ ZSJVP',rsacs:'RQPGL CJSGM',keyword:'THEDANCOFIMPZSBGJKLQRUVWXY',decimation:'DOPGQWHCZKVEIJXNBYMUSATFRL',numerical:'ANBMDQEIXFPHGVRJYSOTKWCUZL',playfair:'BALLOON',single:'C9NS0 MUNOP AU2ET IGPXL T0CIB ALXMD',double:'90NXU GX0BP DLPAI CTSI2 TNCMA EOMUL'};
@@ -84,6 +95,7 @@ function example(){
 }
 SYSTEMS.forEach((spec,i)=>{const button=element('button');button.type='button';button.dataset.system=spec.id;button.setAttribute('aria-pressed',String(spec.id===selected));button.append(element('span',String(i+1).padStart(2,'0'),'system-no'),element('span',spec.name));button.addEventListener('click',()=>choose(spec.id));$('systems').append(button);});
 $('key1').value=KEY05;$('key2').value=KEY04;
+$('generate-key').addEventListener('click',generateKey);
 $('cipher-form').addEventListener('submit',event=>{event.preventDefault();update();});
 $('cipher-form').addEventListener('input',()=>{latest=null;$('copy-answer').disabled=$('reverse').disabled=true;$('answer-state').textContent='UPDATING';clearTimeout(pending);pending=setTimeout(update,150);});
 $('cipher-form').addEventListener('change',update);

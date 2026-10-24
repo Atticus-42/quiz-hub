@@ -28,7 +28,7 @@ for (const lesson of lessons.filter(item => item.pool)) {
 
 await buildSuite({ modules, lessons });
 await test('[cipher] lesson vectors, padding, inverse transforms and invalid inputs', () => {
-  const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/cipher.test.mjs'), join(ROOT, 'scripts/test/cipher-scan.test.mjs')], { encoding: 'utf8' });
+  const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/cipher.test.mjs'), join(ROOT, 'scripts/test/cipher-generator.test.mjs'), join(ROOT, 'scripts/test/cipher-scan.test.mjs')], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stdout + result.stderr);
 });
 for (const lesson of lessons) {

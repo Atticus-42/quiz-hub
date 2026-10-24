@@ -13,6 +13,33 @@ export const SYSTEMS = [
   {id:'double',name:'Double transposition',short:'DOUBLE',pages:'10–12',family:'Transposition',description:'Apply two column orders. Decipher in the reverse order: key 2, then key 1.'},
 ];
 const mod = (n,m) => ((n%m)+m)%m;
+// Exercise keys only: these historical ciphers are not modern encryption.
+function randomIndex(limit) {
+  const sample=new Uint32Array(1),ceiling=2**32-(2**32%limit);
+  do{globalThis.crypto.getRandomValues(sample);}while(sample[0]>=ceiling);
+  return sample[0]%limit;
+}
+export function generateSettings(system,{columns=10,random=randomIndex}={}) {
+  if(!SYSTEMS.some(s=>s.id===system))throw new Error('Choose a supported cipher.');
+  if(system==='dsacs')return {count:2+random(25),shift:random(2)?'left':'right'};
+  if(system==='rsacs')return {count:1+random(26)};
+  if(['single','double'].includes(system)){
+    const width=integer(columns,2,40,'Column count');
+    const shuffled=()=>{const key=Array.from({length:width},(_,i)=>i+1);for(let i=width-1;i>0;i--){const j=random(i+1);[key[i],key[j]]=[key[j],key[i]];}return key;};
+    const first=shuffled(),result={key1:first.join(' ')};
+    if(system==='double'){
+      const second=shuffled();
+      if(second.every((n,i)=>n===first[i]))[second[0],second[1]]=[second[1],second[0]];
+      result.key2=second.join(' ');
+    }
+    return result;
+  }
+  const adjectives=['SILENT','BRIGHT','HIDDEN','GOLDEN','STEADY','DISTANT','SWIFT','CLEAR','QUIET','BRAVE','SILVER','NORTHERN'];
+  const subjects=['FALCONS','RIVERS','SIGNALS','LANTERNS','EAGLES','MOUNTAINS','VOICES','HORIZONS','FORESTS','STARS','BRIDGES','WAVES'];
+  const actions=['CROSS THE VALLEY','GUIDE THE WAY','REACH THE SUMMIT','WELCOME THE DAWN','FOLLOW THE WIND','LIGHT THE SKY','TRAVEL TOGETHER','WATCH THE COAST'];
+  const phrase=[adjectives[random(adjectives.length)],subjects[random(subjects.length)],actions[random(actions.length)]].join(' ');
+  return system==='decimation'?{phrase,interval:2+random(25)}:{phrase};
+}
 function integer(value,min,max,label) {
   if(String(value).trim()===''||!Number.isInteger(Number(value))||Number(value)<min||Number(value)>max)throw new Error(`${label} must be a whole number from ${min} to ${max}.`);
   return Number(value);

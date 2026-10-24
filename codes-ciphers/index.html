@@ -362,6 +362,12 @@
     .input-panel select,.indicator-form select { font-family:var(--font-sans); }
     .input-panel textarea { resize:vertical; font-size:1.2rem; line-height:1.6; letter-spacing:.06em; }
     .field-row { display:flex; gap:1rem; }.field-row>label { flex:1; }
+    .key-generator { padding:1rem; margin:0 0 1.5rem; border:1px dashed var(--color-rule); background:var(--color-selected); }
+    .key-generator button { min-height:44px; max-width:100%; padding:.65rem 1rem; border:1px solid var(--color-accent); background:transparent; color:var(--color-text); font:600 1rem var(--font-sans); cursor:pointer; }
+    .key-generator button:hover { background:var(--color-bg); }
+    .key-generator label { max-width:12rem; }
+    .key-generator .field-note { margin:.65rem 0 0; }
+    #generate-status:empty { display:none; }
     .field-note { display:block; font-size:.82rem; line-height:1.4; color:var(--color-muted); font-weight:400; margin:.5rem 0; }
     .input-foot { display:flex; align-items:start; gap:1rem; justify-content:space-between; }
     .local-note { border-top:1px dashed var(--color-hairline); padding-top:1rem; margin:1rem 0 0; font-size:.8rem; color:var(--color-muted); }
@@ -473,6 +479,12 @@
         <form id="cipher-form" class="input-panel" novalidate>
           <div class="panel-heading"><h3><span class="section-number">02</span> Set up your message</h3><button type="button" id="load-example" class="text-button">Load example ↗</button></div>
           <fieldset class="direction"><legend class="sr-only">Operation</legend><label><input type="radio" name="direction" value="decode" checked><span>Decipher <small>Cipher → plain</small></span></label><label><input type="radio" name="direction" value="encode"><span>Encipher <small>Plain → cipher</small></span></label></fieldset>
+          <div class="key-generator">
+            <label id="generate-columns-field" hidden>Columns per key<input id="generate-columns" type="number" min="2" max="40" value="10" inputmode="numeric"></label>
+            <button type="button" id="generate-key">Generate shift</button>
+            <p class="field-note">Creates new practice settings below—not the missing key to existing ciphertext. Your message stays unchanged.</p>
+            <p id="generate-status" class="field-note" role="status" aria-live="polite"></p>
+          </div>
           <div id="count-fields" class="field-row"><label>Indicator count<input id="count" type="number" min="1" max="26" value="9" inputmode="numeric"></label><label id="shift-field">Shift direction<select id="shift"><option value="right">Right · ROMEO</option><option value="left">Left · LIMA</option></select></label></div>
           <p id="count-note" class="field-note">Lesson counting: NINE = 8 actual positions. A maps to S with a right shift.</p>
           <label id="phrase-field" hidden>Keyword / key phrase<input id="phrase" type="text" value="THE DANCE OF THE CHIMPANZEES" maxlength="250" autocomplete="off" spellcheck="false"><span class="field-note">Enter the actual assigned phrase; a key number alone cannot determine it.</span></label>
@@ -538,6 +550,33 @@ export const SYSTEMS = [
   {id:'double',name:'Double transposition',short:'DOUBLE',pages:'10–12',family:'Transposition',description:'Apply two column orders. Decipher in the reverse order: key 2, then key 1.'},
 ];
 const mod = (n,m) => ((n%m)+m)%m;
+// Exercise keys only: these historical ciphers are not modern encryption.
+function randomIndex(limit) {
+  const sample=new Uint32Array(1),ceiling=2**32-(2**32%limit);
+  do{globalThis.crypto.getRandomValues(sample);}while(sample[0]>=ceiling);
+  return sample[0]%limit;
+}
+export function generateSettings(system,{columns=10,random=randomIndex}={}) {
+  if(!SYSTEMS.some(s=>s.id===system))throw new Error('Choose a supported cipher.');
+  if(system==='dsacs')return {count:2+random(25),shift:random(2)?'left':'right'};
+  if(system==='rsacs')return {count:1+random(26)};
+  if(['single','double'].includes(system)){
+    const width=integer(columns,2,40,'Column count');
+    const shuffled=()=>{const key=Array.from({length:width},(_,i)=>i+1);for(let i=width-1;i>0;i--){const j=random(i+1);[key[i],key[j]]=[key[j],key[i]];}return key;};
+    const first=shuffled(),result={key1:first.join(' ')};
+    if(system==='double'){
+      const second=shuffled();
+      if(second.every((n,i)=>n===first[i]))[second[0],second[1]]=[second[1],second[0]];
+      result.key2=second.join(' ');
+    }
+    return result;
+  }
+  const adjectives=['SILENT','BRIGHT','HIDDEN','GOLDEN','STEADY','DISTANT','SWIFT','CLEAR','QUIET','BRAVE','SILVER','NORTHERN'];
+  const subjects=['FALCONS','RIVERS','SIGNALS','LANTERNS','EAGLES','MOUNTAINS','VOICES','HORIZONS','FORESTS','STARS','BRIDGES','WAVES'];
+  const actions=['CROSS THE VALLEY','GUIDE THE WAY','REACH THE SUMMIT','WELCOME THE DAWN','FOLLOW THE WIND','LIGHT THE SKY','TRAVEL TOGETHER','WATCH THE COAST'];
+  const phrase=[adjectives[random(adjectives.length)],subjects[random(subjects.length)],actions[random(actions.length)]].join(' ');
+  return system==='decimation'?{phrase,interval:2+random(25)}:{phrase};
+}
 function integer(value,min,max,label) {
   if(String(value).trim()===''||!Number.isInteger(Number(value))||Number(value)<min||Number(value)>max)throw new Error(`${label} must be a whole number from ${min} to ${max}.`);
   return Number(value);
@@ -750,7 +789,18 @@ function choose(id){
   $('phrase-field').hidden=!['keyword','decimation','numerical','playfair'].includes(id);$('interval-field').hidden=id!=='decimation';$('key1-field').hidden=!['single','double'].includes(id);$('key2-field').hidden=id!=='double';
   $('phrase').value=id==='numerical'?'WHERE THE ZEBRAS FEED':id==='playfair'?'HYPNOTIZED':'THE DANCE OF THE CHIMPANZEES';
   $('count').value=id==='rsacs'?'10':'9';
+  $('generate-columns-field').hidden=!['single','double'].includes(id);
+  $('generate-key').textContent=({dsacs:'Generate shift',rsacs:'Generate indicator',decimation:'Generate phrase + interval',single:'Generate column order',double:'Generate both column orders'})[id]||'Generate key phrase';
+  $('generate-status').textContent='';
   update();
+}
+function generateKey(){
+  try{
+    const settings=generateSettings(selected,{columns:$('generate-columns').value});
+    Object.entries(settings).forEach(([id,value])=>{$(id).value=value;});
+    pairIndex=0;update();
+    $('generate-status').textContent='Generated. Settings are editable; keep them to decipher your result.';
+  }catch(error){$('generate-status').textContent=error.message;}
 }
 function example(){
   const examples={dsacs:'KLMVQ ZSJVP',rsacs:'RQPGL CJSGM',keyword:'THEDANCOFIMPZSBGJKLQRUVWXY',decimation:'DOPGQWHCZKVEIJXNBYMUSATFRL',numerical:'ANBMDQEIXFPHGVRJYSOTKWCUZL',playfair:'BALLOON',single:'C9NS0 MUNOP AU2ET IGPXL T0CIB ALXMD',double:'90NXU GX0BP DLPAI CTSI2 TNCMA EOMUL'};
@@ -760,6 +810,7 @@ function example(){
 }
 SYSTEMS.forEach((spec,i)=>{const button=element('button');button.type='button';button.dataset.system=spec.id;button.setAttribute('aria-pressed',String(spec.id===selected));button.append(element('span',String(i+1).padStart(2,'0'),'system-no'),element('span',spec.name));button.addEventListener('click',()=>choose(spec.id));$('systems').append(button);});
 $('key1').value=KEY05;$('key2').value=KEY04;
+$('generate-key').addEventListener('click',generateKey);
 $('cipher-form').addEventListener('submit',event=>{event.preventDefault();update();});
 $('cipher-form').addEventListener('input',()=>{latest=null;$('copy-answer').disabled=$('reverse').disabled=true;$('answer-state').textContent='UPDATING';clearTimeout(pending);pending=setTimeout(update,150);});
 $('cipher-form').addEventListener('change',update);
