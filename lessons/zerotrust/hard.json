@@ -1,0 +1,541 @@
+[
+  {
+    "id": 1,
+    "qid": "zerotrust-h-01",
+    "difficulty": "hard",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "A design authenticates users strongly at network entry, then permits unrestricted access to internal resources. What is the central remaining flaw?",
+    "options": [
+      "It separates authentication from equipment purchase",
+      "It uses too many resources in the inventory",
+      "It treats data sources as computing resources",
+      "It converts admission into broad implicit trust"
+    ],
+    "answer": 3,
+    "explanation": "Strong initial authentication does not justify unrestricted subsequent resource access; least privilege and per-session decisions still matter.",
+    "sourceSlides": [
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "zerotrust-h-02",
+    "difficulty": "hard",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "Two identical user requests arrive, but one device has newly degraded posture. Must the access outcome remain identical?",
+    "options": [
+      "Yes; equal request text requires equal authorization",
+      "No; all changing devices must receive administrator access",
+      "Yes; the username permanently determines the result",
+      "No; dynamic policy may respond to changed context"
+    ],
+    "answer": 3,
+    "explanation": "Dynamic policy considers relevant identity, device and behavioral context, so changed posture can justify a different decision.",
+    "sourceSlides": [
+      21
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "zerotrust-h-03",
+    "difficulty": "hard",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "An administrator argues that organization ownership is stronger evidence than monitoring. Which response best fits Zero Trust?",
+    "options": [
+      "Monitoring is relevant only for personal devices",
+      "Device ownership alone does not establish continuing trust",
+      "The framework requires excluding all owned devices",
+      "Ownership grants permanent trust if a receipt exists"
+    ],
+    "answer": 1,
+    "explanation": "Ownership is not a sufficient trust basis. Asset posture and access decisions must still be evaluated.",
+    "sourceSlides": [
+      19,
+      21
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "zerotrust-h-04",
+    "difficulty": "hard",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "A broad permission set is rarely used but never reviewed. Why is this still a problem under the lesson?",
+    "options": [
+      "Rare access is equivalent to per-session approval",
+      "Unused privileges still exceed demonstrated need",
+      "One successful login validates every retained privilege",
+      "Permissions cannot create risk until used daily"
+    ],
+    "answer": 1,
+    "explanation": "Least privilege concerns the scope of granted access, not merely how often a user chooses to exercise it.",
+    "sourceSlides": [
+      20,
+      21
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "zerotrust-h-05",
+    "difficulty": "hard",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "Telemetry is collected continuously but never affects policy or posture improvement. Which tenet is least fulfilled?",
+    "options": [
+      "Distinguish users from physical devices",
+      "Secure communication regardless of location",
+      "Use collected information to improve security",
+      "Treat data and services as resources"
+    ],
+    "answer": 2,
+    "explanation": "Collection alone does not satisfy the tenet's purpose; evidence must inform security decisions and improvement.",
+    "sourceSlides": [
+      21
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "zerotrust-h-06",
+    "difficulty": "hard",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "The PEP faithfully enforces a malicious policy approved through a compromised PE. Where is the decisive failure?",
+    "options": [
+      "The existence of an asset inventory",
+      "The fact that the subject requested a resource",
+      "The decision process, not faithful enforcement alone",
+      "The use of separate logical components itself"
+    ],
+    "answer": 2,
+    "explanation": "Enforcement can correctly implement an incorrect decision. The PE/PA require protection as critical parts of the architecture.",
+    "sourceSlides": [
+      22,
+      24
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "zerotrust-h-07",
+    "difficulty": "hard",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "A diagram contains a PE and PA but leaves a second application endpoint outside the PEP. What must be checked before claiming protected access?",
+    "options": [
+      "Whether users prefer the primary endpoint",
+      "Every relevant route to the resource is mediated",
+      "Only the names assigned to the components",
+      "Only the application's procurement classification"
+    ],
+    "answer": 1,
+    "explanation": "Protection is undermined if an alternative path bypasses the enforcement boundary, regardless of labels on the diagram.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "zerotrust-h-08",
+    "difficulty": "hard",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "An access revocation is recorded at the PE, but an existing connection continues. Which chain should the team verify?",
+    "options": [
+      "Only the user's original account creation form",
+      "Decision, PA execution and PEP termination",
+      "Policy naming, office location and device brand",
+      "Only the PE's displayed approval timestamp"
+    ],
+    "answer": 1,
+    "explanation": "A recorded decision must be executed and enforced; checking only one component cannot establish end-to-end revocation.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "zerotrust-h-09",
+    "difficulty": "hard",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "A supplier combines PE, PA and PEP functions in one appliance. What is the best assessment criterion?",
+    "options": [
+      "Whether the product avoids documenting component roles",
+      "Whether the box has exactly three physical processors",
+      "Whether three separate vendors supplied the functions",
+      "Secure execution of each logical responsibility"
+    ],
+    "answer": 3,
+    "explanation": "The roles are logical. A combined implementation still needs correct decisions, execution, enforcement and protection of those functions.",
+    "sourceSlides": [
+      22,
+      24
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "zerotrust-h-10",
+    "difficulty": "hard",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "A well-configured PE receives falsified device posture. What does this show?",
+    "options": [
+      "Device posture should always be omitted from policy",
+      "Correct policy makes input quality irrelevant",
+      "PE compromise is the only possible decision threat",
+      "Trustworthy, protected decision inputs"
+    ],
+    "answer": 3,
+    "explanation": "Access reasoning depends on input integrity as well as the logic applying policy to those inputs.",
+    "sourceSlides": [
+      22,
+      24
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "zerotrust-h-11",
+    "difficulty": "hard",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "A segmented network grants every user equal access inside each segment. What complementary capability is most clearly needed?",
+    "options": [
+      "Removal of all subject authentication",
+      "A larger segment with fewer boundaries",
+      "Identity-aware policy limiting resource access",
+      "One shared account for each segment"
+    ],
+    "answer": 2,
+    "explanation": "Segmentation alone does not establish which user should access which resource; identity-aware least-privilege policy complements it.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "zerotrust-h-12",
+    "difficulty": "hard",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "A team proposes identity governance, segmentation and dynamic paths together. Which objection is least defensible?",
+    "options": [
+      "Policies must remain consistent across components",
+      "The lesson permits only one approach at a time",
+      "Their interactions need careful assessment",
+      "Resource boundaries must be understood"
+    ],
+    "answer": 1,
+    "explanation": "The lesson explicitly allows approaches to be blended. Integration and consistency still require assessment.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "zerotrust-h-13",
+    "difficulty": "hard",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "Two architectures achieve the same access outcome but differ in operational complexity. What should drive the choice?",
+    "options": [
+      "A requirement to buy the most expensive design",
+      "The number of Zero Trust terms in each diagram",
+      "Fit with workflows, assets and operating constraints",
+      "A rule that all organizations need identical architecture"
+    ],
+    "answer": 2,
+    "explanation": "The migration approach evaluates candidate solutions against the actual workflow and environment, not superficial labels.",
+    "sourceSlides": [
+      23,
+      25
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "zerotrust-h-14",
+    "difficulty": "hard",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "A proprietary path-control solution works today but cannot export policy in usable form. Which concern should influence selection?",
+    "options": [
+      "Assumed compatibility because both products say ZTA",
+      "Only the visual design of its management console",
+      "Only the length of the product's name",
+      "Future portability and provider dependence"
+    ],
+    "answer": 3,
+    "explanation": "The deck identifies vendor lock-in and proprietary formats as risks that warrant holistic evaluation.",
+    "sourceSlides": [
+      23,
+      24
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "zerotrust-h-15",
+    "difficulty": "hard",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "A network uses modern segmentation but automatically trusts every organization-owned device. Which conclusion is sound?",
+    "options": [
+      "Ownership is the required default authorization rule",
+      "The trust policy still conflicts with the ZT concept",
+      "Segmentation overrides the no-implicit-trust principle",
+      "Modern networking makes identity evaluation unnecessary"
+    ],
+    "answer": 1,
+    "explanation": "Technical segmentation does not cancel the principle that ownership and location alone cannot establish trust.",
+    "sourceSlides": [
+      19,
+      23
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "zerotrust-h-16",
+    "difficulty": "hard",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "A proposal says MFA and ZTA make insider abuse impossible. What is the most defensible correction?",
+    "options": [
+      "They transfer responsibility entirely to the user",
+      "They replace the need to secure decision components",
+      "They reduce exposure but leave residual risks to manage",
+      "They work only if all monitoring is disabled"
+    ],
+    "answer": 2,
+    "explanation": "The lesson lists insider and stolen-credential threats. Mitigations reduce risk; they do not justify an absolute guarantee.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "zerotrust-h-17",
+    "difficulty": "hard",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "All control components are replicated, but every replica depends on the same unprotected service. What remains unproven?",
+    "options": [
+      "The existence of the architecture diagram",
+      "The number of component instances installed",
+      "Whether the components have matching labels",
+      "Resilience against that shared dependency's failure"
+    ],
+    "answer": 3,
+    "explanation": "Replication does not by itself remove shared failure points. Availability must be evaluated across dependencies.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "zerotrust-h-18",
+    "difficulty": "hard",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "Encryption protects traffic, but analysts conclude all encrypted flows must be benign. What is the reasoning error?",
+    "options": [
+      "Confusing confidentiality with proof of benign behavior",
+      "Assuming metadata can contain useful observations",
+      "Treating unencrypted traffic as the only resource",
+      "Separating access decisions from product purchases"
+    ],
+    "answer": 0,
+    "explanation": "Encryption can protect communication without proving the intent or safety of the communicating subjects.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "zerotrust-h-19",
+    "difficulty": "hard",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "Security logs are detailed but available to nearly every account. Which tradeoff has been mishandled?",
+    "options": [
+      "Visibility balanced with telemetry protection",
+      "Office location versus network address length",
+      "Training attendance versus device screen size",
+      "Equipment branding versus procurement timing"
+    ],
+    "answer": 0,
+    "explanation": "Telemetry supports decisions but can reveal valuable security information; access to it needs suitable restriction.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "zerotrust-h-20",
+    "difficulty": "hard",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "A provider offers strong human authentication but weak service-account controls. What is the best evaluation?",
+    "options": [
+      "Assess human and non-person actors",
+      "Treat service accounts as exempt from inventory",
+      "Accept it because humans are the only actors",
+      "Ignore the weakness if the interface is modern"
+    ],
+    "answer": 0,
+    "explanation": "Automated actors participate in access workflows and can introduce risk even when human authentication is strong.",
+    "sourceSlides": [
+      24,
+      25
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "zerotrust-h-21",
+    "difficulty": "hard",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "A pilot's logs show legitimate work would be denied, but a deadline pressures immediate enterprise enforcement. What is the best recommendation?",
+    "options": [
+      "Resolve policy errors before staged expansion",
+      "Discard the affected workflows from the records",
+      "Expand unchanged because reporting-only mode passed time",
+      "Treat all denials as evidence of better protection"
+    ],
+    "answer": 0,
+    "explanation": "Pilot evidence should guide tuning. A time milestone does not establish safe or effective enforcement.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "zerotrust-h-22",
+    "difficulty": "hard",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "A team inventories users but not service accounts, then buys a solution. Which early omission affects later policy design?",
+    "options": [
+      "Incomplete actor identification",
+      "Using context to refine privileges",
+      "Excessive attention to resource boundaries",
+      "Too much reporting-only observation"
+    ],
+    "answer": 0,
+    "explanation": "Actor identification includes non-person entities. Missing them can leave necessary access paths unmodeled or weakly controlled.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "zerotrust-h-23",
+    "difficulty": "hard",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "A pilot succeeds only because it excludes an important application dependency. What must happen before expanding the success claim?",
+    "options": [
+      "Replace outcome evidence with vendor assurances",
+      "Classify the dependency as outside all future reviews",
+      "Assess the real workflow including the dependency",
+      "Assume success transfers because the user count is small"
+    ],
+    "answer": 2,
+    "explanation": "A pilot supports only the conditions it exercised. Omitted workflow dependencies require assessment before broader conclusions.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "zerotrust-h-24",
+    "difficulty": "hard",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "A partner's role changes, but its old permissions remain indefinitely. Which improvement best combines migration and access principles?",
+    "options": [
+      "Reevaluate the workflow and reduce access to current need",
+      "Grant the partner broader access to avoid future requests",
+      "Retain old access because the initial pilot succeeded",
+      "Review only the partner's equipment purchase date"
+    ],
+    "answer": 0,
+    "explanation": "Iterative reassessment and least privilege require permissions to reflect present responsibilities and context.",
+    "sourceSlides": [
+      25,
+      26
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "zerotrust-h-25",
+    "difficulty": "hard",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "Leadership asks whether the pilot is ready to expand. Which evidence is strongest?",
+    "options": [
+      "Validated decisions, enforced paths and acceptable workflow impact",
+      "A diagram with PE, PA and PEP labels but no tests",
+      "A vendor logo and a completed installation invoice",
+      "A high count of denied requests without context"
+    ],
+    "answer": 0,
+    "explanation": "Readiness requires evidence that decisions are executed correctly and legitimate work remains supported, not merely that components are installed.",
+    "sourceSlides": [
+      22,
+      25,
+      26
+    ]
+  }
+]

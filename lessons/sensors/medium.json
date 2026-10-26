@@ -1,0 +1,427 @@
+[
+  {
+    "id": 1,
+    "qid": "sensors-m-01",
+    "difficulty": "medium",
+    "category": "Concept and Information Quality",
+    "tags": [
+      "concept and information quality"
+    ],
+    "prompt": "Sensors collect useful observations, but no decision-maker receives them. What is the central shortfall?",
+    "options": [
+      "The organization needs fewer information users",
+      "The information path is not effectively integrated",
+      "The sensors necessarily failed to detect anything",
+      "The presence of sensors already satisfies the requirement"
+    ],
+    "answer": 1,
+    "explanation": "Collection alone does not deliver usable situational awareness; information must reach its intended users.",
+    "sourceSlides": [
+      7,
+      9
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "sensors-m-02",
+    "difficulty": "medium",
+    "category": "Concept and Information Quality",
+    "tags": [
+      "concept and information quality"
+    ],
+    "prompt": "Several displays show incompatible versions of the same situation. What should integration support?",
+    "options": [
+      "A rule that the newest screen is always correct",
+      "More separate displays without reconciling their meaning",
+      "A coherent shared picture based on usable information",
+      "Replacement of every human decision with raw readings"
+    ],
+    "answer": 2,
+    "explanation": "The COP objective requires useful shared understanding, not merely simultaneous display of inconsistent data.",
+    "sourceSlides": [
+      6,
+      9
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "sensors-m-03",
+    "difficulty": "medium",
+    "category": "Concept and Information Quality",
+    "tags": [
+      "concept and information quality"
+    ],
+    "prompt": "An automated observation is treated as a command decision. Which distinction was lost?",
+    "options": [
+      "Collecting a reading automatically approves every action",
+      "Detection differs from interpretation and decision authority",
+      "Every sensor has the same authority as a commander",
+      "Observation removes all need for judgment"
+    ],
+    "answer": 1,
+    "explanation": "The conceptual loop distinguishes what sensors observe from the decisions made using that information.",
+    "sourceSlides": [
+      7
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "sensors-m-04",
+    "difficulty": "medium",
+    "category": "Concept and Information Quality",
+    "tags": [
+      "concept and information quality"
+    ],
+    "prompt": "A team adds more feeds but users understand less. What should be improved?",
+    "options": [
+      "The number of unrelated devices in the equipment list",
+      "The count of feeds without examining their relevance",
+      "The assumption that all raw data must be equally prominent",
+      "Data management and presentation for the users' needs"
+    ],
+    "answer": 3,
+    "explanation": "More collection can create overload; effective integration supports understanding rather than raw volume alone.",
+    "sourceSlides": [
+      9,
+      18
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "sensors-m-05",
+    "difficulty": "medium",
+    "category": "Sensor Types and Roles",
+    "tags": [
+      "sensor types and roles"
+    ],
+    "prompt": "A disaster-response exercise needs remote aerial mapping. Which listed platform fits that role?",
+    "options": [
+      "Fixed network router",
+      "UAS",
+      "SUGV",
+      "Telephone exchange"
+    ],
+    "answer": 1,
+    "explanation": "UAS can carry sensors for remote sensing and mapping; the role stated is aerial.",
+    "sourceSlides": [
+      10
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "sensors-m-06",
+    "difficulty": "medium",
+    "category": "Sensor Types and Roles",
+    "tags": [
+      "sensor types and roles"
+    ],
+    "prompt": "A training task needs a modular ground platform to reduce personnel exposure to hazards. Which fits?",
+    "options": [
+      "Thermal imager alone",
+      "BONTEX",
+      "UAS exclusively",
+      "SUGV"
+    ],
+    "answer": 3,
+    "explanation": "The source describes SUGV as a modular ground platform carrying payloads while reducing exposure.",
+    "sourceSlides": [
+      10
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "sensors-m-07",
+    "difficulty": "medium",
+    "category": "Sensor Types and Roles",
+    "tags": [
+      "sensor types and roles"
+    ],
+    "prompt": "A trainee treats one RDF bearing as an exact location. What should be corrected?",
+    "options": [
+      "RDF directly reveals every transmitter operator's identity",
+      "One bearing always supplies an exact position",
+      "A bearing has no directional information at all",
+      "A direction alone does not resolve a unique position"
+    ],
+    "answer": 3,
+    "explanation": "A single line of direction is not a unique location; additional observations and uncertainty matter.",
+    "sourceSlides": [
+      10
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "sensors-m-08",
+    "difficulty": "medium",
+    "category": "Sensor Types and Roles",
+    "tags": [
+      "sensor types and roles"
+    ],
+    "prompt": "A plan confuses a sensor payload with the platform carrying it. What is the useful distinction?",
+    "options": [
+      "The platform transports capabilities; the payload performs sensing",
+      "A payload name alone defines all network interfaces",
+      "Every air vehicle has identical sensors by definition",
+      "A ground platform can never carry more than one payload"
+    ],
+    "answer": 0,
+    "explanation": "The lesson separates mobile platforms from specific sensing capabilities they may carry.",
+    "sourceSlides": [
+      10,
+      15
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "sensors-m-09",
+    "difficulty": "medium",
+    "category": "Interoperability and Requirements",
+    "tags": [
+      "interoperability and requirements"
+    ],
+    "prompt": "Different vendors use incompatible message formats. What should be consulted and agreed?",
+    "options": [
+      "Only the delivery dates on purchase invoices",
+      "Only a common color scheme for the equipment",
+      "Interface rules and common interoperability standards",
+      "A requirement that the devices share the same nickname"
+    ],
+    "answer": 2,
+    "explanation": "Interfaces and standards address how information is exchanged and interpreted across heterogeneous systems.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "sensors-m-10",
+    "difficulty": "medium",
+    "category": "Interoperability and Requirements",
+    "tags": [
+      "interoperability and requirements"
+    ],
+    "prompt": "A partner keeps its internal technology but uses the agreed external interface. Which principle does this illustrate?",
+    "options": [
+      "Removal of technical standards",
+      "Mandatory identical internal systems",
+      "Interoperability Points",
+      "Unrestricted information release"
+    ],
+    "answer": 2,
+    "explanation": "IOPs standardize inter-network connections without necessarily standardizing all internal technology.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "sensors-m-11",
+    "difficulty": "medium",
+    "category": "Interoperability and Requirements",
+    "tags": [
+      "interoperability and requirements"
+    ],
+    "prompt": "A team wants commercial phones for protected information without checking policy. What is missing?",
+    "options": [
+      "A guarantee that commercial means are always prohibited",
+      "A rule that convenience overrides information handling",
+      "A more attractive phone wallpaper",
+      "Applicable COMSEC and authorized-use requirements"
+    ],
+    "answer": 3,
+    "explanation": "Special-purpose commercial communications are governed by policy; convenience is not sufficient authorization.",
+    "sourceSlides": [
+      17
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "sensors-m-12",
+    "difficulty": "medium",
+    "category": "Interoperability and Requirements",
+    "tags": [
+      "interoperability and requirements"
+    ],
+    "prompt": "Sensor observations reach the command post but not higher information systems. Which part needs review?",
+    "options": [
+      "The onward communications and integration path",
+      "Whether local delivery proves end-to-end delivery",
+      "Only the sensor's optical lens",
+      "Only the user's preferred display language"
+    ],
+    "answer": 0,
+    "explanation": "The lesson distinguishes local RF connectivity from onward network connectivity; each segment must work.",
+    "sourceSlides": [
+      15,
+      17
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "sensors-m-13",
+    "difficulty": "medium",
+    "category": "Context and Constraints",
+    "tags": [
+      "context and constraints"
+    ],
+    "prompt": "A new sensor fails to work with an older receiving system. Which constraint is illustrated?",
+    "options": [
+      "Public advertising reach",
+      "Legacy compatibility",
+      "Document classification alone",
+      "Personnel seniority"
+    ],
+    "answer": 1,
+    "explanation": "Legacy integration requires compatibility work rather than assuming newer and older equipment will interoperate.",
+    "sourceSlides": [
+      18
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "sensors-m-14",
+    "difficulty": "medium",
+    "category": "Context and Constraints",
+    "tags": [
+      "context and constraints"
+    ],
+    "prompt": "Automation is installed, but untrained users repeatedly misinterpret outputs. What remains essential?",
+    "options": [
+      "Increasing feed volume without changing instruction",
+      "Removing every person from responsibility",
+      "Operator competence and human-factor controls",
+      "Assuming automated output cannot be misunderstood"
+    ],
+    "answer": 2,
+    "explanation": "The source emphasizes training and human error even when automation is present.",
+    "sourceSlides": [
+      18
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "sensors-m-15",
+    "difficulty": "medium",
+    "category": "Context and Constraints",
+    "tags": [
+      "context and constraints"
+    ],
+    "prompt": "The lesson's case study describes a license expiring during use. What should readiness checks include?",
+    "options": [
+      "Software entitlement and sustainment dependencies",
+      "Only the appearance of the application icon",
+      "Only whether the equipment was once demonstrated",
+      "An assumption that a working demo never expires"
+    ],
+    "answer": 0,
+    "explanation": "A demonstration is not sustainable readiness; licenses and other continuing dependencies must be checked.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "sensors-m-16",
+    "difficulty": "medium",
+    "category": "Context and Constraints",
+    "tags": [
+      "context and constraints"
+    ],
+    "prompt": "A service-to-service exercise and a multinational exercise have different interfaces. What should planning avoid?",
+    "options": [
+      "Assuming the same interoperability arrangements fit both",
+      "Checking agreed standards before integration",
+      "Identifying each exercise's information requirements",
+      "Testing the required information exchange"
+    ],
+    "answer": 0,
+    "explanation": "Joint and coalition contexts may impose different arrangements; reuse requires verification, not assumption.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "sensors-m-17",
+    "difficulty": "medium",
+    "category": "Integration Responsibilities and Testing",
+    "tags": [
+      "integration responsibilities and testing"
+    ],
+    "prompt": "The using unit assumes ASR performs every routine equipment check. What does the lesson retain with users?",
+    "options": [
+      "Responsibility for all depot-level technology validation",
+      "End-user operation and preventive maintenance",
+      "Sole ownership of all core C4 systems",
+      "Authority to alter every partner interface unilaterally"
+    ],
+    "answer": 1,
+    "explanation": "The source distinguishes technical integration responsibilities from the using unit's routine operation and care.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "sensors-m-18",
+    "difficulty": "medium",
+    "category": "Integration Responsibilities and Testing",
+    "tags": [
+      "integration responsibilities and testing"
+    ],
+    "prompt": "Two systems are physically connected but cannot interpret each other's messages. What is missing?",
+    "options": [
+      "A common equipment purchase year",
+      "Only an extra physical cable regardless of format",
+      "Usable information interoperability",
+      "Proof that physical connection always suffices"
+    ],
+    "answer": 2,
+    "explanation": "Connectivity is not the same as exchanging information that the receiving system can understand and use.",
+    "sourceSlides": [
+      28
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "sensors-m-19",
+    "difficulty": "medium",
+    "category": "Integration Responsibilities and Testing",
+    "tags": [
+      "integration responsibilities and testing"
+    ],
+    "prompt": "A prototype works on a desk but has not faced representative conditions. What should follow?",
+    "options": [
+      "Assurance that environmental testing is unnecessary",
+      "Acceptance based solely on its successful power-on",
+      "A claim of universal resilience from one demonstration",
+      "Relevant operational testing before relying on it"
+    ],
+    "answer": 3,
+    "explanation": "Operational testing is intended to expose malfunctions and vulnerabilities before reliance in the field.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "sensors-m-20",
+    "difficulty": "medium",
+    "category": "Integration Responsibilities and Testing",
+    "tags": [
+      "integration responsibilities and testing"
+    ],
+    "prompt": "An upgrade replaces one module. What should be rechecked?",
+    "options": [
+      "Compatibility and relevant end-to-end behavior",
+      "Only whether the old module can still be photographed",
+      "Only the replacement's packaging color",
+      "Whether modular design removes every test requirement"
+    ],
+    "answer": 0,
+    "explanation": "Modularity eases replacement; it does not prove that the changed system still meets its requirements.",
+    "sourceSlides": [
+      29
+    ]
+  }
+]

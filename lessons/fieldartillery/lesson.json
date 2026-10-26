@@ -2,10 +2,10 @@
   "key": "fieldartillery",
   "slug": "field-artillery",
   "module": "module-2",
-  "order": 3,
+  "order": 2,
   "name": "Field Artillery Operations",
   "title": "Field Artillery Mastery Quiz",
-  "eyebrow": "Philippine Army · Field Artillery Operations",
+  "eyebrow": "Philippine Army · POI 2.2 · Field Artillery Operations",
   "lessonName": "Field Artillery Operations",
   "hubDescription": "Field Artillery Operations lesson.",
   "historyLesson": "fieldartillery",
@@ -20,14 +20,45 @@
     "FA System Elements and Responsibilities",
     "Employment Tactics and Integrated Decisions"
   ],
-  "sourceRef": { "label": "slide", "plural": "slides", "min": 15, "max": 38, "required": true },
-  "palette": { "--lesson-accent": "#a8431a" },
+  "sourceRef": {
+    "label": "slide",
+    "plural": "slides",
+    "min": 15,
+    "max": 38,
+    "required": true
+  },
+  "palette": {
+    "--lesson-accent": "#a8431a"
+  },
   "art": {
-    "groups": ["tank", "tank-gun", "muzzle-blast", "shell", "dust", "objective"],
-    "nested": { "tank": ["tank-gun", "muzzle-blast"] },
-    "labels": ["FIRE MISSION"],
-    "classes": ["axis-line", "terrain-contour"],
-    "stilled": ["#tank-gun", "#muzzle-blast", "#shell", "#dust .dust-puff", "#objective .impact-pulse"],
+    "groups": [
+      "tank",
+      "tank-gun",
+      "muzzle-blast",
+      "shell",
+      "dust",
+      "objective"
+    ],
+    "nested": {
+      "tank": [
+        "tank-gun",
+        "muzzle-blast"
+      ]
+    },
+    "labels": [
+      "FIRE MISSION"
+    ],
+    "classes": [
+      "axis-line",
+      "terrain-contour"
+    ],
+    "stilled": [
+      "#tank-gun",
+      "#muzzle-blast",
+      "#shell",
+      "#dust .dust-puff",
+      "#objective .impact-pulse"
+    ],
     "staticPattern": "#tank|#objective$|\\.terrain-contour|\\.axis-line|\\.hero-art"
   }
 }

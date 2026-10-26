@@ -49,32 +49,33 @@ export async function buildSuite({ lessons, modules }) {
     assert.deepEqual(validateQuestion({ ...question, qid: 'armor-e-1' }, 'easy', 1, rules), ['qid must be "armor-e-" followed by 2 to 4 digits']);
   });
 
-  await T('validateBank: 1 to 50 questions, sequential ids, unique qids; pool banks need every lesson’s largest share', () => {
-    assert.deepEqual(validateBank([question], 'easy', rules), []);
-    assert.deepEqual(validateBank([], 'easy', rules), ['bank must contain at least 1 question']);
+  await T('validateBank: 20 to 35 questions, sequential ids, unique qids; pool banks need every lesson’s largest share', () => {
+    const valid = Array.from({length:20},(_,i)=>({...question,id:i+1,qid:`armor-e-${String(i+1).padStart(2,'0')}`}));
+    assert.deepEqual(validateBank(valid, 'easy', rules), []);
+    assert.deepEqual(validateBank([], 'easy', rules), ['bank must contain at least 20 questions']);
     assert.deepEqual(validateBank('x', 'easy', rules), ['bank must be an array of questions']);
-    assert.deepEqual(validateBank([question, { ...question, id: 2 }], 'easy', rules), ['question 2: qid armor-e-01 is used more than once']);
-    assert.deepEqual(validateBank([question, { ...question, id: 3, qid: 'armor-e-02' }], 'easy', rules), ['question 2: id must be integer 2']);
-    const many = Array.from({ length: 51 }, (_, index) => ({ ...question, id: index + 1, qid: `armor-e-${String(index + 1).padStart(3, '0')}` }));
-    assert.deepEqual(validateBank(many, 'easy', rules), ['bank must contain at most 50 questions (found 51)']);
-    assert.deepEqual(validateBank(many.slice(0, 50), 'easy', rules), []);
+    assert.deepEqual(validateBank([question, { ...question, id: 2 }], 'easy', rules), ['bank must contain at least 20 questions', 'question 2: qid armor-e-01 is used more than once']);
+    assert.deepEqual(validateBank([question, { ...question, id: 3, qid: 'armor-e-02' }], 'easy', rules), ['bank must contain at least 20 questions', 'question 2: id must be integer 2']);
+    const many = Array.from({ length: 36 }, (_, index) => ({ ...question, id: index + 1, qid: `armor-e-${String(index + 1).padStart(3, '0')}` }));
+    assert.deepEqual(validateBank(many, 'easy', rules), ['bank must contain at most 35 questions (found 36)']);
+    assert.deepEqual(validateBank(many.slice(0, 35), 'easy', rules), []);
     assert.deepEqual(poolQuotas(60, 4), [15, 15, 15, 15]);
     assert.deepEqual(poolQuotas(30, 5), [6, 6, 6, 6, 6]);
     assert.deepEqual(poolQuotas(10, 3), [4, 3, 3]);
   });
 
-  await T('a pool exam attempt length must be from 50 to 69 questions', () => {
+  await T('a pool exam attempt length must be from 20 to 35 questions', () => {
     const combined = JSON.parse(readFileSync(join(ROOT, 'lessons', 'combined', 'lesson.json'), 'utf8'));
-    for (const count of [50, 60, 69]) checkLessonConfig({ ...combined, pool: { ...combined.pool, count } }, 'lessons/combined');
-    for (const count of [30, 49, 70, 500]) assert.throws(() => checkLessonConfig({ ...combined, pool: { ...combined.pool, count } }, 'lessons/combined'), /from 50 to 69/);
+    for (const count of [20, 30, 35]) checkLessonConfig({ ...combined, pool: { ...combined.pool, count } }, 'lessons/combined');
+    for (const count of [19, 36, 70, 500]) assert.throws(() => checkLessonConfig({ ...combined, pool: { ...combined.pool, count } }, 'lessons/combined'), /from 20 to 35/);
   });
 
   await T('every lesson folder loads: unique keys, slugs and qids; modules exist; the combined exam is a pool of the four Module 2 lessons', () => {
-    assert.deepEqual(lessons.map(lesson => lesson.key), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops', 'modulethree', 'signal', 'signaljoint', 'coalition', 'intcycle', 'rdf', 'sigint']);
-    assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined', 'isr', 'armor', 'field-artillery', 'army-operations', 'module-3-exam', 'signal-support', 'joint-signal', 'coalition-signal', 'intelligence-cycle', 'radio-direction-finding', 'signals-intelligence']);
-    assert.deepEqual(modules.map(module => module.id), ['module-2', 'module-3', 'module-5']);
+    assert.deepEqual(lessons.map(lesson => lesson.key), ['combined','fieldartillery','armor','isr','modulethree','signal','signaljoint','coalition','manet','sensors','weapons','sigint','rdf','nist','zerotrust','gsomia','cyberrisk','armyops','intcycle']);
+    assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined','field-artillery','armor','isr','module-3-exam','signal-support','joint-signal','coalition-signal','manet-c4istar-planning','c4istar-sensors-integration','c4istar-weapon-system-integration','signals-intelligence','radio-direction-finding','nist-framework','zero-trust','gsomia-compliance','cyber-risk-assessment','army-operations','intelligence-cycle']);
+    assert.deepEqual(modules.map(module => module.id), ['module-2','module-4','module-5','module-6','module-7','supplemental']);
     const combined = lessons.find(lesson => lesson.key === 'combined');
-    assert.deepEqual(combined.pool, { lessons: ['isr', 'armor', 'fieldartillery', 'armyops'], count: 60 });
+    assert.deepEqual(combined.pool, { lessons: ['isr', 'armor', 'fieldartillery', 'armyops'], count: 30 });
     assert.deepEqual(combined.rules.pool.lessons.map(lesson => lesson.name), ['ISR Operations', 'Armor Operations', 'Field Artillery Operations', 'Army Operations']);
     const qids = lessons.filter(lesson => !lesson.pool).flatMap(lesson => MODES.flatMap(mode => lesson.banks[mode].map(item => item.qid)));
     assert.equal(new Set(qids).size, qids.length, 'qids are unique across every lesson');
@@ -83,12 +84,12 @@ export async function buildSuite({ lessons, modules }) {
 
   await T('every committed page is a fresh build (run node scripts/build.mjs), with the real endpoint written once per page', () => {
     const pages = build({ write: false });
-    const expectedPages = ['index.html', 'class/index.html', 'schedule/index.html', 'schedule-2026-10-26/index.html', 'instructor/index.html', 'codes-ciphers/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
+    const expectedPages = ['index.html', 'class/index.html', 'schedule/index.html', 'schedule-2026-10-26/index.html', 'schedule-2026-11-02/index.html', 'instructor/index.html', 'codes-ciphers/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
     assert.deepEqual(Object.keys(pages).sort(), expectedPages.sort());
     for (const slug of ['isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal', 'coalition-signal', 'combined']) assert.ok(expectedPages.includes(`${slug}/index.html`), slug);
     for (const [path, html] of Object.entries(pages)) {
       assert.equal(readFileSync(join(ROOT, path), 'utf8'), html, `${path} is stale: run node scripts/build.mjs`);
-      if (['class/index.html', 'schedule/index.html', 'schedule-2026-10-26/index.html', 'codes-ciphers/index.html'].includes(path)) assert.ok(!html.includes('HISTORY_ENDPOINT') && !html.includes('script.google.com'), `${path} never contacts the history endpoint`);
+      if (['class/index.html', 'codes-ciphers/index.html'].includes(path) || /^schedule(?:-\d{4}-\d{2}-\d{2})?\//.test(path)) assert.ok(!html.includes('HISTORY_ENDPOINT') && !html.includes('script.google.com'), `${path} never contacts the history endpoint`);
       else assert.equal(html.split(`var HISTORY_ENDPOINT = '${HISTORY_ENDPOINT}';`).length - 1, 1, `${path} declares the endpoint once`);
       assert.doesNotMatch(html, /\{\{[A-Z_]+\}\}/, `${path} has no unfilled placeholder`);
     }
@@ -123,10 +124,11 @@ export async function buildSuite({ lessons, modules }) {
       for (const dir of ['scripts', 'src', 'lessons', 'data']) cpSync(join(ROOT, dir), join(fixture, dir), { recursive: true });
       const path = join(fixture, 'lessons', 'armor', 'medium.json');
       const bank = JSON.parse(readFileSync(path, 'utf8'));
+      bank.pop();writeFileSync(path,JSON.stringify(bank));
       const readBank = mode => JSON.parse(readFileSync(join(fixture, 'lessons', 'armor', `${mode}.json`), 'utf8'));
       const sizes = MODES.map(mode => readBank(mode).length);
       sizes[MODES.indexOf('medium')]++;
-      bank.push({ ...bank[0], id: bank.length + 1, qid: `armor-m-${bank.length + 1}`, prompt: 'A brand new appended prompt about armor movement?' });
+      bank.push({ ...bank[0], id: bank.length + 1, qid: `armor-m-999`, prompt: 'A brand new appended prompt about armor movement?' });
       writeFileSync(path, JSON.stringify(bank, null, 2));
       const attempts = MODES.map(mode => attemptLength(readBank(mode)));
       const result = spawnSync(process.execPath, [join(fixture, 'scripts', 'build.mjs')], { encoding: 'utf8' });
@@ -158,7 +160,7 @@ export async function buildSuite({ lessons, modules }) {
       writeFileSync(join(dir, 'hero.svg'), '<svg viewBox="0 0 480 250" aria-hidden="true" focusable="false"><path d="M0 0H10"/></svg>');
       for (const mode of MODES) {
         // Placeholder fixtures only (never real content): enough to exercise the build.
-        const bank = Array.from({ length: 16 }, (_, index) => ({ id: index + 1, difficulty: mode, category: 'Test topic', tags: ['t'], prompt: `Fixture ${mode} ${index}?`, options: ['w', 'x', 'y', 'z'], answer: index % 4, explanation: 'Fixture.', sourceSlides: [1] }));
+        const bank = Array.from({ length: 20 }, (_, index) => ({ id: index + 1, difficulty: mode, category: 'Test topic', tags: ['t'], prompt: `Fixture ${mode} ${index}?`, options: ['w', 'x', 'y', 'z'], answer: index % 4, explanation: 'Fixture.', sourceSlides: [1] }));
         writeFileSync(join(dir, `${mode}.json`), JSON.stringify(bank));
       }
       let result = spawnSync(process.execPath, [join(fixture, 'scripts', 'assign-qids.mjs'), 'signaljoint'], { encoding: 'utf8' });
@@ -168,12 +170,12 @@ export async function buildSuite({ lessons, modules }) {
       assert.equal(result.status, 0, result.stderr);
       const page = readFileSync(join(fixture, 'joint-signal', 'index.html'), 'utf8');
       assert.match(page, /<title>Signal Support in Joint Operations Mastery Quiz<\/title>/);
-      assert.match(page, /href="\.\.\/#module-3"/);
+      assert.match(page, /href="\.\.\/#module-4"/);
       const hub = readFileSync(join(fixture, 'index.html'), 'utf8');
-      const panel = hub.match(/<section class="exam-panel" id="module-3"[\s\S]*?<\/section>/)[0];
-      assert.ok(panel.indexOf('id="card-signal"') < panel.indexOf('id="card-signaljoint"'), 'second Module 3 lesson after Signal Support');
+      const panel = hub.match(/<section class="exam-panel" id="module-4"[\s\S]*?<\/section>/)[0];
+      assert.ok(panel.indexOf('id="card-signal"') < panel.indexOf('id="card-signaljoint"'), 'second Module 4 lesson after Signal Support');
       assert.match(panel, /<a class="start-link" href="joint-signal\/">/);
-      assert.match(hub, /3 lessons \+ Module 3 Exam<\/span>/);
+      assert.match(hub, /3 lessons \+ Module 4 Exam<\/span>/);
       assert.match(readFileSync(join(fixture, 'instructor', 'index.html'), 'utf8'), /signaljoint:hard:signaljoint-h-04/);
       assert.match(readFileSync(join(ROOT, 'apps-script', 'Code.gs'), 'utf8'), /signaljoint: 'Signal Joint Operations History'/, 'the sheet already knows the lesson');
     } finally {
@@ -221,9 +223,9 @@ export async function buildSuite({ lessons, modules }) {
     });
   }
 
-  await T('every lesson bank has at most 50 questions, and the three modes together cover every tag and topic of the lesson', () => {
+  await T('every lesson bank has at most 35 questions, and the three modes together cover every tag and topic of the lesson', () => {
     for (const lesson of lessons.filter(item => !item.pool)) {
-      for (const mode of MODES) assert.ok(lesson.banks[mode].length >= 1 && lesson.banks[mode].length <= 50, `${lesson.key} ${mode} holds ${lesson.banks[mode].length}`);
+      for (const mode of MODES) assert.ok(lesson.banks[mode].length >= 20 && lesson.banks[mode].length <= 35, `${lesson.key} ${mode} holds ${lesson.banks[mode].length}`);
       const all = MODES.flatMap(mode => lesson.banks[mode]);
       const terms = new Set(all.flatMap(question => questionTerms(question)));
       for (const category of lesson.rules.categoryOrder) {
@@ -255,14 +257,14 @@ export async function buildSuite({ lessons, modules }) {
     }
   });
 
-  await T('hub card tags state each lesson’s questions per attempt (the whole bank, at most 50)', () => {
+  await T('hub card tags state each lesson’s questions per attempt (the whole bank, at most 35)', () => {
     for (const lesson of lessons) {
       const label = countLabel(lesson);
       if (lesson.pool) assert.equal(label, `${lesson.pool.count} questions`);
       else {
         const counts = MODES.map(mode => lesson.attempts[mode]);
         counts.forEach((value, index) => assert.equal(value, attemptLength(lesson.banks[MODES[index]]), 'a lesson attempt is the whole bank'));
-        assert.ok(counts.every((value, index) => value >= 1 && value <= 50 && value === lesson.banks[MODES[index]].length));
+        assert.ok(counts.every((value, index) => value >= 20 && value <= 35 && value === lesson.banks[MODES[index]].length));
         const low = Math.min(...counts);
         const high = Math.max(...counts);
         assert.equal(label, low === high ? `${low} questions per attempt` : `${low}–${high} questions per attempt`);

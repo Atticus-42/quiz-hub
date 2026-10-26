@@ -93,10 +93,10 @@ export async function instructorSuite({ lessons }) {
     const page = load(itemsBody([]));
     await page.api.whenSettled();
     const total = lesson => MODES.reduce((sum, mode) => sum + lesson.banks[mode].length, 0);
-    page.byId('module-module-3').click();
+    page.byId('module-module-4').click();
     const signal = lessons.find(lesson => lesson.key === 'signal');
-    assert.equal(rowsOf(page).length, lessons.filter(lesson => lesson.module === 'module-3' && !lesson.pool).reduce((s, l) => s + total(l), 0));
-    assert.equal(page.byId('module-module-3').getAttribute('aria-pressed'), 'true');
+    assert.equal(rowsOf(page).length, lessons.filter(lesson => lesson.module === 'module-4' && !lesson.pool).reduce((s, l) => s + total(l), 0));
+    assert.equal(page.byId('module-module-4').getAttribute('aria-pressed'), 'true');
     page.byId('lesson-signal').click();
     page.byId('mode-medium').click();
     assert.equal(rowsOf(page).length, signal.banks.medium.length);
@@ -110,9 +110,9 @@ export async function instructorSuite({ lessons }) {
     assert.equal(page.byId('sort-rate').parentNode.getAttribute('aria-sort'), 'none');
     assert.equal(page.api.setModule('module-9'), false);
     assert.equal(page.api.setLesson('isr'), false, 'a lesson of another module is refused');
-    assert.match(page.byId('pool-note').textContent, /Module 3 Exam attempts count towards each question’s own lesson and difficulty/);
+    assert.match(page.byId('pool-note').textContent, /Module 4 Exam attempts count towards each question’s own lesson and difficulty/);
     page.byId('module-module-2').click();
-    assert.match(page.byId('pool-note').textContent, /Combined Exam attempts count towards each question’s own lesson and difficulty/);
+    assert.match(page.byId('pool-note').textContent, /Combined Practice Exam attempts count towards each question’s own lesson and difficulty/);
   });
 
   await T('remote data is untrusted: bad qids and counts are dropped, missed never exceeds asked, hostile text stays text', () => {

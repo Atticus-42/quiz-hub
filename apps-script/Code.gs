@@ -24,10 +24,17 @@ var LESSONS = {
   signaljoint: 'Signal Joint Operations History', // Signal Support in Joint Operations quiz (Module 3)
   coalition: 'Signal Coalition Operations History', // Signal Support in Coalition Operations quiz (Module 3)
   combined: 'Combined Exam History',         // Module 2 pool exam
-  modulethree: 'Module 3 Exam History',      // 45 questions, 15 each from the three Module 3 lessons
+  modulethree: 'Module 3 Exam History',      // Historical tab retained; now displayed as POI Module 4
   intcycle: 'Intelligence Cycle History',    // Module 5 individual lesson
   rdf: 'RDF History',                        // Module 5 individual lesson
-  sigint: 'SIGINT History'                   // Module 5 individual lesson
+  sigint: 'SIGINT History',                  // POI 6.1; historical tab retained
+  manet: 'MANET History',
+  sensors: 'Sensors Integration History',
+  weapons: 'Weapon System Integration History',
+  nist: 'NIST Framework History',
+  zerotrust: 'Zero Trust History',
+  gsomia: 'GSOMIA History',
+  cyberrisk: 'Cyber Risk Assessment History'
 };
 // Only for pages from before version 7 that send no total: their attempt length was fixed.
 var LEGACY_TOTALS = { combined: 30 };

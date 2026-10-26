@@ -1,0 +1,426 @@
+[
+  {
+    "id": 1,
+    "qid": "cyberrisk-e-01",
+    "difficulty": "easy",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "What does the CIA triad describe?",
+    "options": [
+      "Connectivity, inventory and authentication",
+      "Compliance, intelligence and attribution",
+      "Confidentiality, integrity and availability",
+      "Classification, inspection and administration"
+    ],
+    "answer": 2,
+    "explanation": "CIA describes protection against unauthorized disclosure or alteration and loss of availability.",
+    "sourceSlides": [
+      15
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "cyberrisk-e-02",
+    "difficulty": "easy",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "What is an asset in the lesson's risk terminology?",
+    "options": [
+      "A likelihood estimate with no object of concern",
+      "Only a hostile event that has already occurred",
+      "Only a weakness in a software application",
+      "An organizational resource or item that has value"
+    ],
+    "answer": 3,
+    "explanation": "An asset has value; threats and vulnerabilities are different elements of risk analysis.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "cyberrisk-e-03",
+    "difficulty": "easy",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "Which term describes a weakness that may be exploited?",
+    "options": [
+      "Recovery outcome",
+      "Asset",
+      "Vulnerability",
+      "Mission objective"
+    ],
+    "answer": 2,
+    "explanation": "A vulnerability is a weakness; a threat is a potential cause of harm involving such weaknesses.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "cyberrisk-e-04",
+    "difficulty": "easy",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "Which pair is central to assessing risk?",
+    "options": [
+      "Document length and printer speed",
+      "Screen size and file extension",
+      "Account age and keyboard layout",
+      "Likelihood and mission impact"
+    ],
+    "answer": 3,
+    "explanation": "Risk considers how likely harm is and what consequences it would have for the mission.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "cyberrisk-e-05",
+    "difficulty": "easy",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "Which threat primarily aims to prevent legitimate service use?",
+    "options": [
+      "Routine inventory reconciliation",
+      "Approved software maintenance",
+      "Denial of service",
+      "Authorized backup restoration"
+    ],
+    "answer": 2,
+    "explanation": "Denial of service attacks availability by disrupting legitimate access to services.",
+    "sourceSlides": [
+      17
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "cyberrisk-e-06",
+    "difficulty": "easy",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "Which phase establishes response people, tools and procedures?",
+    "options": [
+      "Recovery",
+      "Preparation",
+      "Eradication",
+      "Assessment and review"
+    ],
+    "answer": 1,
+    "explanation": "Preparation establishes capabilities before an incident; it is not the same as restoring affected services.",
+    "sourceSlides": [
+      18,
+      19
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "cyberrisk-e-07",
+    "difficulty": "easy",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "Which phase recognizes and establishes that an incident may be occurring?",
+    "options": [
+      "Normalization",
+      "Identification",
+      "Disposal",
+      "Procurement"
+    ],
+    "answer": 1,
+    "explanation": "Identification concerns recognizing and establishing the incident so a response can proceed.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "cyberrisk-e-08",
+    "difficulty": "easy",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "How do containment and eradication differ?",
+    "options": [
+      "Assign job titles versus publish public announcements",
+      "Restore files versus approve annual purchases",
+      "Collect invoices versus update organization charts",
+      "Limit spread versus remove the cause or malicious components"
+    ],
+    "answer": 3,
+    "explanation": "Containment limits damage; eradication removes the incident's malicious components or cause and checks removal.",
+    "sourceSlides": [
+      21,
+      22
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "cyberrisk-e-09",
+    "difficulty": "easy",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "What is the purpose of recovery?",
+    "options": [
+      "Erase the need for incident documentation",
+      "Restore healthy operation and monitor it",
+      "Replace every prevention control with a backup",
+      "Skip verification once equipment powers on"
+    ],
+    "answer": 1,
+    "explanation": "Recovery restores affected operations safely and includes continued monitoring.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "cyberrisk-e-10",
+    "difficulty": "easy",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "What should assessment and review produce?",
+    "options": [
+      "Documented lessons and improvements",
+      "Deletion of all incident records",
+      "An automatic guarantee against recurrence",
+      "A replacement for all earlier response phases"
+    ],
+    "answer": 0,
+    "explanation": "Post-incident review captures what happened and what should improve, including after-action reporting.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "cyberrisk-e-11",
+    "difficulty": "easy",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "What do hardware and software inventories help establish?",
+    "options": [
+      "Which application has the longest product name",
+      "Which employee has the most attractive desktop theme",
+      "Which printer uses the least expensive paper",
+      "Which devices and programs are authorized and present"
+    ],
+    "answer": 3,
+    "explanation": "Inventories provide a baseline for identifying unauthorized devices and software.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "cyberrisk-e-12",
+    "difficulty": "easy",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "Which pairing fits secure configuration and vulnerability management?",
+    "options": [
+      "Identical passwords and disabled maintenance",
+      "Default settings and one-time visual inspection",
+      "Unrestricted installs and no patch records",
+      "Approved baselines and continuing assessment/remediation"
+    ],
+    "answer": 3,
+    "explanation": "Secure baselines and continuing vulnerability correction are distinct, complementary controls.",
+    "sourceSlides": [
+      25,
+      26
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "cyberrisk-e-13",
+    "difficulty": "easy",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "Why should backup restoration be tested?",
+    "options": [
+      "To make every recovery exercise a live outage",
+      "To verify that saved data can actually be recovered",
+      "To avoid retaining any approved backup copies",
+      "To prove no prevention controls are needed"
+    ],
+    "answer": 1,
+    "explanation": "A backup's existence does not prove its usefulness; restoration tests check recoverability.",
+    "sourceSlides": [
+      26
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "cyberrisk-e-14",
+    "difficulty": "easy",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "What is the purpose of administrative privilege control?",
+    "options": [
+      "Replace individual accounts with a shared account",
+      "Limit elevated capabilities to authorized need",
+      "Give all users permanent administrator rights",
+      "Remove records of privileged actions"
+    ],
+    "answer": 1,
+    "explanation": "Administrative privilege controls reduce unnecessary powerful access and support accountability.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "cyberrisk-e-15",
+    "difficulty": "easy",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "What do centralized logs and account monitoring support?",
+    "options": [
+      "Detection and review of unusual or unauthorized activity",
+      "A substitute for every access restriction",
+      "Permanent exemption from incident response",
+      "Automatic approval of all dormant accounts"
+    ],
+    "answer": 0,
+    "explanation": "Logs and account monitoring supply evidence and help identify inappropriate activity.",
+    "sourceSlides": [
+      27,
+      28
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "cyberrisk-e-16",
+    "difficulty": "easy",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "Which PPT element includes personnel competence and awareness?",
+    "options": [
+      "People",
+      "Technology exclusively",
+      "Transmission speed",
+      "Process exclusively"
+    ],
+    "answer": 0,
+    "explanation": "The People element includes training, awareness and personnel assigned security responsibilities.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "cyberrisk-e-17",
+    "difficulty": "easy",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "Which PPT element includes backup policies and approved procedures?",
+    "options": [
+      "Building dimensions",
+      "People exclusively",
+      "Process",
+      "Technology exclusively"
+    ],
+    "answer": 2,
+    "explanation": "Process concerns how security activities are governed and performed through procedures and policies.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "cyberrisk-e-18",
+    "difficulty": "easy",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "Which PPT element includes licensed, updated software and maintained equipment?",
+    "options": [
+      "People exclusively",
+      "Process exclusively",
+      "Technology",
+      "Staff seniority"
+    ],
+    "answer": 2,
+    "explanation": "Technology addresses the technical condition and authorized status of hardware and software.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "cyberrisk-e-19",
+    "difficulty": "easy",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "Under the lesson's scale, a whole-number score of 10% belongs to which band?",
+    "options": [
+      "Low",
+      "High",
+      "Medium",
+      "Critical"
+    ],
+    "answer": 0,
+    "explanation": "The classroom scale defines Low as 1–10%, Medium as 11–50% and High as 51–100%.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "cyberrisk-e-20",
+    "difficulty": "easy",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "Which operation combines the three weighted element results in the lesson?",
+    "options": [
+      "Add People, Process and Technology results",
+      "Use only the highest raw percentage",
+      "Subtract Technology from People and ignore Process",
+      "Multiply all three raw percentages together"
+    ],
+    "answer": 0,
+    "explanation": "The slide gives overall posture as the sum of People, Process and Technology element results.",
+    "sourceSlides": [
+      30
+    ]
+  }
+]

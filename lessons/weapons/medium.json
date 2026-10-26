@@ -1,0 +1,434 @@
+[
+  {
+    "id": 1,
+    "qid": "weapons-m-01",
+    "difficulty": "medium",
+    "category": "System Components",
+    "tags": [
+      "system components"
+    ],
+    "prompt": "A design includes radios and computers but no people or procedures. What is missing from the source's C2 concept?",
+    "options": [
+      "Nothing, because equipment alone is the C2 system",
+      "Its organizational and human components",
+      "Only a higher number of hardware devices",
+      "Only a different radio manufacturer"
+    ],
+    "answer": 1,
+    "explanation": "The C2 system includes people and processes, not just technical nodes.",
+    "sourceSlides": [
+      7,
+      14
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "weapons-m-02",
+    "difficulty": "medium",
+    "category": "System Components",
+    "tags": [
+      "system components"
+    ],
+    "prompt": "A lesson exercise compares wired, radio and satellite media. What should guide suitability?",
+    "options": [
+      "Only the size of the equipment brochure",
+      "A rule that one medium always fits every setting",
+      "Only the most familiar brand name",
+      "Requirements, distance, terrain and environmental conditions"
+    ],
+    "answer": 3,
+    "explanation": "The source says communication means depend on circumstances; no single medium universally fits every requirement.",
+    "sourceSlides": [
+      8
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "weapons-m-03",
+    "difficulty": "medium",
+    "category": "System Components",
+    "tags": [
+      "system components"
+    ],
+    "prompt": "A computer stores observations but no one analyzes them. Which function is not established by storage alone?",
+    "options": [
+      "Availability of a stored record for authorized review",
+      "Analyzing observations to produce useful intelligence",
+      "Retention of information on the computer",
+      "The ability to display a saved file"
+    ],
+    "answer": 1,
+    "explanation": "Computing support does not by itself complete intelligence analysis and production.",
+    "sourceSlides": [
+      9,
+      10
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "weapons-m-04",
+    "difficulty": "medium",
+    "category": "System Components",
+    "tags": [
+      "system components"
+    ],
+    "prompt": "A trainee calls every observation a completed intelligence judgment. Which correction fits?",
+    "options": [
+      "Reconnaissance guarantees the meaning of every observation",
+      "Every sensor output is already a finished judgment",
+      "Surveillance removes the need to analyze evidence",
+      "Observation still needs analysis and careful interpretation"
+    ],
+    "answer": 3,
+    "explanation": "The lesson distinguishes collection activities from interpretation into useful knowledge.",
+    "sourceSlides": [
+      11,
+      13
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "weapons-m-05",
+    "difficulty": "medium",
+    "category": "Information and Authority",
+    "tags": [
+      "information and authority"
+    ],
+    "prompt": "A user can technically open a system and assumes that grants decision authority. What distinction matters?",
+    "options": [
+      "Network availability overrides all assigned roles",
+      "A successful login assigns every command responsibility",
+      "Technical access and command authority are different",
+      "The ability to read data authorizes every subsequent action"
+    ],
+    "answer": 2,
+    "explanation": "Access permissions and institutional decision authority are separate concepts.",
+    "sourceSlides": [
+      7,
+      24
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "weapons-m-06",
+    "difficulty": "medium",
+    "category": "Information and Authority",
+    "tags": [
+      "information and authority"
+    ],
+    "prompt": "Information reaches users quickly but is outdated. What is the concern?",
+    "options": [
+      "Fast delivery does not ensure useful information",
+      "A COP does not depend on information quality",
+      "Outdated data becomes current when displayed on a new screen",
+      "Fast transfer guarantees the information remains current"
+    ],
+    "answer": 0,
+    "explanation": "The system's purpose requires useful understanding; fast delivery cannot correct stale source information.",
+    "sourceSlides": [
+      14,
+      25
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "weapons-m-07",
+    "difficulty": "medium",
+    "category": "Information and Authority",
+    "tags": [
+      "information and authority"
+    ],
+    "prompt": "Conditions change after a decision, but no feedback returns. What part of the conceptual loop is weak?",
+    "options": [
+      "Fresh information back to the decision-makers",
+      "The number of computers originally purchased",
+      "The initial existence of a sensor inventory",
+      "The printed title of the architecture diagram"
+    ],
+    "answer": 0,
+    "explanation": "The source includes feedback from changing conditions so understanding can be updated.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "weapons-m-08",
+    "difficulty": "medium",
+    "category": "Information and Authority",
+    "tags": [
+      "information and authority"
+    ],
+    "prompt": "A vague observation is treated as sufficiently detailed information without validation. What is the logical error?",
+    "options": [
+      "Recognizing that different users may need different detail",
+      "Assuming collection proves sufficient quality",
+      "Distinguishing observation from validated understanding",
+      "Treating information accuracy as relevant to use"
+    ],
+    "answer": 1,
+    "explanation": "The source's definitions emphasize appropriate detail; merely collecting an observation does not establish its sufficiency.",
+    "sourceSlides": [
+      12,
+      14
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "weapons-m-09",
+    "difficulty": "medium",
+    "category": "Interoperability Principles",
+    "tags": [
+      "interoperability principles"
+    ],
+    "prompt": "Two organizations retain different internal networks but agree on their external interface. Which principle applies?",
+    "options": [
+      "Interoperability Points",
+      "Automatic declassification of shared information",
+      "Mandatory identical equipment inventories",
+      "Replacement of all national internal technologies"
+    ],
+    "answer": 0,
+    "explanation": "Standardized connection points can permit heterogeneous internal networks to work together.",
+    "sourceSlides": [
+      17
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "weapons-m-10",
+    "difficulty": "medium",
+    "category": "Interoperability Principles",
+    "tags": [
+      "interoperability principles"
+    ],
+    "prompt": "Devices exchange data, but staff use incompatible procedures and terminology. What still needs attention?",
+    "options": [
+      "Nothing beyond successful packet transfer",
+      "Only the physical cable connectors",
+      "Only the equipment purchase dates",
+      "Human and procedural interoperability"
+    ],
+    "answer": 3,
+    "explanation": "The lesson's interoperability scope includes people and processes as well as technical exchange.",
+    "sourceSlides": [
+      18
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "weapons-m-11",
+    "difficulty": "medium",
+    "category": "Interoperability Principles",
+    "tags": [
+      "interoperability principles"
+    ],
+    "prompt": "A service profile exists, but implementations disagree on fields and formats. What should be reconciled?",
+    "options": [
+      "Only the supplier's marketing slogan",
+      "The interface specification and receiving interpretation",
+      "Only the user-interface color palette",
+      "A requirement to ignore all received fields"
+    ],
+    "answer": 1,
+    "explanation": "Profiles and ICDs help define how implementations exchange and interpret required information.",
+    "sourceSlides": [
+      19,
+      20
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "weapons-m-12",
+    "difficulty": "medium",
+    "category": "Interoperability Principles",
+    "tags": [
+      "interoperability principles"
+    ],
+    "prompt": "A supplier says two devices are compatible without specifying exchanged information. What evidence is needed?",
+    "options": [
+      "Only a statement that both use electricity",
+      "Only a photograph of both powered-on devices",
+      "Only proof they were shipped in the same month",
+      "Defined interfaces, formats and interpretation rules"
+    ],
+    "answer": 3,
+    "explanation": "Compatibility claims should be supported by the actual interface and information-exchange requirements.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "weapons-m-13",
+    "difficulty": "medium",
+    "category": "Architecture and Security",
+    "tags": [
+      "architecture and security"
+    ],
+    "prompt": "An upgrade can be added through agreed interfaces without replacing every system. Which benefit is illustrated?",
+    "options": [
+      "Open-architecture extensibility",
+      "Elimination of every implementation defect",
+      "Guaranteed compatibility with undocumented interfaces",
+      "Automatic public release authority"
+    ],
+    "answer": 0,
+    "explanation": "Open architecture permits planned extension through common interfaces and standards.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "weapons-m-14",
+    "difficulty": "medium",
+    "category": "Architecture and Security",
+    "tags": [
+      "architecture and security"
+    ],
+    "prompt": "Both applications use TCP/IP but disagree on message meaning. What remains unresolved?",
+    "options": [
+      "The existence of their network interfaces",
+      "Whether both can use a network protocol",
+      "Application-level interoperability",
+      "The spelling of the protocol name"
+    ],
+    "answer": 2,
+    "explanation": "Common transport does not guarantee agreement on the meaning and format of application information.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "weapons-m-15",
+    "difficulty": "medium",
+    "category": "Architecture and Security",
+    "tags": [
+      "architecture and security"
+    ],
+    "prompt": "Information is encrypted but sent to an unauthorized account. Which control issue remains?",
+    "options": [
+      "Storage capacity only",
+      "Cable length only",
+      "Authorization",
+      "Display resolution only"
+    ],
+    "answer": 2,
+    "explanation": "Encryption protects content in appropriate contexts but does not authorize a particular recipient.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "weapons-m-16",
+    "difficulty": "medium",
+    "category": "Architecture and Security",
+    "tags": [
+      "architecture and security"
+    ],
+    "prompt": "An integrated service has secure access but frequent outages. Which required property is affected?",
+    "options": [
+      "Classification terminology",
+      "Confidentiality necessarily",
+      "Availability",
+      "Integrity necessarily"
+    ],
+    "answer": 2,
+    "explanation": "Security also includes availability; authorized users must be able to use the required service.",
+    "sourceSlides": [
+      21,
+      24
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "weapons-m-17",
+    "difficulty": "medium",
+    "category": "Configuration Concepts and Evolution",
+    "tags": [
+      "configuration concepts and evolution"
+    ],
+    "prompt": "An architecture diagram shows equipment but omits actors and processes. Why is that incomplete?",
+    "options": [
+      "Actors are irrelevant once networks are interconnected",
+      "The framework relates technology to roles and operational processes",
+      "The framework concerns equipment drawings exclusively",
+      "A diagram automatically proves every process works"
+    ],
+    "answer": 1,
+    "explanation": "The lesson's architecture is broader than a wiring picture; it relates people, processes and information.",
+    "sourceSlides": [
+      26,
+      29
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "weapons-m-18",
+    "difficulty": "medium",
+    "category": "Configuration Concepts and Evolution",
+    "tags": [
+      "configuration concepts and evolution"
+    ],
+    "prompt": "A history review describes mobile command centers as part of capability development. What conceptual need do they address?",
+    "options": [
+      "Communications and C2 support beyond a fixed headquarters",
+      "A replacement for all trained staff and procedures",
+      "Unlimited connectivity without supporting infrastructure",
+      "Automatic authority independent of the chain of command"
+    ],
+    "answer": 0,
+    "explanation": "The historical discussion treats mobility as extending C2 support, not removing its organizational and technical dependencies.",
+    "sourceSlides": [
+      30,
+      31
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "weapons-m-19",
+    "difficulty": "medium",
+    "category": "Configuration Concepts and Evolution",
+    "tags": [
+      "configuration concepts and evolution"
+    ],
+    "prompt": "The historical slides describe combining information into a common map. What general benefit does this illustrate?",
+    "options": [
+      "Proving all future integration projects are already complete",
+      "Making source accuracy irrelevant once maps are combined",
+      "Eliminating every need to reconcile different information",
+      "Bringing previously separate information into shared understanding"
+    ],
+    "answer": 3,
+    "explanation": "Information integration supports a shared picture, while source quality and interpretation remain important.",
+    "sourceSlides": [
+      33,
+      34
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "weapons-m-20",
+    "difficulty": "medium",
+    "category": "Configuration Concepts and Evolution",
+    "tags": [
+      "configuration concepts and evolution"
+    ],
+    "prompt": "A classroom diagram contains sensors, network links and receiving information systems. What should a learner explain first?",
+    "options": [
+      "Why the diagram proves current readiness without testing",
+      "How to reproduce real operational addresses from memory",
+      "The roles and information relationships at a conceptual level",
+      "Why every depicted component is automatically interchangeable"
+    ],
+    "answer": 2,
+    "explanation": "The conceptual objective is understanding system relationships, not publishing or recreating real operational settings.",
+    "sourceSlides": [
+      37,
+      38
+    ]
+  }
+]

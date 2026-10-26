@@ -1,0 +1,531 @@
+[
+  {
+    "id": 1,
+    "qid": "nist-m-01",
+    "difficulty": "medium",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "A vendor says adopting CSF requires its proprietary platform. What is the best response?",
+    "options": [
+      "Skip outcome definition and compare prices",
+      "Evaluate products against required outcomes",
+      "Accept the claim if the vendor is large",
+      "Treat the claim as a NIST certification"
+    ],
+    "answer": 1,
+    "explanation": "CSF is technology-neutral. Product choices should follow the required outcomes and assessed risks.",
+    "sourceSlides": [
+      7
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "nist-m-02",
+    "difficulty": "medium",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "A team prioritizes the loudest alert over a less visible threat to a critical service. What should guide its review?",
+    "options": [
+      "The number of users who complained",
+      "Alert color and screen prominence",
+      "Likelihood and operational consequences",
+      "The order tickets were received"
+    ],
+    "answer": 2,
+    "explanation": "Risk prioritization considers consequences and likelihood; attention or presentation alone is not a sufficient basis.",
+    "sourceSlides": [
+      7,
+      9
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "nist-m-03",
+    "difficulty": "medium",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "A risk workshop excludes a contractor maintaining a key service. What is missing?",
+    "options": [
+      "Only the public communications plan",
+      "Only the user-interface evaluation",
+      "Only the internal hardware inventory",
+      "Third-party and supply-chain risks"
+    ],
+    "answer": 3,
+    "explanation": "The framework's scope includes supplier and third-party dependencies that can affect enterprise risk.",
+    "sourceSlides": [
+      8
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "nist-m-04",
+    "difficulty": "medium",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "A small office lacks a dedicated cyber department. Which application is appropriate?",
+    "options": [
+      "Adopt every large-enterprise control unchanged",
+      "Wait until it has a large security center",
+      "Tailor outcomes to the office’s mission and risks",
+      "Restrict the framework to its internet router"
+    ],
+    "answer": 2,
+    "explanation": "The framework can be scaled to an organization's context; size does not make it inapplicable.",
+    "sourceSlides": [
+      8
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "nist-m-05",
+    "difficulty": "medium",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "Engineers and leaders describe the same outage in incompatible terms. What CSF benefit is most relevant?",
+    "options": [
+      "A mandate to outsource incident decisions",
+      "A common language for discussing cyber risks",
+      "A guarantee of identical technical skills",
+      "A replacement for all mission planning"
+    ],
+    "answer": 1,
+    "explanation": "Shared terms help technical and command personnel relate findings to mission needs and deliberate decisions.",
+    "sourceSlides": [
+      9
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "nist-m-06",
+    "difficulty": "medium",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "An office assigns a cyber risk owner and establishes oversight meetings. Which Function is central?",
+    "options": [
+      "Govern",
+      "Recover",
+      "Detect",
+      "Respond"
+    ],
+    "answer": 0,
+    "explanation": "Assigning responsibilities and oversight establishes how cybersecurity risk decisions are directed and monitored.",
+    "sourceSlides": [
+      11
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "nist-m-07",
+    "difficulty": "medium",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "A unit discovers that nobody knows which systems hold essential data. Which activity addresses the immediate gap?",
+    "options": [
+      "Event correlation under Detect",
+      "Incident containment under Respond",
+      "Restoration testing under Recover",
+      "Asset management under Identify"
+    ],
+    "answer": 3,
+    "explanation": "The first gap is knowledge of assets and data dependencies, an Identify responsibility.",
+    "sourceSlides": [
+      11
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "nist-m-08",
+    "difficulty": "medium",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "Staff receive access appropriate to their roles and attend security training. Which Function do these actions primarily support?",
+    "options": [
+      "Respond",
+      "Identify",
+      "Recover",
+      "Protect"
+    ],
+    "answer": 3,
+    "explanation": "Access control and awareness training are safeguards intended to reduce exposure before an incident.",
+    "sourceSlides": [
+      11
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "nist-m-09",
+    "difficulty": "medium",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "Analysts compare current traffic with an established baseline. Which Function is illustrated?",
+    "options": [
+      "Detect",
+      "Protect",
+      "Recover",
+      "Govern"
+    ],
+    "answer": 0,
+    "explanation": "Baselines help monitoring distinguish normal activity from events needing analysis.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "nist-m-10",
+    "difficulty": "medium",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "A team has contained a fictional incident and is verifying restored services. Which Function now describes the restoration work?",
+    "options": [
+      "Recover",
+      "Identify",
+      "Govern",
+      "Protect"
+    ],
+    "answer": 0,
+    "explanation": "Verified restoration is recovery work. Containment belongs to Respond, though the Functions support one another.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "nist-m-11",
+    "difficulty": "medium",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "A plan lists desired controls but never records current outcomes. What comparison is missing?",
+    "options": [
+      "Staff numbers versus software licenses",
+      "Tier labels versus vendor market share",
+      "Current outcomes versus desired outcomes",
+      "Incident counts versus training attendance"
+    ],
+    "answer": 2,
+    "explanation": "Without a Current Profile, the team cannot reliably identify the gap between its existing and desired outcomes.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "nist-m-12",
+    "difficulty": "medium",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "Management approves risk practices, but departments still use inconsistent local methods. Which Tier best fits the lesson?",
+    "options": [
+      "Repeatable",
+      "Partial",
+      "Adaptive",
+      "Risk Informed"
+    ],
+    "answer": 3,
+    "explanation": "Risk Informed describes management-approved practices not yet established as an organization-wide approach.",
+    "sourceSlides": [
+      14
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "nist-m-13",
+    "difficulty": "medium",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "Documented policies are consistently applied and updated. Which Tier is the closest match?",
+    "options": [
+      "Risk Informed",
+      "Repeatable",
+      "Partial",
+      "Unclassified"
+    ],
+    "answer": 1,
+    "explanation": "Repeatable practices are formalized and consistently applied; the description does not by itself establish continuous adaptation.",
+    "sourceSlides": [
+      14
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "nist-m-14",
+    "difficulty": "medium",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "A team selects a Tier solely because it sounds prestigious. What should instead influence the choice?",
+    "options": [
+      "The highest score claimed by a partner",
+      "The newest equipment model available",
+      "Mission needs and risk-management rigor",
+      "The maximum number of framework terms"
+    ],
+    "answer": 2,
+    "explanation": "Tiers describe the rigor and integration of practices. They are not a universal maturity score or automatic certification.",
+    "sourceSlides": [
+      13,
+      14
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "nist-m-15",
+    "difficulty": "medium",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "A team needs a list of cybersecurity outcomes rather than a desired future state. Which component should it consult?",
+    "options": [
+      "Implementation Tier alone",
+      "Core",
+      "Target Profile alone",
+      "Procurement inventory alone"
+    ],
+    "answer": 1,
+    "explanation": "The Core organizes outcomes. Profiles select and describe relevant outcomes in the organization's context.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "nist-m-16",
+    "difficulty": "medium",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "Affordable devices are available, but users cannot operate the service. Which additional ecosystem element needs attention?",
+    "options": [
+      "Equipment replacement alone",
+      "National policy publication alone",
+      "Transmission bandwidth alone",
+      "Human Capital"
+    ],
+    "answer": 3,
+    "explanation": "Access to devices does not ensure useful participation when people lack the necessary skills.",
+    "sourceSlides": [
+      21
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "nist-m-17",
+    "difficulty": "medium",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "A service has capable staff and devices but unreliable connectivity. Which element is the direct constraint?",
+    "options": [
+      "Content authorship",
+      "Regulatory wording",
+      "Infostructure/Infrastructure",
+      "Human Capital"
+    ],
+    "answer": 2,
+    "explanation": "Physical and logical connectivity are infrastructure functions that enable access to the platform.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "nist-m-18",
+    "difficulty": "medium",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "Two agencies' systems cannot safely exchange information because operating boundaries are unclear. Which element is directly relevant?",
+    "options": [
+      "Human Capital recruitment only",
+      "Application screen design only",
+      "Standards, Regulations and Policies",
+      "Affordable Access and Devices only"
+    ],
+    "answer": 2,
+    "explanation": "Standards and policy define boundaries that support safe interconnection and interoperability.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "nist-m-19",
+    "difficulty": "medium",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "Several agencies fund duplicate ICT projects with incompatible outputs. What NICTEF purpose addresses this?",
+    "options": [
+      "Replacement of risk analysis with branding",
+      "Independent procurement without consultation",
+      "Elimination of all agency responsibilities",
+      "Coordination and harmonization"
+    ],
+    "answer": 3,
+    "explanation": "A coordinated blueprint reduces duplication and supports interoperability and measurable shared progress.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "nist-m-20",
+    "difficulty": "medium",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "An online service works only on expensive devices. Which NICTEF concern is most clearly neglected?",
+    "options": [
+      "Affordable and inclusive access",
+      "Naming of the security committee",
+      "Number of internal approval forms",
+      "Choice of incident-response terminology"
+    ],
+    "answer": 0,
+    "explanation": "The vision includes reliable, affordable access; a high-cost access requirement can exclude intended users.",
+    "sourceSlides": [
+      19,
+      21
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "nist-m-21",
+    "difficulty": "medium",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "A team writes a Target Profile before agreeing which systems the effort covers. What should it revisit?",
+    "options": [
+      "Final procurement delivery dates",
+      "Prioritization and scope",
+      "The number of incident tickets",
+      "Restoration of completed backups"
+    ],
+    "answer": 1,
+    "explanation": "Scoping defines the mission and systems for which current and desired outcomes are assessed.",
+    "sourceSlides": [
+      15
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "nist-m-22",
+    "difficulty": "medium",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "Current and Target Profiles are complete. What work turns their difference into action?",
+    "options": [
+      "Analyze and prioritize the gaps",
+      "Assign identical deadlines to all gaps",
+      "Purchase every missing product immediately",
+      "Discard outcomes that are costly to measure"
+    ],
+    "answer": 0,
+    "explanation": "The lesson calls for a prioritized action plan rather than treating every gap as equally urgent.",
+    "sourceSlides": [
+      15
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "nist-m-23",
+    "difficulty": "medium",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "Two cooperating units use incompatible definitions of desired cyber outcomes. What would support alignment?",
+    "options": [
+      "Use a single equipment brand as proof",
+      "Share and reconcile Target Profiles",
+      "Standardize only the desktop wallpaper",
+      "Replace all unit-specific risk judgments"
+    ],
+    "answer": 1,
+    "explanation": "Sharing desired outcomes helps units align protection and interoperability requirements while retaining context.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "nist-m-24",
+    "difficulty": "medium",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "A unit follows national ICT priorities but has no repeatable cyber risk method. Which pairing fills that gap?",
+    "options": [
+      "NICTEF direction with CSF practices",
+      "CSF detached from national priorities",
+      "Two independent plans without coordination",
+      "NICTEF replaced by a product catalog"
+    ],
+    "answer": 0,
+    "explanation": "The lesson presents these frameworks as complementary: national direction and organizational cybersecurity practice.",
+    "sourceSlides": [
+      26
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "nist-m-25",
+    "difficulty": "medium",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "A recovery exercise exposes an unclear responsibility. What is the best follow-through?",
+    "options": [
+      "Revise roles and test the improvement",
+      "Wait for an actual incident to clarify it",
+      "Record success because systems restarted",
+      "Discard the exercise as unrealistic"
+    ],
+    "answer": 0,
+    "explanation": "Iterative improvement connects exercise findings to governance, procedures and subsequent validation.",
+    "sourceSlides": [
+      15,
+      27
+    ]
+  }
+]

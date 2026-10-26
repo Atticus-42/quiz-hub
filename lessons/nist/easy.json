@@ -1,0 +1,532 @@
+[
+  {
+    "id": 1,
+    "qid": "nist-e-01",
+    "difficulty": "easy",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "What does the CSF primarily describe?",
+    "options": [
+      "Approved brands of equipment",
+      "Mandatory network topologies",
+      "Cybersecurity outcomes to pursue",
+      "Security products to purchase"
+    ],
+    "answer": 2,
+    "explanation": "The CSF describes desired outcomes. An organization chooses suitable controls and products in light of its risks.",
+    "sourceSlides": [
+      7
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "nist-e-02",
+    "difficulty": "easy",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "Which consideration best reflects a risk-based approach?",
+    "options": [
+      "Purchase price and brand prestige",
+      "Age of the network alone",
+      "Likelihood and mission impact",
+      "Number of alerts alone"
+    ],
+    "answer": 2,
+    "explanation": "The lesson prioritizes likelihood and impact rather than fear, product popularity or a single technical indicator.",
+    "sourceSlides": [
+      7
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "nist-e-03",
+    "difficulty": "easy",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "Who can use the Cybersecurity Framework?",
+    "options": [
+      "Organizations of different sizes and sectors",
+      "Only suppliers already certified by NIST",
+      "Only organizations with mature security teams",
+      "Only national critical-infrastructure agencies"
+    ],
+    "answer": 0,
+    "explanation": "The framework is adaptable across sectors, sizes and levels of experience, including small units.",
+    "sourceSlides": [
+      8
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "nist-e-04",
+    "difficulty": "easy",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "Which statement correctly describes the framework's scope?",
+    "options": [
+      "It covers only network equipment",
+      "It includes people and processes",
+      "It excludes supplier relationships",
+      "It replaces organizational judgment"
+    ],
+    "answer": 1,
+    "explanation": "The scope includes people, processes, technology and third-party risk; it does not remove the need for judgment.",
+    "sourceSlides": [
+      8
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "nist-e-05",
+    "difficulty": "easy",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "Why does a common cybersecurity language help commanders?",
+    "options": [
+      "It supports defensible risk decisions",
+      "It removes all technical uncertainty",
+      "It transfers all responsibility to engineers",
+      "It standardizes every equipment purchase"
+    ],
+    "answer": 0,
+    "explanation": "A shared model connects technical concerns to mission consequences so leaders can decide how to allocate effort.",
+    "sourceSlides": [
+      9
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "nist-e-06",
+    "difficulty": "easy",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "Which Function establishes strategy, roles and oversight?",
+    "options": [
+      "Recover",
+      "Protect",
+      "Govern",
+      "Identify"
+    ],
+    "answer": 2,
+    "explanation": "Govern establishes and monitors cybersecurity risk direction, responsibilities and policy.",
+    "sourceSlides": [
+      10,
+      11
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "nist-e-07",
+    "difficulty": "easy",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "Which Function includes understanding assets and risks?",
+    "options": [
+      "Detect",
+      "Recover",
+      "Identify",
+      "Respond"
+    ],
+    "answer": 2,
+    "explanation": "Identify concerns knowing the assets, threats, vulnerabilities and priorities that matter to the mission.",
+    "sourceSlides": [
+      10,
+      11
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "nist-e-08",
+    "difficulty": "easy",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "Which activity belongs most directly to Protect?",
+    "options": [
+      "Analysis of an active incident",
+      "Restoration of damaged systems",
+      "Role-based security training",
+      "Correlation of unusual event logs"
+    ],
+    "answer": 2,
+    "explanation": "Protect includes safeguards such as access controls, security training and data protection.",
+    "sourceSlides": [
+      11
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "nist-e-09",
+    "difficulty": "easy",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "Which Function focuses on finding anomalous activity?",
+    "options": [
+      "Detect",
+      "Protect",
+      "Recover",
+      "Govern"
+    ],
+    "answer": 0,
+    "explanation": "Detect uses monitoring, baselines and event analysis to discover potential trouble.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "nist-e-10",
+    "difficulty": "easy",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "Which pairing correctly distinguishes Respond from Recover?",
+    "options": [
+      "Contain an incident; restore capability",
+      "Inventory assets; assign risk owners",
+      "Train personnel; monitor anomalies",
+      "Restore capability; define policy"
+    ],
+    "answer": 0,
+    "explanation": "Respond addresses incident management and containment; Recover restores operations and incorporates lessons.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "nist-e-11",
+    "difficulty": "easy",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "What is the hierarchy in the CSF Core?",
+    "options": [
+      "Incidents, Tickets, Accounts",
+      "Profiles, Budgets, Purchases",
+      "Tiers, Vendors, Products",
+      "Functions, Categories, Subcategories"
+    ],
+    "answer": 3,
+    "explanation": "The Core organizes cybersecurity outcomes from broad Functions into Categories and more detailed Subcategories.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "nist-e-12",
+    "difficulty": "easy",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "What does a Current Profile describe?",
+    "options": [
+      "Outcomes desired next year",
+      "Outcomes the organization currently achieves",
+      "The number of known attackers",
+      "The assigned readiness tier alone"
+    ],
+    "answer": 1,
+    "explanation": "A Current Profile captures the present posture; a Target Profile describes the desired outcomes.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "nist-e-13",
+    "difficulty": "easy",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "What is the main use of comparing Current and Target Profiles?",
+    "options": [
+      "Calculate a universal certification score",
+      "Choose a vendor without evaluation",
+      "Remove the need for risk assessment",
+      "Identify and prioritize gaps"
+    ],
+    "answer": 3,
+    "explanation": "The difference between present and desired outcomes supports a prioritized improvement plan.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "nist-e-14",
+    "difficulty": "easy",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "Which Tier describes ad hoc, reactive practices?",
+    "options": [
+      "Partial",
+      "Risk Informed",
+      "Repeatable",
+      "Adaptive"
+    ],
+    "answer": 0,
+    "explanation": "Partial is Tier 1 and describes risk management handled case by case rather than through consistent organization-wide practices.",
+    "sourceSlides": [
+      14
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "nist-e-15",
+    "difficulty": "easy",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "Which Tier emphasizes continuous adaptation from lessons and threat information?",
+    "options": [
+      "Repeatable",
+      "Partial",
+      "Risk Informed",
+      "Adaptive"
+    ],
+    "answer": 3,
+    "explanation": "Adaptive practices use new information and lessons to refine risk management continuously.",
+    "sourceSlides": [
+      14
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "nist-e-16",
+    "difficulty": "easy",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "What is NICTEF's main coordinating purpose in the lesson?",
+    "options": [
+      "Mandate a single security product",
+      "Harmonize national ICT efforts",
+      "Certify individual network engineers",
+      "Replace every agency's mission"
+    ],
+    "answer": 1,
+    "explanation": "The lesson presents NICTEF as a national blueprint for coordinated ICT plans, programs and projects.",
+    "sourceSlides": [
+      18,
+      25
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "nist-e-17",
+    "difficulty": "easy",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "Which objective reflects the NICTEF vision?",
+    "options": [
+      "Exclusive access for major institutions",
+      "Innovation limited to urban agencies",
+      "Connectivity without privacy protections",
+      "Reliable and affordable ICT access"
+    ],
+    "answer": 3,
+    "explanation": "The vision stresses inclusive, reliable and affordable access, particularly for poor and vulnerable groups.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "nist-e-18",
+    "difficulty": "easy",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "Which framework element concerns users' talents and skills?",
+    "options": [
+      "Standards and Policies",
+      "Human Capital",
+      "Infostructure",
+      "Platforms"
+    ],
+    "answer": 1,
+    "explanation": "Human Capital concerns the people who use and contribute to ICT services and the capabilities they need.",
+    "sourceSlides": [
+      21
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "nist-e-19",
+    "difficulty": "easy",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "Which element provides physical and logical connectivity?",
+    "options": [
+      "Human Capital",
+      "Regulations and Policies",
+      "Infostructure/Infrastructure",
+      "Content and Applications"
+    ],
+    "answer": 2,
+    "explanation": "Infrastructure connects users and devices to platforms through physical and logical components.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "nist-e-20",
+    "difficulty": "easy",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "Which matching is correct?",
+    "options": [
+      "Laptops are national policies",
+      "Applications are Platforms",
+      "Connectivity links are Human Capital",
+      "User skills are infrastructure cables"
+    ],
+    "answer": 1,
+    "explanation": "Platforms include applications, services, content and data. Devices, connectivity and skills belong to other ecosystem elements.",
+    "sourceSlides": [
+      21,
+      22,
+      23
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "nist-e-21",
+    "difficulty": "easy",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "What begins the lesson's seven-step application sequence?",
+    "options": [
+      "Prioritize and scope",
+      "Buy security appliances",
+      "Assign an Adaptive Tier",
+      "Publish a compliance certificate"
+    ],
+    "answer": 0,
+    "explanation": "The sequence starts by defining the mission, systems and units in scope before choosing implementation actions.",
+    "sourceSlides": [
+      15
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "nist-e-22",
+    "difficulty": "easy",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "What should follow implementation in the lesson's approach?",
+    "options": [
+      "Remove all review responsibilities",
+      "Stop collecting risk information",
+      "Freeze the Target Profile permanently",
+      "Monitor, refine and repeat"
+    ],
+    "answer": 3,
+    "explanation": "Implementation is iterative. Monitoring and refinement keep the approach relevant as needs and risks change.",
+    "sourceSlides": [
+      15
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "nist-e-23",
+    "difficulty": "easy",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "How does the lesson relate NICTEF and the NIST CSF?",
+    "options": [
+      "National direction and a risk-management method",
+      "Equivalent names for the same framework",
+      "A security product and its license",
+      "Two competing hardware standards"
+    ],
+    "answer": 0,
+    "explanation": "NICTEF provides national ICT direction; the CSF helps organizations manage cybersecurity risk in that context.",
+    "sourceSlides": [
+      26
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "nist-e-24",
+    "difficulty": "easy",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "Why rehearse response and recovery together?",
+    "options": [
+      "Guarantee no future incidents",
+      "Support continuity of operations",
+      "Replace all monitoring activities",
+      "Eliminate the need for prevention"
+    ],
+    "answer": 1,
+    "explanation": "Rehearsals test the ability to handle disruption and restore capability, which supports continuity rather than guaranteeing immunity.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "nist-e-25",
+    "difficulty": "easy",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "Which activity supports the human side of every Function?",
+    "options": [
+      "One procurement briefing for all roles",
+      "Replacing review with equipment upgrades",
+      "Delegating all decisions to vendors",
+      "Sustained awareness and technical training"
+    ],
+    "answer": 3,
+    "explanation": "The lesson treats trained people as essential across the Functions, not as a substitute for technical controls.",
+    "sourceSlides": [
+      27
+    ]
+  }
+]

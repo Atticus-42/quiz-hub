@@ -1,0 +1,439 @@
+[
+  {
+    "id": 1,
+    "qid": "manet-m-01",
+    "difficulty": "medium",
+    "category": "Network Concepts",
+    "tags": [
+      "network concepts"
+    ],
+    "prompt": "Nodes move during an exercise. Which network characteristic addresses changing membership?",
+    "options": [
+      "A fixed membership list that cannot change",
+      "Self-configuring connectivity",
+      "Permanent point-to-point wiring only",
+      "A rule prohibiting all node movement"
+    ],
+    "answer": 1,
+    "explanation": "MANETs are designed for changing mobile membership, although actual connectivity still depends on conditions.",
+    "sourceSlides": [
+      11,
+      12
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "manet-m-02",
+    "difficulty": "medium",
+    "category": "Network Concepts",
+    "tags": [
+      "network concepts"
+    ],
+    "prompt": "A user wants to send data to one recipient rather than every member. Which term applies?",
+    "options": [
+      "Multicast to all groups",
+      "Unicast",
+      "Offline replication",
+      "Broadcast"
+    ],
+    "answer": 1,
+    "explanation": "Unicast addresses one destination; broadcast and multicast have different audience scopes.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "manet-m-03",
+    "difficulty": "medium",
+    "category": "Network Concepts",
+    "tags": [
+      "network concepts"
+    ],
+    "prompt": "Video demand rises while voice quality falls. What should planning examine?",
+    "options": [
+      "Only the order of names on the roster",
+      "Whether all traffic can be relabeled as highest priority",
+      "Only the radio's exterior paint condition",
+      "Traffic priorities and capacity under actual link conditions"
+    ],
+    "answer": 3,
+    "explanation": "Competing demand and constrained links call for traffic/QoS assessment, not indiscriminate prioritization.",
+    "sourceSlides": [
+      9,
+      12
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "manet-m-04",
+    "difficulty": "medium",
+    "category": "Network Concepts",
+    "tags": [
+      "network concepts"
+    ],
+    "prompt": "A self-healing network loses every possible path to a node. What should be expected?",
+    "options": [
+      "Broadcast removes all physical reachability constraints",
+      "A node identifier alone supplies an alternate radio path",
+      "The label self-healing guarantees uninterrupted delivery",
+      "Self-healing cannot create a nonexistent physical path"
+    ],
+    "answer": 3,
+    "explanation": "Adaptation requires usable paths; self-healing is not a guarantee under complete disconnection.",
+    "sourceSlides": [
+      12,
+      17,
+      19
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "manet-m-05",
+    "difficulty": "medium",
+    "category": "Capabilities and Security",
+    "tags": [
+      "capabilities and security"
+    ],
+    "prompt": "An operator can use local controls but needs authorized remote operation. What does the lesson identify?",
+    "options": [
+      "A guarantee that every legacy radio has the same interface",
+      "A remote mode requiring no network connection",
+      "Public anonymous access from every internet device",
+      "IP/Ethernet-based remote operation replicating local functions"
+    ],
+    "answer": 3,
+    "explanation": "The source describes remote operation over IP/Ethernet, not unrestricted or universal remote access.",
+    "sourceSlides": [
+      28,
+      29
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "manet-m-06",
+    "difficulty": "medium",
+    "category": "Capabilities and Security",
+    "tags": [
+      "capabilities and security"
+    ],
+    "prompt": "A clear interoperability waveform is selected. Which assumption is unsafe?",
+    "options": [
+      "That compatibility automatically provides encryption",
+      "That required services should be tested end to end",
+      "That approved handling rules still apply",
+      "That security properties should be checked separately"
+    ],
+    "answer": 0,
+    "explanation": "The lesson explicitly describes a non-encrypted waveform, so interoperability does not imply protected content.",
+    "sourceSlides": [
+      30,
+      35
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "manet-m-07",
+    "difficulty": "medium",
+    "category": "Capabilities and Security",
+    "tags": [
+      "capabilities and security"
+    ],
+    "prompt": "A team protects radio traffic but leaves management access uncontrolled. What remains?",
+    "options": [
+      "Only a cosmetic configuration problem",
+      "An automatic increase in available radio capacity",
+      "A separate management-security exposure",
+      "No risk because over-the-air protection covers all interfaces"
+    ],
+    "answer": 2,
+    "explanation": "Management and radio traffic require their appropriate protections; one does not automatically secure the other.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "manet-m-08",
+    "difficulty": "medium",
+    "category": "Capabilities and Security",
+    "tags": [
+      "capabilities and security"
+    ],
+    "prompt": "Two waveforms differ in supported services and protection. What should selection be based on?",
+    "options": [
+      "Only whether one waveform appears first in a menu",
+      "The assumption that all listed waveforms are interchangeable",
+      "Only the shortest waveform name",
+      "Required compatibility, services and approved security needs"
+    ],
+    "answer": 3,
+    "explanation": "The source lists distinct waveform capabilities; planning must compare requirements rather than equate labels.",
+    "sourceSlides": [
+      31,
+      34,
+      35,
+      36
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "manet-m-09",
+    "difficulty": "medium",
+    "category": "Equipment and Maintenance",
+    "tags": [
+      "equipment and maintenance"
+    ],
+    "prompt": "Inspection reveals a damaged cable and bent connector pins. What is justified?",
+    "options": [
+      "Ignore the issue if the display still lights up",
+      "Record the fault and follow authorized maintenance procedures",
+      "Force the connector until the fault disappears",
+      "Assume a software reset repairs the physical damage"
+    ],
+    "answer": 1,
+    "explanation": "Physical defects require appropriate maintenance; power-on alone does not demonstrate equipment integrity.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "manet-m-10",
+    "difficulty": "medium",
+    "category": "Equipment and Maintenance",
+    "tags": [
+      "equipment and maintenance"
+    ],
+    "prompt": "A technician replaces a suspected part and stops. Which step is missing?",
+    "options": [
+      "Equipment purchase authorization",
+      "Instructor biography review",
+      "Repair verification",
+      "Fault identification necessarily never occurred"
+    ],
+    "answer": 2,
+    "explanation": "The troubleshooting model explicitly includes verification after repair, including relevant built-in tests.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "manet-m-11",
+    "difficulty": "medium",
+    "category": "Equipment and Maintenance",
+    "tags": [
+      "equipment and maintenance"
+    ],
+    "prompt": "The source's indicator table distinguishes a technical fault from an operational fault. How should it be used?",
+    "options": [
+      "Replace all equipment without identifying the indication",
+      "Consult the specific indication and verify the reported condition",
+      "Treat every colored light as the same failure",
+      "Assume any illuminated indicator means successful reception"
+    ],
+    "answer": 1,
+    "explanation": "Indicators provide diagnostic clues; their meanings should guide authorized fault identification and verification.",
+    "sourceSlides": [
+      50
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "manet-m-12",
+    "difficulty": "medium",
+    "category": "Equipment and Maintenance",
+    "tags": [
+      "equipment and maintenance"
+    ],
+    "prompt": "A handheld and its vehicular adapter have different listed roles and outputs. What should a student avoid?",
+    "options": [
+      "Applying one configuration's specification to every configuration",
+      "Distinguishing mechanical support from networking functions",
+      "Checking which configuration a question describes",
+      "Consulting the correct approved equipment documentation"
+    ],
+    "answer": 0,
+    "explanation": "Source-specific equipment values cannot be generalized across handheld and adapter configurations.",
+    "sourceSlides": [
+      38,
+      47
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "manet-m-13",
+    "difficulty": "medium",
+    "category": "Diagnostics and Configuration",
+    "tags": [
+      "diagnostics and configuration"
+    ],
+    "prompt": "Received strength is high but signal quality is poor. What additional measure helps distinguish the issue?",
+    "options": [
+      "Only the elapsed-time counter",
+      "SNR",
+      "Only the display brightness",
+      "Only the device's serial-number length"
+    ],
+    "answer": 1,
+    "explanation": "Strong received energy does not guarantee a favorable signal-to-noise ratio or successful service.",
+    "sourceSlides": [
+      56
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "manet-m-14",
+    "difficulty": "medium",
+    "category": "Diagnostics and Configuration",
+    "tags": [
+      "diagnostics and configuration"
+    ],
+    "prompt": "A ping fails after restart, but the source says ping enablement may reset. What should be checked before concluding link failure?",
+    "options": [
+      "Whether the case has a newer manufacturer logo",
+      "Whether all radios should be immediately replaced",
+      "The permitted diagnostic setting and test conditions",
+      "Whether the unit's name is alphabetically first"
+    ],
+    "answer": 2,
+    "explanation": "A disabled diagnostic response can resemble connectivity failure; verify the stated test conditions first.",
+    "sourceSlides": [
+      54,
+      66
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "manet-m-15",
+    "difficulty": "medium",
+    "category": "Diagnostics and Configuration",
+    "tags": [
+      "diagnostics and configuration"
+    ],
+    "prompt": "A performance test sends 100 packets and records 90 received. What does this directly show?",
+    "options": [
+      "Every voice conversation will fail at the same rate",
+      "The entire network is permanently unusable",
+      "The fault has been proven to be a broken antenna",
+      "Ten packets were not received during that test"
+    ],
+    "answer": 3,
+    "explanation": "The counts describe that test's outcome; they do not alone establish permanence, application effects or root cause.",
+    "sourceSlides": [
+      67
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "manet-m-16",
+    "difficulty": "medium",
+    "category": "Diagnostics and Configuration",
+    "tags": [
+      "diagnostics and configuration"
+    ],
+    "prompt": "Two radios have the same configured node identifier. Which requirement has been violated?",
+    "options": [
+      "Node identifiers should be unique",
+      "A display name can replace every network identity",
+      "All nodes should use the same identity for convenience",
+      "Identifiers are decorative and have no diagnostic value"
+    ],
+    "answer": 0,
+    "explanation": "The source states that each transceiver has a unique node ID; duplicate identity undermines that requirement.",
+    "sourceSlides": [
+      55,
+      68
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "manet-m-17",
+    "difficulty": "medium",
+    "category": "Integration and Assurance",
+    "tags": [
+      "integration and assurance"
+    ],
+    "prompt": "A legacy voice call succeeds but position updates do not reach the application. What remains to verify?",
+    "options": [
+      "The data service and its integration path",
+      "Whether working voice proves the data must already be present",
+      "Whether the application can be ignored because radios transmit",
+      "Only the voice handset's volume setting"
+    ],
+    "answer": 0,
+    "explanation": "Voice success is not evidence that data interfaces, routing and receiving applications work correctly.",
+    "sourceSlides": [
+      69,
+      72,
+      73
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "manet-m-18",
+    "difficulty": "medium",
+    "category": "Integration and Assurance",
+    "tags": [
+      "integration and assurance"
+    ],
+    "prompt": "Unneeded traffic crosses between service networks. Which source principle is most relevant?",
+    "options": [
+      "Treat every service as equally authorized everywhere",
+      "Increase broadcast traffic on every interface",
+      "Prevent leakage and reduce unnecessary traffic",
+      "Remove all separation to simplify testing"
+    ],
+    "answer": 2,
+    "explanation": "The integration guidance calls for controlled traffic boundaries and reduction of unnecessary load.",
+    "sourceSlides": [
+      70
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "manet-m-19",
+    "difficulty": "medium",
+    "category": "Integration and Assurance",
+    "tags": [
+      "integration and assurance"
+    ],
+    "prompt": "A local service works but its authorized remote counterpart does not. Which area deserves examination?",
+    "options": [
+      "Only the name of the source file",
+      "Whether local success proves remote reachability",
+      "The inter-network path and service integration",
+      "Only the local screen's resolution"
+    ],
+    "answer": 2,
+    "explanation": "A local test does not exercise every route, boundary or application dependency of a remote service.",
+    "sourceSlides": [
+      71,
+      72
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "manet-m-20",
+    "difficulty": "medium",
+    "category": "Integration and Assurance",
+    "tags": [
+      "integration and assurance"
+    ],
+    "prompt": "A maintenance report says 'fixed' with no test evidence. What should be added?",
+    "options": [
+      "Relevant verification conditions and observed results",
+      "Only a larger signature block",
+      "A statement that tests are unnecessary after repair",
+      "Only the technician's preferred equipment brand"
+    ],
+    "answer": 0,
+    "explanation": "Recorded verification supports confidence in the repair and enables meaningful follow-up if symptoms recur.",
+    "sourceSlides": [
+      27,
+      58,
+      67
+    ]
+  }
+]

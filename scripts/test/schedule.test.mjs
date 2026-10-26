@@ -25,15 +25,15 @@ export async function scheduleSuite({ lessons }) {
   const dayBlocks = (doc, date) => findAll(doc.getElementById(`day-${date}`), node => node.localName === 'li');
   const titleOf = node => byClass(node, 'blk-title')[0].textContent;
 
-  await T('active bot feed and main page contain the uploaded October 19 schedule', () => {
+  await T('active bot feed and main page contain the revised October 26 schedule and menu', () => {
     const active = loadSchedule();
-    assert.deepEqual(active, loadSchedule(ROOT, join(ROOT,'data','schedules','2026-10-19_2026-10-25.json')));
-    const monday = active.days.find(day => day.date === '2026-10-19');
-    assert.equal(monday.blocks.length, 16);
-    assert.equal(monday.blocks[4].activity, 'LOE3 GSOMIA');
-    const doc = runPage(readFileSync(join(ROOT,'schedule','index.html'),'utf8'), {globals:{__SCHEDULE_NOW:'2026-10-19T09:00'}}).document;
-    assert.equal(dayBlocks(doc, '2026-10-19').length, 16);
-    assert.equal(doc.getElementById('schedule-week').textContent.split('.')[0], '5th week of 12, 19–25 Oct 2026');
+    assert.deepEqual(active, loadSchedule(ROOT, join(ROOT,'data','schedules','2026-10-26_2026-11-01.json')));
+    const monday = active.days.find(day => day.date === '2026-10-26');
+    assert.equal(monday.blocks.length, 15);
+    assert.equal(monday.blocks[4].activity, 'GPE WINTAK/Signal Propagation');
+    const doc = runPage(readFileSync(join(ROOT,'schedule','index.html'),'utf8'), {globals:{__SCHEDULE_NOW:'2026-10-27T09:00'}}).document;
+    assert.equal(dayBlocks(doc, '2026-10-26').length, 15);
+    assert.equal(doc.getElementById('schedule-week').textContent.split('.')[0], '6th week of 12, 26 Oct – 01 Nov 2026');
   });
 
   await T('next week is separate, complete and does not reuse last week menus', () => {

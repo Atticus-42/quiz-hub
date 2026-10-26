@@ -2,10 +2,10 @@
   "key": "armor",
   "slug": "armor",
   "module": "module-2",
-  "order": 2,
+  "order": 3,
   "name": "Armor Operations",
   "title": "Armor Operations Mastery Quiz",
-  "eyebrow": "Philippine Army · Armor Operations",
+  "eyebrow": "Philippine Army · POI 2.3 · Armor Operations",
   "lessonName": "Fundamentals of Armor Operations",
   "hubDescription": "Fundamentals of Armor Operations.",
   "historyLesson": "armor",
@@ -20,14 +20,45 @@
     "Planning Considerations",
     "Major Equipment of the Armor Division"
   ],
-  "sourceRef": { "label": "page", "plural": "pages", "min": 13, "max": 83, "required": true },
-  "palette": { "--lesson-accent": "#b9461b" },
+  "sourceRef": {
+    "label": "page",
+    "plural": "pages",
+    "min": 13,
+    "max": 83,
+    "required": true
+  },
+  "palette": {
+    "--lesson-accent": "#b9461b"
+  },
   "art": {
-    "groups": ["tank", "tank-gun", "muzzle-blast", "shell", "dust", "objective"],
-    "nested": { "tank": ["tank-gun", "muzzle-blast"] },
-    "labels": ["ARMOR"],
-    "classes": ["axis-line", "terrain-contour"],
-    "stilled": ["#tank-gun", "#muzzle-blast", "#shell", "#dust .dust-puff", "#objective .impact-pulse"],
+    "groups": [
+      "tank",
+      "tank-gun",
+      "muzzle-blast",
+      "shell",
+      "dust",
+      "objective"
+    ],
+    "nested": {
+      "tank": [
+        "tank-gun",
+        "muzzle-blast"
+      ]
+    },
+    "labels": [
+      "ARMOR"
+    ],
+    "classes": [
+      "axis-line",
+      "terrain-contour"
+    ],
+    "stilled": [
+      "#tank-gun",
+      "#muzzle-blast",
+      "#shell",
+      "#dust .dust-puff",
+      "#objective .impact-pulse"
+    ],
     "staticPattern": "#tank|#objective$|\\.terrain-contour|\\.axis-line|\\.hero-art"
   }
 }

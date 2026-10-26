@@ -832,10 +832,11 @@
     var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
     var MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h' };
     var LETTERS = ['A', 'B', 'C', 'D'];
-    // A lesson bank holds 1 to MAX_BANK_SIZE (50) questions per difficulty (owner rule) and an attempt serves the
+    // A lesson bank holds MIN_BANK_SIZE to MAX_BANK_SIZE (20–35) questions per difficulty and an attempt serves the
     // whole bank, unseen-first and shuffled. Only a pool exam draws a coverage set of each lesson (selectCoverage).
-    var MAX_BANK_SIZE = 50;
-    var MAX_ATTEMPT_SIZE = 50;
+    var MIN_BANK_SIZE = 20;
+    var MAX_BANK_SIZE = 35;
+    var MAX_ATTEMPT_SIZE = 35;
     // Extra randomised cover runs tried besides the deterministic one; the best run is kept.
     var COVER_RUNS = 8;
     var LESSON_KEY_PATTERN = /^[a-z][a-z0-9]{1,23}$/;
@@ -855,8 +856,8 @@
       if (!config || typeof config !== 'object' || !LESSON_KEY_PATTERN.test(config.key) || typeof config.title !== 'string') return null;
       if (!config.text || typeof config.text !== 'object' || !Array.isArray(config.text.bands) || config.text.bands.length !== 4) return null;
       if (config.pool) {
-        var poolMin = config.module === 'module-3' ? 45 : 50;
-        var poolMax = config.module === 'module-3' ? 50 : 69;
+        var poolMin = 20;
+        var poolMax = 35;
         if (!Number.isInteger(config.pool.count) || config.pool.count < poolMin || config.pool.count > poolMax) return null;
         if (!Array.isArray(config.pool.lessons) || !config.pool.lessons.length || !config.pool.lessons.every(function (lesson) { return lesson && LESSON_KEY_PATTERN.test(lesson.key) && typeof lesson.name === 'string' && lesson.name.trim(); })) return null;
       } else if (!strings(config.categoryOrder)) {
@@ -888,7 +889,7 @@
     ];
 
     // Questions per source lesson in a pool attempt: the count split as evenly as possible, larger shares
-    // first (60 over four lessons is 15 each). Each attempt deals these shares to the lessons at random.
+    // first (30 over four lessons gives 8, 8, 7, 7). Each attempt deals these shares to the lessons at random.
     function poolQuotas(count, lessons) {
       var base = Math.floor(count / lessons);
       var extra = count % lessons;
@@ -956,7 +957,8 @@
     function validateBank(bank, mode) {
       if (!Array.isArray(bank)) return ['bank must be an array of questions'];
       var errors = [];
-      if (bank.length < 1) errors.push('bank must contain at least 1 question');
+      var minimum = POOL ? 1 : MIN_BANK_SIZE;
+      if (bank.length < minimum) errors.push('bank must contain at least ' + minimum + ' question' + (minimum === 1 ? '' : 's'));
       if (!POOL && bank.length > MAX_BANK_SIZE) errors.push('bank must contain at most ' + MAX_BANK_SIZE + ' questions (found ' + bank.length + ')');
       var seen = {};
       bank.forEach(function (question, index) {
@@ -1089,7 +1091,7 @@
       return chosen;
     }
 
-    // Draws one attempt. A lesson quiz asks its whole bank (at most 50 questions): unseen first, then missed, then
+    // Draws one attempt. A lesson quiz asks its whole bank (at most 35 questions): unseen first, then missed, then
     // the rest, shuffled.
     // A pool exam deals its per-lesson shares to the lessons at random and takes each share as a coverage set
     // of that lesson's questions; the picks are then shuffled together. Every draw uses random(), so an

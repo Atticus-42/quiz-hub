@@ -28,7 +28,9 @@ Version 7 is backward compatible:
 
 ## Adding a lesson
 
-The tab names live in `LESSONS` at the top of `Code.gs`. A new lesson's key must be added there, followed by an updated deployment (above), before its attempts are accepted. `intcycle` (Intelligence Cycle History), `rdf` (RDF History) and `sigint` (SIGINT History) are registered for Module 5. The existing deployment was updated to revision 9 on 19 October 2026, retaining the same public URL and permissions; the payload protocol remains version 7. No synthetic attempts were added to the live class sheet.
+The tab names live in `LESSONS` at the top of `Code.gs`. A new lesson's key must be added there, followed by an updated deployment (above), before its attempts are accepted. Revision 10 was deployed on 26 October 2026 with seven additive keys: `manet`, `sensors`, `weapons`, `nist`, `zerotrust`, `gsomia`, `cyberrisk`. The public URL, permissions and version-7 payload protocol are unchanged. Read-only item-analysis requests verified all seven keys; no synthetic attempts were added to the live sheet.
+
+The POI display realignment does not rename any history tab. In particular, `modulethree` keeps `Module 3 Exam History` while displaying Module 4 on the site; `sigint` and `rdf` now appear in Module 6, and `intcycle` in Supporting Lessons. The server still accepts older attempt totals so previously open quiz pages can save normally.
 
 ## Privacy and housekeeping
 

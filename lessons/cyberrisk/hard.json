@@ -1,0 +1,439 @@
+[
+  {
+    "id": 1,
+    "qid": "cyberrisk-h-01",
+    "difficulty": "hard",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "A restored database is available but contains unauthorized changes. Which conclusion is justified?",
+    "options": [
+      "Successful login proves all CIA properties are restored",
+      "Confidentiality automatically guarantees record correctness",
+      "Restoring access has not established the integrity of the records",
+      "More storage space alone will establish authenticity"
+    ],
+    "answer": 2,
+    "explanation": "Security properties are distinct; being able to open data does not prove it is accurate or unaltered.",
+    "sourceSlides": [
+      15,
+      16
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "cyberrisk-h-02",
+    "difficulty": "hard",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "A report lists vulnerabilities without assets or consequences. What prevents meaningful prioritization?",
+    "options": [
+      "It has too many individual findings to be useful",
+      "It omits the vendor's marketing description",
+      "It does not use enough abbreviations in its headings",
+      "Missing asset and mission-risk context"
+    ],
+    "answer": 3,
+    "explanation": "A vulnerability list must be connected to assets, threats and consequences to support risk decisions.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "cyberrisk-h-03",
+    "difficulty": "hard",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "A team equates every possible threat with a confirmed incident. Why is that unsound?",
+    "options": [
+      "An asset becomes a threat whenever it is valuable",
+      "Only natural events qualify as threats in the lesson",
+      "Potential causes of harm are not proof that harm occurred",
+      "All threats require identical evidence and consequences"
+    ],
+    "answer": 2,
+    "explanation": "Threat identification concerns possibility; incident conclusions require evidence of actual events.",
+    "sourceSlides": [
+      16,
+      17
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "cyberrisk-h-04",
+    "difficulty": "hard",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "A rare event could stop an essential service; a frequent event causes minor inconvenience. What should be compared?",
+    "options": [
+      "Both likelihood and impact for each event",
+      "Frequency alone regardless of mission consequences",
+      "Only the purchase cost of the affected computers",
+      "The alphabetical order of the event names"
+    ],
+    "answer": 0,
+    "explanation": "Neither frequency nor impact alone settles risk; the assessment must consider both in context.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "cyberrisk-h-05",
+    "difficulty": "hard",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "A low technical finding count is presented as proof of low overall risk. Which challenge is strongest?",
+    "options": [
+      "People, process and mission consequences may still expose risk",
+      "Risk exists only when a scanner reports a numerical score",
+      "Updated software guarantees effective personnel procedures",
+      "Finding counts are always equivalent to mission impact"
+    ],
+    "answer": 0,
+    "explanation": "Technical findings are one input; broader exposure includes human, procedural and mission factors.",
+    "sourceSlides": [
+      16,
+      29
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "cyberrisk-h-06",
+    "difficulty": "hard",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "Isolation stops spread, but the team has not removed the malicious component. What is the sound status?",
+    "options": [
+      "Contained, with eradication still required",
+      "Fully recovered because network access was removed",
+      "Reviewed, with no further documentation needed",
+      "Prepared, with no incident ever identified"
+    ],
+    "answer": 0,
+    "explanation": "Containment limits spread without necessarily removing the cause; phases must not be collapsed into one.",
+    "sourceSlides": [
+      20,
+      21,
+      22
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "cyberrisk-h-07",
+    "difficulty": "hard",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "An affected service is restored from backup while the entry weakness remains. What concern should govern closure?",
+    "options": [
+      "The unresolved weakness permits recurrence",
+      "All further monitoring would invalidate the recovery",
+      "Restoration proves the original event was harmless",
+      "A backup automatically removes every possible weakness"
+    ],
+    "answer": 0,
+    "explanation": "Healthy restoration must be supported by removal or remediation of the cause and continued monitoring.",
+    "sourceSlides": [
+      22,
+      23
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "cyberrisk-h-08",
+    "difficulty": "hard",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "A review recommends clearer roles, but the next exercise repeats the same confusion. What failed?",
+    "options": [
+      "Containment can never be practiced in an exercise",
+      "Role clarity is unrelated to response effectiveness",
+      "Documentation alone proves every improvement was implemented",
+      "Lessons were not incorporated into preparation"
+    ],
+    "answer": 3,
+    "explanation": "Review must feed changes in readiness, procedures and training; recording a lesson is not implementing it.",
+    "sourceSlides": [
+      19,
+      24
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "cyberrisk-h-09",
+    "difficulty": "hard",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "A commander asks for a risk program, and the proposal contains only post-incident actions. What is the key limitation?",
+    "options": [
+      "It should remove preparation to shorten the proposal",
+      "It already covers every risk-management requirement",
+      "It contains too much asset and vulnerability analysis",
+      "Missing preventive assessment and risk treatment"
+    ],
+    "answer": 3,
+    "explanation": "Incident response is important but does not replace preventive risk assessment and treatment.",
+    "sourceSlides": [
+      18,
+      24
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "cyberrisk-h-10",
+    "difficulty": "hard",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "After apparent recovery, similar symptoms return. What is the most defensible assessment?",
+    "options": [
+      "Assume the first closure report makes recurrence impossible",
+      "Treat every symptom as proof of a new unrelated attacker",
+      "Reassess incident evidence and recovery effectiveness",
+      "Delete old records so the team starts without context"
+    ],
+    "answer": 2,
+    "explanation": "New evidence should inform identification, recovery checks and lessons rather than be dismissed by an earlier conclusion.",
+    "sourceSlides": [
+      20,
+      23,
+      24
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "cyberrisk-h-11",
+    "difficulty": "hard",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "Inventories are accurate and malware tools updated, but custom applications lack security review. What follows?",
+    "options": [
+      "Accurate inventory proves every application is secure",
+      "No further assessment is useful once devices are counted",
+      "Application risk remains despite other implemented controls",
+      "Malware updates replace application-security practices"
+    ],
+    "answer": 2,
+    "explanation": "The lesson's controls address different weaknesses; satisfying inventory and malware controls does not cover application design.",
+    "sourceSlides": [
+      25,
+      26
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "cyberrisk-h-12",
+    "difficulty": "hard",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "Backups restore correctly, yet privileged accounts are shared and unlogged. Which conclusion is best?",
+    "options": [
+      "Successful restoration proves account governance is adequate",
+      "Recovery does not resolve accountability gaps",
+      "Shared accounts improve attribution of administrator actions",
+      "Logging is unnecessary when backups are kept securely"
+    ],
+    "answer": 1,
+    "explanation": "Backup assurance and privileged-access accountability solve different problems and must both be addressed.",
+    "sourceSlides": [
+      26,
+      27
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "cyberrisk-h-13",
+    "difficulty": "hard",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "A perimeter firewall is the only planned safeguard. Which lesson-based criticism is strongest?",
+    "options": [
+      "It omits layered architecture, internal access and data controls",
+      "One boundary device necessarily implements all 20 controls",
+      "Secure engineering concerns only equipment purchase dates",
+      "Data protection ends once traffic crosses the perimeter"
+    ],
+    "answer": 0,
+    "explanation": "Boundary defense is one control area; need-to-know, secure engineering and data protection remain relevant.",
+    "sourceSlides": [
+      27,
+      28
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "cyberrisk-h-14",
+    "difficulty": "hard",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "An authorized assessment finds weaknesses but no owner tracks remediation. Which improvement matters most?",
+    "options": [
+      "Increase the number of findings without following them up",
+      "Replace remediation records with a tool purchase invoice",
+      "Treat testing authorization as proof that systems are secure",
+      "Assign corrective action and verify it through the process"
+    ],
+    "answer": 3,
+    "explanation": "Authorized testing supplies evidence; management must turn findings into implemented, verified correction.",
+    "sourceSlides": [
+      26,
+      28
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "cyberrisk-h-15",
+    "difficulty": "hard",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "A report labels the lesson's SANS 20 list as the newest universal control standard. What correction preserves accuracy?",
+    "options": [
+      "Treat all organizations as legally bound to that exact list",
+      "Remove every control because older material has no value",
+      "Claim the control count alone proves it is current",
+      "Identify it as the supplied lesson's legacy control list"
+    ],
+    "answer": 3,
+    "explanation": "The source can be studied without misrepresenting its version or claiming universal applicability.",
+    "sourceSlides": [
+      25,
+      26,
+      27,
+      28
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "cyberrisk-h-16",
+    "difficulty": "hard",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "People training is strong, procedures are missing and software is obsolete. What assessment is appropriate?",
+    "options": [
+      "Average them informally and declare every element strong",
+      "Separate strengths and gaps across all three PPT elements",
+      "Use training attendance to replace software assessment",
+      "Rate only the element with the most favorable evidence"
+    ],
+    "answer": 1,
+    "explanation": "PPT requires examining each element; strength in one does not erase weaknesses in others.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "cyberrisk-h-17",
+    "difficulty": "hard",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "Using only the lesson's stated bands, how should an exact 0% score be classified?",
+    "options": [
+      "Automatically Low because the slide explicitly includes zero",
+      "Automatically High because all unlisted values are High",
+      "Seek clarification because zero is not assigned a band",
+      "Automatically Medium because zero indicates uncertainty"
+    ],
+    "answer": 2,
+    "explanation": "The slide begins Low at 1%; assigning zero a band would invent a rule not supplied by the source.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "cyberrisk-h-18",
+    "difficulty": "hard",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "Which pair correctly applies the classroom scale's upper transition?",
+    "options": [
+      "50% High; 51% High",
+      "50% Medium; 51% High",
+      "50% Low; 51% Medium",
+      "50% Medium; 51% Medium"
+    ],
+    "answer": 1,
+    "explanation": "Medium ends at 50% and High starts at 51% in the lesson's whole-number examples.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "cyberrisk-h-19",
+    "difficulty": "hard",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "Two elements each have Risk Output 50%, but allocated points are 40 and 10. Which weighted results follow?",
+    "options": [
+      "50 and 50 points",
+      "20 and 5 points",
+      "90 and 60 points",
+      "40 and 10 points"
+    ],
+    "answer": 1,
+    "explanation": "Apply each stated weight separately: 50 × 40 / 100 = 20 and 50 × 10 / 100 = 5.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "cyberrisk-h-20",
+    "difficulty": "hard",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "A worksheet supplies only three percentages, with no defined weights or mapping. What should an evaluator avoid?",
+    "options": [
+      "Requesting the approved scoring instructions",
+      "Inventing allocated points to produce an authoritative total",
+      "Distinguishing raw inputs from weighted element results",
+      "Identifying the source's missing scoring assumptions"
+    ],
+    "answer": 1,
+    "explanation": "The formula needs defined inputs and allocated points; missing assumptions should be clarified rather than fabricated.",
+    "sourceSlides": [
+      30
+    ]
+  }
+]

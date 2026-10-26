@@ -9,12 +9,12 @@
     ],
     "prompt": "During planning, a commander proposes an action that could protect terrain but would disregard the safety of the population. Which correction best aligns the mission with the Army's legal basis?",
     "options": [
-      "Prioritize terrain because sovereignty excludes people",
       "Balance protection of the people and State with territorial security",
+      "Prioritize terrain because sovereignty excludes people",
       "Transfer all responsibility to law enforcement",
       "Delay any military action until every risk is eliminated"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "The mandate joins protection of the people and the State with sovereignty and territorial integrity; these are not competing obligations to be separated."
   },
   {
@@ -28,34 +28,16 @@
     ],
     "prompt": "A brigade synchronizes infantry, armor, field artillery, engineers, and aviation so their simultaneous effects overwhelm an enemy position. What is this?",
     "options": [
-      "Combined arms",
       "Unity of effort",
+      "Combined arms",
       "Economy of force",
       "Support to civil governance"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "Combined arms synchronizes Army-specific arms to achieve an effect greater than using them separately or in sequence."
   },
   {
     "id": 3,
-    "qid": "armyops-m-03",
-    "difficulty": "medium",
-    "category": "Constitutional Mandate and Platforms",
-    "tags": [
-      "operational platforms"
-    ],
-    "prompt": "A staff officer labels an Army–Air Force mission as combined arms. Which analysis is most accurate?",
-    "options": [
-      "Correct, because every multi-unit mission is combined arms",
-      "Incorrect; two services under one commander make it joint operations",
-      "Incorrect; the mission must be multinational",
-      "Correct only if civil agencies participate"
-    ],
-    "answer": 1,
-    "explanation": "Combined arms integrates Army-specific arms; forces from multiple services operate jointly."
-  },
-  {
-    "id": 4,
     "qid": "armyops-m-04",
     "difficulty": "medium",
     "category": "Full Spectrum Operations",
@@ -67,14 +49,14 @@
     "options": [
       "Offensive operation",
       "Peace operation",
-      "Community development support",
-      "Defensive operation"
+      "Defensive operation",
+      "Community development support"
     ],
-    "answer": 3,
+    "answer": 2,
     "explanation": "Those purposes define defensive operations in the source doctrine."
   },
   {
-    "id": 5,
+    "id": 4,
     "qid": "armyops-m-05",
     "difficulty": "medium",
     "category": "Offensive and Defensive Tasks",
@@ -84,16 +66,16 @@
     ],
     "prompt": "After breaching the enemy's main defense, the commander drives rapidly into rear areas to disorganize support and prevent recovery. Which task is this?",
     "options": [
-      "Exploitation",
       "Area defense",
       "Retrograde",
-      "Movement to contact"
+      "Movement to contact",
+      "Exploitation"
     ],
-    "answer": 0,
+    "answer": 3,
     "explanation": "Exploitation follows success to extend its effects, disrupt enemy depth, and prevent reorganization."
   },
   {
-    "id": 6,
+    "id": 5,
     "qid": "armyops-m-06",
     "difficulty": "medium",
     "category": "Offensive and Defensive Tasks",
@@ -103,16 +85,16 @@
     ],
     "prompt": "A commander employs concentrated combat power against a high-value enemy facility without intending to retain the location. Which primary offensive task best fits?",
     "options": [
+      "Strike",
       "Movement to contact",
       "Exploitation",
-      "Strike",
       "Area defense"
     ],
-    "answer": 2,
+    "answer": 0,
     "explanation": "A strike applies combat power against a target to achieve a specific effect without necessarily holding terrain."
   },
   {
-    "id": 7,
+    "id": 6,
     "qid": "armyops-m-07",
     "difficulty": "medium",
     "category": "Offensive and Defensive Tasks",
@@ -131,7 +113,7 @@
     "explanation": "Mobile defense combines a fixing force with a mobile striking force to destroy the attacker."
   },
   {
-    "id": 8,
+    "id": 7,
     "qid": "armyops-m-08",
     "difficulty": "medium",
     "category": "Support to Civil Governance",
@@ -142,69 +124,15 @@
     "prompt": "At the lawful request of authorities, troops provide perimeter security while police execute arrests. Which mission category is most direct?",
     "options": [
       "Command and control",
-      "Support to law enforcement operations",
       "Mobile defense",
+      "Support to law enforcement operations",
       "Peace operations"
     ],
-    "answer": 1,
+    "answer": 2,
     "explanation": "Assistance coordinated with police for lawful enforcement activity is support to law enforcement operations."
   },
   {
-    "id": 9,
-    "qid": "armyops-m-09",
-    "difficulty": "medium",
-    "category": "Support to Civil Governance",
-    "tags": [
-      "civil governance support"
-    ],
-    "prompt": "Troops assist environmental agencies in stopping illegal logging and rehabilitating a watershed. Which mission is being performed?",
-    "options": [
-      "Area defense",
-      "Non-critical support operations",
-      "Movement and maneuver",
-      "Support to environmental protection and development"
-    ],
-    "answer": 3,
-    "explanation": "Coordinated action to protect and develop the environment is a specific support-to-governance mission."
-  },
-  {
-    "id": 10,
-    "qid": "armyops-m-10",
-    "difficulty": "medium",
-    "category": "Tenets of Army Operations",
-    "tags": [
-      "initiative"
-    ],
-    "prompt": "During a defense, a commander blocks the enemy's first assault, then counterattacks before the enemy can reorganize. Which tenet is most clearly demonstrated?",
-    "options": [
-      "Initiative",
-      "Depth",
-      "Versatility",
-      "Simplicity"
-    ],
-    "answer": 0,
-    "explanation": "Initiative means dictating the terms of battle; in defense it includes denying enemy success and counterattacking to seize control of events."
-  },
-  {
-    "id": 11,
-    "qid": "armyops-m-11",
-    "difficulty": "medium",
-    "category": "Tenets of Army Operations",
-    "tags": [
-      "depth"
-    ],
-    "prompt": "A commander engages forward forces while also targeting uncommitted reserves and rear support facilities, keeping a friendly reserve ready. Which tenet is central?",
-    "options": [
-      "Synchronization",
-      "Restraint",
-      "Depth",
-      "Objective"
-    ],
-    "answer": 2,
-    "explanation": "Depth extends operations in space, time, purpose, and resources, including pressure on reserves and rear support while retaining friendly reserves."
-  },
-  {
-    "id": 12,
+    "id": 8,
     "qid": "armyops-m-12",
     "difficulty": "medium",
     "category": "Tenets of Army Operations",
@@ -215,74 +143,15 @@
     "prompt": "An enemy attack is halted. The commander counterattacks quickly, synchronizes all arms at the decisive point, and retains a reserve to exploit success. Which combination best explains the design?",
     "options": [
       "Restraint, legitimacy, and simplicity",
-      "Initiative, synchronization, and depth",
       "Versatility, civil support, and protection",
-      "Perseverance, economy of force, and surprise"
+      "Perseverance, economy of force, and surprise",
+      "Initiative, synchronization, and depth"
     ],
-    "answer": 1,
+    "answer": 3,
     "explanation": "The counterattack seizes initiative, coordinated arms at the decisive point show synchronization, and the retained reserve provides depth."
   },
   {
-    "id": 13,
-    "qid": "armyops-m-13",
-    "difficulty": "medium",
-    "category": "Army Power and Warfighting Functions",
-    "tags": [
-      "army power"
-    ],
-    "prompt": "A commander asks what combines destructive, constructive, and information capabilities that the formation can apply at a given time. Which concept answers the question?",
-    "options": [
-      "Operational reach",
-      "Army power",
-      "Unity of effort",
-      "Combined arms"
-    ],
-    "answer": 1,
-    "explanation": "Army power is the total potency a force generates through its capabilities, warfighting functions, leadership, and information."
-  },
-  {
-    "id": 14,
-    "qid": "armyops-m-26",
-    "difficulty": "medium",
-    "category": "Army Power and Warfighting Functions",
-    "tags": [
-      "information"
-    ],
-    "prompt": "A task force uses information as a weapon against hostile command and control and as a means to erode enemy morale, with effects that are both destructive and constructive. Which element that enhances Army power is being used?",
-    "options": [
-      "Sustainment",
-      "Movement and maneuver",
-      "Civil-military operations",
-      "Information"
-    ],
-    "answer": 3,
-    "explanation": "Information is a weapon against the enemy's command and control and a means to affect enemy morale; it is both destructive and constructive and enhances the warfighting functions.",
-    "sourceSlides": [
-      21,
-      24
-    ]
-  },
-  {
-    "id": 15,
-    "qid": "armyops-m-15",
-    "difficulty": "medium",
-    "category": "Army Power and Warfighting Functions",
-    "tags": [
-      "warfighting functions",
-      "intelligence"
-    ],
-    "prompt": "The staff integrates surveillance, terrain analysis, enemy capabilities, and civil considerations to help the commander understand the environment. Which function leads?",
-    "options": [
-      "Fires",
-      "Intelligence",
-      "Command and control",
-      "Information operations"
-    ],
-    "answer": 1,
-    "explanation": "Intelligence tasks and systems develop understanding of the operational environment, enemy, terrain, and civil considerations."
-  },
-  {
-    "id": 16,
+    "id": 9,
     "qid": "armyops-m-16",
     "difficulty": "medium",
     "category": "Army Power and Warfighting Functions",
@@ -292,16 +161,16 @@
     ],
     "prompt": "A unit coordinates with mayors and community leaders to build popular support and weaken an armed group's will to fight. Which function is most directly involved?",
     "options": [
+      "Civil-military operations",
       "Information operations",
       "Movement and maneuver",
-      "Command and control",
-      "Civil-military operations"
+      "Command and control"
     ],
-    "answer": 3,
+    "answer": 0,
     "explanation": "Civil-military operations are planned activities with civilian entities intended to gain popular support and weaken enemy will."
   },
   {
-    "id": 17,
+    "id": 10,
     "qid": "armyops-m-17",
     "difficulty": "medium",
     "category": "Army Power and Warfighting Functions",
@@ -311,16 +180,16 @@
     ],
     "prompt": "The staff synchronizes military and non-military capabilities to affect friendly, neutral, and adversarial decision-making while protecting friendly systems. Which function applies?",
     "options": [
-      "Information operations",
       "Intelligence",
+      "Information operations",
       "Protection",
       "Leadership"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "Information operations integrate selected military and non-military capabilities to influence decision systems while protecting one's own."
   },
   {
-    "id": 18,
+    "id": 11,
     "qid": "armyops-m-18",
     "difficulty": "medium",
     "category": "Army Power and Warfighting Functions",
@@ -339,25 +208,7 @@
     "explanation": "Command and control supports commanders in exercising authority and direction, managing information, and leading subordinates."
   },
   {
-    "id": 19,
-    "qid": "armyops-m-19",
-    "difficulty": "medium",
-    "category": "Principles of Army Operations",
-    "tags": [
-      "offensive"
-    ],
-    "prompt": "After gaining an advantage, a commander continues actions that force the enemy to react and preserves freedom of action. Which principle is most evident?",
-    "options": [
-      "Security",
-      "Perseverance",
-      "Offensive",
-      "Restraint"
-    ],
-    "answer": 2,
-    "explanation": "The principle of offensive is to seize, retain, and exploit the initiative, dictating the nature, scope, and tempo of operations."
-  },
-  {
-    "id": 20,
+    "id": 12,
     "qid": "armyops-m-20",
     "difficulty": "medium",
     "category": "Principles of Army Operations",
@@ -375,7 +226,7 @@
     "explanation": "Economy of force allocates minimum essential combat power to secondary efforts to enable overwhelming effects at the decisive operation."
   },
   {
-    "id": 21,
+    "id": 13,
     "qid": "armyops-m-21",
     "difficulty": "medium",
     "category": "Principles of Army Operations",
@@ -394,61 +245,7 @@
     "explanation": "When a common commander is not possible in joint, multinational, or interagency work, leaders seek unity of effort toward the common objective."
   },
   {
-    "id": 22,
-    "qid": "armyops-m-22",
-    "difficulty": "medium",
-    "category": "Principles of Army Operations",
-    "tags": [
-      "security"
-    ],
-    "prompt": "A commander uses deception, protects critical information, and accepts only calculated risks to prevent the enemy gaining an unexpected advantage. Which principle dominates?",
-    "options": [
-      "Surprise",
-      "Simplicity",
-      "Security",
-      "Legitimacy"
-    ],
-    "answer": 2,
-    "explanation": "Security prevents the enemy from acquiring unexpected advantage while preserving combat power and permitting calculated risk."
-  },
-  {
-    "id": 23,
-    "qid": "armyops-m-23",
-    "difficulty": "medium",
-    "category": "Principles of Army Operations",
-    "tags": [
-      "legitimacy"
-    ],
-    "prompt": "A tactically useful course would violate Philippine law and damage public acceptance. Which principle requires its rejection?",
-    "options": [
-      "Security",
-      "Economy of force",
-      "Legitimacy",
-      "Initiative"
-    ],
-    "answer": 2,
-    "explanation": "Legitimacy requires operations to follow Philippine and international law and to develop or reinforce authority and acceptance."
-  },
-  {
-    "id": 24,
-    "qid": "armyops-m-24",
-    "difficulty": "medium",
-    "category": "Principles of Army Operations",
-    "tags": [
-      "restraint"
-    ],
-    "prompt": "Troops can use greater force, but doing so would create unnecessary collateral damage and undermine the strategic end state. Which principle calls for disciplined limitation?",
-    "options": [
-      "Mass",
-      "Offensive",
-      "Unity of command",
-      "Restraint"
-    ],
-    "answer": 3,
-    "explanation": "Restraint limits collateral damage and unnecessary force while balancing security, operations, the strategic end state, and self-defense."
-  },
-  {
-    "id": 25,
+    "id": 14,
     "qid": "armyops-m-25",
     "difficulty": "medium",
     "category": "Principles of Army Operations",
@@ -458,16 +255,16 @@
     ],
     "prompt": "During civil support, a commander applies only necessary force, follows domestic and international law, and keeps the population's confidence. Which pair of principles is most directly balanced?",
     "options": [
-      "Legitimacy and restraint",
       "Mass and offensive",
+      "Legitimacy and restraint",
       "Security and surprise",
       "Objective and maneuver"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "Legitimacy preserves lawful authority and acceptance; restraint prevents unnecessary force and collateral damage."
   },
   {
-    "id": 26,
+    "id": 15,
     "qid": "armyops-m-27",
     "difficulty": "medium",
     "category": "Constitutional Mandate and Platforms",
@@ -490,7 +287,7 @@
     ]
   },
   {
-    "id": 27,
+    "id": 16,
     "qid": "armyops-m-28",
     "difficulty": "medium",
     "category": "Full Spectrum Operations",
@@ -512,7 +309,7 @@
     ]
   },
   {
-    "id": 28,
+    "id": 17,
     "qid": "armyops-m-29",
     "difficulty": "medium",
     "category": "Full Spectrum Operations",
@@ -534,7 +331,7 @@
     ]
   },
   {
-    "id": 29,
+    "id": 18,
     "qid": "armyops-m-30",
     "difficulty": "medium",
     "category": "Support to Civil Governance",
@@ -557,7 +354,7 @@
     ]
   },
   {
-    "id": 30,
+    "id": 19,
     "qid": "armyops-m-31",
     "difficulty": "medium",
     "category": "Principles of Army Operations",
@@ -579,7 +376,7 @@
     ]
   },
   {
-    "id": 31,
+    "id": 20,
     "qid": "armyops-m-32",
     "difficulty": "medium",
     "category": "Tenets of Army Operations",
@@ -601,7 +398,7 @@
     ]
   },
   {
-    "id": 32,
+    "id": 21,
     "qid": "armyops-m-33",
     "difficulty": "medium",
     "category": "Tenets of Army Operations",
@@ -623,7 +420,7 @@
     ]
   },
   {
-    "id": 33,
+    "id": 22,
     "qid": "armyops-m-34",
     "difficulty": "medium",
     "category": "Tenets of Army Operations",
@@ -645,7 +442,7 @@
     ]
   },
   {
-    "id": 34,
+    "id": 23,
     "qid": "armyops-m-35",
     "difficulty": "medium",
     "category": "Tenets of Army Operations",
@@ -667,52 +464,7 @@
     ]
   },
   {
-    "id": 35,
-    "qid": "armyops-m-36",
-    "difficulty": "medium",
-    "category": "Tenets of Army Operations",
-    "tags": [
-      "depth",
-      "definition"
-    ],
-    "prompt": "Which tenet is defined as the extension of operations in space, time, purpose, and resources?",
-    "options": [
-      "Synchronization",
-      "Agility",
-      "Versatility",
-      "Depth"
-    ],
-    "answer": 3,
-    "explanation": "Depth is the extension of operations in space, time, purpose, and resources; its goal is momentum in the attack and elasticity in the defense.",
-    "sourceSlides": [
-      18
-    ]
-  },
-  {
-    "id": 36,
-    "qid": "armyops-m-37",
-    "difficulty": "medium",
-    "category": "Army Power and Warfighting Functions",
-    "tags": [
-      "army power",
-      "definition"
-    ],
-    "prompt": "According to the lesson, how are the elements of Army power related to one another?",
-    "options": [
-      "Eight warfighting functions tied together by leadership and enhanced by information",
-      "Eight warfighting functions tied together by information and enhanced by leadership",
-      "Five tenets tied together by leadership and enhanced by synchronization",
-      "Twelve principles tied together by command and control and enhanced by fires"
-    ],
-    "answer": 0,
-    "explanation": "Army power consists of eight warfighting functions tied together by leadership and enhanced by information; leadership is the multiplying and unifying element.",
-    "sourceSlides": [
-      21,
-      22
-    ]
-  },
-  {
-    "id": 37,
+    "id": 24,
     "qid": "armyops-m-38",
     "difficulty": "medium",
     "category": "Army Power and Warfighting Functions",
@@ -723,18 +475,18 @@
     "prompt": "Why is Information treated as an element of Army power in the lesson?",
     "options": [
       "It is the process of influencing soldiers through purpose, direction, and motivation",
-      "It is a weapon against enemy command and control and a means to affect enemy morale",
       "It is the set of ISR tasks that helps the commander understand terrain and civilians",
-      "It is the set of tasks that preserves the force so maximum power can be applied"
+      "It is the set of tasks that preserves the force so maximum power can be applied",
+      "It is a weapon against enemy command and control and a means to affect enemy morale"
     ],
-    "answer": 1,
+    "answer": 3,
     "explanation": "Information is a weapon against the enemy's command and control and a means to affect enemy morale; it is both destructive and constructive. The distractors describe leadership, intelligence, and protection.",
     "sourceSlides": [
       24
     ]
   },
   {
-    "id": 38,
+    "id": 25,
     "qid": "armyops-m-39",
     "difficulty": "medium",
     "category": "Army Power and Warfighting Functions",
@@ -744,41 +496,19 @@
     ],
     "prompt": "Which statement about the Movement and Maneuver warfighting function is consistent with the lesson?",
     "options": [
+      "It excludes administrative movements of personnel and materiel",
       "It covers every movement of personnel and materiel, tactical or administrative",
       "It preserves the force so that the commander can apply maximum Army power",
-      "It excludes administrative movements of personnel and materiel",
       "It provides support and services that prolong the endurance of the force"
     ],
-    "answer": 2,
+    "answer": 0,
     "explanation": "Movement and maneuver moves forces to a position of advantage over the enemy, including related force projection tasks, but does not include administrative movements. The other options describe protection and sustainment.",
     "sourceSlides": [
       26
     ]
   },
   {
-    "id": 39,
-    "qid": "armyops-m-40",
-    "difficulty": "medium",
-    "category": "Army Power and Warfighting Functions",
-    "tags": [
-      "warfighting functions",
-      "command and control"
-    ],
-    "prompt": "Which group of tasks belongs to the Command and Control warfighting function?",
-    "options": [
-      "Intelligence, surveillance, and reconnaissance tasks driven by the commander",
-      "Force projection tasks related to gaining a positional advantage over an enemy",
-      "Integrating and synchronizing the effects of fires and command and control warfare",
-      "Acquiring friendly information, managing relevant information, and leading subordinates"
-    ],
-    "answer": 3,
-    "explanation": "Command and control supports commanders in exercising authority and direction, including acquiring friendly information, managing relevant information, and directing and leading subordinates. The distractors belong to intelligence, movement and maneuver, and fires.",
-    "sourceSlides": [
-      32
-    ]
-  },
-  {
-    "id": 40,
+    "id": 26,
     "qid": "armyops-m-41",
     "difficulty": "medium",
     "category": "Army Power and Warfighting Functions",
@@ -788,19 +518,19 @@
     ],
     "prompt": "Why is the Sustainment warfighting function critical to Army operations, according to the lesson?",
     "options": [
-      "It determines the depth and duration of Army operations",
       "It determines the degree of simplicity required in plans",
+      "It determines the depth and duration of Army operations",
       "It ties all of the warfighting functions together into Army power",
       "It directs all forces under one commander toward a common objective"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "Sustainment provides support and services that ensure freedom of action, extend operational reach, and prolong endurance; it determines the depth and duration of Army operations.",
     "sourceSlides": [
       31
     ]
   },
   {
-    "id": 41,
+    "id": 27,
     "qid": "armyops-m-42",
     "difficulty": "medium",
     "category": "Army Power and Warfighting Functions",
@@ -811,18 +541,18 @@
     "prompt": "Which statement about the Fires warfighting function is consistent with the lesson?",
     "options": [
       "It is limited to lethal Army indirect fires delivered by field artillery units",
-      "It includes command and control warfare and non-lethal fires, coordinated through targeting",
       "It excludes joint fires, which fall under the Protection warfighting function",
+      "It includes command and control warfare and non-lethal fires, coordinated through targeting",
       "It covers the movement of forces to gain a position of advantage over the enemy"
     ],
-    "answer": 1,
+    "answer": 2,
     "explanation": "Fires provides the collective and coordinated use of Army indirect fires, joint fires, and command and control warfare, including non-lethal fires, through the targeting process.",
     "sourceSlides": [
       28
     ]
   },
   {
-    "id": 42,
+    "id": 28,
     "qid": "armyops-m-43",
     "difficulty": "medium",
     "category": "Army Power and Warfighting Functions",
@@ -834,17 +564,17 @@
     "options": [
       "It is driven by the intelligence staff apart from the commander's needs",
       "It covers enemy forces only, leaving out terrain and civil considerations",
-      "It includes ISR tasks and is driven by the commander",
-      "It integrates military and non-military capabilities to sway decisions"
+      "It integrates military and non-military capabilities to sway decisions",
+      "It includes ISR tasks and is driven by the commander"
     ],
-    "answer": 2,
+    "answer": 3,
     "explanation": "Intelligence facilitates understanding of the operational environment, enemy, terrain, and civil considerations; it includes ISR tasks and is driven by the commander.",
     "sourceSlides": [
       27
     ]
   },
   {
-    "id": 43,
+    "id": 29,
     "qid": "armyops-m-44",
     "difficulty": "medium",
     "category": "Principles of Army Operations",
@@ -854,19 +584,19 @@
     ],
     "prompt": "What do the principles of Army operations represent?",
     "options": [
+      "The most important non-physical factors affecting operations at the strategic, operational, and tactical levels",
       "The total destructive, constructive, and information capabilities that a unit or formation can apply at a given time",
       "Groups of tasks and systems united by a common purpose that commanders use to accomplish missions",
-      "The combat and civil missions that together make up the elements of full spectrum operations",
-      "The most important non-physical factors affecting operations at the strategic, operational, and tactical levels"
+      "The combat and civil missions that together make up the elements of full spectrum operations"
     ],
-    "answer": 3,
+    "answer": 0,
     "explanation": "The principles represent the most important non-physical factors affecting operations at all three levels; they summarize characteristics of successful operations and are powerful tools for analysis. The distractors describe Army power, warfighting functions, and full spectrum operations.",
     "sourceSlides": [
       34
     ]
   },
   {
-    "id": 44,
+    "id": 30,
     "qid": "armyops-m-45",
     "difficulty": "medium",
     "category": "Principles of Army Operations",
@@ -876,19 +606,19 @@
     ],
     "prompt": "Before writing the order for a cordon operation, the battalion S3 weighs the mission, enemy, terrain, troops, time available, and civil considerations to decide how detailed the plan should be. According to the lesson, the degree of which principle is METT-TC determining here?",
     "options": [
-      "Simplicity",
       "Objective",
+      "Simplicity",
       "Security",
       "Economy of Force"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "The principle of simplicity calls for clear, uncomplicated plans and concise orders, and the lesson states that METT-TC determines the degree of simplicity.",
     "sourceSlides": [
       44
     ]
   },
   {
-    "id": 45,
+    "id": 31,
     "qid": "armyops-m-46",
     "difficulty": "medium",
     "category": "Principles of Army Operations",
@@ -899,18 +629,18 @@
     "prompt": "Which statement correctly reflects the principle of unity of command?",
     "options": [
       "Every military operation is directed toward a clearly defined, decisive, and attainable objective",
-      "One commander directs all forces toward a common objective; absent one, unity of effort is sought",
       "Clear, uncomplicated plans and concise orders are prepared to ensure thorough understanding",
+      "One commander directs all forces toward a common objective; absent one, unity of effort is sought",
       "The enemy is never permitted to acquire an unexpected advantage over the friendly force"
     ],
-    "answer": 1,
+    "answer": 2,
     "explanation": "Unity of command: a single commander directs all actions of all forces toward a common objective, following the nested concept; where no common commander exists (joint, multinational, interagency), unity of effort is required. The distractors are objective, simplicity, and security.",
     "sourceSlides": [
       41
     ]
   },
   {
-    "id": 46,
+    "id": 32,
     "qid": "armyops-m-47",
     "difficulty": "medium",
     "category": "Principles of Army Operations",
@@ -922,17 +652,17 @@
     "options": [
       "Simplicity",
       "Legitimacy",
-      "Security",
-      "Unity of Command"
+      "Unity of Command",
+      "Security"
     ],
-    "answer": 2,
+    "answer": 3,
     "explanation": "Under the principle of security (never permit the enemy to acquire unexpected advantage), the lesson states that military deception greatly enhances security.",
     "sourceSlides": [
       42
     ]
   },
   {
-    "id": 47,
+    "id": 33,
     "qid": "armyops-m-48",
     "difficulty": "medium",
     "category": "Principles of Army Operations",
@@ -942,19 +672,19 @@
     ],
     "prompt": "Which principle is described as concentrating and dispersing combat power, keeping the enemy off balance, reducing cost, and providing flexibility?",
     "options": [
+      "Maneuver",
       "Mass",
       "Economy of Force",
-      "Offensive",
-      "Maneuver"
+      "Offensive"
     ],
-    "answer": 3,
+    "answer": 0,
     "explanation": "Maneuver places the enemy in a disadvantaged position through the flexible application of combat power; it concentrates and disperses combat power, keeps the enemy off balance, reduces cost, and provides flexibility.",
     "sourceSlides": [
       40
     ]
   },
   {
-    "id": 48,
+    "id": 34,
     "qid": "armyops-m-49",
     "difficulty": "medium",
     "category": "Principles of Army Operations",
@@ -964,19 +694,19 @@
     ],
     "prompt": "Which principle requires a careful and disciplined balance of security, the conduct of military operations, and the desired strategic end state, consistent with the inherent right of self-defense?",
     "options": [
-      "Restraint",
       "Legitimacy",
+      "Restraint",
       "Security",
       "Perseverance"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "Restraint limits collateral damage and prevents unnecessary use of force; it requires disciplined balancing of security, operations, and the strategic end state and is consistent with the inherent right of self-defense.",
     "sourceSlides": [
       47
     ]
   },
   {
-    "id": 49,
+    "id": 35,
     "qid": "armyops-m-50",
     "difficulty": "medium",
     "category": "Principles of Army Operations",
@@ -987,11 +717,11 @@
     "prompt": "For several weeks, a company spends its patrol days on tasks that look productive but contribute nothing to the battalion commander's goals. Which principle of Army operations is being compromised?",
     "options": [
       "Simplicity",
-      "Objective",
       "Perseverance",
+      "Objective",
       "Mass"
     ],
-    "answer": 1,
+    "answer": 2,
     "explanation": "At the operational and tactical levels, the principle of objective requires that all actions contribute to the higher commander's goals.",
     "sourceSlides": [
       36

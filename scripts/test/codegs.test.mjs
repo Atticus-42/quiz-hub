@@ -6,7 +6,7 @@ import { ROOT } from '../build.mjs';
 import { test, plain, loadCodeGs, FakeSheet } from './harness.mjs';
 
 const OLD_HEADERS = ['Received', 'Name', 'Mode', 'Score', 'Total', 'Percent', 'Band', 'Finished'];
-const TABS = { isr: 'History', armor: 'Armor History', fieldartillery: 'Field Artillery History', armyops: 'Army Operations History', signal: 'Signal Support History', signaljoint: 'Signal Joint Operations History', coalition: 'Signal Coalition Operations History', combined: 'Combined Exam History', modulethree: 'Module 3 Exam History', intcycle: 'Intelligence Cycle History', rdf: 'RDF History', sigint: 'SIGINT History' };
+const TABS = { isr: 'History', armor: 'Armor History', fieldartillery: 'Field Artillery History', armyops: 'Army Operations History', signal: 'Signal Support History', signaljoint: 'Signal Joint Operations History', coalition: 'Signal Coalition Operations History', combined: 'Combined Exam History', modulethree: 'Module 3 Exam History', intcycle: 'Intelligence Cycle History', rdf: 'RDF History', sigint: 'SIGINT History', manet: 'MANET History', sensors: 'Sensors Integration History', weapons: 'Weapon System Integration History', nist: 'NIST Framework History', zerotrust: 'Zero Trust History', gsomia: 'GSOMIA History', cyberrisk: 'Cyber Risk Assessment History' };
 
 export async function codeGsSuite() {
   const source = readFileSync(join(ROOT, 'apps-script', 'Code.gs'), 'utf8');

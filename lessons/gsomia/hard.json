@@ -1,0 +1,458 @@
+[
+  {
+    "id": 1,
+    "qid": "gsomia-h-01",
+    "difficulty": "hard",
+    "category": "Agreement and Governance",
+    "tags": [
+      "agreement and governance"
+    ],
+    "prompt": "Two partners use different release rules. A shared project deadline is near. Which conclusion is defensible?",
+    "options": [
+      "Assume the common project gives everyone equal access",
+      "Treat the deadline as automatic permission to release",
+      "Resolve the applicable release rules before sharing files",
+      "Use the less restrictive rule because cooperation is the goal"
+    ],
+    "answer": 2,
+    "explanation": "Cooperation does not settle conflicting release authority; the governing arrangements must be confirmed.",
+    "sourceSlides": [
+      20,
+      25,
+      36
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "gsomia-h-02",
+    "difficulty": "hard",
+    "category": "Agreement and Governance",
+    "tags": [
+      "agreement and governance"
+    ],
+    "prompt": "A transfer is confidential and unaltered, but delivered to an unauthorized partner. How should it be judged?",
+    "options": [
+      "Cryptographic success did not establish authorized sharing",
+      "Encryption alone makes the transfer fully compliant",
+      "Partner familiarity outweighs the agreed release process",
+      "Integrity protection removes recipient restrictions"
+    ],
+    "answer": 0,
+    "explanation": "Protecting data technically is different from authorizing its disclosure to a particular entity.",
+    "sourceSlides": [
+      23,
+      24
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "gsomia-h-03",
+    "difficulty": "hard",
+    "category": "Agreement and Governance",
+    "tags": [
+      "agreement and governance"
+    ],
+    "prompt": "A unit passes an audit, then introduces a new information-sharing service. Which inference is weakest?",
+    "options": [
+      "The change may require revised protection measures",
+      "Updated procedures may need staff communication",
+      "The earlier audit proves the new service is compliant",
+      "The new service should enter ongoing review"
+    ],
+    "answer": 2,
+    "explanation": "An audit addresses assessed conditions; it does not automatically validate later changes.",
+    "sourceSlides": [
+      29,
+      40,
+      46
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "gsomia-h-04",
+    "difficulty": "hard",
+    "category": "Agreement and Governance",
+    "tags": [
+      "agreement and governance"
+    ],
+    "prompt": "A policy was revised but most staff use an obsolete copy. Which evidence best demonstrates correction?",
+    "options": [
+      "A count of how many old copies were originally printed",
+      "A promise that future users will find it somehow",
+      "The date the new file was saved on one laptop",
+      "Controlled current copies and verified staff adoption"
+    ],
+    "answer": 3,
+    "explanation": "Effective governance requires implemented, understood procedures, not merely creation of a newer document.",
+    "sourceSlides": [
+      25,
+      41,
+      46
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "gsomia-h-05",
+    "difficulty": "hard",
+    "category": "Agreement and Governance",
+    "tags": [
+      "agreement and governance"
+    ],
+    "prompt": "A report was changed without authorization, yet nobody outside the unit read it. Which assessment is best?",
+    "options": [
+      "No security issue exists unless outsiders read it",
+      "The change is acceptable if the original author is absent",
+      "All confidentiality controls must therefore have failed",
+      "An integrity issue remains despite no known disclosure"
+    ],
+    "answer": 3,
+    "explanation": "Integrity and confidentiality are distinct; lack of known disclosure does not excuse unauthorized modification.",
+    "sourceSlides": [
+      23,
+      25
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "gsomia-h-06",
+    "difficulty": "hard",
+    "category": "Classification and Handling",
+    "tags": [
+      "classification and handling"
+    ],
+    "prompt": "A reviewer suggests removing markings to make a file easier to share. Why is this unsound?",
+    "options": [
+      "Any format conversion automatically cancels handling restrictions",
+      "Removing markings cannot itself authorize disclosure of the file",
+      "Classification depends exclusively on the printed cover page",
+      "Unmarked files become approved for every transmission channel"
+    ],
+    "answer": 1,
+    "explanation": "Markings communicate requirements; altering them does not independently authorize a change in protection or release.",
+    "sourceSlides": [
+      21,
+      30,
+      31
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "gsomia-h-07",
+    "difficulty": "hard",
+    "category": "Classification and Handling",
+    "tags": [
+      "classification and handling"
+    ],
+    "prompt": "A storage migration is complete, but old media remain readable in a disposal pile. What is the unresolved risk?",
+    "options": [
+      "The new storage cannot function until the old drives are reused",
+      "The transfer records are irrelevant once the new copy opens",
+      "Information can still be recovered from the old copies",
+      "The classification of all new files has automatically increased"
+    ],
+    "answer": 2,
+    "explanation": "Protection spans the information lifecycle, including old copies and media after migration.",
+    "sourceSlides": [
+      31,
+      32
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "gsomia-h-08",
+    "difficulty": "hard",
+    "category": "Classification and Handling",
+    "tags": [
+      "classification and handling"
+    ],
+    "prompt": "A file uses approved encryption, but visitors can open the logged-in terminal. Which assessment fits?",
+    "options": [
+      "Encryption compensates for all local access weaknesses",
+      "The only remaining issue is transmission bandwidth",
+      "The file is safe because its network packets are unreadable",
+      "Physical and access controls still leave exposure"
+    ],
+    "answer": 3,
+    "explanation": "Security measures must work together; protected transmission cannot compensate for uncontrolled endpoint access.",
+    "sourceSlides": [
+      31,
+      37,
+      45
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "gsomia-h-09",
+    "difficulty": "hard",
+    "category": "Classification and Handling",
+    "tags": [
+      "classification and handling"
+    ],
+    "prompt": "An archive contains records with different handling requirements. Which design principle is strongest?",
+    "options": [
+      "Apply appropriate controls to each information category",
+      "Use the least restrictive category for the entire archive",
+      "Erase the distinctions to simplify staff training",
+      "Allow each user to choose the category before opening"
+    ],
+    "answer": 0,
+    "explanation": "Classification and handling requirements must remain meaningful across storage, retrieval and access decisions.",
+    "sourceSlides": [
+      21,
+      31,
+      41
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "gsomia-h-10",
+    "difficulty": "hard",
+    "category": "Classification and Handling",
+    "tags": [
+      "classification and handling"
+    ],
+    "prompt": "A disposal checklist is signed, but no one can show how recovery was prevented. What should assurance examine?",
+    "options": [
+      "Whether the deleted files had convenient short names",
+      "Only whether the storage room now looks less crowded",
+      "Only whether the signature is written in blue ink",
+      "Whether the approved disposal process was actually effective"
+    ],
+    "answer": 3,
+    "explanation": "A completed checklist is not sufficient evidence if the substantive disposal objective remains unverified.",
+    "sourceSlides": [
+      32,
+      40
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "gsomia-h-11",
+    "difficulty": "hard",
+    "category": "Access and Sharing",
+    "tags": [
+      "access and sharing"
+    ],
+    "prompt": "A senior, cleared partner liaison has broad system access but no duty requiring a particular file. Which rule controls?",
+    "options": [
+      "Verify the recipient’s need-to-know and release authority",
+      "Seniority overrides role and recipient restrictions",
+      "Existing login access authorizes every possible disclosure",
+      "Partner liaison status makes all information releasable"
+    ],
+    "answer": 0,
+    "explanation": "Identity, clearance, duty and authorized sharing are separate conditions; broad technical access is not blanket permission.",
+    "sourceSlides": [
+      22,
+      34,
+      36
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "gsomia-h-12",
+    "difficulty": "hard",
+    "category": "Access and Sharing",
+    "tags": [
+      "access and sharing"
+    ],
+    "prompt": "Role permissions are correct, but shared accounts prevent attributing accesses. What remains deficient?",
+    "options": [
+      "The number of roles listed in the organization chart",
+      "The physical dimensions of the storage equipment",
+      "Accountability supported by meaningful access records",
+      "The existence of a common subject heading for files"
+    ],
+    "answer": 2,
+    "explanation": "Appropriate permissions do not by themselves establish who performed an access; records must support accountability.",
+    "sourceSlides": [
+      34,
+      35
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "gsomia-h-13",
+    "difficulty": "hard",
+    "category": "Access and Sharing",
+    "tags": [
+      "access and sharing"
+    ],
+    "prompt": "A sharing log names the recipient but omits authorization and purpose. Which improvement is most useful?",
+    "options": [
+      "Record enough context to establish legitimate exchange",
+      "Replace the recipient field with the sender's nickname",
+      "Keep only the file size because it is objective",
+      "Remove timestamps to simplify future reviews"
+    ],
+    "answer": 0,
+    "explanation": "Exchange records should support a review of authorized access and legitimate purpose, not merely count transfers.",
+    "sourceSlides": [
+      26,
+      35,
+      36
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "gsomia-h-14",
+    "difficulty": "hard",
+    "category": "Access and Sharing",
+    "tags": [
+      "access and sharing"
+    ],
+    "prompt": "Vetting, role controls and monitoring are proposed as alternatives. Which design is better supported?",
+    "options": [
+      "Choose vetting and eliminate all later access reviews",
+      "Use them as complementary layers addressing different risks",
+      "Choose job titles and remove personnel suitability checks",
+      "Choose logging and give all users unrestricted permissions"
+    ],
+    "answer": 1,
+    "explanation": "The lesson's controls address suitability, authorized duties and observed activity; none alone covers all three.",
+    "sourceSlides": [
+      33,
+      34,
+      35
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "gsomia-h-15",
+    "difficulty": "hard",
+    "category": "Access and Sharing",
+    "tags": [
+      "access and sharing"
+    ],
+    "prompt": "A temporary assignment ends, but access and training records still reflect it. Which response best closes the gap?",
+    "options": [
+      "Assume prior training supplies a permanent need-to-know",
+      "Delete the training record and retain the extra permissions",
+      "Align permissions with current responsibilities",
+      "Leave temporary rights active until the next promotion"
+    ],
+    "answer": 2,
+    "explanation": "Access should follow current roles and legitimate need; records and guidance must remain aligned with duties.",
+    "sourceSlides": [
+      22,
+      34,
+      42
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "gsomia-h-16",
+    "difficulty": "hard",
+    "category": "Incident Response and Assurance",
+    "tags": [
+      "incident response and assurance"
+    ],
+    "prompt": "Evidence suggests exposure, but the affected data set is still uncertain. Which response avoids both delay and overclaiming?",
+    "options": [
+      "Delete uncertain evidence so the report appears consistent",
+      "Report facts and uncertainty promptly",
+      "Announce a confirmed breach of every system without evidence",
+      "Wait for absolute certainty before alerting any authority"
+    ],
+    "answer": 1,
+    "explanation": "Prompt reporting can state uncertainty accurately; containment and investigation refine the facts.",
+    "sourceSlides": [
+      27,
+      38,
+      39
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "gsomia-h-17",
+    "difficulty": "hard",
+    "category": "Incident Response and Assurance",
+    "tags": [
+      "incident response and assurance"
+    ],
+    "prompt": "Recovery succeeds, but the root cause remains unexplained. Which closure decision is best?",
+    "options": [
+      "Retain corrective follow-up and investigate the underlying cause",
+      "Declare recovery proof that no procedural problem existed",
+      "Remove incident records to avoid revisiting the event",
+      "Cancel the next audit because service has been restored"
+    ],
+    "answer": 0,
+    "explanation": "Service restoration and prevention of recurrence are different objectives; lessons learned require causal follow-up.",
+    "sourceSlides": [
+      38,
+      39,
+      46
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "gsomia-h-18",
+    "difficulty": "hard",
+    "category": "Incident Response and Assurance",
+    "tags": [
+      "incident response and assurance"
+    ],
+    "prompt": "An audit repeatedly finds the same handling errors despite annual briefings. What should change?",
+    "options": [
+      "Increase attendance counts without examining actual practice",
+      "Assume repeated errors prove training can never help",
+      "Replace the finding with a statement that everyone was briefed",
+      "Use role-focused remediation and verify changed behavior"
+    ],
+    "answer": 3,
+    "explanation": "Repeated failures call for targeted correction and evidence of effectiveness, not attendance alone.",
+    "sourceSlides": [
+      40,
+      42,
+      46
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "gsomia-h-19",
+    "difficulty": "hard",
+    "category": "Incident Response and Assurance",
+    "tags": [
+      "incident response and assurance"
+    ],
+    "prompt": "Network controls are strong but staff avoid reporting mistakes for fear of embarrassment. What weakness remains?",
+    "options": [
+      "The strength of encryption guarantees immediate reporting",
+      "Security culture may delay detection and response",
+      "Physical locks alone resolve reluctance to report",
+      "The system has no risk because tools are installed"
+    ],
+    "answer": 1,
+    "explanation": "A security-conscious culture supports timely reporting; technical controls cannot substitute for it.",
+    "sourceSlides": [
+      43,
+      44,
+      45
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "gsomia-h-20",
+    "difficulty": "hard",
+    "category": "Incident Response and Assurance",
+    "tags": [
+      "incident response and assurance"
+    ],
+    "prompt": "Which result best demonstrates a complete improvement loop after an incident?",
+    "options": [
+      "The team purchases a tool unrelated to the identified cause",
+      "Implemented, verified corrective controls",
+      "A new policy is announced but nobody checks its use",
+      "An incident report is filed without assigned corrective action"
+    ],
+    "answer": 1,
+    "explanation": "The lesson links incident lessons, audits, policy updates and follow-up into continuing security improvement.",
+    "sourceSlides": [
+      29,
+      39,
+      40,
+      46
+    ]
+  }
+]

@@ -1,0 +1,528 @@
+[
+  {
+    "id": 1,
+    "qid": "zerotrust-e-01",
+    "difficulty": "easy",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "What is the central change described by Zero Trust?",
+    "options": [
+      "Focus on resources rather than implicit perimeter trust",
+      "Focus on larger perimeter firewalls alone",
+      "Authorize all users once they enter the building",
+      "Trust every organization-owned device automatically"
+    ],
+    "answer": 0,
+    "explanation": "Zero Trust removes automatic trust based on location or ownership and evaluates access to resources.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "zerotrust-e-02",
+    "difficulty": "easy",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "What distinguishes ZTA from the Zero Trust concept?",
+    "options": [
+      "ZTA is a specific commercial appliance",
+      "ZTA is the enterprise architecture plan",
+      "ZTA is a permanent approval for trusted users",
+      "ZTA is the physical network cable layout only"
+    ],
+    "answer": 1,
+    "explanation": "The lesson distinguishes the concept, the architecture plan built on it, and the resulting enterprise implementation.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "zerotrust-e-03",
+    "difficulty": "easy",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "What does 'assume breach' mean in the lesson?",
+    "options": [
+      "Plan as if an attacker may already be inside",
+      "Ignore protections outside the perimeter",
+      "Disable all services permanently",
+      "Declare every staff member an attacker"
+    ],
+    "answer": 0,
+    "explanation": "Assume breach is a design stance that limits reliance on internal location as evidence of safety.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "zerotrust-e-04",
+    "difficulty": "easy",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "What does least privilege require?",
+    "options": [
+      "Only the access needed for the task",
+      "All access held by the user's supervisor",
+      "The same access for every account",
+      "Permanent access to every internal resource"
+    ],
+    "answer": 0,
+    "explanation": "Least privilege limits permissions to the legitimate need instead of granting broad access by default.",
+    "sourceSlides": [
+      20,
+      21
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "zerotrust-e-05",
+    "difficulty": "easy",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "Which statement is one of the seven tenets?",
+    "options": [
+      "Collect telemetry only after a breach",
+      "Ownership establishes permanent trust",
+      "Secure communications regardless of location",
+      "Internal traffic needs no protection"
+    ],
+    "answer": 2,
+    "explanation": "The tenets require secure communications even inside organizational networks; internal location is not a security exemption.",
+    "sourceSlides": [
+      21
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "zerotrust-e-06",
+    "difficulty": "easy",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "Which component makes the access decision?",
+    "options": [
+      "Policy Administrator",
+      "Enterprise Resource",
+      "Policy Engine",
+      "Policy Enforcement Point"
+    ],
+    "answer": 2,
+    "explanation": "The Policy Engine evaluates policy and relevant inputs to grant, deny or revoke access.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "zerotrust-e-07",
+    "difficulty": "easy",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "Which component executes the Policy Engine's decision by configuring the access path?",
+    "options": [
+      "Threat intelligence feed",
+      "Policy Administrator",
+      "Subject account",
+      "Policy Engine"
+    ],
+    "answer": 1,
+    "explanation": "The Policy Administrator establishes or shuts down the communication path and configures the enforcement point.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "zerotrust-e-08",
+    "difficulty": "easy",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "Which component enables, monitors and terminates the resource connection?",
+    "options": [
+      "Policy Enforcement Point",
+      "Policy Engine alone",
+      "Asset inventory alone",
+      "Organizational chart"
+    ],
+    "answer": 0,
+    "explanation": "The PEP enforces access at the connection between the subject and the resource.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "zerotrust-e-09",
+    "difficulty": "easy",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "Which two components form the Policy Decision Point?",
+    "options": [
+      "Policy Engine and Policy Administrator",
+      "Policy Administrator and application database",
+      "Threat feed and network cable",
+      "Policy Enforcement Point and user account"
+    ],
+    "answer": 0,
+    "explanation": "The diagram groups the Policy Engine and Policy Administrator as the Policy Decision Point.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "zerotrust-e-10",
+    "difficulty": "easy",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "Which information can inform the Policy Engine's decision?",
+    "options": [
+      "Only the requester's office location",
+      "Device posture, policy and logs",
+      "Only the network address prefix",
+      "Only the asset's purchase receipt"
+    ],
+    "answer": 1,
+    "explanation": "The engine uses enterprise policy and context such as telemetry, posture and threat information, rather than one location cue.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "zerotrust-e-11",
+    "difficulty": "easy",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "Which approach makes actor identity a key policy driver?",
+    "options": [
+      "Unrestricted internal routing",
+      "Static perimeter trust",
+      "Enhanced identity governance",
+      "Micro-segmentation alone"
+    ],
+    "answer": 2,
+    "explanation": "Enhanced identity governance emphasizes actor identity and privileges, refined by device and environmental context.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "zerotrust-e-12",
+    "difficulty": "easy",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "Which approach places resources behind protected segments and enforcement gateways?",
+    "options": [
+      "Broad internal trust",
+      "Asset ownership exemption",
+      "Single shared account access",
+      "Micro-segmentation"
+    ],
+    "answer": 3,
+    "explanation": "Micro-segmentation limits access around resources through enforcement components such as gateways and agents.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "zerotrust-e-13",
+    "difficulty": "easy",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "Which approach uses network infrastructure to reconfigure access paths dynamically?",
+    "options": [
+      "Software-defined perimeter",
+      "Unmonitored flat networking",
+      "Permanent shared-password access",
+      "Manual inventory labeling"
+    ],
+    "answer": 0,
+    "explanation": "A software-defined perimeter can use the Policy Administrator as a network controller to implement decisions.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "zerotrust-e-14",
+    "difficulty": "easy",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "How should the three approaches be understood?",
+    "options": [
+      "They are necessarily mutually exclusive",
+      "They can be combined in an architecture",
+      "They replace all access policies",
+      "They are three mandatory product brands"
+    ],
+    "answer": 1,
+    "explanation": "The lesson describes approaches that a solution may blend according to its resources and environment.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "zerotrust-e-15",
+    "difficulty": "easy",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "Which environment is specifically associated with identity-governance approaches in the lesson?",
+    "options": [
+      "Only disconnected paper records",
+      "Cloud services and BYOD",
+      "Only identical organization-owned desktops",
+      "Only networks without authentication"
+    ],
+    "answer": 1,
+    "explanation": "Identity-centered policy is useful in open, BYOD and cloud environments where location alone cannot establish trust.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "zerotrust-e-16",
+    "difficulty": "easy",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "Why is a compromised Policy Engine especially serious?",
+    "options": [
+      "It changes only decorative interface settings",
+      "It automatically improves verification speed",
+      "It affects only inventory formatting",
+      "It can authorize access incorrectly"
+    ],
+    "answer": 3,
+    "explanation": "Compromise of decision components can subvert the access process itself, making configuration protection and auditing important.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "zerotrust-e-17",
+    "difficulty": "easy",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "What concern arises when PE, PA or PEP services become unavailable?",
+    "options": [
+      "Access disruption at critical control points",
+      "Automatic elimination of all cyber risk",
+      "Permanent recovery of deleted information",
+      "Guaranteed rejection of every malicious action"
+    ],
+    "answer": 0,
+    "explanation": "The components can become critical dependencies, so the lesson calls for resilient and secured deployment.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "zerotrust-e-18",
+    "difficulty": "easy",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "Why must stored scans, policies and network information be protected?",
+    "options": [
+      "They replace the need for access monitoring",
+      "They can reveal valuable reconnaissance information",
+      "They cannot influence security decisions",
+      "They are harmless because they are not passwords"
+    ],
+    "answer": 1,
+    "explanation": "Stored security information can expose an environment's structure and controls even when it is not a credential.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "zerotrust-e-19",
+    "difficulty": "easy",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "Which risk can proprietary formats introduce?",
+    "options": [
+      "Automatic universal interoperability",
+      "Guaranteed portability of all policies",
+      "Elimination of provider dependence",
+      "Vendor lock-in"
+    ],
+    "answer": 3,
+    "explanation": "Proprietary formats can constrain migration and integration, so provider evaluation should consider more than advertised capability.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "zerotrust-e-20",
+    "difficulty": "easy",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "Which statement about Zero Trust and stolen credentials is sound?",
+    "options": [
+      "Network location becomes sufficient proof of safety",
+      "MFA removes every insider threat",
+      "Zero Trust guarantees credentials cannot be stolen",
+      "Contextual controls can reduce the risk"
+    ],
+    "answer": 3,
+    "explanation": "Controls can limit misuse, but no architecture makes stolen credentials or insider threats impossible.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "zerotrust-e-21",
+    "difficulty": "easy",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "What is the first migration step listed in the lesson?",
+    "options": [
+      "Purchase all candidate tools",
+      "Disable the existing architecture",
+      "Identify actors",
+      "Expand every workflow immediately"
+    ],
+    "answer": 2,
+    "explanation": "Migration starts by knowing the subjects, including users, administrators and non-person entities.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "zerotrust-e-22",
+    "difficulty": "easy",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "What belongs in the asset inventory?",
+    "options": [
+      "Only devices already listed in procurement",
+      "Only systems with a current vendor warranty",
+      "Only equipment located at headquarters",
+      "Hardware, virtual assets and shadow IT"
+    ],
+    "answer": 3,
+    "explanation": "The lesson includes virtual assets and shadow IT because unrecorded resources still affect access decisions and risk.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "zerotrust-e-23",
+    "difficulty": "easy",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "What type of workflow is suggested for an initial pilot?",
+    "options": [
+      "The entire enterprise at once",
+      "A mission-critical workflow without review",
+      "A low-risk workflow",
+      "An unknown workflow without an owner"
+    ],
+    "answer": 2,
+    "explanation": "An incremental pilot lets the team learn and tune policies before expanding the architecture.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "zerotrust-e-24",
+    "difficulty": "easy",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "Why begin deployment in reporting-only mode?",
+    "options": [
+      "Guarantee all malicious requests are blocked",
+      "Replace explicit authorization permanently",
+      "Avoid gathering any operating evidence",
+      "Observe real traffic and tune policies"
+    ],
+    "answer": 3,
+    "explanation": "Reporting-only observation helps detect policy mistakes before enforcement disrupts legitimate work.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "zerotrust-e-25",
+    "difficulty": "easy",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "What kind of access should a partner receive under the lesson's approach?",
+    "options": [
+      "An exception from device and identity checks",
+      "All internal access after one successful login",
+      "Per-session access limited to legitimate need",
+      "Broad permanent access because of affiliation"
+    ],
+    "answer": 2,
+    "explanation": "Partner status does not justify blanket trust; authorization remains contextual and limited.",
+    "sourceSlides": [
+      26
+    ]
+  }
+]

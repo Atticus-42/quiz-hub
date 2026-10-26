@@ -1,11 +1,11 @@
 {
   "key": "armyops",
   "slug": "army-operations",
-  "module": "module-2",
-  "order": 4,
+  "module": "supplemental",
+  "order": 1,
   "name": "Army Operations",
   "title": "Army Operations Mastery Quiz",
-  "eyebrow": "Philippine Army · Army Operations",
+  "eyebrow": "Philippine Army · Supporting lesson · Army Operations",
   "lessonName": "Introduction to Army Operations",
   "hubDescription": "Introduction to Army Operations.",
   "historyLesson": "armyops",
@@ -18,15 +18,52 @@
     "Army Power and Warfighting Functions",
     "Principles of Army Operations"
   ],
-  "sourceRef": { "label": "page", "plural": "pages", "min": 1, "max": 200, "required": false },
-  "palette": { "--lesson-accent": "#c75a22" },
+  "sourceRef": {
+    "label": "page",
+    "plural": "pages",
+    "min": 1,
+    "max": 200,
+    "required": false
+  },
+  "palette": {
+    "--lesson-accent": "#c75a22"
+  },
   "art": {
-    "groups": ["tank", "tank-gun", "muzzle-blast", "shell", "dust", "objective"],
-    "nested": { "tank": ["tank-gun", "muzzle-blast"] },
-    "labels": ["FULL SPECTRUM OPERATIONS", "OFFENSE", "DEFENSE", "SUPPORT TO CIVIL GOVERNANCE", "OBJECTIVE"],
-    "classes": ["axis-line", "terrain-contour", "defense-line", "relief-truck"],
+    "groups": [
+      "tank",
+      "tank-gun",
+      "muzzle-blast",
+      "shell",
+      "dust",
+      "objective"
+    ],
+    "nested": {
+      "tank": [
+        "tank-gun",
+        "muzzle-blast"
+      ]
+    },
+    "labels": [
+      "FULL SPECTRUM OPERATIONS",
+      "OFFENSE",
+      "DEFENSE",
+      "SUPPORT TO CIVIL GOVERNANCE",
+      "OBJECTIVE"
+    ],
+    "classes": [
+      "axis-line",
+      "terrain-contour",
+      "defense-line",
+      "relief-truck"
+    ],
     "forbidden": "ARMOR|ISR|ARTILLERY",
-    "stilled": ["#tank-gun", "#muzzle-blast", "#shell", "#dust .dust-puff", "#objective .impact-pulse"],
+    "stilled": [
+      "#tank-gun",
+      "#muzzle-blast",
+      "#shell",
+      "#dust .dust-puff",
+      "#objective .impact-pulse"
+    ],
     "staticPattern": "#tank|#objective$|\\.terrain-contour|\\.axis-line|\\.hero-art"
   }
 }

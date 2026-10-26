@@ -1,8 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { loadSchedule } from '../build.mjs';
+import { loadSchedule as loadCurrentSchedule } from '../build.mjs';
 import { formatRichSchedule } from '../telegram-schedule.mjs';
 import { readFileSync } from 'node:fs';
+const loadSchedule=()=>loadCurrentSchedule(undefined,new URL('../../data/schedules/2026-10-19_2026-10-25.json',import.meta.url));
 test('October 22 classes use PHILARPAT only in SNCOAC ROOM 306',()=>{
   const data=loadSchedule();
   const archive=JSON.parse(readFileSync(new URL('../../data/schedules/2026-10-19_2026-10-25.json',import.meta.url),'utf8'));
@@ -26,7 +27,7 @@ test('NIST exam occurs only on Friday with time and venue unconfirmed',()=>{
   assert.ok(!JSON.stringify(formatRichSchedule(data,'2026-10-22')).includes('NIST FRAMEWORK'));
   assert.ok(JSON.stringify(formatRichSchedule(data,'2026-10-23')).includes('NIST FRAMEWORK (TBAL)'));
 });
-test('active feed uses October 19–25 with all 21 uploaded menus',()=>{
+test('archived October 19–25 week retains all 21 uploaded menus',()=>{
   const data=loadSchedule();
   assert.equal(data.week.start,'2026-10-19');
   assert.equal(data.week.end,'2026-10-25');assert.equal(data.week.number,5);

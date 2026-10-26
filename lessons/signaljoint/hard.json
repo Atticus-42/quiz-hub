@@ -10,12 +10,12 @@
     ],
     "prompt": "Which statement about ciphertext and double talk on the vigilance net is correct according to the lesson?",
     "options": [
+      "They mitigate its vulnerability but do not make the net fully secure.",
       "They make the vigilance net fully secure for any military information.",
       "They remove the need to follow COMSEC policy on the vigilance net.",
-      "They mitigate its vulnerability but do not make the net fully secure.",
       "They are used only on the fixed communications system backbone."
     ],
-    "answer": 2,
+    "answer": 0,
     "explanation": "Slides 15 and 65: ciphertext and double talk are mitigation measures and should not be interpreted as making the vigilance net fully secure.",
     "sourceSlides": [
       15,
@@ -33,11 +33,11 @@
     "prompt": "Where direct interoperability is difficult, which of the following is NOT one of the practical arrangements identified in the lesson?",
     "options": [
       "Embed another service's operators at the Army TOC",
+      "Assign each service a separate network with no links between them",
       "Lend communication equipment to the other service",
-      "Embed Army radio operators with another service",
-      "Assign each service a separate network with no links between them"
+      "Embed Army radio operators with another service"
     ],
-    "answer": 3,
+    "answer": 1,
     "explanation": "Slide 25: practical arrangements are lending communication equipment, embedding Army radio operators with another service, or embedding another service's operators at the Army tactical operations center.",
     "sourceSlides": [
       25
@@ -56,10 +56,10 @@
     "options": [
       "Availability, serviceability, maintenance readiness, reserves, and capabilities",
       "Installation, operation, maintenance, and related requirements",
-      "Frequencies, spectrum use, interference, and electronic threats",
-      "Availability, training, shortages, existing commitments, and reserves"
+      "Availability, training, shortages, existing commitments, and reserves",
+      "Frequencies, spectrum use, interference, and electronic threats"
     ],
-    "answer": 3,
+    "answer": 2,
     "explanation": "Slide 52: Personnel - availability, training, shortages, existing commitments and reserves. Equipment covers serviceability and maintenance readiness; Funds cover installation, operation and maintenance.",
     "sourceSlides": [
       52
@@ -77,12 +77,12 @@
     ],
     "prompt": "Planning communication for a joint task force, an S6 lists which service owns the newest radios and how many sets each can provide, but never asks who must communicate, when they need contact, or how long the operation will last. Which principle of signal support has he neglected, and what does it tell planners to consider?",
     "options": [
-      "Operations focused - plan around who must communicate, when contact is needed and how long the operation lasts",
       "Scalable - plan for additional forces, new headquarters, changing locations and more information",
       "Interoperable - plan for compatibility and standardization among communication systems",
-      "Redundant - plan so that no single device, link or network can stop the communication"
+      "Redundant - plan so that no single device, link or network can stop the communication",
+      "Operations focused - plan around who must communicate, when contact is needed and how long the operation lasts"
     ],
-    "answer": 0,
+    "answer": 3,
     "explanation": "Handout p.8: for joint operations, plan communication around what the participating forces need to accomplish - who must communicate, when they need contact, and how long the operation will last. Scalable (p.9) covers additional forces and new headquarters, Interoperable covers compatibility and standardization, and Redundant covers avoiding a single device, link or network.",
     "sourceSlides": [
       28
@@ -99,12 +99,12 @@
     ],
     "prompt": "Halfway through an Army-Navy operation, Air Force elements join. Their radios are compatible with the Army's and procedures were agreed in advance, but the signal officer keeps the original arrangements sized for the first two services, so the air elements are never brought into the nets. Which principle of signal support was compromised?",
     "options": [
-      "Interoperable",
       "Scalable",
+      "Interoperable",
       "Redundant",
       "Operations focused"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Slide 31: signal support expands its services according to the situation, and communication support must adapt as the force and mission change. Compatibility and agreed procedures were in place, so interoperability was not the failure.",
     "sourceSlides": [
       31
@@ -112,28 +112,6 @@
   },
   {
     "id": 6,
-    "qid": "signaljoint-h-07",
-    "difficulty": "hard",
-    "category": "Principles of Signal Support",
-    "tags": [
-      "operations focused",
-      "compromised"
-    ],
-    "prompt": "An S6 selects the equipment he prefers before learning the mission. During the island landing, troops lose contact with the naval transport because no power or operator support was planned for the full task, and the commander must delay the landing. Which principle of signal support was compromised?",
-    "options": [
-      "Operations focused",
-      "Scalable",
-      "Secured",
-      "Interoperable"
-    ],
-    "answer": 0,
-    "explanation": "Slide 28: signal support should never become the factor that limits the commander's ability to execute the mission; start with the operational requirement and provide the equipment, power and operator support needed throughout the task.",
-    "sourceSlides": [
-      28
-    ]
-  },
-  {
-    "id": 7,
     "qid": "signaljoint-h-08",
     "difficulty": "hard",
     "category": "Principles of Signal Support",
@@ -144,12 +122,12 @@
     ],
     "prompt": "Army and Navy radios in a coastal operation cannot talk to each other directly. The S6 first lends Army radios to the Navy element to establish a working link, then checks that the loaned link complies with COMSEC requirements before it is used for orders. Which two principles are being applied, in that order?",
     "options": [
-      "Interoperable, then Secured",
       "Scalable, then Redundant",
+      "Interoperable, then Secured",
       "Redundant, then Secured",
       "Interoperable, then Operations focused"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "Slide 29: lending equipment to establish a working link between services applies Interoperable. Slide 32: connections between services must follow applicable security requirements, which applies Secured.",
     "sourceSlides": [
       29,
@@ -157,7 +135,7 @@
     ]
   },
   {
-    "id": 8,
+    "id": 7,
     "qid": "signaljoint-h-09",
     "difficulty": "hard",
     "category": "Principles of Signal Support",
@@ -178,7 +156,7 @@
     ]
   },
   {
-    "id": 9,
+    "id": 8,
     "qid": "signaljoint-h-10",
     "difficulty": "hard",
     "category": "Principles of Signal Support",
@@ -191,17 +169,17 @@
     "options": [
       "Redundant: Can support adapt when forces or requirements change?",
       "Interoperable: Can essential communication continue if a link fails?",
-      "Secured: Does communication follow applicable security policies?",
-      "Scalable: Does communication support the commander's mission requirements?"
+      "Scalable: Does communication support the commander's mission requirements?",
+      "Secured: Does communication follow applicable security policies?"
     ],
-    "answer": 2,
+    "answer": 3,
     "explanation": "Slide 33: Secured asks whether communication follows applicable security policies. Adapting to change is Scalable, continuing after a link fails is Redundant, and supporting mission requirements is Operations focused.",
     "sourceSlides": [
       33
     ]
   },
   {
-    "id": 10,
+    "id": 9,
     "qid": "signaljoint-h-11",
     "difficulty": "hard",
     "category": "Roles of Signal Support",
@@ -211,19 +189,19 @@
     ],
     "prompt": "In an island operation, the Army and Navy are connected, the commander can issue decisions, and Army operators embedded with the Navy relay messages normally. Yet the Navy transport arrives two hours before the Army is ready and the air support comes after the landing, because no readiness reports or changes were exchanged. Which role of signal support was not achieved?",
     "options": [
+      "Support the synchronization of joint activities",
       "Connect the participating services",
       "Enable effective command and control",
-      "Support the synchronization of joint activities",
       "Facilitate coordination between operating troops and supporting assets"
     ],
-    "answer": 2,
+    "answer": 0,
     "explanation": "Slide 14: communication enables the services to exchange readiness reports and coordinate changes so that each contribution occurs at the appropriate time. Connection, command and control and the relay were working, so synchronization is what failed.",
     "sourceSlides": [
       14
     ]
   },
   {
-    "id": 11,
+    "id": 10,
     "qid": "signaljoint-h-12",
     "difficulty": "hard",
     "category": "Roles of Signal Support",
@@ -234,18 +212,18 @@
     "prompt": "A company coordinating with a Navy element over the vigilance net assumes the net is secure and transmits plainly, without ciphertext or double talk. The enemy eavesdrops and learns the landing time. Which role of signal support was neglected?",
     "options": [
       "Connect the participating services",
-      "Support the synchronization of joint activities",
       "Apply communication protection measures",
+      "Support the synchronization of joint activities",
       "Enable effective command and control"
     ],
-    "answer": 2,
+    "answer": 1,
     "explanation": "Slide 15: communication in a less secure mode is susceptible to attack and eavesdropping, and ciphertext and double talk are the mitigation measures; establishing communication must be accompanied by attention to its security.",
     "sourceSlides": [
       15
     ]
   },
   {
-    "id": 12,
+    "id": 11,
     "qid": "signaljoint-h-13",
     "difficulty": "hard",
     "category": "Joint Operations Fundamentals",
@@ -256,10 +234,10 @@
     "options": [
       "It is only a combined arms operation, since the Army does the land fighting.",
       "It is two separate operations: combined arms ashore and joint operations at sea.",
-      "It becomes a joint operation only if the Army commands the other services.",
-      "The brigade's combined arms team is part of a larger AFP joint operation."
+      "The brigade's combined arms team is part of a larger AFP joint operation.",
+      "It becomes a joint operation only if the Army commands the other services."
     ],
-    "answer": 3,
+    "answer": 2,
     "explanation": "Slide 7: an Army combined arms team can be part of a larger AFP joint operation; Army forces working with Navy or Air Force forces under a common commander illustrate joint operations.",
     "sourceSlides": [
       6,
@@ -267,7 +245,7 @@
     ]
   },
   {
-    "id": 13,
+    "id": 12,
     "qid": "signaljoint-h-14",
     "difficulty": "hard",
     "category": "Systems and Technologies",
@@ -288,7 +266,7 @@
     ]
   },
   {
-    "id": 14,
+    "id": 13,
     "qid": "signaljoint-h-15",
     "difficulty": "hard",
     "category": "Systems and Technologies",
@@ -298,19 +276,19 @@
     ],
     "prompt": "A brigade's fixed communications system works well with Army headquarters. The Navy-led joint task force headquarters now asks to connect directly to it. Which statement reflects the lesson?",
     "options": [
-      "The fixed system connects automatically to any service network.",
       "The link still requires approved arrangements and compatible systems.",
+      "The fixed system connects automatically to any service network.",
       "Fixed systems are reserved for the Army and are not used in joint operations.",
       "Only special purpose systems may connect to another service's network."
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Slide 19: an Army headquarters uses its fixed communication services with the joint headquarters, but connection to another service still requires approved arrangements and compatible systems.",
     "sourceSlides": [
       19
     ]
   },
   {
-    "id": 15,
+    "id": 14,
     "qid": "signaljoint-h-16",
     "difficulty": "hard",
     "category": "Systems and Technologies",
@@ -321,11 +299,11 @@
     "prompt": "A battalion uses an authorized commercial video-conferencing platform for its weekly administrative meeting with a Navy unit. During the call, an officer begins to discuss information beyond what the applicable policies permit on that platform. What does the lesson say about this?",
     "options": [
       "Once a platform is authorized, any military information may be discussed on it.",
-      "Commercial platforms replace fixed and tactical systems for all joint traffic.",
       "Commercial systems augment military ones, and the content must stay within policy.",
+      "Commercial platforms replace fixed and tactical systems for all joint traffic.",
       "Commercial devices may never be used, even for routine administrative matters."
     ],
-    "answer": 2,
+    "answer": 1,
     "explanation": "Slides 21 and 65: special purpose (commercial) systems augment fixed and tactical communications, particularly for routine or administrative use, and the information discussed must remain within what the applicable policies permit.",
     "sourceSlides": [
       21,
@@ -333,7 +311,7 @@
     ]
   },
   {
-    "id": 16,
+    "id": 15,
     "qid": "signaljoint-h-17",
     "difficulty": "hard",
     "category": "Tactical Considerations",
@@ -355,7 +333,7 @@
     ]
   },
   {
-    "id": 17,
+    "id": 16,
     "qid": "signaljoint-h-18",
     "difficulty": "hard",
     "category": "Tactical Considerations",
@@ -366,18 +344,18 @@
     "prompt": "During a joint operation the brigade's primary link fails. There is no planned alternative, and no technical personnel are assigned to diagnose and restore the system, so the brigade is out of contact for hours. Which tactical consideration was neglected?",
     "options": [
       "Communication and cyber security",
-      "Redundancy and recovery",
       "Unit movement and communication-site location",
-      "Priorities when resources are limited"
+      "Priorities when resources are limited",
+      "Redundancy and recovery"
     ],
-    "answer": 1,
+    "answer": 3,
     "explanation": "Slide 44: redundancy and recovery - redundant communication, equipment repair and replacement, and technical support when connectivity is interrupted; if the primary link fails, operators use the planned alternative while technical personnel restore the system.",
     "sourceSlides": [
       44
     ]
   },
   {
-    "id": 18,
+    "id": 17,
     "qid": "signaljoint-h-19",
     "difficulty": "hard",
     "category": "Tactical Considerations",
@@ -388,12 +366,12 @@
     ],
     "prompt": "A squad in Sulu loses a radio. The battalion's plan already contains procedures for reporting the loss and changing the compromised frequencies, and the unit now carries them out. Which tactical consideration planned for this, and which security measure is being carried out?",
     "options": [
-      "Spectrum management and electronic threats; protect against interception and electronic interference",
       "Communication and cyber security; prepare for compromised equipment and frequencies",
+      "Spectrum management and electronic threats; protect against interception and electronic interference",
       "Equipment, personnel, and sustainment; maintain communication and recovery arrangements",
       "Redundancy and recovery; follow an incident-response plan"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Slide 43: communication and cyber security plans for compromised frequencies, and lost equipment is a security concern as well as a shortage. Slide 64: prepare for compromised equipment and frequencies - report a lost radio through prescribed channels and change affected frequencies.",
     "sourceSlides": [
       43,
@@ -401,7 +379,7 @@
     ]
   },
   {
-    "id": 19,
+    "id": 18,
     "qid": "signaljoint-h-20",
     "difficulty": "hard",
     "category": "Tactical Considerations",
@@ -424,7 +402,7 @@
     ]
   },
   {
-    "id": 20,
+    "id": 19,
     "qid": "signaljoint-h-21",
     "difficulty": "hard",
     "category": "Tactical Considerations",
@@ -446,7 +424,7 @@
     ]
   },
   {
-    "id": 21,
+    "id": 20,
     "qid": "signaljoint-h-23",
     "difficulty": "hard",
     "category": "Planning and Coordination",
@@ -469,7 +447,7 @@
     ]
   },
   {
-    "id": 22,
+    "id": 21,
     "qid": "signaljoint-h-24",
     "difficulty": "hard",
     "category": "Planning and Coordination",
@@ -479,12 +457,12 @@
     ],
     "prompt": "With too few radios for every link, the brigade commander directs that essential command links and coordination with supporting assets be supported before less urgent administrative requirements. Which planning step is this, and which tactical consideration does it reflect?",
     "options": [
+      "Establish support priorities; priorities when resources are limited",
       "Determine available resources; equipment, personnel, and sustainment",
       "Develop recovery procedures; redundancy and recovery",
-      "Establish support priorities; priorities when resources are limited",
       "Determine communication requirements; mission and commander's intent"
     ],
-    "answer": 2,
+    "answer": 0,
     "explanation": "Slide 53: establish priorities by comparing requirements with available capabilities; the commander may prioritize essential command links and coordination with supporting assets before administrative requirements. Slide 45 is the matching tactical consideration.",
     "sourceSlides": [
       45,
@@ -492,7 +470,7 @@
     ]
   },
   {
-    "id": 23,
+    "id": 22,
     "qid": "signaljoint-h-25",
     "difficulty": "hard",
     "category": "Planning and Coordination",
@@ -516,7 +494,7 @@
     ]
   },
   {
-    "id": 24,
+    "id": 23,
     "qid": "signaljoint-h-26",
     "difficulty": "hard",
     "category": "Planning and Coordination",
@@ -525,12 +503,12 @@
     ],
     "prompt": "Before execution, the S6 checks that the plan meets the command's requirements, is adequately resourced, uses reconnoitered locations and identifies coverage gaps, and he resolves those gaps with the participating services. Which planning step is he performing?",
     "options": [
-      "Validate and finalize the plan",
       "Prepare and coordinate the tentative plan",
       "Publish the plan and maintain coordination",
+      "Validate and finalize the plan",
       "Prepare the signal estimate"
     ],
-    "answer": 0,
+    "answer": 2,
     "explanation": "Slide 57: validate and finalize the plan - check that it meets requirements, is practical and resourced, reflects priorities, defines responsibilities, uses surveyed or reconnoitered locations, identifies coverage and gaps, and includes security measures; resolve gaps before execution.",
     "sourceSlides": [
       49,
@@ -538,95 +516,7 @@
     ]
   },
   {
-    "id": 25,
-    "qid": "signaljoint-h-27",
-    "difficulty": "hard",
-    "category": "Planning and Coordination",
-    "tags": [
-      "publish and maintain coordination"
-    ],
-    "prompt": "After the C4S annex is issued, the operation begins. As Air Force elements join and the weather worsens, the S6 keeps assessing communication requirements, updates the estimate, and applies the Connect-Sustain-Recover framework. Which planning step is he performing?",
-    "options": [
-      "Publish the plan and maintain coordination",
-      "Prepare the signal estimate",
-      "Validate and finalize the plan",
-      "Prepare and coordinate the tentative plan"
-    ],
-    "answer": 0,
-    "explanation": "Slide 58: step 8 includes publishing plans and orders with the C4S annex and, during execution, continuing to assess requirements, updating the estimate as conditions change, and applying Connect-Sustain-Recover. Updating the estimate here is part of maintaining coordination, not the initial estimate.",
-    "sourceSlides": [
-      49,
-      58
-    ]
-  },
-  {
-    "id": 26,
-    "qid": "signaljoint-h-28",
-    "difficulty": "hard",
-    "category": "Planning and Coordination",
-    "tags": [
-      "validation checks"
-    ],
-    "prompt": "A signal plan placed its relay sites using only a map study; no one visited the sites. Which validation check does this plan fail?",
-    "options": [
-      "Reflects established priorities",
-      "Defines responsibilities",
-      "Includes security measures",
-      "Uses surveyed or reconnoitered locations"
-    ],
-    "answer": 3,
-    "explanation": "Slide 57: validation checks that the plan uses surveyed or reconnoitered locations, along with meeting requirements, being resourced, reflecting priorities, defining responsibilities, identifying coverage and gaps, and including security measures.",
-    "sourceSlides": [
-      57
-    ]
-  },
-  {
-    "id": 27,
-    "qid": "signaljoint-h-29",
-    "difficulty": "hard",
-    "category": "Planning and Coordination",
-    "tags": [
-      "coordination requirements",
-      "matching"
-    ],
-    "prompt": "When coordinating the tentative signal plan, the services must agree on: (1) which units and headquarters require connections; (2) compatible equipment, configurations, procedures and operator arrangements; (3) applicable protection measures and actions during disruption; (4) coordinated frequency requirements under applicable instructions. Which matching is correct?",
-    "options": [
-      "(1) Command relationships; (2) Interoperability; (3) Security and recovery; (4) Spectrum use",
-      "(1) Communication links; (2) Interoperability; (3) Security and recovery; (4) Spectrum use",
-      "(1) Communication links; (2) Responsibilities; (3) Security and recovery; (4) Spectrum use",
-      "(1) Communication links; (2) Interoperability; (3) Responsibilities; (4) Spectrum use"
-    ],
-    "answer": 1,
-    "explanation": "Slide 56: Communication links - which units and headquarters require connections; Interoperability - compatible equipment, configurations, procedures and operator arrangements; Security and recovery - protection measures and actions during disruption; Spectrum use - coordinated frequency requirements. Command relationships cover which headquarters directs and which components support; Responsibilities cover who installs, operates, maintains and restores each link.",
-    "sourceSlides": [
-      55,
-      56
-    ]
-  },
-  {
-    "id": 28,
-    "qid": "signaljoint-h-30",
-    "difficulty": "hard",
-    "category": "Planning and Coordination",
-    "tags": [
-      "planning steps",
-      "sequence"
-    ],
-    "prompt": "Which sequence correctly orders steps 4 to 7 of planning and coordinating signal support?",
-    "options": [
-      "Develop recovery procedures, establish priorities, prepare the tentative plan, validate the plan",
-      "Establish priorities, develop recovery procedures, prepare the tentative plan, validate the plan",
-      "Establish priorities, prepare the tentative plan, develop recovery procedures, validate the plan",
-      "Establish priorities, develop recovery procedures, validate the plan, prepare the tentative plan"
-    ],
-    "answer": 1,
-    "explanation": "Slide 49: 4 establish support priorities, 5 develop recovery procedures, 6 prepare and coordinate the tentative plan, 7 validate and finalize the plan.",
-    "sourceSlides": [
-      49
-    ]
-  },
-  {
-    "id": 29,
+    "id": 24,
     "qid": "signaljoint-h-31",
     "difficulty": "hard",
     "category": "Planning and Coordination",
@@ -648,7 +538,7 @@
     ]
   },
   {
-    "id": 30,
+    "id": 25,
     "qid": "signaljoint-h-32",
     "difficulty": "hard",
     "category": "Security Measures and Protocols",
@@ -658,19 +548,19 @@
     ],
     "prompt": "Throughout a coastal operation the brigade's radios remained fully serviceable, yet the enemy jammed the nets and intercepted orders, because the signal plan contained no protective countermeasures such as frequency hopping or anti-jamming. Which security measure was neglected?",
     "options": [
-      "Prepare for compromised equipment and frequencies",
       "Protect against interception and electronic interference",
+      "Prepare for compromised equipment and frequencies",
       "Monitor systems and assess vulnerabilities",
       "Use less secure and commercial communication with caution"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Slide 63: tactical communications are vulnerable to jamming and interception, so the signal plan must include protective countermeasures such as frequency hopping and anti-jamming; communication can be disrupted or intercepted even when equipment remains serviceable.",
     "sourceSlides": [
       63
     ]
   },
   {
-    "id": 31,
+    "id": 26,
     "qid": "signaljoint-h-33",
     "difficulty": "hard",
     "category": "Security Measures and Protocols",
@@ -680,40 +570,19 @@
     ],
     "prompt": "Unknown laptops have been connecting to a joint tactical operations center network. The S6 deploys a system that enforces policies governing which users and devices may access the network. Which security measure is being applied?",
     "options": [
-      "Control access and protect computers and networks",
       "Monitor systems and assess vulnerabilities",
+      "Control access and protect computers and networks",
       "Follow an incident-response plan",
       "Coordinate security across the joint force"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "Slide 66: control access and protect computers and networks with security technologies such as Network Access Control, which enforces policies governing access by users and devices.",
     "sourceSlides": [
       66
     ]
   },
   {
-    "id": 32,
-    "qid": "signaljoint-h-34",
-    "difficulty": "hard",
-    "category": "Security Measures and Protocols",
-    "tags": [
-      "endpoint security"
-    ],
-    "prompt": "The S6 of a joint task force installs antivirus, application control and device control on every computer used in the operations center. Which security technology from the lesson is he employing?",
-    "options": [
-      "Endpoint security",
-      "Network Access Control",
-      "Unified Threat Management firewall",
-      "Anti-spam firewall"
-    ],
-    "answer": 0,
-    "explanation": "Slide 66: endpoint security protects computers and other endpoints through antivirus, application control, device control and related measures.",
-    "sourceSlides": [
-      66
-    ]
-  },
-  {
-    "id": 33,
+    "id": 27,
     "qid": "signaljoint-h-35",
     "difficulty": "hard",
     "category": "Security Measures and Protocols",
@@ -724,39 +593,18 @@
     "prompt": "Suspicious activity is detected on a joint TOC network. Personnel report it through established procedures; the designated responders then investigate the extent of compromise, manage communication updates, remediate the problem and recommend improvements. Which security measure is being carried out?",
     "options": [
       "Monitor systems and assess vulnerabilities",
-      "Follow an incident-response plan",
       "Coordinate security across the joint force",
+      "Follow an incident-response plan",
       "Control access and protect computers and networks"
     ],
-    "answer": 1,
+    "answer": 2,
     "explanation": "Slide 68: incident response is action during or after an incident to mitigate its effects and investigate the extent of compromise; CSIRT responsibilities include investigating, managing communication updates, remediating and recommending improvements. Detection alone would be monitoring (slide 67).",
     "sourceSlides": [
       68
     ]
   },
   {
-    "id": 34,
-    "qid": "signaljoint-h-36",
-    "difficulty": "hard",
-    "category": "Security Measures and Protocols",
-    "tags": [
-      "CSIRT responsibilities"
-    ],
-    "prompt": "Which of the following is NOT among the CSIRT responsibilities listed in the lesson?",
-    "options": [
-      "Maintaining an incident-response plan",
-      "Managing communication updates",
-      "Assigning frequencies to the participating services",
-      "Recommending improvements"
-    ],
-    "answer": 2,
-    "explanation": "Slide 68: CSIRT responsibilities include maintaining an incident-response plan, investigating incidents, managing communication updates, remediating problems and recommending improvements. Frequency coordination belongs to spectrum management (slides 42, 56).",
-    "sourceSlides": [
-      68
-    ]
-  },
-  {
-    "id": 35,
+    "id": 28,
     "qid": "signaljoint-h-37",
     "difficulty": "hard",
     "category": "Security Measures and Protocols",
@@ -766,41 +614,19 @@
     ],
     "prompt": "A cyber incident affects both Army and Navy systems in a joint operation. Each service's incident-response team acts on its own, their actions conflict, and neither aligns its tasks with the Joint Force Commander's mission and intent. Which security measure was neglected?",
     "options": [
-      "Coordinate security across the joint force",
       "Follow an incident-response plan",
       "Follow communication security policies and operating instructions",
-      "Monitor systems and assess vulnerabilities"
+      "Monitor systems and assess vulnerabilities",
+      "Coordinate security across the joint force"
     ],
-    "answer": 0,
+    "answer": 3,
     "explanation": "Slide 69: in joint cyberspace operations, incident-response teams from the major services integrate under AFPCyG to coordinate their response, and cyber-unit tasks depend on the Joint Force Commander's mission and intent. Each team responding was not the gap; their lack of joint coordination was.",
     "sourceSlides": [
       69
     ]
   },
   {
-    "id": 36,
-    "qid": "signaljoint-h-38",
-    "difficulty": "hard",
-    "category": "Security Measures and Protocols",
-    "tags": [
-      "maintain communication and recovery arrangements",
-      "neglected"
-    ],
-    "prompt": "A brigade's security plan has strong encryption and access control, but no alternate routing, no primary-alternate-contingency-emergency plans and no repair arrangements. When a typhoon destroys the primary relay, the commander loses contact with the battalions. Which security measure was neglected?",
-    "options": [
-      "Protect against interception and electronic interference",
-      "Control access and protect computers and networks",
-      "Prepare for compromised equipment and frequencies",
-      "Maintain communication and recovery arrangements"
-    ],
-    "answer": 3,
-    "explanation": "Slide 70: security includes keeping essential communication available through redundant links, repair and replacement, technical support, alternate routing, and primary, alternate, contingency and emergency plans.",
-    "sourceSlides": [
-      70
-    ]
-  },
-  {
-    "id": 37,
+    "id": 29,
     "qid": "signaljoint-h-39",
     "difficulty": "hard",
     "category": "Security Measures and Protocols",
@@ -824,29 +650,7 @@
     ]
   },
   {
-    "id": 38,
-    "qid": "signaljoint-h-40",
-    "difficulty": "hard",
-    "category": "Security Measures and Protocols",
-    "tags": [
-      "monitoring tools",
-      "matching"
-    ],
-    "prompt": "A joint TOC uses four security activities: (1) detects and supports reactions to security incidents; (2) assesses compliance with the referenced security controls; (3) identifies weaknesses in internal network infrastructure; (4) collects and analyzes activity across IT resources. Which matching is correct?",
-    "options": [
-      "(1) SIEM; (2) cyber risk assessment; (3) VAPT; (4) SOC monitoring",
-      "(1) SOC monitoring; (2) VAPT; (3) cyber risk assessment; (4) SIEM",
-      "(1) VAPT; (2) SOC monitoring; (3) SIEM; (4) cyber risk assessment",
-      "(1) SOC monitoring; (2) cyber risk assessment; (3) VAPT; (4) SIEM"
-    ],
-    "answer": 3,
-    "explanation": "Slide 67: Security Operations Center monitoring detects and supports reactions to incidents; cyber risk assessment assesses compliance with security controls; vulnerability assessment and penetration testing (VAPT) identifies weaknesses in internal infrastructure; SIEM collects and analyzes activity across IT resources.",
-    "sourceSlides": [
-      67
-    ]
-  },
-  {
-    "id": 39,
+    "id": 30,
     "qid": "signaljoint-h-41",
     "difficulty": "hard",
     "category": "Security Measures and Protocols",
@@ -856,11 +660,11 @@
     "prompt": "Which of the following is NOT one of the nine security measures and protocols in signal support operations?",
     "options": [
       "Prepare for compromised equipment and frequencies",
-      "Monitor systems and assess vulnerabilities",
       "Embed another service's radio operators at the Army TOC",
+      "Monitor systems and assess vulnerabilities",
       "Coordinate security across the joint force"
     ],
-    "answer": 2,
+    "answer": 1,
     "explanation": "Slide 61 lists the nine measures, from following COMSEC policies to maintaining communication and recovery arrangements. Embedding another service's operators at the Army TOC is a practical interoperability arrangement (slide 25).",
     "sourceSlides": [
       25,
@@ -868,7 +672,7 @@
     ]
   },
   {
-    "id": 40,
+    "id": 31,
     "qid": "signaljoint-h-43",
     "difficulty": "hard",
     "category": "Tactical Considerations",
@@ -878,12 +682,12 @@
     ],
     "prompt": "Match each question to its tactical consideration: (1) What happens when the main communication means fails? (2) Which communication requirements are most critical to the commander's mission? (3) Can communication continue as troops and headquarters move?",
     "options": [
-      "(1) Redundancy and recovery; (2) Priorities when resources are limited; (3) Unit movement and communication-site location",
       "(1) Redundancy and recovery; (2) Mission and commander's intent; (3) Unit movement and communication-site location",
       "(1) Equipment, personnel, and sustainment; (2) Priorities when resources are limited; (3) Unit movement and communication-site location",
+      "(1) Redundancy and recovery; (2) Priorities when resources are limited; (3) Unit movement and communication-site location",
       "(1) Redundancy and recovery; (2) Priorities when resources are limited; (3) Terrain, distance, and weather"
     ],
-    "answer": 0,
+    "answer": 2,
     "explanation": "Slides 44, 45 and 39: redundancy and recovery asks what happens when the main means fails; priorities when resources are limited asks which requirements are most critical to the mission; unit movement and communication-site location asks whether communication can continue as troops and headquarters move.",
     "sourceSlides": [
       39,
@@ -892,7 +696,7 @@
     ]
   },
   {
-    "id": 41,
+    "id": 32,
     "qid": "signaljoint-h-44",
     "difficulty": "hard",
     "category": "Operational Environment",
@@ -916,31 +720,7 @@
     ]
   },
   {
-    "id": 42,
-    "qid": "signaljoint-h-45",
-    "difficulty": "hard",
-    "category": "Joint Operations Fundamentals",
-    "tags": [
-      "supported component",
-      "matching",
-      "handout"
-    ],
-    "prompt": "Match each task to the component that the handout says is normally supported: (1) land operations; (2) sea control operations; (3) counter-air operations.",
-    "options": [
-      "(1) Army land forces; (2) Navy; (3) Air Force",
-      "(1) Army land forces; (2) Air Force; (3) Navy",
-      "(1) Navy; (2) Navy; (3) Air Force",
-      "(1) Army land forces; (2) Navy; (3) Army land forces"
-    ],
-    "answer": 0,
-    "explanation": "Handout p.2: during land operations, land forces may be supported by air and maritime forces; during sea control operations the Navy component is normally supported; during counter-air operations the Air Force component is normally supported.",
-    "sourceSlides": [
-      6,
-      14
-    ]
-  },
-  {
-    "id": 43,
+    "id": 33,
     "qid": "signaljoint-h-46",
     "difficulty": "hard",
     "category": "Joint Operations Fundamentals",
@@ -951,19 +731,19 @@
     ],
     "prompt": "In an AFP joint operation to secure an island, the Navy is the supported component while it transports troops and secures the surrounding waters. When the main task becomes securing the land objectives, the Army becomes the supported component. Which statement reflects the lesson?",
     "options": [
-      "The Navy must remain the supported component until the operation ends.",
       "Supported and supporting relationships can change as the task changes.",
+      "The Navy must remain the supported component until the operation ends.",
       "A change of supported component means the joint commander has changed.",
       "Only the Army may be the supported component in a joint operation."
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Handout p.2: during the maritime phase the Navy may be the supported component; when the main task becomes securing land objectives the Army may become supported. Supported and supporting relationships can change with the task, under the same Joint Force Commander.",
     "sourceSlides": [
       14
     ]
   },
   {
-    "id": 44,
+    "id": 34,
     "qid": "signaljoint-h-47",
     "difficulty": "hard",
     "category": "Roles of Signal Support",
@@ -975,41 +755,18 @@
     "prompt": "Match each role of signal support to its importance in the handout's summary table: (1) connect the services; (2) enable coordination and synchronization; (3) apply communication protection measures.",
     "options": [
       "(1) Bridges communication gaps; (2) helps execute a common plan; (3) reduces vulnerabilities in information exchange",
-      "(1) Enables interoperability; (2) links commanders with supporting assets; (3) reduces vulnerabilities in information exchange",
       "(1) Enables interoperability; (2) helps execute a common plan; (3) reduces vulnerabilities in information exchange",
+      "(1) Enables interoperability; (2) links commanders with supporting assets; (3) reduces vulnerabilities in information exchange",
       "(1) Enables interoperability; (2) helps execute a common plan; (3) makes the vigilance net fully secure"
     ],
-    "answer": 2,
+    "answer": 1,
     "explanation": "Handout p.4 table: connect the services - enables communication interoperability; enable coordination and synchronization - helps participating forces execute a common plan; apply communication protection measures - reduces vulnerabilities in information exchange. Bridging gaps belongs to relaying, linking commanders to command and control.",
     "sourceSlides": [
       16
     ]
   },
   {
-    "id": 45,
-    "qid": "signaljoint-h-48",
-    "difficulty": "hard",
-    "category": "Systems and Technologies",
-    "tags": [
-      "fixed communications system",
-      "matching",
-      "handout"
-    ],
-    "prompt": "Match each fixed communication technology to its function: (1) connects Army telephone systems with HPA and GHQ AFP; (2) secured, managed Army intranet; (3) extends fixed services to Army brigades; (4) IP-based telephone services over a data network.",
-    "options": [
-      "(1) PANET; (2) BONTEX; (3) DBTOCS; (4) VoIP",
-      "(1) BONTEX; (2) PANET; (3) VoIP; (4) DBTOCS",
-      "(1) BONTEX; (2) DBTOCS; (3) PANET; (4) ROIP",
-      "(1) BONTEX; (2) PANET; (3) DBTOCS; (4) VoIP"
-    ],
-    "answer": 3,
-    "explanation": "Handout p.5: BONTEX connects Army telephone systems with Headquarters Philippine Army and GHQ AFP; PANET is a secured, managed Army intranet; DBTOCS extends fixed communication services to Army brigades; VoIP enables IP-based telephone services using a data network. ROIP is a tactical technology (p.6).",
-    "sourceSlides": [
-      19
-    ]
-  },
-  {
-    "id": 46,
+    "id": 35,
     "qid": "signaljoint-h-49",
     "difficulty": "hard",
     "category": "Systems and Technologies",
@@ -1020,105 +777,15 @@
     ],
     "prompt": "Army troops and a Navy patrol boat both carry VHF radios. The S6 concludes that, because the radios share a frequency category, no link arrangement is needed; on landing, the two cannot talk. Which statement reflects the lesson?",
     "options": [
-      "A shared frequency category alone does not establish that the radios can communicate.",
       "VHF radios of all services become compatible once their frequencies are coordinated.",
       "Tactical radios cannot be used between services, so only fixed systems may be linked.",
+      "A shared frequency category alone does not establish that the radios can communicate.",
       "Only HF radios can link the services, so VHF radios should not have been issued at all."
     ],
-    "answer": 0,
+    "answer": 2,
     "explanation": "Handout p.6: a radio's frequency category alone does not establish that it can communicate with another service's equipment; signal personnel must establish a compatible link or an operator-relay arrangement.",
     "sourceSlides": [
       20
-    ]
-  },
-  {
-    "id": 47,
-    "qid": "signaljoint-h-50",
-    "difficulty": "hard",
-    "category": "Systems and Technologies",
-    "tags": [
-      "INO",
-      "DCO",
-      "handout"
-    ],
-    "prompt": "Which pairing of network support activity and purpose is correct according to the handout?",
-    "options": [
-      "INO: defend PANET against cyber threats and attacks, and respond to cyber incidents",
-      "DCO: defend PANET against cyber threats and attacks, and respond to cyber incidents",
-      "DCO: build PANET, and restore connectivity and services after a computer emergency",
-      "INO: collect and analyze activity across IT resources, and detect security incidents"
-    ],
-    "answer": 1,
-    "explanation": "Handout p.7: Defensive Cyberspace Operations (DCO) defend PANET against cyber threats and attacks and respond to cyber incidents; Information Network Operations (INO) build PANET, restore connectivity and services after a computer emergency, and support information-system development and integration. Collecting and analyzing activity is SIEM (p.17).",
-    "sourceSlides": [
-      23
-    ]
-  },
-  {
-    "id": 48,
-    "qid": "signaljoint-h-51",
-    "difficulty": "hard",
-    "category": "Planning and Coordination",
-    "tags": [
-      "METAL",
-      "matching",
-      "handout"
-    ],
-    "prompt": "In the signal estimate, match each question to its METAL factor: (1) What personnel and capabilities are available? (2) How will the operating area affect communication? (3) What resources are needed to support the mission?",
-    "options": [
-      "(1) Logistics; (2) Area of Operations; (3) Troops",
-      "(1) Troops; (2) Enemy; (3) Logistics",
-      "(1) Troops; (2) Area of Operations; (3) Logistics",
-      "(1) Troops; (2) Area of Operations; (3) Mission"
-    ],
-    "answer": 2,
-    "explanation": "Handout p.13 table: Mission - what the force must accomplish and what communication it requires; Enemy - enemy signal capabilities; Troops - personnel and capabilities available; Area of Operations - how the area affects communication; Logistics - resources needed to support the mission. Slide 50 names this guide METAL.",
-    "sourceSlides": [
-      50
-    ]
-  },
-  {
-    "id": 49,
-    "qid": "signaljoint-h-52",
-    "difficulty": "hard",
-    "category": "Planning and Coordination",
-    "tags": [
-      "tentative signal plan",
-      "handout"
-    ],
-    "prompt": "Which of the following does the handout NOT list as content of the tentative signal plan?",
-    "options": [
-      "Primary, alternate, contingency, and emergency arrangements",
-      "Interconnections and alternate routing",
-      "Locations of communication centers and facilities",
-      "The C4S annex published to the operations order"
-    ],
-    "answer": 3,
-    "explanation": "Handout p.14: the tentative signal plan covers primary, alternate, contingency and emergency arrangements, allocation of resources, locations of communication centers and facilities, security measures, and interconnections and alternate routing. Publishing with the C4S annex is step 8 (slide 58).",
-    "sourceSlides": [
-      55
-    ]
-  },
-  {
-    "id": 50,
-    "qid": "signaljoint-h-53",
-    "difficulty": "hard",
-    "category": "Planning and Coordination",
-    "tags": [
-      "joint C3 plan",
-      "handout"
-    ],
-    "prompt": "According to the handout, which questions must a joint C3 plan clearly answer?",
-    "options": [
-      "Who communicates with whom, by what means, under whose responsibility, and what happens if communication fails",
-      "What the force must do, what the enemy can do, which troops are available, and which logistics are needed",
-      "Whether the plan is resourced, reflects priorities, defines responsibilities, and includes security measures",
-      "Who needs to communicate, what they exchange, where they operate, and whether their systems work together"
-    ],
-    "answer": 0,
-    "explanation": "Handout p.15: a joint C3 plan must clearly answer who communicates with whom, by what means, under whose responsibility, and what happens if communication fails. The distractors paraphrase METAL (p.13), the validation checklist (slide 57) and the system-selection questions (slide 24).",
-    "sourceSlides": [
-      58
     ]
   }
 ]

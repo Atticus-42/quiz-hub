@@ -28,7 +28,7 @@ export async function engineSuite(lesson) {
   const pool = lesson.rules.pool;
   const ref = lesson.rules.ref;
   const text = lessonText(lesson);
-  // Questions per attempt (a lesson serves its whole bank, at most 50; a pool exam's fixed count).
+  // Questions per attempt (a lesson serves its whole bank, at most 35; a pool exam's fixed count).
   const count = mode => lesson.attempts[mode];
   const KEY_TOTAL = count('medium');
   const hubHref = `../#${lesson.module}`;
@@ -138,7 +138,7 @@ export async function engineSuite(lesson) {
       assert.equal(button.disabled, true, `${button.id} must start disabled`);
       assert.match(button.textContent, new RegExp(`\\b${count(mode)} questions\\b`), `${button.id} states its attempt length`);
     }
-    assert.ok(builtHtml.includes(`${quizTotal(lesson)} situational questions`) || pool, 'the lede counts the questions');
+    assert.ok(builtHtml.includes(`${quizTotal(lesson)} questions`) || builtHtml.includes(`${quizTotal(lesson)} situational questions`) || pool, 'the lede counts the questions');
   });
 
   await T('mode buttons need both a valid name and the study confirmation; unchecking disables them again', () => {
@@ -167,7 +167,7 @@ export async function engineSuite(lesson) {
     for (const button of modeButtons(app)) assert.equal(button.disabled, true);
   });
 
-  await T(pool ? `each difficulty serves ${pool.count} questions of its own pool, balanced ${plain(lesson.poolQuotas).join('/')} across the source lessons` : 'each difficulty asks its whole bank (at most 50 questions), and only those', () => {
+  await T(pool ? `each difficulty serves ${pool.count} questions of its own pool, balanced ${plain(lesson.poolQuotas).join('/')} across the source lessons` : 'each difficulty asks its whole bank (at most 35 questions), and only those', () => {
     for (const mode of MODES) {
       const app = loadApp();
       startConfirmed(app, mode);
@@ -182,7 +182,7 @@ export async function engineSuite(lesson) {
         const ids = attempt.questions.map(item => item.id);
         assert.equal(new Set(ids).size, ids.length, `${mode} attempt has no duplicates`);
         assert.ok(ids.every(id => banks[mode].some(source => source.id === id)), `${mode} attempt draws only from its bank`);
-        assert.ok(ids.length <= 50);
+        assert.ok(ids.length <= 35);
         assert.equal(ids.length, banks[mode].length, `${mode} attempt is the whole bank`);
         assert.deepEqual([...ids].sort((a, b) => a - b), banks[mode].map(source => source.id), `${mode} attempt holds every bank question once`);
         assert.deepEqual(attempt.questions, attempt.questions.map(item => banks[mode].find(source => source.id === item.id)), 'authored question and choice order must be preserved');
@@ -408,7 +408,7 @@ export async function engineSuite(lesson) {
     assert.deepEqual(dup.errors, validateBank(duplicate, 'easy', lesson.rules).map(error => `easy ${error}`));
     const empty = plain(api.validateBanks({ ...banks, medium: [] }));
     assert.equal(empty.valid, false);
-    assert.ok(empty.errors.includes('medium bank must contain at least 1 question'), empty.errors.join('; '));
+    assert.ok(empty.errors.includes(pool ? 'medium bank must contain at least 1 question' : 'medium bank must contain at least 20 questions'), empty.errors.join('; '));
     if (pool) {
       const relabelled = easy.map((item, index) => (index === easy.findIndex(question => question.lessonKey === pool.lessons[1].key) ? { ...item, lessonKey: pool.lessons[0].key, lesson: pool.lessons[0].name, category: pool.lessons[0].name, qid: item.qid.replace(/^[a-z0-9]+-/, `${pool.lessons[0].key}-`) } : item));
       const lopsided = plain(api.validateBanks({ ...banks, easy: relabelled }));
@@ -417,9 +417,9 @@ export async function engineSuite(lesson) {
       const short = plain(api.validateBanks({ ...banks, easy: thin }));
       assert.ok(short.errors.some(error => error.includes(`at least ${lesson.poolQuotas[0]} ${pool.lessons[2].name} questions`)), short.errors.join('; '));
     } else {
-      const big = Array.from({ length: 51 }, (_, index) => ({ ...easy[index % easy.length], id: index + 1, qid: `${lesson.key}-e-${String(index + 1).padStart(3, '0')}` }));
+      const big = Array.from({ length: 36 }, (_, index) => ({ ...easy[index % easy.length], id: index + 1, qid: `${lesson.key}-e-${String(index + 1).padStart(3, '0')}` }));
       const tooBig = plain(api.validateBanks({ ...banks, easy: big }));
-      assert.deepEqual(tooBig.errors, ['easy bank must contain at most 50 questions (found 51)']);
+      assert.deepEqual(tooBig.errors, ['easy bank must contain at most 35 questions (found 36)']);
     }
     const missing = plain(api.validateBanks({ easy: banks.easy, medium: banks.medium }));
     assert.deepEqual(missing.errors, ['hard bank must be an array of questions']);
@@ -655,7 +655,7 @@ export async function engineSuite(lesson) {
     const score = scoreEveryFifth(n);
     assert.deepEqual({ ...payload, finishedAt: undefined, asked: undefined, missed: undefined }, { lesson: lesson.key, name: 'Maria Santos', mode: 'easy', score, total: n, percent: percentOf(score, n), band: bandFor(percentOf(score, n)), finishedAt: undefined, asked: undefined, missed: undefined });
     assert.equal(n, count('easy'), 'the total is the actual number of questions');
-    assert.ok(n <= (pool ? 69 : 50) && payload.total === n, 'the total is the attempt length (a lesson exam at most 50, the combined exam 50-69)');
+    assert.ok(n <= 35 && payload.total === n, 'the total is the attempt length (a lesson exam at most 35, the combined exam 50-69)');
     assert.deepEqual(payload.asked, attempt.questions.map(question => itemIdOf(question, 'easy')), 'asked lists every question, in the order asked');
     assert.deepEqual(payload.missed, attempt.questions.filter((_, index) => !everyFifthWrong(index)).map(question => itemIdOf(question, 'easy')));
     assert.ok(payload.asked.every(id => /^[a-z][a-z0-9]{1,23}:easy:[a-z][a-z0-9]{1,23}-e-[0-9]{2,4}$/.test(id)), 'ids are <lessonKey>:<mode>:<qid>');
@@ -945,11 +945,12 @@ export async function engineSuite(lesson) {
   });
 
   if (!pool) {
-    await T('a bank of any size from 1 to 100 sets the attempt length (the whole bank, at most 50), progress, results and the history total', async () => {
-      for (const size of [1, 7]) {
+    await T('a bank of valid boundary sizes sets the attempt length (the whole bank, at most 35), progress, results and the history total', async () => {
+      for (const size of [20, 35]) {
         const fetch = fakeFetch(call => (call.method === 'POST' ? { body: { ok: true } } : okHistory([])));
-        const app = loadApp(replaceBank(configuredHtml, 'easy', JSON.stringify(banks.easy.slice(0, size))), { fetch });
-        const length = app.api.attemptLength(banks.easy.slice(0, size));
+        const fixture=Array.from({length:size},(_,i)=>({...banks.easy[i%banks.easy.length],id:i+1,qid:`${lesson.key}-e-${String(i+1).padStart(3,'0')}`}));
+        const app = loadApp(replaceBank(configuredHtml, 'easy', JSON.stringify(fixture)), { fetch });
+        const length = app.api.attemptLength(fixture);
         assert.equal(length, size);
         assert.equal(plain(app.api.getState()).available, true, `a ${size}-question bank is valid`);
         startConfirmed(app, 'easy');
@@ -1371,15 +1372,15 @@ export async function engineSuite(lesson) {
 
   const termsOfList = (api, list) => new Set(list.flatMap(question => plain(api.questionTerms(question))));
 
-  await T('coverage: every lesson attempt is the whole bank (at most 50, no duplicates), so it covers every tag/topic; a pool attempt stays within 69', () => {
+  await T('coverage: every lesson attempt is the whole bank (at most 35, no duplicates), so it covers every tag/topic; a pool attempt stays within 35', () => {
     const { api } = loadApp();
-    assert.equal(api.maxAttemptSize, 50);
+    assert.equal(api.maxAttemptSize, 35);
     for (const mode of MODES) {
       for (let seed = 1; seed <= 40; seed++) {
         const attempt = plain(api.createAttempt(mode, banks, seededRandom(seed)));
         const ids = attempt.questions.map(question => question.id);
         assert.equal(attempt.questions.length, count(mode), `${mode}: attempt length`);
-        assert.ok(attempt.questions.length <= (pool ? 69 : 50), `${mode}: never above the cap`);
+        assert.ok(attempt.questions.length <= 35, `${mode}: never above the cap`);
         assert.equal(new Set(ids).size, ids.length, `${mode}: no duplicates`);
         assert.ok(attempt.questions.every(question => banks[mode].some(source => source.id === question.id && source.prompt === question.prompt)), `${mode}: only bank questions`);
         assert.equal(attempt.responses.length, ids.length);
@@ -1401,7 +1402,7 @@ export async function engineSuite(lesson) {
       }
       assert.equal(api.attemptLength(banks[mode]), count(mode), `${mode}: engine and build agree`);
       assert.equal(count(mode), banks[mode].length, `${mode}: a lesson attempt is the whole bank`);
-      assert.ok(count(mode) <= 50, `${mode}: at most 50 questions`);
+      assert.ok(count(mode) <= 35, `${mode}: at most 35 questions`);
     }
     if (!pool) {
       const union = termsOfList(api, MODES.flatMap(mode => banks[mode]));
@@ -1440,17 +1441,17 @@ export async function engineSuite(lesson) {
       assert.equal(api.coverLength(bank), 3);
     });
 
-    await T('coverage: never more than 50 questions; when the cover needs more, unseen questions rotate in over later attempts', () => {
+    await T('coverage: never more than 35 questions; when the cover needs more, unseen questions rotate in over later attempts', () => {
       const { api } = loadApp();
       const bank = Array.from({ length: 120 }, (_, index) => fakeQuestion(index + 1, [`t${index}`, `u${index}`], 'Topic'));
-      assert.equal(api.coverLength(bank), 50);
-      assert.equal(api.attemptLength(bank), 50);
+      assert.equal(api.coverLength(bank), 35);
+      assert.equal(api.attemptLength(bank), 35);
       const progress = { isr: {} };
       const asked = new Set();
       for (let attempt = 0; attempt < 2; attempt++) {
         const picked = plain(api.selectCoverage(bank, progress, seededRandom(attempt + 1)));
-        assert.equal(picked.length, 50);
-        assert.equal(new Set(ids(picked)).size, 50);
+        assert.equal(picked.length, 35);
+        assert.equal(new Set(ids(picked)).size, 35);
         picked.forEach(question => {
           assert.ok(!asked.has(question.id), 'questions unseen on this device come before ones already seen');
           asked.add(question.id);
@@ -1458,8 +1459,8 @@ export async function engineSuite(lesson) {
         });
       }
       const third = plain(api.selectCoverage(bank, progress, seededRandom(3)));
-      assert.equal(third.length, 50);
-      assert.equal(third.filter(question => !asked.has(question.id)).length, 20, 'the 20 questions never asked are all in');
+      assert.equal(third.length, 35);
+      assert.equal(third.filter(question => !asked.has(question.id)).length, 35, 'the third draw still contains only unseen questions');
     });
 
     await T('coverage: unseen questions come first, then missed ones, then the rest', () => {

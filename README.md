@@ -1,5 +1,7 @@
 # Mastery Quizzes (Bandwidth Brothers, SOAC 52 - 2026)
 
+**Adding or revising exams:** first consult [POI placement and publishing rules](docs/poi-exam-placement.md). This records the POI module order, 20–35 questions per difficulty, and future placement for lessons whose materials have not yet been supplied. Unsupported lessons have no student-facing placeholders.
+
 The whole site is published from this repository with GitHub Pages at https://atticus-42.github.io/quiz-hub/. It contains:
 
 - **The hub** (`index.html`): choose a module, then an exam, and see a summary of the class score history.
@@ -7,18 +9,25 @@ The whole site is published from this repository with GitHub Pages at https://at
 
   | Module | Exam | Lesson key | URL |
   | --- | --- | --- | --- |
-  | Module 2 | Combined Exam (60 questions drawn across the four lessons) | `combined` | `/quiz-hub/combined/` |
-  | Module 2 | ISR Operations | `isr` | `/quiz-hub/isr/` |
-  | Module 2 | Armor Operations | `armor` | `/quiz-hub/armor/` |
+  | Module 2 | Combined Practice Exam (30 questions; includes supporting Army Operations) | `combined` | `/quiz-hub/combined/` |
   | Module 2 | Field Artillery Operations | `fieldartillery` | `/quiz-hub/field-artillery/` |
-  | Module 2 | Army Operations | `armyops` | `/quiz-hub/army-operations/` |
-  | Module 3 | Signal Support in Combined Arms Operations | `signal` | `/quiz-hub/signal-support/` |
-  | Module 3 | Module 3 Exam (45 questions, 15 from each lesson, per difficulty) | `modulethree` | `/quiz-hub/module-3-exam/` |
-  | Module 3 | Signal Support in Joint Operations | `signaljoint` | `/quiz-hub/joint-signal/` |
-| Module 3 | Signal Support in Coalition Operations | `coalition` | `/quiz-hub/coalition-signal/` |
-  | Module 5 | Intelligence Cycle | `intcycle` | `/quiz-hub/intelligence-cycle/` |
-  | Module 5 | Radio Direction Finding | `rdf` | `/quiz-hub/radio-direction-finding/` |
-  | Module 5 | Signals Intelligence (SIGINT) | `sigint` | `/quiz-hub/signals-intelligence/` |
+  | Module 2 | Armor Operations | `armor` | `/quiz-hub/armor/` |
+  | Module 2 | ISR Operations | `isr` | `/quiz-hub/isr/` |
+  | Module 4 | Module 4 Exam (30 questions, 10 per lesson) | `modulethree` | `/quiz-hub/module-3-exam/` |
+  | Module 4 | Signal Support in Combined Arms Operations | `signal` | `/quiz-hub/signal-support/` |
+  | Module 4 | Signal Support in Joint Operations | `signaljoint` | `/quiz-hub/joint-signal/` |
+  | Module 4 | Signal Support in Coalition Operations | `coalition` | `/quiz-hub/coalition-signal/` |
+  | Module 5 | MANET C4ISTAR Planning | `manet` | `/quiz-hub/manet-c4istar-planning/` |
+  | Module 5 | C4ISTAR Sensors Integration | `sensors` | `/quiz-hub/c4istar-sensors-integration/` |
+  | Module 5 | C4ISTAR Weapon System Integration | `weapons` | `/quiz-hub/c4istar-weapon-system-integration/` |
+  | Module 6 | Signals Intelligence (SIGINT) | `sigint` | `/quiz-hub/signals-intelligence/` |
+  | Module 6 | Radio Direction Finding | `rdf` | `/quiz-hub/radio-direction-finding/` |
+  | Module 7 | NIST Framework | `nist` | `/quiz-hub/nist-framework/` |
+  | Module 7 | Zero Trust | `zerotrust` | `/quiz-hub/zero-trust/` |
+  | Module 7 | LOE3 GSOMIA Compliance | `gsomia` | `/quiz-hub/gsomia-compliance/` |
+  | Module 7 | Cyber Risk Assessment | `cyberrisk` | `/quiz-hub/cyber-risk-assessment/` |
+  | Supporting | Army Operations | `armyops` | `/quiz-hub/army-operations/` |
+  | Supporting | Intelligence Cycle | `intcycle` | `/quiz-hub/intelligence-cycle/` |
 
 - **Instructor view** (`/quiz-hub/instructor/`): question analysis.
 - **Our class** (`/quiz-hub/class/`): class organization and roster.
@@ -26,7 +35,7 @@ The whole site is published from this repository with GitHub Pages at https://at
 
 The old per-lesson repositories now only redirect to these URLs.
 
-Module 5 currently contains three individual lesson quizzes, each with 25 questions per difficulty (75 per lesson). No Module 5 combined exam is included. The questions use authorized training, classroom review and humanitarian-response examples. Their `coverage.md` files map content to the supplied decks and record source ambiguities. RDF calibration, equipment setup, detailed system parameters and error-mitigation procedures are not tested because the supplied deck lists them in its outline without developing them. The SIGINT quiz covers concepts and evidence review, not practical interception, targeting, equipment operation or decryption procedures. Raw slide decks are not published on the public site.
+The seven new Module 5/7 lesson quizzes contain 450 questions: NIST and Zero Trust have 25 per difficulty, and MANET, Sensors, Weapon Systems, GSOMIA and Cyber Risk have 20. No new combined Module 5/7 exam is included. Existing oversized banks have 35 per difficulty; SIGINT, RDF and Intelligence Cycle retain 25. Every lesson's `coverage.md` maps assessed topics and records source limitations. Raw source decks are not published. CipherDesk is a standalone tool.
 
 No login, analytics, cookies, external fonts or scripts. Everything is inline HTML/CSS/JS, plus the shared files in `assets/` (photos, the self-hosted fonts and the paper grain).
 
@@ -88,7 +97,7 @@ Each bank is a JSON array. Each question looks like this:
   (`signaljoint-e-14`, `-e-17`, `-e-19`, `-e-35`, `-e-37`, `-e-42`, `-m-01`, `-m-13`, `-m-30`) were wording or explanation only.
 - `category` must be one of the lesson's `categoryOrder` topics.
 - `sourceSlides` must fall within `sourceRef` (it is optional for Army Operations).
-- Banks hold 1–50 questions each (owner rule, enforced by the build and the tests). A lesson attempt serves the **whole bank** of the chosen mode (up to 50 questions): questions not yet seen on this device first, then previously missed, then the rest, each group shuffled. Every topic/term of the lesson (tags and `category`) must be covered by the union of its three difficulties, not necessarily by each one; every topic must still appear in each mode. The length is shown on the mode buttons and hub cards (for example "50 questions per attempt"). Give every question accurate `tags`: they decide what the union covers. Pool exams ask `pool.count` questions, split evenly across their lessons, each share a greedy term cover of that lesson's bank (unseen first). Module 2 asks 60 questions (15 per lesson; allowed range 50–69). Module 3 asks 45 questions (15 per lesson; allowed range 45–50).
+- Standalone banks and pool attempts contain **20–35 questions**, enforced by the build and engine. A lesson attempt serves the whole bank of the chosen mode: unseen questions first, then previously missed, then the rest, each group shuffled. Every declared topic appears in each mode; coverage documents map substantive concepts across the three difficulties and record limits. The mode buttons and cards show the actual count. Accurate `tags` guide selection in pool exams. The Combined Practice Exam asks 30 questions, with 8/8/7/7 shares allocated randomly among its four lessons. The Module 4 exam asks 30, with 10 from each lesson. Practice retries may contain fewer than 20 missed items. Historical pages and stored results with older totals remain readable.
 
 **Appending questions** (for example the course-style questions written in parallel) is a plain append, then a rebuild:
 
@@ -114,17 +123,19 @@ Copy `lessons/_template/` to `lessons/<key>/`, then:
 - add `hero.svg` (and optionally `hero.css`) and the three banks;
 - add the key to `LESSONS` in `apps-script/Code.gs` and update the deployment.
 
-Then run `assign-qids`, build and verify. See `lessons/_template/README.md`. The Module 3 lesson `signaljoint` (slug `joint-signal`) is registered in `Code.gs`; its `coverage.md` maps each question to the lesson slides and the official student handout. `sourceSlides` always holds slide numbers (one reference label per lesson); a handout-only question cites the nearest slide and names "Handout p.N" in its explanation.
+Then run `assign-qids`, build and verify. See `lessons/_template/README.md`. Lesson keys and history tab names stay stable when a display module changes. `sourceSlides` uses the lesson's declared slide/page numbering; paired handouts are named in explanations and coverage notes. For example, `signaljoint` (slug `joint-signal`, now POI 4.2) maps its questions to the lesson slides and student handout.
 
 ## Updating the weekly schedule
 
-Week 6 (26 October–1 November) is published separately at `schedule-2026-10-26/`. The public `data/schedule.json` feed includes both active and upcoming days so the bot can answer and post next week's dates. `loadSchedule()` returns only the active week for rendering; `loadSchedule(ROOT, undefined, {allDays:true})` returns the validated full feed. The main schedule links both weeks and opens the matching dated page from Monday in Philippine time (or immediately for a next-week day link). No new menus were provided for week 6. Printed overlaps, unusual venues and missing times are retained and noted.
+Week 6 (26 October–1 November) is active at `schedule/` and `schedule-2026-10-26/`, updated from the revised `26 OCT SCHEDULE.docx` and its separately supplied 21-meal workbook. Module 5 assessment is on 28 October; Module 7 assessment is on 30 October. All 90 source rows remain, plus five untimed menu-only entries where the timetable omits a mess period. Blank or shifted source fields are noted instead of inventing times or venues.
+
+The approved partial screenshot for 2–6 November is published separately at `schedule-2026-11-02/`. It is clearly marked partial, includes only visible entries, and does not invent the cropped details or 7–8 November. The public `data/schedule.json` contains the active week followed by these five available dates. `loadSchedule()` returns the active first seven days; `loadSchedule(ROOT, undefined, {allDays:true})` returns every validated published date. The main page links the dated pages and opens a matching future date in Philippine time. A schedule-level `notice` identifies partial coverage; a feed may end midweek, but must contain every date through its stated end.
 
 The daily Telegram sender targets 19:00 Philippine time with tomorrow's activities. See [TELEGRAM-SETUP.md](TELEGRAM-SETUP.md) for the one-time bot/group connection, private secrets, preview and timing limitations.
 
 The schedule page shows whatever `data/schedule.json` holds. Each week:
 
-The 19–25 October 2026 schedule was activated on 18 October: `data/schedule.json` matches `data/schedules/2026-10-19_2026-10-25.json`, so the main page and Telegram sender use week 5. Week 4, including its supplied meals and the October 12 uniform correction, remains archived in `data/schedules/2026-10-12_2026-10-18.json` and `schedule-2026-10-12/`. No week-5 menu was provided, so meals are not copied forward. The source has omitted routine entries on Thursday/Friday, overlapping printed times, and three venues printed as SGOU; preserve these and flag the venue ambiguity rather than guessing corrections. Dated pages remain snapshots, not replaced by the normal current-week build.
+Earlier weeks retain their dated JSON and pages, including their own menus and approved corrections. The normal build refreshes the active week's dated page and upcoming pages; older snapshots stay unchanged. Menus are never copied into a different week.
 
 1. Copy last week's file to `data/schedules/<start>_<end>.json` named by the new week's dates (for example `2026-10-12_2026-10-18.json`) and transcribe the new weekly training schedule into it, row by row, exactly as printed:
    - `week`: `{ number, of, start, end }` (dates `YYYY-MM-DD`, Monday to Sunday); `prepared` is the "Date Prepared".

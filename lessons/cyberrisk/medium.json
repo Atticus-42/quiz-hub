@@ -1,0 +1,428 @@
+[
+  {
+    "id": 1,
+    "qid": "cyberrisk-m-01",
+    "difficulty": "medium",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "An unauthorized reader views a file without changing it. Which property is directly compromised?",
+    "options": [
+      "Confidentiality",
+      "Integrity alone",
+      "Processing speed",
+      "Availability alone"
+    ],
+    "answer": 0,
+    "explanation": "Unauthorized disclosure directly affects confidentiality, even if the file remains unchanged and available.",
+    "sourceSlides": [
+      15
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "cyberrisk-m-02",
+    "difficulty": "medium",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "A report is secretly modified while access remains available. Which concern is primary?",
+    "options": [
+      "Availability alone",
+      "Integrity",
+      "Storage capacity",
+      "Physical durability"
+    ],
+    "answer": 1,
+    "explanation": "Integrity concerns unauthorized changes to information; availability does not establish correctness.",
+    "sourceSlides": [
+      15
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "cyberrisk-m-03",
+    "difficulty": "medium",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "A workstation holds valuable records, has missing updates and faces malware exposure. Which mapping is correct?",
+    "options": [
+      "Records: asset; missing updates: vulnerability; malware: threat",
+      "Records: threat; missing updates: asset; malware: vulnerability",
+      "All three are interchangeable names for the same incident",
+      "Records: vulnerability; missing updates: threat; malware: asset"
+    ],
+    "answer": 0,
+    "explanation": "Assets, vulnerabilities and threats describe different parts of the risk situation.",
+    "sourceSlides": [
+      16,
+      17
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "cyberrisk-m-04",
+    "difficulty": "medium",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "Two weaknesses have equal likelihood but different mission consequences. What should the assessment consider?",
+    "options": [
+      "Only whether their technical names are similar",
+      "Treat them as equal because likelihood matches",
+      "Their different impacts as well as likelihood",
+      "Only how long the affected staff have served"
+    ],
+    "answer": 2,
+    "explanation": "Equal likelihood does not imply equal risk when consequences for the mission differ.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "cyberrisk-m-05",
+    "difficulty": "medium",
+    "category": "Risk Concepts and CIA",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "An adversary maintains organized, persistent access over time. Which lesson term best fits?",
+    "options": [
+      "Authorized change management",
+      "Routine backup verification",
+      "Advanced persistent threat",
+      "Physical inventory reconciliation"
+    ],
+    "answer": 2,
+    "explanation": "The lesson distinguishes persistent organized threats from routine maintenance and authorized controls.",
+    "sourceSlides": [
+      17
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "cyberrisk-m-06",
+    "difficulty": "medium",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "A unit appoints response staff and rehearses procedures before any incident. Which phase is illustrated?",
+    "options": [
+      "Recovery",
+      "Preparation",
+      "Eradication",
+      "Containment"
+    ],
+    "answer": 1,
+    "explanation": "Pre-incident readiness activities belong to preparation, even when they simulate later phases.",
+    "sourceSlides": [
+      19,
+      20
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "cyberrisk-m-07",
+    "difficulty": "medium",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "An approved responder isolates an affected machine to limit spread. Which objective is being pursued?",
+    "options": [
+      "Long-term procurement",
+      "Final lessons reporting",
+      "Personnel classification",
+      "Containment"
+    ],
+    "answer": 3,
+    "explanation": "Isolation in the stated response context limits further spread; it does not itself prove eradication.",
+    "sourceSlides": [
+      21
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "cyberrisk-m-08",
+    "difficulty": "medium",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "Malicious components have been removed. Why should services not simply be assumed healthy?",
+    "options": [
+      "Recovery must verify restored operation and monitor it",
+      "Service health is unrelated to incident response",
+      "Every incident necessarily requires replacing the entire network",
+      "Removal means all backup procedures should stop"
+    ],
+    "answer": 0,
+    "explanation": "Eradication and recovery are distinct; removal must be followed by controlled restoration and observation.",
+    "sourceSlides": [
+      22,
+      23
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "cyberrisk-m-09",
+    "difficulty": "medium",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "A team restores service but records no cause, action or lesson. Which phase is deficient?",
+    "options": [
+      "Software licensing",
+      "Traffic forwarding",
+      "Assessment and review",
+      "Preparation alone"
+    ],
+    "answer": 2,
+    "explanation": "Review needs useful documentation to support learning and improved future response.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "cyberrisk-m-10",
+    "difficulty": "medium",
+    "category": "Incident Response Lifecycle",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "A trainee calls the six incident phases the complete risk-management discipline. What correction is appropriate?",
+    "options": [
+      "They replace asset identification and risk assessment entirely",
+      "They describe incident response, not every risk-management activity",
+      "They prove risk analysis is unnecessary before an incident",
+      "They apply only to procurement and not to incidents"
+    ],
+    "answer": 1,
+    "explanation": "The listed phases form an incident-response lifecycle; the slide heading should not erase broader risk analysis.",
+    "sourceSlides": [
+      18
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "cyberrisk-m-11",
+    "difficulty": "medium",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "A team hardens operating systems but ignores its custom web application and unauthorized Wi-Fi. Which areas remain?",
+    "options": [
+      "Printer layout and office lighting",
+      "Application security and wireless access control",
+      "Screen resolution and display calibration",
+      "Annual leave planning and transport scheduling"
+    ],
+    "answer": 1,
+    "explanation": "The lesson separately includes application security and wireless access control, beyond host hardening.",
+    "sourceSlides": [
+      25,
+      26
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "cyberrisk-m-12",
+    "difficulty": "medium",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "A network allows unused services and default device configurations. Which controls address these findings?",
+    "options": [
+      "Service/protocol restriction and network-device configuration",
+      "Printer maintenance and workstation labeling alone",
+      "Backup frequency and public website styling",
+      "Data disposal and staff travel approval"
+    ],
+    "answer": 0,
+    "explanation": "The legacy control list separately addresses secure network devices and limiting ports, protocols and services.",
+    "sourceSlides": [
+      26,
+      27
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "cyberrisk-m-13",
+    "difficulty": "medium",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "A perimeter device exists, but internal access is broad and outbound activity is unreviewed. What is missing?",
+    "options": [
+      "A larger device label at the perimeter",
+      "Permission to treat all internal traffic as trusted",
+      "Layered boundary protection and need-to-know restrictions",
+      "A rule that only incoming traffic can create risk"
+    ],
+    "answer": 2,
+    "explanation": "Boundary defense addresses traffic in both directions; need-to-know limits inappropriate internal access.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "cyberrisk-m-14",
+    "difficulty": "medium",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "Departed staff retain active accounts and sensitive files can leave without controls. Which pair applies?",
+    "options": [
+      "Backup testing and equipment painting",
+      "Procurement planning and room booking",
+      "Display management and print formatting",
+      "Account management and data-loss prevention"
+    ],
+    "answer": 3,
+    "explanation": "The lesson includes account monitoring and controls on unauthorized movement of sensitive information.",
+    "sourceSlides": [
+      28
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "cyberrisk-m-15",
+    "difficulty": "medium",
+    "category": "Defensive Control Coverage",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "A unit buys tools but never trains responders or exercises its defenses. Which gap remains?",
+    "options": [
+      "Skills development, response management and authorized testing",
+      "Excessive use of individual user accounts",
+      "Too many approved backup copies",
+      "A lack of additional decorative network diagrams"
+    ],
+    "answer": 0,
+    "explanation": "The controls include skills, incident-response capability, secure engineering and authorized tests of readiness.",
+    "sourceSlides": [
+      26,
+      28
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "cyberrisk-m-16",
+    "difficulty": "medium",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "Security officers are appointed but have not been trained. Which PPT issue is most direct?",
+    "options": [
+      "Network cable length",
+      "People capability",
+      "Process storage capacity",
+      "Technology licensing only"
+    ],
+    "answer": 1,
+    "explanation": "Appointment alone does not establish the personnel competence assessed under People.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "cyberrisk-m-17",
+    "difficulty": "medium",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "Backups exist, but no approved restoration procedure or assigned responsibility exists. Which element needs attention?",
+    "options": [
+      "Technology exclusively",
+      "Equipment color coding",
+      "People age profile",
+      "Process"
+    ],
+    "answer": 3,
+    "explanation": "A procedure and defined responsibility make recovery repeatable; possessing backup technology is not enough.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "cyberrisk-m-18",
+    "difficulty": "medium",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "The classroom scale gives a unit 11%. What classification follows?",
+    "options": [
+      "No risk",
+      "High",
+      "Low",
+      "Medium"
+    ],
+    "answer": 3,
+    "explanation": "Eleven percent is the lower boundary of the lesson's Medium range, not the upper end of Low.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "cyberrisk-m-19",
+    "difficulty": "medium",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "Using the stated formula, Risk Output is 40% and Points Allocated is 50. What is the weighted result?",
+    "options": [
+      "40 points",
+      "50 points",
+      "20 points",
+      "90 points"
+    ],
+    "answer": 2,
+    "explanation": "Apply the supplied values directly: 40 × 50 / 100 = 20 points; do not infer additional weights.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "cyberrisk-m-20",
+    "difficulty": "medium",
+    "category": "People Process Technology and Scoring",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "An exercise supplies weighted results of 12, 18 and 9 points. What sum follows the lesson's formula?",
+    "options": [
+      "3 points",
+      "216 points",
+      "18 points",
+      "39 points"
+    ],
+    "answer": 3,
+    "explanation": "Overall posture is the sum of the supplied weighted element results: 12 + 18 + 9 = 39.",
+    "sourceSlides": [
+      30
+    ]
+  }
+]

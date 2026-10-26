@@ -2,10 +2,10 @@
   "key": "isr",
   "slug": "isr",
   "module": "module-2",
-  "order": 1,
+  "order": 4,
   "name": "ISR Operations",
   "title": "ISR Operations Mastery Quiz",
-  "eyebrow": "Philippine Army · Intelligence, Surveillance and Reconnaissance",
+  "eyebrow": "Philippine Army · POI 2.4 · ISR Operations",
   "lessonName": "Introduction to ISR Operations",
   "hubDescription": "Introduction to ISR Operations.",
   "historyLesson": "isr",
@@ -20,14 +20,45 @@
     "Coverage, Persistence, and Flexibility",
     "Security, Interoperability, and Ethics"
   ],
-  "sourceRef": { "label": "slide", "plural": "slides", "min": 21, "max": 58, "required": true },
-  "palette": { "--lesson-accent": "#c4521c" },
+  "sourceRef": {
+    "label": "slide",
+    "plural": "slides",
+    "min": 21,
+    "max": 58,
+    "required": true
+  },
+  "palette": {
+    "--lesson-accent": "#c4521c"
+  },
   "art": {
-    "groups": ["radar-site", "radar-dish", "radar-sweep", "data-packet", "signal-waves", "command-post"],
-    "nested": { "radar-site": ["radar-dish", "radar-sweep"] },
-    "labels": ["COLLECT"],
-    "classes": ["data-link", "sensor-coverage"],
-    "stilled": ["#radar-dish", "#radar-sweep", "#data-packet", "#signal-waves .wave", "#command-post .cp-pulse"],
+    "groups": [
+      "radar-site",
+      "radar-dish",
+      "radar-sweep",
+      "data-packet",
+      "signal-waves",
+      "command-post"
+    ],
+    "nested": {
+      "radar-site": [
+        "radar-dish",
+        "radar-sweep"
+      ]
+    },
+    "labels": [
+      "COLLECT"
+    ],
+    "classes": [
+      "data-link",
+      "sensor-coverage"
+    ],
+    "stilled": [
+      "#radar-dish",
+      "#radar-sweep",
+      "#data-packet",
+      "#signal-waves .wave",
+      "#command-post .cp-pulse"
+    ],
     "staticPattern": "#radar-site|#command-post$|\\.sensor-coverage|\\.data-link|\\.hero-art"
   }
 }

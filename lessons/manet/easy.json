@@ -1,0 +1,430 @@
+[
+  {
+    "id": 1,
+    "qid": "manet-e-01",
+    "difficulty": "easy",
+    "category": "Network Concepts",
+    "tags": [
+      "network concepts"
+    ],
+    "prompt": "What distinguishes a MANET?",
+    "options": [
+      "A self-configuring mobile wireless network",
+      "Every node requires a permanent wired exchange",
+      "All communication depends on a public cellular tower",
+      "Only one immovable device may transmit"
+    ],
+    "answer": 0,
+    "explanation": "The lesson defines MANET as a self-configuring wireless network without established infrastructure.",
+    "sourceSlides": [
+      11
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "manet-e-02",
+    "difficulty": "easy",
+    "category": "Network Concepts",
+    "tags": [
+      "network concepts"
+    ],
+    "prompt": "What does self-healing mean in this context?",
+    "options": [
+      "Adapting connectivity when links or members change",
+      "Removing all need for network planning",
+      "Guaranteeing unlimited range between all nodes",
+      "Repairing damaged physical connectors automatically"
+    ],
+    "answer": 0,
+    "explanation": "Self-healing concerns network adaptation, not physical repair or guaranteed connectivity.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "manet-e-03",
+    "difficulty": "easy",
+    "category": "Network Concepts",
+    "tags": [
+      "network concepts"
+    ],
+    "prompt": "Which delivery type addresses an all-informed audience?",
+    "options": [
+      "Unicast",
+      "Offline archiving",
+      "Local storage",
+      "Broadcast"
+    ],
+    "answer": 3,
+    "explanation": "Broadcast distributes traffic broadly, unlike unicast to an individual destination.",
+    "sourceSlides": [
+      12,
+      17
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "manet-e-04",
+    "difficulty": "easy",
+    "category": "Network Concepts",
+    "tags": [
+      "network concepts"
+    ],
+    "prompt": "Why is quality of service relevant?",
+    "options": [
+      "Every traffic type has identical service requirements",
+      "It removes the need to consider user demand",
+      "Different traffic competes for limited network resources",
+      "It makes all link interference physically impossible"
+    ],
+    "answer": 2,
+    "explanation": "QoS helps manage competing service requirements under capacity and link constraints.",
+    "sourceSlides": [
+      9,
+      12
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "manet-e-05",
+    "difficulty": "easy",
+    "category": "Capabilities and Security",
+    "tags": [
+      "capabilities and security"
+    ],
+    "prompt": "Which services are identified among the E-LynX capabilities?",
+    "options": [
+      "Voice, data and Blue Force Tracking",
+      "Only television reception for public broadcasts",
+      "Only file storage with no network exchange",
+      "Only analog voice without any data support"
+    ],
+    "answer": 0,
+    "explanation": "The lesson lists simultaneous voice, data and BFT among the system's capabilities.",
+    "sourceSlides": [
+      28
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "manet-e-06",
+    "difficulty": "easy",
+    "category": "Capabilities and Security",
+    "tags": [
+      "capabilities and security"
+    ],
+    "prompt": "What protects radio-management exchanges in the lesson?",
+    "options": [
+      "SNMPv3 confidentiality and authentication",
+      "The color of the radio's display screen",
+      "Removal of all management access records",
+      "An unrestricted shared management account"
+    ],
+    "answer": 0,
+    "explanation": "The lesson identifies SNMPv3 as providing confidentiality and authentication for management traffic.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "manet-e-07",
+    "difficulty": "easy",
+    "category": "Capabilities and Security",
+    "tags": [
+      "capabilities and security"
+    ],
+    "prompt": "Which waveform distinction is stated in the lesson?",
+    "options": [
+      "Neither supports any form of voice service",
+      "STANAG 4204 is clear; CNR supports encrypted voice",
+      "STANAG 4204 is encrypted; CNR is clear-only",
+      "Both are described as clear-only data waveforms"
+    ],
+    "answer": 1,
+    "explanation": "These are the source's waveform characteristics, not a claim that all interoperability is encrypted.",
+    "sourceSlides": [
+      35,
+      36
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "manet-e-08",
+    "difficulty": "easy",
+    "category": "Capabilities and Security",
+    "tags": [
+      "capabilities and security"
+    ],
+    "prompt": "What role does frequency hopping have in the lesson?",
+    "options": [
+      "A method for increasing battery capacity indefinitely",
+      "A guarantee that all receivers hear every message",
+      "A replacement for every access-control requirement",
+      "Contributing to transmission protection"
+    ],
+    "answer": 3,
+    "explanation": "Frequency hopping contributes to protection but does not guarantee delivery or replace other controls.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "manet-e-09",
+    "difficulty": "easy",
+    "category": "Equipment and Maintenance",
+    "tags": [
+      "equipment and maintenance"
+    ],
+    "prompt": "What should a visual inspection include?",
+    "options": [
+      "Only the color of the manufacturer's logo",
+      "Only the purchase date on an invoice",
+      "Connectors, casing, controls and cable condition",
+      "Only whether the display looks fashionable"
+    ],
+    "answer": 2,
+    "explanation": "The source checks damage, corrosion, pins, controls, casing and damaged cable insulation.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "manet-e-10",
+    "difficulty": "easy",
+    "category": "Equipment and Maintenance",
+    "tags": [
+      "equipment and maintenance"
+    ],
+    "prompt": "Which cleaning method is described?",
+    "options": [
+      "Abrasive scraping of connector contacts",
+      "Immersion of assembled equipment in solvent",
+      "Unspecified chemicals chosen by the operator",
+      "A soft clean cloth, with mild soap and water when needed"
+    ],
+    "answer": 3,
+    "explanation": "The source describes gentle cleaning; practical maintenance must follow approved equipment instructions.",
+    "sourceSlides": [
+      26
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "manet-e-11",
+    "difficulty": "easy",
+    "category": "Equipment and Maintenance",
+    "tags": [
+      "equipment and maintenance"
+    ],
+    "prompt": "Which sequence matches the troubleshooting model?",
+    "options": [
+      "Isolate, publish, procure, classify",
+      "Verify, replace everything, ignore, store",
+      "Identify, isolate, repair, verify",
+      "Repair, discard evidence, guess, deploy"
+    ],
+    "answer": 2,
+    "explanation": "The four steps are fault identification, fault isolation, repair and repair verification including BIT.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "manet-e-12",
+    "difficulty": "easy",
+    "category": "Equipment and Maintenance",
+    "tags": [
+      "equipment and maintenance"
+    ],
+    "prompt": "What is the vehicular adapter's general role?",
+    "options": [
+      "Mechanical support, power and control for the radio",
+      "Replacing all radio networking software with paper records",
+      "Removing all need for approved vehicle installation",
+      "Turning the handheld into a satellite without other equipment"
+    ],
+    "answer": 0,
+    "explanation": "The adapter provides support, power and control; its presence does not establish every system capability.",
+    "sourceSlides": [
+      47
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "manet-e-13",
+    "difficulty": "easy",
+    "category": "Diagnostics and Configuration",
+    "tags": [
+      "diagnostics and configuration"
+    ],
+    "prompt": "What does the network menu help a technician inspect?",
+    "options": [
+      "Personnel promotion recommendations",
+      "Node and network-interface information",
+      "Public website advertising statistics",
+      "Vehicle fuel consumption forecasts"
+    ],
+    "answer": 1,
+    "explanation": "The network menu exposes node and interface information used in authorized diagnostics.",
+    "sourceSlides": [
+      54,
+      55
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "manet-e-14",
+    "difficulty": "easy",
+    "category": "Diagnostics and Configuration",
+    "tags": [
+      "diagnostics and configuration"
+    ],
+    "prompt": "Which measurement expresses received signal quality relative to noise?",
+    "options": [
+      "Node identifier",
+      "Elapsed operating time",
+      "RSSI alone",
+      "SNR"
+    ],
+    "answer": 3,
+    "explanation": "SNR is signal-to-noise ratio; RSSI describes received signal strength rather than that ratio.",
+    "sourceSlides": [
+      56
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "manet-e-15",
+    "difficulty": "easy",
+    "category": "Diagnostics and Configuration",
+    "tags": [
+      "diagnostics and configuration"
+    ],
+    "prompt": "What is a purpose of the Test menu?",
+    "options": [
+      "Automatically approve every maintenance action",
+      "Check RX/TX paths and view diagnostic information",
+      "Replace personnel authorization for protected settings",
+      "Determine a user's military rank from voice traffic"
+    ],
+    "answer": 1,
+    "explanation": "The source describes tests of receive/transmit paths and views of versions, counters and network performance.",
+    "sourceSlides": [
+      58
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "manet-e-16",
+    "difficulty": "easy",
+    "category": "Diagnostics and Configuration",
+    "tags": [
+      "diagnostics and configuration"
+    ],
+    "prompt": "Why are protected configuration levels used?",
+    "options": [
+      "Protected menus eliminate all human error",
+      "Different functions require controlled access",
+      "Passwords increase antenna range directly",
+      "Every user should share every maintenance privilege"
+    ],
+    "answer": 1,
+    "explanation": "The lesson separates operator and secure-level functions to control access to configuration activities.",
+    "sourceSlides": [
+      60
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "manet-e-17",
+    "difficulty": "easy",
+    "category": "Integration and Assurance",
+    "tags": [
+      "integration and assurance"
+    ],
+    "prompt": "What role does the integrator serve?",
+    "options": [
+      "Supply unlimited capacity without a radio link",
+      "Make every legacy system natively identical",
+      "Connect different communication services and systems",
+      "Replace all information security requirements"
+    ],
+    "answer": 2,
+    "explanation": "The integrator connects services across legacy and newer systems; compatibility still needs verification.",
+    "sourceSlides": [
+      69,
+      70
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "manet-e-18",
+    "difficulty": "easy",
+    "category": "Integration and Assurance",
+    "tags": [
+      "integration and assurance"
+    ],
+    "prompt": "Which practice is emphasized for integration?",
+    "options": [
+      "Forward every traffic type everywhere by default",
+      "Remove all separation between unrelated services",
+      "Assume security is unnecessary on internal links",
+      "Limit unnecessary traffic and prevent traffic leakage"
+    ],
+    "answer": 3,
+    "explanation": "The source highlights reduced traffic, security and preventing leakage across integration boundaries.",
+    "sourceSlides": [
+      70
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "manet-e-19",
+    "difficulty": "easy",
+    "category": "Integration and Assurance",
+    "tags": [
+      "integration and assurance"
+    ],
+    "prompt": "Why distinguish voice integration from data integration?",
+    "options": [
+      "Voice and data always use identical application paths",
+      "Working voice proves all video and position data arrive",
+      "Success for one service does not establish the other",
+      "Only data needs a receiving application"
+    ],
+    "answer": 2,
+    "explanation": "The lesson treats services separately; each required service needs appropriate integration and verification.",
+    "sourceSlides": [
+      69,
+      72,
+      73
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "manet-e-20",
+    "difficulty": "easy",
+    "category": "Integration and Assurance",
+    "tags": [
+      "integration and assurance"
+    ],
+    "prompt": "What provides evidence after a network repair?",
+    "options": [
+      "A replacement part's unopened packaging",
+      "Verification tests and observed service results",
+      "The technician's confidence without measurements",
+      "A photograph of the equipment label alone"
+    ],
+    "answer": 1,
+    "explanation": "Repair verification should demonstrate the relevant network or service behavior, not just a completed action.",
+    "sourceSlides": [
+      27,
+      67
+    ]
+  }
+]

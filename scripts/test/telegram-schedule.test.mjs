@@ -10,8 +10,8 @@ import { loadSchedule as loadCurrentSchedule } from '../build.mjs';
 const loadSchedule = () => loadCurrentSchedule(undefined, join('data','schedules','2026-10-05_2026-10-11.json'));
 const postTomorrow = options => postCurrentTomorrow({data:loadSchedule(), ...options});
 
-test('the active October 19 schedule is delivered in full without an unavailable notice', async () => {
-  const data=loadCurrentSchedule();
+test('the archived October 19 schedule formats in full without an unavailable notice', async () => {
+  const data=loadCurrentSchedule(undefined,join('data','schedules','2026-10-19_2026-10-25.json'));
   const dir=mkdtempSync(join(tmpdir(),'telegram-week4-test-'));
   const calls=[];
   try {

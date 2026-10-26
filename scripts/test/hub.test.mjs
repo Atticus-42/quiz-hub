@@ -22,7 +22,7 @@ const MODULE_EXAMS = {};
 for (const lesson of [...lessons].sort((a, b) => Number(Boolean(b.prominent)) - Number(Boolean(a.prominent)) || a.order - b.order)) (MODULE_EXAMS[lesson.module] ||= []).push(lesson.key);
 const EXAM_COUNT = lessons.length;
 const MODULE_2 = MODULE_EXAMS['module-2'];
-const MODULE_3 = MODULE_EXAMS['module-3'];
+const MODULE_3 = MODULE_EXAMS['module-4'];
 const MODULE_5 = MODULE_EXAMS['module-5'];
 
 // ---------- Small fake DOM: enough for the hub's rendering code. ----------
@@ -116,34 +116,34 @@ const row = (over = {}) => ({ name: 'Cruz', mode: 'easy', score: 20, total: 25, 
 // --- Config ---
 test('MODULES config is generated from lessons/*/lesson.json: unique ids, keys and URLs, exact URLs', () => {
   const modules = ctx.MODULES;
-  assert.deepEqual([...modules].map((m) => m.id), ['module-2', 'module-3', 'module-5']);
+  assert.deepEqual([...modules].map((m) => m.id), ['module-2','module-4','module-5','module-6','module-7','supplemental']);
   assert.equal(new Set(modules.map((m) => m.id)).size, modules.length);
   for (const m of modules) {
     assert.ok(m.title && m.description, `title/description for ${m.id}`);
     assert.deepEqual([...m.exams].map((e) => e.key), MODULE_EXAMS[m.id], `exams of ${m.id}`);
   }
   assert.equal(modules[0].title, 'Module 2');
-  assert.equal(modules[0].description, 'ISR Operations, Armor Operations, Field Artillery Operations, Army Operations and the Combined Exam');
-  assert.equal(modules[1].title, 'Module 3');
+  assert.equal(modules[0].description, 'Field Artillery Operations, Armor Operations, ISR Operations and the Combined Practice Exam');
+  assert.equal(modules[1].title, 'Module 4');
   assert.ok(modules[1].description.startsWith('Signal Support in Combined Arms Operations'));
-  assert.equal(modules[1].note, undefined);
+  assert.equal(modules[1].note, 'Signal Support Integration');
   const exams = ctx.EXAMS;
   assert.equal(exams.length, EXAM_COUNT, 'EXAMS is the flat list of all module exams');
   assert.equal(new Set(exams.map((e) => e.key)).size, EXAM_COUNT);
   assert.equal(new Set(exams.map((e) => e.lesson)).size, EXAM_COUNT);
   assert.equal(new Set(exams.map((e) => e.url)).size, EXAM_COUNT);
-  assert.deepEqual(MODULE_2.slice(0, 5), ['combined', 'isr', 'armor', 'fieldartillery', 'armyops']);
+  assert.deepEqual(MODULE_2.slice(0, 5), ['combined','fieldartillery','armor','isr']);
   assert.deepEqual(MODULE_3, ['modulethree', 'signal', 'signaljoint', 'coalition']);
-  assert.deepEqual(MODULE_5, ['intcycle', 'rdf', 'sigint']);
+  assert.deepEqual(MODULE_5, ['manet','sensors','weapons']);
   for (const e of exams) {
     assert.equal(e.url, EXPECTED[e.key], `url for ${e.key}`);
     assert.equal(e.lesson, e.key);
     assert.ok(e.title && e.description, `title/description for ${e.key}`);
     assert.ok(MODULE_EXAMS[e.module].includes(e.key), `module back-reference for ${e.key}`);
   }
-  assert.deepEqual([...exams.find((e) => e.key === 'combined').tags].map((tag) => tag.text), ['All four lessons', '60 questions', 'Easy · Medium · Hard']);
+  assert.deepEqual([...exams.find((e) => e.key === 'combined').tags].map((tag) => tag.text), ['All four lessons', '30 questions', 'Easy · Medium · Hard']);
   assert.deepEqual([...exams.filter((e) => e.prominent).map((e) => e.key)], ['combined','modulethree']);
-  assert.deepEqual([...exams.find((e) => e.key === 'modulethree').tags].map((tag) => tag.text), ['All three lessons', '45 questions', 'Easy · Medium · Hard']);
+  assert.deepEqual([...exams.find((e) => e.key === 'modulethree').tags].map((tag) => tag.text), ['All three lessons', '30 questions', 'Easy · Medium · Hard']);
   for (const lesson of lessons.filter((item) => !item.pool)) {
     const counts = ['easy', 'medium', 'hard'].map((mode) => lesson.attempts[mode]);
     const label = Math.min(...counts) === Math.max(...counts) ? `${counts[0]} questions per attempt` : `${Math.min(...counts)}–${Math.max(...counts)} questions per attempt`;
@@ -159,8 +159,8 @@ test('MODULES config is generated from lessons/*/lesson.json: unique ids, keys a
 
 test('moduleFromHash: known ids only, everything else means the chooser', () => {
   assert.equal(ctx.moduleFromHash('#module-2'), 'module-2');
-  assert.equal(ctx.moduleFromHash('#module-3'), 'module-3');
-  assert.equal(ctx.moduleFromHash('#MODULE-3'), 'module-3');
+  assert.equal(ctx.moduleFromHash('#module-4'), 'module-4');
+  assert.equal(ctx.moduleFromHash('#MODULE-4'), 'module-4');
   for (const h of ['', '#', '#module-9', '#choose-module', '#%E0%A4%A', '#<script>', null, undefined, 42]) assert.equal(ctx.moduleFromHash(h), null, String(h));
 });
 
@@ -363,7 +363,7 @@ test('init fetches the selected module first, then the rest for the overview, al
   assert.equal(f.calls.length, EXAM_COUNT, 'each lesson fetched once');
   assert.equal(peak, EXAM_COUNT, 'parallel requests');
   assert.deepEqual(lessonsOf(f.calls).slice(0, MODULE_2.length).sort(), [...MODULE_2].sort());
-  assert.deepEqual(lessonsOf(f.calls).slice(MODULE_2.length), [...MODULE_3, ...MODULE_5]);
+  assert.deepEqual(lessonsOf(f.calls).slice(MODULE_2.length).sort(), Object.entries(MODULE_EXAMS).filter(([id])=>id!=='module-2').flatMap(([,keys])=>keys).sort());
   assert.equal(doc.getElementById('history-app').hidden, false);
   assert.equal(doc.getElementById('history-refresh').hidden, false);
 });
@@ -371,18 +371,18 @@ test('init fetches the selected module first, then the rest for the overview, al
 test('summary table, card stats and per-exam error/empty states', async () => {
   const { doc } = await renderHub(dataset());
   const summary = rowsOf(doc, 'summary-body');
-  assert.equal(summary.length, 5);
+  assert.equal(summary.length, 4);
   const byExam = Object.fromEntries(summary.map((tr) => [tr.children[0].textContent, cellTexts(tr)]));
   assert.deepEqual(byExam['Armor Operations'], ['Armor Operations', '1', '96%', '96% (Reyes)', '2026-09-28 10:00']);
   assert.deepEqual(byExam['Field Artillery Operations'].slice(0, 2), ['Field Artillery Operations', 'Not available yet']);
-  assert.equal(byExam['Army Operations'][1], '0');
+  assert.equal(byExam['Army Operations'], undefined, 'supporting lessons are outside Module 2');
   assert.match(doc.getElementById('stats-fieldartillery').textContent, /Not available yet/);
   assert.match(doc.getElementById('stats-armyops').textContent, /No attempts yet/);
   assert.match(doc.getElementById('stats-armor').textContent, /Attempts1/);
   assert.match(doc.getElementById('stats-armor').textContent, /Reyes · 96%/);
   const status = doc.getElementById('history-status');
   assert.match(status.className, /status-partial/);
-  assert.match(status.textContent, /1 of 5 exams/);
+  assert.match(status.textContent, /1 of 4 exams/);
   for (const tr of summary) for (const td of tr.children) assert.ok(td.getAttribute('data-label'), 'cells carry labels for the narrow layout');
 });
 
@@ -463,7 +463,7 @@ test('all lessons empty shows the empty state and ready status', async () => {
   const { doc } = await renderHub(empty);
   assert.match(doc.getElementById('history-status').className, /status-ready/);
   assert.equal(doc.getElementById('recent-empty').hidden, false);
-  assert.equal(rowsOf(doc, 'summary-body').length, 5);
+  assert.equal(rowsOf(doc, 'summary-body').length, 4);
   assert.equal(doc.getElementById('overview-module-2').textContent, '0 class attempts');
 });
 
@@ -473,7 +473,7 @@ test('a config entry without a static card gets one built from the config', asyn
   const doc = makeDocument(stripped);
   const data = dataset();
   await ctx.createHub(doc, fakeFetch((lesson) => response(data[lesson])), makeWindow('#module-2')).init();
-  assert.ok(doc.getElementById('exam-grid-module-2').children.some((li) => li.id === 'card-armyops'), 'built inside its module grid');
+  assert.ok(doc.getElementById('exam-grid-supplemental').children.some((li) => li.id === 'card-armyops'), 'built inside its supplemental grid');
   const card = doc.getElementById('card-armyops');
   assert.ok(card, 'card built');
   const link = card.all().find((n) => n.tagName === 'A');
@@ -486,18 +486,18 @@ test('a config entry without a static card gets one built from the config', asyn
 test('markup: landmarks, headings, labelled filter group, viewport, lang', () => {
   assert.match(html, /<html lang="en">/);
   assert.match(html, /<meta name="viewport" content="width=device-width, initial-scale=1">/);
-  for (const tag of ['<header', '<main id="main"', 'aria-labelledby="modules-heading"', 'aria-labelledby="exams-heading-module-2"', 'aria-labelledby="exams-heading-module-3"', 'aria-labelledby="history-heading"']) assert.ok(html.includes(tag), tag);
+  for (const tag of ['<header', '<main id="main"', 'aria-labelledby="modules-heading"', 'aria-labelledby="exams-heading-module-2"', 'aria-labelledby="exams-heading-module-4"', 'aria-labelledby="history-heading"']) assert.ok(html.includes(tag), tag);
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
   assert.match(html, /role="group" aria-label="Filter history by mode"/);
   assert.match(html, /<p class="eyebrow">Philippine Army · Mastery Quizzes<\/p>/);
   assert.match(html, /<h1>Choose your module, then your exam<\/h1>/);
   assert.match(html, /<h2 id="modules-heading" tabindex="-1">.*Choose your module<\/h2>/);
-  for (const id of ['module-2', 'module-3']) {
+  for (const id of ['module-2', 'module-4']) {
     assert.match(html, new RegExp(`<a class="module-card" id="pick-${id}" href="#${id}" aria-labelledby="pick-title-${id}" aria-describedby="[^"]*overview-${id}"`), `module card ${id}`);
     assert.match(html, new RegExp(`<h2 id="exams-heading-${id}" tabindex="-1">.*Choose your exam`), `step 2 heading ${id}`);
     assert.match(html, new RegExp(`<a class="change-module" id="change-${id}" href="#choose-module">Change module</a>`));
   }
-  assert.doesNotMatch(html, /id="pick-note-module-3"/);
+  assert.match(html, /id="pick-note-module-4"/);
   assert.match(html, /<p id="route-announcer" class="sr-only" role="status" aria-live="polite"><\/p>/);
   assert.match(html, /:focus-visible \{ outline: 3px solid var\(--color-focus\)/);
   assert.match(html, /min-height: 44px/);
@@ -571,30 +571,30 @@ test('no hash: only the module chooser, with per-module overviews from all six l
   const { doc, f } = await renderHub(dataset(), null, '');
   assert.deepEqual(lessonsOf(f.calls).sort(), Object.keys(EXPECTED).sort());
   assert.equal(doc.getElementById('module-2').hidden, true);
-  assert.equal(doc.getElementById('module-3').hidden, true);
+  assert.equal(doc.getElementById('module-4').hidden, true);
   assert.equal(doc.getElementById('history-section').hidden, true);
   assert.equal(doc.getElementById('pick-module-2').getAttribute('aria-current'), 'false');
-  assert.equal(doc.getElementById('pick-module-3').getAttribute('aria-current'), 'false');
+  assert.equal(doc.getElementById('pick-module-4').getAttribute('aria-current'), 'false');
   assert.equal(rowsOf(doc, 'summary-body').length, 0);
   // isr 2 + armor 1 + armyops 0 + combined 12; Field Artillery is not available yet.
   assert.equal(doc.getElementById('overview-module-2').textContent, '15 class attempts · some exams not available yet');
-  assert.equal(doc.getElementById('overview-module-3').textContent, 'Class history: Not available yet');
-  assert.match(doc.getElementById('overview-module-3').className, /stat-error/);
+  assert.equal(doc.getElementById('overview-module-4').textContent, 'Class history: Not available yet');
+  assert.match(doc.getElementById('overview-module-4').className, /stat-error/);
   assert.equal(doc.activeElement, null, 'focus is not moved on load');
 });
 
 test('hash on load selects the module: its panel, aria-current, scoped tables, no focus steal', async () => {
   const data = { ...dataset(), modulethree: { ok: true, rows: [] }, signal: { ok: true, rows: [row({ name: 'Lim', mode: 'medium', percent: 84, score: 21, finishedAt: iso(2026, 10, 1, 9, 0) })] }, signaljoint: { ok: true, rows: [] }, coalition: { ok: true, rows: [] } };
-  const { doc } = await renderHub(data, null, '#module-3');
-  assert.equal(doc.getElementById('module-3').hidden, false);
+  const { doc } = await renderHub(data, null, '#module-4');
+  assert.equal(doc.getElementById('module-4').hidden, false);
   assert.equal(doc.getElementById('module-2').hidden, true);
   assert.equal(doc.getElementById('history-section').hidden, false);
-  assert.equal(doc.getElementById('pick-module-3').getAttribute('aria-current'), 'true');
+  assert.equal(doc.getElementById('pick-module-4').getAttribute('aria-current'), 'true');
   assert.equal(doc.getElementById('pick-module-2').getAttribute('aria-current'), 'false');
-  assert.equal(doc.getElementById('history-module-label').textContent, ' · Module 3');
-  assert.deepEqual(rowsOf(doc, 'summary-body').map((tr) => tr.children[0].textContent), ['Module 3 Exam', 'Signal Support in Combined Arms Operations', 'Signal Support in Joint Operations', 'Signal Support in Coalition Operations']);
+  assert.equal(doc.getElementById('history-module-label').textContent, ' · Module 4');
+  assert.deepEqual(rowsOf(doc, 'summary-body').map((tr) => tr.children[0].textContent), ['Module 4 Exam', 'Signal Support in Combined Arms Operations', 'Signal Support in Joint Operations', 'Signal Support in Coalition Operations']);
   assert.deepEqual(rowsOf(doc, 'recent-body').map(cellTexts), [['Lim', 'Signal Support in Combined Arms Operations', 'Medium', '21 / 25', '84%', 'Proficient', '2026-10-01 09:00']]);
-  assert.equal(doc.getElementById('overview-module-3').textContent, '1 class attempt');
+  assert.equal(doc.getElementById('overview-module-4').textContent, '1 class attempt');
   assert.match(doc.getElementById('history-status').className, /status-ready/);
   assert.equal(doc.activeElement, null);
   assert.equal(doc.getElementById('route-announcer').textContent, '');
@@ -607,11 +607,11 @@ test('choosing a module by click: hash, focus to the exam heading, announcement;
   assert.equal(win.location.hash, '#module-2');
   assert.deepEqual(win.pushes, ['/quiz-hub/#module-2'], 'one history entry, shareable URL');
   assert.equal(doc.getElementById('module-2').hidden, false);
-  assert.equal(doc.getElementById('module-3').hidden, true);
+  assert.equal(doc.getElementById('module-4').hidden, true);
   assert.equal(doc.getElementById('pick-module-2').getAttribute('aria-current'), 'true');
   assert.equal(doc.activeElement, doc.getElementById('exams-heading-module-2'));
-  assert.equal(doc.getElementById('route-announcer').textContent, 'Module 2 selected. Choose your exam: 5 exams available.');
-  assert.equal(rowsOf(doc, 'summary-body').length, 5);
+  assert.equal(doc.getElementById('route-announcer').textContent, 'Module 2 selected. Choose your exam: 4 exams available.');
+  assert.equal(rowsOf(doc, 'summary-body').length, 4);
   win.dispatch('hashchange'); // the browser's own event for the same hash is a no-op
   assert.equal(doc.activeElement, doc.getElementById('exams-heading-module-2'));
 
@@ -625,23 +625,23 @@ test('choosing a module by click: hash, focus to the exam heading, announcement;
   assert.equal(doc.activeElement, doc.getElementById('modules-heading'));
   assert.equal(doc.getElementById('route-announcer').textContent, 'Choose your module.');
 
-  doc.getElementById('pick-module-3').click();
-  assert.equal(doc.activeElement, doc.getElementById('exams-heading-module-3'));
-  assert.equal(doc.getElementById('route-announcer').textContent, 'Module 3 selected. Choose your exam: 4 exams available.');
+  doc.getElementById('pick-module-4').click();
+  assert.equal(doc.activeElement, doc.getElementById('exams-heading-module-4'));
+  assert.equal(doc.getElementById('route-announcer').textContent, 'Module 4 selected. Choose your exam: 4 exams available.');
   // Ctrl/Cmd-click keeps the browser default (open in a new tab).
   const mod = doc.getElementById('pick-module-2').click({ ctrlKey: true });
   assert.equal(mod.defaultPrevented, false);
-  assert.equal(win.location.hash, '#module-3');
+  assert.equal(win.location.hash, '#module-4');
 });
 
 test('back/forward (hashchange/popstate) and unknown hashes', async () => {
   const { doc, win } = await renderHub(dataset(), null, '#module-2');
-  win.navigate('#module-3');
-  assert.equal(doc.getElementById('module-3').hidden, false);
+  win.navigate('#module-4');
+  assert.equal(doc.getElementById('module-4').hidden, false);
   assert.equal(doc.getElementById('module-2').hidden, true);
-  assert.equal(doc.activeElement, doc.getElementById('exams-heading-module-3'));
+  assert.equal(doc.activeElement, doc.getElementById('exams-heading-module-4'));
   win.navigate('');
-  assert.equal(doc.getElementById('module-3').hidden, true);
+  assert.equal(doc.getElementById('module-4').hidden, true);
   assert.equal(doc.getElementById('history-section').hidden, true);
   assert.equal(doc.activeElement, doc.getElementById('modules-heading'));
   win.navigate('#module-2');
@@ -652,19 +652,19 @@ test('back/forward (hashchange/popstate) and unknown hashes', async () => {
 
 test('history is scoped to the selected module: tables, filter and Refresh fetch only its lessons', async () => {
   const data = dataset();
-  const { doc, f, win } = await renderHub(data, null, '#module-3');
+  const { doc, f, win } = await renderHub(data, null, '#module-4');
   assert.equal(f.calls.length, EXAM_COUNT);
   assert.equal(lessonsOf(f.calls)[0], 'modulethree', 'selected module requested first');
   doc.getElementById('history-refresh').click();
   await tick();
-  assert.deepEqual(lessonsOf(f.calls.slice(EXAM_COUNT)), MODULE_3, 'Refresh on Module 3 fetches only its lessons');
-  assert.deepEqual(rowsOf(doc, 'summary-body').map((tr) => cellTexts(tr).slice(0, 2)), [['Module 3 Exam', 'Not available yet'], ['Signal Support in Combined Arms Operations', 'Not available yet'], ['Signal Support in Joint Operations', 'Not available yet'], ['Signal Support in Coalition Operations', 'Not available yet']]);
+  assert.deepEqual(lessonsOf(f.calls.slice(EXAM_COUNT)), MODULE_3, 'Refresh on Module 4 fetches only its lessons');
+  assert.deepEqual(rowsOf(doc, 'summary-body').map((tr) => cellTexts(tr).slice(0, 2)), [['Module 4 Exam', 'Not available yet'], ['Signal Support in Combined Arms Operations', 'Not available yet'], ['Signal Support in Joint Operations', 'Not available yet'], ['Signal Support in Coalition Operations', 'Not available yet']]);
   assert.equal(rowsOf(doc, 'recent-body').length, 0);
-  // Switching modules reuses the cached lessons, then Refresh fetches just Module 2's five.
+  // Switching modules reuses the cached lessons, then Refresh fetches just Module 2's four.
   win.navigate('#module-2');
   await tick();
   assert.equal(f.calls.length, EXAM_COUNT + MODULE_3.length, 'no refetch on switch');
-  assert.equal(rowsOf(doc, 'summary-body').length, 5);
+  assert.equal(rowsOf(doc, 'summary-body').length, 4);
   assert.ok(rowsOf(doc, 'recent-body').every((tr) => tr.children[1].textContent !== 'Signal Support in Combined Arms Operations'));
   doc.getElementById('history-refresh').click();
   await tick();
@@ -674,19 +674,19 @@ test('history is scoped to the selected module: tables, filter and Refresh fetch
 });
 
 test('"unknown lesson" for a whole module shows Not available yet, never a page error', async () => {
-  const { doc } = await renderHub(dataset(), null, '#module-3');
+  const { doc } = await renderHub(dataset(), null, '#module-4');
   const status = doc.getElementById('history-status');
   assert.match(status.className, /status-partial/);
-  assert.equal(status.textContent, 'Class history is not available yet for Module 3.');
+  assert.equal(status.textContent, 'Class history is not available yet for Module 4.');
   assert.match(doc.getElementById('stats-signal').textContent, /Not available yet/);
   assert.equal(doc.getElementById('recent-empty').hidden, false);
   assert.equal(doc.getElementById('history-refresh').disabled, false);
-  // Module 2 is unaffected by Module 3's missing lesson.
+  // Module 2 is unaffected by Module 4's missing lesson.
   assert.match(doc.getElementById('overview-module-2').textContent, /^15 class attempts/);
   // A request that throws inside the overview does not break the page either.
   const f = fakeFetch(async (lesson) => { if (lesson === 'signal') throw new TypeError('offline'); return response(dataset()[lesson]); });
   const r = await renderHub(dataset(), f, '');
-  assert.equal(r.doc.getElementById('overview-module-3').textContent, 'Class history: Not available yet');
+  assert.equal(r.doc.getElementById('overview-module-4').textContent, 'Class history: Not available yet');
 });
 
 test('footer and header link discreetly to the class page and the instructor view; an empty endpoint never fetches', async () => {

@@ -19,13 +19,13 @@ export const MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h' };
 // The Google Apps Script web app behind the shared class history (apps-script/Code.gs). The only
 // network address any page contacts; written into every page by the build.
 export const HISTORY_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwTNNYOiebIGo46PzM3fUA9VT6XnS740D72prOPg-0OJ5Kvg4W8LVl-xJEo_gxImxqnmg/exec';
-// A lesson bank holds 1..MAX_BANK_SIZE (50) questions per difficulty (owner rule). A lesson attempt serves the whole
-// bank, so MAX_ATTEMPT_SIZE equals the bank cap; a pool exam draws its own count (see POOL_MIN_ATTEMPT).
-export const MAX_BANK_SIZE = 50;
-export const MAX_ATTEMPT_SIZE = 50;
+// Full exams contain 20–35 questions. Short mistake-retry rounds are not new full exams.
+export const MIN_BANK_SIZE = 20;
+export const MAX_BANK_SIZE = 35;
+export const MAX_ATTEMPT_SIZE = 35;
 // A pool (combined) exam asks POOL_MIN_ATTEMPT..POOL_MAX_ATTEMPT questions per attempt (owner rule).
-export const POOL_MIN_ATTEMPT = 50;
-export const POOL_MAX_ATTEMPT = 69;
+export const POOL_MIN_ATTEMPT = 20;
+export const POOL_MAX_ATTEMPT = 35;
 export const LESSON_KEY_PATTERN = /^[a-z][a-z0-9]{1,23}$/;
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const RESERVED_SLUGS = new Set(['assets', 'src', 'lessons', 'scripts', 'apps-script', 'instructor', 'class', 'data', 'schedule', 'codes-ciphers']);
@@ -157,7 +157,8 @@ export function validateQuestion(question, expectedDifficulty, expectedId, rules
 export function validateBank(bank, mode, rules) {
   if (!Array.isArray(bank)) return ['bank must be an array of questions'];
   const errors = [];
-  if (bank.length < 1) errors.push('bank must contain at least 1 question');
+  const minimum = rules.pool ? 1 : MIN_BANK_SIZE;
+  if (bank.length < minimum) errors.push(`bank must contain at least ${minimum} question${minimum === 1 ? '' : 's'}`);
   if (!rules.pool && bank.length > MAX_BANK_SIZE) errors.push(`bank must contain at most ${MAX_BANK_SIZE} questions (found ${bank.length})`);
   const seen = new Set();
   bank.forEach((question, index) => {
@@ -206,8 +207,8 @@ export function checkLessonConfig(config, dir) {
   if (config.pool) {
     if (!Array.isArray(config.pool.lessons) || config.pool.lessons.length < 2) fail('pool.lessons must list at least two lesson keys');
     if (!Number.isInteger(config.pool.count)) fail('pool.count must be an integer');
-    const min = config.module === 'module-3' ? 45 : POOL_MIN_ATTEMPT;
-    const max = config.module === 'module-3' ? 50 : POOL_MAX_ATTEMPT;
+    const min = POOL_MIN_ATTEMPT;
+    const max = POOL_MAX_ATTEMPT;
     if (config.pool.count < min || config.pool.count > max) fail(`pool.count (the attempt length) must be from ${min} to ${max}`);
     if (typeof config.lede !== 'string') fail('a pool exam needs its own lede');
   } else {
@@ -273,7 +274,7 @@ export function buildPoolBank(config, lessonsByKey, mode) {
 export function loadLessons(root = ROOT) {
   const lessonsDir = join(root, 'lessons');
   const modules = readJson(join(lessonsDir, 'modules.json'));
-  if (!Array.isArray(modules) || !modules.length || modules.some(module => !/^module-\d+$/.test(module.id ?? '') || typeof module.title !== 'string')) {
+  if (!Array.isArray(modules) || !modules.length || modules.some(module => !/^(module-\d+|supplemental)$/.test(module.id ?? '') || typeof module.title !== 'string')) {
     throw new Error(`${join(lessonsDir, 'modules.json')}: must list modules as { id: "module-N", title, note? }`);
   }
   const lessons = [];
@@ -777,8 +778,9 @@ export function loadSchedule(root = ROOT, file = join(root, 'data', 'schedule.js
   const fail = message => { throw new Error(`${file}: ${message}`); };
   const text = (value, max = 120) => typeof value === 'string' && value.trim() !== '' && value === value.trim() && value.length <= max;
   const allowed = (object, keys) => object && typeof object === 'object' && !Array.isArray(object) && Object.keys(object).every(key => keys.includes(key));
-  if (!allowed(data, ['course', 'unit', 'week', 'students', 'prepared', 'days', 'menuNotice'])) fail('only course, unit, week, students, prepared, days and menuNotice are allowed');
+  if (!allowed(data, ['course', 'unit', 'week', 'students', 'prepared', 'days', 'menuNotice', 'notice'])) fail('only course, unit, week, students, prepared, days, menuNotice and notice are allowed');
   if (data.menuNotice !== undefined && !text(data.menuNotice, 300)) fail('menuNotice must be a short text');
+  if (data.notice !== undefined && !text(data.notice, 300)) fail('notice must be a short text');
   if (!text(data.course, 40) || !text(data.unit)) fail('course and unit must be short texts');
   if (data.students !== undefined && (!Number.isInteger(data.students) || data.students < 1 || data.students > 200)) fail('students must be a whole number');
   if (data.prepared !== undefined && !parseDate(data.prepared)) fail('prepared must be a YYYY-MM-DD date');
@@ -787,7 +789,7 @@ export function loadSchedule(root = ROOT, file = join(root, 'data', 'schedule.js
   const start = parseDate(week.start);
   const end = parseDate(week.end);
   const feedLength = start && end ? (end - start) / 86400000 + 1 : 0;
-  if (!start || !end || end < start || feedLength > 28 || (feedLength > 7 && feedLength % 7)) fail('week dates must cover one week or complete consecutive weeks, up to 28 days');
+  if (!start || !end || end < start || feedLength > 28) fail('week dates must cover consecutive published dates, up to 28 days');
   const weekLength = Math.min(feedLength, 7);
   if (!Array.isArray(data.days) || data.days.length !== feedLength) fail('days must list every date in the published feed');
   data.days.forEach((day, index) => {
@@ -881,7 +883,7 @@ export function renderSchedule(template, contours, data, lessons, { base = '' } 
       ['Academic blocks', String(academic)],
       ...(data.students ? [['Students', String(data.students)]] : []),
     ].map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('\n          '),
-    PREPARED: escapeHtml([data.prepared ? `Schedule prepared ${scheduleDate(data.prepared)}.` : '', data.menuNotice || ''].filter(Boolean).join(' ')),
+    PREPARED: escapeHtml([data.notice || '', data.prepared ? `Schedule prepared ${scheduleDate(data.prepared)}.` : '', data.menuNotice || ''].filter(Boolean).join(' ')),
     DAY_NAV: dayNav,
     DAYS: days,
     SCHEDULE_DATA: scriptJson({ start: week.start, end: week.end, range: scheduleRange(week), days: data.days.map(day => day.date) }),
@@ -904,6 +906,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   const upcoming = readdirSync(join(root, 'data', 'schedules')).filter(name => /^\d{4}-\d{2}-\d{2}_\d{4}-\d{2}-\d{2}\.json$/.test(name) && name.slice(0,10) > activeSchedule.week.start)
     .map(name => loadSchedule(root, join(root, 'data', 'schedules', name))).sort((a,b) => a.week.start.localeCompare(b.week.start));
   const weekLinks = `<nav aria-label="Available weeks"><p class="legend"><a href="../schedule/?week=${activeSchedule.week.start}">${escapeHtml(scheduleRange(activeSchedule.week))}</a>` + upcoming.map(data => ` · <a href="../schedule-${data.week.start}/">${escapeHtml(scheduleRange(data.week))}</a>`).join('') + '</p></nav>';
+  pages[`schedule-${activeSchedule.week.start}/index.html`] = pages['schedule/index.html'].replace('<nav class="week-nav"',weekLinks+'<nav class="week-nav"');
   if(upcoming.length){
     pages['schedule/index.html'] = pages['schedule/index.html'].replace('<nav class="week-nav"', weekLinks + '<nav class="week-nav"');
     const rollover = `<script>(function(){if(!window.location)return;if(new URLSearchParams(location.search).get('week')==='${activeSchedule.week.start}')return;const weeks=${scriptJson(upcoming.map(data=>({start:data.week.start,end:data.week.end})))};const today=(window.__SCHEDULE_NOW||new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Manila',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())).slice(0,10);const requested=location.hash.match(/^#day-(\\d{4}-\\d{2}-\\d{2})$/)?.[1];const week=weeks.find(w=>(requested||today)>=w.start&&(requested||today)<=w.end);if(week)location.replace('../schedule-'+week.start+'/'+location.search+location.hash);})();</script>`;

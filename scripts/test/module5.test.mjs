@@ -5,10 +5,10 @@ import vm from 'node:vm';
 import { loadLessons,build } from '../build.mjs';
 import { runPage,findAll } from './harness.mjs';
 
-test('Module 5 offers the three lesson quizzes, without a combined exam',()=>{
+test('Legacy lesson quizzes retain their banks after POI placement, without a combined exam',()=>{
   const {modules,lessons}=loadLessons();
   assert.ok(modules.some(m=>m.id==='module-5'));
-  const own=lessons.filter(l=>l.module==='module-5');
+  const own=lessons.filter(l=>['intcycle','rdf','sigint'].includes(l.key)).sort((a,b)=>['intcycle','rdf','sigint'].indexOf(a.key)-['intcycle','rdf','sigint'].indexOf(b.key));
   assert.deepEqual(own.map(l=>l.key),['intcycle','rdf','sigint']);
   for(const lesson of own)for(const mode of ['easy','medium','hard'])assert.equal(lesson.banks[mode].length,25);
   assert.equal(own.some(l=>l.pool),false);
@@ -23,7 +23,7 @@ test('new pages keep study confirmation and difficulty choice',()=>{
   }
 });
 
-test('Module 5 correct answers are neither predictably shortest nor longest',()=>{
+test('Legacy lesson correct answers are neither predictably shortest nor longest',()=>{
   const {lessons}=loadLessons();
   for(const lesson of lessons.filter(l=>l.module==='module-5'))for(const mode of ['easy','medium','hard']){
     const bank=lesson.banks[mode];

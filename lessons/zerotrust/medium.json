@@ -1,0 +1,530 @@
+[
+  {
+    "id": 1,
+    "qid": "zerotrust-m-01",
+    "difficulty": "medium",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "An organization-owned laptop is inside the office. What should happen before it accesses a protected resource?",
+    "options": [
+      "Bypass authorization while it stays on-site",
+      "Evaluate its identity, posture and access policy",
+      "Trust it because the organization purchased it",
+      "Grant the permissions of every internal device"
+    ],
+    "answer": 1,
+    "explanation": "Neither ownership nor internal location supplies implicit trust under the lesson's definition.",
+    "sourceSlides": [
+      19,
+      21
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "zerotrust-m-02",
+    "difficulty": "medium",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "A user finished one authorized session yesterday. What does that establish for a new request today?",
+    "options": [
+      "The new session still needs an access decision",
+      "Device posture no longer matters",
+      "Yesterday's connection grants administrator access",
+      "Every future request is already authorized"
+    ],
+    "answer": 0,
+    "explanation": "Per-session access and dynamic policy mean earlier access is not a permanent entitlement.",
+    "sourceSlides": [
+      21
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "zerotrust-m-03",
+    "difficulty": "medium",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "A system secures external communication but leaves internal links unprotected. Which tenet is missed?",
+    "options": [
+      "Collect only external threat information",
+      "Secure communication regardless of location",
+      "Treat all physical locations as separate identities",
+      "Approve all access for device owners"
+    ],
+    "answer": 1,
+    "explanation": "Zero Trust does not exempt communication from security because it occurs inside a network.",
+    "sourceSlides": [
+      21
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "zerotrust-m-04",
+    "difficulty": "medium",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "An office reviews only laptops and ignores service-hosted data. What is missing from its resource model?",
+    "options": [
+      "Only the office seating chart",
+      "Data sources and computing services",
+      "Only the organization's vehicle fleet",
+      "Only the employee attendance register"
+    ],
+    "answer": 1,
+    "explanation": "The resource definition is broader than physical endpoints and includes data and computing services.",
+    "sourceSlides": [
+      21
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "zerotrust-m-05",
+    "difficulty": "medium",
+    "category": "Concept and Seven Tenets",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "A reporting account receives system-administrator privileges for convenience. What principle is most directly violated?",
+    "options": [
+      "Network time synchronization",
+      "Resource identification",
+      "Provider portability",
+      "The principle of least privilege"
+    ],
+    "answer": 3,
+    "explanation": "The permissions exceed the task's need; convenient access is not enough to justify elevated privilege.",
+    "sourceSlides": [
+      20,
+      21
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "zerotrust-m-06",
+    "difficulty": "medium",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "A new posture signal causes access to be denied. Which component should evaluate that signal against policy?",
+    "options": [
+      "End-user workstation as sole authority",
+      "Asset supplier as sole authority",
+      "Policy Enforcement Point acting without policy",
+      "Policy Engine"
+    ],
+    "answer": 3,
+    "explanation": "The Policy Engine uses relevant contextual inputs and enterprise policy to reach the decision.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "zerotrust-m-07",
+    "difficulty": "medium",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "The decision to revoke access has been made, but the path must now be closed. Which role coordinates execution?",
+    "options": [
+      "Threat-feed publisher",
+      "Resource owner unrelated to the session",
+      "Policy Engine as a policy author only",
+      "Policy Administrator"
+    ],
+    "answer": 3,
+    "explanation": "The PA executes the decision and configures the PEP to establish or terminate the path.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "zerotrust-m-08",
+    "difficulty": "medium",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "A protected application can be reached through an unmonitored bypass route. Which architectural role is being bypassed?",
+    "options": [
+      "Procurement approval board",
+      "Training attendance system",
+      "Vendor support contract",
+      "Policy Enforcement Point"
+    ],
+    "answer": 3,
+    "explanation": "A route around enforcement undermines the connection controls that should mediate access to the resource.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "zerotrust-m-09",
+    "difficulty": "medium",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "A design team says PE and PEP are interchangeable names. What correction is needed?",
+    "options": [
+      "The PE and PEP describe the end user's identity",
+      "The PE decides while the PEP enforces",
+      "The PE stores files while the PEP writes policy",
+      "The PEP decides all organizational risk appetite"
+    ],
+    "answer": 1,
+    "explanation": "Decision and enforcement are distinct logical responsibilities even when products combine functions.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "zerotrust-m-10",
+    "difficulty": "medium",
+    "category": "Policy Components",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "An access policy is valid, but outdated posture information is supplied to its decision process. What should be improved?",
+    "options": [
+      "The currency and quality of decision inputs",
+      "Only the physical appearance of the PEP",
+      "Only the user-facing login message",
+      "The number of policy acronyms in documentation"
+    ],
+    "answer": 0,
+    "explanation": "Policy decisions depend on their inputs. Correct rules can still lead to poor decisions when context is stale.",
+    "sourceSlides": [
+      22
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "zerotrust-m-11",
+    "difficulty": "medium",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "A team protects small groups of resources behind gateways to limit unauthorized discovery. Which approach is central?",
+    "options": [
+      "Procurement-based authorization",
+      "Permanent location-based trust",
+      "Micro-segmentation",
+      "Unrestricted shared administration"
+    ],
+    "answer": 2,
+    "explanation": "The described resource boundaries and gateways match the lesson's micro-segmentation approach.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "zerotrust-m-12",
+    "difficulty": "medium",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "A cloud-heavy office evaluates user privileges and device context for each access request. Which approach is emphasized?",
+    "options": [
+      "Enhanced identity governance",
+      "Location-only admission control",
+      "A physical fence as the only boundary",
+      "Flat-network implicit trust"
+    ],
+    "answer": 0,
+    "explanation": "Identity governance uses actor identity and privileges as major policy inputs, refined by contextual information.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "zerotrust-m-13",
+    "difficulty": "medium",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "A network controller changes authorized paths according to PE decisions. Which approach does this illustrate?",
+    "options": [
+      "Unrestricted broadcast access",
+      "Software-defined perimeter",
+      "Offline document classification",
+      "Static subnet trust"
+    ],
+    "answer": 1,
+    "explanation": "The lesson describes the PA acting as a controller in a software-defined or overlay-network approach.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "zerotrust-m-14",
+    "difficulty": "medium",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "A unit already segments resources and now adds stronger identity policy. Is this inconsistent with the lesson?",
+    "options": [
+      "No; approaches may complement one another",
+      "No; identity checks make enforcement unnecessary",
+      "Yes; one approach must exclude the others",
+      "Yes; segmentation prohibits identity checks"
+    ],
+    "answer": 0,
+    "explanation": "The approaches are not mutually exclusive and can address different aspects of resource protection.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "zerotrust-m-15",
+    "difficulty": "medium",
+    "category": "Deployment Approaches",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "A vendor labels a product 'Zero Trust.' What is the most useful architectural question?",
+    "options": [
+      "Is it the most expensive product in the category?",
+      "Can its brand replace assessment of resource needs?",
+      "How does it support the intended access policies?",
+      "Does its logo use the correct framework colors?"
+    ],
+    "answer": 2,
+    "explanation": "An architecture should be evaluated against workflows, resources and policies, not accepted on a marketing label.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "zerotrust-m-16",
+    "difficulty": "medium",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "An unauthorized change causes the PA to allow paths it should not establish. Which safeguard area needs review?",
+    "options": [
+      "Only user training attendance totals",
+      "Only endpoint wallpaper restrictions",
+      "Decision-component configuration and audit controls",
+      "Only equipment inventory capitalization"
+    ],
+    "answer": 2,
+    "explanation": "The lesson identifies subversion of PE/PA behavior as a threat requiring secured configuration, monitoring and auditing.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "zerotrust-m-17",
+    "difficulty": "medium",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "A single policy service outage blocks every authorized user. Which lesson recommendation addresses this dependency?",
+    "options": [
+      "Unrestricted direct paths around enforcement",
+      "Resilient deployment and replication",
+      "More permanent trust exemptions for everyone",
+      "Removal of all policy logs"
+    ],
+    "answer": 1,
+    "explanation": "Availability of critical control components must be planned; bypassing controls is not equivalent to resilience.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "zerotrust-m-18",
+    "difficulty": "medium",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "Encrypted traffic cannot all be inspected as plaintext. What evidence can still help analysis?",
+    "options": [
+      "Traffic metadata and contextual signals",
+      "Only the packet payload after discarding metadata",
+      "Assurance that encryption proves benign intent",
+      "A complete absence of logging"
+    ],
+    "answer": 0,
+    "explanation": "The lesson recommends analysis of metadata to improve visibility while recognizing encrypted-traffic limitations.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "zerotrust-m-19",
+    "difficulty": "medium",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "A service account uses weak authentication while human users have stronger controls. What did the team overlook?",
+    "options": [
+      "Only physical visitor records",
+      "Only employee travel authorization",
+      "The naming convention of office printers",
+      "Non-person entity risk"
+    ],
+    "answer": 3,
+    "explanation": "Automated agents and service accounts are actors too; weak authentication can undermine the access design.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "zerotrust-m-20",
+    "difficulty": "medium",
+    "category": "Threats and Limitations",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "A policy export is stored in a broadly accessible folder. Why is that a security concern?",
+    "options": [
+      "It prevents the PA from making any decisions",
+      "It becomes harmless once passwords are excluded",
+      "It exposes details useful for reconnaissance",
+      "It automatically strengthens audit independence"
+    ],
+    "answer": 2,
+    "explanation": "Policies and network information can reveal security structure and must themselves receive suitable protection.",
+    "sourceSlides": [
+      24
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "zerotrust-m-21",
+    "difficulty": "medium",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "A team selects tools before identifying actors and assets. Which correction best matches the migration sequence?",
+    "options": [
+      "Remove the policy stage to save time",
+      "Choose a provider based on its largest deployment",
+      "Expand immediately to every workflow",
+      "Inventory the workflow's subjects and resources first"
+    ],
+    "answer": 3,
+    "explanation": "Tools should be evaluated against known workflows, assets and access requirements rather than defining them by accident.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "zerotrust-m-22",
+    "difficulty": "medium",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "A pilot blocks legitimate activity during observation. What should happen before broader enforcement?",
+    "options": [
+      "Tune policies using the observed evidence",
+      "Expand unchanged to prove the design is consistent",
+      "Ignore the evidence because the pilot is small",
+      "Delete the logs to avoid confusing operators"
+    ],
+    "answer": 0,
+    "explanation": "A pilot is intended to reveal mismatches and improve policies before their impact increases.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "zerotrust-m-23",
+    "difficulty": "medium",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "A reorganization introduces new service accounts. What part of the migration inventory must be revisited?",
+    "options": [
+      "Actors and their access needs",
+      "Only the title of the implementation project",
+      "The number of rooms in the headquarters",
+      "Only the original equipment delivery dates"
+    ],
+    "answer": 0,
+    "explanation": "Actors include non-person entities; new accounts can change the access model and require reassessment.",
+    "sourceSlides": [
+      25
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "zerotrust-m-24",
+    "difficulty": "medium",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "A coalition partner requests broad internal access after one login. What is the better design response?",
+    "options": [
+      "Rely solely on the partner's network address",
+      "Grant all permissions to avoid partner inconvenience",
+      "Authorize the necessary resource access per session",
+      "Omit monitoring for all partner accounts"
+    ],
+    "answer": 2,
+    "explanation": "The lesson emphasizes contextual, least-privilege access instead of broad trust derived from affiliation or network entry.",
+    "sourceSlides": [
+      26
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "zerotrust-m-25",
+    "difficulty": "medium",
+    "category": "Migration and Application",
+    "tags": [
+      "migration and application"
+    ],
+    "prompt": "The mission changes after a successful pilot. What should guide expansion?",
+    "options": [
+      "Treat initial success as permanent validation",
+      "Expand only according to vendor release dates",
+      "Reevaluate workflows, policies and risk",
+      "Reuse the pilot without reviewing assumptions"
+    ],
+    "answer": 2,
+    "explanation": "Migration is iterative and should respond to changes in the mission and environment.",
+    "sourceSlides": [
+      25,
+      26
+    ]
+  }
+]

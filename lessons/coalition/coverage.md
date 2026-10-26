@@ -1,213 +1,65 @@
-# Coverage map: Signal Support in Coalition Operations (coalition)
+# Signal Support in Coalition Operations: 20–35 question revision
 
-Item ids: E = easy.json, M = medium.json, H = hard.json (position in the bank). (S) = scenario-to-term item, (O) = objective item.
+Reviewed against the existing authored topic/tag coverage at Git 8a4e4173d6abfaf67fe86493c91b190747a6b210. Stable lesson key, route, history tab and retained question identities are preserved. Retired items remain recoverable in Git and listed in retired.json; historical rows are not deleted. No new claim of source coverage is introduced. Selection preserves every declared topic, prefers redundant-item removal, then maximizes concept and source-page representation where literal tag coverage exceeds the cap; it is not a first-35 truncation.
 
-Totals (after the October 2026 trim to at most 50 per difficulty): easy 40, medium 50, hard 41, giving 131 items; the 3 retired items are listed at the end. Item ids above are positions in the current banks.
+## easy
 
-Sources (only sources of truth): the slide deck `Signal_Support_in_Coalition_Operations.pdf` (16 slides) and the student handout "4. Handout Signal Support in Coalition Operations (student copy)" (7 pages, "4.3 Signal Support in Coalition Operations", IAW PAM 6-0102). Where the handout is explicit it is authoritative; the slides remain valid where consistent. `sourceSlides` always holds slide numbers (range 2-15); a handout-only item cites the nearest slide (usually 14, the summary) and names "Handout p.N" in its explanation and carries the tag `handout`. Both PDFs are text PDFs; slide 12 was also checked as an image.
+40 → 35. Every declared topic retained. 54/59 literal topic/tag terms retained in this mode. Question meaning and retained qids unchanged; option positions rebalanced.
 
-Excluded (non-doctrine): slide 1 (title), slide 3 (learning objective; used only in H29 for its instruction to identify the communication requirements and constraints), slide 4 (references), slide 16 (thank-you), the handout cover and lesson overview (TLO, ELOs), "How to read this handout", the handout's blank answer lines, the references and the preparer block. The sources give no answers to slide 13's check-on-learning questions or the handout's review questions; items built on them use only statements the sources do make.
+| Topic | Retained question IDs |
+| --- | --- |
+| Coalition Fundamentals | coalition-e-01, coalition-e-02, coalition-e-03, coalition-e-04, coalition-e-05 |
+| Key Components of Signal Support | coalition-e-08, coalition-e-09, coalition-e-10, coalition-e-12 |
+| Roles and Importance | coalition-e-14, coalition-e-15, coalition-e-16, coalition-e-18 |
+| Challenges in Signal Support | coalition-e-19, coalition-e-20, coalition-e-21, coalition-e-22 |
+| Systems and Technologies | coalition-e-23, coalition-e-24, coalition-e-25, coalition-e-26 |
+| Principles of Signal Support | coalition-e-27, coalition-e-28, coalition-e-29, coalition-e-30 |
+| Tactical Considerations | coalition-e-31, coalition-e-32 |
+| Planning and Coordination | coalition-e-33, coalition-e-34, coalition-e-35, coalition-e-36 |
+| Security Measures and Protocols | coalition-e-37, coalition-e-38, coalition-e-39, coalition-e-40 |
 
-Source conflicts and gaps found (none changes a key):
-1. Slides 6-7 are titled "KEY COMPONENTS ... (4)" and list four components, but slide 8 (titled "(5)") adds a fifth, technical support and maintenance. The items treat all five as key components and never ask for the count.
-2. The handout has no list of "key components" or of "roles"; it covers the same ground as "key functions" (7), "why Signal support matters" (6 reasons) and the 8 principles. The slides give 4 roles, 4 challenges, a 5-step S-6 mindset (slide 11) and 4 S-6 questions (slide 12). The handout's 6-step planning sequence and 8 tactical questions have no slide counterpart. These are different lists, not contradictions, so each is tested under its own source; the two sets of counts appear only in H31 and H32.
-3. Slide 4 names PAM 6-0102 "Signal Support in Coalition Operations"; handout p.7 names PAM 6-0102 "Signal Operations" (and adds PAM 6-00). References are excluded, so no item depends on it.
-4. Slide 12 names PACE, BLOS/SATCOM, COMSEC/TRANSEC, gateways and liaison without defining them, and the sources never expand PACE, BLOS, COMSEC or TRANSEC. They are tested only by recognition (M28, H20) and, for TRANSEC, by its pairing with the handout's "transmission security" (H39); COP is expanded from slide 7's "common operational picture" (M29). No item asks the student to define an unexpanded acronym.
-5. The handout's integrated-scenario table is blank; its rows (not any answers) are tested (H25, H26).
+Retired IDs: coalition-e-06, coalition-e-07, coalition-e-11, coalition-e-13, coalition-e-17.
+
+Lesson-wide literal tags not retained: key question of the Signal Officer; differences among coalition forces; scalable systems; sustaining the capability; primary purpose of signal support; reliable communications depend on; managing differences among partners; information exchange reason; technical support capability; network connectivity capability; voice communications capability; system selection depends on; how to apply the principles; continuity tactical question; tactical questions not listed; planning sequence order; translate operational requirements; bottom line. These granular labels are not a promise of item-by-item recall coverage; study the complete source.
 
 
-## Coalition Fundamentals
+## medium
 
-| Topic / term (tag) | Items |
-|---|---|
-| coalition operations | E1 (O) |
-| signal support in coalition operations | E2 (O) |
-| definition | E2 (O) |
-| interoperability and unity of effort | E3 (O) |
-| start with the mission | E4 (O) |
-| staff officer and S-6 lens | E5 (O) |
-| key question of the Signal Officer | E6 (O) |
-| differences among coalition forces | E7 (O) |
-| coalition forces differ | M1 (O) |
-| mission before equipment | M2 (O) |
-| differences among forces | M3 (O) |
-| one force communicates internally | M4 (O) |
-| first assessment in coalition | H29 (S) |
-| communication requirements and constraints | H29 (S) |
-| slide 15 self-check | H30 (O) |
-| handout list counts | H31 (O) |
+50 → 35. Every declared topic retained. 50/66 literal topic/tag terms retained in this mode. Question meaning and retained qids unchanged; option positions rebalanced.
 
-## Key Components of Signal Support
+| Topic | Retained question IDs |
+| --- | --- |
+| Coalition Fundamentals | coalition-m-01, coalition-m-02, coalition-m-03, coalition-m-04 |
+| Key Components of Signal Support | coalition-m-06, coalition-m-07, coalition-m-08, coalition-m-09 |
+| Roles and Importance | coalition-m-11, coalition-m-12, coalition-m-13, coalition-m-14 |
+| Challenges in Signal Support | coalition-m-17, coalition-m-18, coalition-m-19, coalition-m-20 |
+| Systems and Technologies | coalition-m-21, coalition-m-22, coalition-m-29, coalition-m-30 |
+| Principles of Signal Support | coalition-m-32, coalition-m-33, coalition-m-34, coalition-m-35 |
+| Tactical Considerations | coalition-m-37, coalition-m-38, coalition-m-39, coalition-m-40 |
+| Planning and Coordination | coalition-m-43, coalition-m-44, coalition-m-45, coalition-m-46 |
+| Security Measures and Protocols | coalition-m-51, coalition-m-52, coalition-m-53 |
 
-| Topic / term (tag) | Items |
-|---|---|
-| interoperability | E8 (O), M5 (S) |
-| key components | E8 (O), M5 (S) |
-| secure communication | E9 (S), H10 (S) |
-| real-time datasharing | E10 (S), H9 (S) |
-| common operational picture | E10 (S) |
-| scalable systems | E11 (S) |
-| technical support and maintenance | E12 (S), H8 (S) |
-| sustaining the capability | E13 (O) |
-| interoperability is not only technical | M6 (O) |
-| what the Signal Officer must understand about information | M7 (O) |
-| scalable systems anticipate growth | M8 (O) |
-| three questions after loss of capability | M9 (O) |
-| reliable communications depend on | M10 (O) |
+Retired IDs: coalition-m-05, coalition-m-10, coalition-m-15, coalition-m-16, coalition-m-23, coalition-m-25, coalition-m-26, coalition-m-27, coalition-m-28, coalition-m-36, coalition-m-41, coalition-m-42, coalition-m-47, coalition-m-48, coalition-m-49.
 
-## Roles and Importance
+Lesson-wide literal tags not retained: key question of the Signal Officer; differences among coalition forces; scalable systems; sustaining the capability; primary purpose of signal support; reliable communications depend on; managing differences among partners; information exchange reason; technical support capability; network connectivity capability; voice communications capability; system selection depends on; how to apply the principles; continuity tactical question; tactical questions not listed; planning sequence order; translate operational requirements; bottom line. These granular labels are not a promise of item-by-item recall coverage; study the complete source.
 
-| Topic / term (tag) | Items |
-|---|---|
-| enhancing coordination | E14 (S), H12 (S) |
-| facilitating command and control | E15 (O), M12 (S) |
-| supporting multinational efforts | E16 (S) |
-| primary purpose of signal support | E17 (O) |
-| why signal support matters | E18 (O) |
-| continuity | E18 (O) |
-| strengthening operational security | M11 (S), H11 (S) |
-| S-6 enables information flow | M12 (S) |
-| questions to ask for operational security | M13 (O) |
-| key functions of signal support | M14 (O) |
-| managing differences among partners | M15 (O) |
-| information exchange reason | M16 (O) |
 
-## Challenges in Signal Support
+## hard
 
-| Topic / term (tag) | Items |
-|---|---|
-| technical compatibility | E19 (S) |
-| language and cultural barriers | E20 (S) |
-| cybersecurity threats | E21 (O), M18 (S) |
-| S-6 mindset | E22 (O), M20 (O) |
-| identify the problem | E22 (O) |
-| operational environment | M17 (S) |
-| cyber elements | M18 (S) |
-| working system is not an interoperable system | M19 (O) |
-| coordinate the solution | M20 (O) |
-| challenge and mindset step skipped | H21 (S) |
-| assess mission impact | H21 (S) |
-| slide list counts | H32 (O) |
+41 → 35. Every declared topic retained. 53/59 literal topic/tag terms retained in this mode. Question meaning and retained qids unchanged; option positions rebalanced.
 
-## Systems and Technologies
+| Topic | Retained question IDs |
+| --- | --- |
+| Coalition Fundamentals | coalition-h-29, coalition-h-30, coalition-h-31 |
+| Key Components of Signal Support | coalition-h-08, coalition-h-09, coalition-h-10 |
+| Roles and Importance | coalition-h-11, coalition-h-12 |
+| Challenges in Signal Support | coalition-h-21, coalition-h-32 |
+| Systems and Technologies | coalition-h-15, coalition-h-16, coalition-h-17, coalition-h-18, coalition-h-19, coalition-h-20 |
+| Principles of Signal Support | coalition-h-01, coalition-h-02, coalition-h-03, coalition-h-05 |
+| Tactical Considerations | coalition-h-33, coalition-h-34, coalition-h-35, coalition-h-36 |
+| Planning and Coordination | coalition-h-22, coalition-h-23, coalition-h-24, coalition-h-25, coalition-h-26, coalition-h-27 |
+| Security Measures and Protocols | coalition-h-37, coalition-h-38, coalition-h-39, coalition-h-40, coalition-h-41 |
 
-| Topic / term (tag) | Items |
-|---|---|
-| capability-based view of systems | E23 (O) |
-| technical interoperability | E24 (O) |
-| continuity capability | E25 (O) |
-| key discriminator | E26 (O) |
-| executable Signal architecture | E26 (O) |
-| organizational interoperability | M21 (S), H13 (S) |
-| information interoperability | M22 (S), H14 (S) |
-| procedural interoperability | M23 (S), H16 (S) |
-| security interoperability | H15 (S) |
-| technical support capability | M24 (O) |
-| network connectivity capability | M25 (O) |
-| voice communications capability | M26 (S) |
-| system selection depends on | M27 (O) |
-| slide 12 solution elements | M28 (O) |
-| gateways | M28 (O) |
-| liaison | M28 (O) |
-| COP common operational picture | M29 (O) |
-| technical compatibility and technical interoperability | H17 (S) |
-| information protection capability | H18 (S) |
-| capability and example pairing | H19 (O) |
-| slide 12 elements not named | H20 (O) |
-| PACE | H20 (O) |
-| BLOS/SATCOM | H20 (O) |
-| redundancy | H20 (O) |
+Retired IDs: coalition-h-04, coalition-h-06, coalition-h-07, coalition-h-13, coalition-h-14, coalition-h-28.
 
-## Principles of Signal Support
-
-| Topic / term (tag) | Items |
-|---|---|
-| eight principles | E27 (O) |
-| mission-focused principle | E28 (O), H1 (S) |
-| continuous principle | E29 (S), H2 (S) |
-| secure principle | E30 (O) |
-| responsive principle | H5 (S) |
-| reliable principle | M30 (S), H6 (S) |
-| interoperable principle | M31 (S), H7 (S) |
-| coordinated principle | M32 (S), H4 (S) |
-| scalable principle | M33 (S), H3 (S) |
-| how to apply the principles | M34 (O) |
-
-## Tactical Considerations
-
-| Topic / term (tag) | Items |
-|---|---|
-| tactical environment | E31 (O) |
-| Signal Officer tactical questions | E32 (O) |
-| tactical factors | M35 (O) |
-| distance and communications reach | M36 (S) |
-| terrain and geographic separation | M37 (S) |
-| available systems and infrastructure | M38 (S) |
-| continuity tactical question | M39 (O) |
-| tactical questions not listed | M40 (O) |
-| mission and command relationships | H33 (S) |
-| threat and operational environment | H34 (S) |
-| force structure and participating elements | H35 (S) |
-| tactical factors not listed | H36 (O) |
-
-## Planning and Coordination
-
-| Topic / term (tag) | Items |
-|---|---|
-| determine requirements | E33 (O) |
-| planning sequence | E33 (O) |
-| S-6 four questions | E34 (O) |
-| decide coordinate protect sustain | E34 (O) |
-| coordination is purposeful | E35 (O) |
-| identify capabilities and gaps | E36 (S), H22 (S) |
-| determine interoperability requirements | M41 (S) |
-| coordinate with participating Signal elements | M42 (S) |
-| synchronize Signal support | M43 (S) |
-| establish contingencies | M44 (S) |
-| planning sequence order | M45 (O) |
-| translate operational requirements | M46 (O) |
-| skipped | H22 (S) |
-| S-6 sustain question | H23 (S) |
-| S-6 protect question | H24 (S) |
-| integrated scenario row technical support and continuity | H25 (S) |
-| integrated scenario row mission C2 requirement | H26 (S) |
-| follow-up question operational risk | H27 (O) |
-| bottom line | H28 (O) |
-
-## Security Measures and Protocols
-
-| Topic / term (tag) | Items |
-|---|---|
-| information protection balance | E37 (O) |
-| security from the beginning | E38 (O) |
-| incident reporting | E39 (O), M47 (S) |
-| security considerations | E39 (O) |
-| security reminder | E40 (O) |
-| security procedures and user discipline | H38 (S) |
-| interoperability is not unrestricted access | M48 (O) |
-| listed security considerations | M49 (O) |
-| cyber protection | M50 (S) |
-| access control | H37 (S) |
-| transmission security | H39 (O) |
-| TRANSEC | H39 (O) |
-| listed security considerations not listed | H40 (O) |
-| security and interoperability balance | H41 (S) |
-
-## Coverage notes
-
-- Key components (slides 6-8): interoperability, secure communication, real-time datasharing, scalable systems and technical support and maintenance each appear as a scenario or definition in Easy, and four of the five again as a "compromised" item in Hard.
-- Roles (slides 9-10) and the handout's reasons and functions: enhancing coordination, facilitating command and control, supporting multinational efforts and strengthening operational security are each keyed at least twice; the handout's six reasons (command and control, coordination, information exchange, interoperability, continuity, security) appear as the continuity and information-exchange keys and as the other items' options, and its seven key functions through the NOT-item (M14) and the primary-purpose item.
-- Challenges (slide 11): technical compatibility, cybersecurity threats, language and cultural barriers and operational environment are all keys; the S-6 mindset (identify, assess, coordinate, protect, prepare) is covered by E (first step), M20 (after assess), H21 (assess skipped) and H32 (count); "prepare an alternate means" is tested in the count item and as an option.
-- Systems and technologies (handout pp.2-3, slide 12): all six required capabilities are keys (voice M26, data exchange H19, network connectivity M25, continuity E, technical support M24, information protection H18); all five interoperability dimensions are keys; system-selection factors by M27; slide 12 elements by M28 and H20 (gateways, liaison, network separation, PACE, BLOS/SATCOM and redundancy as options), access control and COMSEC/TRANSEC by the security items, COP by M29, and the key discriminator by E.
-- Principles (handout p.3): all eight (mission-focused, interoperable, reliable, responsive, scalable, secure, continuous, coordinated) are keys in Easy or Medium; seven are also keys of Hard "compromised" items (secure is covered by the Easy item and the Hard security items).
-- Tactical considerations (handout pp.3-4): ten factors - mission and command relationships (H33), terrain and geographic separation (M37), force structure and participating elements (H35), distance and communications reach (M36), available systems and infrastructure (M38), interoperability gaps (option of M35), threat and operational environment (H34), technical maintenance and sustainment, continuity and contingency requirements and security requirements (options of H36); eight tactical questions: first (E), continuity (M39), NOT-item (M40), count (H31).
-- Planning (handout p.4, slide 12): all six steps are keys (determine requirements, option of E; identify capabilities and gaps E and H22; determine interoperability requirements M41; coordinate M42; synchronize M43; establish contingencies M44); "coordination is purposeful" E; S-6 four questions E, H23, H24.
-- Security (handout p.5, slides 10-11): nine considerations - information protection (E, H18), access control (H37), authentication, COMSEC and protection of sensitive operational information (options and NOT-item distractors), transmission security (H39), cyber protection (M50), security procedures and user discipline (H38), incident reporting (E, M47); the reminder (E); balance and from-the-beginning (E, H41); interoperability is not unrestricted access (M48, H41).
-
-## Retired in the October 2026 size trim
-
-Owner rule: at most 50 questions per difficulty, with every topic/term covered by the union of the three difficulties. Only questions whose terms (tags, topics and the rows above) were still covered by another question were removed. Their qids are retired and never reused (see `retired.json`).
-
-- Easy: none
-- Medium: coalition-m-24, coalition-m-31, coalition-m-50
-- Hard: none
+Lesson-wide literal tags not retained: key question of the Signal Officer; differences among coalition forces; scalable systems; sustaining the capability; primary purpose of signal support; reliable communications depend on; managing differences among partners; information exchange reason; technical support capability; network connectivity capability; voice communications capability; system selection depends on; how to apply the principles; continuity tactical question; tactical questions not listed; planning sequence order; translate operational requirements; bottom line. These granular labels are not a promise of item-by-item recall coverage; study the complete source.

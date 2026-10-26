@@ -1,0 +1,440 @@
+[
+  {
+    "id": 1,
+    "qid": "sensors-h-01",
+    "difficulty": "hard",
+    "category": "Concept and Information Quality",
+    "tags": [
+      "concept and information quality"
+    ],
+    "prompt": "A project measures success only by the number of installed sensors. Which evidence better addresses its purpose?",
+    "options": [
+      "The average length of equipment model names",
+      "The total number of identical shipping cartons",
+      "The number of feeds regardless of interpretation",
+      "Useful information reaching its intended users"
+    ],
+    "answer": 3,
+    "explanation": "The system-of-systems objective concerns information supporting understanding, not an equipment count alone.",
+    "sourceSlides": [
+      6,
+      7,
+      9
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "sensors-h-02",
+    "difficulty": "hard",
+    "category": "Concept and Information Quality",
+    "tags": [
+      "concept and information quality"
+    ],
+    "prompt": "A faster feed contains contradictory observations. What is the sound conclusion?",
+    "options": [
+      "Contradiction disappears when more displays are installed",
+      "A sensor reading automatically overrides every other source",
+      "Fast delivery does not establish accuracy",
+      "Lower latency guarantees every observation is accurate"
+    ],
+    "answer": 2,
+    "explanation": "Timeliness is valuable, but useful situational understanding still depends on data quality and interpretation.",
+    "sourceSlides": [
+      7,
+      18
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "sensors-h-03",
+    "difficulty": "hard",
+    "category": "Concept and Information Quality",
+    "tags": [
+      "concept and information quality"
+    ],
+    "prompt": "An interface displays every raw observation equally, obscuring what users need. What is the strongest criticism?",
+    "options": [
+      "It proves every sensor is physically defective",
+      "It eliminates all human-factor concerns by showing everything",
+      "Available data is not necessarily usable insight",
+      "It is necessarily superior because it contains more records"
+    ],
+    "answer": 2,
+    "explanation": "Information management must support relevant understanding; indiscriminate volume can hinder it.",
+    "sourceSlides": [
+      9,
+      18
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "sensors-h-04",
+    "difficulty": "hard",
+    "category": "Concept and Information Quality",
+    "tags": [
+      "concept and information quality"
+    ],
+    "prompt": "An integration team proposes removing human responsibility because data flows automatically. What remains?",
+    "options": [
+      "No responsibility after the network connection succeeds",
+      "Decision authority and assigned responsibilities",
+      "Automatic authority for any sensor-generated instruction",
+      "Only the manufacturer's marketing responsibility"
+    ],
+    "answer": 1,
+    "explanation": "Automation does not remove the distinct roles and responsibilities described by the lesson.",
+    "sourceSlides": [
+      7,
+      27
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "sensors-h-05",
+    "difficulty": "hard",
+    "category": "Sensor Types and Roles",
+    "tags": [
+      "sensor types and roles"
+    ],
+    "prompt": "A sensor name matches the task, but its environmental limits are unknown. What is justified?",
+    "options": [
+      "Treat all sensors within the category as interchangeable",
+      "Assume the category name guarantees all required performance",
+      "Choose solely by the device's popularity",
+      "Assess suitability under the expected conditions"
+    ],
+    "answer": 3,
+    "explanation": "A general capability description is not proof of performance under particular conditions.",
+    "sourceSlides": [
+      10,
+      18
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "sensors-h-06",
+    "difficulty": "hard",
+    "category": "Sensor Types and Roles",
+    "tags": [
+      "sensor types and roles"
+    ],
+    "prompt": "Two RDF observations are available, but neither has an uncertainty estimate. What should not be claimed?",
+    "options": [
+      "That measurement quality matters to interpretation",
+      "That the observations provide directional information",
+      "That further validation may improve confidence",
+      "A guaranteed exact location from the bearings alone"
+    ],
+    "answer": 3,
+    "explanation": "Multiple bearings help estimate position but do not justify an uncertainty-free claim.",
+    "sourceSlides": [
+      10
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "sensors-h-07",
+    "difficulty": "hard",
+    "category": "Sensor Types and Roles",
+    "tags": [
+      "sensor types and roles"
+    ],
+    "prompt": "Two platforms carry similar sensors but use different output interfaces. Which inference is invalid?",
+    "options": [
+      "Similar sensing roles guarantee plug-and-play integration",
+      "The receiving application may require adaptation",
+      "Interface documentation is relevant to compatibility",
+      "Payload capability and data compatibility are distinct"
+    ],
+    "answer": 0,
+    "explanation": "Functional similarity of sensors does not establish compatibility of their outputs or interfaces.",
+    "sourceSlides": [
+      10,
+      16
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "sensors-h-08",
+    "difficulty": "hard",
+    "category": "Sensor Types and Roles",
+    "tags": [
+      "sensor types and roles"
+    ],
+    "prompt": "A remote platform reduces exposure but adds operator training and maintenance needs. How should it be assessed?",
+    "options": [
+      "Reject every remote platform because it needs training",
+      "Assume modular payloads never require maintenance",
+      "Count only exposure reduction and ignore sustainment",
+      "Consider the benefit alongside new support requirements"
+    ],
+    "answer": 3,
+    "explanation": "Capabilities have benefits and constraints; the lesson includes complexity, cost and human factors.",
+    "sourceSlides": [
+      10,
+      18
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "sensors-h-09",
+    "difficulty": "hard",
+    "category": "Interoperability and Requirements",
+    "tags": [
+      "interoperability and requirements"
+    ],
+    "prompt": "Systems comply with the same network protocol but interpret fields differently. What remains unresolved?",
+    "options": [
+      "Whether their cases have matching dimensions",
+      "Information meaning and interface compatibility",
+      "Whether the protocol names are spelled identically",
+      "Whether both systems use electricity"
+    ],
+    "answer": 1,
+    "explanation": "Transport compatibility does not guarantee that exchanged information has the same meaning to both systems.",
+    "sourceSlides": [
+      16,
+      28
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "sensors-h-10",
+    "difficulty": "hard",
+    "category": "Interoperability and Requirements",
+    "tags": [
+      "interoperability and requirements"
+    ],
+    "prompt": "An open-architecture proposal omits access control because interfaces are 'open.' What is wrong?",
+    "options": [
+      "Access control applies only to closed proprietary systems",
+      "Open interfaces do not authorize unrestricted access",
+      "Open architecture requires publishing every protected record",
+      "Standards automatically provide all needed authorization"
+    ],
+    "answer": 1,
+    "explanation": "Architectural openness supports integration; security and authorized access remain separate requirements.",
+    "sourceSlides": [
+      16,
+      18
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "sensors-h-11",
+    "difficulty": "hard",
+    "category": "Interoperability and Requirements",
+    "tags": [
+      "interoperability and requirements"
+    ],
+    "prompt": "A supplier provides a complete ICD but no test results. What can acceptance reasonably conclude?",
+    "options": [
+      "An ICD makes environmental testing irrelevant",
+      "Documentation proves every implementation matches the interface",
+      "A written standard guarantees no implementation defects",
+      "Documented requirements, not verified behavior"
+    ],
+    "answer": 3,
+    "explanation": "An ICD defines expected behavior; tests supply evidence that implementations satisfy it.",
+    "sourceSlides": [
+      16,
+      29
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "sensors-h-12",
+    "difficulty": "hard",
+    "category": "Interoperability and Requirements",
+    "tags": [
+      "interoperability and requirements"
+    ],
+    "prompt": "Local delivery succeeds while higher-level users receive unusable data. Which acceptance boundary is needed?",
+    "options": [
+      "Only the supplier's internal production test",
+      "Only the first radio hop's connection indicator",
+      "End-to-end delivery and interpretation",
+      "Only a successful sensor power-on test"
+    ],
+    "answer": 2,
+    "explanation": "Acceptance should follow the information to its intended users, not stop at an intermediate connection.",
+    "sourceSlides": [
+      15,
+      17,
+      28
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "sensors-h-13",
+    "difficulty": "hard",
+    "category": "Context and Constraints",
+    "tags": [
+      "context and constraints"
+    ],
+    "prompt": "A demonstration passes, but its license and support expire before planned use. Which risk is underestimated?",
+    "options": [
+      "Sustainment across the intended service period",
+      "The ability to photograph the prototype",
+      "The number of icons on the display",
+      "The existence of a technical demonstration"
+    ],
+    "answer": 0,
+    "explanation": "Readiness must last through intended use; a temporary demonstration can hide continuing dependencies.",
+    "sourceSlides": [
+      18,
+      20
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "sensors-h-14",
+    "difficulty": "hard",
+    "category": "Context and Constraints",
+    "tags": [
+      "context and constraints"
+    ],
+    "prompt": "A design works domestically but is proposed unchanged for a coalition exercise. What must be revisited?",
+    "options": [
+      "Partner standards, authorization and exchange requirements",
+      "Whether every internal network must be discarded",
+      "Whether a domestic test proves every partner interface",
+      "Only the spelling of participating nations' names"
+    ],
+    "answer": 0,
+    "explanation": "Different partners and contexts require verification of their particular integration arrangements.",
+    "sourceSlides": [
+      18,
+      19
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "sensors-h-15",
+    "difficulty": "hard",
+    "category": "Context and Constraints",
+    "tags": [
+      "context and constraints"
+    ],
+    "prompt": "More redundancy is proposed, but it increases cost and operator complexity. What is the best review approach?",
+    "options": [
+      "Ignore personnel and budget because only hardware matters",
+      "Balance resilience and support constraints",
+      "Assume more components always improve overall reliability",
+      "Reject redundancy in every resource-constrained system"
+    ],
+    "answer": 1,
+    "explanation": "The lesson treats cost, complexity and human factors alongside reliability, requiring balanced assessment.",
+    "sourceSlides": [
+      18
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "sensors-h-16",
+    "difficulty": "hard",
+    "category": "Context and Constraints",
+    "tags": [
+      "context and constraints"
+    ],
+    "prompt": "A shielded device works in one test. Which claim exceeds the evidence?",
+    "options": [
+      "Further representative testing can strengthen confidence",
+      "It performed adequately under the tested conditions",
+      "It is immune to every electromagnetic disturbance",
+      "Shielding is one part of the protective design"
+    ],
+    "answer": 2,
+    "explanation": "Protection and testing reduce risk; one result does not demonstrate immunity to all conditions.",
+    "sourceSlides": [
+      18,
+      29
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "sensors-h-17",
+    "difficulty": "hard",
+    "category": "Integration Responsibilities and Testing",
+    "tags": [
+      "integration responsibilities and testing"
+    ],
+    "prompt": "A fault spans sensor hardware, communications and user procedures. Which response fits the responsibilities described?",
+    "options": [
+      "Coordinate AIR, ASR and users according to their roles",
+      "Assume shared responsibility means nobody owns any action",
+      "Assign everything to the user and exclude technical support",
+      "Assign everything to a vendor without institutional coordination"
+    ],
+    "answer": 0,
+    "explanation": "The lesson specifies complementary responsibilities; a cross-system fault requires coordination rather than a gap in ownership.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "sensors-h-18",
+    "difficulty": "hard",
+    "category": "Integration Responsibilities and Testing",
+    "tags": [
+      "integration responsibilities and testing"
+    ],
+    "prompt": "An integration is declared interoperable solely because cables are connected. What evidence is missing?",
+    "options": [
+      "Correct usable information exchange under relevant conditions",
+      "Identical purchase dates for the components",
+      "Matching supplier logos on every device",
+      "A larger inventory spreadsheet"
+    ],
+    "answer": 0,
+    "explanation": "Interoperability concerns usable exchange between different systems; physical connection alone is insufficient evidence.",
+    "sourceSlides": [
+      28,
+      29
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "sensors-h-19",
+    "difficulty": "hard",
+    "category": "Integration Responsibilities and Testing",
+    "tags": [
+      "integration responsibilities and testing"
+    ],
+    "prompt": "Two redundant components depend on the same untested support service. What should the review question?",
+    "options": [
+      "Whether redundancy removes all system-level dependencies",
+      "Whether the shared dependency defeats the resilience objective",
+      "Whether identical labels guarantee independent operation",
+      "Whether component count alone proves availability"
+    ],
+    "answer": 1,
+    "explanation": "Redundancy should prevent a single failure compromising the system; shared dependencies need evaluation.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "sensors-h-20",
+    "difficulty": "hard",
+    "category": "Integration Responsibilities and Testing",
+    "tags": [
+      "integration responsibilities and testing"
+    ],
+    "prompt": "Tests expose a malfunction, but no team tracks correction or retesting. What is incomplete?",
+    "options": [
+      "The fact that an initial test was conducted",
+      "The number of people attending the demonstration",
+      "The validation and responsibility loop",
+      "Only the presentation's decorative layout"
+    ],
+    "answer": 2,
+    "explanation": "Testing must lead to assigned correction and verification; discovering a problem alone does not establish readiness.",
+    "sourceSlides": [
+      27,
+      29
+    ]
+  }
+]

@@ -388,7 +388,7 @@
     .module-card .card-kicker { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-signal-text); }
     .module-title { font-size: var(--text-h2); font-weight: 600; line-height: 1.05; letter-spacing: -0.015em; }
     .module-card .card-desc { max-width: 34rem; font-size: var(--text-ui); line-height: 1.5; color: var(--color-muted); }
-    .module-note { align-self: flex-start; color: var(--color-muted); }
+    .module-note { align-self: flex-start; max-width: 100%; white-space: normal; color: var(--color-muted); }
     .module-overview { min-height: 1.5em; font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
     .module-overview.stat-error { color: var(--color-muted); }
     .module-cta { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-top: auto; padding-top: var(--space-3); border-top: 1px solid currentColor; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
@@ -576,9 +576,9 @@
         <h1>Choose your module, then your exam</h1>
         <p class="hero-lede">Start with the module you are studying. Choose a lesson quiz or an available module examination in Easy, Medium or Hard mode. Module 2 covers four lessons; Module 3 covers Combined Arms, Joint and Coalition Operations. Module 5 offers lesson quizzes on the Intelligence Cycle, Radio Direction Finding and Signals Intelligence. Class results for the selected module are summarised below.</p>
         <dl class="hero-meta">
-            <div><dt>Modules</dt><dd>3</dd></div>
-            <div><dt>Exams</dt><dd>12</dd></div>
-            <div><dt>Questions</dt><dd>1,162</dd></div>
+            <div><dt>Modules</dt><dd>6</dd></div>
+            <div><dt>Exams</dt><dd>19</dd></div>
+            <div><dt>Questions</dt><dd>1,410</dd></div>
             <div><dt>Modes</dt><dd>Easy · Medium · Hard</dd></div>
         </dl>
         <p class="hero-nav"><a class="hero-link" id="schedule-link" href="schedule/?v=day-picker-2">This week's schedule</a><a class="hero-link" id="class-link" href="class/">Our class: Bandwidth Brothers</a></p>
@@ -624,36 +624,75 @@
       <p class="section-intro">Pick the module you are studying. Its exams and class history appear below.</p>
       <ul class="module-grid">
         <li>
-          <a class="module-card" id="pick-module-2" href="#module-2" aria-labelledby="pick-title-module-2" aria-describedby="pick-meta-module-2 pick-desc-module-2 overview-module-2">
+          <a class="module-card" id="pick-module-2" href="#module-2" aria-labelledby="pick-title-module-2" aria-describedby="pick-meta-module-2 pick-desc-module-2 pick-note-module-2 overview-module-2">
             <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 02</span></span>
             <span class="vol-num" aria-hidden="true">02</span>
-            <span class="card-kicker" id="pick-meta-module-2">4 lessons + Combined Exam</span>
+            <span class="card-kicker" id="pick-meta-module-2">3 lessons + Combined Practice Exam</span>
             <span class="module-title" id="pick-title-module-2">Module 2</span>
-            <span class="card-desc" id="pick-desc-module-2">ISR Operations, Armor Operations, Field Artillery Operations, Army Operations and the Combined Exam</span>
+            <span class="card-desc" id="pick-desc-module-2">Field Artillery Operations, Armor Operations, ISR Operations and the Combined Practice Exam</span>
+            <span class="tag module-note" id="pick-note-module-2">Army Operating Concept</span>
             <span class="module-overview" id="overview-module-2"></span>
             <span class="module-cta"><span class="cta-choose">Choose Module 2</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
           </a>
         </li>
         <li>
-          <a class="module-card" id="pick-module-3" href="#module-3" aria-labelledby="pick-title-module-3" aria-describedby="pick-meta-module-3 pick-desc-module-3 overview-module-3">
-            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 03</span></span>
-            <span class="vol-num" aria-hidden="true">03</span>
-            <span class="card-kicker" id="pick-meta-module-3">3 lessons + Module 3 Exam</span>
-            <span class="module-title" id="pick-title-module-3">Module 3</span>
-            <span class="card-desc" id="pick-desc-module-3">Signal Support in Combined Arms Operations, Signal Support in Joint Operations, Signal Support in Coalition Operations and the Module 3 Exam</span>
-            <span class="module-overview" id="overview-module-3"></span>
-            <span class="module-cta"><span class="cta-choose">Choose Module 3</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
+          <a class="module-card" id="pick-module-4" href="#module-4" aria-labelledby="pick-title-module-4" aria-describedby="pick-meta-module-4 pick-desc-module-4 pick-note-module-4 overview-module-4">
+            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 04</span></span>
+            <span class="vol-num" aria-hidden="true">04</span>
+            <span class="card-kicker" id="pick-meta-module-4">3 lessons + Module 4 Exam</span>
+            <span class="module-title" id="pick-title-module-4">Module 4</span>
+            <span class="card-desc" id="pick-desc-module-4">Signal Support in Combined Arms Operations, Signal Support in Joint Operations, Signal Support in Coalition Operations and the Module 4 Exam</span>
+            <span class="tag module-note" id="pick-note-module-4">Signal Support Integration</span>
+            <span class="module-overview" id="overview-module-4"></span>
+            <span class="module-cta"><span class="cta-choose">Choose Module 4</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
           </a>
         </li>
         <li>
-          <a class="module-card" id="pick-module-5" href="#module-5" aria-labelledby="pick-title-module-5" aria-describedby="pick-meta-module-5 pick-desc-module-5 overview-module-5">
+          <a class="module-card" id="pick-module-5" href="#module-5" aria-labelledby="pick-title-module-5" aria-describedby="pick-meta-module-5 pick-desc-module-5 pick-note-module-5 overview-module-5">
             <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 05</span></span>
             <span class="vol-num" aria-hidden="true">05</span>
             <span class="card-kicker" id="pick-meta-module-5">3 lessons</span>
             <span class="module-title" id="pick-title-module-5">Module 5</span>
-            <span class="card-desc" id="pick-desc-module-5">Intelligence Cycle, Radio Direction Finding and Signals Intelligence (SIGINT)</span>
+            <span class="card-desc" id="pick-desc-module-5">MANET C4ISTAR Planning, C4ISTAR Sensors Integration and C4ISTAR Weapon System Integration</span>
+            <span class="tag module-note" id="pick-note-module-5">Advanced C2 Communications</span>
             <span class="module-overview" id="overview-module-5"></span>
             <span class="module-cta"><span class="cta-choose">Choose Module 5</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
+          </a>
+        </li>
+        <li>
+          <a class="module-card" id="pick-module-6" href="#module-6" aria-labelledby="pick-title-module-6" aria-describedby="pick-meta-module-6 pick-desc-module-6 pick-note-module-6 overview-module-6">
+            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 06</span></span>
+            <span class="vol-num" aria-hidden="true">06</span>
+            <span class="card-kicker" id="pick-meta-module-6">2 lessons</span>
+            <span class="module-title" id="pick-title-module-6">Module 6</span>
+            <span class="card-desc" id="pick-desc-module-6">Signals Intelligence (SIGINT) and Radio Direction Finding</span>
+            <span class="tag module-note" id="pick-note-module-6">Advanced Electronic Warfare Operations</span>
+            <span class="module-overview" id="overview-module-6"></span>
+            <span class="module-cta"><span class="cta-choose">Choose Module 6</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
+          </a>
+        </li>
+        <li>
+          <a class="module-card" id="pick-module-7" href="#module-7" aria-labelledby="pick-title-module-7" aria-describedby="pick-meta-module-7 pick-desc-module-7 pick-note-module-7 overview-module-7">
+            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 07</span></span>
+            <span class="vol-num" aria-hidden="true">07</span>
+            <span class="card-kicker" id="pick-meta-module-7">4 lessons</span>
+            <span class="module-title" id="pick-title-module-7">Module 7</span>
+            <span class="card-desc" id="pick-desc-module-7">NIST Framework, Zero Trust, LOE3 GSOMIA Compliance and Cyber Risk Assessment</span>
+            <span class="tag module-note" id="pick-note-module-7">Advanced Cyberspace Operations</span>
+            <span class="module-overview" id="overview-module-7"></span>
+            <span class="module-cta"><span class="cta-choose">Choose Module 7</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
+          </a>
+        </li>
+        <li>
+          <a class="module-card" id="pick-supplemental" href="#supplemental" aria-labelledby="pick-title-supplemental" aria-describedby="pick-meta-supplemental pick-desc-supplemental pick-note-supplemental overview-supplemental">
+            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 00</span></span>
+            <span class="vol-num" aria-hidden="true">00</span>
+            <span class="card-kicker" id="pick-meta-supplemental">2 lessons</span>
+            <span class="module-title" id="pick-title-supplemental">Supporting Lessons</span>
+            <span class="card-desc" id="pick-desc-supplemental">Army Operations and Intelligence Cycle</span>
+            <span class="tag module-note" id="pick-note-supplemental">Supporting study material; not separately numbered POI lessons</span>
+            <span class="module-overview" id="overview-supplemental"></span>
+            <span class="module-cta"><span class="cta-choose">Choose Supporting Lessons</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
           </a>
         </li>
       </ul>
@@ -667,67 +706,35 @@
         <a class="change-module" id="change-module-2" href="#choose-module">Change module</a>
       </div>
       <div class="sect-body">
-      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Combined Exam has 60 questions.</p>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Combined Practice Exam has 30 questions. Army Operating Concept.</p>
       <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
       <ul class="exam-grid" id="exam-grid-module-2">
         <li class="is-prominent" id="card-combined" data-key="combined">
           <article class="exam-card" aria-labelledby="title-combined">
             <p class="toc-num" aria-hidden="true">02.0</p>
             <div class="toc-main">
-              <p class="card-kicker">Comprehensive</p>
-              <div class="toc-line"><h3 class="card-title" id="title-combined">Combined Exam</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">60 / attempt</span></div>
-              <p class="card-desc">60 questions drawn from all four lessons: ISR, Armor, Field Artillery and Army Operations.</p>
+              <p class="card-kicker">Cross-lesson practice</p>
+              <div class="toc-line"><h3 class="card-title" id="title-combined">Combined Practice Exam</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">30 / attempt</span></div>
+              <p class="card-desc">30 questions from ISR, Armor, Field Artillery and the supporting Army Operations lesson. Not a complete POI Module 2 assessment.</p>
               <ul class="card-meta">
                 <li class="tag tag-comprehensive">All four lessons</li>
-                <li class="tag">60 questions</li>
+                <li class="tag">30 questions</li>
                 <li class="tag">Easy · Medium · Hard</li>
               </ul>
             </div>
             <div class="card-stats" id="stats-combined" aria-live="polite"></div>
-            <a class="start-link" href="combined/">Start exam<span class="sr-only">: Combined Exam</span> <span class="arrow" aria-hidden="true"></span></a>
-          </article>
-        </li>
-        <li id="card-isr" data-key="isr">
-          <article class="exam-card" aria-labelledby="title-isr">
-            <p class="toc-num" aria-hidden="true">02.1</p>
-            <div class="toc-main">
-              <p class="card-kicker">Lesson quiz</p>
-              <div class="toc-line"><h3 class="card-title" id="title-isr">ISR Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">44 / 43 / 40</span></div>
-              <p class="card-desc">Introduction to ISR Operations.</p>
-              <ul class="card-meta">
-                <li class="tag">40–44 questions per attempt</li>
-                <li class="tag">Easy · Medium · Hard</li>
-              </ul>
-            </div>
-            <div class="card-stats" id="stats-isr" aria-live="polite"></div>
-            <a class="start-link" href="isr/">Start exam<span class="sr-only">: ISR Operations</span> <span class="arrow" aria-hidden="true"></span></a>
-          </article>
-        </li>
-        <li id="card-armor" data-key="armor">
-          <article class="exam-card" aria-labelledby="title-armor">
-            <p class="toc-num" aria-hidden="true">02.2</p>
-            <div class="toc-main">
-              <p class="card-kicker">Lesson quiz</p>
-              <div class="toc-line"><h3 class="card-title" id="title-armor">Armor Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">43 / 40 / 40</span></div>
-              <p class="card-desc">Fundamentals of Armor Operations.</p>
-              <ul class="card-meta">
-                <li class="tag">40–43 questions per attempt</li>
-                <li class="tag">Easy · Medium · Hard</li>
-              </ul>
-            </div>
-            <div class="card-stats" id="stats-armor" aria-live="polite"></div>
-            <a class="start-link" href="armor/">Start exam<span class="sr-only">: Armor Operations</span> <span class="arrow" aria-hidden="true"></span></a>
+            <a class="start-link" href="combined/">Start exam<span class="sr-only">: Combined Practice Exam</span> <span class="arrow" aria-hidden="true"></span></a>
           </article>
         </li>
         <li id="card-fieldartillery" data-key="fieldartillery">
           <article class="exam-card" aria-labelledby="title-fieldartillery">
-            <p class="toc-num" aria-hidden="true">02.3</p>
+            <p class="toc-num" aria-hidden="true">02.2</p>
             <div class="toc-main">
               <p class="card-kicker">Lesson quiz</p>
-              <div class="toc-line"><h3 class="card-title" id="title-fieldartillery">Field Artillery Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">45 / 43 / 38</span></div>
+              <div class="toc-line"><h3 class="card-title" id="title-fieldartillery">Field Artillery Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">35 / 35 / 35</span></div>
               <p class="card-desc">Field Artillery Operations lesson.</p>
               <ul class="card-meta">
-                <li class="tag">38–45 questions per attempt</li>
+                <li class="tag">35 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
               </ul>
             </div>
@@ -735,61 +742,77 @@
             <a class="start-link" href="field-artillery/">Start exam<span class="sr-only">: Field Artillery Operations</span> <span class="arrow" aria-hidden="true"></span></a>
           </article>
         </li>
-        <li id="card-armyops" data-key="armyops">
-          <article class="exam-card" aria-labelledby="title-armyops">
-            <p class="toc-num" aria-hidden="true">02.4</p>
+        <li id="card-armor" data-key="armor">
+          <article class="exam-card" aria-labelledby="title-armor">
+            <p class="toc-num" aria-hidden="true">02.3</p>
             <div class="toc-main">
               <p class="card-kicker">Lesson quiz</p>
-              <div class="toc-line"><h3 class="card-title" id="title-armyops">Army Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">47 / 49 / 43</span></div>
-              <p class="card-desc">Introduction to Army Operations.</p>
+              <div class="toc-line"><h3 class="card-title" id="title-armor">Armor Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">35 / 35 / 35</span></div>
+              <p class="card-desc">Fundamentals of Armor Operations.</p>
               <ul class="card-meta">
-                <li class="tag">43–49 questions per attempt</li>
+                <li class="tag">35 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
               </ul>
             </div>
-            <div class="card-stats" id="stats-armyops" aria-live="polite"></div>
-            <a class="start-link" href="army-operations/">Start exam<span class="sr-only">: Army Operations</span> <span class="arrow" aria-hidden="true"></span></a>
+            <div class="card-stats" id="stats-armor" aria-live="polite"></div>
+            <a class="start-link" href="armor/">Start exam<span class="sr-only">: Armor Operations</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+        <li id="card-isr" data-key="isr">
+          <article class="exam-card" aria-labelledby="title-isr">
+            <p class="toc-num" aria-hidden="true">02.4</p>
+            <div class="toc-main">
+              <p class="card-kicker">Lesson quiz</p>
+              <div class="toc-line"><h3 class="card-title" id="title-isr">ISR Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">35 / 35 / 35</span></div>
+              <p class="card-desc">Introduction to ISR Operations.</p>
+              <ul class="card-meta">
+                <li class="tag">35 questions per attempt</li>
+                <li class="tag">Easy · Medium · Hard</li>
+              </ul>
+            </div>
+            <div class="card-stats" id="stats-isr" aria-live="polite"></div>
+            <a class="start-link" href="isr/">Start exam<span class="sr-only">: ISR Operations</span> <span class="arrow" aria-hidden="true"></span></a>
           </article>
         </li>
       </ul>
       </div>
     </section>
 
-    <section class="exam-panel" id="module-3" aria-labelledby="exams-heading-module-3">
+    <section class="exam-panel" id="module-4" aria-labelledby="exams-heading-module-4">
       <div class="sect-head section-head">
-        <h2 id="exams-heading-module-3" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 3</span></h2>
-        <a class="change-module" id="change-module-3" href="#choose-module">Change module</a>
+        <h2 id="exams-heading-module-4" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 4</span></h2>
+        <a class="change-module" id="change-module-4" href="#choose-module">Change module</a>
       </div>
       <div class="sect-body">
-      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Module 3 Exam has 45 questions.</p>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Module 4 Exam has 30 questions. Signal Support Integration.</p>
       <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
-      <ul class="exam-grid" id="exam-grid-module-3">
+      <ul class="exam-grid" id="exam-grid-module-4">
         <li class="is-prominent" id="card-modulethree" data-key="modulethree">
           <article class="exam-card" aria-labelledby="title-modulethree">
-            <p class="toc-num" aria-hidden="true">03.0</p>
+            <p class="toc-num" aria-hidden="true">04.0</p>
             <div class="toc-main">
               <p class="card-kicker">Module examination</p>
-              <div class="toc-line"><h3 class="card-title" id="title-modulethree">Module 3 Exam</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">45 / attempt</span></div>
-              <p class="card-desc">45 questions: 15 each from Combined Arms, Joint and Coalition Operations.</p>
+              <div class="toc-line"><h3 class="card-title" id="title-modulethree">Module 4 Exam</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">30 / attempt</span></div>
+              <p class="card-desc">30 questions: 10 each from Combined Arms, Joint and Coalition Operations.</p>
               <ul class="card-meta">
                 <li class="tag tag-comprehensive">All three lessons</li>
-                <li class="tag">45 questions</li>
+                <li class="tag">30 questions</li>
                 <li class="tag">Easy · Medium · Hard</li>
               </ul>
             </div>
             <div class="card-stats" id="stats-modulethree" aria-live="polite"></div>
-            <a class="start-link" href="module-3-exam/">Start exam<span class="sr-only">: Module 3 Exam</span> <span class="arrow" aria-hidden="true"></span></a>
+            <a class="start-link" href="module-3-exam/">Start exam<span class="sr-only">: Module 4 Exam</span> <span class="arrow" aria-hidden="true"></span></a>
           </article>
         </li>
         <li id="card-signal" data-key="signal">
           <article class="exam-card" aria-labelledby="title-signal">
-            <p class="toc-num" aria-hidden="true">03.1</p>
+            <p class="toc-num" aria-hidden="true">04.1</p>
             <div class="toc-main">
               <p class="card-kicker">Lesson quiz</p>
-              <div class="toc-line"><h3 class="card-title" id="title-signal">Signal Support in Combined Arms Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">50 / 50 / 41</span></div>
+              <div class="toc-line"><h3 class="card-title" id="title-signal">Signal Support in Combined Arms Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">35 / 35 / 35</span></div>
               <p class="card-desc">Signal Support in Combined Arms Operations lesson.</p>
               <ul class="card-meta">
-                <li class="tag">41–50 questions per attempt</li>
+                <li class="tag">35 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
               </ul>
             </div>
@@ -799,13 +822,13 @@
         </li>
         <li id="card-signaljoint" data-key="signaljoint">
           <article class="exam-card" aria-labelledby="title-signaljoint">
-            <p class="toc-num" aria-hidden="true">03.2</p>
+            <p class="toc-num" aria-hidden="true">04.2</p>
             <div class="toc-main">
               <p class="card-kicker">Lesson quiz</p>
-              <div class="toc-line"><h3 class="card-title" id="title-signaljoint">Signal Support in Joint Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">50 / 50 / 50</span></div>
+              <div class="toc-line"><h3 class="card-title" id="title-signaljoint">Signal Support in Joint Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">35 / 35 / 35</span></div>
               <p class="card-desc">Signal Support in Joint Operations lesson.</p>
               <ul class="card-meta">
-                <li class="tag">50 questions per attempt</li>
+                <li class="tag">35 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
               </ul>
             </div>
@@ -815,13 +838,13 @@
         </li>
         <li id="card-coalition" data-key="coalition">
           <article class="exam-card" aria-labelledby="title-coalition">
-            <p class="toc-num" aria-hidden="true">03.3</p>
+            <p class="toc-num" aria-hidden="true">04.3</p>
             <div class="toc-main">
               <p class="card-kicker">Lesson quiz</p>
-              <div class="toc-line"><h3 class="card-title" id="title-coalition">Signal Support in Coalition Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">40 / 50 / 41</span></div>
+              <div class="toc-line"><h3 class="card-title" id="title-coalition">Signal Support in Coalition Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">35 / 35 / 35</span></div>
               <p class="card-desc">Signal Support in Coalition Operations lesson.</p>
               <ul class="card-meta">
-                <li class="tag">40–50 questions per attempt</li>
+                <li class="tag">35 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
               </ul>
             </div>
@@ -839,28 +862,89 @@
         <a class="change-module" id="change-module-5" href="#choose-module">Change module</a>
       </div>
       <div class="sect-body">
-      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes.</p>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes. Advanced C2 Communications.</p>
       <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
       <ul class="exam-grid" id="exam-grid-module-5">
-        <li id="card-intcycle" data-key="intcycle">
-          <article class="exam-card" aria-labelledby="title-intcycle">
-            <p class="toc-num" aria-hidden="true">05.1</p>
+        <li id="card-manet" data-key="manet">
+          <article class="exam-card" aria-labelledby="title-manet">
+            <p class="toc-num" aria-hidden="true">05.3</p>
             <div class="toc-main">
               <p class="card-kicker">Lesson quiz</p>
-              <div class="toc-line"><h3 class="card-title" id="title-intcycle">Intelligence Cycle</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">25 / 25 / 25</span></div>
-              <p class="card-desc">Evaluate information, distinguish the five stages, and report responsibly.</p>
+              <div class="toc-line"><h3 class="card-title" id="title-manet">MANET C4ISTAR Planning</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">20 / 20 / 20</span></div>
+              <p class="card-desc">Practice manet c4istar planning with source-referenced questions.</p>
+              <ul class="card-meta">
+                <li class="tag">20 questions per attempt</li>
+                <li class="tag">Easy · Medium · Hard</li>
+              </ul>
+            </div>
+            <div class="card-stats" id="stats-manet" aria-live="polite"></div>
+            <a class="start-link" href="manet-c4istar-planning/">Start exam<span class="sr-only">: MANET C4ISTAR Planning</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+        <li id="card-sensors" data-key="sensors">
+          <article class="exam-card" aria-labelledby="title-sensors">
+            <p class="toc-num" aria-hidden="true">05.4</p>
+            <div class="toc-main">
+              <p class="card-kicker">Lesson quiz</p>
+              <div class="toc-line"><h3 class="card-title" id="title-sensors">C4ISTAR Sensors Integration</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">20 / 20 / 20</span></div>
+              <p class="card-desc">Practice c4istar sensors integration with source-referenced questions.</p>
+              <ul class="card-meta">
+                <li class="tag">20 questions per attempt</li>
+                <li class="tag">Easy · Medium · Hard</li>
+              </ul>
+            </div>
+            <div class="card-stats" id="stats-sensors" aria-live="polite"></div>
+            <a class="start-link" href="c4istar-sensors-integration/">Start exam<span class="sr-only">: C4ISTAR Sensors Integration</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+        <li id="card-weapons" data-key="weapons">
+          <article class="exam-card" aria-labelledby="title-weapons">
+            <p class="toc-num" aria-hidden="true">05.5</p>
+            <div class="toc-main">
+              <p class="card-kicker">Lesson quiz</p>
+              <div class="toc-line"><h3 class="card-title" id="title-weapons">C4ISTAR Weapon System Integration</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">20 / 20 / 20</span></div>
+              <p class="card-desc">Practice c4istar weapon system integration with source-referenced questions.</p>
+              <ul class="card-meta">
+                <li class="tag">20 questions per attempt</li>
+                <li class="tag">Easy · Medium · Hard</li>
+              </ul>
+            </div>
+            <div class="card-stats" id="stats-weapons" aria-live="polite"></div>
+            <a class="start-link" href="c4istar-weapon-system-integration/">Start exam<span class="sr-only">: C4ISTAR Weapon System Integration</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+      </ul>
+      </div>
+    </section>
+
+    <section class="exam-panel" id="module-6" aria-labelledby="exams-heading-module-6">
+      <div class="sect-head section-head">
+        <h2 id="exams-heading-module-6" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 6</span></h2>
+        <a class="change-module" id="change-module-6" href="#choose-module">Change module</a>
+      </div>
+      <div class="sect-body">
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes. Advanced Electronic Warfare Operations.</p>
+      <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
+      <ul class="exam-grid" id="exam-grid-module-6">
+        <li id="card-sigint" data-key="sigint">
+          <article class="exam-card" aria-labelledby="title-sigint">
+            <p class="toc-num" aria-hidden="true">06.1</p>
+            <div class="toc-main">
+              <p class="card-kicker">Lesson quiz</p>
+              <div class="toc-line"><h3 class="card-title" id="title-sigint">Signals Intelligence (SIGINT)</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">25 / 25 / 25</span></div>
+              <p class="card-desc">Assess SIGINT concepts, reporting quality, corroboration and responsible dissemination.</p>
               <ul class="card-meta">
                 <li class="tag">25 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
               </ul>
             </div>
-            <div class="card-stats" id="stats-intcycle" aria-live="polite"></div>
-            <a class="start-link" href="intelligence-cycle/">Start exam<span class="sr-only">: Intelligence Cycle</span> <span class="arrow" aria-hidden="true"></span></a>
+            <div class="card-stats" id="stats-sigint" aria-live="polite"></div>
+            <a class="start-link" href="signals-intelligence/">Start exam<span class="sr-only">: Signals Intelligence (SIGINT)</span> <span class="arrow" aria-hidden="true"></span></a>
           </article>
         </li>
         <li id="card-rdf" data-key="rdf">
           <article class="exam-card" aria-labelledby="title-rdf">
-            <p class="toc-num" aria-hidden="true">05.2</p>
+            <p class="toc-num" aria-hidden="true">06.3</p>
             <div class="toc-main">
               <p class="card-kicker">Lesson quiz</p>
               <div class="toc-line"><h3 class="card-title" id="title-rdf">Radio Direction Finding</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">25 / 25 / 25</span></div>
@@ -874,20 +958,126 @@
             <a class="start-link" href="radio-direction-finding/">Start exam<span class="sr-only">: Radio Direction Finding</span> <span class="arrow" aria-hidden="true"></span></a>
           </article>
         </li>
-        <li id="card-sigint" data-key="sigint">
-          <article class="exam-card" aria-labelledby="title-sigint">
-            <p class="toc-num" aria-hidden="true">05.3</p>
+      </ul>
+      </div>
+    </section>
+
+    <section class="exam-panel" id="module-7" aria-labelledby="exams-heading-module-7">
+      <div class="sect-head section-head">
+        <h2 id="exams-heading-module-7" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 7</span></h2>
+        <a class="change-module" id="change-module-7" href="#choose-module">Change module</a>
+      </div>
+      <div class="sect-body">
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes. Advanced Cyberspace Operations.</p>
+      <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
+      <ul class="exam-grid" id="exam-grid-module-7">
+        <li id="card-nist" data-key="nist">
+          <article class="exam-card" aria-labelledby="title-nist">
+            <p class="toc-num" aria-hidden="true">07.1</p>
             <div class="toc-main">
               <p class="card-kicker">Lesson quiz</p>
-              <div class="toc-line"><h3 class="card-title" id="title-sigint">Signals Intelligence (SIGINT)</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">25 / 25 / 25</span></div>
-              <p class="card-desc">Assess SIGINT concepts, reporting quality, corroboration and responsible dissemination.</p>
+              <div class="toc-line"><h3 class="card-title" id="title-nist">NIST Framework</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">25 / 25 / 25</span></div>
+              <p class="card-desc">Practice nist framework with source-referenced questions.</p>
               <ul class="card-meta">
                 <li class="tag">25 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
               </ul>
             </div>
-            <div class="card-stats" id="stats-sigint" aria-live="polite"></div>
-            <a class="start-link" href="signals-intelligence/">Start exam<span class="sr-only">: Signals Intelligence (SIGINT)</span> <span class="arrow" aria-hidden="true"></span></a>
+            <div class="card-stats" id="stats-nist" aria-live="polite"></div>
+            <a class="start-link" href="nist-framework/">Start exam<span class="sr-only">: NIST Framework</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+        <li id="card-zerotrust" data-key="zerotrust">
+          <article class="exam-card" aria-labelledby="title-zerotrust">
+            <p class="toc-num" aria-hidden="true">07.2</p>
+            <div class="toc-main">
+              <p class="card-kicker">Lesson quiz</p>
+              <div class="toc-line"><h3 class="card-title" id="title-zerotrust">Zero Trust</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">25 / 25 / 25</span></div>
+              <p class="card-desc">Practice zero trust with source-referenced questions.</p>
+              <ul class="card-meta">
+                <li class="tag">25 questions per attempt</li>
+                <li class="tag">Easy · Medium · Hard</li>
+              </ul>
+            </div>
+            <div class="card-stats" id="stats-zerotrust" aria-live="polite"></div>
+            <a class="start-link" href="zero-trust/">Start exam<span class="sr-only">: Zero Trust</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+        <li id="card-gsomia" data-key="gsomia">
+          <article class="exam-card" aria-labelledby="title-gsomia">
+            <p class="toc-num" aria-hidden="true">07.3</p>
+            <div class="toc-main">
+              <p class="card-kicker">Lesson quiz</p>
+              <div class="toc-line"><h3 class="card-title" id="title-gsomia">LOE3 GSOMIA Compliance</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">20 / 20 / 20</span></div>
+              <p class="card-desc">Practice loe3 gsomia compliance with source-referenced questions.</p>
+              <ul class="card-meta">
+                <li class="tag">20 questions per attempt</li>
+                <li class="tag">Easy · Medium · Hard</li>
+              </ul>
+            </div>
+            <div class="card-stats" id="stats-gsomia" aria-live="polite"></div>
+            <a class="start-link" href="gsomia-compliance/">Start exam<span class="sr-only">: LOE3 GSOMIA Compliance</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+        <li id="card-cyberrisk" data-key="cyberrisk">
+          <article class="exam-card" aria-labelledby="title-cyberrisk">
+            <p class="toc-num" aria-hidden="true">07.4</p>
+            <div class="toc-main">
+              <p class="card-kicker">Lesson quiz</p>
+              <div class="toc-line"><h3 class="card-title" id="title-cyberrisk">Cyber Risk Assessment</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">20 / 20 / 20</span></div>
+              <p class="card-desc">Practice cyber risk assessment with source-referenced questions.</p>
+              <ul class="card-meta">
+                <li class="tag">20 questions per attempt</li>
+                <li class="tag">Easy · Medium · Hard</li>
+              </ul>
+            </div>
+            <div class="card-stats" id="stats-cyberrisk" aria-live="polite"></div>
+            <a class="start-link" href="cyber-risk-assessment/">Start exam<span class="sr-only">: Cyber Risk Assessment</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+      </ul>
+      </div>
+    </section>
+
+    <section class="exam-panel" id="supplemental" aria-labelledby="exams-heading-supplemental">
+      <div class="sect-head section-head">
+        <h2 id="exams-heading-supplemental" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Supporting Lessons</span></h2>
+        <a class="change-module" id="change-supplemental" href="#choose-module">Change module</a>
+      </div>
+      <div class="sect-body">
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes. Supporting study material; not separately numbered POI lessons.</p>
+      <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
+      <ul class="exam-grid" id="exam-grid-supplemental">
+        <li id="card-armyops" data-key="armyops">
+          <article class="exam-card" aria-labelledby="title-armyops">
+            <p class="toc-num" aria-hidden="true">00.1</p>
+            <div class="toc-main">
+              <p class="card-kicker">Lesson quiz</p>
+              <div class="toc-line"><h3 class="card-title" id="title-armyops">Army Operations</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">35 / 35 / 35</span></div>
+              <p class="card-desc">Introduction to Army Operations.</p>
+              <ul class="card-meta">
+                <li class="tag">35 questions per attempt</li>
+                <li class="tag">Easy · Medium · Hard</li>
+              </ul>
+            </div>
+            <div class="card-stats" id="stats-armyops" aria-live="polite"></div>
+            <a class="start-link" href="army-operations/">Start exam<span class="sr-only">: Army Operations</span> <span class="arrow" aria-hidden="true"></span></a>
+          </article>
+        </li>
+        <li id="card-intcycle" data-key="intcycle">
+          <article class="exam-card" aria-labelledby="title-intcycle">
+            <p class="toc-num" aria-hidden="true">00.2</p>
+            <div class="toc-main">
+              <p class="card-kicker">Lesson quiz</p>
+              <div class="toc-line"><h3 class="card-title" id="title-intcycle">Intelligence Cycle</h3><span class="toc-leader" aria-hidden="true"></span><span class="toc-counts" aria-hidden="true">25 / 25 / 25</span></div>
+              <p class="card-desc">Evaluate information, distinguish the five stages, and report responsibly.</p>
+              <ul class="card-meta">
+                <li class="tag">25 questions per attempt</li>
+                <li class="tag">Easy · Medium · Hard</li>
+              </ul>
+            </div>
+            <div class="card-stats" id="stats-intcycle" aria-live="polite"></div>
+            <a class="start-link" href="intelligence-cycle/">Start exam<span class="sr-only">: Intelligence Cycle</span> <span class="arrow" aria-hidden="true"></span></a>
           </article>
         </li>
       </ul>
@@ -961,23 +1151,23 @@
       {
         "id": "module-2",
         "title": "Module 2",
-        "meta": "4 lessons + Combined Exam",
-        "description": "ISR Operations, Armor Operations, Field Artillery Operations, Army Operations and the Combined Exam",
+        "meta": "3 lessons + Combined Practice Exam",
+        "description": "Field Artillery Operations, Armor Operations, ISR Operations and the Combined Practice Exam",
         "exams": [
           {
             "key": "combined",
             "lesson": "combined",
-            "title": "Combined Exam",
-            "description": "60 questions drawn from all four lessons: ISR, Armor, Field Artillery and Army Operations.",
+            "title": "Combined Practice Exam",
+            "description": "30 questions from ISR, Armor, Field Artillery and the supporting Army Operations lesson. Not a complete POI Module 2 assessment.",
             "url": "combined/",
-            "kicker": "Comprehensive",
+            "kicker": "Cross-lesson practice",
             "tags": [
               {
                 "text": "All four lessons",
                 "comprehensive": true
               },
               {
-                "text": "60 questions",
+                "text": "30 questions",
                 "comprehensive": false
               },
               {
@@ -988,15 +1178,15 @@
             "prominent": true
           },
           {
-            "key": "isr",
-            "lesson": "isr",
-            "title": "ISR Operations",
-            "description": "Introduction to ISR Operations.",
-            "url": "isr/",
+            "key": "fieldartillery",
+            "lesson": "fieldartillery",
+            "title": "Field Artillery Operations",
+            "description": "Field Artillery Operations lesson.",
+            "url": "field-artillery/",
             "kicker": "Lesson quiz",
             "tags": [
               {
-                "text": "40–44 questions per attempt",
+                "text": "35 questions per attempt",
                 "comprehensive": false
               },
               {
@@ -1014,7 +1204,7 @@
             "kicker": "Lesson quiz",
             "tags": [
               {
-                "text": "40–43 questions per attempt",
+                "text": "35 questions per attempt",
                 "comprehensive": false
               },
               {
@@ -1024,33 +1214,15 @@
             ]
           },
           {
-            "key": "fieldartillery",
-            "lesson": "fieldartillery",
-            "title": "Field Artillery Operations",
-            "description": "Field Artillery Operations lesson.",
-            "url": "field-artillery/",
+            "key": "isr",
+            "lesson": "isr",
+            "title": "ISR Operations",
+            "description": "Introduction to ISR Operations.",
+            "url": "isr/",
             "kicker": "Lesson quiz",
             "tags": [
               {
-                "text": "38–45 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "armyops",
-            "lesson": "armyops",
-            "title": "Army Operations",
-            "description": "Introduction to Army Operations.",
-            "url": "army-operations/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "43–49 questions per attempt",
+                "text": "35 questions per attempt",
                 "comprehensive": false
               },
               {
@@ -1059,19 +1231,20 @@
               }
             ]
           }
-        ]
+        ],
+        "note": "Army Operating Concept"
       },
       {
-        "id": "module-3",
-        "title": "Module 3",
-        "meta": "3 lessons + Module 3 Exam",
-        "description": "Signal Support in Combined Arms Operations, Signal Support in Joint Operations, Signal Support in Coalition Operations and the Module 3 Exam",
+        "id": "module-4",
+        "title": "Module 4",
+        "meta": "3 lessons + Module 4 Exam",
+        "description": "Signal Support in Combined Arms Operations, Signal Support in Joint Operations, Signal Support in Coalition Operations and the Module 4 Exam",
         "exams": [
           {
             "key": "modulethree",
             "lesson": "modulethree",
-            "title": "Module 3 Exam",
-            "description": "45 questions: 15 each from Combined Arms, Joint and Coalition Operations.",
+            "title": "Module 4 Exam",
+            "description": "30 questions: 10 each from Combined Arms, Joint and Coalition Operations.",
             "url": "module-3-exam/",
             "kicker": "Module examination",
             "tags": [
@@ -1080,7 +1253,7 @@
                 "comprehensive": true
               },
               {
-                "text": "45 questions",
+                "text": "30 questions",
                 "comprehensive": false
               },
               {
@@ -1099,7 +1272,7 @@
             "kicker": "Lesson quiz",
             "tags": [
               {
-                "text": "41–50 questions per attempt",
+                "text": "35 questions per attempt",
                 "comprehensive": false
               },
               {
@@ -1117,7 +1290,7 @@
             "kicker": "Lesson quiz",
             "tags": [
               {
-                "text": "50 questions per attempt",
+                "text": "35 questions per attempt",
                 "comprehensive": false
               },
               {
@@ -1135,7 +1308,7 @@
             "kicker": "Lesson quiz",
             "tags": [
               {
-                "text": "40–50 questions per attempt",
+                "text": "35 questions per attempt",
                 "comprehensive": false
               },
               {
@@ -1144,20 +1317,84 @@
               }
             ]
           }
-        ]
+        ],
+        "note": "Signal Support Integration"
       },
       {
         "id": "module-5",
         "title": "Module 5",
         "meta": "3 lessons",
-        "description": "Intelligence Cycle, Radio Direction Finding and Signals Intelligence (SIGINT)",
+        "description": "MANET C4ISTAR Planning, C4ISTAR Sensors Integration and C4ISTAR Weapon System Integration",
         "exams": [
           {
-            "key": "intcycle",
-            "lesson": "intcycle",
-            "title": "Intelligence Cycle",
-            "description": "Evaluate information, distinguish the five stages, and report responsibly.",
-            "url": "intelligence-cycle/",
+            "key": "manet",
+            "lesson": "manet",
+            "title": "MANET C4ISTAR Planning",
+            "description": "Practice manet c4istar planning with source-referenced questions.",
+            "url": "manet-c4istar-planning/",
+            "kicker": "Lesson quiz",
+            "tags": [
+              {
+                "text": "20 questions per attempt",
+                "comprehensive": false
+              },
+              {
+                "text": "Easy · Medium · Hard",
+                "comprehensive": false
+              }
+            ]
+          },
+          {
+            "key": "sensors",
+            "lesson": "sensors",
+            "title": "C4ISTAR Sensors Integration",
+            "description": "Practice c4istar sensors integration with source-referenced questions.",
+            "url": "c4istar-sensors-integration/",
+            "kicker": "Lesson quiz",
+            "tags": [
+              {
+                "text": "20 questions per attempt",
+                "comprehensive": false
+              },
+              {
+                "text": "Easy · Medium · Hard",
+                "comprehensive": false
+              }
+            ]
+          },
+          {
+            "key": "weapons",
+            "lesson": "weapons",
+            "title": "C4ISTAR Weapon System Integration",
+            "description": "Practice c4istar weapon system integration with source-referenced questions.",
+            "url": "c4istar-weapon-system-integration/",
+            "kicker": "Lesson quiz",
+            "tags": [
+              {
+                "text": "20 questions per attempt",
+                "comprehensive": false
+              },
+              {
+                "text": "Easy · Medium · Hard",
+                "comprehensive": false
+              }
+            ]
+          }
+        ],
+        "note": "Advanced C2 Communications"
+      },
+      {
+        "id": "module-6",
+        "title": "Module 6",
+        "meta": "2 lessons",
+        "description": "Signals Intelligence (SIGINT) and Radio Direction Finding",
+        "exams": [
+          {
+            "key": "sigint",
+            "lesson": "sigint",
+            "title": "Signals Intelligence (SIGINT)",
+            "description": "Assess SIGINT concepts, reporting quality, corroboration and responsible dissemination.",
+            "url": "signals-intelligence/",
             "kicker": "Lesson quiz",
             "tags": [
               {
@@ -1187,13 +1424,121 @@
                 "comprehensive": false
               }
             ]
+          }
+        ],
+        "note": "Advanced Electronic Warfare Operations"
+      },
+      {
+        "id": "module-7",
+        "title": "Module 7",
+        "meta": "4 lessons",
+        "description": "NIST Framework, Zero Trust, LOE3 GSOMIA Compliance and Cyber Risk Assessment",
+        "exams": [
+          {
+            "key": "nist",
+            "lesson": "nist",
+            "title": "NIST Framework",
+            "description": "Practice nist framework with source-referenced questions.",
+            "url": "nist-framework/",
+            "kicker": "Lesson quiz",
+            "tags": [
+              {
+                "text": "25 questions per attempt",
+                "comprehensive": false
+              },
+              {
+                "text": "Easy · Medium · Hard",
+                "comprehensive": false
+              }
+            ]
           },
           {
-            "key": "sigint",
-            "lesson": "sigint",
-            "title": "Signals Intelligence (SIGINT)",
-            "description": "Assess SIGINT concepts, reporting quality, corroboration and responsible dissemination.",
-            "url": "signals-intelligence/",
+            "key": "zerotrust",
+            "lesson": "zerotrust",
+            "title": "Zero Trust",
+            "description": "Practice zero trust with source-referenced questions.",
+            "url": "zero-trust/",
+            "kicker": "Lesson quiz",
+            "tags": [
+              {
+                "text": "25 questions per attempt",
+                "comprehensive": false
+              },
+              {
+                "text": "Easy · Medium · Hard",
+                "comprehensive": false
+              }
+            ]
+          },
+          {
+            "key": "gsomia",
+            "lesson": "gsomia",
+            "title": "LOE3 GSOMIA Compliance",
+            "description": "Practice loe3 gsomia compliance with source-referenced questions.",
+            "url": "gsomia-compliance/",
+            "kicker": "Lesson quiz",
+            "tags": [
+              {
+                "text": "20 questions per attempt",
+                "comprehensive": false
+              },
+              {
+                "text": "Easy · Medium · Hard",
+                "comprehensive": false
+              }
+            ]
+          },
+          {
+            "key": "cyberrisk",
+            "lesson": "cyberrisk",
+            "title": "Cyber Risk Assessment",
+            "description": "Practice cyber risk assessment with source-referenced questions.",
+            "url": "cyber-risk-assessment/",
+            "kicker": "Lesson quiz",
+            "tags": [
+              {
+                "text": "20 questions per attempt",
+                "comprehensive": false
+              },
+              {
+                "text": "Easy · Medium · Hard",
+                "comprehensive": false
+              }
+            ]
+          }
+        ],
+        "note": "Advanced Cyberspace Operations"
+      },
+      {
+        "id": "supplemental",
+        "title": "Supporting Lessons",
+        "meta": "2 lessons",
+        "description": "Army Operations and Intelligence Cycle",
+        "exams": [
+          {
+            "key": "armyops",
+            "lesson": "armyops",
+            "title": "Army Operations",
+            "description": "Introduction to Army Operations.",
+            "url": "army-operations/",
+            "kicker": "Lesson quiz",
+            "tags": [
+              {
+                "text": "35 questions per attempt",
+                "comprehensive": false
+              },
+              {
+                "text": "Easy · Medium · Hard",
+                "comprehensive": false
+              }
+            ]
+          },
+          {
+            "key": "intcycle",
+            "lesson": "intcycle",
+            "title": "Intelligence Cycle",
+            "description": "Evaluate information, distinguish the five stages, and report responsibly.",
+            "url": "intelligence-cycle/",
             "kicker": "Lesson quiz",
             "tags": [
               {
@@ -1206,7 +1551,8 @@
               }
             ]
           }
-        ]
+        ],
+        "note": "Supporting study material; not separately numbered POI lessons"
       }
     ];
     // Flat list of every exam; each exam remembers its module id.

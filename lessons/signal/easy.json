@@ -32,12 +32,12 @@
     ],
     "prompt": "A task force must coordinate battalions on three islands separated by straits, and the few available ferries limit how quickly troops and supplies can move between them. Which characteristic of the Philippine Army operational environment is chiefly shaping this problem?",
     "options": [
-      "Archipelagic",
       "Universally Connected",
+      "Archipelagic",
       "Collective Environment",
       "Highly Urbanized"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "Page 2: the archipelagic characteristic means islands, mountains, coastlines and bodies of water affect maneuver, transportation, logistics and coordination of forces. Separated islands and limited sea movement are exactly that effect.",
     "sourceSlides": [
       2
@@ -54,12 +54,12 @@
     ],
     "prompt": "A battalion's radios test serviceable, yet a ridge blocks coverage to a company in a valley and typhoon winds have damaged the antennas at the hilltop relay. Which signal operational environment is chiefly causing the communication problem?",
     "options": [
-      "The physical environment",
       "The electromagnetic spectrum environment",
       "The cyberspace environment",
+      "The physical environment",
       "The collective environment"
     ],
-    "answer": 0,
+    "answer": 2,
     "explanation": "Page 3: the physical environment (islands, mountains, forests, buildings and weather) affects coverage, signal propagation, equipment placement and the survival of communication assets. The spectrum environment concerns interference and electronic warfare, the cyberspace environment concerns networks, configurations and users, and \"collective environment\" is a Combined Arms characteristic, not a signal environment.",
     "sourceSlides": [
       3
@@ -76,12 +76,12 @@
     ],
     "prompt": "A typhoon damages the communication facilities of a brigade headquarters in Eastern Samar, and the commander can no longer reach the battalions. Which Signal Support role addresses this situation most directly?",
     "options": [
-      "Recover and restore disrupted communication",
       "Keep equipment ready through repair and maintenance",
       "Support cyberspace operations and electronic warfare",
-      "Enable command and control through fixed systems"
+      "Enable command and control through fixed systems",
+      "Recover and restore disrupted communication"
     ],
-    "answer": 0,
+    "answer": 3,
     "explanation": "Page 5: Signal Support must restore communication when equipment, facilities or networks are damaged by disasters, attacks or other incidents; the typhoon example is given under this role. Repair and maintenance keeps equipment serviceable during operations, which is not the same as restoring damaged facilities.",
     "sourceSlides": [
       5
@@ -98,12 +98,12 @@
     ],
     "prompt": "A brigade headquarters at Camp Evangelista holds its daily coordination meeting with division by video teleconference and exchanges reports by email, both over Army systems that link established headquarters. Under the Signal Support role of enabling command and control, which communication service is this?",
     "options": [
+      "Fixed communication",
       "Special purpose communication",
       "Tactical communication",
-      "Fixed communication",
       "Restoration communication"
     ],
-    "answer": 2,
+    "answer": 0,
     "explanation": "Page 4: under the command and control role, fixed communication connects headquarters and established facilities, with examples such as Army telephone systems, PANET, email and video teleconferencing. Page 6 adds that email, video teleconferencing and collaboration systems let headquarters exchange information and conduct coordination meetings, and that fixed systems form the backbone of the Army's voice and data communications. Tactical communication connects troops moving or halted; special purpose communication (cellular phones, satellite phones, commercial videoconferencing) only supplements fixed and tactical systems; restoration is a separate role.",
     "sourceSlides": [
       4,
@@ -122,11 +122,11 @@
     "prompt": "A brigade training plan organizes Signal Support's electronic warfare contribution around \"intercept, decrypt and exploit.\" A reviewer says the plan should follow the lesson's broad objectives instead. Which set should the plan use?",
     "options": [
       "Connect, sustain, and recover",
+      "Support, attack, and protect",
       "Confidentiality, integrity, and availability",
-      "Primary, alternate, and contingency",
-      "Support, attack, and protect"
+      "Primary, alternate, and contingency"
     ],
-    "answer": 3,
+    "answer": 1,
     "explanation": "Pages 4 and 8 state the three broad electronic warfare objectives: support, attack and protect. Connect-Sustain-Recover is the Signal Support framework, confidentiality-integrity-availability are the security concerns, and PACE describes backup arrangements.",
     "sourceSlides": [
       4,
@@ -135,28 +135,6 @@
   },
   {
     "id": 7,
-    "qid": "signal-e-09",
-    "difficulty": "easy",
-    "category": "Systems and Technologies",
-    "tags": [
-      "DBTOCS",
-      "fixed communication"
-    ],
-    "prompt": "A brigade headquarters displaces to a field location but still needs the Army telephone, information-system and coordination services it uses in garrison. Which system is designed to extend fixed communication services to the brigade headquarters?",
-    "options": [
-      "The Bonifacio Telephone Exchange (BONTEX)",
-      "The Combat Net Radio (CNR) networks",
-      "The Deployable Brigade TOC System (DBTOCS)",
-      "The Radio over IP (ROIP) links"
-    ],
-    "answer": 2,
-    "explanation": "Page 6: DBTOCS extends fixed communication services to brigade headquarters. BONTEX connects Army telephone systems with higher headquarters, CNR provides radio networks for operating units, and ROIP links radio communications through IP networks.",
-    "sourceSlides": [
-      6
-    ]
-  },
-  {
-    "id": 8,
     "qid": "signal-e-10",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -168,17 +146,17 @@
     "options": [
       "Drop the voice nets, since data terminals now replace voice both on the move and at the halt",
       "Keep voice only at the halt, since data terminals are meant to serve units on the move",
-      "Move the voice traffic to PANET, since it is the secured and managed Army intranet",
-      "Keep the voice nets, since voice remains the foundation of tactical communication"
+      "Keep the voice nets, since voice remains the foundation of tactical communication",
+      "Move the voice traffic to PANET, since it is the secured and managed Army intranet"
     ],
-    "answer": 3,
+    "answer": 2,
     "explanation": "Page 6: tactical communication systems support communication both on the move and on the halt, and voice communication remains the foundation of tactical communication. PANET is a fixed, managed intranet, not a tactical voice net.",
     "sourceSlides": [
       6
     ]
   },
   {
-    "id": 9,
+    "id": 8,
     "qid": "signal-e-12",
     "difficulty": "easy",
     "category": "Principles of Signal Support",
@@ -190,17 +168,17 @@
     "options": [
       "Scalable",
       "Interoperable",
-      "Redundant",
-      "Operations Focused"
+      "Operations Focused",
+      "Redundant"
     ],
-    "answer": 2,
+    "answer": 3,
     "explanation": "Page 10: redundancy means additional communication paths and backup capabilities, including multiple transmission paths, backups, self-healing strategies and data replication.",
     "sourceSlides": [
       10
     ]
   },
   {
-    "id": 10,
+    "id": 9,
     "qid": "signal-e-15",
     "difficulty": "easy",
     "category": "Tactical Considerations",
@@ -210,19 +188,19 @@
     ],
     "prompt": "While preparing the Signal Estimate, the S6 finds that the battalion has enough radios, but two of its four radio operators are away on schooling and no technician is assigned. Under which METAL factor does this finding belong?",
     "options": [
-      "Logistical Requirements",
       "Troops",
+      "Logistical Requirements",
       "Mission",
       "Area of Operations"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Page 11: under METAL, Troops means available personnel and their readiness to provide Signal Support, such as whether trained operators and technicians are available. Logistical Requirements covers power, replacement equipment, repair support and transportation.",
     "sourceSlides": [
       11
     ]
   },
   {
-    "id": 11,
+    "id": 10,
     "qid": "signal-e-16",
     "difficulty": "easy",
     "category": "Tactical Considerations",
@@ -232,12 +210,12 @@
     ],
     "prompt": "A radio check from the command post succeeds, but the company will operate behind a mountain where the link has proven unreliable. What should the signal planner do?",
     "options": [
-      "Survey the area to find coverage gaps where the troops will operate and arrange support",
       "Issue the company extra radios of the same type so that more sets keep the link alive",
+      "Survey the area to find coverage gaps where the troops will operate and arrange support",
       "Accept the command post radio check, since it has already proved that the link works",
       "Switch the company to a higher frequency category of radio, whatever the coverage"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "Page 12: planners must consider terrain and propagation, conduct site survey or reconnaissance to determine coverage and gaps, and verify coverage against where troops will actually operate. Page 7 warns not to select a radio on frequency category alone.",
     "sourceSlides": [
       7,
@@ -245,7 +223,7 @@
     ]
   },
   {
-    "id": 12,
+    "id": 11,
     "qid": "signal-e-17",
     "difficulty": "easy",
     "category": "Tactical Considerations",
@@ -267,7 +245,7 @@
     ]
   },
   {
-    "id": 13,
+    "id": 12,
     "qid": "signal-e-18",
     "difficulty": "easy",
     "category": "Signal Estimate and Requirements",
@@ -278,11 +256,11 @@
     "prompt": "A newly assigned S6 starts choosing radios and network equipment for an operation before the mission has been analyzed. According to the lesson, what should come first?",
     "options": [
       "Publish the C4S Annex, then adjust it as the mission is analyzed",
-      "Understand the mission and prepare the Signal Estimate using METAL",
       "Prepare the PACE plan, since communication failure is very likely",
-      "Request extra funds, so equipment shortages do not limit the plan"
+      "Request extra funds, so equipment shortages do not limit the plan",
+      "Understand the mission and prepare the Signal Estimate using METAL"
     ],
-    "answer": 1,
+    "answer": 3,
     "explanation": "Page 14: the first planning step is to understand the mission and prepare the Signal Estimate, using METAL, before selecting communication systems. Page 9 adds: determine the communication requirement first, then select and support the systems.",
     "sourceSlides": [
       9,
@@ -290,7 +268,7 @@
     ]
   },
   {
-    "id": 14,
+    "id": 13,
     "qid": "signal-e-19",
     "difficulty": "easy",
     "category": "Signal Estimate and Requirements",
@@ -300,12 +278,12 @@
     ],
     "prompt": "A platoon leader in Quezon has two hours to prepare a short-notice patrol. He tells his radio operator: \"Signal planning is for battalion staffs running MDMP; we will just grab the radios and go.\" Which response best fits the lesson?",
     "options": [
+      "He should plan communication within his Troop Leading Procedures, which signal planning works alongside",
       "He is right, since the Signal Estimate and signal planning apply only when a staff runs MDMP",
       "He should wait for a PMESII-PT analysis before deciding how the platoon will communicate",
-      "He should rely on the CESI alone, since it replaces signal planning for small units",
-      "He should plan communication within his Troop Leading Procedures, which signal planning works alongside"
+      "He should rely on the CESI alone, since it replaces signal planning for small units"
     ],
-    "answer": 3,
+    "answer": 0,
     "explanation": "Page 14: the Signal Estimate and Signal Planning Process work alongside the Military Decision-Making Process and, for small units, Troop Leading Procedures, and planning starts by understanding the mission before selecting systems. PMESII-PT is the commander's analysis of the operational environment (page 3), and the CESI explains the use of the CEOI (page 18); neither replaces signal planning.",
     "sourceSlides": [
       3,
@@ -314,7 +292,7 @@
     ]
   },
   {
-    "id": 15,
+    "id": 14,
     "qid": "signal-e-21",
     "difficulty": "easy",
     "category": "Priorities, Continuity and Coordination",
@@ -325,18 +303,18 @@
     "prompt": "A company's primary VHF net fails because of an equipment fault; there is no jamming. Its plan lists a planned substitute for primary failure, an option for a specified disruption such as jamming, and a last-resort means. Which arrangement should the company use now?",
     "options": [
       "The Contingency arrangement",
-      "The Emergency arrangement",
       "The Alternate arrangement",
+      "The Emergency arrangement",
       "The Primary net on a new frequency"
     ],
-    "answer": 2,
+    "answer": 1,
     "explanation": "Page 16: Alternate is the planned substitute if the primary arrangement fails; Contingency is an additional option for a specified disruption or situation; Emergency is used when other planned options cannot meet the urgent requirement.",
     "sourceSlides": [
       16
     ]
   },
   {
-    "id": 16,
+    "id": 15,
     "qid": "signal-e-22",
     "difficulty": "easy",
     "category": "Priorities, Continuity and Coordination",
@@ -346,12 +324,12 @@
     ],
     "prompt": "After the signal plan is approved, the operations staff moves a battalion's assembly area ten kilometers north. What should the signal planner do?",
     "options": [
-      "Check whether the coverage and support arrangements must change as well",
       "Keep the approved plan unchanged, since it has already been approved",
       "Wait for the battalion to report a loss of communication, then react",
+      "Check whether the coverage and support arrangements must change as well",
       "Ask the operations staff to keep units inside the original coverage"
     ],
-    "answer": 0,
+    "answer": 2,
     "explanation": "Page 17: if the operations staff changes a unit's movement or location, the signal planner checks whether coverage and support arrangements must also change. Page 16 says coordination confirms the plan supports the operational concept and phases, so signal follows the operation, not the reverse.",
     "sourceSlides": [
       16,
@@ -359,7 +337,7 @@
     ]
   },
   {
-    "id": 17,
+    "id": 16,
     "qid": "signal-e-23",
     "difficulty": "easy",
     "category": "Security Measures and Protocols",
@@ -370,18 +348,18 @@
     "prompt": "An intruder alters a transmitted instruction so that a company receives the wrong rendezvous grid, although the message was neither disclosed nor delayed. Which security concern was violated?",
     "options": [
       "Confidentiality",
-      "Integrity",
       "Availability",
-      "Interoperability"
+      "Interoperability",
+      "Integrity"
     ],
-    "answer": 1,
+    "answer": 3,
     "explanation": "Page 17: integrity means information remains accurate and is protected from unauthorized alteration; the handout's example is a transmitted instruction changed by an intruder. Confidentiality concerns disclosure and availability concerns access when needed.",
     "sourceSlides": [
       17
     ]
   },
   {
-    "id": 18,
+    "id": 17,
     "qid": "signal-e-26",
     "difficulty": "easy",
     "category": "Signal Support Concepts",
@@ -403,7 +381,7 @@
     ]
   },
   {
-    "id": 19,
+    "id": 18,
     "qid": "signal-e-27",
     "difficulty": "easy",
     "category": "Roles of Signal Support",
@@ -414,11 +392,11 @@
     "prompt": "Signal Operations organizes Signal Support into four main service categories. Which set lists them?",
     "options": [
       "Enable command and control; collect signal intelligence on enemy forces; coordinate fire support; recover and restore",
+      "Enable command and control; support cyberspace operations and electronic warfare; repair and maintenance; recover and restore",
       "Fixed communication; tactical communication; special purpose communication; commercial communication",
-      "Connect the force; jam enemy radios and networks; train signal operators and staff; manage the frequency spectrum",
-      "Enable command and control; support cyberspace operations and electronic warfare; repair and maintenance; recover and restore"
+      "Connect the force; jam enemy radios and networks; train signal operators and staff; manage the frequency spectrum"
     ],
-    "answer": 3,
+    "answer": 1,
     "explanation": "Pages 4-5 list the four service categories: enable command and control, support cyberspace operations and electronic warfare, keep equipment ready through repair and maintenance, and recover and restore disrupted communication. Fixed, tactical and special purpose are the three communication services under the C2 role, not the four categories.",
     "sourceSlides": [
       4,
@@ -426,7 +404,7 @@
     ]
   },
   {
-    "id": 20,
+    "id": 19,
     "qid": "signal-e-28",
     "difficulty": "easy",
     "category": "Operational Environment",
@@ -448,7 +426,7 @@
     ]
   },
   {
-    "id": 21,
+    "id": 20,
     "qid": "signal-e-29",
     "difficulty": "easy",
     "category": "Operational Environment",
@@ -459,40 +437,18 @@
     "prompt": "What does METT-TC stand for?",
     "options": [
       "Mission, Equipment, Terrain and Weather, Training and Support Available, Tactics and Techniques, and Communications",
-      "Mission, Enemy, Terrain and Weather, Troops and Support Available, Time Available, and Civil Considerations",
       "Maneuver, Enemy, Troops and Terrain, Technology, Time Available, and Command and Control",
-      "Mission, Enemy, Time and Weather, Troops and Transport Available, Terrain, and Civil Considerations"
+      "Mission, Enemy, Time and Weather, Troops and Transport Available, Terrain, and Civil Considerations",
+      "Mission, Enemy, Terrain and Weather, Troops and Support Available, Time Available, and Civil Considerations"
     ],
-    "answer": 1,
+    "answer": 3,
     "explanation": "Page 3: METT-TC stands for Mission, Enemy, Terrain and Weather, Troops and Support Available, Time Available, and Civil Considerations.",
     "sourceSlides": [
       3
     ]
   },
   {
-    "id": 22,
-    "qid": "signal-e-30",
-    "difficulty": "easy",
-    "category": "Operational Environment",
-    "tags": [
-      "Archipelagic",
-      "operational environment characteristics"
-    ],
-    "prompt": "Which characteristic of the Philippine Army's operational environment refers to islands, mountains, coastlines and bodies of water affecting maneuver, transportation, logistics and coordination of forces?",
-    "options": [
-      "Archipelagic",
-      "Disaster-Prone",
-      "Highly Urbanized",
-      "Collective Environment"
-    ],
-    "answer": 0,
-    "explanation": "Page 2: Archipelagic means islands, mountains, coastlines and bodies of water affect maneuver, transportation, logistics and coordination of forces.",
-    "sourceSlides": [
-      2
-    ]
-  },
-  {
-    "id": 23,
+    "id": 21,
     "qid": "signal-e-31",
     "difficulty": "easy",
     "category": "Operational Environment",
@@ -502,156 +458,19 @@
     ],
     "prompt": "Which characteristic of the Philippine Army's operational environment refers to buildings, obstacles, civilians and protected facilities that affect movement and the employment of firepower?",
     "options": [
+      "Highly Urbanized",
       "Archipelagic",
       "Universally Connected",
-      "Culturally Diverse",
-      "Highly Urbanized"
+      "Culturally Diverse"
     ],
-    "answer": 3,
+    "answer": 0,
     "explanation": "Page 2: Highly Urbanized means buildings, obstacles, civilians and protected facilities affect movement and the employment of firepower.",
     "sourceSlides": [
       2
     ]
   },
   {
-    "id": 24,
-    "qid": "signal-e-32",
-    "difficulty": "easy",
-    "category": "Operational Environment",
-    "tags": [
-      "Politically, Economically, and Socially Constrained",
-      "operational environment characteristics"
-    ],
-    "prompt": "Which characteristic of the Philippine Army's operational environment refers to national priorities, social conditions and resource limitations influencing capability development and operations?",
-    "options": [
-      "Archipelagic, Disaster-Prone, and Highly Urbanized",
-      "Culturally Diverse",
-      "Politically, Economically, and Socially Constrained",
-      "Universally Connected"
-    ],
-    "answer": 2,
-    "explanation": "Page 2: under the Politically, Economically, and Socially Constrained characteristic, national priorities, social conditions and resource limitations influence capability development and operations.",
-    "sourceSlides": [
-      2
-    ]
-  },
-  {
-    "id": 25,
-    "qid": "signal-e-33",
-    "difficulty": "easy",
-    "category": "Operational Environment",
-    "tags": [
-      "Disaster-Prone",
-      "operational environment characteristics"
-    ],
-    "prompt": "Soon after a clearing operation in Northern Samar, a brigade is ordered to conduct relief for barangays struck by a super typhoon while keeping its warfighting responsibilities in the area. Which characteristic of the operational environment does this reflect?",
-    "options": [
-      "Archipelagic",
-      "Disaster-Prone",
-      "Highly Urbanized",
-      "Universally Connected"
-    ],
-    "answer": 1,
-    "explanation": "Page 2: Disaster-Prone means natural calamities require combined arms units to undertake disaster response and humanitarian assistance alongside their warfighting responsibilities.",
-    "sourceSlides": [
-      2
-    ]
-  },
-  {
-    "id": 26,
-    "qid": "signal-e-37",
-    "difficulty": "easy",
-    "category": "Roles of Signal Support",
-    "tags": [
-      "SMMART",
-      "acronyms"
-    ],
-    "prompt": "What does SMMART stand for?",
-    "options": [
-      "Signal Maintenance and Mobile Restoration Teams",
-      "Signal Mobile Maintenance and Repair Teams",
-      "Systems Monitoring, Maintenance and Response Teams",
-      "Signal Mission Management and Readiness Teams"
-    ],
-    "answer": 1,
-    "explanation": "Pages 5 and 8: SMMART stands for Signal Mobile Maintenance and Repair Teams, which visit units to inspect equipment, conduct repairs and provide refresher training.",
-    "sourceSlides": [
-      5,
-      8
-    ]
-  },
-  {
-    "id": 27,
-    "qid": "signal-e-38",
-    "difficulty": "easy",
-    "category": "Roles of Signal Support",
-    "tags": [
-      "CSIRT",
-      "acronyms"
-    ],
-    "prompt": "What does CSIRT stand for?",
-    "options": [
-      "Cyber Security Incident Response Team",
-      "Cyber Signal Intelligence and Restoration Team",
-      "Communication Security Incident Reporting Team",
-      "Cyber Systems Inspection and Repair Team"
-    ],
-    "answer": 0,
-    "explanation": "Pages 5, 8 and 18: CSIRT stands for Cyber Security Incident Response Team, which provides a response capability for cybersecurity incidents.",
-    "sourceSlides": [
-      5,
-      8,
-      18
-    ]
-  },
-  {
-    "id": 28,
-    "qid": "signal-e-39",
-    "difficulty": "easy",
-    "category": "Systems and Technologies",
-    "tags": [
-      "BONTEX",
-      "acronyms",
-      "fixed communication"
-    ],
-    "prompt": "What does BONTEX stand for?",
-    "options": [
-      "Philippine Army Bonifacio Tactical Exchange",
-      "Philippine Army Bonifacio Network Exchange",
-      "Philippine Army Bonifacio Transmission Exchange",
-      "Philippine Army Bonifacio Telephone Exchange"
-    ],
-    "answer": 3,
-    "explanation": "Page 6: BONTEX is the Philippine Army Bonifacio Telephone Exchange, which connects Army telephone systems with higher headquarters.",
-    "sourceSlides": [
-      6
-    ]
-  },
-  {
-    "id": 29,
-    "qid": "signal-e-40",
-    "difficulty": "easy",
-    "category": "Systems and Technologies",
-    "tags": [
-      "VoIP",
-      "acronyms",
-      "fixed communication"
-    ],
-    "prompt": "What does VoIP stand for?",
-    "options": [
-      "Voice over Integrated Packets",
-      "Video over Internet Protocol",
-      "Voice over Internet Protocol",
-      "Voice over Interconnected Phones"
-    ],
-    "answer": 2,
-    "explanation": "Page 6: VoIP stands for Voice over Internet Protocol; it carries telephone conversations through an IP network.",
-    "sourceSlides": [
-      6
-    ]
-  },
-  {
-    "id": 30,
+    "id": 22,
     "qid": "signal-e-41",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -674,7 +493,7 @@
     ]
   },
   {
-    "id": 31,
+    "id": 23,
     "qid": "signal-e-42",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -686,63 +505,19 @@
     ],
     "prompt": "In the lesson's list of tactical radio technologies, what do HF, VHF and UHF stand for?",
     "options": [
-      "High Frequency, Very High Frequency, and Ultra-High Frequency",
       "High Frequency, Variable High Frequency, and Universal High Frequency",
       "Hopping Frequency, Very Hopping Frequency, and Ultra-Hopping Frequency",
+      "High Frequency, Very High Frequency, and Ultra-High Frequency",
       "Hand-held Frequency, Vehicular High Frequency, and Unit High Frequency"
     ],
-    "answer": 0,
+    "answer": 2,
     "explanation": "Page 7: HF is High Frequency, VHF is Very High Frequency and UHF is Ultra-High Frequency, all tactical radio technologies used to connect operating units.",
     "sourceSlides": [
       7
     ]
   },
   {
-    "id": 32,
-    "qid": "signal-e-43",
-    "difficulty": "easy",
-    "category": "Systems and Technologies",
-    "tags": [
-      "CNR",
-      "acronyms",
-      "tactical communication"
-    ],
-    "prompt": "What does CNR stand for?",
-    "options": [
-      "Command Network Relay",
-      "Combat Network Router",
-      "Communications Net Repeater",
-      "Combat Net Radio"
-    ],
-    "answer": 3,
-    "explanation": "Page 7: CNR is Combat Net Radio, which provides radio networks through which operating units communicate.",
-    "sourceSlides": [
-      7
-    ]
-  },
-  {
-    "id": 33,
-    "qid": "signal-e-44",
-    "difficulty": "easy",
-    "category": "Systems and Technologies",
-    "tags": [
-      "special purpose communication"
-    ],
-    "prompt": "Which of the following does the lesson list as a special purpose communication system?",
-    "options": [
-      "PANET",
-      "Combat Net Radio",
-      "Satellite phones",
-      "BONTEX"
-    ],
-    "answer": 2,
-    "explanation": "Page 7: special purpose communication includes cellular phones, satellite phones and commercial videoconferencing platforms. PANET and BONTEX are fixed systems; Combat Net Radio is tactical.",
-    "sourceSlides": [
-      7
-    ]
-  },
-  {
-    "id": 34,
+    "id": 24,
     "qid": "signal-e-45",
     "difficulty": "easy",
     "category": "Security Measures and Protocols",
@@ -753,11 +528,11 @@
     "prompt": "What does COMSEC stand for?",
     "options": [
       "Command security",
-      "Communication security",
       "Combined security",
-      "Communication sector"
+      "Communication sector",
+      "Communication security"
     ],
-    "answer": 1,
+    "answer": 3,
     "explanation": "Pages 7, 10 and 17: COMSEC is communication security; all communication services remain governed by COMSEC policy regardless of the technology used.",
     "sourceSlides": [
       7,
@@ -765,7 +540,7 @@
     ]
   },
   {
-    "id": 35,
+    "id": 25,
     "qid": "signal-e-46",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -787,7 +562,7 @@
     ]
   },
   {
-    "id": 36,
+    "id": 26,
     "qid": "signal-e-47",
     "difficulty": "easy",
     "category": "Systems and Technologies",
@@ -799,18 +574,18 @@
     "prompt": "What does SMTF stand for?",
     "options": [
       "Signal Mobile Training Facilities",
+      "Signal Maintenance and Training Facilities",
       "Signal Maintenance and Testing Facilities",
-      "Systems Management and Training Facilities",
-      "Signal Maintenance and Training Facilities"
+      "Systems Management and Training Facilities"
     ],
-    "answer": 3,
+    "answer": 1,
     "explanation": "Page 8: SMTF stands for Signal Maintenance and Training Facilities, which conduct radio repairs and support equipment readiness.",
     "sourceSlides": [
       8
     ]
   },
   {
-    "id": 37,
+    "id": 27,
     "qid": "signal-e-48",
     "difficulty": "easy",
     "category": "Principles of Signal Support",
@@ -831,7 +606,7 @@
     ]
   },
   {
-    "id": 38,
+    "id": 28,
     "qid": "signal-e-49",
     "difficulty": "easy",
     "category": "Principles of Signal Support",
@@ -841,18 +616,18 @@
     "prompt": "Which statement best describes the Secured principle of Signal Support?",
     "options": [
       "Signal Support must be designed around what the operating force needs to accomplish",
-      "Signal Support must comply with COMSEC policies regardless of the technology used",
       "Signal Support must provide additional paths and backups when a system fails",
-      "Signal Support must expand and be tailored to the size and phases of an operation"
+      "Signal Support must expand and be tailored to the size and phases of an operation",
+      "Signal Support must comply with COMSEC policies regardless of the technology used"
     ],
-    "answer": 1,
+    "answer": 3,
     "explanation": "Page 10: Secured means Signal Support must comply with communication security (COMSEC) policies regardless of the technology used; advances in technology do not remove the requirement for security.",
     "sourceSlides": [
       10
     ]
   },
   {
-    "id": 39,
+    "id": 29,
     "qid": "signal-e-51",
     "difficulty": "easy",
     "category": "Tactical Considerations",
@@ -862,42 +637,19 @@
     ],
     "prompt": "While preparing the Signal Estimate, an S6 notes that the battalion must move from Tarlac to an objective in Zambales and will need communication both while traveling and after reaching its destination. Under which METAL factor does this belong?",
     "options": [
+      "Mission",
       "Enemy",
       "Troops",
-      "Logistical Requirements",
-      "Mission"
+      "Logistical Requirements"
     ],
-    "answer": 3,
+    "answer": 0,
     "explanation": "Page 11: the Mission factor determines what the unit must accomplish and what communication it requires; the lesson's example is a moving unit needing communication while traveling and after reaching its destination.",
     "sourceSlides": [
       11
     ]
   },
   {
-    "id": 40,
-    "qid": "signal-e-52",
-    "difficulty": "easy",
-    "category": "Signal Estimate and Requirements",
-    "tags": [
-      "MDMP",
-      "TLP",
-      "acronyms"
-    ],
-    "prompt": "The Signal Estimate and Signal Planning Process work alongside MDMP and, for small units, TLP. What do MDMP and TLP stand for?",
-    "options": [
-      "Mission Decision-Making Plan and Tactical Leading Procedures",
-      "Military Deployment Management Process and Troop Logistics Plan",
-      "Military Decision-Making Process and Troop Leading Procedures",
-      "Military Decision-Making Process and Tactical Liaison Procedures"
-    ],
-    "answer": 2,
-    "explanation": "Page 14: the Signal Estimate and Signal Planning Process work alongside the Military Decision-Making Process (MDMP) and, for small units, Troop Leading Procedures (TLP).",
-    "sourceSlides": [
-      14
-    ]
-  },
-  {
-    "id": 41,
+    "id": 30,
     "qid": "signal-e-53",
     "difficulty": "easy",
     "category": "Signal Estimate and Requirements",
@@ -920,30 +672,7 @@
     ]
   },
   {
-    "id": 42,
-    "qid": "signal-e-54",
-    "difficulty": "easy",
-    "category": "Priorities, Continuity and Coordination",
-    "tags": [
-      "PACE",
-      "acronyms"
-    ],
-    "prompt": "What does PACE stand for?",
-    "options": [
-      "Primary, Alternate, Contingency, and Emergency",
-      "Primary, Auxiliary, Contingency, and Expedient",
-      "Priority, Alternate, Communication, and Emergency",
-      "Primary, Alternate, Critical, and Essential"
-    ],
-    "answer": 0,
-    "explanation": "Pages 13 and 16: PACE stands for Primary, Alternate, Contingency, and Emergency plans.",
-    "sourceSlides": [
-      13,
-      16
-    ]
-  },
-  {
-    "id": 43,
+    "id": 31,
     "qid": "signal-e-55",
     "difficulty": "easy",
     "category": "Priorities, Continuity and Coordination",
@@ -955,17 +684,17 @@
     "options": [
       "The Signal Estimate prepared using METAL",
       "The Communication-Electronics Standing Instructions",
-      "The unit Standard Operating Procedures",
-      "The Signal Plan or C4S Annex to the Operations Order or Plan"
+      "The Signal Plan or C4S Annex to the Operations Order or Plan",
+      "The unit Standard Operating Procedures"
     ],
-    "answer": 3,
+    "answer": 2,
     "explanation": "Page 17: the approved arrangements are communicated through the Signal Plan or C4S Annex to the Operations Order or Plan, with the required diagrams, instructions, appendices and tabs.",
     "sourceSlides": [
       17
     ]
   },
   {
-    "id": 44,
+    "id": 32,
     "qid": "signal-e-56",
     "difficulty": "easy",
     "category": "Security Measures and Protocols",
@@ -977,10 +706,10 @@
     "options": [
       "Command-Electronics Operations Information",
       "Communication and Encryption Operating Index",
-      "Communication-Electronics Operating Instructions",
-      "Combined Electronic Operations Instructions"
+      "Combined Electronic Operations Instructions",
+      "Communication-Electronics Operating Instructions"
     ],
-    "answer": 2,
+    "answer": 3,
     "explanation": "Pages 13 and 18: CEOI is the Communication-Electronics Operating Instructions, which provide specific operating instructions (\"what to do\").",
     "sourceSlides": [
       13,
@@ -988,7 +717,7 @@
     ]
   },
   {
-    "id": 45,
+    "id": 33,
     "qid": "signal-e-57",
     "difficulty": "easy",
     "category": "Security Measures and Protocols",
@@ -998,19 +727,19 @@
     ],
     "prompt": "According to the lesson, which network do Defensive Cyber Operations protect against cyber threats while providing a response to incidents?",
     "options": [
-      "BONTEX",
       "PANET",
+      "BONTEX",
       "The disaster-response radio net",
       "Combat Net Radio"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Page 18: Defensive Cyber Operations protect PANET against cyber threats and provide a response to incidents.",
     "sourceSlides": [
       18
     ]
   },
   {
-    "id": 46,
+    "id": 34,
     "qid": "signal-e-59",
     "difficulty": "easy",
     "category": "Signal Support Concepts",
@@ -1021,63 +750,18 @@
     "prompt": "Which term does the lesson define as the application of signal services to connect and enable coordination among infantry, armor, artillery, engineers and other participating capabilities?",
     "options": [
       "Signal Support Operations",
+      "Signal Support to Combined Arms Operations",
       "Signal Operations",
-      "Combined Arms Operations",
-      "Signal Support to Combined Arms Operations"
+      "Combined Arms Operations"
     ],
-    "answer": 3,
+    "answer": 1,
     "explanation": "Page 1: Signal Support to Combined Arms Operations is the application of signal services to connect and enable coordination among infantry, armor, artillery, engineers and other participating capabilities, supporting their synchronized and integrated employment.",
     "sourceSlides": [
       1
     ]
   },
   {
-    "id": 47,
-    "qid": "signal-e-61",
-    "difficulty": "easy",
-    "category": "Systems and Technologies",
-    "tags": [
-      "ad hoc networks",
-      "tactical communication"
-    ],
-    "prompt": "Which tactical communication technology supports tactical networking among participating equipment?",
-    "options": [
-      "Radio over IP (ROIP)",
-      "Ad hoc network technologies",
-      "Voice over Internet Protocol (VoIP)",
-      "Bonifacio Telephone Exchange (BONTEX)"
-    ],
-    "answer": 1,
-    "explanation": "Page 7: ad hoc network technologies support tactical networking among participating equipment. ROIP links radio communications through IP networks; VoIP and BONTEX are fixed communication systems.",
-    "sourceSlides": [
-      6,
-      7
-    ]
-  },
-  {
-    "id": 48,
-    "qid": "signal-e-62",
-    "difficulty": "easy",
-    "category": "Systems and Technologies",
-    "tags": [
-      "cyberspace domains",
-      "logical domain"
-    ],
-    "prompt": "Which cyberspace domain consists of network topology, firewall configurations and internet protocols, the configurations that make the equipment work together?",
-    "options": [
-      "Physical domain",
-      "Logical domain",
-      "People domain",
-      "Spectrum domain"
-    ],
-    "answer": 1,
-    "explanation": "Page 7: the logical domain is network topology, firewall configurations and internet protocols, the configurations and relationships that make the equipment work together.",
-    "sourceSlides": [
-      7
-    ]
-  },
-  {
-    "id": 49,
+    "id": 35,
     "qid": "signal-e-63",
     "difficulty": "easy",
     "category": "Priorities, Continuity and Coordination",
@@ -1089,35 +773,13 @@
     "options": [
       "Alternate",
       "Contingency",
-      "Emergency",
-      "Primary"
+      "Primary",
+      "Emergency"
     ],
-    "answer": 3,
+    "answer": 2,
     "explanation": "Page 16: Primary is the normal communication arrangement; Alternate is a planned substitute if it fails; Contingency is for a specified disruption; Emergency is used when other planned options cannot meet the urgent requirement.",
     "sourceSlides": [
       16
-    ]
-  },
-  {
-    "id": 50,
-    "qid": "signal-e-64",
-    "difficulty": "easy",
-    "category": "Security Measures and Protocols",
-    "tags": [
-      "security concerns",
-      "Integrity"
-    ],
-    "prompt": "Which security concern means that information remains accurate and is protected from unauthorized alteration?",
-    "options": [
-      "Confidentiality",
-      "Availability",
-      "Integrity",
-      "Interoperability"
-    ],
-    "answer": 2,
-    "explanation": "Page 17: integrity means information remains accurate and is protected from unauthorized alteration; confidentiality limits access to authorized persons; availability ensures access when needed.",
-    "sourceSlides": [
-      17
     ]
   }
 ]

@@ -1,0 +1,556 @@
+[
+  {
+    "id": 1,
+    "qid": "nist-h-01",
+    "difficulty": "hard",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "Two gaps compete for limited funds: a frequent minor inconvenience and a plausible outage of an essential service. What best supports a defensible decision?",
+    "options": [
+      "Compare likelihood and mission impact for both",
+      "Divide funds equally to avoid prioritization",
+      "Fund the frequent event without impact analysis",
+      "Choose whichever vendor gives the largest discount"
+    ],
+    "answer": 0,
+    "explanation": "Frequency alone does not capture risk. Leadership needs a comparison of both likelihood and consequences to justify allocation.",
+    "sourceSlides": [
+      7,
+      9
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "nist-h-02",
+    "difficulty": "hard",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "A team claims compliance because every device runs an approved product, although staff bypass its access process. What is the strongest critique?",
+    "options": [
+      "The framework excludes user behavior",
+      "A newer product would prove compliance automatically",
+      "Approved products make process gaps irrelevant",
+      "Products do not prove required outcomes"
+    ],
+    "answer": 3,
+    "explanation": "CSF outcomes concern people, processes and technology. Owning equipment does not establish that safeguards work in practice.",
+    "sourceSlides": [
+      7,
+      8
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "nist-h-03",
+    "difficulty": "hard",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "A critical supplier is secure by its own assessment, but its outage would stop a unit's service. What should the unit do?",
+    "options": [
+      "Exclude the risk because the supplier owns the system",
+      "Assess the dependency within its own risk context",
+      "Treat dependence as unrelated to cybersecurity resilience",
+      "Accept the supplier's conclusion as full assurance"
+    ],
+    "answer": 1,
+    "explanation": "The unit must understand its own consequences and third-party exposure rather than substitute a supplier's judgment for its own.",
+    "sourceSlides": [
+      8,
+      9
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "nist-h-04",
+    "difficulty": "hard",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "Two units choose different safeguards for the same CSF outcome. When is that defensible?",
+    "options": [
+      "When each choice addresses its context and risk",
+      "When neither unit documents its reasoning",
+      "Only when both use the same vendor's terminology",
+      "Only when the lower-cost unit copies the other"
+    ],
+    "answer": 0,
+    "explanation": "Technology-neutral outcomes permit different implementations, provided choices are justified and achieve the relevant outcomes.",
+    "sourceSlides": [
+      7,
+      8
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "nist-h-05",
+    "difficulty": "hard",
+    "category": "Framework Purpose and Scope",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "A technically detailed report never explains which essential service is exposed. What change would most improve command usefulness?",
+    "options": [
+      "Replace uncertainty with a categorical guarantee",
+      "Connect findings to mission consequences and choices",
+      "Add more product names to the executive summary",
+      "Rank issues solely by the number of log entries"
+    ],
+    "answer": 1,
+    "explanation": "Risk communication should support decisions. Mission consequences and options make technical findings actionable for leaders.",
+    "sourceSlides": [
+      9
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "nist-h-06",
+    "difficulty": "hard",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "Monitoring detects incidents promptly, but nobody has authority to approve containment. Which weakness most directly explains the delay?",
+    "options": [
+      "An excessively detailed asset inventory",
+      "Unclear governance and response responsibilities",
+      "Insufficient dashboard color differentiation",
+      "Absence of another monitoring sensor alone"
+    ],
+    "answer": 1,
+    "explanation": "Detection cannot resolve an authority gap. Govern establishes responsibilities that enable effective response decisions.",
+    "sourceSlides": [
+      11,
+      12
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "nist-h-07",
+    "difficulty": "hard",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "Backups exist, but a test restoration produces unusable data. Which conclusion is best supported?",
+    "options": [
+      "Recovery capability has not been demonstrated",
+      "The incident is solved by renaming the backup",
+      "Backup existence proves successful recovery",
+      "Detection must be removed from the plan"
+    ],
+    "answer": 0,
+    "explanation": "Recover requires verified restoration. Possession of backup files alone does not show that operations can resume.",
+    "sourceSlides": [
+      11,
+      12
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "nist-h-08",
+    "difficulty": "hard",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "A strategy funds prevention but omits monitoring, response and restoration. What is its main weakness?",
+    "options": [
+      "It makes governance unnecessary after deployment",
+      "It guarantees fewer incidents than a balanced plan",
+      "It follows the required sequence of CSF Functions",
+      "It leaves important resilience outcomes uncovered"
+    ],
+    "answer": 3,
+    "explanation": "The Functions work together. Safeguards alone do not provide the ability to discover, manage and recover from disruptions.",
+    "sourceSlides": [
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "nist-h-09",
+    "difficulty": "hard",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "An incident review finds both unknown assets and weak monitoring. Which allocation best reflects the two gaps?",
+    "options": [
+      "Treat both gaps as procurement certifications",
+      "Identify the assets and strengthen Detect",
+      "Postpone inventory until all monitoring is replaced",
+      "Assign both gaps exclusively to Recover"
+    ],
+    "answer": 1,
+    "explanation": "Asset knowledge and event discovery are distinct but related needs. Addressing both avoids treating one Function as a substitute for another.",
+    "sourceSlides": [
+      11,
+      12
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "nist-h-10",
+    "difficulty": "hard",
+    "category": "Six CSF Functions",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "A restored service is running, but stakeholders have no confirmation of its status. What remains relevant under Recover?",
+    "options": [
+      "Verified status and stakeholder communication",
+      "Only the daily inventory spreadsheet",
+      "Only the original product purchase receipt",
+      "A new prevention policy instead of confirmation"
+    ],
+    "answer": 0,
+    "explanation": "Recovery includes verification and communication, not merely restarting equipment.",
+    "sourceSlides": [
+      11,
+      12
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "nist-h-11",
+    "difficulty": "hard",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "A unit calls itself Adaptive because it bought automated monitoring, while policies never change after reviews. What evidence is missing?",
+    "options": [
+      "A supplier's statement about product popularity",
+      "Continuous improvement of risk-management practice",
+      "Proof that every device is the same age",
+      "A larger number of framework diagrams"
+    ],
+    "answer": 1,
+    "explanation": "Adaptive describes how practice evolves with learning and new information. A product does not establish that organizational behavior.",
+    "sourceSlides": [
+      13,
+      14
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "nist-h-12",
+    "difficulty": "hard",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "A Target Profile contains outcomes unrelated to the scoped mission, copied from a larger organization. What is the best correction?",
+    "options": [
+      "Treat all gaps as proof of a failed organization",
+      "Retain every outcome to maximize the list length",
+      "Replace the Current Profile with the copied target",
+      "Reconcile target outcomes with mission and risk"
+    ],
+    "answer": 3,
+    "explanation": "Profiles should reflect the organization's context. Copying another organization's target can distort priorities and resource decisions.",
+    "sourceSlides": [
+      13,
+      15
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "nist-h-13",
+    "difficulty": "hard",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "A dashboard reports one Tier number but cannot show which outcomes are achieved. What additional artifact would best address the gap?",
+    "options": [
+      "A list of national ICT slogans",
+      "A second Tier number without evidence",
+      "A procurement catalog of desired tools",
+      "A supported Current Profile"
+    ],
+    "answer": 3,
+    "explanation": "Tiers characterize practices; a Current Profile describes the outcomes actually achieved. These answer different questions.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "nist-h-14",
+    "difficulty": "hard",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "An organization has consistent policies but little evidence of learning from incidents. Which claim is better supported?",
+    "options": [
+      "Repeatable practice, with adaptation still to demonstrate",
+      "Partial practice solely because incidents occurred",
+      "Adaptive practice solely because policies are written",
+      "No Tier can be discussed without a NIST certificate"
+    ],
+    "answer": 0,
+    "explanation": "Consistent formal practice fits Repeatable. Adaptive requires evidence of ongoing adjustment, not merely documented procedures.",
+    "sourceSlides": [
+      14,
+      15
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "nist-h-15",
+    "difficulty": "hard",
+    "category": "Core Profiles and Tiers",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "A profile gap is expensive to close and has low mission impact. What is the best next step?",
+    "options": [
+      "Prioritize it alongside other risks and constraints",
+      "Treat cost alone as proof it is unnecessary",
+      "Automatically make it the first funded activity",
+      "Delete it so the profiles appear identical"
+    ],
+    "answer": 0,
+    "explanation": "A prioritized action plan weighs context and risk. Neither hiding the gap nor automatically funding it follows from its existence.",
+    "sourceSlides": [
+      13,
+      15
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "nist-h-16",
+    "difficulty": "hard",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "A digital service has nationwide connectivity but excludes users without skills or affordable devices. What does the case show?",
+    "options": [
+      "Platforms remove the need for human capability",
+      "Infrastructure alone fulfills the inclusive vision",
+      "Ecosystem elements are interdependent",
+      "Access cost is outside the ICT ecosystem"
+    ],
+    "answer": 2,
+    "explanation": "Connectivity is necessary but insufficient when human capability and affordable access prevent people from using services.",
+    "sourceSlides": [
+      19,
+      21,
+      22
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "nist-h-17",
+    "difficulty": "hard",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "Two agencies deploy modern applications that exchange incompatible data. Which investment most directly addresses the coordination failure?",
+    "options": [
+      "Shared interoperability standards and alignment",
+      "Separate progress reports with incompatible targets",
+      "More devices with unchanged data conventions",
+      "Independent redesign without cross-agency consultation"
+    ],
+    "answer": 0,
+    "explanation": "Platforms must interoperate within agreed boundaries. Hardware expansion alone does not solve incompatible standards.",
+    "sourceSlides": [
+      22,
+      23,
+      25
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "nist-h-18",
+    "difficulty": "hard",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "A national ICT plan is treated as permanently fixed despite changed indicators and outcomes. Which lesson principle is missed?",
+    "options": [
+      "Only procurement teams may review the framework",
+      "Outcome indicators are unrelated to framework revision",
+      "It is a living reference, updated periodically",
+      "All national plans must be rewritten after each outage"
+    ],
+    "answer": 2,
+    "explanation": "The lesson describes NICTEF as a living document updated with plans, indicators and results.",
+    "sourceSlides": [
+      17,
+      25
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "nist-h-19",
+    "difficulty": "hard",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "A project measures success only by devices purchased. Which addition best reflects the NICTEF vision?",
+    "options": [
+      "A ranking based only on the newest device model",
+      "A second count of the same equipment deliveries",
+      "The number of acronyms in the project report",
+      "Evidence of usable, inclusive access and outcomes"
+    ],
+    "answer": 3,
+    "explanation": "The vision concerns people benefiting from reliable, affordable ICT, not merely procurement activity.",
+    "sourceSlides": [
+      19,
+      25
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "nist-h-20",
+    "difficulty": "hard",
+    "category": "NICTEF Elements and Vision",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "A service's devices, network and applications function, but agencies disagree on data-sharing boundaries. Which unresolved element should lead the review?",
+    "options": [
+      "Human typing speed as the sole constraint",
+      "Cable replacement as the primary solution",
+      "Standards, Regulations and Policies",
+      "Affordable devices as the sole constraint"
+    ],
+    "answer": 2,
+    "explanation": "Technical connectivity does not establish safe or authorized interoperability; agreed boundaries remain necessary.",
+    "sourceSlides": [
+      21,
+      22,
+      23
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "nist-h-21",
+    "difficulty": "hard",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "A unit's cyber plan matches its own needs but conflicts with shared national ICT priorities. What is the strongest revision?",
+    "options": [
+      "Ignore national direction because CSF is voluntary",
+      "Replace both frameworks with a product checklist",
+      "Align priorities while retaining a context-specific CSF plan",
+      "Abandon unit risk analysis and copy a national slogan"
+    ],
+    "answer": 2,
+    "explanation": "The lesson connects organizational risk practice to national direction; alignment does not remove the need for local assessment.",
+    "sourceSlides": [
+      15,
+      26
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "nist-h-22",
+    "difficulty": "hard",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "After a mission change, an old Target Profile is still used without review. What should happen first?",
+    "options": [
+      "Treat the previous Tier as permanent authorization",
+      "Purchase tools before identifying changed needs",
+      "Keep the target unchanged to preserve comparisons",
+      "Reassess scope, priorities and desired outcomes"
+    ],
+    "answer": 3,
+    "explanation": "Iteration includes revisiting mission context. A formerly appropriate target may no longer express the required outcomes.",
+    "sourceSlides": [
+      15,
+      27
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "nist-h-23",
+    "difficulty": "hard",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "An improvement plan has owners and deadlines but no risk rationale for its ordering. What is the most useful addition?",
+    "options": [
+      "Remove low-cost tasks from the risk review",
+      "Document why each gap has its assigned priority",
+      "Replace deadlines with more detailed product names",
+      "Give all tasks the same urgency label"
+    ],
+    "answer": 1,
+    "explanation": "A defensible action plan links sequencing to risk and mission priorities, not only administrative completeness.",
+    "sourceSlides": [
+      11,
+      15
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "nist-h-24",
+    "difficulty": "hard",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "An exercise restores service quickly but repeatedly exposes the same coordination failure. What would show genuine improvement?",
+    "options": [
+      "Move the finding to a different report section",
+      "Record the faster restart as proof of full readiness",
+      "Change the process and verify it in a later exercise",
+      "Stop reviewing exercises that repeat old findings"
+    ],
+    "answer": 2,
+    "explanation": "The framework's iterative approach requires findings to alter practice and be tested, rather than merely being recorded.",
+    "sourceSlides": [
+      12,
+      15,
+      27
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "nist-h-25",
+    "difficulty": "hard",
+    "category": "Application and Alignment",
+    "tags": [
+      "application and alignment"
+    ],
+    "prompt": "A commander wants national alignment, measurable gaps and resilient operations. Which package best meets all three?",
+    "options": [
+      "A Tier label, new logo and updated procurement schedule",
+      "An alert total, policy title and untested backup list",
+      "Aligned priorities and verified implementation",
+      "A vendor certificate, inventory count and equipment forecast"
+    ],
+    "answer": 2,
+    "explanation": "The package connects strategic direction, an evidence-based improvement plan and demonstrated ability to handle disruption.",
+    "sourceSlides": [
+      13,
+      26,
+      27
+    ]
+  }
+]
