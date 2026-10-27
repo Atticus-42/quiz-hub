@@ -428,19 +428,20 @@ export function moduleNumber(id) {
 // The masthead's reference lines and meta table for one quiz page.
 function mastheadParts(lesson) {
   const mod = moduleNumber(lesson.module);
+  const moduleExam = lesson.prominent && lesson.order === 0;
   const counts = MODES.map(mode => lesson.attempts[mode]);
   const banks = MODES.map(mode => lesson.bankSizes[mode]);
   const ref = lesson.rules.ref;
   const reference = lesson.pool
     ? `${lesson.pool.lessons.length} lessons · ${lesson.pool.count} per attempt`
-    : `${ref.plural} ${ref.min}–${ref.max}`;
+    : moduleExam ? `${lesson.rules.categoryOrder.length} lessons · references in explanations` : `${ref.plural} ${ref.min}–${ref.max}`;
   const rows = [
     ['Questions', lesson.pool ? `${lesson.pool.count} per attempt` : counts.join(' · '), lesson.pool ? '' : `per attempt · Easy · Medium · Hard (banks of ${banks.join(' · ')})`],
-    [lesson.pool ? 'Lessons' : 'Topics', String(lesson.rules.categoryOrder.length), ''],
-    ['Source', lesson.pool ? 'Module lessons' : reference, ''],
+    [lesson.pool || moduleExam ? 'Lessons' : 'Topics', String(lesson.rules.categoryOrder.length), ''],
+    ['Source', lesson.pool || moduleExam ? 'Module lessons' : reference, ''],
   ];
   return {
-    LESSON_REF: escapeHtml(`Module ${mod} · ${lesson.pool ? 'Comprehensive' : `Lesson ${String(lesson.order).padStart(2, '0')}`}`),
+    LESSON_REF: escapeHtml(`Module ${mod} · ${lesson.pool ? 'Comprehensive' : moduleExam ? 'Module examination' : `Lesson ${String(lesson.order).padStart(2, '0')}`}`),
     SOURCE_LINE: escapeHtml(`Ref. ${reference}`),
     MASTHEAD_META: rows.map(([term, value, note]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}${note ? ` <span class="meta-note">${escapeHtml(note)}</span>` : ''}</dd></div>`).join('\n          '),
   };

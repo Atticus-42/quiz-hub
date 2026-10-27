@@ -34,7 +34,9 @@ var LESSONS = {
   nist: 'NIST Framework History',
   zerotrust: 'Zero Trust History',
   gsomia: 'GSOMIA History',
-  cyberrisk: 'Cyber Risk Assessment History'
+  cyberrisk: 'Cyber Risk Assessment History',
+  modulefive: 'Module 5 Exam History',
+  moduleseven: 'Module 7 Exam History'
 };
 // Only for pages from before version 7 that send no total: their attempt length was fixed.
 var LEGACY_TOTALS = { combined: 30 };

@@ -1,0 +1,610 @@
+[
+  {
+    "difficulty": "easy",
+    "category": "NIST Framework",
+    "tags": [
+      "framework purpose and scope"
+    ],
+    "prompt": "Which consideration best reflects a risk-based approach?",
+    "options": [
+      "Likelihood and mission impact",
+      "Number of alerts alone",
+      "Age of the network alone",
+      "Purchase price and brand prestige"
+    ],
+    "answer": 0,
+    "explanation": "The lesson prioritizes likelihood and impact rather than fear, product popularity or a single technical indicator. References: NIST Framework, page 7.",
+    "id": 1,
+    "qid": "moduleseven-e-01"
+  },
+  {
+    "difficulty": "easy",
+    "category": "NIST Framework",
+    "tags": [
+      "six csf functions"
+    ],
+    "prompt": "Which Function focuses on finding anomalous activity?",
+    "options": [
+      "Detect",
+      "Govern",
+      "Recover",
+      "Protect"
+    ],
+    "answer": 0,
+    "explanation": "Detect uses monitoring, baselines and event analysis to discover potential trouble. References: NIST Framework, page 12.",
+    "id": 2,
+    "qid": "moduleseven-e-02"
+  },
+  {
+    "difficulty": "easy",
+    "category": "NIST Framework",
+    "tags": [
+      "core profiles and tiers"
+    ],
+    "prompt": "Which Tier emphasizes continuous adaptation from lessons and threat information?",
+    "options": [
+      "Repeatable",
+      "Partial",
+      "Adaptive",
+      "Risk Informed"
+    ],
+    "answer": 2,
+    "explanation": "Adaptive practices use new information and lessons to refine risk management continuously. References: NIST Framework, page 14.",
+    "id": 3,
+    "qid": "moduleseven-e-03"
+  },
+  {
+    "difficulty": "easy",
+    "category": "NIST Framework",
+    "tags": [
+      "nictef elements and vision"
+    ],
+    "prompt": "What is NICTEF's main coordinating purpose in the lesson?",
+    "options": [
+      "Replace every agency's mission",
+      "Certify individual network engineers",
+      "Harmonize national ICT efforts",
+      "Mandate a single security product"
+    ],
+    "answer": 2,
+    "explanation": "The lesson presents NICTEF as a national blueprint for coordinated ICT plans, programs and projects. References: NIST Framework, pages 18, 25.",
+    "id": 4,
+    "qid": "moduleseven-e-04"
+  },
+  {
+    "difficulty": "easy",
+    "category": "NIST Framework",
+    "tags": [
+      "integrated scenario",
+      "framework purpose and scope",
+      "concept and seven tenets"
+    ],
+    "prompt": "An office chooses least-privilege access as a safeguard. How does this relate to its NIST CSF work?",
+    "options": [
+      "It is a control choice supporting relevant cybersecurity outcomes",
+      "It replaces the need to describe the office's desired outcomes",
+      "It supplies the complete risk assessment for every office resource",
+      "It assigns the office an Adaptive Tier without further evidence"
+    ],
+    "answer": 0,
+    "explanation": "The CSF describes outcomes, while least privilege is a principle used in implementing access safeguards. Choosing one control does not establish the whole framework or a Tier. References: NIST Framework, page 7; Zero Trust, slides 20, 21.",
+    "id": 5,
+    "qid": "moduleseven-e-05"
+  },
+  {
+    "difficulty": "easy",
+    "category": "NIST Framework",
+    "tags": [
+      "integrated scenario",
+      "six csf functions",
+      "agreement and governance"
+    ],
+    "prompt": "A class exercise asks who is responsible for safeguarding shared information and reporting failures. Which CSF Function most directly supports setting those responsibilities?",
+    "options": [
+      "Protect, through the physical installation of equipment",
+      "Recover, through restoration of interrupted services",
+      "Govern, through direction, roles and oversight",
+      "Detect, through analysis of events after collection"
+    ],
+    "answer": 2,
+    "explanation": "Govern sets direction and responsibilities. The GSOMIA lesson's accountability concept similarly requires explicit responsibility for protection and breaches. References: NIST Framework, pages 10, 11; LOE3 GSOMIA Compliance, slide 25.",
+    "id": 6,
+    "qid": "moduleseven-e-06"
+  },
+  {
+    "difficulty": "easy",
+    "category": "NIST Framework",
+    "tags": [
+      "integrated scenario",
+      "six csf functions",
+      "risk concepts and cia"
+    ],
+    "prompt": "A team cannot identify the valuable resources used by a critical service. Which starting task connects the lessons?",
+    "options": [
+      "Assign a final risk rating using only the newest product name",
+      "Begin recovery before identifying the service or its resources",
+      "Identify the assets and their importance to the mission",
+      "Choose a Target Profile from the number of staff accounts alone"
+    ],
+    "answer": 2,
+    "explanation": "Identify concerns assets and mission priorities. Risk assessment needs to know what has value before it can assess harm to it. References: NIST Framework, pages 10, 11; Cyber Risk Assessment, page 16.",
+    "id": 7,
+    "qid": "moduleseven-e-07"
+  },
+  {
+    "difficulty": "easy",
+    "category": "NIST Framework",
+    "tags": [
+      "integrated scenario",
+      "application and alignment",
+      "agreement and governance"
+    ],
+    "prompt": "An organization approved a security plan last year. Its partners and services have since changed. What should it do with the plan?",
+    "options": [
+      "Replace every control before examining which conditions changed",
+      "Review and refine it using the changed conditions",
+      "Limit review to checking whether the title page still matches",
+      "Treat approval as evidence that the original risk assumptions remain valid"
+    ],
+    "answer": 1,
+    "explanation": "Both lessons treat improvement as continuing work. Monitoring, review and feedback help keep measures relevant as conditions change. References: NIST Framework, page 15; LOE3 GSOMIA Compliance, slides 29, 46.",
+    "id": 8,
+    "qid": "moduleseven-e-08"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Zero Trust",
+    "tags": [
+      "concept and seven tenets"
+    ],
+    "prompt": "What distinguishes ZTA from the Zero Trust concept?",
+    "options": [
+      "ZTA is the enterprise architecture plan",
+      "ZTA is a specific commercial appliance",
+      "ZTA is the physical network cable layout only",
+      "ZTA is a permanent approval for trusted users"
+    ],
+    "answer": 0,
+    "explanation": "The lesson distinguishes the concept, the architecture plan built on it, and the resulting enterprise implementation. References: Zero Trust, slide 19.",
+    "id": 9,
+    "qid": "moduleseven-e-09"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Zero Trust",
+    "tags": [
+      "policy components"
+    ],
+    "prompt": "Which component executes the Policy Engine's decision by configuring the access path?",
+    "options": [
+      "Policy Engine",
+      "Subject account",
+      "Threat intelligence feed",
+      "Policy Administrator"
+    ],
+    "answer": 3,
+    "explanation": "The Policy Administrator establishes or shuts down the communication path and configures the enforcement point. References: Zero Trust, slide 22.",
+    "id": 10,
+    "qid": "moduleseven-e-10"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Zero Trust",
+    "tags": [
+      "deployment approaches"
+    ],
+    "prompt": "Which approach makes actor identity a key policy driver?",
+    "options": [
+      "Unrestricted internal routing",
+      "Enhanced identity governance",
+      "Static perimeter trust",
+      "Micro-segmentation alone"
+    ],
+    "answer": 1,
+    "explanation": "Enhanced identity governance emphasizes actor identity and privileges, refined by device and environmental context. References: Zero Trust, slide 23.",
+    "id": 11,
+    "qid": "moduleseven-e-11"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Zero Trust",
+    "tags": [
+      "threats and limitations"
+    ],
+    "prompt": "What concern arises when PE, PA or PEP services become unavailable?",
+    "options": [
+      "Automatic elimination of all cyber risk",
+      "Permanent recovery of deleted information",
+      "Guaranteed rejection of every malicious action",
+      "Access disruption at critical control points"
+    ],
+    "answer": 3,
+    "explanation": "The components can become critical dependencies, so the lesson calls for resilient and secured deployment. References: Zero Trust, slide 24.",
+    "id": 12,
+    "qid": "moduleseven-e-12"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Zero Trust",
+    "tags": [
+      "integrated scenario",
+      "concept and seven tenets",
+      "access and sharing"
+    ],
+    "prompt": "A cleared partner requests a file unrelated to assigned duties. What additional issue must access review consider?",
+    "options": [
+      "Whether the requester uses a computer inside the building",
+      "Legitimate need-to-know and task-appropriate permission",
+      "Whether the requester's account was created recently",
+      "Whether the request arrived before the office opened"
+    ],
+    "answer": 1,
+    "explanation": "Clearance alone is not enough under the supplied handling lesson. Least privilege also limits access to what the legitimate task requires. References: Zero Trust, slides 20, 21; LOE3 GSOMIA Compliance, slides 22, 33.",
+    "id": 13,
+    "qid": "moduleseven-e-13"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Zero Trust",
+    "tags": [
+      "integrated scenario",
+      "concept and seven tenets",
+      "risk concepts and cia"
+    ],
+    "prompt": "Two internal systems exchange sensitive training records. Which security expectation still applies?",
+    "options": [
+      "Infer all required permissions from the network address",
+      "Use a successful ping as evidence of record integrity",
+      "Protect the communication even inside the organization",
+      "Treat internal location as proof that confidentiality is satisfied"
+    ],
+    "answer": 2,
+    "explanation": "Zero Trust does not exempt internal communication from protection. CIA remains relevant to the information exchanged. References: Zero Trust, slide 21; Cyber Risk Assessment, page 15.",
+    "id": 14,
+    "qid": "moduleseven-e-14"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Zero Trust",
+    "tags": [
+      "integrated scenario",
+      "policy components",
+      "defensive control coverage"
+    ],
+    "prompt": "An access decision uses account activity and device posture. Why must the team maintain useful monitoring information?",
+    "options": [
+      "It gives every logged-in user the same approved access",
+      "It makes the permission assigned at account creation permanent",
+      "It replaces the need to identify the protected resource",
+      "It supplies context for access decisions and investigation"
+    ],
+    "answer": 3,
+    "explanation": "Context and telemetry inform access decisions. Logs and account monitoring also support detecting and reviewing inappropriate activity. References: Zero Trust, slide 22; Cyber Risk Assessment, pages 27, 28.",
+    "id": 15,
+    "qid": "moduleseven-e-15"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Zero Trust",
+    "tags": [
+      "integrated scenario",
+      "migration and application",
+      "application and alignment"
+    ],
+    "prompt": "An office is beginning a Zero Trust migration while defining the scope of its cyber program. Which first rollout is best supported?",
+    "options": [
+      "An immediate enforcement change across every undocumented system",
+      "A product purchase used in place of identifying the mission scope",
+      "A fixed access policy selected without observing any workflow",
+      "A scoped, low-risk workflow used to learn and refine policies"
+    ],
+    "answer": 3,
+    "explanation": "The NIST lesson starts with priorities and scope, while the Zero Trust lesson supports incremental adoption through a low-risk workflow. References: Zero Trust, slide 25; NIST Framework, page 15.",
+    "id": 16,
+    "qid": "moduleseven-e-16"
+  },
+  {
+    "difficulty": "easy",
+    "category": "LOE3 GSOMIA Compliance",
+    "tags": [
+      "agreement and governance"
+    ],
+    "prompt": "What does accountability add to information security?",
+    "options": [
+      "Responsibility for compliance and breaches",
+      "Permission to ignore local handling procedures",
+      "A substitute for classification markings",
+      "Automatic access for all senior personnel"
+    ],
+    "answer": 0,
+    "explanation": "Accountability makes compliance and responsibility for breaches explicit; it does not replace safeguards. References: LOE3 GSOMIA Compliance, slide 25.",
+    "id": 17,
+    "qid": "moduleseven-e-17"
+  },
+  {
+    "difficulty": "easy",
+    "category": "LOE3 GSOMIA Compliance",
+    "tags": [
+      "classification and handling"
+    ],
+    "prompt": "What is the purpose of secure disposal?",
+    "options": [
+      "Prevent recovery of information no longer retained",
+      "Remove markings but retain readable discarded pages",
+      "Make old records easier for anyone to retrieve",
+      "Move obsolete files to an unmanaged personal account"
+    ],
+    "answer": 0,
+    "explanation": "Secure disposal prevents reconstruction or recovery of information subject to disposal. References: LOE3 GSOMIA Compliance, slide 32.",
+    "id": 18,
+    "qid": "moduleseven-e-18"
+  },
+  {
+    "difficulty": "easy",
+    "category": "LOE3 GSOMIA Compliance",
+    "tags": [
+      "access and sharing"
+    ],
+    "prompt": "What two conditions are required for access in the lesson?",
+    "options": [
+      "Appropriate clearance and legitimate need-to-know",
+      "High rank and possession of a working printer",
+      "Technical skill and interest in the subject",
+      "Long service and personal familiarity with the owner"
+    ],
+    "answer": 0,
+    "explanation": "Clearance alone is insufficient; the individual also needs a legitimate reason to access that information. References: LOE3 GSOMIA Compliance, slides 22, 33.",
+    "id": 19,
+    "qid": "moduleseven-e-19"
+  },
+  {
+    "difficulty": "easy",
+    "category": "LOE3 GSOMIA Compliance",
+    "tags": [
+      "incident response and assurance"
+    ],
+    "prompt": "How should security training be delivered?",
+    "options": [
+      "Once for new personnel and never revisited",
+      "Regularly and with attention to each person's role",
+      "Only after all security incidents have ended",
+      "Only to technical staff because others hold no risk"
+    ],
+    "answer": 1,
+    "explanation": "The lesson calls for ongoing awareness and role-specific training across relevant personnel. References: LOE3 GSOMIA Compliance, slides 28, 42.",
+    "id": 20,
+    "qid": "moduleseven-e-20"
+  },
+  {
+    "difficulty": "easy",
+    "category": "LOE3 GSOMIA Compliance",
+    "tags": [
+      "integrated scenario",
+      "classification and handling",
+      "migration and application"
+    ],
+    "prompt": "A partner has a valid account and requests an encrypted transfer. What else matters before sharing protected information?",
+    "options": [
+      "Whether encryption lets the sender ignore recipient restrictions",
+      "Authorized recipients, release procedures and appropriate scope",
+      "Whether partner status makes all available records releasable",
+      "Whether an internal address substitutes for handling authorization"
+    ],
+    "answer": 1,
+    "explanation": "An authenticated session and encryption do not themselves authorize disclosure. The supplied lessons retain recipient, purpose and handling requirements. References: LOE3 GSOMIA Compliance, slides 31, 37; Zero Trust, slide 26.",
+    "id": 21,
+    "qid": "moduleseven-e-21"
+  },
+  {
+    "difficulty": "easy",
+    "category": "LOE3 GSOMIA Compliance",
+    "tags": [
+      "integrated scenario",
+      "agreement and governance",
+      "risk concepts and cia"
+    ],
+    "prompt": "A report remains readable but someone changed its contents without authorization. Which property is directly affected?",
+    "options": [
+      "Availability of the login page alone",
+      "Integrity of the protected information",
+      "The physical location of the storage device",
+      "The number of authorized report recipients"
+    ],
+    "answer": 1,
+    "explanation": "Both lessons distinguish unauthorized alteration from disclosure or service loss. This case directly concerns integrity. References: LOE3 GSOMIA Compliance, slide 23; Cyber Risk Assessment, page 15.",
+    "id": 22,
+    "qid": "moduleseven-e-22"
+  },
+  {
+    "difficulty": "easy",
+    "category": "LOE3 GSOMIA Compliance",
+    "tags": [
+      "integrated scenario",
+      "access and sharing",
+      "defensive control coverage"
+    ],
+    "prompt": "An audit asks who opened a protected record and when. Which evidence is most useful?",
+    "options": [
+      "A statement that every user attended the last briefing",
+      "The color assigned to the record's folder in the application",
+      "Access records linked to the relevant accounts and activity",
+      "The purchase date of the computer used to store the record"
+    ],
+    "answer": 2,
+    "explanation": "Access records support accountability, while account monitoring and logs help investigate unusual activity. Attendance or equipment age does not answer the audit question. References: LOE3 GSOMIA Compliance, slide 35; Cyber Risk Assessment, pages 27, 28.",
+    "id": 23,
+    "qid": "moduleseven-e-23"
+  },
+  {
+    "difficulty": "easy",
+    "category": "LOE3 GSOMIA Compliance",
+    "tags": [
+      "integrated scenario",
+      "incident response and assurance",
+      "incident response lifecycle"
+    ],
+    "prompt": "An employee suspects that a protected file was exposed but has not established the full extent. What should happen?",
+    "options": [
+      "Waiting for complete certainty before informing the responsible staff",
+      "Deleting relevant access records to reduce unnecessary concern",
+      "Treating an unconfirmed suspicion as proof that no incident exists",
+      "Prompt reporting through the required channel while facts are assessed"
+    ],
+    "answer": 3,
+    "explanation": "The handling lesson includes reporting suspected breaches. Incident identification assesses the facts; it does not justify withholding the initial report until the investigation is complete. References: LOE3 GSOMIA Compliance, slides 27, 38; Cyber Risk Assessment, page 20.",
+    "id": 24,
+    "qid": "moduleseven-e-24"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Cyber Risk Assessment",
+    "tags": [
+      "risk concepts and cia"
+    ],
+    "prompt": "What does the CIA triad describe?",
+    "options": [
+      "Confidentiality, integrity and availability",
+      "Classification, inspection and administration",
+      "Compliance, intelligence and attribution",
+      "Connectivity, inventory and authentication"
+    ],
+    "answer": 0,
+    "explanation": "CIA describes protection against unauthorized disclosure or alteration and loss of availability. References: Cyber Risk Assessment, page 15.",
+    "id": 25,
+    "qid": "moduleseven-e-25"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Cyber Risk Assessment",
+    "tags": [
+      "incident response lifecycle"
+    ],
+    "prompt": "Which phase establishes response people, tools and procedures?",
+    "options": [
+      "Recovery",
+      "Preparation",
+      "Assessment and review",
+      "Eradication"
+    ],
+    "answer": 1,
+    "explanation": "Preparation establishes capabilities before an incident; it is not the same as restoring affected services. References: Cyber Risk Assessment, pages 18, 19.",
+    "id": 26,
+    "qid": "moduleseven-e-26"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Cyber Risk Assessment",
+    "tags": [
+      "defensive control coverage"
+    ],
+    "prompt": "What is the purpose of administrative privilege control?",
+    "options": [
+      "Replace individual accounts with a shared account",
+      "Limit elevated capabilities to authorized need",
+      "Give all users permanent administrator rights",
+      "Remove records of privileged actions"
+    ],
+    "answer": 1,
+    "explanation": "Administrative privilege controls reduce unnecessary powerful access and support accountability. References: Cyber Risk Assessment, page 27.",
+    "id": 27,
+    "qid": "moduleseven-e-27"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Cyber Risk Assessment",
+    "tags": [
+      "people process technology and scoring"
+    ],
+    "prompt": "Which operation combines the three weighted element results in the lesson?",
+    "options": [
+      "Multiply all three raw percentages together",
+      "Subtract Technology from People and ignore Process",
+      "Use only the highest raw percentage",
+      "Add People, Process and Technology results"
+    ],
+    "answer": 3,
+    "explanation": "The slide gives overall posture as the sum of People, Process and Technology element results. References: Cyber Risk Assessment, page 30.",
+    "id": 28,
+    "qid": "moduleseven-e-28"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Cyber Risk Assessment",
+    "tags": [
+      "integrated scenario",
+      "risk concepts and cia",
+      "framework purpose and scope"
+    ],
+    "prompt": "Two weaknesses compete for limited improvement resources. Which comparison best supports a defensible decision?",
+    "options": [
+      "The order in which the team first noticed the weaknesses",
+      "The popularity of each weakness in unrelated online discussions",
+      "Their likelihood and consequences for the mission",
+      "The number of pages in each supplier's product brochure"
+    ],
+    "answer": 2,
+    "explanation": "Risk decisions should connect likelihood and impact to mission consequences, rather than use publicity or discovery order as the sole basis. References: Cyber Risk Assessment, page 16; NIST Framework, page 9.",
+    "id": 29,
+    "qid": "moduleseven-e-29"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Cyber Risk Assessment",
+    "tags": [
+      "integrated scenario",
+      "incident response lifecycle",
+      "six csf functions"
+    ],
+    "prompt": "A team stops an incident from spreading and later restores a service. Which distinction should its review preserve?",
+    "options": [
+      "The two activities are interchangeable labels for the same outcome",
+      "Containment concerns procurement while recovery assigns access rights",
+      "Restoration proves that containment and cause removal were completed",
+      "Containment limits effects; recovery restores healthy operation"
+    ],
+    "answer": 3,
+    "explanation": "The lessons distinguish incident response activities and restoration. An observation about one phase should not be treated as proof that the other phases were completed. References: Cyber Risk Assessment, pages 21, 22; NIST Framework, page 12.",
+    "id": 30,
+    "qid": "moduleseven-e-30"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Cyber Risk Assessment",
+    "tags": [
+      "integrated scenario",
+      "defensive control coverage",
+      "concept and seven tenets"
+    ],
+    "prompt": "An employee only reads routine reports but holds administrator privileges. Which change addresses the clearest issue?",
+    "options": [
+      "Treat successful login as evidence that all assigned privileges are necessary",
+      "Replace the report template while leaving account permissions unchanged",
+      "Align elevated permission with the employee's authorized need",
+      "Retain administrator rights because the employee rarely uses them"
+    ],
+    "answer": 2,
+    "explanation": "Administrative privilege controls and least privilege both restrict powerful capabilities to the legitimate task. References: Cyber Risk Assessment, page 27; Zero Trust, slides 20, 21.",
+    "id": 31,
+    "qid": "moduleseven-e-31"
+  },
+  {
+    "difficulty": "easy",
+    "category": "Cyber Risk Assessment",
+    "tags": [
+      "integrated scenario",
+      "people process technology and scoring",
+      "incident response and assurance"
+    ],
+    "prompt": "An office has security equipment but no role-specific training or practiced handling procedures. Which areas need attention?",
+    "options": [
+      "The storage hardware brand before any training responsibilities",
+      "Only the number of files available on the shared server",
+      "Only the Technology score because equipment is already present",
+      "People and Process alongside the technical controls"
+    ],
+    "answer": 3,
+    "explanation": "The PPT view includes skills, responsibilities and procedures. The handling lesson also calls for continuing training suited to personnel roles. References: Cyber Risk Assessment, page 29; LOE3 GSOMIA Compliance, slides 28, 42.",
+    "id": 32,
+    "qid": "moduleseven-e-32"
+  }
+]

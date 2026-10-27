@@ -1,0 +1,572 @@
+[
+  {
+    "difficulty": "medium",
+    "category": "MANET C4ISTAR Planning",
+    "tags": [
+      "network concepts"
+    ],
+    "prompt": "A user wants to send data to one recipient rather than every member. Which term applies?",
+    "options": [
+      "Unicast",
+      "Broadcast",
+      "Offline replication",
+      "Multicast to all groups"
+    ],
+    "answer": 0,
+    "explanation": "Unicast addresses one destination; broadcast and multicast have different audience scopes. References: MANET C4ISTAR Planning, page 12.",
+    "id": 1,
+    "qid": "modulefive-m-01"
+  },
+  {
+    "difficulty": "medium",
+    "category": "MANET C4ISTAR Planning",
+    "tags": [
+      "capabilities and security"
+    ],
+    "prompt": "Two waveforms differ in supported services and protection. What should selection be based on?",
+    "options": [
+      "Required compatibility, services and approved security needs",
+      "Only whether one waveform appears first in a menu",
+      "Only the shortest waveform name",
+      "The assumption that all listed waveforms are interchangeable"
+    ],
+    "answer": 0,
+    "explanation": "The source lists distinct waveform capabilities; planning must compare requirements rather than equate labels. References: MANET C4ISTAR Planning, pages 31, 34, 35, 36.",
+    "id": 2,
+    "qid": "modulefive-m-02"
+  },
+  {
+    "difficulty": "medium",
+    "category": "MANET C4ISTAR Planning",
+    "tags": [
+      "equipment and maintenance"
+    ],
+    "prompt": "Inspection reveals a damaged cable and bent connector pins. What is justified?",
+    "options": [
+      "Assume a software reset repairs the physical damage",
+      "Record the fault and follow authorized maintenance procedures",
+      "Force the connector until the fault disappears",
+      "Ignore the issue if the display still lights up"
+    ],
+    "answer": 1,
+    "explanation": "Physical defects require appropriate maintenance; power-on alone does not demonstrate equipment integrity. References: MANET C4ISTAR Planning, page 25.",
+    "id": 3,
+    "qid": "modulefive-m-03"
+  },
+  {
+    "difficulty": "medium",
+    "category": "MANET C4ISTAR Planning",
+    "tags": [
+      "diagnostics and configuration"
+    ],
+    "prompt": "A performance test sends 100 packets and records 90 received. What does this directly show?",
+    "options": [
+      "Ten packets were not received during that test",
+      "Every voice conversation will fail at the same rate",
+      "The fault has been proven to be a broken antenna",
+      "The entire network is permanently unusable"
+    ],
+    "answer": 0,
+    "explanation": "The counts describe that test's outcome; they do not alone establish permanence, application effects or root cause. References: MANET C4ISTAR Planning, page 67.",
+    "id": 4,
+    "qid": "modulefive-m-04"
+  },
+  {
+    "difficulty": "medium",
+    "category": "MANET C4ISTAR Planning",
+    "tags": [
+      "integration and assurance"
+    ],
+    "prompt": "A legacy voice call succeeds but position updates do not reach the application. What remains to verify?",
+    "options": [
+      "Whether working voice proves the data must already be present",
+      "Whether the application can be ignored because radios transmit",
+      "The data service and its integration path",
+      "Only the voice handset's volume setting"
+    ],
+    "answer": 2,
+    "explanation": "Voice success is not evidence that data interfaces, routing and receiving applications work correctly. References: MANET C4ISTAR Planning, pages 69, 72, 73.",
+    "id": 5,
+    "qid": "modulefive-m-05"
+  },
+  {
+    "difficulty": "medium",
+    "category": "MANET C4ISTAR Planning",
+    "tags": [
+      "integrated scenario",
+      "network concepts",
+      "concept and information quality"
+    ],
+    "prompt": "After a link changes, the MANET finds another path. The shared picture still shows yesterday's reports. What should the team distinguish?",
+    "options": [
+      "A display's color scheme from the radio's procurement date",
+      "Restored connectivity from the freshness of received reports",
+      "Successful rerouting from a complete loss of all communication",
+      "A new path from proof that the reports are factually accurate"
+    ],
+    "answer": 1,
+    "explanation": "Self-healing concerns connectivity adaptation. A useful shared picture also depends on appropriate information, so rerouting does not demonstrate freshness. References: MANET C4ISTAR Planning, page 12; C4ISTAR Sensors Integration, page 9.",
+    "id": 6,
+    "qid": "modulefive-m-06"
+  },
+  {
+    "difficulty": "medium",
+    "category": "MANET C4ISTAR Planning",
+    "tags": [
+      "integrated scenario",
+      "capabilities and security",
+      "architecture and security"
+    ],
+    "prompt": "Management traffic uses authenticated, confidential SNMPv3 communication. An application user nevertheless has permissions beyond assigned duties. Which conclusion fits?",
+    "options": [
+      "Application permissions can be assessed from the radio model alone",
+      "The permission issue proves that SNMPv3 has no protection function",
+      "Protected management traffic does not settle application authorization",
+      "The management protocol establishes the user's complete access rights"
+    ],
+    "answer": 2,
+    "explanation": "SNMPv3 protection applies to management traffic. Authentication, authorization and other controls remain necessary in the integrated information system. References: MANET C4ISTAR Planning, page 30; C4ISTAR Weapon System Integration, slide 24.",
+    "id": 7,
+    "qid": "modulefive-m-07"
+  },
+  {
+    "difficulty": "medium",
+    "category": "MANET C4ISTAR Planning",
+    "tags": [
+      "integrated scenario",
+      "equipment and maintenance",
+      "context and constraints"
+    ],
+    "prompt": "A training link becomes intermittent after equipment is moved outdoors. The team notices a damaged cable and also suspects environmental effects. Which approach is best supported?",
+    "options": [
+      "Attribute every interruption to interference before inspecting the cable",
+      "Treat a past indoor test as evidence that the cable is sound",
+      "Inspect the visible condition and assess relevant environmental evidence",
+      "Use the sensor inventory alone to select a replacement waveform"
+    ],
+    "answer": 2,
+    "explanation": "The sources support physical-condition checks and consideration of environmental constraints. Neither a suspected cause nor an earlier successful test is a complete diagnosis. References: MANET C4ISTAR Planning, page 25; C4ISTAR Sensors Integration, page 18.",
+    "id": 8,
+    "qid": "modulefive-m-08"
+  },
+  {
+    "difficulty": "medium",
+    "category": "MANET C4ISTAR Planning",
+    "tags": [
+      "integrated scenario",
+      "diagnostics and configuration",
+      "information and authority"
+    ],
+    "prompt": "RX/TX diagnostics run, but the team has recorded only version information. The users report missing updates. Which evidence is still needed?",
+    "options": [
+      "Observed performance of the required report-delivery path",
+      "A second copy of the recorded software version number",
+      "A list of command appointments from the organization chart",
+      "A statement that the diagnostic menu was successfully opened"
+    ],
+    "answer": 0,
+    "explanation": "The diagnostics include path and performance information. The C2 feedback requirement concerns updates reaching decision-makers, so menu access and version records alone are insufficient. References: MANET C4ISTAR Planning, page 58; C4ISTAR Weapon System Integration, slide 25.",
+    "id": 9,
+    "qid": "modulefive-m-09"
+  },
+  {
+    "difficulty": "medium",
+    "category": "MANET C4ISTAR Planning",
+    "tags": [
+      "integrated scenario",
+      "integration and assurance",
+      "interoperability and requirements"
+    ],
+    "prompt": "A proposed gateway forwards every available report between two classroom networks, although only one approved report type is required. What should be clarified?",
+    "options": [
+      "The equipment labels before deciding who may handle information",
+      "The gateway's appearance before reviewing traffic leakage concerns",
+      "Required exchange and boundary rules before widening traffic",
+      "The display size before documenting the required exchange"
+    ],
+    "answer": 2,
+    "explanation": "The integrator's traffic-limiting role and the ICD's exchange rules support defining necessary flows. Broad forwarding is not justified merely by technical capability. References: MANET C4ISTAR Planning, page 70; C4ISTAR Sensors Integration, page 16.",
+    "id": 10,
+    "qid": "modulefive-m-10"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Sensors Integration",
+    "tags": [
+      "concept and information quality"
+    ],
+    "prompt": "Sensors collect useful observations, but no decision-maker receives them. What is the central shortfall?",
+    "options": [
+      "The information path is not effectively integrated",
+      "The presence of sensors already satisfies the requirement",
+      "The sensors necessarily failed to detect anything",
+      "The organization needs fewer information users"
+    ],
+    "answer": 0,
+    "explanation": "Collection alone does not deliver usable situational awareness; information must reach its intended users. References: C4ISTAR Sensors Integration, pages 7, 9.",
+    "id": 11,
+    "qid": "modulefive-m-11"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Sensors Integration",
+    "tags": [
+      "sensor types and roles"
+    ],
+    "prompt": "A disaster-response exercise needs remote aerial mapping. Which listed platform fits that role?",
+    "options": [
+      "UAS",
+      "Fixed network router",
+      "Telephone exchange",
+      "SUGV"
+    ],
+    "answer": 0,
+    "explanation": "UAS can carry sensors for remote sensing and mapping; the role stated is aerial. References: C4ISTAR Sensors Integration, page 10.",
+    "id": 12,
+    "qid": "modulefive-m-12"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Sensors Integration",
+    "tags": [
+      "interoperability and requirements"
+    ],
+    "prompt": "A team wants commercial phones for protected information without checking policy. What is missing?",
+    "options": [
+      "A more attractive phone wallpaper",
+      "Applicable COMSEC and authorized-use requirements",
+      "A rule that convenience overrides information handling",
+      "A guarantee that commercial means are always prohibited"
+    ],
+    "answer": 1,
+    "explanation": "Special-purpose commercial communications are governed by policy; convenience is not sufficient authorization. References: C4ISTAR Sensors Integration, page 17.",
+    "id": 13,
+    "qid": "modulefive-m-13"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Sensors Integration",
+    "tags": [
+      "context and constraints"
+    ],
+    "prompt": "A new sensor fails to work with an older receiving system. Which constraint is illustrated?",
+    "options": [
+      "Public advertising reach",
+      "Legacy compatibility",
+      "Document classification alone",
+      "Personnel seniority"
+    ],
+    "answer": 1,
+    "explanation": "Legacy integration requires compatibility work rather than assuming newer and older equipment will interoperate. References: C4ISTAR Sensors Integration, page 18.",
+    "id": 14,
+    "qid": "modulefive-m-14"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Sensors Integration",
+    "tags": [
+      "integration responsibilities and testing"
+    ],
+    "prompt": "An upgrade replaces one module. What should be rechecked?",
+    "options": [
+      "Only whether the old module can still be photographed",
+      "Only the replacement's packaging color",
+      "Whether modular design removes every test requirement",
+      "Compatibility and relevant end-to-end behavior"
+    ],
+    "answer": 3,
+    "explanation": "Modularity eases replacement; it does not prove that the changed system still meets its requirements. References: C4ISTAR Sensors Integration, page 29.",
+    "id": 15,
+    "qid": "modulefive-m-15"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Sensors Integration",
+    "tags": [
+      "integrated scenario",
+      "concept and information quality",
+      "information and authority"
+    ],
+    "prompt": "A sensor vendor demonstrates reliable observation delivery and says the automated output also assigns decision authority. What should the review separate?",
+    "options": [
+      "The supplier's technical demonstration from the equipment purchase cost",
+      "Collection and delivery capability from assigned organizational authority",
+      "The display's physical size from the number of operator accounts",
+      "A sensor's observation role from whether computers can store data"
+    ],
+    "answer": 1,
+    "explanation": "A sensor detects and collects; technical delivery does not confer command responsibility. Authority must come from the organization's assigned roles. References: C4ISTAR Sensors Integration, page 7; C4ISTAR Weapon System Integration, slide 7.",
+    "id": 16,
+    "qid": "modulefive-m-16"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Sensors Integration",
+    "tags": [
+      "integrated scenario",
+      "sensor types and roles",
+      "system components"
+    ],
+    "prompt": "An exercise report combines one directional measurement with a map icon labeled exact position. What is the strongest immediate correction?",
+    "options": [
+      "Preserve the measurement's uncertainty when interpreting and displaying it",
+      "Remove the report's source information to make the display easier to read",
+      "Accept the precise icon because all participants see the same map",
+      "Treat delivery to several users as independent confirmation of position"
+    ],
+    "answer": 0,
+    "explanation": "A bearing alone does not establish an exact position. Interpretation and presentation should not give the observation greater certainty than its evidence supports. References: C4ISTAR Sensors Integration, page 10; C4ISTAR Weapon System Integration, slides 10, 11, 13.",
+    "id": 17,
+    "qid": "modulefive-m-17"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Sensors Integration",
+    "tags": [
+      "integrated scenario",
+      "interoperability and requirements",
+      "interoperability principles"
+    ],
+    "prompt": "Two participating networks have different internal designs but agree on their exchange boundary. Which assessment is appropriate?",
+    "options": [
+      "Require identical internal equipment before considering any boundary test",
+      "Treat internal design differences as proof that an ICD has no value",
+      "Approve every application once the boundary cable is connected",
+      "Evaluate the defined connection points and required information exchange"
+    ],
+    "answer": 3,
+    "explanation": "IOPs standardize connections while permitting internal differences. The review should assess the defined interfaces and actual exchange requirements. References: C4ISTAR Sensors Integration, page 16; C4ISTAR Weapon System Integration, slide 17.",
+    "id": 18,
+    "qid": "modulefive-m-18"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Sensors Integration",
+    "tags": [
+      "integrated scenario",
+      "context and constraints",
+      "network concepts"
+    ],
+    "prompt": "A classroom network carries all collected reports, yet operators miss important updates among the volume. Which response addresses both lessons?",
+    "options": [
+      "Replace the analysis requirement with a higher received-strength reading",
+      "Judge success solely by whether every source remains connected",
+      "Review traffic priorities together with operator processing needs",
+      "Increase stored report volume while retaining the same review process"
+    ],
+    "answer": 2,
+    "explanation": "QoS addresses competing network demand, while sensor integration also faces information overload. Both transport and the users' ability to process relevant information matter. References: C4ISTAR Sensors Integration, page 18; MANET C4ISTAR Planning, pages 9, 12.",
+    "id": 19,
+    "qid": "modulefive-m-19"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Sensors Integration",
+    "tags": [
+      "integrated scenario",
+      "integration responsibilities and testing",
+      "architecture and security"
+    ],
+    "prompt": "A design adds a backup component and declares the complete integrated system secure. What must the review still examine?",
+    "options": [
+      "The number of years since the system concept was first presented",
+      "Whether both components appear in the same purchase request",
+      "Whether the drawing shows the backup in a different color",
+      "Other CIA controls and whether the required service survives failure"
+    ],
+    "answer": 3,
+    "explanation": "Redundancy reduces a particular dependency; it does not establish complete security. Availability behavior and other confidentiality/integrity controls still require evidence. References: C4ISTAR Sensors Integration, page 29; C4ISTAR Weapon System Integration, slide 24.",
+    "id": 20,
+    "qid": "modulefive-m-20"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Weapon System Integration",
+    "tags": [
+      "system components"
+    ],
+    "prompt": "A design includes radios and computers but no people or procedures. What is missing from the source's C2 concept?",
+    "options": [
+      "Only a different radio manufacturer",
+      "Its organizational and human components",
+      "Only a higher number of hardware devices",
+      "Nothing, because equipment alone is the C2 system"
+    ],
+    "answer": 1,
+    "explanation": "The C2 system includes people and processes, not just technical nodes. References: C4ISTAR Weapon System Integration, slides 7, 14.",
+    "id": 21,
+    "qid": "modulefive-m-21"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Weapon System Integration",
+    "tags": [
+      "information and authority"
+    ],
+    "prompt": "A user can technically open a system and assumes that grants decision authority. What distinction matters?",
+    "options": [
+      "The ability to read data authorizes every subsequent action",
+      "A successful login assigns every command responsibility",
+      "Technical access and command authority are different",
+      "Network availability overrides all assigned roles"
+    ],
+    "answer": 2,
+    "explanation": "Access permissions and institutional decision authority are separate concepts. References: C4ISTAR Weapon System Integration, slides 7, 24.",
+    "id": 22,
+    "qid": "modulefive-m-22"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Weapon System Integration",
+    "tags": [
+      "interoperability principles"
+    ],
+    "prompt": "Devices exchange data, but staff use incompatible procedures and terminology. What still needs attention?",
+    "options": [
+      "Nothing beyond successful packet transfer",
+      "Human and procedural interoperability",
+      "Only the equipment purchase dates",
+      "Only the physical cable connectors"
+    ],
+    "answer": 1,
+    "explanation": "The lesson's interoperability scope includes people and processes as well as technical exchange. References: C4ISTAR Weapon System Integration, slide 18.",
+    "id": 23,
+    "qid": "modulefive-m-23"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Weapon System Integration",
+    "tags": [
+      "architecture and security"
+    ],
+    "prompt": "Both applications use TCP/IP but disagree on message meaning. What remains unresolved?",
+    "options": [
+      "The existence of their network interfaces",
+      "Application-level interoperability",
+      "The spelling of the protocol name",
+      "Whether both can use a network protocol"
+    ],
+    "answer": 1,
+    "explanation": "Common transport does not guarantee agreement on the meaning and format of application information. References: C4ISTAR Weapon System Integration, slide 23.",
+    "id": 24,
+    "qid": "modulefive-m-24"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Weapon System Integration",
+    "tags": [
+      "configuration concepts and evolution"
+    ],
+    "prompt": "A history review describes mobile command centers as part of capability development. What conceptual need do they address?",
+    "options": [
+      "Communications and C2 support beyond a fixed headquarters",
+      "A replacement for all trained staff and procedures",
+      "Automatic authority independent of the chain of command",
+      "Unlimited connectivity without supporting infrastructure"
+    ],
+    "answer": 0,
+    "explanation": "The historical discussion treats mobility as extending C2 support, not removing its organizational and technical dependencies. References: C4ISTAR Weapon System Integration, slides 30, 31.",
+    "id": 25,
+    "qid": "modulefive-m-25"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Weapon System Integration",
+    "tags": [
+      "integrated scenario",
+      "interoperability principles",
+      "interoperability and requirements"
+    ],
+    "prompt": "Messages cross an agreed interface, but operators apply incompatible meanings to one status field. Which gap is most directly shown?",
+    "options": [
+      "A lack of any stored information on either computer",
+      "A failure to purchase identical equipment for both teams",
+      "A complete absence of any functioning communication path",
+      "Shared interpretation and procedures beyond successful transport"
+    ],
+    "answer": 3,
+    "explanation": "Technical exchange is only part of interoperability. Teams must also share the information's intended interpretation and applicable procedures. References: C4ISTAR Weapon System Integration, slide 18; C4ISTAR Sensors Integration, page 16.",
+    "id": 26,
+    "qid": "modulefive-m-26"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Weapon System Integration",
+    "tags": [
+      "integrated scenario",
+      "architecture and security",
+      "integration and assurance"
+    ],
+    "prompt": "An integrator makes a report technically accessible to a second system. The user asks whether access approval is now unnecessary. Which answer fits?",
+    "options": [
+      "The integrator's connection replaces every recipient authorization check",
+      "The sender's radio model determines the recipient's need for access",
+      "The receiving display's successful login settles the report's release",
+      "The exchange path still requires the applicable access safeguards"
+    ],
+    "answer": 3,
+    "explanation": "An integrator enables exchanges; it does not remove authentication, authorization and other safeguards required by the integrated system. References: C4ISTAR Weapon System Integration, slide 24; MANET C4ISTAR Planning, pages 69, 70.",
+    "id": 27,
+    "qid": "modulefive-m-27"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Weapon System Integration",
+    "tags": [
+      "integrated scenario",
+      "interoperability principles",
+      "integration responsibilities and testing"
+    ],
+    "prompt": "A replacement component has the same physical connector as the old one. Its message format changed. What is needed before claiming compatibility?",
+    "options": [
+      "Approve the replacement based only on fitting the same connector",
+      "Use the previous component's test record as the replacement's result",
+      "Assess compatibility only after discarding the interface documentation",
+      "Review the exchange specification and test the replacement's interpretation"
+    ],
+    "answer": 3,
+    "explanation": "An ICD defines exchange rules, and modular upgrades must preserve compatibility. Physical fit alone does not establish compatible message meaning. References: C4ISTAR Weapon System Integration, slide 20; C4ISTAR Sensors Integration, page 29.",
+    "id": 28,
+    "qid": "modulefive-m-28"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Weapon System Integration",
+    "tags": [
+      "integrated scenario",
+      "architecture and security",
+      "integration and assurance"
+    ],
+    "prompt": "A TCP/IP connection transfers a file between two training systems. The acceptance requirement also includes voice coordination. Which statement is justified?",
+    "options": [
+      "The file-transfer result proves every receiver has the same permissions",
+      "The voice requirement is irrelevant once application data can move",
+      "The file-transfer result does not demonstrate the separate voice requirement",
+      "The shared transport standard completes every required service test"
+    ],
+    "answer": 2,
+    "explanation": "The lessons distinguish network communication from application/service requirements. Each required service needs relevant evidence. References: C4ISTAR Weapon System Integration, slide 23; MANET C4ISTAR Planning, pages 69, 72, 73.",
+    "id": 29,
+    "qid": "modulefive-m-29"
+  },
+  {
+    "difficulty": "medium",
+    "category": "C4ISTAR Weapon System Integration",
+    "tags": [
+      "integrated scenario",
+      "configuration concepts and evolution",
+      "integration responsibilities and testing"
+    ],
+    "prompt": "A project lists communications and sensor equipment but no ownership of maintenance or information handoffs. Which addition best strengthens the architecture?",
+    "options": [
+      "A longer equipment inventory without assigning responsibilities",
+      "A single hardware diagram used in place of an operating process",
+      "A rule letting the first available user settle every interface decision",
+      "Named responsibilities and coordinated processes for the two capability areas"
+    ],
+    "answer": 3,
+    "explanation": "The architecture relates actors and processes to information. The complementary C4 and sensor responsibilities need explicit coordination rather than equipment-only planning. References: C4ISTAR Weapon System Integration, slide 29; C4ISTAR Sensors Integration, page 27.",
+    "id": 30,
+    "qid": "modulefive-m-30"
+  }
+]

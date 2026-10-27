@@ -130,6 +130,7 @@ export async function engineSuite(lesson) {
     const warning = byId(app, 'study-warning').textContent.replace(/\s+/g, ' ');
     assert.ok(warning.includes(text.studyWarningLead) && warning.includes(text.studyWarningBody), 'the warning text comes from the lesson');
     if (pool) for (const source of pool.lessons) assert.ok(warning.includes(source.name), `the warning names ${source.name}`);
+    else if (text.topicsHeading === 'Lesson analysis') for (const name of lesson.categoryOrder) assert.ok(warning.includes(name), `the module warning names ${name}`);
     else assert.ok(warning.includes(`complete ${lesson.lessonName} lesson`), 'the warning names the lesson');
     assert.ok(isShown(byId(app, 'view-landing')));
     for (const mode of MODES) {

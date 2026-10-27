@@ -17,11 +17,13 @@ The whole site is published from this repository with GitHub Pages at https://at
   | Module 4 | Signal Support in Combined Arms Operations | `signal` | `/quiz-hub/signal-support/` |
   | Module 4 | Signal Support in Joint Operations | `signaljoint` | `/quiz-hub/joint-signal/` |
   | Module 4 | Signal Support in Coalition Operations | `coalition` | `/quiz-hub/coalition-signal/` |
+  | Module 5 | Module 5 Exam (30 questions, 10 per available lesson) | `modulefive` | `/quiz-hub/module-5-exam/` |
   | Module 5 | MANET C4ISTAR Planning | `manet` | `/quiz-hub/manet-c4istar-planning/` |
   | Module 5 | C4ISTAR Sensors Integration | `sensors` | `/quiz-hub/c4istar-sensors-integration/` |
   | Module 5 | C4ISTAR Weapon System Integration | `weapons` | `/quiz-hub/c4istar-weapon-system-integration/` |
   | Module 6 | Signals Intelligence (SIGINT) | `sigint` | `/quiz-hub/signals-intelligence/` |
   | Module 6 | Radio Direction Finding | `rdf` | `/quiz-hub/radio-direction-finding/` |
+  | Module 7 | Module 7 Exam (32 questions, 8 per lesson) | `moduleseven` | `/quiz-hub/module-7-exam/` |
   | Module 7 | NIST Framework | `nist` | `/quiz-hub/nist-framework/` |
   | Module 7 | Zero Trust | `zerotrust` | `/quiz-hub/zero-trust/` |
   | Module 7 | LOE3 GSOMIA Compliance | `gsomia` | `/quiz-hub/gsomia-compliance/` |
@@ -35,7 +37,7 @@ The whole site is published from this repository with GitHub Pages at https://at
 
 The old per-lesson repositories now only redirect to these URLs.
 
-The seven new Module 5/7 lesson quizzes contain 450 questions: NIST and Zero Trust have 25 per difficulty, and MANET, Sensors, Weapon Systems, GSOMIA and Cyber Risk have 20. No new combined Module 5/7 exam is included. Existing oversized banks have 35 per difficulty; SIGINT, RDF and Intelligence Cycle retain 25. Every lesson's `coverage.md` maps assessed topics and records source limitations. Raw source decks are not published. CipherDesk is a standalone tool.
+The seven Module 5/7 lesson quizzes contain 450 questions: NIST and Zero Trust have 25 per difficulty, and MANET, Sensors, Weapon Systems, GSOMIA and Cyber Risk have 20. The two separate hybrid module exams add 186 question records: Module 5 has 30 per difficulty across its three available lessons; Module 7 has 32 across all four lessons. Each mode combines 50% selected foundations with 50% new cross-lesson scenarios. Their `coverage.json` maps primary lessons, origins and supporting source qids; explanations cite lesson names and pages/slides. They have independent history and question identities. Existing oversized banks have 35 per difficulty; SIGINT, RDF and Intelligence Cycle retain 25. Every lesson's `coverage.md` maps assessed topics and records source limitations. Raw source decks are not published. CipherDesk is a standalone tool.
 
 No login, analytics, cookies, external fonts or scripts. Everything is inline HTML/CSS/JS, plus the shared files in `assets/` (photos, the self-hosted fonts and the paper grain).
 

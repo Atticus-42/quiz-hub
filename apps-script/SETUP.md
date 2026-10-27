@@ -32,6 +32,8 @@ The tab names live in `LESSONS` at the top of `Code.gs`. A new lesson's key must
 
 The POI display realignment does not rename any history tab. In particular, `modulethree` keeps `Module 3 Exam History` while displaying Module 4 on the site; `sigint` and `rdf` now appear in Module 6, and `intcycle` in Supporting Lessons. The server still accepts older attempt totals so previously open quiz pages can save normally.
 
+Revision 11 was deployed on 27 October 2026 with two additive keys: `modulefive` → `Module 5 Exam History` and `moduleseven` → `Module 7 Exam History`. Read-only item-analysis requests returned `ok:true`, version 7 and zero existing rows for both new keys. The endpoint, permissions and earlier tabs were preserved; no synthetic attempts were written.
+
 ## Privacy and housekeeping
 
 - The web app is public: anyone with the `/exec` URL (visible in the page source) can read recent names and scores, and could add rows. Ask students to use a first name or a class username.

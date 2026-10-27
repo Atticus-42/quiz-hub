@@ -71,8 +71,8 @@ export async function buildSuite({ lessons, modules }) {
   });
 
   await T('every lesson folder loads: unique keys, slugs and qids; modules exist; the combined exam is a pool of the four Module 2 lessons', () => {
-    assert.deepEqual(lessons.map(lesson => lesson.key), ['combined','fieldartillery','armor','isr','modulethree','signal','signaljoint','coalition','manet','sensors','weapons','sigint','rdf','nist','zerotrust','gsomia','cyberrisk','armyops','intcycle']);
-    assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined','field-artillery','armor','isr','module-3-exam','signal-support','joint-signal','coalition-signal','manet-c4istar-planning','c4istar-sensors-integration','c4istar-weapon-system-integration','signals-intelligence','radio-direction-finding','nist-framework','zero-trust','gsomia-compliance','cyber-risk-assessment','army-operations','intelligence-cycle']);
+    assert.deepEqual(lessons.map(lesson => lesson.key), ['combined','fieldartillery','armor','isr','modulethree','signal','signaljoint','coalition','modulefive','manet','sensors','weapons','sigint','rdf','moduleseven','nist','zerotrust','gsomia','cyberrisk','armyops','intcycle']);
+    assert.deepEqual(lessons.map(lesson => lesson.slug), ['combined','field-artillery','armor','isr','module-3-exam','signal-support','joint-signal','coalition-signal','module-5-exam','manet-c4istar-planning','c4istar-sensors-integration','c4istar-weapon-system-integration','signals-intelligence','radio-direction-finding','module-7-exam','nist-framework','zero-trust','gsomia-compliance','cyber-risk-assessment','army-operations','intelligence-cycle']);
     assert.deepEqual(modules.map(module => module.id), ['module-2','module-4','module-5','module-6','module-7','supplemental']);
     const combined = lessons.find(lesson => lesson.key === 'combined');
     assert.deepEqual(combined.pool, { lessons: ['isr', 'armor', 'fieldartillery', 'armyops'], count: 30 });

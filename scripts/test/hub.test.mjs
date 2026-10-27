@@ -134,7 +134,7 @@ test('MODULES config is generated from lessons/*/lesson.json: unique ids, keys a
   assert.equal(new Set(exams.map((e) => e.url)).size, EXAM_COUNT);
   assert.deepEqual(MODULE_2.slice(0, 5), ['combined','fieldartillery','armor','isr']);
   assert.deepEqual(MODULE_3, ['modulethree', 'signal', 'signaljoint', 'coalition']);
-  assert.deepEqual(MODULE_5, ['manet','sensors','weapons']);
+  assert.deepEqual(MODULE_5, ['modulefive','manet','sensors','weapons']);
   for (const e of exams) {
     assert.equal(e.url, EXPECTED[e.key], `url for ${e.key}`);
     assert.equal(e.lesson, e.key);
@@ -142,7 +142,7 @@ test('MODULES config is generated from lessons/*/lesson.json: unique ids, keys a
     assert.ok(MODULE_EXAMS[e.module].includes(e.key), `module back-reference for ${e.key}`);
   }
   assert.deepEqual([...exams.find((e) => e.key === 'combined').tags].map((tag) => tag.text), ['All four lessons', '30 questions', 'Easy · Medium · Hard']);
-  assert.deepEqual([...exams.filter((e) => e.prominent).map((e) => e.key)], ['combined','modulethree']);
+  assert.deepEqual([...exams.filter((e) => e.prominent).map((e) => e.key)], ['combined','modulethree','modulefive','moduleseven']);
   assert.deepEqual([...exams.find((e) => e.key === 'modulethree').tags].map((tag) => tag.text), ['All three lessons', '30 questions', 'Easy · Medium · Hard']);
   for (const lesson of lessons.filter((item) => !item.pool)) {
     const counts = ['easy', 'medium', 'hard'].map((mode) => lesson.attempts[mode]);

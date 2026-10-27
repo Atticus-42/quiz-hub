@@ -32,7 +32,7 @@ Source: `Program of Instruction.pdf`, supplied by the owner and reviewed on 25 O
 
 The POI also explicitly labels these as **Off-POI**: Electronic counter measure (Module 6); Cyber defense operation (Offensive Operation), Information Network Operation and Active Defense Operation (Module 7). Do not invent numbered POI entries for them. If later supplied, retain their supplemental status and review their scope before publishing.
 
-## Published placement (26 October 2026)
+## Published placement (27 October 2026)
 
 - `signal`, `signaljoint`, `coalition`: POI 4.1, 4.2, 4.3.
 - `modulethree`: Module 4 exam, 30 questions (10 from each signal-support lesson). Its existing URL/history key remains for compatibility.
@@ -42,6 +42,7 @@ The POI also explicitly labels these as **Off-POI**: Electronic counter measure 
 - `armyops`: supporting material. The supplied 55-page Introduction to Army Operations source (objectives on page 6; roadmap on page 7) covers broad Army principles, operational platforms, full-spectrum operations and Army power, rather than a distinct Infantry Operations lesson. It keeps its title and route. The 30-question Combined Practice Exam explicitly includes this supporting lesson alongside the three available Module 2 lessons; it does not claim complete POI Module 2 coverage.
 - Seven oversized legacy banks now contain 35 questions per difficulty, selected by category/concept coverage. Individual coverage reports list retained and retired identities. Previously valid 25-question banks remain 25. Retained question meanings and historical result identifiers are preserved.
 - New Module 5: MANET, Sensors Integration and Weapon System Integration, 20 questions per difficulty each. New Module 7: NIST and Zero Trust, 25 per difficulty each; GSOMIA and Cyber Risk Assessment, 20 per difficulty each. Total new questions: 450. Coverage reports identify their sources and limitations.
+- `modulefive`: hybrid Module 5 exam, 30 per difficulty (10 per available lesson), explicitly limited to 5.3–5.5. `moduleseven`: hybrid Module 7 exam, 32 per difficulty (8 per lesson), covering 7.1–7.4. Half of each primary lesson share consists of selected foundations; half consists of new scenarios integrating multiple lessons. Independent module qids and history tabs preserve individual lesson records. Unsupported Module 5 subjects remain absent.
 
 ## Source inventory at the initial review
 

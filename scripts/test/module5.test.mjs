@@ -41,5 +41,6 @@ test('class-history registry accepts Module 5 while rejecting unknown keys',()=>
   assert.equal(context.tabFor('intcycle'),'Intelligence Cycle History');
   assert.equal(context.tabFor('rdf'),'RDF History');
   assert.equal(context.tabFor('sigint'),'SIGINT History');
-  assert.equal(context.tabFor('modulefive'),null);
+  assert.equal(context.tabFor('modulefive'),'Module 5 Exam History');
+  assert.equal(context.tabFor('moduleunknown'),null);
 });
