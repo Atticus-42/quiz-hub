@@ -53,6 +53,12 @@ export async function engineSuite(lesson) {
   }
   const modeButtons = app => MODES.map(mode => byId(app, `mode-${mode}`));
   const radios = app => findAll(byId(app, 'question-area'), node => node.localName === 'input' && node.type === 'radio');
+  function assertExplanationPresent(container, question) {
+    const paragraphs = findAll(container, node => hasClass(node, 'explanation-text') || hasClass(node, 'source-ref'));
+    const rendered = normalize(paragraphs.map(node => node.textContent).join(' '));
+    const authored = normalize(question.explanation.replace(/\breferences?:/gi, ''));
+    assert.ok(rendered.includes(authored), `${question.qid}: explanation and citations must remain complete`);
+  }
   function enterName(app, name) {
     const input = byId(app, 'student-name');
     input.value = name;
@@ -347,10 +353,11 @@ export async function engineSuite(lesson) {
     assert.match(feedbackText, /Incorrect/);
     assert.ok(feedbackText.includes(`Correct answer: ${LETTERS[first.answer]}. ${first.options[first.answer]}`), feedbackText);
     assert.ok(feedbackText.includes(`Your answer: ${LETTERS[wrong]}. ${first.options[wrong]}`), feedbackText);
-    assert.ok(feedbackText.includes(first.explanation));
+    assertExplanationPresent(feedback, first);
     const refs = findAll(feedback, node => hasClass(node, 'source-ref')).map(node => node.textContent);
     if (ref && Array.isArray(first.sourceSlides)) assert.deepEqual(refs, [`Lesson reference: ${ref.label} ${first.sourceSlides.join(', ')}`]);
-    else assert.deepEqual(refs, [], 'no reference line without sourceSlides');
+    else if (/\breferences?:/i.test(first.explanation) || (pool && first.explanation.includes(' (' + first.lesson + ', '))) assert.ok(refs.length > 0, 'authored citations have separate references');
+    else assert.deepEqual(refs, [], 'no invented references when none are supplied');
     assert.doesNotMatch(feedbackText, /undefined/);
     const labels = findAll(byId(app, 'question-area'), node => node.localName === 'label');
     assert.ok(labels[first.answer].classList.contains('option-correct'));
@@ -361,7 +368,7 @@ export async function engineSuite(lesson) {
     radios(app)[second.answer].click();
     byId(app, 'btn-check').click();
     assert.match(byId(app, 'answer-feedback').textContent, /^\s*Correct\./);
-    assert.ok(byId(app, 'answer-feedback').textContent.includes(second.explanation));
+    assertExplanationPresent(byId(app, 'answer-feedback'), second);
   });
 
   await T('validateBanks accepts the embedded banks and mirrors the build validator error-for-error', () => {
@@ -520,7 +527,7 @@ export async function engineSuite(lesson) {
       assert.ok(reviewText.includes(`${text.topicNoun}: ${question.category}`), `review ${index + 1} topic`);
       assert.ok(reviewText.includes(`Your answer: ${LETTERS[selected]}. ${question.options[selected]}`), `review ${index + 1} answer`);
       assert.ok(reviewText.includes(`Correct answer: ${LETTERS[question.answer]}. ${question.options[question.answer]}`), `review ${index + 1} key`);
-      assert.ok(reviewText.includes(question.explanation), `review ${index + 1} explanation`);
+      assertExplanationPresent(item, question);
       assert.match(reviewText, everyFifthWrong(index) ? /Correct/ : /Incorrect/);
     });
     byId(app, 'btn-print').click();

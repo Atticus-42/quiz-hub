@@ -40,7 +40,7 @@ const server=http.createServer((req,res)=>{
      const answer=state.attempt.questions[i].answer,choice=i===0?(answer+1)%4:answer;
      await page.locator(`label[for="answer-option-${choice}"]`).click();await page.locator('#btn-check').click();
      assert.ok(await page.locator('#answer-feedback').isVisible());
-     if(moduleExams)assert.match(await page.locator('#answer-feedback').innerText(),/References?:/);
+     if(moduleExams)assert.ok(await page.locator('#answer-feedback .explanation-references').isVisible());
      assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),`${slug}/${mode}/${width} overflow`);
      if(i===1){await page.keyboard.press('z');assert.equal((await page.evaluate(()=>window.__quiz.getState())).attempt.current,0);await page.locator('#btn-next').click();}
      if(i<total-1)await page.locator('#btn-next').click();

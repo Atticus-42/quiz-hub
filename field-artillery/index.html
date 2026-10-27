@@ -737,7 +737,9 @@
     .section-label { margin: 0; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text); }
     .explanation > .section-label { padding-top: 0.2rem; border-top: 3px solid var(--lesson-accent); align-self: start; }
     .explanation-text { margin: 0; max-width: 68ch; font-size: var(--text-body); line-height: 1.55; }
-    .source-ref { margin: var(--space-3) 0 0; padding-top: var(--space-2); border-top: 1px solid var(--color-hairline); font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
+    .explanation-references { margin-top: var(--space-3); background: var(--color-paper); }
+    .source-ref { margin: 0; max-width: 68ch; font-size: var(--text-ui); line-height: 1.55; color: var(--color-muted); overflow-wrap: anywhere; }
+    .source-ref + .source-ref { margin-top: var(--space-2); }
     .quiz-actions, .results-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
 
     /* Results: a debrief. Big Mono score, stamped band, topic table with bar sparklines, missed list. */
@@ -2183,14 +2185,35 @@
     }
 
     function explanationBlock(question, className) {
-      var block = make('div', 'explanation ' + className);
-      block.append(
+      var block = make('div', 'explanation-group ' + className);
+      var note = question.explanation;
+      var references = [];
+      // Module banks carry explicit multi-source citations in their authored text.
+      var marker = /\s+References?:\s*/i.exec(note);
+      if (marker && note.slice(marker.index + marker[0].length).trim()) {
+        references.push(note.slice(marker.index + marker[0].length).trim());
+        note = note.slice(0, marker.index).trim();
+      }
+      // Existing pool banks append a known lesson's citation, not arbitrary parentheses.
+      var citationAt = question.lesson ? note.lastIndexOf(' (' + question.lesson + ', ') : -1;
+      if (citationAt >= 0 && note.charAt(note.length - 1) === ')') {
+        references.push(note.slice(citationAt + 2, -1));
+        note = note.slice(0, citationAt).trim();
+      }
+      var noteBlock = make('div', 'explanation explanation-note');
+      noteBlock.append(
         make('p', 'section-label', 'Note'),
-        make('p', 'explanation-text', question.explanation)
+        make('p', 'explanation-text', note)
       );
-      // The lesson reference line appears only for questions that carry sourceSlides.
+      block.appendChild(noteBlock);
       if (SOURCE_REF && Array.isArray(question.sourceSlides) && question.sourceSlides.length) {
-        block.appendChild(make('p', 'source-ref', 'Lesson reference: ' + SOURCE_REF.label + ' ' + question.sourceSlides.join(', ')));
+        references.push('Lesson reference: ' + SOURCE_REF.label + ' ' + question.sourceSlides.join(', '));
+      }
+      if (references.length) {
+        var referenceBlock = make('div', 'explanation explanation-references');
+        referenceBlock.appendChild(make('p', 'section-label', 'References'));
+        references.forEach(function (reference) { referenceBlock.appendChild(make('p', 'source-ref', reference)); });
+        block.appendChild(referenceBlock);
       }
       return block;
     }
