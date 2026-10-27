@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import { ROOT as root, HISTORY_ENDPOINT as ENDPOINT } from '../build.mjs';
-import { test as runTest, withoutFontPreloads, cssUrls, isLocalAsset } from './harness.mjs';
+import { test as runTest, withoutFontPreloads, cssUrls, isLocalAsset, parseHtml, findAll } from './harness.mjs';
 
 export async function hubSuite({ lessons }) {
 const html = readFileSync(join(root, 'index.html'), 'utf8');
@@ -196,7 +196,7 @@ test('no external URLs except the history endpoint; quiz, class and instructor l
   const hrefs = [...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map((m) => m[1]);
     const allowedHref = new Set([...Object.values(EXPECTED), './', 'class/', 'schedule/?v=day-picker-2', 'instructor/', 'codes-ciphers/', '#main', '#choose-module', ...Object.keys(MODULE_EXAMS).map((id) => `#${id}`)]);
   assert.deepEqual(hrefs.filter((href) => !allowedHref.has(href)), [], 'every link is a quiz folder, the class or instructor page, or an in-page fragment');
-  const nonAsset = html.replace(/<(?:img|source)\b[^>]*>/gi, (tag) => (/\b(?:src|srcset)="(?:assets\/[\w-]+\.jpg(?: [\w.]+)?(?:, )?)+"/.test(tag) && !/\/\/|https?:/i.test(tag) ? '' : tag));
+  const nonAsset = html.replace(/<(?:img|source)\b[^>]*>/gi, (tag) => (/\b(?:src|srcset)="(?:assets\/[\w-]+\.(?:jpg|png)(?: [\w.]+)?(?:, )?)+"/.test(tag) && !/\/\/|https?:/i.test(tag) ? '' : tag));
   assert.ok(!/<(img|iframe|video|audio|source|object|embed)\b/i.test(nonAsset), 'no embedded media except same-origin assets/ images');
 });
 
@@ -503,7 +503,6 @@ test('markup: landmarks, headings, labelled filter group, viewport, lang', () =>
   assert.match(html, /min-height: 44px/);
   assert.match(html, /prefers-reduced-motion: reduce/);
   assert.match(html, /@media print/);
-  assert.match(html, /<div class="hero-art" aria-hidden="true">/);
   assert.match(html, /Class score history summary/);
 });
 
@@ -527,6 +526,22 @@ test('topographic contours: decorative, fixed, sliced, quiet, in the margins onl
   assert.match(css, /\.hero, main \{ position: relative; z-index: 1; \}/);
   // Cards and tables keep solid surfaces over the map.
   for (const sel of ['.exam-card {', '.module-card {', '.history-card {']) assert.match(css.slice(css.indexOf(sel)), /^[^}]*background: var\(--color-surface\)/, sel);
+});
+
+test('hub masthead presents the accessible class crest from a local, dimensioned PNG', () => {
+  const doc = parseHtml(html);
+  const crest = doc.getElementById('class-crest');
+  assert.ok(crest, 'the masthead must display the supplied class crest');
+  const image = findAll(crest, node => node.localName === 'img')[0];
+  assert.ok(image, 'the crest must use the real logo image');
+  assert.match(image.getAttribute('alt'), /Bandwidth Brothers/);
+  for (let node = image; node; node = node.parentNode) assert.notEqual(node.getAttribute?.('aria-hidden'), 'true');
+  const src = image.getAttribute('src');
+  assert.ok(src.startsWith('assets/') && src.endsWith('.png'), 'self-host the supplied PNG');
+  const bytes = readFileSync(join(root, src));
+  assert.equal(bytes.subarray(1, 4).toString(), 'PNG');
+  assert.equal(Number(image.getAttribute('width')), bytes.readUInt32BE(16));
+  assert.equal(Number(image.getAttribute('height')), bytes.readUInt32BE(20));
 });
 
 test('Bandwidth Brothers banner sits above the hero with srcset, dimensions, priority and alt text', () => {

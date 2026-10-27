@@ -57,11 +57,20 @@
     }
     .hero-link::after { content: "\2192"; font-family: var(--font-mono); color: var(--color-signal-text); text-decoration: none; }
     .hero-link:hover { color: var(--color-accent); text-decoration-thickness: 2px; }
-    .hero-art { min-width: 0; color: var(--color-accent); }
-    .hero-art svg { display: block; width: 100%; max-width: 100%; height: auto; border: 1px solid var(--color-text); }
-    .hero-art svg * { vector-effect: non-scaling-stroke; }
-    .hero-art text { font-family: var(--font-mono); font-size: 8px; font-weight: 500; letter-spacing: 0.1em; fill: var(--color-text); }
-    .hero-art .art-cap { display: flex; justify-content: space-between; gap: var(--space-3); margin: var(--space-2) 0 0; color: var(--color-muted); }
+    /* The class patch, presented as an insignia plate rather than a diagram. */
+    .hero-art { min-width: 0; margin: 0; align-self: center; }
+    .crest-edition { display: flex; align-items: center; justify-content: space-between; gap: .5rem; margin: 0; padding-block: .65rem; border-block: 1px solid var(--color-rule); color: var(--color-muted); }
+    .crest-bars { display: flex; align-items: end; gap: 3px; height: 14px; }
+    .crest-bars i { display: block; width: 3px; background: #c6a452; }
+    .crest-bars i:nth-child(1) { height: 5px; }
+    .crest-bars i:nth-child(2) { height: 9px; }
+    .crest-bars i:nth-child(3) { height: 14px; }
+    .crest-mount { position: relative; display: grid; place-items: center; padding: 1.25rem .75rem; }
+    .crest-mount::before { content: ""; position: absolute; inset: 1.5rem .25rem; border: 1px solid var(--color-rule); border-radius: 50%; }
+    .crest-mount img { position: relative; display: block; width: 100%; max-width: 18rem; height: auto; aspect-ratio: 1; object-fit: contain; transform: rotate(-5deg); filter: drop-shadow(0 6px 5px #1e211b26); }
+    .crest-caption { position: relative; text-align: center; border-top: 1px solid var(--color-rule); padding-top: .8rem; }
+    .crest-name { display: block; font-size: clamp(1.2rem, 1rem + .6vw, 1.6rem); font-weight: 600; line-height: 1.1; }
+    .crest-motto { display: block; margin-top: .5rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .625rem; letter-spacing: .09em; text-transform: uppercase; line-height: 1.7; }
 
     main { padding-bottom: var(--space-4); }
     h2 { font-size: var(--text-h3); }
@@ -206,7 +215,7 @@
     }
     @media (max-width: 760px) {
       .hero-inner { grid-template-columns: 1fr; padding-block: var(--space-5); }
-      .hero-art { max-width: 20rem; margin-top: var(--space-5); }
+      .hero-art { width: 100%; max-width: 17rem; margin: var(--space-5) auto 0; }
       .module-grid { grid-template-columns: 1fr; }
       .module-card { padding: var(--space-3) var(--space-4) var(--space-4) var(--space-5); }
       .toc-head { display: none; }
@@ -287,35 +296,13 @@
         </dl>
         <p class="hero-nav"><a class="hero-link" id="schedule-link" href="schedule/?v=day-picker-2">This week's schedule</a><a class="hero-link" id="class-link" href="class/">Our class: Bandwidth Brothers</a></p>
       </div>
-      <div class="hero-art" aria-hidden="true">
-        <svg viewBox="0 0 240 180" aria-hidden="true" focusable="false">
-          <g fill="none" stroke="currentColor">
-            <path stroke-width="0.75" stroke-opacity="0.5" d="M37 40h6M40 37v6M77 40h6M80 37v6M117 40h6M120 37v6M157 40h6M160 37v6M197 40h6M200 37v6M37 80h6M40 77v6M77 80h6M80 77v6M117 80h6M120 77v6M157 80h6M160 77v6M197 80h6M200 77v6M37 120h6M40 117v6M77 120h6M80 117v6M117 120h6M120 117v6M157 120h6M160 117v6M197 120h6M200 117v6"/>
-            <path stroke-width="0.75" d="M40 0v5M80 0v5M120 0v5M160 0v5M200 0v5M40 175v5M80 175v5M120 175v5M160 175v5M200 175v5M0 40h5M0 80h5M0 120h5M0 160h5M235 40h5M235 80h5M235 120h5M235 160h5"/>
-            <path stroke-width="0.9" stroke-dasharray="3 4" d="M10 128Q70 98 130 114T234 100M14 150Q80 124 140 138T236 128M60 68Q110 42 160 60T230 54"/>
-            <path stroke="#1e211b" stroke-width="1.1" d="M42 124L84 86L120 108L160 70"/>
-            <path stroke="#d9541e" stroke-width="1.4" stroke-dasharray="5 3" d="M160 70L194 92"/>
-            <g stroke="#1e211b" stroke-width="1.1" fill="#f3efe4">
-              <circle cx="42" cy="124" r="5"/>
-              <circle cx="84" cy="86" r="5"/>
-              <circle cx="120" cy="108" r="5"/>
-              <circle cx="160" cy="70" r="5"/>
-            </g>
-            <g stroke="#d9541e" stroke-width="1.3">
-              <circle cx="198" cy="94" r="11" fill="#f3efe4"/>
-              <circle cx="198" cy="94" r="3.5" fill="#d9541e" stroke="none"/>
-              <path d="M198 77V83M198 105V111M181 94H187M209 94H215"/>
-            </g>
-          </g>
-          <text x="34" y="142">SP</text>
-          <text x="76" y="76">CP1</text>
-          <text x="112" y="126">CP2</text>
-          <text x="152" y="60">CP3</text>
-          <text x="186" y="124">OBJ</text>
-          <text x="10" y="18">ROUTE · MODULE 02 → 03</text>
-        </svg>
-        <p class="art-cap label"><span>Fig. 1a — Route card</span><span>Not to scale</span></p>
-      </div>
+      <figure class="hero-art" id="class-crest">
+        <p class="crest-edition label"><span>SOAC 52 · 2026</span><span class="crest-bars" aria-hidden="true"><i></i><i></i><i></i></span></p>
+        <div class="crest-mount">
+          <img src="assets/bandwidth-brothers-colored.png" width="2508" height="2508" decoding="async" alt="Bandwidth Brothers class crest: soldiers raising a signal antenna">
+        </div>
+        <figcaption class="crest-caption"><span class="crest-name">Bandwidth Brothers</span><span class="crest-motto">One frequency. One brotherhood.</span></figcaption>
+      </figure>
     </div>
   </header>
 
