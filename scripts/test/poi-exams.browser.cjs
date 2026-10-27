@@ -70,6 +70,8 @@ const server=http.createServer((req,res)=>{
     flows++;
    }
    await page.goto(origin+'/#module-7');assert.equal(await page.locator('#exam-grid-module-7 > li').count(),5);
+   assert.equal(await page.locator('#class-crest img').evaluate(img=>getComputedStyle(img).transform),'none','class logo stays upright');
+   assert.equal(await page.locator('.crest-mount').evaluate(mount=>getComputedStyle(mount,'::before').content),'none','class crest has no extra oval outline');
    await page.screenshot({path:path.join(out,`hub-${width}.png`),fullPage:false});
    const overflow=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,items:[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>innerWidth+1).slice(0,12).map(e=>({tag:e.tagName,id:e.id,cls:e.className,right:e.getBoundingClientRect().right}))}));
    assert.ok(overflow.scroll<=overflow.width,JSON.stringify(overflow));
