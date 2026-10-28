@@ -42,3 +42,15 @@ test('confirmed giveaway distractors are replaced by relevant alternatives',()=>
 test('the two module exams retain distinct, source-matched foundation alternatives',()=>{
  for(const lesson of lessons.filter(l=>['modulefive','moduleseven'].includes(l.key)))for(const bank of Object.values(lesson.banks))for(const q of bank)assert.equal(new Set(q.options.map(o=>o.trim().toLowerCase())).size,4,q.qid);
 });
+test('release review: the release decision explicitly concerns the additional fields',()=>{
+ const access=all.find(q=>q.qid==='moduleseven-h-13');
+ assert.match(access.prompt,/For those additional fields, which access decision follows both lessons\?$/);
+ assert.match(access.options[0],/extract containing those fields/);
+});
+test('release review: a limitation key has competing limitations',()=>{
+ for(const qid of ['weapons-h-17','modulefive-h-25']){
+  const q=all.find(q=>q.qid===qid);assert.ok(q,qid);
+  assert.match(q.prompt,/documented equipment specifications, interfaces and applicable standards/);
+  for(const option of q.options)assert.match(option,/\bcannot\b/i,`${qid}: the key must not be the only limiting assessment`);
+ }
+});

@@ -49,7 +49,7 @@ Alternatives now use relevant neighboring concepts or plausible incomplete decis
 | `weapons-e-09` | Compare connection boundaries with plausible internal standardization targets. |
 | `weapons-e-17` | All alternatives now describe credible system-planning elements at comparable scope. |
 | `weapons-m-02` | Use relevant asset/procurement criteria and specify the mission/environment suitability comparison. |
-| `weapons-h-17` | Compare credible but incomplete architecture-acceptance approaches instead of denying the role of people. |
+| `weapons-h-17` | Compare neighboring limitations of a technical evaluation; all four alternatives state a limitation so answer form does not identify the key. |
 | `nist-m-23` | Use related coordination artifacts rather than brand, wallpaper or suppression of unit risk judgments. |
 | `zerotrust-e-16` | Compare the decision function with nearby architecture-component functions. |
 | `zerotrust-m-15` | Use relevant implementation questions that do not by themselves establish the architecture's policy purpose. |
@@ -97,7 +97,7 @@ Alternatives now use relevant neighboring concepts or plausible incomplete decis
 | `moduleseven-m-22` | Use credible privilege-review checks that do not establish current duty-based entitlement. |
 | `moduleseven-m-30` | Compare incomplete but useful assurance evidence rather than declaring corruption or accepting a plan alone. |
 | `moduleseven-h-05` | Compare credible single-factor sequencing and validation criteria instead of cosmetic or paper-only success claims. |
-| `moduleseven-h-13` | Compare limited-access proposals whose controls do not establish release authority for the extra fields. |
+| `moduleseven-h-13` | Compare limited-access proposals whose controls do not establish release authority for the extra fields; explicitly ask about those extra fields so a properly reduced extract is not falsely wrong. |
 | `moduleseven-h-21` | Replace removal of markings and blanket access with plausible controls that still do not expand authorized scope. |
 | `moduleseven-h-29` | Use plausible but premature rankings based on one risk or resource factor. |
 | `signal-m-09` | Replace universal band-selection claims with plausible but incomplete equipment-selection criteria. |
@@ -132,8 +132,12 @@ Alternatives now use relevant neighboring concepts or plausible incomplete decis
 
 ## Verification
 
-Baseline gate: 1,466 passing checks. Release gate: **1,467/1,467 passing** after the focused quality test was added to the standard gate. No existing thresholds were relaxed.
+Baseline gate: 1,466 passing checks. Final release gate: **1,467/1,467 passing** after the focused quality test was added to the standard gate. No existing thresholds were relaxed.
 
-Browser checks: 126 feedback cases and 42 completed results across all 21 exams at 375/1440px; 12 complete Module 5/7 attempts across all three modes at both widths. Zero external history requests or browser errors. One final radio-selection wording correction preserved the existing parallel-list guard; the full gate was rerun afterward.
+Browser checks: 126 feedback cases and 42 completed results across all 21 exams at 375/1440px; 12 complete Module 5/7 attempts across all three modes at both widths. After the final review fixes, all 110 changed items were rendered at both widths (220 cases): four visible alternatives, no horizontal overflow, browser errors or external history requests.
 
-Independent review and live publication evidence follow after the release review.
+The independent reviewer read all 110 changed records and independently checked preservation across all 1,596. Source spot-checks used original Zero Trust, GSOMIA and Weapons Integration material. The review identified one ambiguous access decision and one answer-form cue in an architecture question and its foundation copy. Both were fixed in one pass with failing regression checks observed before the fixes, then six focused checks and the complete 1,467-check gate passing afterward. No unresolved review findings remain.
+
+## Execution decision
+
+Used the existing dedicated task checkout on a feature branch instead of creating another checkout. This preserved the established workspace; isolation relied on exclusive use of that dedicated checkout. Publication follows the already approved workflow after the green release gate.
