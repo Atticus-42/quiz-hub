@@ -222,10 +222,10 @@
     ],
     "prompt": "A team hardens operating systems but ignores its custom web application and unauthorized Wi-Fi. Which areas remain?",
     "options": [
-      "Printer layout and office lighting",
+      "Hardware inventory and administrative privilege management",
       "Application security and wireless access control",
-      "Screen resolution and display calibration",
-      "Annual leave planning and transport scheduling"
+      "Malware defense and data backup recovery",
+      "Host configuration and log collection management"
     ],
     "answer": 1,
     "explanation": "The lesson separately includes application security and wireless access control, beyond host hardening.",
@@ -245,9 +245,9 @@
     "prompt": "A network allows unused services and default device configurations. Which controls address these findings?",
     "options": [
       "Service/protocol restriction and network-device configuration",
-      "Printer maintenance and workstation labeling alone",
-      "Backup frequency and public website styling",
-      "Data disposal and staff travel approval"
+      "Vulnerability scanning and audit-log management",
+      "Application security and wireless access control",
+      "Administrative privileges and malware defense"
     ],
     "answer": 0,
     "explanation": "The legacy control list separately addresses secure network devices and limiting ports, protocols and services.",
@@ -309,9 +309,9 @@
     "prompt": "A unit buys tools but never trains responders or exercises its defenses. Which gap remains?",
     "options": [
       "Skills development, response management and authorized testing",
-      "Excessive use of individual user accounts",
-      "Too many approved backup copies",
-      "A lack of additional decorative network diagrams"
+      "Asset discovery, configuration baselines and automated vulnerability scanning",
+      "Account inventory, privileged-access controls and network boundary management",
+      "Data classification, encryption requirements and backup retention schedules"
     ],
     "answer": 0,
     "explanation": "The controls include skills, incident-response capability, secure engineering and authorized tests of readiness.",

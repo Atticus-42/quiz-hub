@@ -7,10 +7,10 @@
     ],
     "prompt": "A risk workshop excludes a contractor maintaining a key service. What is missing?",
     "options": [
-      "Only the user-interface evaluation",
+      "Workforce awareness and training-related risks",
       "Third-party and supply-chain risks",
-      "Only the internal hardware inventory",
-      "Only the public communications plan"
+      "Business continuity and internal recovery planning",
+      "Internal asset and configuration-management risks"
     ],
     "answer": 1,
     "explanation": "The framework's scope includes supplier and third-party dependencies that can affect enterprise risk. References: NIST Framework, page 8.",
@@ -102,10 +102,10 @@
     ],
     "prompt": "A response drill finds that everyone assumed someone else would report a suspected disclosure. Which improvement most directly addresses the gap?",
     "options": [
-      "Treat the issue as solved because all participants know that reporting matters",
+      "Give designated technical analysts a dedicated reporting dashboard and compare incident-detection times",
       "Assign reporting responsibility and rehearse the required escalation process",
-      "Purchase another monitoring display before clarifying responsibility",
-      "Leave reporting ownership open so each incident can choose its own authority"
+      "Refresh the awareness briefing and compare participants' recognition of reporting triggers",
+      "Add reporting instructions to the common checklist and compare the number of recorded alerts"
     ],
     "answer": 1,
     "explanation": "Govern concerns responsibilities and oversight. Accountability and prompt reporting need a clear owner and process, rather than shared awareness alone. References: NIST Framework, pages 10, 11; LOE3 GSOMIA Compliance, slide 25; LOE3 GSOMIA Compliance, slides 27, 38.",
@@ -256,9 +256,9 @@
     ],
     "prompt": "An access log shows that a prohibited request reached a resource despite a deny decision. What should the team examine first?",
     "options": [
-      "Whether the organization has selected a different CSF Target Profile",
-      "Whether the requester completed the general security awareness course",
-      "Whether the resource appears before the account in the asset inventory",
+      "Whether the access rule was appropriate for the requester's assigned task",
+      "Whether the resource's configuration matches the organization's approved hardening baseline",
+      "Whether the current asset profile contains the requester's device and resource",
       "Whether the decision was correctly enforced at the access path"
     ],
     "answer": 3,
@@ -317,9 +317,9 @@
     "prompt": "A team treats a lesson slide as authority to release a partner's document. What should it do first?",
     "options": [
       "Confirm release authority under the applicable agreement",
-      "Assume all partner information has identical release terms",
-      "Remove the partner logo and publish the remaining text",
-      "Release it because training material mentioned sharing"
+      "Confirm that the proposed transfer uses an approved protected channel",
+      "Confirm that the document's marking matches the team's clearance",
+      "Confirm that the receiving organization participates in the information-sharing activity"
     ],
     "answer": 0,
     "explanation": "General classroom principles do not grant release authority; the actual agreement and authorized process govern release. References: LOE3 GSOMIA Compliance, slides 20, 25.",
@@ -352,10 +352,10 @@
     ],
     "prompt": "Reviewers see an unusual sequence of file accesses. What evidence is most useful initially?",
     "options": [
-      "The printer manufacturer's advertising material",
-      "The office furniture inventory for the same month",
+      "The file's classification marking and approved storage configuration",
+      "Current user-clearance records and the approved project-access roster",
       "Access logs identifying users, times and purposes",
-      "A list of preferred document fonts for the section"
+      "The account's authentication settings and latest security-training record"
     ],
     "answer": 2,
     "explanation": "Logs allow reviewers to examine the access pattern and establish facts without assuming wrongdoing from a pattern alone. References: LOE3 GSOMIA Compliance, slide 35.",
@@ -412,9 +412,9 @@
     "prompt": "A temporary administrator assignment ends, yet its elevated access remains active. Which corrective action best addresses the finding?",
     "options": [
       "Reconcile privileges with current duties and review the relevant access record",
-      "Change the equipment inventory while leaving authorization unchanged",
-      "Keep the privileges until the account password next expires",
-      "Create another shared administrator account for easier oversight"
+      "Reconfirm the account holder's current clearance and retain the approved role assignment",
+      "Review authentication strength and the current password-change record for the elevated account",
+      "Review recent account activity before renewing the existing elevated-role authorization period"
     ],
     "answer": 0,
     "explanation": "Role-based access and privileged-access controls require permissions appropriate to present duties. Access records help assess use and support accountability. References: LOE3 GSOMIA Compliance, slide 34; LOE3 GSOMIA Compliance, slide 35; Cyber Risk Assessment, page 27.",
@@ -505,10 +505,10 @@
     ],
     "prompt": "A team hardens operating systems but ignores its custom web application and unauthorized Wi-Fi. Which areas remain?",
     "options": [
-      "Annual leave planning and transport scheduling",
-      "Printer layout and office lighting",
+      "Host configuration and log collection management",
+      "Hardware inventory and administrative privilege management",
       "Application security and wireless access control",
-      "Screen resolution and display calibration"
+      "Malware defense and data backup recovery"
     ],
     "answer": 2,
     "explanation": "The lesson separately includes application security and wireless access control, beyond host hardening. References: Cyber Risk Assessment, pages 25, 26.",
@@ -565,9 +565,9 @@
     "prompt": "An exercise finds that backups exist, but no one has restored the critical service from them. Which conclusion is warranted?",
     "options": [
       "Recoverability and continuity still need a relevant restoration exercise",
-      "The absence of a restoration test proves every stored backup is corrupted",
-      "The backup inventory is sufficient evidence that the service can recover",
-      "Recovery is established once the staff have written a continuity plan"
+      "Use backup job success records as evidence that the critical service can recover",
+      "Use the approved continuity plan and allocated recovery roles as evidence of recoverability",
+      "Use successful file-integrity checks as evidence of the critical service's restoration capability"
     ],
     "answer": 0,
     "explanation": "A backup's existence does not prove restoration, while continuity exercises provide evidence about recovering capability. The missing test limits the claim without proving backup corruption. References: Cyber Risk Assessment, page 26; NIST Framework, page 27.",

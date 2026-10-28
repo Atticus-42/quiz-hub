@@ -163,9 +163,9 @@
     ],
     "prompt": "A remote platform reduces exposure but adds operator training and maintenance needs. How should it be assessed?",
     "options": [
-      "Reject every remote platform because it needs training",
-      "Assume modular payloads never require maintenance",
-      "Count only exposure reduction and ignore sustainment",
+      "Compare acquisition cost with the existing platform's purchase cost",
+      "Rate exposure reduction using the platform's demonstrated technical performance",
+      "Use the current staffing plan to set the acceptance threshold",
       "Consider the benefit alongside new support requirements"
     ],
     "answer": 3,
@@ -383,9 +383,9 @@
     "prompt": "An integration is declared interoperable solely because cables are connected. What evidence is missing?",
     "options": [
       "Correct usable information exchange under relevant conditions",
-      "Identical purchase dates for the components",
-      "Matching supplier logos on every device",
-      "A larger inventory spreadsheet"
+      "Conformance of the physical connections to approved installation drawings",
+      "Matching data-rate specifications and the selected communication protocol family",
+      "Separate functional acceptance records for the connected hardware components"
     ],
     "answer": 0,
     "explanation": "Interoperability concerns usable exchange between different systems; physical connection alone is insufficient evidence.",
@@ -425,10 +425,10 @@
     ],
     "prompt": "Tests expose a malfunction, but no team tracks correction or retesting. What is incomplete?",
     "options": [
-      "The fact that an initial test was conducted",
-      "The number of people attending the demonstration",
+      "The initial requirements-definition and scoping work",
+      "The baseline inventory and configuration-description record",
       "The validation and responsibility loop",
-      "Only the presentation's decorative layout"
+      "The acquisition and installation-acceptance process"
     ],
     "answer": 2,
     "explanation": "Testing must lead to assigned correction and verification; discovering a problem alone does not establish readiness.",

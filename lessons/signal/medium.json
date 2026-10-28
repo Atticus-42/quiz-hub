@@ -166,13 +166,13 @@
     ],
     "prompt": "An S6 recommends UHF radios for an operation in mountainous Abra solely because UHF is \"the highest frequency band we have.\" What is the best critique of this recommendation?",
     "options": [
-      "None is needed; the highest band always gives the best range, clarity, and security for a mission",
-      "HF should be chosen instead, as the lowest band always covers mountains, valleys, and forests best",
-      "Band choice does not matter, as Combat Net Radio adapts each set to the terrain on its own",
+      "Retain UHF for its data rate, receiver sensitivity, and transmit power, using those specifications as the mission-suitability judgment",
+      "Select HF on the basis of the planned coverage distance, treating interservice compatibility as a later implementation check",
+      "Select the set with the strongest received signal during the initial trial, using that result as the mission-suitability judgment",
       "Frequency category alone is no basis; check coverage, terrain, interoperability, and security needs"
     ],
     "answer": 3,
-    "explanation": "Page 7: do not select a radio based only on its frequency category; determine whether the available equipment can meet the mission's coverage, terrain, interoperability and security requirements. Both \"always higher\" and \"always lower\" rules contradict that guidance.",
+    "explanation": "Page 7: do not select a radio based only on its frequency category; determine whether the available equipment can meet the mission's coverage, terrain, interoperability and security requirements. Equipment specifications, planned distance or one signal trial each provide useful evidence, but none alone establishes suitability across those requirements.",
     "sourceSlides": [
       7
     ]
@@ -345,9 +345,9 @@
     ],
     "prompt": "An S6 built the brigade's communication requirements after speaking only with the commander. Which sources should the S6 also have drawn guidance from?",
     "options": [
-      "Only higher headquarters, the logistics staff, and maintenance teams, as they control resources",
-      "Only subordinate units, their operators, and the CSIRT, as they run and defend the systems",
-      "No others, since the commander's intent alone already defines every requirement",
+      "Other staff, higher and subordinate units, equipment manuals, logistics forecasts, and the brigade resource allocation",
+      "Other staff, subordinate and adjacent units, vendor technical guidance, network diagrams, and maintenance reports",
+      "Higher, subordinate and adjacent units, equipment holdings, maintenance schedules, and the commander's resource priorities",
       "Other staff, higher, subordinate and adjacent units, SOPs, and the CEOI and CESI"
     ],
     "answer": 3,

@@ -139,10 +139,10 @@
     ],
     "prompt": "A training link becomes intermittent after equipment is moved outdoors. The team notices a damaged cable and also suspects environmental effects. Which approach is best supported?",
     "options": [
-      "Attribute every interruption to interference before inspecting the cable",
-      "Treat a past indoor test as evidence that the cable is sound",
+      "Diagnose outdoor propagation from the previously successful indoor test",
+      "Replace the radio with a higher-capacity set to offset the observed packet interruptions",
       "Inspect the visible condition and assess relevant environmental evidence",
-      "Use the sensor inventory alone to select a replacement waveform"
+      "Adjust service priorities to restore the traffic pattern seen in the earlier indoor trial"
     ],
     "answer": 2,
     "explanation": "The sources support physical-condition checks and consideration of environmental constraints. Neither a suspected cause nor an earlier successful test is a complete diagnosis. References: MANET C4ISTAR Planning, page 25; C4ISTAR Sensors Integration, page 18.",
@@ -231,12 +231,12 @@
     "tags": [
       "interoperability and requirements"
     ],
-    "prompt": "A team wants commercial phones for protected information without checking policy. What is missing?",
+    "prompt": "A team proposes commercial phones for protected information. Which requirement governs whether that proposed use is permitted?",
     "options": [
-      "A more attractive phone wallpaper",
+      "Service contracts and staff training",
       "Applicable COMSEC and authorized-use requirements",
-      "A rule that convenience overrides information handling",
-      "A guarantee that commercial means are always prohibited"
+      "Vendor assurance and procurement approval",
+      "Approved encryption and device inventory"
     ],
     "answer": 1,
     "explanation": "Special-purpose commercial communications are governed by policy; convenience is not sufficient authorization. References: C4ISTAR Sensors Integration, page 17.",
@@ -329,9 +329,9 @@
     ],
     "prompt": "Two participating networks have different internal designs but agree on their exchange boundary. Which assessment is appropriate?",
     "options": [
-      "Require identical internal equipment before considering any boundary test",
-      "Treat internal design differences as proof that an ICD has no value",
-      "Approve every application once the boundary cable is connected",
+      "Assess the internal equipment inventory as the basis for accepting the shared interface",
+      "Accept the interface using each network's previous test record",
+      "Compare nominal network capacity as the basis for accepting the information exchange",
       "Evaluate the defined connection points and required information exchange"
     ],
     "answer": 3,
@@ -387,10 +387,10 @@
     ],
     "prompt": "A design includes radios and computers but no people or procedures. What is missing from the source's C2 concept?",
     "options": [
-      "Only a different radio manufacturer",
+      "Its diagnostic coverage and maintenance configuration",
       "Its organizational and human components",
-      "Only a higher number of hardware devices",
-      "Nothing, because equipment alone is the C2 system"
+      "Its encryption and identity-verification capabilities",
+      "Its approved technical interface and message-format profile"
     ],
     "answer": 1,
     "explanation": "The C2 system includes people and processes, not just technical nodes. References: C4ISTAR Weapon System Integration, slides 7, 14.",
@@ -519,9 +519,9 @@
     ],
     "prompt": "A replacement component has the same physical connector as the old one. Its message format changed. What is needed before claiming compatibility?",
     "options": [
-      "Approve the replacement based only on fitting the same connector",
-      "Use the previous component's test record as the replacement's result",
-      "Assess compatibility only after discarding the interface documentation",
+      "Verify connector fit and transport delivery using the previous message format",
+      "Review the replacement's generic certificate against the existing profile",
+      "Repeat the old component's acceptance test using its established interpretation criteria",
       "Review the exchange specification and test the replacement's interpretation"
     ],
     "answer": 3,

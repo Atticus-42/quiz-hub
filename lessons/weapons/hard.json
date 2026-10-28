@@ -210,9 +210,9 @@
     ],
     "prompt": "Two services use the same interface label but incompatible implementation options. What should acceptance examine?",
     "options": [
-      "Whether a common label makes every implementation equivalent",
-      "Only whether the label is capitalized identically",
-      "Only whether both suppliers describe their products as modern",
+      "The published specification and the suppliers' current product certificates",
+      "The previous acceptance record for each component assessed separately",
+      "The advertised standard name and nominal service capability",
       "The agreed profile and actual implementation behavior"
     ],
     "answer": 3,
@@ -366,10 +366,10 @@
     ],
     "prompt": "An architecture is evaluated without its intended environment or users. What is the main limitation?",
     "options": [
-      "Actors and information structure are merely decorative labels",
-      "A framework is valid only if it contains no people",
+      "Compatibility with the framework can be established from its standards profile",
+      "Suitability can be judged using the equipment's nominal capabilities and interface conformance",
       "Suitability cannot be judged from technical elements alone",
-      "Every operational context imposes identical requirements"
+      "User and environment requirements can be resolved during operation after technical acceptance"
     ],
     "answer": 2,
     "explanation": "The source explicitly relates architecture to environment, actors, processes and information structure.",

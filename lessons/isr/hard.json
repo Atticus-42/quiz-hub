@@ -405,10 +405,10 @@
     ],
     "prompt": "Proposal X skips processing to send raw feeds instantly. Proposal Y collects, processes and disseminates promptly. Which reflects timeliness?",
     "options": [
-      "X, because dissemination is the only step of the intelligence flow that timeliness concerns",
+      "X, because the interval from collection to first delivery is the sufficient measure of timeliness",
       "Y, because timeliness covers timely collection, processing and dissemination together",
-      "X, because processing always harms timeliness and should be dropped from every ISR flow",
-      "Y, because timeliness applies to collection only and dissemination is a separate matter"
+      "X, because processing latency is an accuracy consideration rather than part of the timeliness requirement",
+      "Y, because completing processing on time establishes timeliness even when collection and dissemination meet separate schedules"
     ],
     "answer": 1,
     "explanation": "Slide 49 names collection, processing and dissemination.",

@@ -302,9 +302,9 @@
     ],
     "prompt": "Two shelter files use different date formats, making comparison confusing. What should the team do before interpreting changes?",
     "options": [
-      "Choose the date format that makes the expected trend easiest to display",
-      "Remove the dates so the original formatting cannot influence the assessment",
-      "Treat the files as substantively contradictory because their formats initially differ",
+      "Compare entries using the existing text-sort order of the date field in each file",
+      "Aggregate values within each file before matching the date representations used between files",
+      "Group reports by submitting organization and compare totals before aligning their observation dates",
       "Organize the dates consistently so the team can interpret comparable information"
     ],
     "answer": 3,

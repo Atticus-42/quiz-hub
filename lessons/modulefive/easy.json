@@ -99,10 +99,10 @@
     ],
     "prompt": "A classroom MANET carries several sensor feeds. Reports compete for limited capacity. Which issue should the team examine first?",
     "options": [
-      "The age of the presentation describing the network",
+      "The sensor reports' collection and retention schedule",
       "Traffic demand and required service priorities",
-      "Whether the sensors use the same display colors",
-      "Whether every report has an equally long filename"
+      "The radio platform's nominal data-rate classification",
+      "The participating users' voice-group membership"
     ],
     "answer": 1,
     "explanation": "QoS addresses competing traffic requirements. Sensor integration also requires managing the volume of information; connecting more feeds does not create unlimited capacity. References: MANET C4ISTAR Planning, pages 9, 12; C4ISTAR Sensors Integration, page 18.",
@@ -233,9 +233,9 @@
     ],
     "prompt": "What is an Interface Control Document used for?",
     "options": [
-      "Assigning classification levels without authority",
-      "Replacing all practical compatibility tests",
-      "Recording only personnel leave schedules",
+      "Selecting communication media for a particular operating environment",
+      "Allocating responsibilities for overall mission information requirements",
+      "Specifying the operational testing schedule for integrated sensors",
       "Defining interfaces and communication rules"
     ],
     "answer": 3,
@@ -289,9 +289,9 @@
     ],
     "prompt": "A sensor records observations locally during an exercise. The staff cannot receive them. Which capability needs attention?",
     "options": [
-      "The decision-maker's authority to change the mission",
-      "The wording of the sensor's equipment inventory entry",
-      "The number of copies of the training presentation",
+      "The observation-collection schedule and report-production template",
+      "The analytical criteria used to judge report significance",
+      "The users' authority to set information requirements",
       "The information path between collection and intended users"
     ],
     "answer": 3,
@@ -423,9 +423,9 @@
     ],
     "prompt": "What is standardized at Interoperability Points?",
     "options": [
-      "Only the model number printed on the equipment",
-      "Every internal technology in all connected organizations",
-      "Only the physical location of an office printer",
+      "The organization-wide application architecture behind each network boundary",
+      "The internal equipment layout of each participating network",
+      "The national operating procedures used within each organization",
       "The interfaces where different networks connect"
     ],
     "answer": 3,
@@ -477,12 +477,12 @@
       "system components",
       "concept and information quality"
     ],
-    "prompt": "An integration diagram shows radios, sensors and computers but omits staff roles and procedures. What is missing?",
+    "prompt": "An integration diagram shows radios, sensors and computers but omits staff roles and procedures. Which aspect of the C2 concept do those omissions leave undefined?",
     "options": [
-      "The automatic authority normally supplied by a network connection",
-      "Only another copy of the same network topology drawing",
+      "The software-defined interface and standards profile for interconnecting the equipment",
+      "The capacity and traffic-priority assumptions used to size the network",
       "The people and processes needed to use the connected information",
-      "Only a larger computer for storing the same observations"
+      "The protection and diagnostic features provided by each technical component"
     ],
     "answer": 2,
     "explanation": "C2 includes organizational and human elements. Connecting sensor information becomes useful through defined roles and processes, not equipment alone. References: C4ISTAR Weapon System Integration, slide 7; C4ISTAR Sensors Integration, pages 7, 9.",

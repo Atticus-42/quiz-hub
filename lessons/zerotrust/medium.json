@@ -9,10 +9,10 @@
     ],
     "prompt": "An organization-owned laptop is inside the office. What should happen before it accesses a protected resource?",
     "options": [
-      "Bypass authorization while it stays on-site",
+      "Confirm organization ownership and apply the office's existing network role",
       "Evaluate its identity, posture and access policy",
-      "Trust it because the organization purchased it",
-      "Grant the permissions of every internal device"
+      "Confirm its internal network address and apply the local device policy",
+      "Confirm device enrollment and inherit its last successful session's access"
     ],
     "answer": 1,
     "explanation": "Neither ownership nor internal location supplies implicit trust under the lesson's definition.",
@@ -305,10 +305,10 @@
     ],
     "prompt": "A vendor labels a product 'Zero Trust.' What is the most useful architectural question?",
     "options": [
-      "Is it the most expensive product in the category?",
-      "Can its brand replace assessment of resource needs?",
+      "Does it reuse the current network's existing infrastructure?",
+      "Does it simplify the planned installation and maintenance workload?",
       "How does it support the intended access policies?",
-      "Does its logo use the correct framework colors?"
+      "Does it provide conformance certificates for its advertised components?"
     ],
     "answer": 2,
     "explanation": "An architecture should be evaluated against workflows, resources and policies, not accepted on a marketing label.",
@@ -326,10 +326,10 @@
     ],
     "prompt": "An unauthorized change causes the PA to allow paths it should not establish. Which safeguard area needs review?",
     "options": [
-      "Only user training attendance totals",
-      "Only endpoint wallpaper restrictions",
+      "Endpoint registration and approved device-inventory records",
+      "User authentication and credential-renewal procedures",
       "Decision-component configuration and audit controls",
-      "Only equipment inventory capitalization"
+      "Resource backup and service-restoration controls"
     ],
     "answer": 2,
     "explanation": "The lesson identifies subversion of PE/PA behavior as a threat requiring secured configuration, monitoring and auditing.",
@@ -389,9 +389,9 @@
     ],
     "prompt": "A service account uses weak authentication while human users have stronger controls. What did the team overlook?",
     "options": [
-      "Only physical visitor records",
-      "Only employee travel authorization",
-      "The naming convention of office printers",
+      "Human-user privilege escalation",
+      "Perimeter gateway exposure",
+      "Physical entry authorization",
       "Non-person entity risk"
     ],
     "answer": 3,

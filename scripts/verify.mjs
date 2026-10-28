@@ -35,6 +35,10 @@ await test('[module exams] hybrid shares, provenance, cross-lesson support and h
   const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/module-exams.test.mjs')], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stdout + result.stderr);
 });
+await test('[choices] confirmed giveaway distractors and module option uniqueness', () => {
+  const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/distractor-quality.test.mjs')], { encoding: 'utf8' });
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+});
 await test('[cipher] lesson vectors, padding, inverse transforms and invalid inputs', () => {
   const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/cipher.test.mjs'), join(ROOT, 'scripts/test/cipher-generator.test.mjs'), join(ROOT, 'scripts/test/cipher-scan.test.mjs')], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stdout + result.stderr);

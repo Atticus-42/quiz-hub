@@ -381,12 +381,12 @@
     "prompt": "A student marks 'phase comparison' wrong whenever a diagram is labeled 'interferometric.' The diagram compares phase across antenna elements. Which review is best?",
     "options": [
       "The rejection is unsupported because both source descriptions use phase differences",
-      "The rejection is supported because interferometric RDF uses only message content",
-      "The rejection is supported because phase comparison uses only signal arrival times",
-      "The rejection is unsupported because every named RDF method measures only timing"
+      "The rejection is supported because an interferometric label places the diagram in the arrival-time comparison group",
+      "The rejection is supported because phase comparison and interferometric descriptions refer to mutually exclusive measurement categories",
+      "The rejection is unsupported because a shared directional result makes the phase and time-comparison descriptions interchangeable"
     ],
     "answer": 0,
-    "explanation": "Slides 27 and 29 both describe phase differences across antennas or antenna elements in directional inference. Claiming every method measures timing is the closest distractor because it also rejects the student's exclusion, but slide 28's timing concept cannot replace the phase descriptions in these slides.",
+    "explanation": "Slides 27 and 29 both describe phase differences across antennas or antenna elements in directional inference. The labels therefore do not support excluding one description merely because the other appears. Slide 28's arrival-time comparison remains a distinct measurement concept; producing a directional result does not make phase and timing descriptions interchangeable.",
     "sourceSlides": [
       27,
       28,

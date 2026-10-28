@@ -9,10 +9,10 @@
     ],
     "prompt": "A restored database is available but contains unauthorized changes. Which conclusion is justified?",
     "options": [
-      "Successful login proves all CIA properties are restored",
-      "Confidentiality automatically guarantees record correctness",
+      "The successful restore establishes record integrity, with availability still requiring validation",
+      "The unauthorized changes establish a confidentiality failure but leave integrity undetermined",
       "Restoring access has not established the integrity of the records",
-      "More storage space alone will establish authenticity"
+      "Successful restore verification can stand in for checking the record-change history"
     ],
     "answer": 2,
     "explanation": "Security properties are distinct; being able to open data does not prove it is accurate or unaltered.",

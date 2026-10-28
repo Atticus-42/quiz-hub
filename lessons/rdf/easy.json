@@ -275,10 +275,10 @@
     ],
     "prompt": "A tabletop navigator says a beacon direction is useful, so it must also specify distance. Which response best applies the lesson?",
     "options": [
-      "Direction establishes distance whenever the beacon has a known purpose",
+      "Direction and the receiver's heading jointly establish the distance to the beacon",
       "Direction can aid navigation without supplying distance by itself",
-      "Direction establishes the receiver's position whenever landmarks are absent",
-      "A beacon direction supplies its exact geographic position"
+      "Direction and the beacon's charted position establish the receiver's position",
+      "Successive direction readings establish distance traveled without a separate distance observation"
     ],
     "answer": 1,
     "explanation": "Slide 14 explains that beacon direction can assist navigation, and slide 30 defines the result as an arrival angle. Exact position is the closest alternative because navigation uses positions, but usefulness as an aid does not turn one direction into a distance measurement.",

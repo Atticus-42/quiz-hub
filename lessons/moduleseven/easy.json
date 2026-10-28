@@ -82,9 +82,9 @@
     "prompt": "An office chooses least-privilege access as a safeguard. How does this relate to its NIST CSF work?",
     "options": [
       "It is a control choice supporting relevant cybersecurity outcomes",
-      "It replaces the need to describe the office's desired outcomes",
-      "It supplies the complete risk assessment for every office resource",
-      "It assigns the office an Adaptive Tier without further evidence"
+      "It is a CSF Function selected to measure the office's security maturity",
+      "It is an organizational Profile describing the office's current cybersecurity outcomes",
+      "It is an implementation Tier established by limiting access to office resources"
     ],
     "answer": 0,
     "explanation": "The CSF describes outcomes, while least privilege is a principle used in implementing access safeguards. Choosing one control does not establish the whole framework or a Tier. References: NIST Framework, page 7; Zero Trust, slides 20, 21.",
@@ -233,10 +233,10 @@
     ],
     "prompt": "A cleared partner requests a file unrelated to assigned duties. What additional issue must access review consider?",
     "options": [
-      "Whether the requester uses a computer inside the building",
+      "Approved transfer channels and the connection's protection mechanisms",
       "Legitimate need-to-know and task-appropriate permission",
-      "Whether the requester's account was created recently",
-      "Whether the request arrived before the office opened"
+      "The account's verified identity and current authentication status",
+      "The recipient's clearance level and partner-organization affiliation"
     ],
     "answer": 1,
     "explanation": "Clearance alone is not enough under the supplied handling lesson. Least privilege also limits access to what the legitimate task requires. References: Zero Trust, slides 20, 21; LOE3 GSOMIA Compliance, slides 22, 33.",
@@ -348,9 +348,9 @@
     "prompt": "What two conditions are required for access in the lesson?",
     "options": [
       "Appropriate clearance and legitimate need-to-know",
-      "High rank and possession of a working printer",
-      "Technical skill and interest in the subject",
-      "Long service and personal familiarity with the owner"
+      "Verified identity and an approved communication channel",
+      "An assigned project role and established system access",
+      "Appropriate clearance and current partner-liaison status"
     ],
     "answer": 0,
     "explanation": "Clearance alone is insufficient; the individual also needs a legitimate reason to access that information. References: LOE3 GSOMIA Compliance, slides 22, 33.",
@@ -385,10 +385,10 @@
     ],
     "prompt": "A partner has a valid account and requests an encrypted transfer. What else matters before sharing protected information?",
     "options": [
-      "Whether encryption lets the sender ignore recipient restrictions",
+      "Current clearance validity and the requester's authenticated account status",
       "Authorized recipients, release procedures and appropriate scope",
-      "Whether partner status makes all available records releasable",
-      "Whether an internal address substitutes for handling authorization"
+      "The transfer service's encryption profile and configuration approval",
+      "Existing partner contacts and established system-access permissions"
     ],
     "answer": 1,
     "explanation": "An authenticated session and encryption do not themselves authorize disclosure. The supplied lessons retain recipient, purpose and handling requirements. References: LOE3 GSOMIA Compliance, slides 31, 37; Zero Trust, slide 26.",
@@ -537,10 +537,10 @@
     ],
     "prompt": "Two weaknesses compete for limited improvement resources. Which comparison best supports a defensible decision?",
     "options": [
-      "The order in which the team first noticed the weaknesses",
-      "The popularity of each weakness in unrelated online discussions",
+      "The comparative technical severity assigned by each equipment supplier",
+      "The estimated cost and completion time of each repair",
       "Their likelihood and consequences for the mission",
-      "The number of pages in each supplier's product brochure"
+      "The order of exposure identified during the latest service assessment"
     ],
     "answer": 2,
     "explanation": "Risk decisions should connect likelihood and impact to mission consequences, rather than use publicity or discovery order as the sole basis. References: Cyber Risk Assessment, page 16; NIST Framework, page 9.",

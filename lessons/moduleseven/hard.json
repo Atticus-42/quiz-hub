@@ -82,10 +82,10 @@
     ],
     "prompt": "An office's Target Profile calls for task-limited access. A review finds broad permissions on a high-impact service, while a lower-impact service has a more visible cosmetic issue. Which recommendation is most defensible?",
     "options": [
-      "Declare the Target Profile achieved once the access policy is approved on paper",
+      "Sequence gaps by repair effort, closing the Profile after control installation",
       "Prioritize the access gap using mission risk and verify the implemented improvement",
-      "Treat both gaps as equal because each differs from the written Target Profile",
-      "Fix the most visible issue first and use its completion as proof of profile alignment"
+      "Sequence both gaps by incident frequency, using the last reporting period to confirm their relative urgency",
+      "Sequence both gaps by service visibility, using user acceptance reports to confirm implementation success"
     ],
     "answer": 1,
     "explanation": "Profiles identify outcome gaps, and risk informs their priority. Least-privilege implementation needs evidence in the service with the stated consequences; appearance and written intent are insufficient. References: NIST Framework, page 13; Zero Trust, slides 20, 21; Cyber Risk Assessment, page 16.",
@@ -240,10 +240,10 @@
     ],
     "prompt": "A cleared partner successfully authenticates for an urgent project. The requested data exceeds the task's need, and release authority for those additional fields is unresolved. Which decision follows both lessons?",
     "options": [
-      "Use encryption as a substitute for determining who may receive the extra fields",
+      "Grant a reduced extract under the partner's clearance and recorded project purpose",
       "Resolve the authorized scope and release basis before granting the additional access",
-      "Grant broad access first and rely on later logs to establish release authority",
-      "Grant the complete dataset because authentication and project urgency are established"
+      "Grant task-group access under the partner agreement's stated general information-sharing objective",
+      "Grant a time-limited session and review the authenticated account's field use afterward"
     ],
     "answer": 1,
     "explanation": "Authentication and partner status are not blanket authorization. Contextual access, need-to-know and applicable release procedures must support the information actually disclosed. References: Zero Trust, slide 22; Zero Trust, slide 26; LOE3 GSOMIA Compliance, slides 22, 33; LOE3 GSOMIA Compliance, slides 31, 37.",
@@ -357,9 +357,9 @@
     "prompt": "A senior, cleared partner liaison has broad system access but no duty requiring a particular file. Which rule controls?",
     "options": [
       "Verify the recipient’s need-to-know and release authority",
-      "Partner liaison status makes all information releasable",
-      "Seniority overrides role and recipient restrictions",
-      "Existing login access authorizes every possible disclosure"
+      "Use assignment to the joint team as authority",
+      "Use the liaison's clearance and partner status",
+      "Apply existing account permissions and protected-channel approval"
     ],
     "answer": 0,
     "explanation": "Identity, clearance, duty and authorized sharing are separate conditions; broad technical access is not blanket permission. References: LOE3 GSOMIA Compliance, slides 22, 34, 36.",
@@ -395,10 +395,10 @@
     ],
     "prompt": "A partner's secure connection is approved, but the agreement on recipients and purpose covers only a subset of the requested records. The project team wants to send everything before a deadline. Which response is defensible?",
     "options": [
-      "Let the recipient's successful login expand the documented sharing purpose",
-      "Remove visible markings so the remaining records fit the approved exchange",
+      "Send a condensed version of the full set under the approved connection's handling controls",
+      "Send the full set using the recipient's clearance and approved handling controls",
       "Limit sharing to the authorized scope and resolve the additional release request",
-      "Send the full set because secure transport establishes equivalent handling authority"
+      "Send extra records under an exercise-specific account with logging and an agreed retention period"
     ],
     "answer": 2,
     "explanation": "The instructional principles retain recipient, purpose, documentation and release constraints. Transport security and urgency do not independently expand them. References: LOE3 GSOMIA Compliance, slides 31, 37; LOE3 GSOMIA Compliance, slides 22, 33; LOE3 GSOMIA Compliance, slides 26, 36; Zero Trust, slide 26.",
@@ -550,10 +550,10 @@
     ],
     "prompt": "A low-likelihood weakness affects a mission-critical service, while a more frequent issue affects a minor convenience service. No impact estimates have been compared. Which recommendation is justified now?",
     "options": [
-      "Prioritize the critical-service issue solely because its title sounds more important",
-      "Prioritize the frequent issue without considering the consequences of either case",
+      "Rank the critical service first using the asset-criticality score",
+      "Rank the frequent issue first using observed occurrence rate as the treatment-priority criterion",
       "Compare likelihood and mission consequences before deciding treatment priority",
-      "Assign identical treatment because the framework never supports prioritization"
+      "Rank the lower-cost repair first using resource efficiency as the treatment-priority criterion"
     ],
     "answer": 2,
     "explanation": "Risk combines likelihood with consequences and context. The stated information supports further comparison, rather than a definitive ranking based on one factor alone. References: Cyber Risk Assessment, page 16; NIST Framework, page 9; NIST Framework, page 15.",

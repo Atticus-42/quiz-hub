@@ -8,9 +8,9 @@
     "prompt": "A plan assumes infrastructure-less means planning-free. What is the strongest correction?",
     "options": [
       "Demand and link constraints still apply",
-      "Self-configuration makes user requirements irrelevant",
-      "Infrastructure-less removes every performance constraint",
-      "Dynamic membership guarantees unlimited service capacity"
+      "Network membership can replace the link assessment",
+      "Default settings can supply the service priorities",
+      "Self-configuration can replace the traffic-demand review"
     ],
     "answer": 0,
     "explanation": "MANET autonomy does not remove capacity, interference or service-planning requirements. References: MANET C4ISTAR Planning, pages 9, 11, 12.",
@@ -100,9 +100,9 @@
     ],
     "prompt": "An exercise link carries routine bulk reports and time-relevant updates. Capacity and operator attention are both limited. Which acceptance approach best matches the lessons?",
     "options": [
-      "Accept the system once the largest possible volume has been transmitted",
-      "Accept the system after confirming that all reports are stored eventually",
-      "Judge the complete requirement from received-strength measurements alone",
+      "Verify packet delivery rates and the processing capacity of the receiving computer",
+      "Verify that the report streams meet the same throughput target during the exercise",
+      "Verify radio link quality and the correctness of message formats at each interface",
       "Check agreed service priorities and whether users receive usable updates"
     ],
     "answer": 3,
@@ -295,10 +295,10 @@
     ],
     "prompt": "A shared exercise display contains more sensor reports than before. Some reports conflict, and analysts have not reconciled them. Which outcome can the team responsibly claim?",
     "options": [
-      "A better common picture is proven by the higher count of displayed reports",
-      "The contradictions prove that communications cannot transport sensor information",
+      "Report increased awareness based on the successful delivery of each sensor's observations",
+      "Report an improved common picture based on consistent display formatting across sensor feeds",
       "More observations are available; improved understanding still needs assessment",
-      "The report count establishes that the analysis function has been completed"
+      "Report completed intelligence integration based on the consolidation of the conflicting reports"
     ],
     "answer": 2,
     "explanation": "A COP supports shared understanding, not merely report accumulation. Information volume and unresolved interpretation limit what can be claimed about the quality of that understanding. References: C4ISTAR Sensors Integration, page 9; C4ISTAR Sensors Integration, page 18; C4ISTAR Weapon System Integration, slides 10, 11, 13.",
@@ -468,9 +468,9 @@
     ],
     "prompt": "An architecture is evaluated without its intended environment or users. What is the main limitation?",
     "options": [
-      "Actors and information structure are merely decorative labels",
-      "A framework is valid only if it contains no people",
-      "Every operational context imposes identical requirements",
+      "Compatibility with the framework can be established from its standards profile",
+      "Suitability can be judged using the equipment's nominal capabilities and interface conformance",
+      "User and environment requirements can be resolved during operation after technical acceptance",
       "Suitability cannot be judged from technical elements alone"
     ],
     "answer": 3,
@@ -510,10 +510,10 @@
     ],
     "prompt": "Two classroom systems pass an interface-format test through an integrator. During the user exercise, teams apply different reporting procedures. Which statement best describes the evidence?",
     "options": [
-      "The integrator can settle the disagreement without any user-process coordination",
-      "The format test has no value because all interoperability is purely procedural",
+      "Technical exchange and procedural compatibility can be accepted under the common format specification",
+      "Procedural compatibility can be closed by applying the integrator's documented default reporting procedure",
       "Technical exchange was demonstrated, while procedural interoperability remains incomplete",
-      "Complete interoperability was demonstrated because the format test passed"
+      "Technical acceptance should remain unconfirmed until the user procedures have been harmonized"
     ],
     "answer": 2,
     "explanation": "Interoperability spans people, processes and technical exchange. A successful technical test should be retained as bounded evidence while the procedural gap is resolved. References: C4ISTAR Weapon System Integration, slide 18; C4ISTAR Sensors Integration, page 16; MANET C4ISTAR Planning, pages 69, 70.",

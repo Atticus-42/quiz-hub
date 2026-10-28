@@ -260,12 +260,12 @@
     "tags": [
       "deployment approaches"
     ],
-    "prompt": "Which approach uses network infrastructure to reconfigure access paths dynamically?",
+    "prompt": "In the lesson's deployment-approach descriptions, which approach uses the Policy Administrator as a network controller to reconfigure access paths?",
     "options": [
       "Software-defined perimeter",
-      "Unmonitored flat networking",
-      "Permanent shared-password access",
-      "Manual inventory labeling"
+      "Enhanced identity governance",
+      "Microsegmentation",
+      "Device-agent/gateway deployment"
     ],
     "answer": 0,
     "explanation": "A software-defined perimeter can use the Policy Administrator as a network controller to implement decisions.",
@@ -323,11 +323,11 @@
     "tags": [
       "threats and limitations"
     ],
-    "prompt": "Why is a compromised Policy Engine especially serious?",
+    "prompt": "What is the most direct risk to the Policy Engine's decision-making function if that component is compromised?",
     "options": [
-      "It changes only decorative interface settings",
-      "It automatically improves verification speed",
-      "It affects only inventory formatting",
+      "It can establish access paths incorrectly",
+      "It can enforce boundary rules incorrectly",
+      "It can collect posture information incorrectly",
       "It can authorize access incorrectly"
     ],
     "answer": 3,

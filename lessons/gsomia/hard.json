@@ -122,10 +122,10 @@
     ],
     "prompt": "A reviewer suggests removing markings to make a file easier to share. Why is this unsound?",
     "options": [
-      "Any format conversion automatically cancels handling restrictions",
+      "The document's sensitivity is re-evaluated when it enters the partner's approved format",
       "Removing markings cannot itself authorize disclosure of the file",
-      "Classification depends exclusively on the printed cover page",
-      "Unmarked files become approved for every transmission channel"
+      "The authorized transfer channel can supply handling permissions previously conveyed by the marking",
+      "The receiver's clearance can replace the release check when visible markings are removed"
     ],
     "answer": 1,
     "explanation": "Markings communicate requirements; altering them does not independently authorize a change in protection or release.",
@@ -236,9 +236,9 @@
     "prompt": "A senior, cleared partner liaison has broad system access but no duty requiring a particular file. Which rule controls?",
     "options": [
       "Verify the recipient’s need-to-know and release authority",
-      "Seniority overrides role and recipient restrictions",
-      "Existing login access authorizes every possible disclosure",
-      "Partner liaison status makes all information releasable"
+      "Use the liaison's clearance and partner status",
+      "Apply existing account permissions and protected-channel approval",
+      "Use assignment to the joint team as authority"
     ],
     "answer": 0,
     "explanation": "Identity, clearance, duty and authorized sharing are separate conditions; broad technical access is not blanket permission.",

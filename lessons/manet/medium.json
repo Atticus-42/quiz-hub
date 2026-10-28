@@ -50,11 +50,11 @@
     "tags": [
       "network concepts"
     ],
-    "prompt": "Video demand rises while voice quality falls. What should planning examine?",
+    "prompt": "Video demand rises while voice quality falls on a shared link. Which planning review most directly addresses competition between these services?",
     "options": [
-      "Only the order of names on the roster",
-      "Whether all traffic can be relabeled as highest priority",
-      "Only the radio's exterior paint condition",
+      "Radio software versions and compatibility of the new video application",
+      "Voice-group membership and each user's selected operating group",
+      "Nominal waveform capacity using the original low-load service plan",
       "Traffic priorities and capacity under actual link conditions"
     ],
     "answer": 3,
@@ -292,10 +292,10 @@
     ],
     "prompt": "A ping fails after restart, but the source says ping enablement may reset. What should be checked before concluding link failure?",
     "options": [
-      "Whether the case has a newer manufacturer logo",
-      "Whether all radios should be immediately replaced",
+      "The selected waveform and expected application data rate",
+      "The remote node's maintenance history and last recorded BIT result",
       "The permitted diagnostic setting and test conditions",
-      "Whether the unit's name is alphabetically first"
+      "The receiving application's message format and last accepted report"
     ],
     "answer": 2,
     "explanation": "A disabled diagnostic response can resemble connectivity failure; verify the stated test conditions first.",
@@ -336,9 +336,9 @@
     "prompt": "Two radios have the same configured node identifier. Which requirement has been violated?",
     "options": [
       "Node identifiers should be unique",
-      "A display name can replace every network identity",
-      "All nodes should use the same identity for convenience",
-      "Identifiers are decorative and have no diagnostic value"
+      "Identifiers should follow the voice-group assignment",
+      "Identifiers should match the common network name",
+      "Identifiers should be assigned by equipment platform"
     ],
     "answer": 0,
     "explanation": "The source states that each transceiver has a unique node ID; duplicate identity undermines that requirement.",
