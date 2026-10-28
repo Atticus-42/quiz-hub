@@ -84,7 +84,7 @@ export async function buildSuite({ lessons, modules }) {
 
   await T('every committed page is a fresh build (run node scripts/build.mjs), with the real endpoint written once per page', () => {
     const pages = build({ write: false });
-    const expectedPages = ['index.html', 'class/index.html', 'schedule/index.html', 'schedule-2026-10-26/index.html', 'schedule-2026-11-02/index.html', 'instructor/index.html', 'codes-ciphers/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
+    const expectedPages = ['index.html', 'class/index.html', 'schedule/index.html', 'schedule-2026-10-26/index.html', 'schedule-2026-11-02/index.html', 'schedule-2026-11-09/index.html', 'instructor/index.html', 'codes-ciphers/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
     assert.deepEqual(Object.keys(pages).sort(), expectedPages.sort());
     for (const slug of ['isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal', 'coalition-signal', 'combined']) assert.ok(expectedPages.includes(`${slug}/index.html`), slug);
     for (const [path, html] of Object.entries(pages)) {

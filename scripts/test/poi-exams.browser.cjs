@@ -76,9 +76,14 @@ const server=http.createServer((req,res)=>{
    const overflow=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth,items:[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>innerWidth+1).slice(0,12).map(e=>({tag:e.tagName,id:e.id,cls:e.className,right:e.getBoundingClientRect().right}))}));
    assert.ok(overflow.scroll<=overflow.width,JSON.stringify(overflow));
    await page.goto(origin+'/schedule/#day-2026-10-27');assert.ok(await page.locator('#day-2026-10-27').isVisible());assert.match(await page.locator('#day-2026-10-27').innerText(),/Beef kare-kare/);
-   await page.goto(origin+'/schedule-2026-11-02/');assert.match(await page.locator('#schedule-note').innerText(),/Partial schedule/);
+   await page.goto(origin+'/schedule-2026-11-02/#day-2026-11-02');assert.doesNotMatch(await page.locator('#schedule-note').innerText(),/Partial schedule/);
+   assert.equal(await page.locator('#day-2026-11-02 .blk-title').innerText(),'Admin Break');
+   await page.locator('.week-nav a[href="#day-2026-11-08"]').click();assert.ok(await page.locator('#day-2026-11-08').isVisible());
+   await page.goto(origin+'/schedule/#day-2026-11-12');await page.waitForURL('**/schedule-2026-11-09/#day-2026-11-12');
+   assert.ok((await page.locator('#day-2026-11-12').innerText()).includes('MODULE 8 ASSESSMENT'));
+   await page.locator('.week-nav a[href="#day-2026-11-15"]').click();assert.ok(await page.locator('#day-2026-11-15').isVisible());
    assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
-   await page.screenshot({path:path.join(out,`partial-schedule-${width}.png`),fullPage:false});
+   await page.screenshot({path:path.join(out,`upcoming-schedule-${width}.png`),fullPage:false});
    await context.close();
   }
   assert.deepEqual(errors,[]);assert.deepEqual(external,[]);
