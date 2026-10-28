@@ -47,6 +47,6 @@
 
 - [x] Independently review the actual changed questions, including all alternatives and source boundaries; fix actionable findings.
 - [x] Confirm no schedule, history, engine behavior or unrelated user-file changes.
-- [ ] Commit the scoped changes, push through the existing publication workflow and verify live pages.
+- [x] Commit the scoped changes, push through the existing publication workflow and verify live pages.
 
 Stop after verified publication. State the number revised rather than implying that heuristic screening equals complete manual validation.

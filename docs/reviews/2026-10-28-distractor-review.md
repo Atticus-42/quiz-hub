@@ -141,3 +141,7 @@ The independent reviewer read all 110 changed records and independently checked 
 ## Execution decision
 
 Used the existing dedicated task checkout on a feature branch instead of creating another checkout. This preserved the established workspace; isolation relied on exclusive use of that dedicated checkout. Publication follows the already approved workflow after the green release gate.
+
+## Publication
+
+Content release `133a710c7031aa0345ebcdf61db5b027f4308244` deployed successfully in [Pages run 40704068219](https://github.com/Atticus-42/quiz-hub/actions/runs/40704068219). SHA-256 comparison verified exact live bytes for all 21 exam pages and the regenerated instructor page. The final documentation-only commit records that verification and changes no page content.
