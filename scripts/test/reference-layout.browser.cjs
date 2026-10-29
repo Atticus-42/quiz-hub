@@ -15,7 +15,7 @@ const server=http.createServer((req,res)=>{
  await new Promise(r=>server.listen(0,'127.0.0.1',r));const origin=`http://127.0.0.1:${server.address().port}`;
  const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||chromium.executablePath()});const external=[],errors=[];let checks=0;
  try{
-  for(const width of [375,1440]){
+  for(const width of [1440,375]){
    const context=await browser.newContext({viewport:{width,height:1000},reducedMotion:'reduce'});
    await context.route('**/*',r=>{if(!r.request().url().startsWith(origin)){external.push(r.request().url());return r.abort();}return r.continue();});
    const page=await context.newPage();page.on('pageerror',e=>errors.push(e.message));
@@ -29,6 +29,7 @@ const server=http.createServer((req,res)=>{
      const references=group.locator('.explanation-references');
      if(await references.count()){
       assert.equal((await references.locator('.section-label').innerText()).toLowerCase(),'references');
+      assert.equal(await references.locator('.section-label').evaluate(el=>{const range=document.createRange();range.selectNodeContents(el);return range.getClientRects().length;}),1,`${lesson.key}/${mode}/${width}: References must stay on one line`);
       const noteBox=await group.locator('.explanation-note').boundingBox(),refBox=await references.boundingBox();
       assert.ok(refBox.y>=noteBox.y+noteBox.height,`${lesson.key}/${mode}: note and sources overlap`);
       const label=await references.locator('.section-label').boundingBox(),refText=await references.locator('.source-ref').first().boundingBox();
@@ -41,6 +42,7 @@ const server=http.createServer((req,res)=>{
       assert.ok(await page.locator('#view-results').isVisible());
       assert.equal(await page.locator('#results-review .explanation-note').count(),state.attempt.questions.length);
       assert.ok((await page.locator('#results-review .explanation-note').allTextContents()).every(t=>!t.includes('References:')));
+      assert.ok(await page.locator('#results-review .explanation-references .section-label').evaluateAll(labels=>labels.every(el=>{const range=document.createRange();range.selectNodeContents(el);return range.getClientRects().length===1;})),`${lesson.key}/${width}: review reference headings must stay on one line`);
       assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
      }
      checks++;
