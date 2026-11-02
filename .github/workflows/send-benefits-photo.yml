@@ -1,0 +1,20 @@
+name: Send benefits flyer photo - once
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Send photo
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          set -e
+          code=$(curl -s -o resp.json -w '%{http_code}' -F "chat_id=$TELEGRAM_CHAT_ID" -F "photo=@.github/once/benefits.jpg" "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendPhoto")
+          echo "HTTP $code"
+          node -e "const r=JSON.parse(require('fs').readFileSync('resp.json','utf8'));console.log(r.ok?'sent message_id='+r.result.message_id:'failed: '+r.error_code+' '+r.description)"
+          [ "$code" = 200 ]
