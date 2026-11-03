@@ -22,10 +22,10 @@ test('revised week 6 is active, with all supplied meals and corrected assessment
  assert.ok(pages['schedule-2026-10-26/index.html'].includes('Beef kare-kare'));
 });
 
-test('complete week 7 replaces the partial screenshot with all 77 supplied source rows',()=>{
+test('complete week 7 replaces the partial screenshot with all 77 supplied source rows plus the four supplied meal periods for 5–6 November',()=>{
  const week=loadSchedule(ROOT,join(ROOT,'data/schedules/2026-11-02_2026-11-08.json'));
  assert.equal(week.notice,undefined);assert.equal(week.prepared,'2026-10-28');
- assert.deepEqual(week.days.map(d=>d.blocks.length),[1,15,16,10,9,13,13]);
+ assert.deepEqual(week.days.map(d=>d.blocks.length),[1,15,16,12,11,13,13]);
  assert.deepEqual(week.days[0].blocks,[{time:'',activity:'Admin Break',kind:'routine',instructor:'Not stated',venue:null,remarks:'Time not printed in the source schedule.'}]);
  const exam=week.days[4].blocks.find(b=>b.kind==='exam');
  assert.equal(exam.activity,'MODULE 6 ASSESSMENT');assert.equal(exam.time,'0800-0900');
@@ -39,7 +39,7 @@ test('complete week 7 replaces the partial screenshot with all 77 supplied sourc
  assert.ok(!html.includes('CEOI/CESI Management'));
 });
 
-test('week 8 includes all 89 rows and both future weeks reach the bot feed without old menus',()=>{
+test('week 8 includes all 89 rows and both future weeks reach the bot feed; week 8 has no menus yet',()=>{
  const week=loadSchedule(ROOT,join(ROOT,'data/schedules/2026-11-09_2026-11-15.json'));
  assert.equal(week.week.number,8);assert.equal(week.prepared,'2026-11-04');
  assert.deepEqual(week.days.map(d=>d.blocks.length),[15,15,15,10,8,13,13]);
@@ -51,7 +51,8 @@ test('week 8 includes all 89 rows and both future weeks reach the bot feed witho
  const feed=loadSchedule(ROOT,undefined,{allDays:true});assert.equal(feed.days.length,21);assert.equal(feed.week.end,'2026-11-15');
  assert.deepEqual(feed.days.slice(7,14),loadSchedule(ROOT,join(ROOT,'data/schedules/2026-11-02_2026-11-08.json')).days);
  assert.deepEqual(feed.days.slice(14),week.days);
- assert.equal(feed.days.slice(7).flatMap(d=>d.blocks).filter(b=>b.menu).length,0);
+ assert.equal(feed.days.slice(14).flatMap(d=>d.blocks).filter(b=>b.menu).length,0);
+ assert.equal(feed.days.slice(7,14).flatMap(d=>d.blocks).filter(b=>b.menu).length,12);
  for(const day of feed.days.slice(7)){const rich=JSON.stringify(formatRichSchedule(feed,day.date));assert.doesNotMatch(rich,/not been uploaded/);for(const b of day.blocks)assert.ok(rich.includes(b.activity));}
  const pages=build({write:false});assert.ok(pages['schedule-2026-11-09/index.html'].includes('day-2026-11-15'));
  assert.ok(pages['schedule/index.html'].includes('../schedule-2026-11-09/'));
