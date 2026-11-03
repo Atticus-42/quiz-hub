@@ -1,0 +1,21 @@
+name: Edit sent schedule - once
+on:
+  workflow_dispatch:
+    inputs:
+      start: { type: string, default: '438' }
+      end: { type: string, default: '446' }
+permissions:
+  contents: read
+jobs:
+  edit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: node .github/once/edit-schedule.mjs
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          START: ${{ inputs.start }}
+          END: ${{ inputs.end }}
