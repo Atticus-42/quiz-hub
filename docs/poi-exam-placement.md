@@ -36,7 +36,7 @@ The POI also explicitly labels these as **Off-POI**: Electronic counter measure 
 
 - `signal`, `signaljoint`, `coalition`: POI 4.1, 4.2, 4.3.
 - `modulethree`: Module 4 exam, 30 questions (10 from each signal-support lesson). Its existing URL/history key remains for compatibility.
-- `sigint`, `rdf`: POI 6.1 and 6.3.
+- `sigint`, `rdf`: POI 6.1 and 6.3. `elint` (POI 6.2) and `eccm` (POI 6.4) were added on 3 November 2026 from the supplied 26-slide ELINT and 27-slide ECCM decks (Sgt Esver, 3 Nov 2026): 20 and 22 questions per difficulty. Their slide-14 formula misprint (average power printed with PRI instead of PRF) is not tested; see each coverage.md.
 - `intcycle`: Intelligence Cycle is not a separately numbered subject in this POI. Treat as supporting material, not as Electronic Intelligence or an invented numbered lesson.
 - `fieldartillery`, `armor`, `isr`: ordered as POI 2.2, 2.3, 2.4.
 - `armyops`: supporting material. The supplied 55-page Introduction to Army Operations source (objectives on page 6; roadmap on page 7) covers broad Army principles, operational platforms, full-spectrum operations and Army power, rather than a distinct Infantry Operations lesson. It keeps its title and route. The 30-question Combined Practice Exam explicitly includes this supporting lesson alongside the three available Module 2 lessons; it does not claim complete POI Module 2 coverage.

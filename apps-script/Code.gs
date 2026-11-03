@@ -28,6 +28,8 @@ var LESSONS = {
   intcycle: 'Intelligence Cycle History',    // Module 5 individual lesson
   rdf: 'RDF History',                        // Module 5 individual lesson
   sigint: 'SIGINT History',                  // POI 6.1; historical tab retained
+  elint: 'ELINT History',                    // POI 6.2
+  eccm: 'ECCM History',                      // POI 6.4
   manet: 'MANET History',
   sensors: 'Sensors Integration History',
   weapons: 'Weapon System Integration History',

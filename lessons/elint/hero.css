@@ -1,0 +1,5 @@
+.antenna-sweep { animation: antenna-sweep-emphasis 4s ease-out 1; }
+@keyframes antenna-sweep-emphasis { 0%,100% { opacity:1; } 40% { opacity:.35; } }
+@media (prefers-reduced-motion: reduce) {
+  .antenna-sweep { animation:none !important; transition:none !important; opacity:1; }
+}

@@ -1,0 +1,55 @@
+{
+  "key": "eccm",
+  "slug": "electronic-counter-countermeasures",
+  "module": "module-6",
+  "order": 4,
+  "name": "Electronic Counter-Countermeasures (ECCM)",
+  "title": "Electronic Counter-Countermeasures Mastery Quiz",
+  "eyebrow": "Philippine Army · POI 6.4 · Electronic Counter-Countermeasures (ECCM)",
+  "lessonName": "Electronic Counter-Countermeasures",
+  "hubDescription": "Apply electronic protection: radio discipline, masking, EMCON, jamming response, reporting and PACE.",
+  "lede": "Practice Electronic Protection through fictional Philippine Army field and classroom scenarios. Separate jamming from interference and faults, choose protective measures that keep friendly systems working and hidden, and reason through EMCON levels, reporting and PACE. {total} questions across Easy, Medium, and Hard. How to build or operate a jammer is not part of the lesson and is not tested.",
+  "historyLesson": "eccm",
+  "categoryOrder": [
+    "EP Purpose and the ECM Duel",
+    "Enemy Questions and Radio Discipline",
+    "Masking, Blending and Emission Risk",
+    "EMCON Levels",
+    "Hopping, Encryption and Anti-Jam",
+    "Recognize, React and Report",
+    "PACE and GPS Protection",
+    "Hardening, Compatibility and Sensor ECCM"
+  ],
+  "sourceRef": {
+    "label": "slide",
+    "plural": "slides",
+    "min": 4,
+    "max": 25,
+    "required": true
+  },
+  "palette": {
+    "--lesson-accent": "#7a2f4a"
+  },
+  "art": {
+    "groups": [
+      "hopping-radio",
+      "terrain-mask",
+      "pace-ladder"
+    ],
+    "labels": [
+      "ELECTRONIC COUNTER-COUNTERMEASURES",
+      "HOP",
+      "MASK",
+      "PACE"
+    ],
+    "classes": [
+      "hop-trace",
+      "jam-band"
+    ],
+    "stilled": [
+      ".hop-trace",
+      ".jam-band"
+    ],
+    "staticPattern": "\\.hop-trace|\\.jam-band|\\.hero-art"
+  }
+}

@@ -1,0 +1,471 @@
+[
+  {
+    "id": 1,
+    "qid": "elint-e-01",
+    "difficulty": "easy",
+    "category": "ELINT Foundations and Doctrine",
+    "tags": [
+      "electronic intelligence",
+      "ELINT definition",
+      "objective recall"
+    ],
+    "prompt": "According to PAM 3-0702-01 as quoted in the lesson, what is ELINT?",
+    "options": [
+      "A SIGINT sub-discipline dedicated to collecting and analysing voice and data messages",
+      "A SIGINT sub-discipline dedicated to collecting and analysing non-communication signals",
+      "An EW function dedicated to searching, intercepting and locating emitters for the commander",
+      "An EW function dedicated to attacking enemy radars so that friendly forces can operate"
+    ],
+    "answer": 1,
+    "explanation": "Slide 5 quotes PAM 3-0702-01 describing ELINT as a specialized sub-discipline of SIGINT for the collection and technical analysis of non-communication electromagnetic signals. The message-based option is the closest distractor, but Slide 7 gives voice, text and data messages to COMINT, not ELINT.",
+    "sourceSlides": [
+      5,
+      7
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "elint-e-02",
+    "difficulty": "easy",
+    "category": "ELINT Foundations and Doctrine",
+    "tags": [
+      "electronic intelligence",
+      "SIGINT sub-disciplines",
+      "objective recall"
+    ],
+    "prompt": "Using PAM 3-0702-01, which pair names the two sub-disciplines of SIGINT?",
+    "options": [
+      "ES and ELINT together",
+      "COMINT and EP together",
+      "EA and COMINT together",
+      "COMINT and ELINT"
+    ],
+    "answer": 3,
+    "explanation": "Slide 6 shows SIGINT, the intelligence arm, divided into COMINT and ELINT, and Slide 24 asks for exactly this pair. ES is the closest distractor because it often uses the same receivers as ELINT, but it belongs to EW, the action arm.",
+    "sourceSlides": [
+      6,
+      24
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "elint-e-03",
+    "difficulty": "easy",
+    "category": "ELINT Foundations and Doctrine",
+    "tags": [
+      "electronic intelligence",
+      "why ELINT matters",
+      "situational scenario"
+    ],
+    "prompt": "An ES squad on the northern Luzon coast notes that the radar it has just located could be located in the same way by an enemy receiver. Which lesson idea does this reflect?",
+    "options": [
+      "A radar must transmit to work, and every transmission can be found",
+      "A radar's weak echo is what an enemy receiver intercepts",
+      "Counter-battery radars are the main emitters that enemy receivers can find",
+      "A radar can be found by an enemy receiver once it has switched to tracking"
+    ],
+    "answer": 0,
+    "explanation": "Slide 5 states that every radar transmits to work and every transmission can be found, which holds for our radars as well as the enemy's. The weak-echo option is the closest distractor, but Slide 10 identifies the loud outgoing pulse, not the weak echo, as what ELINT intercepts.",
+    "sourceSlides": [
+      5,
+      10
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "elint-e-04",
+    "difficulty": "easy",
+    "category": "ELINT, COMINT and ES",
+    "tags": [
+      "electronic intelligence",
+      "COMINT vs ELINT signals",
+      "objective recall"
+    ],
+    "prompt": "Which pairing of discipline and signal type matches the lesson?",
+    "options": [
+      "ELINT: voice, text and data messages",
+      "COMINT: radars, beacons, sensors",
+      "ELINT: radars, beacons and sensors",
+      "COMINT: signals that carry no messages"
+    ],
+    "answer": 2,
+    "explanation": "Slide 7 pairs COMINT with voice, text and data messages and ELINT with radars, beacons and sensors. The swapped pairing 'COMINT: radars, beacons and sensors' is the closest distractor because it uses the right list under the wrong discipline.",
+    "sourceSlides": [
+      7
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "elint-e-05",
+    "difficulty": "easy",
+    "category": "ELINT, COMINT and ES",
+    "tags": [
+      "electronic intelligence",
+      "question ELINT answers",
+      "objective recall"
+    ],
+    "prompt": "Which question is ELINT mainly meant to answer?",
+    "options": [
+      "What does the enemy intend by this message?",
+      "Which friendly net is suffering mutual interference?",
+      "What equipment is it, where is it, and what is it doing?",
+      "How quickly must the commander act on this warning?"
+    ],
+    "answer": 2,
+    "explanation": "Slide 7 gives ELINT the question 'What equipment, where, doing what?', while COMINT answers 'What does the enemy intend?'. The intent question is the closest distractor because both disciplines serve intelligence, but intent comes from listening to people rather than to hardware.",
+    "sourceSlides": [
+      7
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "elint-e-06",
+    "difficulty": "easy",
+    "category": "ELINT, COMINT and ES",
+    "tags": [
+      "electronic intelligence",
+      "ES vs ELINT tasking",
+      "situational scenario"
+    ],
+    "prompt": "At a Signal School exercise, an ES team and an ELINT team use the same type of receiver. According to the lesson, what separates their work?",
+    "options": [
+      "Who tasked the collection and what the product is for",
+      "Which frequency band each team is allowed to search",
+      "Whether the collected emitter is friendly or adversary",
+      "Whether the collected signal is a radar or a radio"
+    ],
+    "answer": 0,
+    "explanation": "Slide 8 describes the same receiver with a different 'why', so the test is who tasked it and what the product is for. The radar-or-radio option is the closest distractor, but that separates ELINT from COMINT on Slide 7, not ES from ELINT.",
+    "sourceSlides": [
+      7,
+      8
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "elint-e-07",
+    "difficulty": "easy",
+    "category": "Electronic Order of Battle",
+    "tags": [
+      "electronic intelligence",
+      "three EOBs",
+      "objective recall"
+    ],
+    "prompt": "Which three Electronic Orders of Battle are named in PAM 3-0702-01 as taught in this lesson?",
+    "options": [
+      "Friendly, Adversary and Allied",
+      "Strategic, Operational and Tactical",
+      "Adversary, Neutral and Coalition",
+      "Friendly, Adversary and Neutral"
+    ],
+    "answer": 3,
+    "explanation": "Slide 9 lists the Friendly, Adversary and Neutral EOBs, and Slide 24 asks for exactly these three. 'Friendly, Adversary and Allied' is the closest distractor because it keeps two correct names, but the third order is Neutral, covering civilian and commercial emitters.",
+    "sourceSlides": [
+      9,
+      24
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "elint-e-08",
+    "difficulty": "easy",
+    "category": "Electronic Order of Battle",
+    "tags": [
+      "electronic intelligence",
+      "Neutral EOB",
+      "situational scenario"
+    ],
+    "prompt": "An ES squad logs a maritime-distress radio and an air traffic control radar near the northern Luzon coast. Which order of battle should hold them?",
+    "options": [
+      "Adversary EOB, so that targeting is driven",
+      "Neutral EOB, so that civilians are not hit",
+      "Friendly EOB, so that mutual interference is prevented",
+      "Friendly EOB, so that OPSEC is protected"
+    ],
+    "answer": 1,
+    "explanation": "Slide 9 places civilian and commercial emitters such as air traffic control and maritime distress in the Neutral EOB, used to avoid hitting civilians and to stay within telecom agreements. The Friendly EOB options are the closest distractors because they also protect operations, but that order catalogues our own emitters.",
+    "sourceSlides": [
+      9
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "elint-e-09",
+    "difficulty": "easy",
+    "category": "Radar Principles and the One-Way Advantage",
+    "tags": [
+      "electronic intelligence",
+      "waterfall: rotating radar",
+      "situational scenario"
+    ],
+    "prompt": "In a Signal School waterfall exercise, one trace shows short hits spaced at exact, even intervals. Which source is most likely?",
+    "options": [
+      "A rotating radar whose beam sweeps past once per rotation",
+      "A beacon or a radio that has been left switched on",
+      "People talking on push-to-talk radios",
+      "Data traffic made of many short wideband bursts"
+    ],
+    "answer": 0,
+    "explanation": "Slide 4 reads evenly spaced short hits as a beam sweeping past once per rotation: people talk irregularly, machines repeat. Data traffic is the closest distractor because it is also a machine signal, but it appears as many short wideband bursts rather than exact, even spacing.",
+    "sourceSlides": [
+      4
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "elint-e-10",
+    "difficulty": "easy",
+    "category": "Radar Principles and the One-Way Advantage",
+    "tags": [
+      "electronic intelligence",
+      "time equals range",
+      "objective recall"
+    ],
+    "prompt": "In the lesson's radar sequence, what does the time between the outgoing pulse and its returning echo give the radar?",
+    "options": [
+      "The bearing to the target",
+      "The size of the target",
+      "The range to the target",
+      "The carrier frequency of the target"
+    ],
+    "answer": 2,
+    "explanation": "Slide 10 summarises the sequence as pulse out, echo back, and time equals range, like timing a shout in a canyon. Bearing is the closest distractor because direction also matters to a radar, but the slide ties the elapsed time to range, not to direction.",
+    "sourceSlides": [
+      10
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "elint-e-11",
+    "difficulty": "easy",
+    "category": "Radar Principles and the One-Way Advantage",
+    "tags": [
+      "electronic intelligence",
+      "one-way advantage",
+      "situational scenario"
+    ],
+    "prompt": "An ES team picks up a radar's pulses from a range at which that radar could not detect the team's post. Which principle explains this?",
+    "options": [
+      "The two-way advantage: the receiver needs the echo as well",
+      "The one-way advantage: the receiver needs only the outbound trip",
+      "The echo advantage: the reflected pulse is stronger than the outbound one",
+      "The passive advantage: a receiving site is invisible to others"
+    ],
+    "answer": 1,
+    "explanation": "Slide 11 explains that the radar needs its weak echo back over a two-way trip, while our receiver needs only the outbound trip, so we can usually detect a radar from beyond its range. The passive-advantage option is the closest distractor, but the same slide warns that our own radios, vehicles and lights can still give a site away.",
+    "sourceSlides": [
+      11
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "elint-e-12",
+    "difficulty": "easy",
+    "category": "Radar Parameters and Bands",
+    "tags": [
+      "electronic intelligence",
+      "polarization",
+      "objective recall"
+    ],
+    "prompt": "Which radar fingerprint parameter describes the orientation of the wave?",
+    "options": [
+      "Modulation and bandwidth",
+      "Beamwidth",
+      "Scan period",
+      "Polarization"
+    ],
+    "answer": 3,
+    "explanation": "Slide 12 lists polarization as the orientation of the wave within the radar fingerprint. Modulation and bandwidth is the closest distractor because it is also a wave property, but the slide defines it as the shape of the signal inside the pulse.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "elint-e-13",
+    "difficulty": "easy",
+    "category": "Radar Parameters and Bands",
+    "tags": [
+      "electronic intelligence",
+      "PRI and PRF",
+      "situational scenario"
+    ],
+    "prompt": "An ES operator measures a PRI of 1 ms on a new emitter. What is its PRF?",
+    "options": [
+      "1 MHz",
+      "100 Hz",
+      "10 kHz",
+      "1 kHz"
+    ],
+    "answer": 3,
+    "explanation": "Slide 13 gives PRF as pulses per second, equal to 1 divided by PRI, and Slide 24 answers this very case: a PRI of 1 ms is a PRF of 1 kHz. A value of 1 MHz is the closest distractor, a unit slip from kHz to MHz that mixes up the reciprocal relationship.",
+    "sourceSlides": [
+      13,
+      24
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "elint-e-14",
+    "difficulty": "easy",
+    "category": "Radar Parameters and Bands",
+    "tags": [
+      "electronic intelligence",
+      "carrier frequency and bands",
+      "situational scenario"
+    ],
+    "prompt": "On the northern Luzon coast, an ES squad logs a new emitter at 9.41 GHz. Which NATO band does this carrier frequency place it in?",
+    "options": [
+      "H-band (6–8 GHz)",
+      "I-band (8–10 GHz)",
+      "J-band (10–20 GHz)",
+      "G-band (4–6 GHz)"
+    ],
+    "answer": 1,
+    "explanation": "Slide 13 explains that the carrier frequency tells you the band, and Slide 17 lists I-band as 8–10 GHz; Slide 20 likewise files a 9,410 MHz example under I-band. J-band is the closest distractor because it begins at 10 GHz, just above this emitter.",
+    "sourceSlides": [
+      13,
+      17,
+      20
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "elint-e-15",
+    "difficulty": "easy",
+    "category": "Radar Parameters and Bands",
+    "tags": [
+      "electronic intelligence",
+      "pulse width",
+      "objective recall"
+    ],
+    "prompt": "Which fingerprint parameter states how long each individual pulse lasts?",
+    "options": [
+      "Pulse repetition interval (PRI)",
+      "Scan period",
+      "Pulse width (PW)",
+      "Pulse repetition frequency (PRF)"
+    ],
+    "answer": 2,
+    "explanation": "Slide 13 defines PW as how long each pulse lasts, measured in microseconds. PRI is the closest distractor because it is also a time measured in microseconds, but it is the time between pulses, not the length of one pulse.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "elint-e-16",
+    "difficulty": "easy",
+    "category": "Scan, Intent and Ground Emitters",
+    "tags": [
+      "electronic intelligence",
+      "circular scan",
+      "objective recall"
+    ],
+    "prompt": "Which description matches a circular scan?",
+    "options": [
+      "A 360° search that sweeps the whole area like a lighthouse",
+      "A back-and-forth search over one area of interest",
+      "A beam held steadily on one target",
+      "A wide beam that covers more area faster"
+    ],
+    "answer": 0,
+    "explanation": "Slide 15 describes a circular scan as a 360° search that sweeps the whole area like a lighthouse. The sector option is the closest distractor, but a sector scan moves back and forth over an area of interest rather than all round.",
+    "sourceSlides": [
+      15
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "elint-e-17",
+    "difficulty": "easy",
+    "category": "Scan, Intent and Ground Emitters",
+    "tags": [
+      "electronic intelligence",
+      "search reading",
+      "situational scenario"
+    ],
+    "prompt": "An operator at Camp O'Donnell sees an emitter whose beam sweeps past once per rotation, with a lower PRF and a longer PW. How does the lesson read this?",
+    "options": [
+      "Track: the radar is aiming at someone",
+      "Beacon: a transmitter is being left on",
+      "Search: the radar is looking around the area",
+      "Data link: short wideband bursts are being sent"
+    ],
+    "answer": 2,
+    "explanation": "Slide 16 reads a rotating or sector scan with a lower PRF and a longer PW as SEARCH, 'a lighthouse glances around'. Track is the closest distractor, but Slide 16 reserves it for a steady beam on a target with a higher PRF and a shorter PW.",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "elint-e-18",
+    "difficulty": "easy",
+    "category": "Scan, Intent and Ground Emitters",
+    "tags": [
+      "electronic intelligence",
+      "weapon-locating radar",
+      "objective recall"
+    ],
+    "prompt": "Which ground emitter detects incoming shells and computes where the gun fired from?",
+    "options": [
+      "Ground-surveillance radar",
+      "Coastal surveillance radar",
+      "Short-range air-surveillance radar",
+      "Weapon-locating radar"
+    ],
+    "answer": 3,
+    "explanation": "Slide 18 describes the weapon-locating radar as detecting incoming shells and computing where the gun fired from, which makes it a threat to our artillery. Ground-surveillance radar is the closest distractor, but it detects people and vehicles moving at range.",
+    "sourceSlides": [
+      18
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "elint-e-19",
+    "difficulty": "easy",
+    "category": "Process, Signature Library and Effect",
+    "tags": [
+      "electronic intelligence",
+      "Analyse step",
+      "objective recall"
+    ],
+    "prompt": "In the ES and ELINT process, which step measures the fingerprint of Ft, PW, PRI and scan?",
+    "options": [
+      "Analyse",
+      "Evaluate",
+      "Locate and track",
+      "Collate and report"
+    ],
+    "answer": 0,
+    "explanation": "Slide 19 makes Analyse the third step, where the fingerprint of Ft, PW, PRI and scan is measured. Evaluate is the closest distractor because it follows next, but it matches those measurements against the signature library rather than taking them.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "elint-e-20",
+    "difficulty": "easy",
+    "category": "Process, Signature Library and Effect",
+    "tags": [
+      "electronic intelligence",
+      "signature library",
+      "situational scenario"
+    ],
+    "prompt": "A Signal School squad records the time, parameters and location of each new radar intercept in a growing reference of enemy radars. What does the lesson call this reference?",
+    "options": [
+      "The friendly EOB",
+      "The signature library",
+      "The intercept log",
+      "The targeting board"
+    ],
+    "answer": 1,
+    "explanation": "Slide 20 calls the growing record set the signature library, a 'mugshot book' of enemy radars to which every intercept adds a record. The targeting board on Slide 22 is the closest distractor, but it is where emitters are matched to responses, not where records are kept.",
+    "sourceSlides": [
+      20,
+      22
+    ]
+  }
+]

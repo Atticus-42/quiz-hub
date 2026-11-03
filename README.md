@@ -22,7 +22,9 @@ The whole site is published from this repository with GitHub Pages at https://at
   | Module 5 | C4ISTAR Sensors Integration | `sensors` | `/quiz-hub/c4istar-sensors-integration/` |
   | Module 5 | C4ISTAR Weapon System Integration | `weapons` | `/quiz-hub/c4istar-weapon-system-integration/` |
   | Module 6 | Signals Intelligence (SIGINT) | `sigint` | `/quiz-hub/signals-intelligence/` |
+  | Module 6 | Electronic Intelligence (ELINT) | `elint` | `/quiz-hub/electronic-intelligence/` |
   | Module 6 | Radio Direction Finding | `rdf` | `/quiz-hub/radio-direction-finding/` |
+  | Module 6 | Electronic Counter-Countermeasures (ECCM) | `eccm` | `/quiz-hub/electronic-counter-countermeasures/` |
   | Module 7 | Module 7 Exam (32 questions, 8 per lesson) | `moduleseven` | `/quiz-hub/module-7-exam/` |
   | Module 7 | NIST Framework | `nist` | `/quiz-hub/nist-framework/` |
   | Module 7 | Zero Trust | `zerotrust` | `/quiz-hub/zero-trust/` |

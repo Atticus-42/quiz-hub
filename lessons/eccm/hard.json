@@ -1,0 +1,516 @@
+[
+  {
+    "id": 1,
+    "qid": "eccm-h-01",
+    "difficulty": "hard",
+    "category": "EP Purpose and the ECM Duel",
+    "tags": [
+      "electronic counter-countermeasures",
+      "ep purpose and the ecm duel",
+      "situational"
+    ],
+    "prompt": "A rifle company commander has encrypted all company radio traffic and considers Electronic Protection complete. Which assessment best reflects the lesson?",
+    "options": [
+      "Complete: encryption protects the signal, and the EW cell supplies any other measures",
+      "Incomplete: hopping and EMCON are applied only by the EW cell",
+      "Incomplete: EP needs several measures together, and every unit applies them",
+      "Complete: encryption protects both the content and the location of the radios"
+    ],
+    "answer": 2,
+    "explanation": "Slides 14 and 24 say encryption protects what is said but not jamming or location, and that EP means hard to find, jam and read through several measures together that every unit applies. The location option is the closest distractor, but Slide 14 states that encryption does not hide location.",
+    "sourceSlides": [
+      14,
+      24
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "eccm-h-02",
+    "difficulty": "hard",
+    "category": "EP Purpose and the ECM Duel",
+    "tags": [
+      "electronic counter-countermeasures",
+      "ep purpose and the ecm duel",
+      "objective"
+    ],
+    "prompt": "Which list gives the five EP measures named in PAM 3-0702-01, paragraph 0110?",
+    "options": [
+      "Hardening, encryption, frequency hopping, terrain masking, spectrum management",
+      "Radio discipline, encryption, frequency hopping, emission control, spectrum management",
+      "Hardening, encryption, frequency hopping, emission control, spectrum management",
+      "Hardening, encryption, frequency hopping, emission control, PACE planning"
+    ],
+    "answer": 2,
+    "explanation": "Slide 7 lists the five EP measures as hardening, encryption, frequency hopping, emission control and spectrum management. The terrain-masking list is the closest distractor, but terrain masking and radio discipline are field practices taught on Slides 9 and 10 and are not among the five named measures.",
+    "sourceSlides": [
+      7,
+      9,
+      10
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "eccm-h-03",
+    "difficulty": "hard",
+    "category": "EP Purpose and the ECM Duel",
+    "tags": [
+      "electronic counter-countermeasures",
+      "ep purpose and the ecm duel",
+      "situational"
+    ],
+    "prompt": "A student reads the example duel and concludes that fielding frequency hopping ends the contest. Which statement best corrects this?",
+    "options": [
+      "Hopping ends the contest against spot jamming, so barrage jamming needs encryption",
+      "Hopping defeats jamming outright, so further measures only add emissions",
+      "The example shows ECM winning, since each of our measures is defeated",
+      "The enemy answers hopping with barrage jamming, so protection needs further layers"
+    ],
+    "answer": 3,
+    "explanation": "Slide 6 shows the enemy switching to barrage jamming after our radios hop, and our reply adding lower power, terrain masking and PACE: every move invites a counter-move. The encryption option is the closest distractor, but Slide 14 says encryption does not stop jamming.",
+    "sourceSlides": [
+      6,
+      14
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "eccm-h-04",
+    "difficulty": "hard",
+    "category": "Enemy Questions and Radio Discipline",
+    "tags": [
+      "electronic counter-countermeasures",
+      "enemy questions and radio discipline",
+      "situational"
+    ],
+    "prompt": "A patrol must send a contact report while the enemy is known to be using direction finding. Which transmission best applies the radio-discipline rules?",
+    "options": [
+      "A full, detailed message at the lowest power so that nothing has to be repeated",
+      "A short brevity-coded message at high power so it is received first time",
+      "A short brevity-coded message repeated at fixed intervals to confirm receipt",
+      "A pre-planned message in brevity codes, short, at the lowest power that works"
+    ],
+    "answer": 3,
+    "explanation": "Slide 9 asks for the lowest power that works, short pre-planned transmissions with brevity codes, and no fixed patterns. The high-power option is the closest distractor, but it breaks the power rule that limits the range of enemy DF.",
+    "sourceSlides": [
+      9
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "eccm-h-05",
+    "difficulty": "hard",
+    "category": "Enemy Questions and Radio Discipline",
+    "tags": [
+      "electronic counter-countermeasures",
+      "enemy questions and radio discipline",
+      "objective"
+    ],
+    "prompt": "Which pairing of enemy question and Electronic Protection answer is correct?",
+    "options": [
+      "Can I FIND you? Encryption, brevity codes, and saying less, less often",
+      "Can I JAM you? Frequency hopping, directional antennas and PACE alternate means",
+      "Can I READ you? Emission control, low power, short transmissions and terrain masking",
+      "Can I JAM you? Emission control, low power and short transmissions"
+    ],
+    "answer": 1,
+    "explanation": "Slide 8 answers \"Can I JAM you?\" with frequency hopping, directional antennas and PACE alternate means. The last option is the closest distractor, but emission control, low power and short transmissions answer the \"Can I FIND you?\" question.",
+    "sourceSlides": [
+      8
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "eccm-h-06",
+    "difficulty": "hard",
+    "category": "Enemy Questions and Radio Discipline",
+    "tags": [
+      "electronic counter-countermeasures",
+      "enemy questions and radio discipline",
+      "situational"
+    ],
+    "prompt": "Two company positions must link by radio, with the enemy beyond a ridge to the east. Which antenna arrangement best applies the lesson?",
+    "options": [
+      "A directional antenna aimed at the friendly station, placed on the ridge crest for a clear path",
+      "A directional antenna aimed at the friendly station, with a camouflage net across its front",
+      "A directional antenna aimed at the friendly station, at higher power to overcome the ridge",
+      "A directional antenna aimed at the friendly station, off the skyline with the ridge between it and the enemy"
+    ],
+    "answer": 3,
+    "explanation": "Slides 9 and 10 say to point the energy at your own station, keep antennas off skylines, and put terrain between the antenna and the enemy. The ridge-crest option is the closest distractor, but a crest sits on the skyline and removes the screening that the ridge would give.",
+    "sourceSlides": [
+      9,
+      10
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "eccm-h-07",
+    "difficulty": "hard",
+    "category": "Masking, Blending and Emission Risk",
+    "tags": [
+      "electronic counter-countermeasures",
+      "masking, blending and emission risk",
+      "situational"
+    ],
+    "prompt": "A battalion command post kept transmitting from one unchanged site around the clock and was later struck. Which lesson from the Ukraine slide fits best?",
+    "options": [
+      "DF leads to fires on emitters",
+      "Static emissions get hit",
+      "Blending works in busy networks",
+      "Mask first, move later"
+    ],
+    "answer": 1,
+    "explanation": "Slide 23 says command posts were high-payoff targets because their emissions were stationary and constant. DF leads to fires is the closest distractor, but that lesson concerns drone control stations located by direction finding and then engaged by indirect fire.",
+    "sourceSlides": [
+      23
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "eccm-h-08",
+    "difficulty": "hard",
+    "category": "Masking, Blending and Emission Risk",
+    "tags": [
+      "electronic counter-countermeasures",
+      "masking, blending and emission risk",
+      "situational"
+    ],
+    "prompt": "A command post has two usable sites: a hilltop with wide radio coverage, and the far side of a ridge from the enemy with weaker coverage. Enemy DF and jammers are active. Which decision follows the lesson?",
+    "options": [
+      "Use the hilltop and add power to make up for the DF risk",
+      "Use the reverse slope; terrain between the antenna and the enemy blocks DF and jamming",
+      "Use the hilltop with a directional antenna and nets, since coverage outweighs the risk",
+      "Use the hilltop but vary report times so DF cannot establish a pattern"
+    ],
+    "answer": 1,
+    "explanation": "Slide 10 says to avoid hilltops for command posts because they are easy to DF and easy to jam, and to use the reverse slope. Varying report times is the closest distractor, but it applies a Slide 9 rule that does not remove the hilltop's exposure.",
+    "sourceSlides": [
+      9,
+      10
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "eccm-h-09",
+    "difficulty": "hard",
+    "category": "Masking, Blending and Emission Risk",
+    "tags": [
+      "electronic counter-countermeasures",
+      "masking, blending and emission risk",
+      "objective"
+    ],
+    "prompt": "What lesson does the home-on-jam slide draw for our own emitters?",
+    "options": [
+      "Any strong emitter, jammer or radio, can be located and struck",
+      "Jammers are at risk, but radios are protected by encryption",
+      "Emitters on a fixed frequency can be guided on, so hopping removes the risk",
+      "Air assets are at risk, but ground units face no such threat"
+    ],
+    "answer": 0,
+    "explanation": "Slide 22 draws the lesson that any strong emitter, jammer or radio, can be located and struck, and that our own EA teams face the same risk. The encryption option is the closest distractor, but Slide 14 says encryption protects content and does not hide location.",
+    "sourceSlides": [
+      14,
+      22
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "eccm-h-10",
+    "difficulty": "hard",
+    "category": "EMCON Levels",
+    "tags": [
+      "electronic counter-countermeasures",
+      "emcon levels",
+      "situational"
+    ],
+    "prompt": "A brigade at the field baseline EMCON is told that attacks are under way and one system shows signs of compromise. Which decision follows the EMCON table?",
+    "options": [
+      "Go to EMCON 4, RED, switching non-essential emitters off and using alternates",
+      "Stay at EMCON 3, AMBER, and set the compromised system to hop mode",
+      "Go to EMCON 5, BLACK, and isolate the compromised system",
+      "Go to EMCON 2, YELLOW, limiting transmissions and watching power levels"
+    ],
+    "answer": 2,
+    "explanation": "Slide 12 sets EMCON 5 BLACK for attacks under way, the most restrictive level, with compromised systems isolated. EMCON 4 RED is the closest distractor, but it applies after an attack has occurred and uses alternates instead of isolating compromised systems.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "eccm-h-11",
+    "difficulty": "hard",
+    "category": "EMCON Levels",
+    "tags": [
+      "electronic counter-countermeasures",
+      "emcon levels",
+      "objective"
+    ],
+    "prompt": "Which statement correctly matches an EMCON level with its condition?",
+    "options": [
+      "EMCON 2, YELLOW: an attack has occurred",
+      "EMCON 4, RED: attacks are under way",
+      "EMCON 3, AMBER: a risk has been identified",
+      "EMCON 1, GREEN: a risk has been identified"
+    ],
+    "answer": 2,
+    "explanation": "Slide 12 pairs EMCON 3 AMBER with a risk identified, EMCON 2 YELLOW with a risk of attack, EMCON 4 RED with an attack that has occurred, and EMCON 5 BLACK with attacks under way. The EMCON 4 option is the closest distractor, but it swaps the condition for EMCON 5.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "eccm-h-12",
+    "difficulty": "hard",
+    "category": "EMCON Levels",
+    "tags": [
+      "electronic counter-countermeasures",
+      "emcon levels",
+      "objective"
+    ],
+    "prompt": "According to the EMCON slide, what should units do about changing between EMCON levels?",
+    "options": [
+      "Rehearse moving between levels in every exercise",
+      "Hold the unit at the field baseline during exercises",
+      "Practise only the end levels, EMCON 1 and EMCON 5",
+      "Wait for a real attack before using the higher levels"
+    ],
+    "answer": 0,
+    "explanation": "Slide 12 says to rehearse moving between levels in every exercise and not just on paper. Practising only the end levels is the closest distractor, but it skips the intermediate steps that a unit actually has to move through.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "eccm-h-13",
+    "difficulty": "hard",
+    "category": "Hopping, Encryption and Anti-Jam",
+    "tags": [
+      "electronic counter-countermeasures",
+      "hopping, encryption and anti-jam",
+      "objective"
+    ],
+    "prompt": "Which statement correctly separates encryption from anti-jam measures?",
+    "options": [
+      "Encryption keeps the link alive under attack; hopping and terrain protect what is said",
+      "Encryption protects what is said; anti-jam measures keep the link working",
+      "Encryption hides the transmitter's location; low power and masking stop jamming",
+      "Encryption and hopping do the same job, so a radio needs only one of them"
+    ],
+    "answer": 1,
+    "explanation": "Slide 14 says encryption protects WHAT you say, anti-jam protects WHETHER it gets through, and you need both. The first reversed option is the closest distractor, but it swaps the two jobs.",
+    "sourceSlides": [
+      14
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "eccm-h-14",
+    "difficulty": "hard",
+    "category": "Hopping, Encryption and Anti-Jam",
+    "tags": [
+      "electronic counter-countermeasures",
+      "hopping, encryption and anti-jam",
+      "situational"
+    ],
+    "prompt": "A platoon's radios are in secure mode on a fixed channel, and the net is jammed. Which statement best explains the failure and the fix?",
+    "options": [
+      "Secure mode should already stop jamming, so check the encryption fill and reload it",
+      "Hop mode would expose the content, so keep a fixed channel and add a directional antenna",
+      "Secure mode protects content, not delivery; set the radios to HOP as well as SECURE",
+      "Secure mode shields the channel from jamming, so the likely cause is friendly interference"
+    ],
+    "answer": 2,
+    "explanation": "Slide 14 says the tactical radio gives both protections if it is set to HOP and SECURE, and that encryption does not stop jamming. The fill-reload option is the closest distractor, but it assumes encryption should resist jamming, which Slide 14 rules out.",
+    "sourceSlides": [
+      14
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "eccm-h-15",
+    "difficulty": "hard",
+    "category": "Hopping, Encryption and Anti-Jam",
+    "tags": [
+      "electronic counter-countermeasures",
+      "hopping, encryption and anti-jam",
+      "objective"
+    ],
+    "prompt": "Which statement correctly contrasts frequency hopping and spread spectrum?",
+    "options": [
+      "Hopping spreads the signal over a wide band; spread spectrum jumps channels in a pattern only friendly radios know",
+      "Hopping jumps channels in a pattern only friendly radios know; spread spectrum spreads the signal",
+      "Both jump channels in a pattern only friendly radios know, but spread spectrum adds encryption",
+      "Hopping makes the signal harder to detect; spread spectrum makes it harder to read"
+    ],
+    "answer": 1,
+    "explanation": "Slide 13 says the hopping radio jumps channels many times per second in a pattern only friendly radios know, while spread spectrum spreads the signal so it is harder to detect and jam. The first swapped option is the closest distractor, but it reverses the two descriptions.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "eccm-h-16",
+    "difficulty": "hard",
+    "category": "Recognize, React and Report",
+    "tags": [
+      "electronic counter-countermeasures",
+      "recognize, react and report",
+      "situational"
+    ],
+    "prompt": "A signaller disconnects the antenna and the noise drops. After moving a short distance, the noise changes greatly. Which conclusion best fits both results?",
+    "options": [
+      "The source is outside the radio, and terrain or direction is involved",
+      "The source is inside the radio, and terrain is not involved",
+      "The source is outside the radio, but terrain and direction are not involved",
+      "The source is the radio's power supply, and the antenna is faulty"
+    ],
+    "answer": 0,
+    "explanation": "Slide 15 says that noise dropping with the antenna disconnected means it comes from outside, and that a big change after moving or turning the antenna means terrain or direction is involved. The second option is the closest distractor, but it ignores the second result of the test.",
+    "sourceSlides": [
+      15
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "eccm-h-17",
+    "difficulty": "hard",
+    "category": "Recognize, React and Report",
+    "tags": [
+      "electronic counter-countermeasures",
+      "recognize, react and report",
+      "objective"
+    ],
+    "prompt": "According to the report slide, how is an interference report sent when the net is jammed?",
+    "options": [
+      "On the jammed net once, in the clear, because the enemy already knows",
+      "On the jammed net in secure mode, because encryption stops jamming",
+      "Held until the jamming ends so the report is complete",
+      "Through the chain to the S6 and the EW cell, using an alternate means"
+    ],
+    "answer": 3,
+    "explanation": "Slide 17 says the report goes through the chain to the S6 and the EW cell, by an alternate means if the net is jammed, and never in the clear on the jammed net. Holding it until the jamming ends is the closest distractor, but Slide 16 calls for reporting during the event and the report feeds ES, the EOB and the commander's response.",
+    "sourceSlides": [
+      16,
+      17
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "eccm-h-18",
+    "difficulty": "hard",
+    "category": "Recognize, React and Report",
+    "tags": [
+      "electronic counter-countermeasures",
+      "recognize, react and report",
+      "objective"
+    ],
+    "prompt": "Which pairing of interference-report line and content is correct?",
+    "options": [
+      "FREQUENCY / NET: the affected frequency, net or system such as GPS",
+      "WHERE: the type of interference, such as noise, tones or false signals",
+      "EFFECT: what you did and the result",
+      "WHO: the date-time group the interference started"
+    ],
+    "answer": 0,
+    "explanation": "Slide 17 defines FREQUENCY / NET as the affected frequency, net or system, for example GPS. The WHERE option is the closest distractor, but WHERE holds your grid and the bearing to the source if known, while the type of interference belongs to WHAT.",
+    "sourceSlides": [
+      17
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "eccm-h-19",
+    "difficulty": "hard",
+    "category": "PACE and GPS Protection",
+    "tags": [
+      "electronic counter-countermeasures",
+      "pace and gps protection",
+      "situational"
+    ],
+    "prompt": "A section drafts its PACE plan for a jamming exercise. Which draft reproduces the example plan in the lesson?",
+    "options": [
+      "P: tactical radio, hop and secure; A: runner or visual signals; C: field wire or messenger vehicle; E: HF radio or another net",
+      "P: tactical radio, hop and secure; A: HF radio or another net; C: field wire or messenger vehicle; E: runner or visual signals",
+      "P: HF radio or another net; A: tactical radio, hop and secure; C: runner or visual signals; E: field wire or messenger vehicle",
+      "P: tactical radio, hop and secure; A: field wire or messenger vehicle; C: HF radio or another net; E: runner or visual signals"
+    ],
+    "answer": 1,
+    "explanation": "Slide 18 gives the example plan: tactical radio in hop and secure mode, then HF radio or another frequency or net, then field wire or messenger vehicle, then runner or visual and pyrotechnic signals. The last option is the closest distractor, but it swaps the alternate and contingency means.",
+    "sourceSlides": [
+      18
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "eccm-h-20",
+    "difficulty": "hard",
+    "category": "PACE and GPS Protection",
+    "tags": [
+      "electronic counter-countermeasures",
+      "pace and gps protection",
+      "situational"
+    ],
+    "prompt": "A patrol's GPS gives a steady position that looks plausible, but the time is wrong and a speed shows while the patrol is stationary. Which interpretation and action best fit the lesson?",
+    "options": [
+      "Suspect spoofing; cross-check with map, compass and terrain, and report it",
+      "Suspect jamming, because the fix is lost, and wait for the signal to return",
+      "Suspect a receiver fault, then reset it and trust the new fix",
+      "Suspect spoofing, but rely on the CRPA antenna to correct the position"
+    ],
+    "answer": 0,
+    "explanation": "Slide 19 says spoofing gives a wrong fix that looks right, lists wrong time and speed while stationary as red flags, and calls for cross-checks and reporting. The CRPA option is the closest distractor, but CRPA antennas null out jammers and do not correct a spoofed position.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "eccm-h-21",
+    "difficulty": "hard",
+    "category": "Hardening, Compatibility and Sensor ECCM",
+    "tags": [
+      "electronic counter-countermeasures",
+      "hardening, compatibility and sensor eccm",
+      "situational"
+    ],
+    "prompt": "A radar crew finds that jamming arrives from the side while the main antenna looks ahead. Which technique lets the radar ignore it?",
+    "options": [
+      "Frequency agility, changing frequency pulse to pulse",
+      "Pulse compression, squeezing a coded pulse on receive",
+      "Low-probability-of-intercept waveforms, using low-power wideband signals",
+      "Sidelobe blanking, with a second antenna spotting the jamming"
+    ],
+    "answer": 3,
+    "explanation": "Slide 21 describes sidelobe blanking as a second antenna spotting jamming that arrives from the side, so the radar ignores it. Frequency agility is the closest distractor, but it changes frequency pulse to pulse and does not discriminate the direction of arrival.",
+    "sourceSlides": [
+      21
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "eccm-h-22",
+    "difficulty": "hard",
+    "category": "Hardening, Compatibility and Sensor ECCM",
+    "tags": [
+      "electronic counter-countermeasures",
+      "hardening, compatibility and sensor eccm",
+      "objective"
+    ],
+    "prompt": "Which pairing of radar technique and effect is correct?",
+    "options": [
+      "Low-probability-of-intercept: low-power, wideband waveforms that are hard for ES to detect",
+      "Frequency agility: a second antenna spots jamming from the side and the radar ignores it",
+      "Sidelobe blanking: a long coded pulse is squeezed on receive for range detail",
+      "Pulse compression: the radar changes its frequency from one pulse to the next, like a hopping radio"
+    ],
+    "answer": 0,
+    "explanation": "Slide 21 describes low-probability-of-intercept as low-power, wideband waveforms that are hard for ES to detect. The pulse compression option is the closest distractor, but the radar changing frequency from pulse to pulse is frequency agility.",
+    "sourceSlides": [
+      21
+    ]
+  }
+]

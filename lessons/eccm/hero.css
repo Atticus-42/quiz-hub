@@ -1,0 +1,7 @@
+.hop-trace { animation: hop-emphasis 4s ease-out 1; }
+.jam-band { animation: jam-emphasis 4s ease-out 1; }
+@keyframes hop-emphasis { 0%,100% { stroke-opacity:1; } 40% { stroke-opacity:.35; } }
+@keyframes jam-emphasis { 0%,100% { stroke-opacity:1; } 55% { stroke-opacity:.4; } }
+@media (prefers-reduced-motion: reduce) {
+  .hop-trace, .jam-band { animation:none !important; transition:none !important; stroke-opacity:1; }
+}

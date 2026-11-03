@@ -49,12 +49,12 @@ test('POI placement preserves legacy routes and history identities without unsup
   for(const [key,module,order,slug] of [
     ['fieldartillery','module-2',2,'field-artillery'],['armor','module-2',3,'armor'],['isr','module-2',4,'isr'],
     ['signal','module-4',1,'signal-support'],['signaljoint','module-4',2,'joint-signal'],['coalition','module-4',3,'coalition-signal'],
-    ['sigint','module-6',1,'signals-intelligence'],['rdf','module-6',3,'radio-direction-finding'],
+    ['sigint','module-6',1,'signals-intelligence'],['elint','module-6',2,'electronic-intelligence'],['rdf','module-6',3,'radio-direction-finding'],['eccm','module-6',4,'electronic-counter-countermeasures'],
     ['armyops','supplemental',1,'army-operations'],['intcycle','supplemental',2,'intelligence-cycle']]){
     const lesson=byKey.get(key);assert.equal(lesson.module,module);assert.equal(lesson.order,order);assert.equal(lesson.slug,slug);assert.equal(lesson.historyLesson,key);
   }
   assert.equal(byKey.get('modulethree').slug,'module-3-exam');assert.equal(byKey.get('modulethree').module,'module-4');
   for(const key of ['combined','modulethree']){assert.equal(byKey.get(key).pool.count,30);assert.ok(byKey.get(key).banks.easy.length>35);}
   assert.deepEqual(modules.map(m=>m.id),['module-2','module-4','module-5','module-6','module-7','supplemental']);
-  for(const key of ['cpa','bms','elint','eccm','infantry'])assert.ok(!byKey.has(key));
+  for(const key of ['cpa','bms','infantry'])assert.ok(!byKey.has(key));
 });

@@ -1,0 +1,474 @@
+[
+  {
+    "id": 1,
+    "qid": "elint-h-01",
+    "difficulty": "hard",
+    "category": "ELINT Foundations and Doctrine",
+    "tags": [
+      "electronic intelligence",
+      "ELINT in SIGINT, not EW",
+      "situational scenario"
+    ],
+    "prompt": "A squad leader at the Signal School makes three statements: (1) ELINT is a sub-discipline of SIGINT; (2) its subject is non-communication signals; (3) it belongs to EW, the action arm. Which assessment is best supported?",
+    "options": [
+      "Statements 1, 2 and 3 hold, because ES and ELINT share receivers and so share an arm",
+      "Statements 2 and 3 hold; statement 1 fails because ELINT is a sub-discipline of EW alongside ES",
+      "Statements 1 and 2 hold; statement 3 fails because ELINT sits in SIGINT, the intelligence arm",
+      "Statement 2 holds; statements 1 and 3 fail because ELINT is a sub-discipline of COMINT"
+    ],
+    "answer": 2,
+    "explanation": "Slide 5 quotes ELINT as a SIGINT sub-discipline for non-communication signals, and Slide 6 places SIGINT, the intelligence arm, apart from EW, the action arm. The all-three option is the closest distractor because ES and ELINT do share receivers, but Slide 8 shows that shared hardware does not move ELINT into the action arm.",
+    "sourceSlides": [
+      5,
+      6,
+      8
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "elint-h-02",
+    "difficulty": "hard",
+    "category": "ELINT Foundations and Doctrine",
+    "tags": [
+      "electronic intelligence",
+      "Zoopark-1 example",
+      "situational scenario"
+    ],
+    "prompt": "A Signal School panel cites reports that Zoopark-1 counter-battery radars were repeatedly destroyed in Ukraine. Which reading is best supported by the lesson?",
+    "options": [
+      "Counter-battery radars are the main emitters that ELINT is designed to find",
+      "A radar that transmits can be found, and found radars become targets",
+      "Enemy radars are found by their echoes, and the echoes make them targets",
+      "Friendly radars are exempt, since the enemy's radars are the ones exposed to bearings"
+    ],
+    "answer": 1,
+    "explanation": "Slide 5 uses the Zoopark-1 reports to show that found radars become targets and adds that the same is true of our radars. The exemption option is the closest distractor because it sounds protective, but the slide states that the exposure applies to friendly radars too.",
+    "sourceSlides": [
+      5
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "elint-h-03",
+    "difficulty": "hard",
+    "category": "ELINT Foundations and Doctrine",
+    "tags": [
+      "electronic intelligence",
+      "key takeaways",
+      "objective recall"
+    ],
+    "prompt": "Which set correctly states the three key takeaways of the lesson?",
+    "options": [
+      "Radars hide behind their echoes; parameters reveal identity and intent; ELINT feeds the EOB and the commander's next move",
+      "Radars announce themselves; parameters reveal the operator's message; ELINT feeds the EOB and the commander's next move",
+      "Radars announce themselves; parameters reveal identity and intent; ELINT replaces COMINT as the source of intent",
+      "Radars announce themselves; parameters reveal identity and intent; ELINT feeds the EOB and the commander's next move"
+    ],
+    "answer": 3,
+    "explanation": "Slide 23 lists three takeaways: radars announce themselves, parameters reveal identity and intent, and ELINT feeds the EOB and the commander's next move. The message option is the closest distractor because it swaps the lesson's focus on equipment for content, which Slide 7 assigns to COMINT.",
+    "sourceSlides": [
+      7,
+      23
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "elint-h-04",
+    "difficulty": "hard",
+    "category": "ELINT, COMINT and ES",
+    "tags": [
+      "electronic intelligence",
+      "same receiver, different tasking",
+      "situational scenario"
+    ],
+    "prompt": "An ES squad on the northern Luzon coast logs a new radar. A battalion commander asks for a threat warning at once, and the intelligence staff asks for a long-term picture of enemy radar capability. Which handling fits the lesson?",
+    "options": [
+      "Treat the first request as ES and the second as ELINT; the receiver is the same, but the tasking and product differ",
+      "Treat both as ELINT, because radar analysis belongs to intelligence channels and the receiver is shared",
+      "Treat both as ES, because the real-time warning must come before deeper analysis can begin",
+      "Treat the second as ELINT, but after a different receiver is issued to the intelligence team"
+    ],
+    "answer": 0,
+    "explanation": "Slide 8 says ES serves the tactical commander's real-time, perishable need while ELINT serves intelligence channels, and both can use the same receiver. Treating both as ELINT is the closest distractor because the signal is a radar, but the test on Slide 8 is who tasked it and what the product is for.",
+    "sourceSlides": [
+      8
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "elint-h-05",
+    "difficulty": "hard",
+    "category": "ELINT, COMINT and ES",
+    "tags": [
+      "electronic intelligence",
+      "COMINT and ELINT grouping",
+      "objective recall"
+    ],
+    "prompt": "An intercept set holds a push-to-talk voice net, a coded data message, a coastal radar and a radar altimeter on a drone. Which grouping matches the lesson?",
+    "options": [
+      "COMINT: voice net and coastal radar; ELINT: data message and radar altimeter",
+      "COMINT: voice net; ELINT: data message, coastal radar and radar altimeter",
+      "COMINT: data message and radar altimeter; ELINT: voice net and coastal radar",
+      "COMINT: voice net and data message; ELINT: coastal radar and radar altimeter"
+    ],
+    "answer": 3,
+    "explanation": "Slide 7 assigns voice, text and data messages to COMINT and radars, beacons and sensors to ELINT, and Slide 18 lists radar altimeters among radar emitters. The option moving the data message to ELINT is the closest distractor because it is also machine-produced, but it still carries a message.",
+    "sourceSlides": [
+      7,
+      18
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "elint-h-06",
+    "difficulty": "hard",
+    "category": "ELINT, COMINT and ES",
+    "tags": [
+      "electronic intelligence",
+      "ELINT skills and question",
+      "objective recall"
+    ],
+    "prompt": "Which combination correctly describes the skills ELINT draws on and the question it answers?",
+    "options": [
+      "Language and cryptography; what does the enemy intend",
+      "Electronics and signal analysis; what equipment, where, doing what",
+      "Electronics and signal analysis; what does the enemy intend",
+      "Language and cryptography; what equipment, where, doing what"
+    ],
+    "answer": 1,
+    "explanation": "Slide 7 gives ELINT electronics and signal-analysis skills and the question 'What equipment, where, doing what?', while COMINT uses language and cryptography to ask what the enemy intends. The mixed options are the closest distractors because each pairs one correct half with the other discipline's half.",
+    "sourceSlides": [
+      7
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "elint-h-07",
+    "difficulty": "hard",
+    "category": "Electronic Order of Battle",
+    "tags": [
+      "electronic intelligence",
+      "Adversary and Neutral EOB together",
+      "situational scenario"
+    ],
+    "prompt": "An ES team finds a civilian maritime-distress radio near a hostile weapon-guidance radar. How should it record the two emitters?",
+    "options": [
+      "Radar in the Adversary EOB for targeting; distress radio in the Neutral EOB to avoid hitting civilians",
+      "Both in the Adversary EOB, because the two emitters share a location and are watched together",
+      "Radar in the Adversary EOB; distress radio omitted, as civilian emitters are not catalogued",
+      "Radar in the Adversary EOB; distress radio in the Friendly EOB, to protect OPSEC"
+    ],
+    "answer": 0,
+    "explanation": "Slide 9 gives the Adversary EOB to hostile weapon-guidance radars for targeting and countermeasures, and the Neutral EOB to civilian emitters such as maritime distress so that civilians are not hit. Omitting the distress radio is the closest distractor, but the slide treats neutral emitters as part of the catalogue of every emitter in the area.",
+    "sourceSlides": [
+      9
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "elint-h-08",
+    "difficulty": "hard",
+    "category": "Electronic Order of Battle",
+    "tags": [
+      "electronic intelligence",
+      "main job: fill the Adversary EOB",
+      "objective recall"
+    ],
+    "prompt": "A staff board lists four tasks for the ELINT section on the ground. Which one does the lesson identify as its main job?",
+    "options": [
+      "Prevent mutual interference by cataloguing friendly radios, radars and data links",
+      "Respect telecom agreements by cataloguing civilian and commercial emitters",
+      "Fill and update the Adversary EOB with hostile radios and weapon-guidance radars",
+      "Decide at the targeting board which effect is applied to each emitter"
+    ],
+    "answer": 2,
+    "explanation": "Slide 9 closes with ELINT's main job on the ground: fill and update the Adversary EOB. The friendly-cataloguing option is the closest distractor because it describes a real EOB use on the same slide, but that is the purpose of the Friendly EOB rather than ELINT's main job, and Slide 22 leaves the targeting decision to the commander.",
+    "sourceSlides": [
+      9,
+      22
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "elint-h-09",
+    "difficulty": "hard",
+    "category": "Radar Principles and the One-Way Advantage",
+    "tags": [
+      "electronic intelligence",
+      "one-way advantage assessment",
+      "situational scenario"
+    ],
+    "prompt": "An ES squad hears a radar's pulses and concludes the radar probably cannot detect the squad's post at that range. A sergeant adds that the squad can now run its radios and vehicle lights freely. Which assessment fits the lesson?",
+    "options": [
+      "Both are sound, because passive receiving is invisible to the radar",
+      "The conclusion is usually sound because of the one-way advantage; the sergeant is wrong, since radios, vehicles and lights can still reveal the site",
+      "The conclusion is unsound, because the receiver must be closer than the radar's echo range to hear it",
+      "The conclusion is usually sound, and the sergeant is right because echoes are what reveal a site"
+    ],
+    "answer": 1,
+    "explanation": "Slide 11 explains that the radar needs its weak echo back while the receiver needs only the outbound trip, so we can usually detect a radar from beyond the range at which it detects us. It also warns that our own radios, vehicles and lights can still give the site away, which is why the both-sound option is the closest distractor.",
+    "sourceSlides": [
+      11
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "elint-h-10",
+    "difficulty": "hard",
+    "category": "Radar Principles and the One-Way Advantage",
+    "tags": [
+      "electronic intelligence",
+      "four waterfall traces",
+      "objective recall"
+    ],
+    "prompt": "A waterfall shows four traces: A a steady line, B irregular bursts, C many short wideband bursts, D short evenly spaced hits. Which source assignment matches the lesson?",
+    "options": [
+      "A someone talking; B beacon or radio left on; C data traffic; D rotating radar",
+      "A beacon or radio left on; B someone talking; C rotating radar; D data traffic",
+      "A rotating radar; B someone talking; C data traffic; D beacon or radio left on",
+      "A beacon or radio left on; B someone talking; C data traffic; D rotating radar"
+    ],
+    "answer": 3,
+    "explanation": "Slide 4 reads the steady line as a beacon or radio left on, irregular bursts as someone talking, wideband bursts as data traffic and evenly spaced hits as a rotating radar. The option swapping C and D is the closest distractor because both are machine signals, but only the exact rhythm of D marks the radar.",
+    "sourceSlides": [
+      4
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "elint-h-11",
+    "difficulty": "hard",
+    "category": "Radar Principles and the One-Way Advantage",
+    "tags": [
+      "electronic intelligence",
+      "ELINT intercepts the outbound pulse",
+      "situational scenario"
+    ],
+    "prompt": "A trainee says: 'ELINT intercepts the weak echo, and timing that echo gives the range.' Which assessment fits the lesson?",
+    "options": [
+      "Fully right: the echo is the signal that ELINT collects and times",
+      "Half right: ELINT intercepts the loud pulse, but range comes from the carrier frequency",
+      "Half right: timing the echo gives range, but ELINT intercepts the loud outgoing pulse",
+      "Wrong: a passive receiver cannot hear a radar's outgoing pulse"
+    ],
+    "answer": 2,
+    "explanation": "Slides 10 and 11 show that the radar times its weak echo for range, while ELINT works from the loud outbound pulse, which a receiver needs only one trip to hear. The carrier-frequency option is the closest distractor because it keeps the pulse correct, but Slide 10 ties range to timing rather than to frequency.",
+    "sourceSlides": [
+      10,
+      11
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "elint-h-12",
+    "difficulty": "hard",
+    "category": "Radar Parameters and Bands",
+    "tags": [
+      "electronic intelligence",
+      "PRI, PRF and unambiguous range",
+      "situational scenario"
+    ],
+    "prompt": "A signature record shows PRI 1,000 µs and PRF 1 kHz. A second radar of the same type has a longer PRI and everything else is equal. Which comparison is supported?",
+    "options": [
+      "A lower PRF and a greater maximum unambiguous range",
+      "A higher PRF and a greater maximum unambiguous range",
+      "A lower PRF and a smaller maximum unambiguous range",
+      "The same PRF, because PRF depends on PW rather than PRI"
+    ],
+    "answer": 0,
+    "explanation": "Slide 13 gives PRF as 1 ÷ PRI, so a longer PRI lowers the PRF, and Slide 14 says a long PRI lets the radar see farther without confusing echoes. The higher-PRF option is the closest distractor because it keeps the range benefit but reverses the PRI-to-PRF relationship shown by the 1,000 µs and 1 kHz pair on Slide 20.",
+    "sourceSlides": [
+      13,
+      14,
+      20
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "elint-h-13",
+    "difficulty": "hard",
+    "category": "Radar Parameters and Bands",
+    "tags": [
+      "electronic intelligence",
+      "numbers reveal the job",
+      "situational scenario"
+    ],
+    "prompt": "An analyst compares Emitter 1 (long PRI, long PW) with Emitter 2 (shorter PRI, short PW). Which pairing of jobs matches the lesson's reading of the numbers?",
+    "options": [
+      "Emitter 1 fits long-range search; Emitter 2 fits short-range precision",
+      "Emitter 1 fits short-range precision; Emitter 2 fits long-range search",
+      "Both fit long-range search, since PRI decides the job",
+      "Both fit short-range precision, since PW decides the job"
+    ],
+    "answer": 0,
+    "explanation": "Slides 14 and 16 tie a long PRI and a long PW to looking around over long range, and a short PW to sharper, short-range detail, summed up as 'long-range search or short-range precision'. The swapped option is the closest distractor, but it gives the sharper-detail trait of a short PW to the long-pulse emitter.",
+    "sourceSlides": [
+      14,
+      16
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "elint-h-14",
+    "difficulty": "hard",
+    "category": "Radar Parameters and Bands",
+    "tags": [
+      "electronic intelligence",
+      "band letter does not set range",
+      "situational scenario"
+    ],
+    "prompt": "A trainee claims an emitter at 2.5 GHz must outrange one at 15 GHz because its band letter comes earlier. Which assessment fits the lesson?",
+    "options": [
+      "Supported: lower frequency sees farther, so the 2.5 GHz emitter has the greater range regardless of power",
+      "Not supported: higher frequency sees farther, so the 15 GHz emitter has the greater range",
+      "Not supported: range depends on power, antenna and target, and band letters show typical uses only",
+      "Not supported: both frequencies lie in the same band, so their ranges are equal"
+    ],
+    "answer": 2,
+    "explanation": "Slide 17 says range depends on power, antenna and target, not on the band letter, and that the bands show typical uses only. The supported option is the closest distractor because the slide does say lower frequency sees farther and is less precise, but that tendency does not make one emitter outrange another.",
+    "sourceSlides": [
+      17
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "elint-h-15",
+    "difficulty": "hard",
+    "category": "Scan, Intent and Ground Emitters",
+    "tags": [
+      "electronic intelligence",
+      "search to track in the log",
+      "situational scenario"
+    ],
+    "prompt": "Exercise log: 0300H new emitter, bearing 290°, 9.41 GHz, circular scan 2.4 s, PRF 1.2 kHz. At 0312H the scan stops and the PRF rises to 4 kHz. Which interpretation and action fit the lesson?",
+    "options": [
+      "Track has changed to search, as if looking around; report at the next routine report",
+      "Search has changed to track, as if aimed at someone; hold the report until a second fix confirms it",
+      "Search continues, because a higher PRF is the mark of a lighthouse sweep",
+      "Search has changed to track, as if aimed at someone; report immediately"
+    ],
+    "answer": 3,
+    "explanation": "Slide 16 reads a steady scan with a higher PRF as TRACK and says a switch from SEARCH to TRACK on the same emitter is reported immediately, which matches the log on Slide 21. Holding the report for a second fix is the closest distractor because Slide 19 does use bearings from several sites, but Slide 16 attaches no such delay to this switch.",
+    "sourceSlides": [
+      16,
+      19,
+      21
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "elint-h-16",
+    "difficulty": "hard",
+    "category": "Scan, Intent and Ground Emitters",
+    "tags": [
+      "electronic intelligence",
+      "scan and beam combined",
+      "situational scenario"
+    ],
+    "prompt": "Emitter U uses a sector scan with a narrow beam; Emitter V uses a circular scan with a wide beam. Which description fits the lesson?",
+    "options": [
+      "U sweeps all round with precise direction; V watches an area of interest and covers more area faster",
+      "U watches an area of interest with precise direction; V sweeps all round and covers more area faster",
+      "U holds on one target with precise direction; V sweeps all round and covers more area faster",
+      "U watches an area of interest and covers more area faster; V sweeps all round with precise direction"
+    ],
+    "answer": 1,
+    "explanation": "Slide 15 describes a sector scan as going back and forth over an area of interest and a circular scan as a 360° sweep, and adds that a narrow beam gives precise direction while a wide beam covers more area faster. The option giving U a held beam is the closest distractor because it keeps the narrow-beam benefit, but holding on one target is the track scan, not the sector scan.",
+    "sourceSlides": [
+      15
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "elint-h-17",
+    "difficulty": "hard",
+    "category": "Scan, Intent and Ground Emitters",
+    "tags": [
+      "electronic intelligence",
+      "ground emitters and implications",
+      "objective recall"
+    ],
+    "prompt": "An ES squad reports four radars: one detecting incoming shells, one detecting people and vehicles at range, one tracking vessels along the coast, and one searching for small low-flying aircraft and drones. Which assessment matches the lesson?",
+    "options": [
+      "The first watches our routes; the second hunts our artillery; the third raises the friendly, civil or foreign question; the fourth threatens our helicopters and drones",
+      "The first hunts our artillery; the second raises the friendly, civil or foreign question; the third watches our routes; the fourth threatens our helicopters and drones",
+      "The first hunts our artillery; the second watches our routes; the third threatens our helicopters and drones; the fourth raises the friendly, civil or foreign question",
+      "The first hunts our artillery; the second watches our routes; the third raises the friendly, civil or foreign question; the fourth threatens our helicopters and drones"
+    ],
+    "answer": 3,
+    "explanation": "Slide 18 ties the shell-detecting weapon-locating radar to hunting our artillery, the ground-surveillance radar to watching routes and approaches, the coastal radar to the 'friendly, civil or foreign?' question and the short-range air-surveillance radar to threats against helicopters and drones. Swapping the first two is the closest distractor because both look at our side, but only the weapon-locating radar computes where a gun fired from.",
+    "sourceSlides": [
+      18
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "elint-h-18",
+    "difficulty": "hard",
+    "category": "Process, Signature Library and Effect",
+    "tags": [
+      "electronic intelligence",
+      "order of the five steps",
+      "objective recall"
+    ],
+    "prompt": "A trainee lists the five steps of the ES and ELINT process. Which order matches the lesson?",
+    "options": [
+      "Search and detect; locate and track; analyse; evaluate; collate and report",
+      "Search and detect; analyse; locate and track; evaluate; collate and report",
+      "Search and detect; locate and track; evaluate; analyse; collate and report",
+      "Locate and track; search and detect; analyse; evaluate; collate and report"
+    ],
+    "answer": 0,
+    "explanation": "Slide 19 orders the steps as Search and Detect, Locate and Track, Analyse, Evaluate, then Collate and Report ('Find it, follow it, fingerprint it, match it, file it'). The option placing Evaluate before Analyse is the closest distractor because both steps work on the fingerprint, but a signature cannot be matched until it has been measured.",
+    "sourceSlides": [
+      19
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "elint-h-19",
+    "difficulty": "hard",
+    "category": "Process, Signature Library and Effect",
+    "tags": [
+      "electronic intelligence",
+      "validate then share a record",
+      "situational scenario"
+    ],
+    "prompt": "An analyst's new record lists time, 9,410 MHz, PW 0.8 µs, PRI 1,000 µs, circular scan, bearing and fix, assessed system and medium confidence. Which handling fits the lesson?",
+    "options": [
+      "Share it at once to feed the EOB, since a medium confidence rating already validates the record",
+      "Validate it against own-sensor contamination, then keep it in the library without sharing it further",
+      "Validate it against own-sensor contamination and known neutral emitters, then share it to feed the EOB and the EW reprogramming loop",
+      "Validate it by taking fresh bearings from several sites, then feed the Friendly EOB"
+    ],
+    "answer": 2,
+    "explanation": "Slide 20 requires a record to be validated against contamination from our own sensor or a known neutral emitter, then shared to feed the EOB and the EW reprogramming loop so jammers and warning receivers stay current. Sharing at once is the closest distractor because speed matters, but nothing on the slide lets a confidence rating replace validation.",
+    "sourceSlides": [
+      20
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "elint-h-20",
+    "difficulty": "hard",
+    "category": "Process, Signature Library and Effect",
+    "tags": [
+      "electronic intelligence",
+      "SEAD and the targeting board",
+      "situational scenario"
+    ],
+    "prompt": "A trainee explains the lesson's air-asset example (SEAD) and its link to PAM 3-0702-01. Which explanation is best supported?",
+    "options": [
+      "Aircraft jam air-defence radars first and then use ELINT to locate them; ES data feeds the targeting board",
+      "Aircraft use ELINT to locate air-defence radars, then jam or strike them so friendly aircraft can operate; ES data feeds the targeting board",
+      "Aircraft use ELINT to locate air-defence radars, then jam or strike them; the targeting board is bypassed",
+      "Aircraft use COMINT to locate air-defence radars, then jam or strike them; ES data feeds the targeting board"
+    ],
+    "answer": 1,
+    "explanation": "Slide 22 explains SEAD as aircraft using ELINT to locate air-defence radars and then jamming or striking them so friendly aircraft can operate, and says ES data feeds the targeting board to match emitters with EA, cyber or kinetic responses. The COMINT option is the closest distractor because it keeps the sequence, but locating radars is an ELINT task under Slide 7.",
+    "sourceSlides": [
+      7,
+      22
+    ]
+  }
+]
