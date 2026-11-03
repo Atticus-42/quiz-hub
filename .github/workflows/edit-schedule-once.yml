@@ -4,6 +4,7 @@ on:
     inputs:
       start: { type: string, default: '438' }
       end: { type: string, default: '446' }
+      date: { type: string, default: '2026-11-04' }
 permissions:
   contents: read
 jobs:
@@ -19,3 +20,4 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           START: ${{ inputs.start }}
           END: ${{ inputs.end }}
+          DATE: ${{ inputs.date }}

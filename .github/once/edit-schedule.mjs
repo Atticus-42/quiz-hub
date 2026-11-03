@@ -1,7 +1,7 @@
 import { formatRichSchedule } from '../../scripts/telegram-schedule.mjs';
 import { loadSchedule, ROOT } from '../../scripts/build.mjs';
 const token = process.env.TELEGRAM_BOT_TOKEN, chat = process.env.TELEGRAM_CHAT_ID;
-const date = '2026-11-04';
+const date = process.env.DATE;
 const call = async (method, body) => {
   const r = await fetch(`https://api.telegram.org/bot${token}/${method}`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: chat, ...body }) });
   const j = await r.json(); return j;
