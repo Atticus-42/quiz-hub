@@ -169,7 +169,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     meta: '<p class="hero-stats"><span><strong>' + metadata.filter(doc => doc.file).length + '</strong> readable PDFs</span><span><strong>' +
       metadata.filter(doc => doc.kind === 'manual').length + '</strong> manual records</span></p>',
     art: '<div class="hero-plate library-plate" aria-hidden="true"><div class="book-mark"><span>PDF</span></div><span>Reference desk</span></div>',
-    scripts: '<script type="application/json" id="library-data">' + scriptJson(metadata) + '</script><script type="module" src="../assets/library.js?v=study-desk"></script>',
+    scripts: '<script type="application/json" id="library-data">' + scriptJson(metadata) + '</script><script type="module" src="../assets/library.js?v=study-desk-2"></script>',
   });
   return pages;
 }

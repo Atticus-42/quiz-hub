@@ -55,12 +55,27 @@ async function showPdf(file) {
   try {
     const pdfjs = await import('./vendor/pdfjs/pdf.min.mjs');
     pdfjs.GlobalWorkerOptions.workerSrc = new URL('./vendor/pdfjs/pdf.worker.min.mjs', import.meta.url).href;
-    const pdf = await pdfjs.getDocument({
+    const loading = pdfjs.getDocument({
       url, isEvalSupported: false, useWasm: true,
+      // Fetch requested ranges only when the host supports them.
+      disableStream: true, disableAutoFetch: true, rangeChunkSize: 262144,
       wasmUrl: new URL('./vendor/pdfjs/wasm/', import.meta.url).href,
       standardFontDataUrl: new URL('./vendor/pdfjs/standard_fonts/', import.meta.url).href,
       cMapUrl: new URL('./vendor/pdfjs/cmaps/', import.meta.url).href,
-    }).promise;
+    });
+    let timeout;
+    const deadline = new Promise((_, reject) => {
+      timeout = setTimeout(() => reject(new Error('PDF load timed out')), 45000);
+    });
+    let pdf;
+    try {
+      pdf = await Promise.race([loading.promise, deadline]);
+    } catch (error) {
+      void loading.destroy().catch(() => {});
+      throw error;
+    } finally {
+      clearTimeout(timeout);
+    }
     await mountPages(pdf);
     get('document').scrollIntoView({ block: 'start' });
   } catch {
