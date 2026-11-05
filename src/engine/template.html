@@ -1781,13 +1781,13 @@
         if (!source) return;
         var jump = source.exactPages && !study.byQuestion[question.qid] && pages.length;
         if (jump) {
-          pages.forEach(function (page) { links.set(source.doc + '&page=' + page, source.title + ' · PDF page ' + page); });
+          pages.forEach(function (page) { links.set(source.href + '#page=' + page, source.title + ' · PDF page ' + page); });
         } else {
-          links.set(source.doc, source.title);
-          if (!source.exactPages) links.set(source.studyDoc, source.title + ' · Reviewer 101 PDF');
+          links.set(source.href, source.title);
+          if (!source.exactPages) links.set(source.studyDoc, source.title + ' · Reviewer 101');
         }
         source.manuals.forEach(function (manual) {
-          if (!links.has(manual.id)) links.set(manual.id, manual.title + ' · Cited in lesson');
+          if (!links.has(manual.href)) links.set(manual.href, manual.title + ' · Cited in lesson');
         });
       });
       return links;
@@ -1825,7 +1825,7 @@
         studyReferenceLinks(question, references).forEach(function (title, destination) {
           var line = make('p', 'library-source');
           var link = make('a', 'library-reference', title);
-          link.setAttribute('href', '../library/?doc=' + destination + '#document');
+          link.setAttribute('href', destination);
           link.setAttribute('target', '_blank');
           link.setAttribute('rel', 'noopener');
           line.appendChild(link);
