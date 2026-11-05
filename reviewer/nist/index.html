@@ -306,13 +306,13 @@
   --study-soft: #f8f5eb;
   --study-line: #c8c2ae;
 }
-.study-wrap { width:min(100% - 2rem, 76rem); margin-inline:auto; }
+.study-wrap { width:min(100% - 3rem, 82rem); margin-inline:auto; }
 main.study-wrap { padding-bottom:3rem; }
 .skip-link { position:fixed; z-index:5; top:.75rem; left:.75rem; transform:translateY(-200%); padding:.65rem 1rem; background:var(--study-soft); }
 .skip-link:focus { transform:none; }
-.study-masthead { border-bottom:1px solid var(--study-line); background:var(--study-soft); }
+.study-masthead { border-bottom:1px solid var(--study-line); background:#f7f5ec; }
 .study-header-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.35rem 1.5rem; }
-.study-brand { min-height:3.75rem; display:inline-flex; align-items:center; gap:.7rem; color:var(--study-dark); font-weight:700; text-decoration:none; line-height:1.1; }
+.study-brand { min-height:4.75rem; display:inline-flex; align-items:center; gap:.7rem; color:var(--study-dark); font-weight:700; text-decoration:none; line-height:1.1; }
 .study-brand small { display:block; margin-top:.22rem; color:var(--color-muted); font: .64rem var(--font-mono); letter-spacing:.05em; }
 .brand-mark { display:grid; place-items:center; width:2.1rem; height:2.1rem; background:var(--study-ink); color:var(--study-gold); font:.78rem var(--font-mono); font-weight:600; border-radius:50%; }
 .study-nav { display:flex; flex-wrap:wrap; align-items:center; }
@@ -321,25 +321,25 @@ main.study-wrap { padding-bottom:3rem; }
 .study-nav [aria-current] { border-color:var(--color-signal); font-weight:700; }
 
 .study-hero { margin-block:clamp(1rem, 3vw, 2rem); }
-.section-hero { position:relative; isolation:isolate; display:flex; align-items:center; justify-content:space-between; gap:2rem; padding:clamp(1.35rem, 4vw, 3.25rem); background:var(--study-dark); color:var(--study-soft); border-top:3px solid var(--study-gold); }
-.section-hero::before { content:""; position:absolute; inset:0; z-index:-1; background:radial-gradient(ellipse at 90% 55%, #315142 0%, transparent 57%); }
+.section-hero { position:relative; isolation:isolate; display:grid; grid-template-columns:minmax(0,1fr) minmax(15rem,26%); gap:3rem; padding:clamp(1.5rem,4vw,3.5rem) 0; color:var(--study-dark); border-bottom:1px solid var(--study-line); }
+.section-hero::before { content:none; }
 .study-hero-copy { min-width:0; }
-.study-hero h1 { font-size:clamp(2.4rem, 6.5vw, 5.5rem); line-height:.97; margin:.2em 0; letter-spacing:-.033em; overflow-wrap:break-word; }
-.study-deck { max-width:51ch; margin:.7rem 0 0; font-size:clamp(1.05rem, 2vw, 1.22rem); line-height:1.45; }
-.section-hero .study-eyebrow, .section-hero .hero-stats strong { color:var(--study-gold); }
+.study-hero h1 { font-size:clamp(3.5rem,8vw,7.5rem); font-family:Georgia,serif; font-weight:400; line-height:1; margin:.18em 0 .25em; letter-spacing:-.065em; overflow-wrap:break-word; }
+.study-deck { max-width:40ch; margin:.7rem 0 0; font-size:clamp(1.1rem,2vw,1.4rem); line-height:1.5; }
+.section-hero .study-eyebrow, .section-hero .hero-stats strong { color:var(--study-ink); }
 .study-eyebrow { margin:0 0 .35rem; font: .72rem/1.4 var(--font-mono); text-transform:uppercase; letter-spacing:.085em; }
-.hero-stats { display:flex; flex-wrap:wrap; gap:.6rem 1.35rem; margin:1.25rem 0 0; font-family:var(--font-mono); font-size:.75rem; }
-.hero-stats strong { font-size:.95rem; }
-.hero-plate { flex:none; width:clamp(8rem, 18vw, 15rem); aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.65rem; background:repeating-radial-gradient(circle at 50% 50%, transparent 0 18%, #dec58a26 18.1% 18.6%, transparent 18.7% 24%); }
-.hero-plate img { width:70%; height:auto; aspect-ratio:1; object-fit:contain; filter:drop-shadow(0 5px 8px #0004); }
-.hero-plate > span { color:var(--study-gold); font:.62rem var(--font-mono); letter-spacing:.09em; text-transform:uppercase; }
+.hero-stats { display:flex; flex-wrap:wrap; gap:.8rem 2rem; margin:1.8rem 0 0; font-family:var(--font-mono); font-size:.75rem; }
+.hero-stats strong { font-size:1.25rem; display:block; margin-bottom:.25rem; }
+.hero-plate { align-self:stretch; min-height:18rem; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.75rem; padding:1.5rem 1rem; background:var(--study-dark); border-radius:2px; color:var(--study-soft); text-align:center; }
+.hero-plate img { width:clamp(5rem,9vw,8rem); height:auto; aspect-ratio:1; object-fit:contain; }
+.hero-plate > span { color:var(--study-gold); font:.65rem var(--font-mono); letter-spacing:.08em; text-transform:uppercase; }
 .book-mark { display:grid; place-items:center; width:51%; aspect-ratio:4/5; border:1px solid var(--study-gold); border-left:6px double var(--study-gold); background:#243e33; box-shadow:.45rem .45rem 0 #101f19; color:var(--study-gold); font:600 clamp(1rem, 2.2vw, 2rem) var(--font-mono); }
 .lesson-hero { padding:clamp(1rem, 3vw, 2.25rem) 0 1.35rem; border-bottom:1px solid var(--study-line); }
 .lesson-hero .study-eyebrow { color:var(--color-signal-text); }
 .lesson-hero h1 { max-width:22ch; font-size:clamp(2.15rem, 5vw, 4.3rem); line-height:1.02; color:var(--study-dark); }
 .lesson-hero .study-deck { color:var(--color-muted); }
 
-.study-layout { display:grid; grid-template-columns:minmax(10rem, 14rem) minmax(0, 1fr); gap:clamp(1.25rem, 4vw, 3.5rem); align-items:start; }
+.study-layout { display:grid; grid-template-columns:minmax(10rem,15rem) minmax(0,1fr); gap:clamp(1.25rem,4vw,4rem); align-items:start; }
 .reviewer-layout { grid-template-areas:"rail finder" "rail content"; row-gap:.15rem; }
 .reviewer-layout > .study-rail { grid-area:rail; }
 .reviewer-layout > .study-content { grid-area:content; }
@@ -353,23 +353,23 @@ main.study-wrap { padding-bottom:3rem; }
 .study-rail a { display:grid; grid-template-columns:auto 1fr; gap:.55rem; align-items:center; min-height:2.75rem; padding:.36rem .25rem; text-decoration:none; color:var(--study-dark); font-size:.95rem; line-height:1.25; }
 .study-rail a:hover { background:var(--study-soft); text-decoration:underline; }
 .study-rail a span { font:.65rem var(--font-mono); color:var(--color-muted); }
-.study-finder { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:.35rem 1rem; padding:1rem 1.15rem; background:var(--study-soft); border-left:3px solid var(--study-ink); }
+.study-finder { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:.35rem 1rem; padding:0 0 1.25rem; border-bottom:1px solid var(--study-line); }
 .study-finder label { grid-column:1/-1; font-weight:700; color:var(--study-dark); }
 .study-finder input, .library-controls input { width:100%; min-width:0; padding:.55rem .75rem; min-height:2.75rem; font:inherit; background:#fffdf6; color:var(--color-text); border:1px solid var(--color-rule); }
 .study-finder p { margin:0; font:.72rem var(--font-mono); color:var(--color-muted); }
-.reviewer-module { padding-block:1.35rem; border-bottom:1px solid var(--study-line); scroll-margin-top:1rem; }
+.reviewer-module { padding-block:1.8rem 2.2rem; border-bottom:1px solid var(--study-line); scroll-margin-top:1rem; }
 .module-heading { display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:.5rem 1rem; margin-bottom:.85rem; }
 .module-heading .study-eyebrow { color:var(--color-signal-text); }
 .module-heading h2, .library-catalogue h2, #document-title { margin:0; line-height:1.13; color:var(--study-dark); font-size:clamp(1.55rem, 3vw, 2.3rem); }
 .study-chip { display:inline-flex; align-items:center; width:fit-content; margin:0; padding:.28rem .52rem; border:1px solid var(--study-line); color:var(--color-muted); font:.7rem/1.25 var(--font-mono); white-space:nowrap; }
 .study-chip.available { background:#e5ead9; color:#2c4a31; border-color:#b0bda1; }
-.study-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.7rem; padding:0; margin:0; list-style:none; }
-.reviewer-card, .library-row { position:relative; min-width:0; background:var(--study-soft); border:1px solid var(--study-line); padding:.85rem 1rem 1rem; }
-.reviewer-card:hover, .library-row:hover { border-color:var(--study-ink); background:#fcf9ef; }
-.reviewer-card a, .library-row h3 a { display:flex; justify-content:space-between; gap:.7rem; align-items:baseline; color:var(--study-dark); font-size:1.14rem; line-height:1.25; font-weight:700; text-decoration:none; }
+.study-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; padding:0; margin:0; list-style:none; }
+.reviewer-card, .library-row { position:relative; min-width:0; background:#faf8f0; border:1px solid var(--study-line); padding:1.3rem; transition:background .18s,border-color .18s,box-shadow .18s; }
+.reviewer-card:hover, .library-row:hover { border-color:var(--study-ink); background:#fffdf7; box-shadow:0 5px 0 -2px #203a3026; }
+.reviewer-card a, .library-row h3 a { display:flex; justify-content:space-between; gap:.7rem; align-items:baseline; color:var(--study-dark); font-size:1.35rem; line-height:1.2; font-weight:600; text-decoration:none; }
 .reviewer-card a::after, .library-row h3 a::after { content:""; position:absolute; inset:0; }
 .card-arrow { flex:none; color:var(--color-signal-text); font: .9rem var(--font-mono); }
-.reviewer-card p { margin:.45rem 0 0; color:var(--color-muted); font-size:.98rem; line-height:1.45; }
+.reviewer-card p { margin:.65rem 0 1.5rem; color:var(--color-muted); font-size:1rem; line-height:1.5; }
 
 .lesson-actions, .study-actions, .reader-controls { display:flex; flex-wrap:wrap; align-items:center; gap:.55rem .75rem; }
 .lesson-actions { padding-bottom:1.2rem; }
@@ -417,13 +417,49 @@ main.study-wrap { padding-bottom:3rem; }
 .library-controls { max-width:35rem; margin-top:.75rem; }
 .library-controls label { display:block; margin-bottom:.3rem; font-weight:700; }
 #library-count { color:var(--color-muted); font:.75rem var(--font-mono); }
-.library-list { list-style:none; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.7rem; }
-.library-row h3 { margin:.35rem 0; }
+.library-list { list-style:none; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.25rem; }
+.library-row h3 { margin:.65rem 0; }
 .library-row .study-eyebrow { color:var(--color-signal-text); }
 .library-links { margin:0 0 .65rem; color:var(--color-muted); line-height:1.35; }
 [hidden] { display:none !important; }
 
+
+body { background-color:#f3f1e7; }
+.hero-plate p { margin:0; font:italic 1.25rem/1.25 Georgia,serif; }
+.hero-plate a { color:var(--study-gold); font-size:.95rem; min-height:2.75rem; display:flex; align-items:center; }
+.lesson-number { display:block; margin-bottom:1rem; font:.7rem var(--font-mono); color:var(--color-signal-text); }
+.card-foot { display:flex; justify-content:space-between; gap:.5rem; margin-top:auto; padding-top:.65rem; border-top:1px solid var(--study-line); color:var(--color-muted); font:.61rem/1.6 var(--font-mono); letter-spacing:.025em; }
+.reviewer-card { display:flex; flex-direction:column; }
+.reviewer-card .card-arrow { display:none; }
+.study-rail a[aria-current="location"] { border-left:3px solid var(--study-ink); background:#e6eadc; padding-left:.6rem; }
+.document-mark { display:flex; align-items:flex-end; justify-content:space-between; height:4.5rem; padding:.8rem; margin:-1.3rem -1.3rem 1.2rem; background:#e2e6d7; color:var(--study-ink); font:.75rem var(--font-mono); border-bottom:1px solid var(--study-line); }
+.document-mark::after { content:"↗"; font-size:1.4rem; }
+.library-row[data-kind="manual"] .document-mark { background:var(--study-dark); color:var(--study-gold); }
+.library-links { font-size:.9rem; }
+.library-row { border-radius:2px; box-shadow:3px 3px 0 #e0dece; }
+.library-row .study-chip { margin-top:auto; }
+.book-stack { width:85%; padding:2rem 0; perspective:600px; }
+.book-stack div { height:3.1rem; padding:1rem .6rem; margin-top:.6rem; border-left:5px double #d6bc82; background:#eadfc3; color:var(--study-dark); font:.7rem var(--font-mono); box-shadow:4px 5px 0 #071b14; transform:rotate(-5deg); }
+.book-stack div:nth-child(2) { transform:rotate(4deg); background:#c8d0b1; }
+.book-stack div:nth-child(3) { transform:rotate(-2deg); background:#dfb96f; }
+.study-return { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; margin:0 0 1.75rem; padding:1rem 1.3rem; background:#e5eadb; border-left:3px solid var(--study-ink); }
+.study-return p { margin:.15rem 0; }
+.study-return a { font-size:1.1rem; color:var(--study-dark); font-weight:600; }
+.study-return button { background:transparent; border:1px solid var(--study-line); color:var(--study-dark); font:inherit; min-height:2.75rem; padding:.5rem .8rem; cursor:pointer; }
+.study-footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem 2rem; margin-top:2rem; padding-block:2rem; border-top:1px solid var(--study-line); color:var(--study-dark); }
+.study-footer > span { font-weight:700; }
+.study-footer small { display:block; font:.65rem var(--font-mono); margin-top:.3rem; }
+.study-footer p { font:italic 1.05rem Georgia,serif; }
+.study-footer a { display:flex; min-height:2.75rem; align-items:center; }
+.lesson-reading { padding:0 0 2rem; }
+.lesson-section h2 { font-size:1.85rem; }
+.lesson-section#scenario { border-top:3px solid var(--study-gold); background:#e5eadb; }
+.study-reading-progress { position:fixed; z-index:6; inset:0 0 auto; height:3px; background:var(--study-ink); transform-origin:left; transform:scaleX(0); pointer-events:none; }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; } }
+
 @media (max-width:840px) {
+  .section-hero { grid-template-columns:minmax(0,1fr) 13rem; gap:1.5rem; }
+  .hero-plate { min-height:16rem; }
   .study-layout { grid-template-columns:minmax(0,1fr); gap:.6rem; }
   .reviewer-layout { grid-template-areas:"finder" "rail" "content"; }
   .study-rail { position:static; padding:.4rem 0; }
@@ -439,9 +475,9 @@ main.study-wrap { padding-bottom:3rem; }
   .study-header-inner { gap:0; }
   .study-nav { width:100%; }
   .study-nav a { min-height:2.75rem; padding:.35rem .65rem; }
-  .section-hero { gap:.55rem; padding:1.1rem .85rem; }
+  .section-hero { display:block; padding:1.5rem 0; }
   .hero-plate { display:none; }
-  .study-hero h1 { font-size:clamp(2.2rem, 10vw, 3rem); }
+  .study-hero h1 { font-size:clamp(2.8rem, 13vw, 4rem); }
   .study-finder { grid-template-columns:1fr; padding:.8rem; }
   .study-grid, .library-list { grid-template-columns:minmax(0,1fr); }
   .fact-list > div { grid-template-columns:minmax(0,1fr); }
@@ -449,12 +485,13 @@ main.study-wrap { padding-bottom:3rem; }
   .reader-page-label { position:absolute; width:1px; height:1px; clip-path:inset(50%); overflow:hidden; white-space:nowrap; }
 }
 </style>
+<link rel="stylesheet" href="../../assets/identity.css">
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="study-masthead">
     <div class="study-wrap study-header-inner">
-      <a class="study-brand" href="../../"><span class="brand-mark" aria-hidden="true">BB</span><span>Bandwidth Brothers <small>SOAC 52–26</small></span></a>
+      <a class="study-brand" href="../../"><img class="brand-crest" data-class-crest src="../../assets/bandwidth-brothers-colored.png" width="48" height="48" alt=""><span>Bandwidth Brothers <small>SOAC 52–26</small></span></a>
       <nav class="study-nav" aria-label="Site sections">
         <a href="../../">Practice exams</a>
         <a href="../../reviewer/" aria-current="page">Reviewer 101</a>
@@ -474,6 +511,8 @@ main.study-wrap { padding-bottom:3rem; }
     </header>
     <div class="lesson-actions"><a href="../#module-7">← All reviewers</a><a class="study-cta" href="../../nist-framework/">Take the practice exam</a><a href="../../library/?doc=study-nist#document">Read study PDF</a></div><div class="study-layout"><nav class="study-rail" aria-label="Lesson sections"><p class="study-eyebrow">In this lesson</p><ul><li><a href="#briefing"><span>01</span><strong>Quick briefing</strong></a></li><li><a href="#facts"><span>02</span><strong>Know the facts</strong></a></li><li><a href="#reasoning"><span>03</span><strong>Understand the reasoning</strong></a></li><li><a href="#scenario"><span>04</span><strong>Apply it</strong></a></li><li><a href="#practice"><span>05</span><strong>How to practice</strong></a></li><li><a href="#self-check"><span>06</span><strong>Check yourself</strong></a></li><li><a href="#references"><span>07</span><strong>References</strong></a></li></ul></nav><article class="study-content lesson-reading"><section id="briefing" class="lesson-section"><h2><span aria-hidden="true">01</span>Quick briefing</h2><p>Use the NIST Cybersecurity Framework (CSF) 2.0 to identify desired cybersecurity outcomes, assess gaps and prioritize work by mission risk.</p><p>Read with <a href="../../library/?doc=source-nist#document">NIST Framework · SOAC Lesson</a>.</p></section><section id="facts" class="lesson-section"><h2><span aria-hidden="true">02</span>Know the facts</h2><dl class="fact-list"><div><dt>Six Functions</dt><dd>Govern, Identify, Protect, Detect, Respond and Recover. They cover related outcomes that can be pursued together.</dd></div><div><dt>Govern and Identify</dt><dd>Govern establishes direction, roles and oversight. Identify develops an understanding of assets and risks.</dd></div><div><dt>Protect, Detect, Respond and Recover</dt><dd>Safeguard resources, find and analyze possible adverse events, manage detected incidents and restore affected capabilities.</dd></div><div><dt>Core and Profiles</dt><dd>The Core organizes outcomes by Function, Category and Subcategory. A Current Profile describes outcomes achieved today and a Target Profile describes desired outcomes.</dd></div><div><dt>Tiers</dt><dd>Partial, Risk Informed, Repeatable and Adaptive characterize the rigor and integration of risk governance and management practices.</dd></div><div><dt>NICTEF</dt><dd>The lesson presents the National ICT Ecosystem Framework as a way to align Philippine ICT efforts around shared national goals, including access, interoperability and trust.</dd></div></dl></section><section id="reasoning" class="lesson-section"><h2><span aria-hidden="true">03</span>Understand the reasoning</h2><ul><li>A Profile gap tells you which outcome needs attention. Mission impact and likelihood help decide how soon to act.</li><li>A written backup policy shows assigned intent. A successful restore test provides evidence that a service can actually recover.</li></ul></section><section id="scenario" class="lesson-section"><h2><span aria-hidden="true">04</span>Apply it</h2><p class="study-eyebrow">Fictional Philippine Army classroom exercise</p><p>A fictional Philippine Army school can fund either a restore exercise for its enrollment system or a monitoring upgrade for a standalone display. Enrollment opens next week, and no one has tested whether its backups restore.</p><p><strong>Which gap should the school address first, and how should it explain the choice?</strong></p><details><summary>Show the decision and reasoning</summary><p>Prioritize the restore exercise because an enrollment outage would interrupt a near-term school function and the ability to restore is unverified. Record the gap under Recover, keep the monitoring gap under Detect, and revisit its priority if the display begins supporting a more critical workflow.</p></details></section><section id="practice" class="lesson-section"><h2><span aria-hidden="true">05</span>How to practice</h2><ol><li>Scope one training service and identify its users, dependencies and most important failure impacts.</li><li>Document the outcomes the service achieves today and the evidence for each in a Current Profile.</li><li>Select the outcomes needed for the mission and record them in a Target Profile.</li><li>Rank gaps by risk and set an owner, a proposed action and a way to verify each priority improvement.</li><li>Review the evidence after the change and refresh the Profiles as needs or conditions change.</li></ol><p>Review the steps with <a href="../../library/?doc=source-nist#document">NIST Framework · SOAC Lesson</a>.</p></section><section id="self-check" class="lesson-section"><h2><span aria-hidden="true">06</span>Check yourself</h2><details><summary>Which Function sets cybersecurity roles, risk direction and oversight?</summary><p>Govern.</p></details><details><summary>What comparison reveals gaps to prioritize?</summary><p>Compare the outcomes in the Current Profile with those in the Target Profile.</p></details></section><section id="references" class="lesson-section"><h2><span aria-hidden="true">07</span>References</h2><ul><li><a href="../../library/?doc=pam-6-0102#document">PAM 6-0102 · Signal Operations</a> <span class="study-muted">· Cited by the course</span></li><li><a href="../../library/?doc=pam-6-00#document">PAM 6-00 · Command and Control, Communications, and Cyber Systems</a> <span class="study-muted">· Cited by the course</span></li><li><a href="../../library/?doc=pam-6-0102-04#document">PAM 6-0102-04 · Cyberspace Operations</a> <span class="study-muted">· Cited by the course</span></li><li><a href="../../library/?doc=pam-3-00#document">PAM 3-00 · Army Operations</a> <span class="study-muted">· Cited by the course</span></li><li><a href="../../library/?doc=fm-3-12#document">FM 3-12 · Cyberspace Operations and Electromagnetic Warfare</a> <span class="study-muted">· Cited by the course</span></li><li><a href="../../library/?doc=nist-cswp-29#document">NIST CSWP 29 · The NIST Cybersecurity Framework (CSF) 2.0</a> <span class="study-muted">· Related reading</span></li><li><a href="../../library/?doc=source-nist#document">NIST Framework · SOAC Lesson</a> <span class="study-muted">· Primary course source</span></li></ul></section></article></div>
   </main>
-
+  <footer class="study-footer study-wrap"><span>Bandwidth Brothers <small>SOAC 52–26</small></span><p>Read with purpose. Lead with understanding.</p><a href="#main">Back to top ↑</a></footer>
+<script src="../../assets/study-session.js" defer></script>
+<script src="../../assets/identity.js" defer></script>
 </body>
 </html>

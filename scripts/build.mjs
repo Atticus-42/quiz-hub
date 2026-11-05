@@ -928,6 +928,17 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
     SCAN_UI: readFileSync(join(root, 'src', 'cipher', 'scan-ui.js'), 'utf8').replace(/\r\n/g, '\n'),
   });
   Object.assign(pages, renderStudyPages(root, modules, lessons, study, { escapeHtml, scriptJson, fillTemplate, baseCss, fontPreloads, base }));
+  // Give every generated section the same per-visit crest selection.
+  for (const [path, source] of Object.entries(pages)) {
+    const up = '../'.repeat(path.split('/').length - 1);
+    let html = source.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/identity.css">\n</head>');
+    if (!path.startsWith('reviewer/') && !path.startsWith('library/')) {
+      const ribbon = '<div class="identity-ribbon"><a href="' + (up || './') + '" class="identity-home"><img data-class-crest src="' + up + 'assets/bandwidth-brothers-colored.png" width="48" height="48" alt="Bandwidth Brothers crest"><span>Bandwidth Brothers<small>SOAC 52–26</small></span></a><span class="identity-edition">The crest collection <span data-crest-label>Original</span></span></div>';
+      const skip = /(<a class="skip-link"[^>]*>[^<]*<\/a>)/;
+      html = skip.test(html) ? html.replace(skip, '$1' + ribbon) : html.replace(/(<body[^>]*>)/, '$1' + ribbon);
+    }
+    pages[path] = html.replace('</body>', '<script src="' + up + 'assets/identity.js" defer></script>\n</body>');
+  }
   if (write) {
     for (const [path, html] of Object.entries(pages)) {
       mkdirSync(dirname(join(out, path)), { recursive: true });

@@ -177,7 +177,7 @@ export async function instructorSuite({ lessons }) {
 
   await T('the page links back to the hub, uses only the endpoint, is not indexed, and embeds every lesson question once', () => {
     assert.match(builtHtml, /<meta name="robots" content="noindex">/);
-    assert.deepEqual([...withoutFontPreloads(builtHtml).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../']);
+    assert.deepEqual([...withoutFontPreloads(builtHtml).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../assets/identity.css', '../', '../']);
     const urls = [...builtHtml.matchAll(/https?:\/\/[^\s"'<>)]+/g)].map(m => m[0]);
     assert.ok(urls.every(url => url.startsWith('https://script.google.com/')), urls.join(' '));
     const data = JSON.parse(builtHtml.match(/<script type="application\/json" id="item-data">([\s\S]*?)<\/script>/)[1]);
@@ -415,7 +415,7 @@ export async function classSuite() {
     assert.match(html, /grid-template-columns: repeat\(auto-fill, minmax\(min\(100%, 14rem\), 1fr\)\)/, 'cards reflow to one column on phones');
     assert.match(html, /\.table-wrap \{ max-width: 100%; overflow-x: auto; \}/);
     assert.match(html, /body \{[^}]*overflow-wrap: anywhere;/);
-      assert.deepEqual([...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../', '../schedule/?v=day-picker-2']);
+      assert.deepEqual([...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../assets/identity.css', '../', '../', '../schedule/?v=day-picker-2']);
       assert.match(html, /<a class="hub-link" id="schedule-link" href="\.\.\/schedule\/\?v=day-picker-2">This week's schedule /);
     assert.doesNotMatch(html, /https?:\/\//);
   });

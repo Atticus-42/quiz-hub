@@ -1,0 +1,8 @@
+.identity-ribbon { position:relative; z-index:2; display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:.65rem max(1rem,calc((100vw - 82rem)/2)); border-bottom:1px solid #c8c2ae; background:#f8f5eb; color:#203a30; }
+.identity-home { display:inline-flex; align-items:center; gap:.75rem; text-decoration:none; color:inherit; font-weight:600; line-height:1.2; }
+.identity-home img,.brand-crest { width:3rem; height:3rem; object-fit:contain; flex:none; }
+.identity-home small { display:block; margin-top:.25rem; font:.6rem var(--font-mono,monospace); letter-spacing:.1em; }
+.identity-edition { font:.65rem var(--font-mono,monospace); text-align:right; line-height:1.5; }
+.identity-edition [data-crest-label] { display:block; text-transform:uppercase; color:#79511d; }
+@media(max-width:520px) { .identity-ribbon { padding:.5rem .75rem; } .identity-edition { max-width:8rem; font-size:.58rem; } }
+@media print { .identity-ribbon { display:none; } }

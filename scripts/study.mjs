@@ -82,7 +82,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     const up = '../'.repeat(depth);
     pages[path] = fillTemplate(template, {
       BASE_CSS: baseCss(base, up + 'assets/'), STUDY_CSS: css, FONT_PRELOAD: fontPreloads(up + 'assets/'),
-      BRAND_HREF: up, HOME: up, REVIEWER_HREF: up + 'reviewer/', LIBRARY_HREF: up + 'library/',
+      CREST_HREF: up + 'assets/bandwidth-brothers-colored.png', BRAND_HREF: up, HOME: up, REVIEWER_HREF: up + 'reviewer/', LIBRARY_HREF: up + 'library/',
       REVIEWER_CURRENT: section === 'reviewer' ? ' aria-current="page"' : '',
       LIBRARY_CURRENT: section === 'library' ? ' aria-current="page"' : '',
       PAGE_TITLE: e(title), TITLE: e(title), INTRO: e(intro), BODY: body, SCRIPTS: scripts,
@@ -102,15 +102,15 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     '<section id="' + group.id + '" class="reviewer-module"><div class="module-heading"><div><p class="study-eyebrow">' +
     e(group.id === 'supplemental' ? 'Course references' : group.title) + '</p><h2>' + e(groupName(group)) + '</h2></div><p class="study-chip">' +
     lessonCount(group.entries.length) + '</p></div><ul class="study-grid">' +
-    group.entries.map(lesson => '<li class="reviewer-card"><a href="' + lesson.key + '/"><span>' + e(lesson.name) +
-      '</span><span class="card-arrow" aria-hidden="true">→</span></a><p>' + e(study.reviewers[lesson.key].brief) + '</p></li>').join('') +
+    group.entries.map((lesson, index) => '<li class="reviewer-card"><span class="lesson-number" aria-hidden="true">' + String(index + 1).padStart(2, '0') + '</span><a href="' + lesson.key + '/"><span>' + e(lesson.name) +
+      '</span><span class="card-arrow" aria-hidden="true">→</span></a><p>' + e(study.reviewers[lesson.key].brief) + '</p><span class="card-foot">Briefing · Scenario · Self-check<span aria-hidden="true">↗</span></span></li>').join('') +
     '</ul></section>').join('');
   const finder = '<div class="study-finder" hidden><label for="reviewer-search">Find a lesson</label><input id="reviewer-search" type="search" placeholder="Try Signal Estimate or Mission Command"><p id="reviewer-count" role="status"></p></div>';
-  render('reviewer/index.html', 1, 'reviewer', 'Reviewer 101', 'Review the essentials, test your recall, and work through Philippine Army classroom decisions.',
-    '<div class="study-layout reviewer-layout">' + finder + indexNav + '<div class="study-content">' + sections + '</div></div>', {
-      eyebrow: 'SOAC 52–26 · Study guide',
+  render('reviewer/index.html', 1, 'reviewer', 'Reviewer 101', 'Know the essentials. Understand the why. Be ready for the question.',
+    '<section class="study-return" id="study-return" hidden aria-label="Continue studying"></section><div class="study-layout reviewer-layout">' + finder + indexNav + '<div class="study-content">' + sections + '</div></div>', {
+      eyebrow: 'The officers’ study journal / Vol. 01',
       meta: '<p class="hero-stats"><span><strong>' + study.byKey.size + '</strong> lesson guides</span><span><strong>' + groups.filter(group => group.id !== 'supplemental').length + '</strong> course modules</span></p>',
-      art: '<div class="hero-plate" aria-hidden="true"><img src="../assets/bandwidth-brothers-colored.png" width="176" height="176" alt=""><span>SOAC 52–26</span></div>',
+      art: '<div class="hero-plate"><img src="../assets/bandwidth-brothers-colored.png" width="176" height="176" alt=""><span>Bandwidth Brothers</span><p>One frequency.<br>Shared understanding.</p><a href="../library/">Explore the library ↗</a></div>',
       scripts: '<script src="../assets/reviewer-index.js" defer></script>',
     });
   for (const [key, lesson] of study.byKey) {
@@ -142,12 +142,13 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     render('reviewer/' + key + '/index.html', 2, 'reviewer', lesson.name, groupName(group),
       actions + '<div class="study-layout">' + rail + '<article class="study-content lesson-reading">' + chapters + '</article></div>', {
         eyebrow: 'Reviewer 101 · ' + (group.id === 'supplemental' ? 'Supporting lesson' : group.title),
+        scripts: '<script src="../../assets/study-session.js" defer></script>',
       });
   }
   const metadata = study.documents.map(doc => ({
     ...doc, lessons: [...doc.cited, ...doc.related].map(key => ({ key, title: study.byKey.get(key).name, cited: doc.cited.includes(key) })),
   }));
-  const rows = metadata.map(doc => '<li class="library-row" data-kind="' + doc.kind + '"><p class="study-eyebrow">' +
+  const rows = metadata.map(doc => '<li class="library-row" data-kind="' + doc.kind + '"><span class="document-mark" aria-hidden="true">' + (doc.kind === 'manual' ? 'REF' : '101') + '</span><p class="study-eyebrow">' +
     e(doc.edition || (doc.kind === 'manual' ? 'Manual' : 'Lesson')) + '</p><h3><a href="?doc=' + doc.id + '#document">' + e(doc.title) +
     '<span class="card-arrow" aria-hidden="true"> →</span></a></h3><p class="library-links">' +
     e(doc.lessons.map(lesson => lesson.title).join(' · ')) + '</p><span class="study-chip ' + (doc.file ? 'available' : '') + '">' +
@@ -164,12 +165,12 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     '<nav class="study-actions" aria-label="Library categories"><a data-type="all" href="./">All documents</a><a data-type="lesson" href="?type=lesson">Lessons</a><a data-type="manual" href="?type=manual">Manuals</a></nav>' +
     '<div class="library-controls"><label for="library-search">Search by title, manual number or lesson</label><input id="library-search" type="search" placeholder="Try PAM 6-0102 or Zero Trust"></div>' +
     '<p id="library-count" role="status"></p><ul class="library-list">' + rows + '</ul></section>';
-  render('library/index.html', 1, 'library', 'Study Library', 'Read study guides, course sources, and manuals directly on Quiz Hub.', body, {
+  render('library/index.html', 1, 'library', 'Study Library', 'Your reading room. The lesson, the doctrine, and the page that brings it together.', body, {
     eyebrow: 'SOAC 52–26 · Reference desk',
     meta: '<p class="hero-stats"><span><strong>' + metadata.filter(doc => doc.file).length + '</strong> readable PDFs</span><span><strong>' +
       metadata.filter(doc => doc.kind === 'manual').length + '</strong> manual records</span></p>',
-    art: '<div class="hero-plate library-plate" aria-hidden="true"><div class="book-mark"><span>PDF</span></div><span>Reference desk</span></div>',
-    scripts: '<script type="application/json" id="library-data">' + scriptJson(metadata) + '</script><script type="module" src="../assets/library.js?v=study-desk-2"></script>',
+    art: '<div class="hero-plate library-plate" aria-hidden="true"><div class="book-stack"><div>DOCTRINE</div><div>FIELD NOTES</div><div>REVIEWER 101</div></div><span>Read. Connect. Understand.</span></div>',
+    scripts: '<script type="application/json" id="library-data">' + scriptJson(metadata) + '</script><script type="module" src="../assets/library.js?v=study-journal-3"></script>',
   });
   return pages;
 }

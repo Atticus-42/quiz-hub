@@ -190,13 +190,13 @@ test('no external URLs except the history endpoint; quiz, class and instructor l
   const found = [...html.matchAll(/(?:https?:)?\/\/[a-z0-9.-]+\.[a-z]{2,}[^\s"'<>)]*/gi)].map((m) => m[0]);
   const bad = found.filter((u) => !allowed.has(u));
   assert.deepEqual(bad, []);
-  assert.ok(!/<link\b[^>]*href=/i.test(withoutFontPreloads(html)), 'no external stylesheets (only same-origin font preloads)');
-  assert.ok(!/<script\b[^>]*src=/i.test(html), 'no external scripts');
+  assert.ok(!/<link\b[^>]*href=/i.test(withoutFontPreloads(html).replace('<link rel="stylesheet" href="assets/identity.css">', '')), 'no external stylesheets (only same-origin font preloads)');
+  assert.ok(!/<script\b[^>]*src=/i.test(html.replace('<script src="assets/identity.js" defer></script>', '')), 'no external scripts');
   const css = html.match(/<style>([\s\S]*?)<\/style>/)[1];
   assert.ok(!/@import/i.test(css), 'no CSS imports');
   for (const target of cssUrls(css)) assert.ok(isLocalAsset(target) && !target.startsWith('../') && existsSync(join(root, target)), `url(${target}) must be a same-origin assets/ file on disk`);
   const hrefs = [...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map((m) => m[1]);
-  const allowedHref = new Set([...Object.values(EXPECTED), './', 'class/', 'schedule/?v=day-picker-2', 'instructor/', 'codes-ciphers/', 'reviewer/', 'library/', '#main', '#choose-module', ...Object.keys(MODULE_EXAMS).map((id) => `#${id}`)]);
+  const allowedHref = new Set(['assets/identity.css', ...Object.values(EXPECTED), './', 'class/', 'schedule/?v=day-picker-2', 'instructor/', 'codes-ciphers/', 'reviewer/', 'library/', '#main', '#choose-module', ...Object.keys(MODULE_EXAMS).map((id) => `#${id}`)]);
   assert.deepEqual(hrefs.filter((href) => !allowedHref.has(href)), [], 'every link is a quiz folder, the class or instructor page, or an in-page fragment');
   const nonAsset = html.replace(/<(?:img|source)\b[^>]*>/gi, (tag) => (/\b(?:src|srcset)="(?:assets\/[\w-]+\.(?:jpg|png)(?: [\w.]+)?(?:, )?)+"/.test(tag) && !/\/\/|https?:/i.test(tag) ? '' : tag));
   assert.ok(!/<(img|iframe|video|audio|source|object|embed)\b/i.test(nonAsset), 'no embedded media except same-origin assets/ images');

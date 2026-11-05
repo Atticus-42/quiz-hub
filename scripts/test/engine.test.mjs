@@ -578,9 +578,9 @@ export async function engineSuite(lesson) {
     const endpoint = builtHtml.match(ENDPOINT_PATTERN)[1];
     assert.ok(endpoint === '' || /^https:\/\/[^\s'"<>\\]+$/.test(endpoint), 'HISTORY_ENDPOINT must be empty or an https URL');
     // The self-hosted font preloads are same-origin assets too (checked in the design suite).
-    const withoutAssetImages = withoutFontPreloads(builtHtml).replace(/<(?:img|source)\b[^>]*>/gi, tag => {
+    const withoutAssetImages = withoutFontPreloads(builtHtml).replace(/<link rel="stylesheet" href="\.\.\/assets\/identity\.css">|<script src="\.\.\/assets\/identity\.js" defer><\/script>/g, '').replace(/<(?:img|source)\b[^>]*>/gi, tag => {
       const urls = [...tag.matchAll(/\b(?:src|srcset)="([^"]*)"/gi)].flatMap(m => m[1].split(',').map(u => u.trim().split(/\s+/)[0]));
-      return urls.length && urls.every(u => /^\.\.\/assets\/[\w.-]+\.jpg$/.test(u)) ? '' : tag;
+      return urls.length && urls.every(u => /^\.\.\/assets\/[\w.-]+\.(?:jpg|png)$/.test(u)) ? '' : tag;
     });
     assert.doesNotMatch(withoutAssetImages, /<link\b|<img\b|<source\b|<iframe\b|<audio\b|\bsrc\s*=|\bsrcset\s*=|@import|url\(\s*['"]?(?:https?:)?\/\//i, 'only same-origin ../assets/ images are allowed');
     assert.doesNotMatch(builtHtml, /\.(?:mp3|wav|ogg|m4a)\b/i, 'sounds are synthesised, never loaded');
@@ -1169,9 +1169,9 @@ export async function engineSuite(lesson) {
       assert.ok(target.startsWith('#') || (isLocalAsset(target) && target.startsWith('../') && existsSync(resolve(dirname(pagePath), target))), `stylesheet url(${target}) must be an inline fragment or a same-origin ../assets/ file on disk`);
     }
     const preloads = [...builtHtml.matchAll(/<link\b[^>]*>/gi)].map(m => m[0]);
-    assert.ok(preloads.length >= 2 && preloads.every(tag => /^<link rel="preload" href="\.\.\/assets\/fonts\/[\w-]+\.woff2" as="font" type="font\/woff2" crossorigin>$/.test(tag)), 'only font preloads, same-origin');
+    assert.ok(preloads.length >= 2 && preloads.every(tag => tag === '<link rel="stylesheet" href="../assets/identity.css">' || /^<link rel="preload" href="\.\.\/assets\/fonts\/[\w-]+\.woff2" as="font" type="font\/woff2" crossorigin>$/.test(tag)), 'only font preloads, same-origin');
     for (const [, target] of withoutFontPreloads(builtHtml).matchAll(/\bhref\s*=\s*"([^"]*)"/gi)) {
-      assert.ok(target.startsWith('#') || target === hubHref || /^\.\.\/reviewer\/(?:#[\w-]+|[a-z0-9]+\/)$/.test(target), `unexpected href ${target}`);
+      assert.ok(target.startsWith('#') || target === '../' || target === '../assets/identity.css' || target === hubHref || /^\.\.\/reviewer\/(?:#[\w-]+|[a-z0-9]+\/)$/.test(target), `unexpected href ${target}`);
     }
     const { rules } = parseCss(css);
     const bodyFont = rules.find(rule => !rule.media && rule.selectors.includes('body'))?.declarations.get('font-family') ?? '';

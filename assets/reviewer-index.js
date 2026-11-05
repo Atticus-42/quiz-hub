@@ -26,3 +26,31 @@ input.closest('.study-finder').hidden = false;
 document.getElementById('module-index').open = !matchMedia('(max-width:840px)').matches;
 input.addEventListener('input', findLessons);
 findLessons();
+
+// Only restore a known lesson from this catalogue, never an arbitrary stored URL.
+try {
+  const key = 'quiz-hub:last-reviewer:v1';
+  const saved = JSON.parse(localStorage.getItem(key) || 'null');
+  const known = [...document.querySelectorAll('.reviewer-card a')].find(link => new URL(link.href).pathname === saved?.path);
+  if (known) {
+    const region = document.getElementById('study-return');
+    const copy = document.createElement('div');
+    const label = document.createElement('p');
+    label.className = 'study-eyebrow';
+    label.textContent = 'Pick up where you left off';
+    const link = document.createElement('a');
+    const sections = ['briefing', 'facts', 'reasoning', 'scenario', 'practice', 'self-check', 'references'];
+    link.href = known.href + (sections.includes(saved.section) ? '#' + saved.section : '');
+    link.textContent = known.querySelector('span').textContent + ' →';
+    const note = document.createElement('p');
+    note.className = 'study-muted';
+    note.textContent = 'Saved on this device';
+    copy.append(label, link, note);
+    const clear = document.createElement('button');
+    clear.type = 'button';
+    clear.textContent = 'Clear bookmark';
+    clear.addEventListener('click', () => { try { localStorage.removeItem(key); } catch {} region.hidden = true; });
+    region.append(copy, clear);
+    region.hidden = false;
+  }
+} catch { /* Storage is optional. */ }
