@@ -1,0 +1,498 @@
+[
+  {
+    "id": 1,
+    "qid": "propagation-h-01",
+    "difficulty": "hard",
+    "category": "Model Inputs and Coverage",
+    "tags": [
+      "propagation",
+      "model inputs and coverage",
+      "application"
+    ],
+    "prompt": "A planning map has blank areas at plot edges and weak signal classes elsewhere. How should a reviewer classify them before estimating the usable area?",
+    "options": [
+      "Separate missing and weak results by corridor rule",
+      "Count both as field-confirmed outages",
+      "Exclude the blanks by silently changing the corridor",
+      "Treat both as strong because the nearby links close"
+    ],
+    "answer": 0,
+    "explanation": "The corridor and plot bounds govern interpretation. A weak result and absence of a result have different evidence.",
+    "sourceSlides": [
+      15,
+      19,
+      44
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "propagation-h-02",
+    "difficulty": "hard",
+    "category": "Model Inputs and Coverage",
+    "tags": [
+      "propagation",
+      "model inputs and coverage",
+      "application"
+    ],
+    "prompt": "An updated composite improves after both a relay addition and a threshold change. How should the team measure the relay's contribution?",
+    "options": [
+      "Subtract the two area percentages and attribute all gains to the relay",
+      "Compare the new threshold only with the old antenna gain",
+      "Compare otherwise identical runs with and without the relay",
+      "Average the individual link margins without checking the corridor"
+    ],
+    "answer": 2,
+    "explanation": "A controlled before-and-after comparison holds the classification threshold constant.",
+    "sourceSlides": [
+      15,
+      16,
+      49
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "propagation-h-03",
+    "difficulty": "hard",
+    "category": "Model Inputs and Coverage",
+    "tags": [
+      "propagation",
+      "model inputs and coverage",
+      "application"
+    ],
+    "prompt": "Two runs claim different mast-height benefits. One also changes receiver height and antenna gain. Which test can settle the height question?",
+    "options": [
+      "Use the larger benefit because it is more conservative",
+      "Hold all settings constant except the tested mast height",
+      "Drop the receiver threshold from both reports",
+      "Move each transmitter to whichever point has the highest elevation"
+    ],
+    "answer": 1,
+    "explanation": "A height sensitivity test requires comparable model inputs.",
+    "sourceSlides": [
+      15,
+      16,
+      51
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "propagation-h-04",
+    "difficulty": "hard",
+    "category": "Model Inputs and Coverage",
+    "tags": [
+      "propagation",
+      "model inputs and coverage",
+      "application"
+    ],
+    "prompt": "Every planned endpoint link closes, but a corridor map still shows an unusable segment. How can both results be true?",
+    "options": [
+      "The corridor map proves every endpoint check is wrong",
+      "The links certify every point in the corridor regardless of coverage",
+      "A dead spot can exist only if no station has any working link",
+      "Link checks cover endpoints. Maps also cover the areas between them"
+    ],
+    "answer": 3,
+    "explanation": "Path results and area predictions answer distinct questions.",
+    "sourceSlides": [
+      19,
+      35,
+      44
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "propagation-h-05",
+    "difficulty": "hard",
+    "category": "Link Profiles and Margins",
+    "tags": [
+      "propagation",
+      "link profiles and margins",
+      "application"
+    ],
+    "prompt": "A hypothetical path predicts −96 dBm into a receiver threshold of −109 dBm. A comparable path has 17 dB margin. A planning criterion is 15 dB. Which path falls short?",
+    "options": [
+      "The second, because 17 dB falls below 15 dB",
+      "The first, because it has 13 dB margin",
+      "Both, because a receive level below zero indicates failure",
+      "Neither, because each exceeds the receiver threshold"
+    ],
+    "answer": 1,
+    "explanation": "The first has 13 dB of modeled headroom. Clearing the receiver threshold still leaves it below the separate planning criterion.",
+    "sourceSlides": [
+      28,
+      29,
+      35
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "propagation-h-06",
+    "difficulty": "hard",
+    "category": "Link Profiles and Margins",
+    "tags": [
+      "propagation",
+      "link profiles and margins",
+      "application"
+    ],
+    "prompt": "An obstructed link has a higher margin than a link with optical LOS. What inference fits the study?",
+    "options": [
+      "Clearance is one factor and the modeled margin reflects the full path and equipment assumptions",
+      "The higher-margin path must have clear optical LOS",
+      "The optical path must have used a larger plot radius",
+      "The obstructed link result implies the Fresnel zone is fully clear"
+    ],
+    "answer": 0,
+    "explanation": "The deck reports optical clearance and predicted margin separately, and some obstructed paths close by diffraction.",
+    "sourceSlides": [
+      23,
+      27,
+      35
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "propagation-h-07",
+    "difficulty": "hard",
+    "category": "Link Profiles and Margins",
+    "tags": [
+      "propagation",
+      "link profiles and margins",
+      "application"
+    ],
+    "prompt": "A model shows closure through an obstruction and the link is essential. What evidence is strongest for deciding whether to rely on it?",
+    "options": [
+      "A map screenshot showing the line between endpoints",
+      "A visual check that the terrain model labels the ridge",
+      "A larger area plot that still includes both sites",
+      "A targeted field check of that path under the intended configuration"
+    ],
+    "answer": 3,
+    "explanation": "The profile and margin indicate a prediction. An intended-configuration check tests the result in the field.",
+    "sourceSlides": [
+      23,
+      35,
+      53
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "propagation-h-08",
+    "difficulty": "hard",
+    "category": "Link Profiles and Margins",
+    "tags": [
+      "propagation",
+      "link profiles and margins",
+      "application"
+    ],
+    "prompt": "A planner applies a clearance rule from a different band to reject every working link in the study. What should the review check?",
+    "options": [
+      "Whether the map labels use the same abbreviations",
+      "Whether the path distances are rounded consistently",
+      "Whether the clearance assumption fits the modeled band and whether predicted margin meets the actual criterion",
+      "Whether every station has the same antenna height"
+    ],
+    "answer": 2,
+    "explanation": "The study shows viable modeled links even with limited Fresnel clearance, so band, model and margin criterion matter.",
+    "sourceSlides": [
+      27,
+      35
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "propagation-h-09",
+    "difficulty": "hard",
+    "category": "Cellular Modeling",
+    "tags": [
+      "propagation",
+      "cellular modeling",
+      "application"
+    ],
+    "prompt": "A comparison ranks one carrier first, but the others had fewer modeled towers. What should accompany the ranking?",
+    "options": [
+      "A statement that fewer runs prove the other networks have fewer towers",
+      "A claim that the first carrier has best actual service everywhere",
+      "The tower inputs and assumptions limiting the ranking",
+      "An adjustment based solely on the number of map pins"
+    ],
+    "answer": 2,
+    "explanation": "Different site samples can affect a modeled footprint and limit what a ranking means.",
+    "sourceSlides": [
+      37,
+      38,
+      42
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "propagation-h-10",
+    "difficulty": "hard",
+    "category": "Cellular Modeling",
+    "tags": [
+      "propagation",
+      "cellular modeling",
+      "application"
+    ],
+    "prompt": "A screenshot legend lists one receiver threshold while the saved run settings list another. Which value should accompany a reconstruction of that run?",
+    "options": [
+      "The value in the legend because it appears on the map",
+      "Use the saved run value and document the mismatch",
+      "The arithmetic mean of both values",
+      "A third value chosen to match measured service"
+    ],
+    "answer": 1,
+    "explanation": "Reconstruction depends on recorded run settings. The presentation distinguishes saved inputs from map presentation.",
+    "sourceSlides": [
+      37,
+      38
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "propagation-h-11",
+    "difficulty": "hard",
+    "category": "Cellular Modeling",
+    "tags": [
+      "propagation",
+      "cellular modeling",
+      "application"
+    ],
+    "prompt": "A planned fallback relies on cellular service in a gap shown outside the compared tower runs. What action produces evidence for that fallback?",
+    "options": [
+      "Assume the nearest carrier pin proves reception",
+      "Infer service from the total number of operators shown",
+      "Treat the gap as final proof that all cellular options fail",
+      "Test local service and keep an alternative until verified"
+    ],
+    "answer": 3,
+    "explanation": "A sampled cellular model is not a complete inventory or a field service test.",
+    "sourceSlides": [
+      37,
+      42,
+      53
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "propagation-h-12",
+    "difficulty": "hard",
+    "category": "Cellular Modeling",
+    "tags": [
+      "propagation",
+      "cellular modeling",
+      "application"
+    ],
+    "prompt": "A reviewer compares a wide-area composite for one carrier with a clipped overlay for another. What must change before drawing an area comparison?",
+    "options": [
+      "Match study boundaries and document differences in sites",
+      "Use a different legend for each carrier without stating its scale",
+      "Measure the visible number of icons instead of area",
+      "Increase the opacity of the clipped overlay alone"
+    ],
+    "answer": 0,
+    "explanation": "Shared extent and disclosure of the modeled samples are needed to compare like areas.",
+    "sourceSlides": [
+      37,
+      42
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "propagation-h-13",
+    "difficulty": "hard",
+    "category": "Dead Spots and Relays",
+    "tags": [
+      "propagation",
+      "dead spots and relays",
+      "application"
+    ],
+    "prompt": "Candidate A increases corridor coverage but misses one required link. Candidate B meets all required links and yields a smaller area gain. Which finding should lead a recommendation if the required links are decisive?",
+    "options": [
+      "Candidate A wins because area gain always outweighs a failed required link",
+      "The options tie because neither achieves both maxima",
+      "Use whichever site gives the highest individual margin",
+      "B meets the required links despite the smaller area gain"
+    ],
+    "answer": 3,
+    "explanation": "The study evaluates both required links and area coverage. The stated link requirement governs this choice.",
+    "sourceSlides": [
+      46,
+      48,
+      49
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "propagation-h-14",
+    "difficulty": "hard",
+    "category": "Dead Spots and Relays",
+    "tags": [
+      "propagation",
+      "dead spots and relays",
+      "application"
+    ],
+    "prompt": "A relay improves communication between endpoints, yet one corridor section stays shaded. What should be reported?",
+    "options": [
+      "The endpoint results make the remaining shading irrelevant",
+      "The remaining shading proves the relay connects neither side",
+      "The relay addresses connectivity and leaves an area gap that still needs a plan",
+      "The changed corridor percent proves every mobile can connect"
+    ],
+    "answer": 2,
+    "explanation": "End-to-end connectivity and continuous area coverage are separate outcomes.",
+    "sourceSlides": [
+      44,
+      46,
+      49
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "propagation-h-15",
+    "difficulty": "hard",
+    "category": "Dead Spots and Relays",
+    "tags": [
+      "propagation",
+      "dead spots and relays",
+      "application"
+    ],
+    "prompt": "The best modeled relay site cannot be reached during validation. How should a replacement be assessed?",
+    "options": [
+      "Check access, rerun link and area analyses, then verify on site",
+      "Transfer the original result to the nearest accessible location",
+      "Pick a lower location without recomputing the required paths",
+      "Report the original site as field verified because the model passed"
+    ],
+    "answer": 0,
+    "explanation": "A change of location changes terrain and geometry. The replacement needs its own analysis and validation.",
+    "sourceSlides": [
+      46,
+      47,
+      53
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "propagation-h-16",
+    "difficulty": "hard",
+    "category": "Dead Spots and Relays",
+    "tags": [
+      "propagation",
+      "dead spots and relays",
+      "application"
+    ],
+    "prompt": "A map with the relay shows fewer dead spots, but the second map also omits a weak segment from the corridor. What comparison repairs the evidence?",
+    "options": [
+      "Use the larger coverage figure because it is more recent",
+      "Compare the same corridor using the same usability rule",
+      "Compare only the map colors and omit area figures",
+      "Count the omitted segment as fully covered in both runs"
+    ],
+    "answer": 1,
+    "explanation": "Changing the denominator can create an apparent gain. Use matched extents and classes.",
+    "sourceSlides": [
+      44,
+      49
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "propagation-h-17",
+    "difficulty": "hard",
+    "category": "Validation and Decisions",
+    "tags": [
+      "propagation",
+      "validation and decisions",
+      "application"
+    ],
+    "prompt": "A mast increase barely helps one strong path, while an area gap affects mobile users. What should the team evaluate next?",
+    "options": [
+      "Use that strong path's margin to certify mobile coverage",
+      "Test changes against the mobile coverage gap and verify field performance",
+      "Adopt the taller mast everywhere based on the one path",
+      "Exclude mobile use from the area analysis"
+    ],
+    "answer": 1,
+    "explanation": "A sensitivity result for one base link does not answer whether mobile coverage improves.",
+    "sourceSlides": [
+      49,
+      51,
+      53
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "propagation-h-18",
+    "difficulty": "hard",
+    "category": "Validation and Decisions",
+    "tags": [
+      "propagation",
+      "validation and decisions",
+      "application"
+    ],
+    "prompt": "A validation visit finds cellular fallback unavailable in a modeled usable area. What recommendation should change?",
+    "options": [
+      "Leave the plan as written because a prediction exists",
+      "Remove all noncellular means from the plan to simplify it",
+      "Increase predicted coverage by including more towers without further checks",
+      "Revise the local fallback and log conditions for a rerun"
+    ],
+    "answer": 3,
+    "explanation": "Field evidence should change local fallback guidance and inform a revised prediction.",
+    "sourceSlides": [
+      37,
+      52,
+      53
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "propagation-h-19",
+    "difficulty": "hard",
+    "category": "Validation and Decisions",
+    "tags": [
+      "propagation",
+      "validation and decisions",
+      "application"
+    ],
+    "prompt": "A team has time to verify only a subset of links first. Several high-margin links are convenient, while a marginal link supports an important relay path. Which should it prioritize?",
+    "options": [
+      "The convenient link with the largest margin",
+      "The path appearing first in the slides",
+      "The marginal path needed by an important relay",
+      "The shortest available path regardless of role"
+    ],
+    "answer": 2,
+    "explanation": "Priority should reflect uncertainty and the consequence if the required link underperforms.",
+    "sourceSlides": [
+      35,
+      49,
+      53
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "propagation-h-20",
+    "difficulty": "hard",
+    "category": "Validation and Decisions",
+    "tags": [
+      "propagation",
+      "validation and decisions",
+      "application"
+    ],
+    "prompt": "Checks confirm relay connectivity at planned endpoints, but nobody tested the area where the prediction shows a remaining gap. What statement is supported?",
+    "options": [
+      "The checked endpoint links worked under test conditions and the residual area remains unverified",
+      "The checks validated every point in the corridor",
+      "The residual gap can be removed because the endpoints worked",
+      "All future relay paths using the same model are verified"
+    ],
+    "answer": 0,
+    "explanation": "Field observations support the tested configurations and locations. The area prediction still needs separate validation.",
+    "sourceSlides": [
+      48,
+      49,
+      53
+    ]
+  }
+]

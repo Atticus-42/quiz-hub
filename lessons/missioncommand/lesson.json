@@ -1,0 +1,42 @@
+{
+  "key": "missioncommand",
+  "slug": "mission-command",
+  "module": "module-1",
+  "order": 4,
+  "name": "Mission Command",
+  "title": "Mission Command Mastery Quiz",
+  "eyebrow": "Philippine Army · POI 1.4 · Mission Command",
+  "lessonName": "Mission Command",
+  "hubDescription": "Decide how to balance control and initiative when a plan changes or contact is disrupted.",
+  "lede": "Decide how to balance control and initiative when a plan changes or contact is disrupted. {total} questions across Easy, Medium, and Hard, mixing concepts and fictional scenarios.",
+  "historyLesson": "missioncommand",
+  "categoryOrder": [
+    "Foundations and Control",
+    "Intent, Orders and Initiative",
+    "Principles of Mission Command",
+    "Signal Leadership and Adaptation"
+  ],
+  "sourceRef": {
+    "label": "page",
+    "plural": "pages",
+    "min": 1,
+    "max": 12,
+    "required": true
+  },
+  "palette": {
+    "--lesson-accent": "#835126"
+  },
+  "art": {
+    "groups": [
+      "mission-goal",
+      "decision-paths",
+      "end-state"
+    ],
+    "labels": [
+      "MISSION COMMAND",
+      "PURPOSE",
+      "DISCRETION",
+      "END STATE"
+    ]
+  }
+}

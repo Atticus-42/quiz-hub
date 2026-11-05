@@ -53,7 +53,8 @@ export async function instructorSuite({ lessons }) {
     assert.equal(page.fetch.calls[0].init.credentials, 'omit');
     const state = page.api.getState();
     assert.equal(state.status, 'ready');
-    assert.equal(state.module, 'module-2');
+    assert.equal(state.module, 'module-1');
+    page.byId('module-module-2').click();
     const module2 = lessons.filter(lesson => lesson.module === 'module-2' && !lesson.pool);
     const expected = module2.reduce((sum, lesson) => sum + MODES.reduce((s, mode) => s + lesson.banks[mode].length, 0), 0) + 1;
     assert.equal(rowsOf(page).length, expected, 'every Module 2 bank question plus the one no longer in a bank');
@@ -77,6 +78,7 @@ export async function instructorSuite({ lessons }) {
     const q = armor.banks.hard.find(item => item.prompt.length > 120) ?? armor.banks.hard[0];
     const page = load(itemsBody([{ qid: id(armor, 'hard', q), asked: 6, missed: 1 }]));
     await page.api.whenSettled();
+    page.api.setModule('module-2');
     page.api.setLesson('armor');
     page.api.setMode('hard');
     const row = rowsOf(page).find(item => item.children[0].textContent.includes(q.prompt));
@@ -163,6 +165,7 @@ export async function instructorSuite({ lessons }) {
     const fetch = fakeFetch(call => ({ body: gs.get(Object.fromEntries(new URL(call.url).searchParams)) }));
     const page = runPage(configured, { fetch });
     await page.window.__instructor.whenSettled();
+    page.window.__instructor.setModule('module-2');
     page.window.__instructor.setLesson('armor');
     page.window.__instructor.setMode('medium');
     const rows = page.document.getElementById('items-body').children;

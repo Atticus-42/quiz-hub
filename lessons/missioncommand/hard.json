@@ -1,0 +1,464 @@
+[
+  {
+    "id": 1,
+    "qid": "missioncommand-h-01",
+    "difficulty": "hard",
+    "category": "Foundations and Control",
+    "tags": [
+      "foundations and control",
+      "analysis"
+    ],
+    "prompt": "A supervisor wants one control model for an entire event with routine setup and one tightly synchronized safety check. Which design best fits the leadership spectrum?",
+    "options": [
+      "Prescribe all methods because one step has higher risk",
+      "Delegate routine methods and direct the specific safety check with common timing",
+      "Delegate both phases equally because training proficiency is similar",
+      "Delegate the safety check but centralize routine setup to reduce small differences"
+    ],
+    "answer": 1,
+    "explanation": "Controls can vary by phase because risk and synchronization differ.",
+    "sourceSlides": [
+      3,
+      4,
+      5
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "missioncommand-h-02",
+    "difficulty": "hard",
+    "category": "Foundations and Control",
+    "tags": [
+      "foundations and control",
+      "analysis"
+    ],
+    "prompt": "A coordination team records perfect compliance but fails its deadline because every minor adjustment went to one supervisor. What evidence would best test the cause?",
+    "options": [
+      "Check whether supervisors personally followed the checklist",
+      "Compare total reports filed across teams with different workload",
+      "Check how much time local decisions spent awaiting approval.",
+      "Count how many initial instructions included exact methods without examining delay"
+    ],
+    "answer": 2,
+    "explanation": "The relevant mechanism is excessive centralization causing decision delay on matters suitable for local resolution.",
+    "sourceSlides": [
+      4,
+      5
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "missioncommand-h-03",
+    "difficulty": "hard",
+    "category": "Foundations and Control",
+    "tags": [
+      "foundations and control",
+      "analysis"
+    ],
+    "prompt": "One team completed its scripted tasks exactly but the intended service was unavailable during the critical period. Which evaluation follows Mission Command?",
+    "options": [
+      "Judge delegation by the number of independent changes alone",
+      "Grade the effort as a success because every task was completed",
+      "Assess the unmet outcome and the team's room to adapt.",
+      "Treat the unmet outcome solely as a scheduling error"
+    ],
+    "answer": 2,
+    "explanation": "The handout emphasizes achieving results within intent and adapting when the prescribed plan no longer serves them.",
+    "sourceSlides": [
+      1,
+      2,
+      4
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "missioncommand-h-04",
+    "difficulty": "hard",
+    "category": "Foundations and Control",
+    "tags": [
+      "foundations and control",
+      "analysis"
+    ],
+    "prompt": "Two leaders argue that a commander's use of any supervision proves they have abandoned Mission Command. Which analysis is sound?",
+    "options": [
+      "Count the number of directions and classify any direction as centralized execution",
+      "Classify the style only by whether orders are written or oral",
+      "Assume experienced teams need the same supervision across all activities",
+      "Check whether oversight coordinates work while preserving local decisions."
+    ],
+    "answer": 3,
+    "explanation": "Mission Command balances supervision with empowerment and uses controls suited to the situation.",
+    "sourceSlides": [
+      4,
+      12
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "missioncommand-h-05",
+    "difficulty": "hard",
+    "category": "Intent, Orders and Initiative",
+    "tags": [
+      "intent, orders and initiative",
+      "analysis"
+    ],
+    "prompt": "A leader wrote a precise purpose for an activity but gave no end state. Two capable teams interpreted success differently. What revision addresses the root cause?",
+    "options": [
+      "Keep the purpose and define an observable end state.",
+      "Add a list of approved methods without describing the result",
+      "Give each team a different purpose to match its method",
+      "Reduce guidance further to maximize initiative"
+    ],
+    "answer": 0,
+    "explanation": "Purpose guides why, but the desired end state provides a common criterion for success.",
+    "sourceSlides": [
+      5,
+      6
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "missioncommand-h-06",
+    "difficulty": "hard",
+    "category": "Intent, Orders and Initiative",
+    "tags": [
+      "intent, orders and initiative",
+      "analysis"
+    ],
+    "prompt": "A written order identifies the assigned team, deadline, venue and purpose but prescribes every minor method, including for easily reversible choices. What should change?",
+    "options": [
+      "Preserve every method and add an approval before deviations",
+      "Remove timing and location so the team can choose its priorities independently",
+      "Keep the outcome and constraints. Delegate the methods.",
+      "Replace the purpose with extra step-by-step guidance"
+    ],
+    "answer": 2,
+    "explanation": "Mission orders can specify essential requirements while avoiding unnecessary detail about execution.",
+    "sourceSlides": [
+      6,
+      7
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "missioncommand-h-07",
+    "difficulty": "hard",
+    "category": "Intent, Orders and Initiative",
+    "tags": [
+      "intent, orders and initiative",
+      "analysis"
+    ],
+    "prompt": "Contact is interrupted. A capable subordinate finds an authorized workaround that preserves a key priority but delays a lower one. What best distinguishes initiative from unauthorized discretion?",
+    "options": [
+      "Weigh priorities and limits, then update others when able.",
+      "Treat loss of contact as permission to remove existing constraints",
+      "Preserve every lower priority even if the key outcome fails",
+      "Choose the workaround solely because it is available first"
+    ],
+    "answer": 0,
+    "explanation": "Disciplined initiative adapts to the situation within intent, which includes existing priorities and limits.",
+    "sourceSlides": [
+      6,
+      9
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "missioncommand-h-08",
+    "difficulty": "hard",
+    "category": "Intent, Orders and Initiative",
+    "tags": [
+      "intent, orders and initiative",
+      "analysis"
+    ],
+    "prompt": "A supervisor loosened control after individual training, but a joint rehearsal revealed that two teams interfere with each other. What adjustment targets the actual gap?",
+    "options": [
+      "Remove existing checkpoints to increase speed",
+      "Return all individual methods to centralized control",
+      "Repeat individual skills training and leave coordination to the teams",
+      "Set shared coordination limits and leave teams room to adapt."
+    ],
+    "answer": 3,
+    "explanation": "The issue is synchronization across teams. Common constraints target the interaction while capable teams keep local discretion.",
+    "sourceSlides": [
+      5,
+      7
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "missioncommand-h-09",
+    "difficulty": "hard",
+    "category": "Principles of Mission Command",
+    "tags": [
+      "principles of mission command",
+      "analysis"
+    ],
+    "prompt": "Teams know priorities and supervisors trust them, yet repeated independent decisions fail under technical stress. Which evidence best distinguishes competence from unclear intent?",
+    "options": [
+      "Count the number of trust-building sessions",
+      "Ask leaders whether they prefer detailed orders",
+      "Measure how often leaders seek permission for any change",
+      "Test whether leaders can explain the desired outcome but cannot select a sound method in a realistic exercise"
+    ],
+    "answer": 3,
+    "explanation": "A realistic test separates knowing the desired outcome from having the technical capability to reach it.",
+    "sourceSlides": [
+      7,
+      8
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "missioncommand-h-10",
+    "difficulty": "hard",
+    "category": "Principles of Mission Command",
+    "tags": [
+      "principles of mission command",
+      "analysis"
+    ],
+    "prompt": "A team has technical skill and precise intent but stays idle when an opportunity emerges. Leaders expect blame for any justified departure. What should a corrective action target?",
+    "options": [
+      "Reward only deviations that succeed regardless of judgment",
+      "Rewrite the same clear intent in greater detail",
+      "Review decisions fairly and back sound adaptations.",
+      "Increase technical certification requirements"
+    ],
+    "answer": 2,
+    "explanation": "The evidence points to fear and weak trust, which suppress initiative despite clarity and competence.",
+    "sourceSlides": [
+      8,
+      11
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "missioncommand-h-11",
+    "difficulty": "hard",
+    "category": "Principles of Mission Command",
+    "tags": [
+      "principles of mission command",
+      "analysis"
+    ],
+    "prompt": "Three teams each meet local targets but their combined output misses the main priority. What should a leader test before changing delegation?",
+    "options": [
+      "Whether the fastest team can set the priority for all three",
+      "Whether teams share an understanding of the common outcome and interdependent priorities",
+      "Whether each team needs identical technical methods",
+      "Whether local teams received equal numbers of instructions"
+    ],
+    "answer": 1,
+    "explanation": "Local performance can coexist with coordination failure when the teams lack a common picture of the whole mission.",
+    "sourceSlides": [
+      8
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "missioncommand-h-12",
+    "difficulty": "hard",
+    "category": "Principles of Mission Command",
+    "tags": [
+      "principles of mission command",
+      "analysis"
+    ],
+    "prompt": "An authorized option is fast but has a known manageable hazard. Waiting avoids that hazard and will likely miss an essential outcome. What makes selection defensible?",
+    "options": [
+      "Compare both risks, mitigate the hazard, and confirm remaining risk is justified and within authority",
+      "Accept because every essential outcome outweighs every hazard",
+      "Wait because a controllable hazard rules out immediate action",
+      "Compare only hazards from acting because waiting is the baseline"
+    ],
+    "answer": 0,
+    "explanation": "Prudent risk assessment includes consequences of delay and deliberate mitigation of action risks.",
+    "sourceSlides": [
+      9
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "missioncommand-h-13",
+    "difficulty": "hard",
+    "category": "Principles of Mission Command",
+    "tags": [
+      "principles of mission command",
+      "analysis"
+    ],
+    "prompt": "A delegated decision went badly. The leader had clear intent and suitable technical training but lacked information about a shared constraint. Which remedy best fits the evidence?",
+    "options": [
+      "Share the operating picture and confirm teams know the constraint.",
+      "Replace mission orders with detailed instructions for every action",
+      "Require additional certification in a skill already demonstrated",
+      "Lower risk tolerance on unrelated decisions"
+    ],
+    "answer": 0,
+    "explanation": "The missing constraint points to a shared understanding gap, not to technical skill or lack of intent.",
+    "sourceSlides": [
+      7,
+      8,
+      9
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "missioncommand-h-14",
+    "difficulty": "hard",
+    "category": "Principles of Mission Command",
+    "tags": [
+      "principles of mission command",
+      "analysis"
+    ],
+    "prompt": "A commander promises discretion but reverses a mitigated, authorized choice solely because a different method would have been personally preferred. What is the likely effect over time?",
+    "options": [
+      "Lower headquarters workload because teams anticipate the preferred method",
+      "Reduced trust and more requests for approval despite delegated authority",
+      "Improved shared understanding because outcomes are judged consistently",
+      "Stronger initiative because leaders expect preferences to remain flexible"
+    ],
+    "answer": 1,
+    "explanation": "Discretion becomes less credible when responsible choices are reversed for personal preference.",
+    "sourceSlides": [
+      8,
+      9
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "missioncommand-h-15",
+    "difficulty": "hard",
+    "category": "Signal Leadership and Adaptation",
+    "tags": [
+      "signal leadership and adaptation",
+      "analysis"
+    ],
+    "prompt": "A support group restores a high-volume service while the users identified in intent still cannot receive essential updates. How should the leader assess the outcome?",
+    "options": [
+      "Judge recovery against service to the prioritized users and redirect effort toward that purpose",
+      "Treat technical recovery as complete and leave the user impact for later",
+      "Complete the planned recovery order before reassessing essential support",
+      "Use total traffic volume as the sole measure of success"
+    ],
+    "answer": 0,
+    "explanation": "Technical output matters because it supports information flow and decisions described by the intent.",
+    "sourceSlides": [
+      6,
+      10
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "missioncommand-h-16",
+    "difficulty": "hard",
+    "category": "Signal Leadership and Adaptation",
+    "tags": [
+      "signal leadership and adaptation",
+      "analysis"
+    ],
+    "prompt": "A group operates well under normal conditions but freezes in every exercise when contact with its supervisor stops. Which redesign would best test improvement?",
+    "options": [
+      "Publish a longer initial checklist and score completion alone",
+      "Raise the reporting frequency before every decision",
+      "Improve contact reliability and run the same exercise with continuous instructions",
+      "Rehearse degraded contact with explicit purpose and limits and assess decisions made without detailed direction"
+    ],
+    "answer": 3,
+    "explanation": "The redesign directly tests judgment and continuity when detailed guidance is unavailable.",
+    "sourceSlides": [
+      10,
+      11
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "missioncommand-h-17",
+    "difficulty": "hard",
+    "category": "Signal Leadership and Adaptation",
+    "tags": [
+      "signal leadership and adaptation",
+      "analysis"
+    ],
+    "prompt": "Leaders use authorized local workarounds promptly, but downstream teams discover the changes too late to coordinate. What improvement preserves the benefits of delegation?",
+    "options": [
+      "Have each team track only its own workarounds",
+      "Report changes that affect shared priorities or dependencies.",
+      "Stop local updates and issue one end-of-day summary",
+      "Require approval for all workarounds regardless of their effects"
+    ],
+    "answer": 1,
+    "explanation": "Relevant updates preserve shared understanding while local leaders retain authority to act.",
+    "sourceSlides": [
+      8,
+      10
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "missioncommand-h-18",
+    "difficulty": "hard",
+    "category": "Signal Leadership and Adaptation",
+    "tags": [
+      "signal leadership and adaptation",
+      "analysis"
+    ],
+    "prompt": "After one error during a high-risk training phase, headquarters wants to approve even low-risk routine decisions indefinitely. Which response better addresses the incident?",
+    "options": [
+      "Increase reporting on every task while leaving the risky handoff undefined",
+      "Centralize all decisions until a full training cycle ends",
+      "Tighten controls where needed and keep routine decisions local.",
+      "Remove all controls to restore confidence quickly"
+    ],
+    "answer": 2,
+    "explanation": "Targeted controls address the hazard without suppressing initiative across unrelated tasks.",
+    "sourceSlides": [
+      5,
+      10
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "missioncommand-h-19",
+    "difficulty": "hard",
+    "category": "Signal Leadership and Adaptation",
+    "tags": [
+      "signal leadership and adaptation",
+      "analysis"
+    ],
+    "prompt": "Two exercises report fewer escalations after delegation. What further evidence best shows that Mission Command improved?",
+    "options": [
+      "Written orders were shorter than in the previous exercise",
+      "Decisions within limits maintained essential outcomes despite changing conditions",
+      "Leaders sent fewer messages to headquarters overall",
+      "Teams used a larger number of different methods"
+    ],
+    "answer": 1,
+    "explanation": "Successful delegation is demonstrated by responsible adaptation that sustains the mission, beyond lower message volume.",
+    "sourceSlides": [
+      10,
+      11
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "missioncommand-h-20",
+    "difficulty": "hard",
+    "category": "Signal Leadership and Adaptation",
+    "tags": [
+      "signal leadership and adaptation",
+      "analysis"
+    ],
+    "prompt": "A competent support team has broad discretion. A time-critical cross-team dependency emerges and no common timing is understood. What should the leader do?",
+    "options": [
+      "Issue broad encouragement and leave timing to separate teams",
+      "Take over all work until the activity ends",
+      "Keep discretion unchanged and rely on individual competence to solve the coordination problem",
+      "Establish shared timing for the dependency and preserve discretion on independent work"
+    ],
+    "answer": 3,
+    "explanation": "A targeted synchronization requirement restores shared understanding where needed and preserves local flexibility elsewhere.",
+    "sourceSlides": [
+      5,
+      8,
+      10
+    ]
+  }
+]

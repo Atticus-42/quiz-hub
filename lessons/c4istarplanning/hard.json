@@ -1,0 +1,450 @@
+[
+  {
+    "id": 1,
+    "qid": "c4istarplanning-h-01",
+    "difficulty": "hard",
+    "category": "Planning Requirements",
+    "tags": [
+      "planning requirements"
+    ],
+    "prompt": "Two teams receive the same timely information and still make conflicting decisions because each assumes approval belongs to the other. Which revision directly addresses the failure?",
+    "options": [
+      "Clarify who decides and how teams coordinate",
+      "Increase delivery speed and leave authority implicit",
+      "Let each team establish independent decision rules",
+      "Collect more data before clarifying responsibilities"
+    ],
+    "answer": 0,
+    "explanation": "Timely exchange is already working. Clear command responsibilities and coordination rules are missing.",
+    "sourceSlides": [
+      14,
+      19,
+      20
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "c4istarplanning-h-02",
+    "difficulty": "hard",
+    "category": "Planning Requirements",
+    "tags": [
+      "planning requirements"
+    ],
+    "prompt": "A plan includes written security rules, but personnel regularly bypass them under time pressure. Which change tests the relevant capability most directly?",
+    "options": [
+      "Run a realistic exercise and evaluate whether personnel can carry out required security practices under pressure",
+      "Increase technical capacity and infer that workarounds will disappear",
+      "Assess speed only and leave security performance to a separate survey",
+      "Rewrite the written rules and measure how many people open them"
+    ],
+    "answer": 0,
+    "explanation": "The issue is whether security practices can be applied. Exercises test that in realistic conditions.",
+    "sourceSlides": [
+      16,
+      17
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "c4istarplanning-h-03",
+    "difficulty": "hard",
+    "category": "Planning Requirements",
+    "tags": [
+      "planning requirements"
+    ],
+    "prompt": "Two proposals have similar initial costs. One lacks a credible repair and upgrade plan. Which criterion best differentiates them?",
+    "options": [
+      "Whether the equipment has a longer product description",
+      "Whether repair and upgrade funding supports availability",
+      "Whether both teams can order the same number of devices initially",
+      "Whether the purchase can be announced before the exercise"
+    ],
+    "answer": 1,
+    "explanation": "The lesson ties reliable infrastructure to maintenance, support, and resourcing beyond acquisition.",
+    "sourceSlides": [
+      18,
+      21
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "c4istarplanning-h-04",
+    "difficulty": "hard",
+    "category": "Planning Requirements",
+    "tags": [
+      "planning requirements"
+    ],
+    "prompt": "A plan meets real-time requirements under normal conditions and loses service during its first simulated disruption. How should the planner evaluate it?",
+    "options": [
+      "It meets emergency readiness because real-time performance was demonstrated once",
+      "It meets routine timeliness goals but fails the disruption test",
+      "It can pass based on its documented plan without repeat testing",
+      "It fails solely because participants should have sent more messages"
+    ],
+    "answer": 1,
+    "explanation": "Normal data speed and continuity under adverse conditions are separate requirements.",
+    "sourceSlides": [
+      20,
+      23
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "c4istarplanning-h-05",
+    "difficulty": "hard",
+    "category": "Planning Requirements",
+    "tags": [
+      "planning requirements"
+    ],
+    "prompt": "An emerging vulnerability requires a change that competes with other funded upgrades. Which planning response combines threat adaptation and resource management?",
+    "options": [
+      "Replace every affected component before determining the requirement",
+      "Choose the cheapest change without assessing the risk",
+      "Preserve all original priorities because funding has already been set",
+      "Assess the change against mission risk and allocate resources to the higher-priority need"
+    ],
+    "answer": 3,
+    "explanation": "Continuous threat assessment informs how constrained resources should be prioritized.",
+    "sourceSlides": [
+      21,
+      22
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "c4istarplanning-h-06",
+    "difficulty": "hard",
+    "category": "Planning Requirements",
+    "tags": [
+      "planning requirements"
+    ],
+    "prompt": "A design improves response speed by making sensitive records visible to every classroom participant. Which change best preserves both requirements?",
+    "options": [
+      "Preserve access for everyone but add a generic privacy statement",
+      "Use open access because timely exchange is the first demonstrated benefit",
+      "Limit access to appropriate roles and verify that authorized users still receive the information in time",
+      "Hide all records from the participants even where access is required"
+    ],
+    "answer": 2,
+    "explanation": "The plan must balance timely decisions with protection of privacy and compliance.",
+    "sourceSlides": [
+      20,
+      24
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "c4istarplanning-h-07",
+    "difficulty": "hard",
+    "category": "Communications Technologies",
+    "tags": [
+      "communications technologies"
+    ],
+    "prompt": "An exercise produces more observations, but commanders receive no clearer assessment. Why might buying additional collectors fail to solve the problem?",
+    "options": [
+      "More collection always produces an equivalent increase in useful analysis",
+      "The problem can only be caused by field device durability",
+      "Intelligence analysis is unnecessary if enough observations exist",
+      "The bottleneck is turning collection into actionable analysis"
+    ],
+    "answer": 3,
+    "explanation": "Sensors collect observations. Analysis is needed to derive useful conclusions.",
+    "sourceSlides": [
+      33,
+      34
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "c4istarplanning-h-08",
+    "difficulty": "hard",
+    "category": "Communications Technologies",
+    "tags": [
+      "communications technologies"
+    ],
+    "prompt": "A system verifies user identity but still exposes sensitive data to unauthorized viewing during exchange. What diagnosis best fits?",
+    "options": [
+      "The presence of sensitive data proves user identity was never checked",
+      "Authentication works, but data in transit still needs protection",
+      "Verified identity guarantees that data is protected at every stage",
+      "The exposure can be corrected by increasing storage capacity alone"
+    ],
+    "answer": 1,
+    "explanation": "Identity verification and protection of data in transit address separate security needs.",
+    "sourceSlides": [
+      30,
+      37
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "c4istarplanning-h-09",
+    "difficulty": "hard",
+    "category": "Communications Technologies",
+    "tags": [
+      "communications technologies"
+    ],
+    "prompt": "A radio can be reconfigured in software, yet another system still cannot process its messages. Which conclusion is strongest?",
+    "options": [
+      "Software reconfiguration establishes interoperability without testing",
+      "Software reconfiguration does not establish compatible exchange",
+      "The failed exchange proves the radio lacks any reconfiguration capability",
+      "The only issue is the ruggedness of the radio housing"
+    ],
+    "answer": 1,
+    "explanation": "Flexibility helps support modes and protocols. Usable exchange still depends on actual compatibility.",
+    "sourceSlides": [
+      25,
+      36,
+      42
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "c4istarplanning-h-10",
+    "difficulty": "hard",
+    "category": "Communications Technologies",
+    "tags": [
+      "communications technologies"
+    ],
+    "prompt": "Equipment survives harsh handling, but service drops whenever the exercise places it under sustained demand. What is the best diagnosis?",
+    "options": [
+      "Device durability alone has not demonstrated system reliability under stress",
+      "The correct measure of service is how many devices survived the exercise",
+      "Service interruptions are primarily evidence that the devices need tougher cases",
+      "Surviving handling proves the communications system is resilient"
+    ],
+    "answer": 0,
+    "explanation": "A rugged device tolerates its environment. Reliable communications must continue operating as a system.",
+    "sourceSlides": [
+      38,
+      43
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "c4istarplanning-h-11",
+    "difficulty": "hard",
+    "category": "Communications Technologies",
+    "tags": [
+      "communications technologies"
+    ],
+    "prompt": "Storage and processing can expand as teams join, but the communications path becomes congested. Which conclusion is best?",
+    "options": [
+      "Check whether the communications path can scale with demand",
+      "The transport path should be evaluated independently of the required exchanges",
+      "Expandable storage proves the whole system meets scalability goals",
+      "Congestion shows that the data should be retained longer in storage"
+    ],
+    "answer": 0,
+    "explanation": "End-to-end scalability requires sufficient capacity to exchange information as demand grows.",
+    "sourceSlides": [
+      27,
+      31,
+      44
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "c4istarplanning-h-12",
+    "difficulty": "hard",
+    "category": "Component Roles",
+    "tags": [
+      "component roles"
+    ],
+    "prompt": "A new sensor produces usable observations, but the command team sees isolated data with no decision context. Which design change fits the documented component roles?",
+    "options": [
+      "Send each raw observation to the command display and omit analysis",
+      "Use the collection sensor itself to make the command decision",
+      "Connect collection to analysis, then present the assessed results through the command coordination system",
+      "Move all observations into storage and leave them outside the decision workflow"
+    ],
+    "answer": 2,
+    "explanation": "Collection, analysis, and coordination serve distinct roles that should connect to support decisions.",
+    "sourceSlides": [
+      28,
+      33,
+      34
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "c4istarplanning-h-13",
+    "difficulty": "hard",
+    "category": "Component Roles",
+    "tags": [
+      "component roles"
+    ],
+    "prompt": "A center brings staff and systems together, but participants still cannot exchange usable information. Which assessment is strongest?",
+    "options": [
+      "Failure to share data proves that staff cannot work in the same facility",
+      "Co-location still leaves the need for compatible data exchange",
+      "A common facility establishes interoperability without a working exchange",
+      "Adding personnel to the facility is sufficient to solve the compatibility gap"
+    ],
+    "answer": 1,
+    "explanation": "An integrated center can bring functions together. Interoperability depends on whether systems exchange usable information.",
+    "sourceSlides": [
+      28,
+      29,
+      42
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "c4istarplanning-h-14",
+    "difficulty": "hard",
+    "category": "Component Roles",
+    "tags": [
+      "component roles"
+    ],
+    "prompt": "A classroom architecture needs flexible exchange, retrievable records, and verified access. Which mapping aligns the roles correctly?",
+    "options": [
+      "Authentication for exchange, network for retrieval, and data management for identity",
+      "Network for exchange, authentication for retrieval, and data management for identity",
+      "Network for exchange, data management for retrieval, and authentication for identity",
+      "Data management for exchange, authentication for retrieval, and network for identity"
+    ],
+    "answer": 2,
+    "explanation": "The network moves information, data management supports storage and access, and authentication verifies identity.",
+    "sourceSlides": [
+      27,
+      30,
+      37
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "c4istarplanning-h-15",
+    "difficulty": "hard",
+    "category": "Component Roles",
+    "tags": [
+      "component roles"
+    ],
+    "prompt": "A planning team has a detailed map and a reliable stream of sensor observations but cannot determine what the observations imply. Which additional capability directly closes that gap?",
+    "options": [
+      "Another display layer that reproduces the raw observations",
+      "A second command center that receives the same isolated data",
+      "Greater map storage without analysis",
+      "Analytical processing that turns observations into assessments for the command team"
+    ],
+    "answer": 3,
+    "explanation": "Geographic visualization and collection support awareness. Analytical processing generates usable implications.",
+    "sourceSlides": [
+      28,
+      34,
+      39
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "c4istarplanning-h-16",
+    "difficulty": "hard",
+    "category": "Interoperability",
+    "tags": [
+      "interoperability"
+    ],
+    "prompt": "Two systems use the same documented format, but an intermediary delivers only half the fields. What should the planner validate next?",
+    "options": [
+      "Whether the equipment enclosures use the same design",
+      "Whether each team can archive its own outgoing data",
+      "Whether the intermediary preserves required fields",
+      "The existence of a written common standard only"
+    ],
+    "answer": 2,
+    "explanation": "Common standards are necessary, but integration must actually preserve the information required at the destination.",
+    "sourceSlides": [
+      42,
+      43
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "c4istarplanning-h-17",
+    "difficulty": "hard",
+    "category": "Interoperability",
+    "tags": [
+      "interoperability"
+    ],
+    "prompt": "Systems exchange information accurately, but unauthorized users can also retrieve it. How should this result be recorded?",
+    "options": [
+      "The exchange worked but failed access control",
+      "The system failed solely on scalability",
+      "Compatible exchange must be discarded because access controls are separate",
+      "Interoperability was fully demonstrated because exchange worked"
+    ],
+    "answer": 0,
+    "explanation": "The lesson treats protection from unauthorized access as a key part of interoperability.",
+    "sourceSlides": [
+      42,
+      44
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "c4istarplanning-h-18",
+    "difficulty": "hard",
+    "category": "Interoperability",
+    "tags": [
+      "interoperability"
+    ],
+    "prompt": "A pilot supports one team reliably but breaks down as several more teams connect. Which test best isolates the newly exposed issue?",
+    "options": [
+      "Compare equipment purchase dates across teams",
+      "Repeat the single-team test and extrapolate the result",
+      "Increase test load and check exchange performance",
+      "Evaluate whether the new teams attended their briefings"
+    ],
+    "answer": 2,
+    "explanation": "The failure appears with scale. Testing representative demand shows whether reliability is maintained as load rises.",
+    "sourceSlides": [
+      43,
+      44
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "c4istarplanning-h-19",
+    "difficulty": "hard",
+    "category": "Interoperability",
+    "tags": [
+      "interoperability"
+    ],
+    "prompt": "Two systems have incompatible interfaces but dependable service when used alone. Which design and evaluation pair best addresses the mismatch?",
+    "options": [
+      "Increase the reliability of each system independently and assume compatibility follows",
+      "Keep separate interfaces and test only individual uptime",
+      "Select a newer system and test only whether it powers on",
+      "Introduce a compatible interface and test complete exchanges between the systems"
+    ],
+    "answer": 3,
+    "explanation": "Interface integration addresses the mismatch. End-to-end tests show whether systems actually exchange useful information.",
+    "sourceSlides": [
+      42,
+      43
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "c4istarplanning-h-20",
+    "difficulty": "hard",
+    "category": "Interoperability",
+    "tags": [
+      "interoperability"
+    ],
+    "prompt": "A demonstration shows successful exchanges under light load, using test accounts with broad privileges. What must be demonstrated before claiming readiness for a larger exercise?",
+    "options": [
+      "More archived data while continuing to use broad privileges",
+      "An inventory of systems without a representative exchange test",
+      "The same light-load success with additional observers",
+      "Reliable exchange under representative load and access controls"
+    ],
+    "answer": 3,
+    "explanation": "Readiness requires interoperable exchange, reliability and scalability, and protection against unauthorized access.",
+    "sourceSlides": [
+      42,
+      43,
+      44
+    ]
+  }
+]

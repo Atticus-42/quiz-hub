@@ -1,0 +1,472 @@
+[
+  {
+    "id": 1,
+    "qid": "propagation-e-01",
+    "difficulty": "easy",
+    "category": "Model Inputs and Coverage",
+    "tags": [
+      "propagation",
+      "model inputs and coverage",
+      "objective"
+    ],
+    "prompt": "Which modeled setting accounts for energy lost between the radio and antenna?",
+    "options": [
+      "Receiver sensitivity",
+      "Antenna height",
+      "Feed-line loss",
+      "Plot radius"
+    ],
+    "answer": 2,
+    "explanation": "Feed-line loss is modeled separately from antenna gain and terrain.",
+    "sourceSlides": [
+      15,
+      16
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "propagation-e-02",
+    "difficulty": "easy",
+    "category": "Model Inputs and Coverage",
+    "tags": [
+      "propagation",
+      "model inputs and coverage",
+      "objective"
+    ],
+    "prompt": "What does antenna height above ground describe?",
+    "options": [
+      "Vertical distance above local ground",
+      "The terrain's elevation above sea level",
+      "The station's height above the receiver",
+      "The distance to the edge of the plot"
+    ],
+    "answer": 0,
+    "explanation": "A mast height measures the antenna relative to local ground. Terrain elevation is a separate quantity.",
+    "sourceSlides": [
+      15,
+      16
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "propagation-e-03",
+    "difficulty": "easy",
+    "category": "Model Inputs and Coverage",
+    "tags": [
+      "propagation",
+      "model inputs and coverage",
+      "objective"
+    ],
+    "prompt": "What does a composite radio coverage plot combine?",
+    "options": [
+      "The equipment inventories for all stations",
+      "Point-to-point margins into one average",
+      "All measured receiver readings from a field survey",
+      "Predicted footprints from several stations"
+    ],
+    "answer": 3,
+    "explanation": "The composite draws from individual station predictions to show their collective footprint.",
+    "sourceSlides": [
+      17,
+      19
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "propagation-e-04",
+    "difficulty": "easy",
+    "category": "Model Inputs and Coverage",
+    "tags": [
+      "propagation",
+      "model inputs and coverage",
+      "objective"
+    ],
+    "prompt": "Which setting limits the area a single-station footprint evaluates?",
+    "options": [
+      "Receiver threshold",
+      "Plot radius",
+      "Antenna gain",
+      "Feed-line loss"
+    ],
+    "answer": 1,
+    "explanation": "The radius bounds the modeled footprint around the transmitter.",
+    "sourceSlides": [
+      15,
+      19
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "propagation-e-05",
+    "difficulty": "easy",
+    "category": "Link Profiles and Margins",
+    "tags": [
+      "propagation",
+      "link profiles and margins",
+      "objective"
+    ],
+    "prompt": "What does fade margin compare in the Radio Mobile outputs?",
+    "options": [
+      "Transmit power and the antenna height",
+      "Plot radius and path distance",
+      "Ground elevation and receiver gain",
+      "Receive level and receiver threshold"
+    ],
+    "answer": 3,
+    "explanation": "The margin expresses how far predicted receive power is above the threshold.",
+    "sourceSlides": [
+      23,
+      35
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "propagation-e-06",
+    "difficulty": "easy",
+    "category": "Link Profiles and Margins",
+    "tags": [
+      "propagation",
+      "link profiles and margins",
+      "objective"
+    ],
+    "prompt": "Which item is evidence of an optically obstructed path in the examples?",
+    "options": [
+      "The received signal has a negative dBm value",
+      "The receiver falls within the plot radius",
+      "Terrain crosses the direct path",
+      "The antenna heights differ"
+    ],
+    "answer": 2,
+    "explanation": "The profile can show terrain intersecting the straight path even when the model predicts a working radio link.",
+    "sourceSlides": [
+      23,
+      27
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "propagation-e-07",
+    "difficulty": "easy",
+    "category": "Link Profiles and Margins",
+    "tags": [
+      "propagation",
+      "link profiles and margins",
+      "objective"
+    ],
+    "prompt": "What can explain a modeled link closing despite terrain in the direct path?",
+    "options": [
+      "A larger plotting window",
+      "Diffraction over the obstruction",
+      "A change in the display legend",
+      "A different map projection"
+    ],
+    "answer": 1,
+    "explanation": "Diffraction can permit modeled signal propagation despite loss from the obstruction.",
+    "sourceSlides": [
+      23,
+      35
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "propagation-e-08",
+    "difficulty": "easy",
+    "category": "Link Profiles and Margins",
+    "tags": [
+      "propagation",
+      "link profiles and margins",
+      "objective"
+    ],
+    "prompt": "What distinction do the optical LOS and Fresnel observations illustrate?",
+    "options": [
+      "A clear centerline can coexist with limited clearance around it",
+      "An optical path automatically has full Fresnel clearance",
+      "Fresnel clearance and receive level report the same quantity",
+      "Fresnel clearance establishes which transmitter is active"
+    ],
+    "answer": 0,
+    "explanation": "Fresnel clearance considers space around the centerline, so the two observations are distinct.",
+    "sourceSlides": [
+      27,
+      35
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "propagation-e-09",
+    "difficulty": "easy",
+    "category": "Cellular Modeling",
+    "tags": [
+      "propagation",
+      "cellular modeling",
+      "objective"
+    ],
+    "prompt": "What role does CellMapper play in the example cellular workflow?",
+    "options": [
+      "Identify candidate cellular tower locations",
+      "Compute all coverage predictions",
+      "Measure the actual phone reception at every site",
+      "Validate the final radio network"
+    ],
+    "answer": 0,
+    "explanation": "CellMapper provides candidate locations. CloudRF uses selected towers and assumptions to produce estimates.",
+    "sourceSlides": [
+      37
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "propagation-e-10",
+    "difficulty": "easy",
+    "category": "Cellular Modeling",
+    "tags": [
+      "propagation",
+      "cellular modeling",
+      "objective"
+    ],
+    "prompt": "What is CloudRF used to produce in the example?",
+    "options": [
+      "Confirmed commercial service records",
+      "Field logs of completed calls",
+      "A point-to-point VHF network inventory",
+      "Modeled cellular footprints"
+    ],
+    "answer": 3,
+    "explanation": "CloudRF predicts coverage using model inputs supplied for selected towers.",
+    "sourceSlides": [
+      37,
+      38
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "propagation-e-11",
+    "difficulty": "easy",
+    "category": "Cellular Modeling",
+    "tags": [
+      "propagation",
+      "cellular modeling",
+      "objective"
+    ],
+    "prompt": "How should the values in a saved cellular model be described?",
+    "options": [
+      "Verified specifications for the carrier network",
+      "Inputs used for that model run",
+      "Measured receive levels at every map pixel",
+      "Confirmed values for all towers in the area"
+    ],
+    "answer": 1,
+    "explanation": "The deck identifies the recorded settings as model inputs and distinguishes them from operator-verified equipment or service.",
+    "sourceSlides": [
+      38
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "propagation-e-12",
+    "difficulty": "easy",
+    "category": "Cellular Modeling",
+    "tags": [
+      "propagation",
+      "cellular modeling",
+      "objective"
+    ],
+    "prompt": "What does a common map extent improve when comparing carrier outputs?",
+    "options": [
+      "Knowledge of which carrier has verified service",
+      "Coverage completeness beyond all modeled sites",
+      "Visual comparison across the same geographic area",
+      "Certainty that every carrier uses identical equipment"
+    ],
+    "answer": 2,
+    "explanation": "A common viewing area supports like-area comparison of the selected model results.",
+    "sourceSlides": [
+      42
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "propagation-e-13",
+    "difficulty": "easy",
+    "category": "Dead Spots and Relays",
+    "tags": [
+      "propagation",
+      "dead spots and relays",
+      "objective"
+    ],
+    "prompt": "What does the dead-spot hatch represent in the example?",
+    "options": [
+      "Every point with a failed field radio check",
+      "No plotted signal or the weakest predicted classes within the study corridor",
+      "Every area outside the study corridor",
+      "All places below average tower height"
+    ],
+    "answer": 1,
+    "explanation": "The hatch is defined from the model output and a specified corridor.",
+    "sourceSlides": [
+      44
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "propagation-e-14",
+    "difficulty": "easy",
+    "category": "Dead Spots and Relays",
+    "tags": [
+      "propagation",
+      "dead spots and relays",
+      "objective"
+    ],
+    "prompt": "What should a candidate relay be able to reach to bridge a gap between networks?",
+    "options": [
+      "Required stations on both sides",
+      "Only the closest user",
+      "Only the control station",
+      "Any station inside its modeled area"
+    ],
+    "answer": 0,
+    "explanation": "A relay must connect the relevant endpoints on both sides of the gap.",
+    "sourceSlides": [
+      46,
+      48
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "propagation-e-15",
+    "difficulty": "easy",
+    "category": "Dead Spots and Relays",
+    "tags": [
+      "propagation",
+      "dead spots and relays",
+      "objective"
+    ],
+    "prompt": "Which practical relay consideration is checked separately from predicted link strength?",
+    "options": [
+      "Receiver sensitivity",
+      "Fresnel clearance",
+      "Site access",
+      "Predicted margin"
+    ],
+    "answer": 2,
+    "explanation": "The site review considers whether crews can reach the candidate location.",
+    "sourceSlides": [
+      47
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "propagation-e-16",
+    "difficulty": "easy",
+    "category": "Dead Spots and Relays",
+    "tags": [
+      "propagation",
+      "dead spots and relays",
+      "objective"
+    ],
+    "prompt": "What does a before-and-after map comparison show about a proposed relay?",
+    "options": [
+      "Which field checks have already succeeded",
+      "Which carrier owns the highest tower",
+      "How much time the relay crew spent traveling",
+      "How modeled usable coverage changes with the relay included"
+    ],
+    "answer": 3,
+    "explanation": "The two maps help compare the modeled footprint with and without the relay.",
+    "sourceSlides": [
+      49
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "propagation-e-17",
+    "difficulty": "easy",
+    "category": "Validation and Decisions",
+    "tags": [
+      "propagation",
+      "validation and decisions",
+      "objective"
+    ],
+    "prompt": "What turns a modeled link prediction into field evidence?",
+    "options": [
+      "Exporting the same map twice",
+      "Using a higher-resolution display",
+      "Increasing the legend's contrast",
+      "Radio checks on the planned link"
+    ],
+    "answer": 3,
+    "explanation": "A field radio check verifies behavior under actual operating conditions.",
+    "sourceSlides": [
+      53
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "propagation-e-18",
+    "difficulty": "easy",
+    "category": "Validation and Decisions",
+    "tags": [
+      "propagation",
+      "validation and decisions",
+      "objective"
+    ],
+    "prompt": "What should planners check before proposing a taller mast?",
+    "options": [
+      "Whether the existing tower looks small on the map",
+      "Whether the modeled link or coverage meaningfully improves",
+      "Whether the plot legend shows a weak color somewhere",
+      "Whether other sites use the same antenna model"
+    ],
+    "answer": 1,
+    "explanation": "Height changes should be assessed against their effect on the intended path or coverage objective.",
+    "sourceSlides": [
+      51
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "propagation-e-19",
+    "difficulty": "easy",
+    "category": "Validation and Decisions",
+    "tags": [
+      "propagation",
+      "validation and decisions",
+      "objective"
+    ],
+    "prompt": "What purpose does PACE serve in the recommendations?",
+    "options": [
+      "Provide ordered communications alternatives if the preferred means fails",
+      "Compute a revised receiver threshold",
+      "Extend the plot radius of the primary station",
+      "Verify the carrier's equipment inputs"
+    ],
+    "answer": 0,
+    "explanation": "PACE organizes primary, alternate, contingency and emergency communications means.",
+    "sourceSlides": [
+      52
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "propagation-e-20",
+    "difficulty": "easy",
+    "category": "Validation and Decisions",
+    "tags": [
+      "propagation",
+      "validation and decisions",
+      "objective"
+    ],
+    "prompt": "What should happen to the prediction after field checks expose a difference?",
+    "options": [
+      "Discard the field results because the model came first",
+      "Hide the affected layer and keep the recommendation",
+      "Update the plots and assumptions with field findings",
+      "Increase the legend's usable area without reanalysis"
+    ],
+    "answer": 2,
+    "explanation": "The study recommends testing the links and updating the plots.",
+    "sourceSlides": [
+      53
+    ]
+  }
+]

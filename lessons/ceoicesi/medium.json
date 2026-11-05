@@ -1,0 +1,428 @@
+[
+  {
+    "id": 1,
+    "qid": "ceoicesi-m-01",
+    "difficulty": "medium",
+    "category": "Publication Roles",
+    "tags": [
+      "publication roles"
+    ],
+    "prompt": "A classroom instruction lists an assigned system action but students do not know how to perform it. Which material should the instructor add?",
+    "options": [
+      "An updated edition identifier alone",
+      "A new distribution count",
+      "Another copy of the same CEOI item",
+      "A corresponding CESI explanation"
+    ],
+    "answer": 3,
+    "explanation": "The missing information is how to use the assigned instruction.",
+    "sourceSlides": [
+      9,
+      10
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "ceoicesi-m-02",
+    "difficulty": "medium",
+    "category": "Publication Roles",
+    "tags": [
+      "publication roles"
+    ],
+    "prompt": "A recurring procedure is shared across sections, but the current assigned instructions change often. How should the material be organized?",
+    "options": [
+      "Treat both as static copies of the same publication",
+      "Keep the shared procedure in the CESI and current assignments in the CEOI",
+      "Store both only as notes in the index",
+      "Place the shared procedure in each current CEOI and keep assignments in the CESI"
+    ],
+    "answer": 1,
+    "explanation": "The course separates enduring procedures from time-sensitive specific instructions.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "ceoicesi-m-03",
+    "difficulty": "medium",
+    "category": "Publication Roles",
+    "tags": [
+      "publication roles"
+    ],
+    "prompt": "Several commands use an identical instruction. Which responsibility fits the course's approach?",
+    "options": [
+      "Require every subordinate command to prepare a competing version",
+      "Replace the common instruction with independent verbal summaries",
+      "Have the highest common command prepare and distribute the common instruction",
+      "Leave distribution to whichever individual first requests a copy"
+    ],
+    "answer": 2,
+    "explanation": "The course places identical cross-command instructions at the highest applicable command.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "ceoicesi-m-04",
+    "difficulty": "medium",
+    "category": "Publication Roles",
+    "tags": [
+      "publication roles"
+    ],
+    "prompt": "A staff exercise asks who should review the technical accuracy of a draft for the commander. Which role is the best fit?",
+    "options": [
+      "Signal officer",
+      "Training evaluator",
+      "Receiving-unit clerk",
+      "Individual copy holder"
+    ],
+    "answer": 0,
+    "explanation": "The signal officer provides technical control and supervision for the commander.",
+    "sourceSlides": [
+      14
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "ceoicesi-m-05",
+    "difficulty": "medium",
+    "category": "Edition and Copy Control",
+    "tags": [
+      "edition and copy control"
+    ],
+    "prompt": "Two holders have copies of the same edition, and a reconciliation must identify whose copy is unaccounted for. Which field should be checked?",
+    "options": [
+      "Effective date",
+      "Copy number",
+      "Base item number",
+      "Short title"
+    ],
+    "answer": 1,
+    "explanation": "The copy number distinguishes individually controlled copies of the same edition.",
+    "sourceSlides": [
+      15
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "ceoicesi-m-06",
+    "difficulty": "medium",
+    "category": "Edition and Copy Control",
+    "tags": [
+      "edition and copy control"
+    ],
+    "prompt": "A team holds both an effective and an inactive edition in a classroom simulation. Which identifier distinguishes the editions before status is confirmed?",
+    "options": [
+      "Individual page number",
+      "Total page count",
+      "Short title",
+      "Recipient's office name"
+    ],
+    "answer": 2,
+    "explanation": "The short title identifies the edition. The issue record supplies its status.",
+    "sourceSlides": [
+      16,
+      21,
+      22
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "ceoicesi-m-07",
+    "difficulty": "medium",
+    "category": "Edition and Copy Control",
+    "tags": [
+      "edition and copy control"
+    ],
+    "prompt": "A student is handed a first reserve copy during an exercise. What should the student infer about its current use?",
+    "options": [
+      "Possession alone does not make it effective",
+      "Issue to a holder automatically activates it",
+      "It becomes active after the holder inventories it",
+      "It has the same effective status as the basic edition"
+    ],
+    "answer": 0,
+    "explanation": "The first reserve is initially issued without becoming effective.",
+    "sourceSlides": [
+      21,
+      22
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "ceoicesi-m-08",
+    "difficulty": "medium",
+    "category": "Edition and Copy Control",
+    "tags": [
+      "edition and copy control"
+    ],
+    "prompt": "An exercise controller has formally elevated a reserve after compromise. What should a practice register reflect?",
+    "options": [
+      "Conversion of both editions into one general procedure",
+      "Continued use of both editions until the end of the exercise",
+      "Preservation of the former edition as the default instruction",
+      "Record the old edition as withdrawn and the reserve as active"
+    ],
+    "answer": 3,
+    "explanation": "The transition removes the compromised edition from circulation and establishes the replacement.",
+    "sourceSlides": [
+      26
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "ceoicesi-m-09",
+    "difficulty": "medium",
+    "category": "Edition and Copy Control",
+    "tags": [
+      "edition and copy control"
+    ],
+    "prompt": "A distribution sheet authorizes multiple copies to a unit. What extra check confirms accountability for the issued copies?",
+    "options": [
+      "Check that each recipient can name the short title",
+      "Compare only the total number of publication pages",
+      "Verify that the index contains an effective date",
+      "Match the actual copy numbers to the recorded recipients"
+    ],
+    "answer": 3,
+    "explanation": "Authorized quantities and the accounting of individually numbered copies serve different purposes.",
+    "sourceSlides": [
+      15,
+      30
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "ceoicesi-m-10",
+    "difficulty": "medium",
+    "category": "Compromise and Authentication",
+    "tags": [
+      "compromise and authentication"
+    ],
+    "prompt": "An exercise folder is found later in an area accessible to unauthorized visitors. Why should the incident still be evaluated as a possible compromise?",
+    "options": [
+      "A compromise requires documented misuse after recovery",
+      "Recovery leaves possible unauthorized exposure unresolved",
+      "Only permanent loss meets the course's definition",
+      "Recovery shows the material remained controlled throughout"
+    ],
+    "answer": 1,
+    "explanation": "The course includes suspected exposure as a compromise concern.",
+    "sourceSlides": [
+      17
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "ceoicesi-m-11",
+    "difficulty": "medium",
+    "category": "Compromise and Authentication",
+    "tags": [
+      "compromise and authentication"
+    ],
+    "prompt": "A suspected compromise is noticed before investigators can reconstruct the circumstances. What is the appropriate reporting distinction?",
+    "options": [
+      "Notify promptly and add findings in a written follow-up",
+      "Wait until a complete written investigation can serve as the first notice",
+      "Record the issue only on a periodic distribution return",
+      "Submit the detailed report and omit initial notification"
+    ],
+    "answer": 0,
+    "explanation": "The course separates time-sensitive notice from the subsequent investigation record.",
+    "sourceSlides": [
+      18
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "ceoicesi-m-12",
+    "difficulty": "medium",
+    "category": "Compromise and Authentication",
+    "tags": [
+      "compromise and authentication"
+    ],
+    "prompt": "The first notification in a practice case already identified the affected material and time. What should the later report contribute?",
+    "options": [
+      "Only a fresh copy of the original message with a new timestamp",
+      "Only the edition's original formatting data",
+      "The circumstances, response, and steps to prevent recurrence",
+      "A new distribution list unrelated to the loss"
+    ],
+    "answer": 2,
+    "explanation": "Follow-up turns initial notice into an account of what happened and what should change.",
+    "sourceSlides": [
+      18
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "ceoicesi-m-13",
+    "difficulty": "medium",
+    "category": "Compromise and Authentication",
+    "tags": [
+      "compromise and authentication"
+    ],
+    "prompt": "An exercise message appears to come from a valid participant, but its origin is uncertain. Which subject in the publications addresses the concern?",
+    "options": [
+      "Authentication",
+      "Distribution",
+      "Publication layout",
+      "Pagination"
+    ],
+    "answer": 0,
+    "explanation": "The authentication section concerns protecting communications from fraudulent transmissions or reception.",
+    "sourceSlides": [
+      33
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "ceoicesi-m-14",
+    "difficulty": "medium",
+    "category": "Compromise and Authentication",
+    "tags": [
+      "compromise and authentication"
+    ],
+    "prompt": "A student thinks a suspected compromise can be ignored because harm is unconfirmed. Which principle applies?",
+    "options": [
+      "Action is warranted only after the affected material is shown to have been used",
+      "Suspected unauthorized exposure warrants prompt attention and reporting",
+      "An internal copy count can substitute for notification",
+      "Only a mismatch in the publication's page count warrants review"
+    ],
+    "answer": 1,
+    "explanation": "The course treats credible suspicion as relevant and provides for immediate notice.",
+    "sourceSlides": [
+      17,
+      18
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "ceoicesi-m-15",
+    "difficulty": "medium",
+    "category": "Structure and Validation",
+    "tags": [
+      "structure and validation"
+    ],
+    "prompt": "A user knows a topic title but needs its item number and applicability date. Where should they start?",
+    "options": [
+      "Distribution entry",
+      "General information",
+      "Page ending alone",
+      "Index"
+    ],
+    "answer": 3,
+    "explanation": "The index connects item titles to their numbers and effective dates.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "ceoicesi-m-16",
+    "difficulty": "medium",
+    "category": "Structure and Validation",
+    "tags": [
+      "structure and validation"
+    ],
+    "prompt": "A unit receives more copies than planned in a classroom scenario. Where can it check its authorized allocation?",
+    "options": [
+      "General information",
+      "Item body",
+      "Authentication section",
+      "Distribution entry"
+    ],
+    "answer": 3,
+    "explanation": "Distribution specifies recipients and the number of copies each should receive.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "ceoicesi-m-17",
+    "difficulty": "medium",
+    "category": "Structure and Validation",
+    "tags": [
+      "structure and validation"
+    ],
+    "prompt": "A team is writing standing guidance on message preparation and communications media for a classroom exercise. Where does this fit?",
+    "options": [
+      "A page total in the ending",
+      "An edition suffix",
+      "General information tied to the command SOP",
+      "The copy number field"
+    ],
+    "answer": 2,
+    "explanation": "The course associates these topics with general information incorporated in the SOP.",
+    "sourceSlides": [
+      31
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "ceoicesi-m-18",
+    "difficulty": "medium",
+    "category": "Structure and Validation",
+    "tags": [
+      "structure and validation"
+    ],
+    "prompt": "A revised item keeps its identity and receives a new edition. Which element should stay the same?",
+    "options": [
+      "The current effective date by definition",
+      "The edition number",
+      "The base number",
+      "The distribution quantities by definition"
+    ],
+    "answer": 2,
+    "explanation": "The base number stays with the item. The edition component distinguishes the revision.",
+    "sourceSlides": [
+      41
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "ceoicesi-m-19",
+    "difficulty": "medium",
+    "category": "Structure and Validation",
+    "tags": [
+      "structure and validation"
+    ],
+    "prompt": "A student believes the practice copy is missing the final page of an item. What printed control helps check completeness?",
+    "options": [
+      "The page number and total pages in the ending",
+      "The short title in the heading",
+      "The distribution entry's allocated quantity",
+      "The base number of the item"
+    ],
+    "answer": 0,
+    "explanation": "Page position and total allow the holder to detect missing pages.",
+    "sourceSlides": [
+      45
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "ceoicesi-m-20",
+    "difficulty": "medium",
+    "category": "Structure and Validation",
+    "tags": [
+      "structure and validation"
+    ],
+    "prompt": "A draft index has titles and dates but no indication that it was issued by or for the commander. What function is missing?",
+    "options": [
+      "Individual copy numbering",
+      "Authentication of the complete publication",
+      "Listing eligible recipients",
+      "Assignment of a base number"
+    ],
+    "answer": 1,
+    "explanation": "The index is also the point at which validity of the entire publication is authenticated.",
+    "sourceSlides": [
+      47
+    ]
+  }
+]

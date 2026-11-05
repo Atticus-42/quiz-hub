@@ -51,3 +51,29 @@ The POI also explicitly labels these as **Off-POI**: Electronic counter measure 
 - CPA Programming and PA BMS / ATAK teaching materials were not identified in those folders. Nearby CPA/ELYNX files are application project files, not verified lesson sources.
 - Signal Propagation presentations exist elsewhere in the owner's course directory; their suitability and coverage still require review.
 - Inventory gaps are private project planning information, not student-facing placeholders. Later uploads supersede this dated inventory after inspection.
+
+## Course folder audit (5 November 2026)
+
+The catalogue covers 30 of 36 numbered lessons. The 13 new lesson quizzes each serve 20 questions per difficulty. See the lesson coverage files for the source and exact scope.
+
+| Module | Newly supported lessons | Full module exam |
+| --- | --- | --- |
+| 1 · Leadership | 1.1–1.7, all seven lessons | New, 35 questions per difficulty, five per lesson |
+| 2 · Army Operating Concept | No additions | Pending 2.1 |
+| 3 · Battalion/Brigade Operations Planning | 3.1 TLP, based on the worked classroom exercise | Pending 3.2 |
+| 4 · Signal Support Integration | Already complete | Existing, 30 questions per difficulty |
+| 5 · Advanced C2 Communications | 5.6 Signal Propagation, based on the worked coverage and link examples | Pending 5.1 and 5.2 |
+| 6 · Advanced Electronic Warfare Operations | All four lesson quizzes already present | New, 32 questions per difficulty, eight per lesson |
+| 7 · Advanced Cyberspace Operations | Already complete | Existing, 32 questions per difficulty |
+| 8 · Signal Planning | 8.1 CEOI/CESI Management, 8.2 Signal Estimate, 8.5 C4ISTAR Communications Planning, 8.6 Signal Planning Process | Pending 8.3 and 8.4 |
+
+The Module 2 Combined Practice Exam and the Module 5 exam retain their labeled partial coverage. Supporting and off-POI topics do not count toward module completion.
+
+| Missing lesson | Material needed |
+| --- | --- |
+| 2.1 Introduction to Infantry Operations | Infantry Operations lesson. The unit organization material and the general Army Operations deck cover narrower or different objectives. |
+| 3.2 MDMP | A lesson or worked MDMP exercise covering its steps, outputs and decision points. The signal doctrine references the process briefly. |
+| 5.1 CPA Programming | A CPA lesson or instructional walkthrough. The available project files contain configurations without teaching instructions. |
+| 5.2 C2 Applications (PA BMS / ATAK) | PA BMS / ATAK teaching materials covering the lesson objectives. The WinTAK/ATAK archive contains setup and import notes and a practical checklist. |
+| 8.3 Voice Communications Planning | Voice planning lesson, worked plan or instructor handout. |
+| 8.4 Data Communications Planning | Data planning lesson, worked plan or instructor handout. The C4ISTAR lesson lists the data plan on its roadmap. |

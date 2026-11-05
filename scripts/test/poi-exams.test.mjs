@@ -55,6 +55,15 @@ test('POI placement preserves legacy routes and history identities without unsup
   }
   assert.equal(byKey.get('modulethree').slug,'module-3-exam');assert.equal(byKey.get('modulethree').module,'module-4');
   for(const key of ['combined','modulethree']){assert.equal(byKey.get(key).pool.count,30);assert.ok(byKey.get(key).banks.easy.length>35);}
-  assert.deepEqual(modules.map(m=>m.id),['module-2','module-4','module-5','module-6','module-7','supplemental']);
-  for(const key of ['cpa','bms','infantry'])assert.ok(!byKey.has(key));
+  assert.deepEqual(modules.map(m=>m.id),['module-1','module-2','module-3','module-4','module-5','module-6','module-7','module-8','supplemental']);
+  for(const key of ['cpa','bms','infantry','mdmp','voiceplanning','dataplanning'])assert.ok(!byKey.has(key));
+  const fullPools = [
+    ['moduleone', 35, ['leadershipattributes','leadershipcompetencies','companymanagement','missioncommand','ethicalleadership','ncoempowerment','effectivecommunication']],
+    ['modulesix', 32, ['sigint','elint','rdf','eccm']]
+  ];
+  for (const [key, count, sources] of fullPools) {
+    const exam = byKey.get(key);
+    assert.deepEqual(exam.pool, {count, lessons: sources});
+    assert.ok(sources.every(source => byKey.get(source).module === exam.module));
+  }
 });

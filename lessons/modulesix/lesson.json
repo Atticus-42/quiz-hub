@@ -1,0 +1,48 @@
+{
+  "key": "modulesix",
+  "slug": "module-6-exam",
+  "module": "module-6",
+  "order": 0,
+  "prominent": true,
+  "name": "Module 6 Exam",
+  "title": "Module 6 Exam",
+  "eyebrow": "SOAC 52-26 · Advanced Electronic Warfare Operations",
+  "hubDescription": "32 questions per attempt, with 8 from each of the 4 POI lessons.",
+  "lede": "Practice Advanced Electronic Warfare Operations with {count} questions per attempt in Easy, Medium or Hard mode. Each attempt draws 8 questions from each lesson: Signals Intelligence (SIGINT), Electronic Intelligence (ELINT), Radio Direction Finding, and Electronic Counter-Countermeasures (ECCM).",
+  "hubKicker": "Module examination",
+  "hubTags": [
+    {
+      "text": "All 4 lessons",
+      "comprehensive": true
+    },
+    {
+      "text": "{count} questions"
+    }
+  ],
+  "historyLesson": "modulesix",
+  "pool": {
+    "lessons": [
+      "sigint",
+      "elint",
+      "rdf",
+      "eccm"
+    ],
+    "count": 32
+  },
+  "palette": {
+    "--lesson-accent": "#3d4a8f"
+  },
+  "text": {
+    "studyWarningLead": "Review the complete module before you begin.",
+    "studyWarningBody": "This exam draws from Signals Intelligence (SIGINT), Electronic Intelligence (ELINT), Radio Direction Finding, and Electronic Counter-Countermeasures (ECCM).",
+    "studyConfirm": "I have reviewed the lessons included in this module.",
+    "resultsReminder": "Use your lesson scores and the source references to guide your next review.",
+    "modeDescPrefix": "{attempt} questions per attempt, drawn from {bank} across the module.",
+    "topicNoun": "Lesson",
+    "topicsHeading": "Lesson analysis",
+    "topicsCaption": "Correct answers by source lesson. The line marks 75% proficiency.",
+    "gapsHeading": "Lessons to review",
+    "strengthsEmpty": "No lesson reached 75% in this attempt.",
+    "gapsEmpty": "Every lesson reached 75% in this attempt."
+  }
+}

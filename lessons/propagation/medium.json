@@ -1,0 +1,480 @@
+[
+  {
+    "id": 1,
+    "qid": "propagation-m-01",
+    "difficulty": "medium",
+    "category": "Model Inputs and Coverage",
+    "tags": [
+      "propagation",
+      "model inputs and coverage",
+      "application"
+    ],
+    "prompt": "Two exported runs used different feed-line losses. What is needed to isolate the effect of mast height?",
+    "options": [
+      "Average the two receive-level results",
+      "Use the result with the higher antenna gain",
+      "Apply the same overlay color to both exports",
+      "Re-run with common settings except for mast height"
+    ],
+    "answer": 3,
+    "explanation": "A controlled comparison changes only the input being tested.",
+    "sourceSlides": [
+      15,
+      16
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "propagation-m-02",
+    "difficulty": "medium",
+    "category": "Model Inputs and Coverage",
+    "tags": [
+      "propagation",
+      "model inputs and coverage",
+      "application"
+    ],
+    "prompt": "A team has nine individual coverage maps and wants to show the union of usable areas. What should it prepare?",
+    "options": [
+      "A mean of the station-to-station distances",
+      "A composite using a common usability rule",
+      "A table of tower elevations",
+      "An export of the largest single footprint"
+    ],
+    "answer": 1,
+    "explanation": "The composite combines individual footprints under consistent signal-class criteria.",
+    "sourceSlides": [
+      17,
+      19
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "propagation-m-03",
+    "difficulty": "medium",
+    "category": "Model Inputs and Coverage",
+    "tags": [
+      "propagation",
+      "model inputs and coverage",
+      "application"
+    ],
+    "prompt": "A location just beyond the configured plot radius is blank. How should the team interpret it?",
+    "options": [
+      "It has no result in that plot and may require a larger run",
+      "It is a measured dead spot",
+      "It is necessarily below receiver threshold",
+      "It is covered by whichever station is closest"
+    ],
+    "answer": 0,
+    "explanation": "The plot radius limits the analysis, so an unplotted point needs further evaluation.",
+    "sourceSlides": [
+      15,
+      19
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "propagation-m-04",
+    "difficulty": "medium",
+    "category": "Model Inputs and Coverage",
+    "tags": [
+      "propagation",
+      "model inputs and coverage",
+      "application"
+    ],
+    "prompt": "A rerun changes receiver threshold and predicted usable area expands. What changed in the comparison?",
+    "options": [
+      "The antenna height above ground",
+      "The actual terrain profile",
+      "The cutoff for classifying usable signal",
+      "The locations recorded for modeled transmitters"
+    ],
+    "answer": 2,
+    "explanation": "A changed threshold can reclassify a predicted level without changing the physical path.",
+    "sourceSlides": [
+      15,
+      16
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "propagation-m-05",
+    "difficulty": "medium",
+    "category": "Link Profiles and Margins",
+    "tags": [
+      "propagation",
+      "link profiles and margins",
+      "application"
+    ],
+    "prompt": "A hypothetical prediction is −92 dBm with a threshold of −103 dBm. What is the predicted margin?",
+    "options": [
+      "11 dB",
+      "10 dB",
+      "21 dB",
+      "−195 dB"
+    ],
+    "answer": 0,
+    "explanation": "Subtract the threshold from the receive level. −92 minus −103 gives 11 dB.",
+    "sourceSlides": [
+      23,
+      35
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "propagation-m-06",
+    "difficulty": "medium",
+    "category": "Link Profiles and Margins",
+    "tags": [
+      "propagation",
+      "link profiles and margins",
+      "application"
+    ],
+    "prompt": "A ridge crosses the direct path, but the link result has positive fade margin. What conclusion fits both readings?",
+    "options": [
+      "The profile must be wrong because the link closes",
+      "The positive margin proves unobstructed optical LOS",
+      "The ridge has no effect on predicted signal loss",
+      "The model predicts a viable obstructed path under those inputs"
+    ],
+    "answer": 3,
+    "explanation": "The worked study distinguishes link closure from optical clearance and reports links that close by diffraction.",
+    "sourceSlides": [
+      23,
+      35
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "propagation-m-07",
+    "difficulty": "medium",
+    "category": "Link Profiles and Margins",
+    "tags": [
+      "propagation",
+      "link profiles and margins",
+      "application"
+    ],
+    "prompt": "An optical path has a clear centerline but some nearby terrain intrudes into the Fresnel zone. How should it be recorded?",
+    "options": [
+      "No optical LOS and full Fresnel clearance",
+      "An unplotted path with no centerline result",
+      "Optical LOS with partial Fresnel clearance",
+      "An optical path with guaranteed link closure"
+    ],
+    "answer": 2,
+    "explanation": "The straight line and the surrounding Fresnel zone have different clearance conditions.",
+    "sourceSlides": [
+      27,
+      35
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "propagation-m-08",
+    "difficulty": "medium",
+    "category": "Link Profiles and Margins",
+    "tags": [
+      "propagation",
+      "link profiles and margins",
+      "application"
+    ],
+    "prompt": "Two candidate links pass the threshold, but one has substantially less predicted headroom. Which deserves earlier validation if both are equally important?",
+    "options": [
+      "The higher-margin path",
+      "The lower-margin path",
+      "Whichever result appears first in the deck",
+      "The shorter path regardless of margin"
+    ],
+    "answer": 1,
+    "explanation": "Lower margin offers less headroom if actual conditions differ from the assumptions.",
+    "sourceSlides": [
+      28,
+      29
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "propagation-m-09",
+    "difficulty": "medium",
+    "category": "Cellular Modeling",
+    "tags": [
+      "propagation",
+      "cellular modeling",
+      "application"
+    ],
+    "prompt": "A team wants to compare cellular operators using model exports. Which approach supports comparison?",
+    "options": [
+      "Treat every mapped tower as though it was modeled",
+      "Use a common study extent and document inputs and towers included",
+      "Select a different zoom level for each carrier",
+      "Assume the best footprint verifies the best actual service"
+    ],
+    "answer": 1,
+    "explanation": "Documented assumptions, selected sites and a common viewing area make the comparison interpretable.",
+    "sourceSlides": [
+      37,
+      38
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "propagation-m-10",
+    "difficulty": "medium",
+    "category": "Cellular Modeling",
+    "tags": [
+      "propagation",
+      "cellular modeling",
+      "application"
+    ],
+    "prompt": "A tower pin has no matching coverage layer. What should the map reviewer check first?",
+    "options": [
+      "Whether the tower was included in a model run",
+      "Whether the carrier has changed its network name",
+      "Whether the image has full opacity",
+      "Whether the tower has optical LOS to every other tower"
+    ],
+    "answer": 0,
+    "explanation": "The exercise distinguishes mapped candidate towers from those with computed predictions.",
+    "sourceSlides": [
+      37,
+      42
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "propagation-m-11",
+    "difficulty": "medium",
+    "category": "Cellular Modeling",
+    "tags": [
+      "propagation",
+      "cellular modeling",
+      "application"
+    ],
+    "prompt": "A reviewer wants the verified antenna height of an operator's tower. What can the model's antenna height establish?",
+    "options": [
+      "The tower's confirmed installation height",
+      "The antenna height of every nearby station",
+      "The height assumed by the run",
+      "The minimum receiver height for service"
+    ],
+    "answer": 2,
+    "explanation": "The saved model records an input assumption. Operator records or measurement would be separate evidence.",
+    "sourceSlides": [
+      38
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "propagation-m-12",
+    "difficulty": "medium",
+    "category": "Cellular Modeling",
+    "tags": [
+      "propagation",
+      "cellular modeling",
+      "application"
+    ],
+    "prompt": "An apparent gap appears in a modeled carrier overlay. Which statement is supported without field evidence?",
+    "options": [
+      "The carrier has no active subscribers there",
+      "Every phone will fail to connect there",
+      "The nearest plotted tower is offline",
+      "The modeled runs show no usable service"
+    ],
+    "answer": 3,
+    "explanation": "A gap is specific to the selected model results and does not establish actual service conditions.",
+    "sourceSlides": [
+      37,
+      42
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "propagation-m-13",
+    "difficulty": "medium",
+    "category": "Dead Spots and Relays",
+    "tags": [
+      "propagation",
+      "dead spots and relays",
+      "application"
+    ],
+    "prompt": "A candidate relay increases the composite usable area but a small red patch remains. What is the proper description?",
+    "options": [
+      "The relay fully removes the original gap",
+      "The model failed because it still shows any gap",
+      "Usable coverage improves, but a dead spot remains",
+      "The red area confirms hardware failure in the relay"
+    ],
+    "answer": 2,
+    "explanation": "The before-and-after comparison can show improvement and remaining gaps together.",
+    "sourceSlides": [
+      44,
+      49
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "propagation-m-14",
+    "difficulty": "medium",
+    "category": "Dead Spots and Relays",
+    "tags": [
+      "propagation",
+      "dead spots and relays",
+      "application"
+    ],
+    "prompt": "A high candidate site reaches several outlying users but misses the required upstream connection. What should the planner conclude?",
+    "options": [
+      "The relay succeeds because it is on high ground",
+      "The site alone cannot bridge the two sides",
+      "The upstream link can be assumed from the downstream links",
+      "Only the downstream coverage area matters"
+    ],
+    "answer": 1,
+    "explanation": "End-to-end usefulness depends on all required relay legs.",
+    "sourceSlides": [
+      46,
+      47
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "propagation-m-15",
+    "difficulty": "medium",
+    "category": "Dead Spots and Relays",
+    "tags": [
+      "propagation",
+      "dead spots and relays",
+      "application"
+    ],
+    "prompt": "A map shows two similar relay sites. One appears accessible and the other has uncertain access. What should be done before committing?",
+    "options": [
+      "Choose the uncertain site solely because its contour is slightly larger",
+      "Compare only their elevations",
+      "Choose whichever appears nearer the center of the map",
+      "Verify access along with the link results"
+    ],
+    "answer": 3,
+    "explanation": "A useful relay needs a workable site and acceptable communications links.",
+    "sourceSlides": [
+      46,
+      47
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "propagation-m-16",
+    "difficulty": "medium",
+    "category": "Dead Spots and Relays",
+    "tags": [
+      "propagation",
+      "dead spots and relays",
+      "application"
+    ],
+    "prompt": "What comparison isolates the coverage improvement from adding a relay?",
+    "options": [
+      "Compare with and without the relay at one extent and cutoff",
+      "Change the signal classes and plot boundary for the second run",
+      "Show only the relay footprint in both maps",
+      "Use a path-profile screenshot in place of the baseline"
+    ],
+    "answer": 0,
+    "explanation": "The study's before-and-after comparison uses a shared corridor and classification rule.",
+    "sourceSlides": [
+      44,
+      49
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "propagation-m-17",
+    "difficulty": "medium",
+    "category": "Validation and Decisions",
+    "tags": [
+      "propagation",
+      "validation and decisions",
+      "application"
+    ],
+    "prompt": "A taller mast offers only a small improvement, and the current setup exceeds the planning margin. What is the reasonable next step?",
+    "options": [
+      "Keep the practical configuration provisionally and verify it in the field",
+      "Adopt the tallest mast solely because it scored higher",
+      "Treat height as immaterial to all future paths",
+      "Replace the model's measured terrain with a flat profile"
+    ],
+    "answer": 0,
+    "explanation": "Choose configuration based on the benefit to the required link and validate the resulting setup.",
+    "sourceSlides": [
+      51,
+      53
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "propagation-m-18",
+    "difficulty": "medium",
+    "category": "Validation and Decisions",
+    "tags": [
+      "propagation",
+      "validation and decisions",
+      "application"
+    ],
+    "prompt": "A revised map leaves a residual gap on an assigned route. What should the recommendation include?",
+    "options": [
+      "Treat any coverage improvement as complete resolution",
+      "Remove the gap from the map extent",
+      "Flag the gap and provide a fallback and field check",
+      "Raise the acceptable outage threshold without informing users"
+    ],
+    "answer": 2,
+    "explanation": "A remaining gap calls for a fallback and verification.",
+    "sourceSlides": [
+      49,
+      53
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "propagation-m-19",
+    "difficulty": "medium",
+    "category": "Validation and Decisions",
+    "tags": [
+      "propagation",
+      "validation and decisions",
+      "application"
+    ],
+    "prompt": "The cellular model is promising in one area but uncertain outside it. How should the case-study plan treat cellular service?",
+    "options": [
+      "Replace all planned radio links with cellular",
+      "Use it as a contingency where suitable, with other means available",
+      "Assume availability throughout the operating area",
+      "Use tower count alone to choose the communications plan"
+    ],
+    "answer": 1,
+    "explanation": "The example limits cellular to a contingency because modeled availability is incomplete.",
+    "sourceSlides": [
+      37,
+      52
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "propagation-m-20",
+    "difficulty": "medium",
+    "category": "Validation and Decisions",
+    "tags": [
+      "propagation",
+      "validation and decisions",
+      "application"
+    ],
+    "prompt": "Field checks show a weaker link than expected. Which record supports a useful model revision?",
+    "options": [
+      "Only a screenshot of the revised legend",
+      "The measured ground elevation without the test location",
+      "Only a note that the test occurred",
+      "Observed signal, field conditions, and modeled path"
+    ],
+    "answer": 3,
+    "explanation": "Comparing field conditions with model assumptions gives planners a basis for updating the prediction.",
+    "sourceSlides": [
+      53
+    ]
+  }
+]

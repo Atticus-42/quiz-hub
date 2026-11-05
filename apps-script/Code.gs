@@ -38,7 +38,22 @@ var LESSONS = {
   gsomia: 'GSOMIA History',
   cyberrisk: 'Cyber Risk Assessment History',
   modulefive: 'Module 5 Exam History',
-  moduleseven: 'Module 7 Exam History'
+  moduleseven: 'Module 7 Exam History',
+  leadershipattributes: 'Military Leadership Attributes History',
+  leadershipcompetencies: 'Military Leadership Competencies History',
+  companymanagement: 'Company Management History',
+  missioncommand: 'Mission Command History',
+  ethicalleadership: 'Ethical Leadership History',
+  ncoempowerment: 'NCO Empowerment History',
+  effectivecommunication: 'Effective Communication 2 History',
+  moduleone: 'Module 1 Exam History',
+  tlp: 'Troop Leading Procedure History',
+  propagation: 'Signal Propagation History',
+  modulesix: 'Module 6 Exam History',
+  ceoicesi: 'CEOI CESI Management History',
+  signalestimate: 'Signal Estimate History',
+  c4istarplanning: 'C4ISTAR Communications Planning History',
+  signalplanning: 'Signal Planning Process History'
 };
 // Only for pages from before version 7 that send no total: their attempt length was fixed.
 var LEGACY_TOTALS = { combined: 30 };

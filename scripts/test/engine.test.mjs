@@ -1267,16 +1267,19 @@ export async function engineSuite(lesson) {
       const record = {};
       own.slice(0, 5).forEach(question => { record[question.qid] = 's'; });
       own.slice(5, 8).forEach(question => { record[question.qid] = 'm'; });
-      if (!pool) {
-        // A pool exam needs most of a lesson seen before the priority shows within its share.
-      } else {
+      if (pool) {
         own.slice(8, own.length - 2).forEach(question => { record[question.qid] = 's'; });
       }
       flags[key] = record;
       storage.setItem(progressKey(key, 'easy'), JSON.stringify(record));
     }
     storage.setItem(progressKey(ownKeys[0], 'easy') + 'x', 'ignored');
-    const app = loadApp(baseHtml, { globals: { localStorage: storage } });
+    // Give pool questions equal topic coverage here so this check isolates device priority.
+    const progressHtml = pool
+      ? baseHtml.replace(/(<script type="application\/json" id="questions-easy">).*?(<\/script>)/s,
+        (_, open, close) => open + JSON.stringify(bank.map(question => ({ ...question, tags: [] }))).replace(/</g, '\\u003c') + close)
+      : baseHtml;
+    const app = loadApp(progressHtml, { globals: { localStorage: storage } });
     app.api.setRandom(seededRandom(4));
     startConfirmed(app, 'easy');
     const questions = attemptOf(app).questions;
@@ -1293,7 +1296,7 @@ export async function engineSuite(lesson) {
       startConfirmed(again, 'easy');
       assert.deepEqual(attemptOf(again).questions.map(question => question.qid), questions.map(question => question.qid), 'the same random and progress give the same attempt');
     } else {
-      assertBalancedDraw(questions, 'easy', 'prioritised draw');
+      assertBalancedDraw(questions.map(question => banks.easy.find(item => item.qid === question.qid)), 'easy', 'prioritised draw');
       for (const key of ownKeys) {
         const own = bank.filter(question => lessonOf(question) === key);
         const priority = own.filter(question => flag(question) !== 's');

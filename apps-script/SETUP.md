@@ -34,7 +34,7 @@ The POI display realignment does not rename any history tab. In particular, `mod
 
 Revision 11 was deployed on 27 October 2026 with two additive keys: `modulefive` → `Module 5 Exam History` and `moduleseven` → `Module 7 Exam History`. Read-only item-analysis requests returned `ok:true`, version 7 and zero existing rows for both new keys. The endpoint, permissions and earlier tabs were preserved; no synthetic attempts were written.
 
-Revision 12 (3 November 2026, pending deployment) adds two additive keys: `elint` → `ELINT History` and `eccm` → `ECCM History` for POI 6.2 and 6.4. Until that revision is deployed (steps above), attempts on those two quizzes are not saved to the Sheet; the quizzes themselves still work.
+Deployment version 12 (5 November 2026) added 13 lesson keys and two module exam keys (`moduleone` and `modulesix`), plus `elint` and `eccm` from the 3 November update. The existing URL and version-7 payload protocol are retained.
 
 ## Privacy and housekeeping
 

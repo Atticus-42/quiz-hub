@@ -1,0 +1,476 @@
+[
+  {
+    "id": 1,
+    "qid": "tlp-h-01",
+    "difficulty": "hard",
+    "category": "Time and Warning Orders",
+    "tags": [
+      "tlp",
+      "time and warning orders",
+      "application"
+    ],
+    "prompt": "Six hours remain until the required ready time. The company has enough information to issue its order within two hours, but a higher update on one detail will arrive after that. What schedule decision best preserves subordinate preparation?",
+    "options": [
+      "Issue the order within two hours and pass the update later",
+      "Wait for the update and use three hours for the full order",
+      "Issue the full order at the last possible moment to minimize revisions",
+      "Reserve all six hours for headquarters and extend the required ready time"
+    ],
+    "answer": 0,
+    "explanation": "The one-third guideline and early warning principle protect subordinate time. Later information can refine guidance already issued.",
+    "sourceSlides": [
+      5,
+      6
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "tlp-h-02",
+    "difficulty": "hard",
+    "category": "Time and Warning Orders",
+    "tags": [
+      "tlp",
+      "time and warning orders",
+      "application"
+    ],
+    "prompt": "A company timeline works backward from its own rehearsal and ends up missing the higher required ready time. What is the correct repair?",
+    "options": [
+      "Anchor it to material delivery so the schedule has one fixed dependency",
+      "Move the higher ready time to the end of the rehearsal",
+      "Anchor it to the higher ready time and reinsert the rehearsal and earlier deadlines",
+      "Start at receipt of mission and schedule each activity in sequence with no end check"
+    ],
+    "answer": 2,
+    "explanation": "The imposed ready time anchors the reverse plan. Rehearsal is a dependency to fit before that deadline.",
+    "sourceSlides": [
+      5
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "tlp-h-03",
+    "difficulty": "hard",
+    "category": "Time and Warning Orders",
+    "tags": [
+      "tlp",
+      "time and warning orders",
+      "application"
+    ],
+    "prompt": "An updated higher warning order changes a known preparation deadline, while the company order remains an hour away. Which action avoids preventable delay?",
+    "options": [
+      "Hold all changes for the full company order",
+      "Pass the revised deadline and affected initial tasks promptly",
+      "Send only the updated higher warning order with no company instructions",
+      "Brief the original deadline and explain the change at the rehearsal"
+    ],
+    "answer": 1,
+    "explanation": "An update gives subordinates usable company instructions as soon as the deadline changes.",
+    "sourceSlides": [
+      5,
+      6
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "tlp-h-04",
+    "difficulty": "hard",
+    "category": "Time and Warning Orders",
+    "tags": [
+      "tlp",
+      "time and warning orders",
+      "application"
+    ],
+    "prompt": "The ready deadline is fixed. A delivery required for one task slips, but checks on unrelated tasks can start now. How should the timeline change?",
+    "options": [
+      "Shift every preparation action by the length of the delivery delay",
+      "Move the required ready time even though it is imposed",
+      "Leave the schedule untouched until the delivery arrives",
+      "Resequence independent work and recompute the delayed task's time window"
+    ],
+    "answer": 3,
+    "explanation": "Reverse planning can preserve the fixed end time by using time on tasks unaffected by the delay.",
+    "sourceSlides": [
+      5,
+      13
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "tlp-h-05",
+    "difficulty": "hard",
+    "category": "Mission Analysis and COA",
+    "tags": [
+      "tlp",
+      "mission analysis and coa",
+      "application"
+    ],
+    "prompt": "Higher intent emphasizes civilian protection, and a route needed by the company is reserved for evacuation until release. Which analysis best shapes the plan?",
+    "options": [
+      "Make route closure the essential task and leave its timing to the teams",
+      "Treat the release requirement as a constraint and adapt preparations around it",
+      "Treat civilian traffic as background and keep the original schedule",
+      "Record the route restriction only as a sustainment request"
+    ],
+    "answer": 1,
+    "explanation": "A useful deduction turns the higher restriction into a concrete limit on company actions and timing.",
+    "sourceSlides": [
+      7,
+      8
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "tlp-h-06",
+    "difficulty": "hard",
+    "category": "Mission Analysis and COA",
+    "tags": [
+      "tlp",
+      "mission analysis and coa",
+      "application"
+    ],
+    "prompt": "A COA wins a comparison matrix but the war-game exposes an unanswered event that could prevent its purpose. What should the commander do before selection?",
+    "options": [
+      "Refine the COA at the critical event, then compare again",
+      "Select the highest-scoring COA automatically",
+      "Discard the war-game because it conflicts with the matrix",
+      "Add comparison criteria until the initial ranking returns"
+    ],
+    "answer": 0,
+    "explanation": "The war-game tests how a plan responds to events. The comparison supports the decision and cannot substitute for judgment.",
+    "sourceSlides": [
+      9,
+      10
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "tlp-h-07",
+    "difficulty": "hard",
+    "category": "Mission Analysis and COA",
+    "tags": [
+      "tlp",
+      "mission analysis and coa",
+      "application"
+    ],
+    "prompt": "A draft gives supporting elements independent goals and the company mission merely repeats a task. What pair of revisions fixes the nesting problem?",
+    "options": [
+      "Add more terrain facts and rewrite all supporting tasks as specified tasks",
+      "Replace the main effort with equal effort and move intent to Sustainment",
+      "Summarize the decision matrix in the mission and give each element an unrelated success measure",
+      "State the company's purpose under higher intent and link supporting purposes to the main effort"
+    ],
+    "answer": 3,
+    "explanation": "Purpose connects the company mission upward and subordinate contributions to the selected company plan.",
+    "sourceSlides": [
+      7,
+      9
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "tlp-h-08",
+    "difficulty": "hard",
+    "category": "Mission Analysis and COA",
+    "tags": [
+      "tlp",
+      "mission analysis and coa",
+      "application"
+    ],
+    "prompt": "A team lists two plausible approaches but rehearses its COA against only one of them during analysis. Which revision most directly improves its war-game?",
+    "options": [
+      "Rank the approaches by map distance and remove the longer one from analysis",
+      "Replace the event sequence with a list of available resources",
+      "Trace critical events along both relevant approaches and check planned responses",
+      "Increase the number of comparison criteria without revisiting events"
+    ],
+    "answer": 2,
+    "explanation": "The example's avenue-in-depth war-game ties critical events on relevant approaches to planned responses.",
+    "sourceSlides": [
+      8,
+      10
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "tlp-h-09",
+    "difficulty": "hard",
+    "category": "Movement and Reconnaissance",
+    "tags": [
+      "tlp",
+      "movement and reconnaissance",
+      "application"
+    ],
+    "prompt": "A map suggests one route is screened. Early preparation is authorized, but the final choice depends on checking that route. What is the best immediate plan?",
+    "options": [
+      "Wait for route verification before taking any authorized preparation action",
+      "Use the map result as final and cancel reconnaissance",
+      "Start unaffected work and assign a team to check visibility",
+      "Send the entire company to test the route before starting any other work"
+    ],
+    "answer": 2,
+    "explanation": "The example starts authorized work early and assigns focused reconnaissance where assumptions still need checking.",
+    "sourceSlides": [
+      8,
+      11
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "tlp-h-10",
+    "difficulty": "hard",
+    "category": "Movement and Reconnaissance",
+    "tags": [
+      "tlp",
+      "movement and reconnaissance",
+      "application"
+    ],
+    "prompt": "Two reconnaissance reports conflict on visibility from the same position because teams checked it from different sides. What follow-up resolves the planning uncertainty?",
+    "options": [
+      "Use whichever report came from the senior observer",
+      "Recheck the position and approach under agreed conditions",
+      "Average the two reports without specifying locations",
+      "Keep the favorable result because it supports the tentative plan"
+    ],
+    "answer": 1,
+    "explanation": "The reconnaissance should match the actual decision and verify the disputed terrain effect from the relevant perspective.",
+    "sourceSlides": [
+      11
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "tlp-h-11",
+    "difficulty": "hard",
+    "category": "Movement and Reconnaissance",
+    "tags": [
+      "tlp",
+      "movement and reconnaissance",
+      "application"
+    ],
+    "prompt": "Reconnaissance contradicts a critical assumption just before the order is issued. What should the company do?",
+    "options": [
+      "Issue the tentative plan unchanged to preserve briefing time",
+      "Move the conflicting information to the appendix and ignore its effects",
+      "Cancel authorized preparations without checking whether they depend on the assumption",
+      "Update the selected plan and brief the resulting changes in the order"
+    ],
+    "answer": 3,
+    "explanation": "Reconnaissance informs completion of the plan, so consequential findings must carry into the order.",
+    "sourceSlides": [
+      11,
+      12
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "tlp-h-12",
+    "difficulty": "hard",
+    "category": "Movement and Reconnaissance",
+    "tags": [
+      "tlp",
+      "movement and reconnaissance",
+      "application"
+    ],
+    "prompt": "A reconnaissance task confirmed a position, but a later inspection finds preparation blocked by a new condition. Which action fits TLP?",
+    "options": [
+      "Verify the new condition and refine the affected preparation or order",
+      "Treat the earlier reconnaissance as permanently conclusive",
+      "Delete the condition from the timeline because the site was already approved",
+      "Ask the original recon team to reissue its old findings unchanged"
+    ],
+    "answer": 0,
+    "explanation": "Supervision and refinement continue after reconnaissance and order issue.",
+    "sourceSlides": [
+      11,
+      13
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "tlp-h-13",
+    "difficulty": "hard",
+    "category": "Orders and Communications",
+    "tags": [
+      "tlp",
+      "orders and communications",
+      "application"
+    ],
+    "prompt": "The company expects intermittent failure of its preferred means. A draft lists four tools with no priorities or use conditions. What revision makes it usable?",
+    "options": [
+      "Send the list unchanged with the higher communications reference attached",
+      "Name the four tools again in the Situation paragraph",
+      "Use the fastest tool for every element and keep the rest off the plan",
+      "Set a company PACE sequence suited to the assessed threat and test the means"
+    ],
+    "answer": 3,
+    "explanation": "Command and Signal should tell subordinates which means to use when the primary becomes unsuitable.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "tlp-h-14",
+    "difficulty": "hard",
+    "category": "Orders and Communications",
+    "tags": [
+      "tlp",
+      "orders and communications",
+      "application"
+    ],
+    "prompt": "An OPORD has detailed execution instructions, but a required higher restriction is absent and the mission purpose is vague. What should the leader correct?",
+    "options": [
+      "Move the complete execution plan into Mission and delete the restriction",
+      "Put the purpose in Sustainment and leave the restriction to informal briefings",
+      "State the nested purpose in Mission and carry the restriction into coordinating instructions",
+      "Add the restriction to the signal annex and leave the mission unchanged"
+    ],
+    "answer": 2,
+    "explanation": "The order should show why the task matters and clearly convey restrictions that govern execution.",
+    "sourceSlides": [
+      7,
+      12
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "tlp-h-15",
+    "difficulty": "hard",
+    "category": "Orders and Communications",
+    "tags": [
+      "tlp",
+      "orders and communications",
+      "application"
+    ],
+    "prompt": "The order defines a transition, but teams disagree on which signal initiates it. What will best resolve the discrepancy?",
+    "options": [
+      "Clarify the order's signal instructions and rehearse the transition with the affected teams",
+      "Reissue the first warning order and keep the rehearsal schedule unchanged",
+      "Put the transition time into Sustainment and leave the signal open",
+      "Assign each team a different local signal and compare them after execution"
+    ],
+    "answer": 0,
+    "explanation": "Clear instructions plus rehearsal let the team verify a shared understanding of the critical transition.",
+    "sourceSlides": [
+      12,
+      13
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "tlp-h-16",
+    "difficulty": "hard",
+    "category": "Orders and Communications",
+    "tags": [
+      "tlp",
+      "orders and communications",
+      "application"
+    ],
+    "prompt": "A briefing team pastes the higher communications reference into its order. It has radio and nonradio resources but has not decided who uses what. What belongs in the company order?",
+    "options": [
+      "The full higher reference moved unchanged into Situation",
+      "A company plan naming users, means, and fallback priorities",
+      "An expanded mission paragraph containing equipment inventories",
+      "A decision matrix of tools without any approved operating sequence"
+    ],
+    "answer": 1,
+    "explanation": "The annotated example calls for a real company plan suited to the communications environment.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "tlp-h-17",
+    "difficulty": "hard",
+    "category": "Supervision and Refinement",
+    "tags": [
+      "tlp",
+      "supervision and refinement",
+      "application"
+    ],
+    "prompt": "Subordinate backbriefs show different assumptions about who covers an adjoining responsibility. What should the commander do next?",
+    "options": [
+      "Keep each subordinate interpretation because both plans are complete",
+      "Resolve assignments and verify coordination in rehearsal",
+      "Skip rehearsal to give teams more independent preparation time",
+      "Restate the higher mission without addressing the seam"
+    ],
+    "answer": 1,
+    "explanation": "Backbriefs reveal misunderstandings. Refinement and rehearsal check that the correction works across teams.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "tlp-h-18",
+    "difficulty": "hard",
+    "category": "Supervision and Refinement",
+    "tags": [
+      "tlp",
+      "supervision and refinement",
+      "application"
+    ],
+    "prompt": "The order's fallback method fails its practical check. A viable substitute exists and teams are about to rehearse. What response best follows Step 8?",
+    "options": [
+      "Leave the fallback as written and count the substitute as available without a check",
+      "Make the substitute the sole method for all users and end testing",
+      "Wait until execution to report the failed check",
+      "Update the communications plan, notify users and verify the substitute in rehearsal"
+    ],
+    "answer": 3,
+    "explanation": "Refinement incorporates the check result, and rehearsal verifies that the revised plan is understood and usable.",
+    "sourceSlides": [
+      12,
+      13
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "tlp-h-19",
+    "difficulty": "hard",
+    "category": "Supervision and Refinement",
+    "tags": [
+      "tlp",
+      "supervision and refinement",
+      "application"
+    ],
+    "prompt": "A prior delay shortens rehearsal time. Which decision best preserves its purpose?",
+    "options": [
+      "Read every slide in order and omit all practical checks",
+      "Spend the session repeating the initial warning order",
+      "Rehearse the most consequential coordination events",
+      "Cancel coordination checks and reserve the time for brief formatting"
+    ],
+    "answer": 2,
+    "explanation": "The worked example focuses rehearsals on critical events rather than requiring every activity to be rehearsed equally.",
+    "sourceSlides": [
+      5,
+      13
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "tlp-h-20",
+    "difficulty": "hard",
+    "category": "Supervision and Refinement",
+    "tags": [
+      "tlp",
+      "supervision and refinement",
+      "application"
+    ],
+    "prompt": "The supervisor finds preparation has focused on one local task while assigned safety checks and communications checks are incomplete. What should change?",
+    "options": [
+      "Restore work priorities and verify the open checks by the deadline",
+      "Use the current work rate as the new definition of readiness",
+      "Ask each team to set unrelated priorities until the next review",
+      "Add the checks to the after-action discussion and leave the plan intact"
+    ],
+    "answer": 0,
+    "explanation": "Supervision checks that work follows the planned priorities and that essential checks happen before execution.",
+    "sourceSlides": [
+      13
+    ]
+  }
+]

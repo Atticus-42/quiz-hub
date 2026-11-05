@@ -1,0 +1,51 @@
+{
+  "key": "moduleone",
+  "slug": "module-1-exam",
+  "module": "module-1",
+  "order": 0,
+  "prominent": true,
+  "name": "Module 1 Exam",
+  "title": "Module 1 Exam",
+  "eyebrow": "SOAC 52-26 · Leadership",
+  "hubDescription": "35 questions per attempt, with 5 from each of the 7 POI lessons.",
+  "lede": "Practice Leadership with {count} questions per attempt in Easy, Medium or Hard mode. Each attempt draws 5 questions from each lesson: Military Leadership Attributes, Military Leadership Competencies, Company Management, Mission Command, Ethical and Transformational Leadership, NCO Empowerment, and Effective Communication 2.",
+  "hubKicker": "Module examination",
+  "hubTags": [
+    {
+      "text": "All 7 lessons",
+      "comprehensive": true
+    },
+    {
+      "text": "{count} questions"
+    }
+  ],
+  "historyLesson": "moduleone",
+  "pool": {
+    "lessons": [
+      "leadershipattributes",
+      "leadershipcompetencies",
+      "companymanagement",
+      "missioncommand",
+      "ethicalleadership",
+      "ncoempowerment",
+      "effectivecommunication"
+    ],
+    "count": 35
+  },
+  "palette": {
+    "--lesson-accent": "#535d32"
+  },
+  "text": {
+    "studyWarningLead": "Review the complete module before you begin.",
+    "studyWarningBody": "This exam draws from Military Leadership Attributes, Military Leadership Competencies, Company Management, Mission Command, Ethical and Transformational Leadership, NCO Empowerment, and Effective Communication 2.",
+    "studyConfirm": "I have reviewed the lessons included in this module.",
+    "resultsReminder": "Use your lesson scores and the source references to guide your next review.",
+    "modeDescPrefix": "{attempt} questions per attempt, drawn from {bank} across the module.",
+    "topicNoun": "Lesson",
+    "topicsHeading": "Lesson analysis",
+    "topicsCaption": "Correct answers by source lesson. The line marks 75% proficiency.",
+    "gapsHeading": "Lessons to review",
+    "strengthsEmpty": "No lesson reached 75% in this attempt.",
+    "gapsEmpty": "Every lesson reached 75% in this attempt."
+  }
+}
