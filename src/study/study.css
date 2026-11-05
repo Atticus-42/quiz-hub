@@ -1,0 +1,32 @@
+.study-wrap, .study-nav { width:min(100% - 2rem, 76rem); margin-inline:auto; }
+.study-nav { display:flex; flex-wrap:wrap; gap:.6rem; padding-block:1rem; border-bottom:1px solid var(--color-rule); }
+.study-nav a, .study-actions a { display:inline-flex; align-items:center; min-height:2.75rem; padding:.4rem .75rem; }
+.study-nav [aria-current] { border-bottom:3px solid var(--color-signal); font-weight:600; }
+.study-hero { padding-block:clamp(1.6rem, 4vw, 3.5rem); }
+.study-hero h1 { font-size:clamp(2.15rem, 5vw, 4.4rem); line-height:1.05; margin:.25em 0; }
+.study-hero > p:last-child, .study-panel p, .study-panel dd, .study-panel ol, .study-panel ul:not(.study-grid):not(.library-list) { max-width:73ch; }
+.study-eyebrow { font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.075em; font-size:.8rem; }
+.study-panel { padding:clamp(1rem, 3vw, 2rem); background:var(--color-paper); border:1px solid var(--color-rule); margin-block:0 1rem; }
+.study-panel h2 { margin-top:0; }
+.study-panel h3 { margin-block:0 .35rem; }
+.study-panel li + li { margin-top:.5rem; }
+.study-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr)); gap:1rem; padding:0; list-style:none; }
+.study-grid li, .library-row, .fact-list > div { border-top:1px solid var(--color-rule); padding-block:.75rem; margin-top:0; }
+.study-grid a, .fact-list dt { font-size:1.15rem; font-weight:600; }
+.fact-list dd { margin-inline:0; }
+.study-actions, .library-controls, .reader-controls { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem; }
+.study-actions { margin-block:0 1rem; }
+.study-muted { color:var(--color-muted); }
+.study-panel details { border-top:1px solid var(--color-rule); padding-block:.7rem; }
+.study-panel summary { cursor:pointer; font-weight:600; padding-block:.3rem; }
+.library-list { list-style:none; padding:0; }
+.library-row p { margin:0; }
+.library-controls input, .library-controls select, .reader-controls :is(input,button,select) { color:var(--color-text); background:var(--color-paper); border:1px solid var(--color-rule); padding:.45rem .65rem; min-height:2.75rem; font:inherit; }
+.library-controls input { min-width:0; width:min(100%,24rem); }
+.reader-controls input { width:5rem; }
+.reader-controls button:disabled { opacity:.55; }
+.reader-controls button:hover:not(:disabled), .reader-controls button:focus-visible { color:var(--color-paper); background:var(--color-olive-dark); }
+#pdf-surface { background:var(--color-selected); overflow:auto; max-height:78vh; padding:6px; }
+#reader { margin-bottom:1rem; }
+#pdf-canvas { display:block; margin-inline:auto; background:#fff; }
+[hidden] { display:none !important; }

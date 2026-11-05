@@ -11,6 +11,7 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { loadStudy, renderStudyPages, studyQuizLinks } from './study.mjs';
 
 export const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 export const MODES = ['easy', 'medium', 'hard'];
@@ -447,7 +448,7 @@ function mastheadParts(lesson) {
   };
 }
 
-export function renderQuizPage(template, contours, lesson, { endpoint = HISTORY_ENDPOINT, base = '' } = {}) {
+export function renderQuizPage(template, contours, lesson, { endpoint = HISTORY_ENDPOINT, base = '', study = { reviewer: '../reviewer/', sources: {}, byQuestion: {} } } = {}) {
   const text = lessonText(lesson);
   const palette = Object.entries(lesson.palette ?? {}).map(([name, value]) => `${name}: ${value};`);
   const modePrefix = mode => escapeHtml(fill(text.modeDescPrefix, { bank: lesson.bankSizes[mode], attempt: lesson.attempts[mode] }));
@@ -463,6 +464,7 @@ export function renderQuizPage(template, contours, lesson, { endpoint = HISTORY_
     H1: escapeHtml(lesson.title),
     LEDE: escapeHtml(text.lede),
     HUB_HREF: `../#${lesson.module}`,
+    STUDY_HREF: escapeHtml(study.reviewer),
     HERO_SVG: indent(lesson.heroSvg, 8),
     STUDY_WARNING_LEAD: escapeHtml(text.studyWarningLead),
     STUDY_WARNING_BODY: escapeHtml(text.studyWarningBody),
@@ -476,6 +478,7 @@ export function renderQuizPage(template, contours, lesson, { endpoint = HISTORY_
     TOPIC_NOUN: escapeHtml(text.topicNoun),
     GAPS_HEADING: escapeHtml(text.gapsHeading),
     CONFIG: scriptJson(quizConfig(lesson)),
+    STUDY_LINKS: scriptJson(study),
     EASY_QUESTIONS: scriptJson(lesson.banks.easy),
     MEDIUM_QUESTIONS: scriptJson(lesson.banks.medium),
     HARD_QUESTIONS: scriptJson(lesson.banks.hard),
@@ -897,8 +900,9 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   const contours = readFileSync(join(root, 'src', 'engine', 'contours.svg'), 'utf8');
   const base = readFileSync(join(root, 'src', 'shared', 'base.css'), 'utf8');
   const engine = readFileSync(join(root, 'src', 'engine', 'template.html'), 'utf8').replace(/\r\n/g, '\n');
+  const study = loadStudy(root, lessons);
   const pages = {};
-  for (const lesson of lessons) pages[`${lesson.slug}/index.html`] = renderQuizPage(engine, contours, lesson, { endpoint, base });
+  for (const lesson of lessons) pages[`${lesson.slug}/index.html`] = renderQuizPage(engine, contours, lesson, { endpoint, base, study: studyQuizLinks(root, lesson, study) });
   pages['index.html'] = renderHub(readFileSync(join(root, 'src', 'hub', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base });
   pages['class/index.html'] = renderClass(readFileSync(join(root, 'src', 'class', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadClass(root), { base });
   pages['schedule/index.html'] = renderSchedule(readFileSync(join(root, 'src', 'schedule', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadSchedule(root), lessons, { base });
@@ -923,6 +927,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
     SCAN_PARSER: readFileSync(join(root, 'src', 'cipher', 'scan-parser.mjs'), 'utf8').replace(/\r\n/g, '\n'),
     SCAN_UI: readFileSync(join(root, 'src', 'cipher', 'scan-ui.js'), 'utf8').replace(/\r\n/g, '\n'),
   });
+  Object.assign(pages, renderStudyPages(root, modules, lessons, study, { escapeHtml, scriptJson, fillTemplate, baseCss, fontPreloads, base }));
   if (write) {
     for (const [path, html] of Object.entries(pages)) {
       mkdirSync(dirname(join(out, path)), { recursive: true });

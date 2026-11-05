@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Study Library · SOAC 52-26</title>
+  <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-Regular-Latin1.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-SemiBold-Latin1.woff2" as="font" type="font/woff2" crossorigin>
+  <style>    /* =====================================================================
+       FIELD MANUAL DESIGN SYSTEM (src/shared/base.css). The build writes this
+       sheet into every page (hub, quizzes, class page, instructor view) at
+       the top of its one style element, with the assets placeholder replaced
+       by the page's path to assets/. Edit it here, never in a built page.
+
+       Type. IBM Plex Sans Condensed (text, headings, UI) and IBM Plex Mono
+       (numbers, codes, references, kbd), self-hosted Latin-1 subsets under
+       the SIL Open Font License (assets/fonts/OFL.txt), font-display: swap.
+       The subsets have no arrows; per-glyph fallback draws them from the
+       system stack. The metric-matched fallback faces keep line breaks close
+       to Plex while the files load, so the swap does not shift the layout.
+       Scale (ratio 1.25 from 16px): 12 label · 14 meta · 16 UI · 18 body ·
+       20 · 25 · 31 · 39-76 display. Body 18px, measure 60-75ch.
+
+       Colour. WCAG 2.1 contrast, computed (scripts/test checks them again):
+         --color-text      #1e211b on --color-paper #f3efe4   14.18:1  body
+         --color-muted     #4a4c40 on paper                    7.62:1  secondary text
+         --color-accent    #4b5320 on paper                    7.15:1  olive drab: links, primary buttons
+                           paper on --color-accent             7.15:1  button text
+         --color-olive-dark #2e3418: paper on it              11.28:1  dark bands, selected covers
+         --color-khaki     #c9b98f on olive-dark                6.68:1  labels on dark bands
+         --color-signal    #d9541e on paper                    3.49:1  non-text only: progress, current
+                           item, focus ring (UI >= 3:1); never small text
+         --color-signal-text #a8431a on paper                  5.25:1  orange text (small)
+         --color-signal-light #e68a5c on olive-dark            5.03:1  orange text on dark bands
+         --color-rule      #7d7865 on paper                    3.85:1  control borders (UI >= 3:1)
+         --color-hairline  #c8c2ae                                     decorative rules only
+         --color-correct   #2f6b2f on paper 5.60:1, on --color-correct-bg #e6ebd8 5.28:1, paper on it 5.60:1
+         --color-incorrect #a32a1c on paper 6.29:1, on --color-incorrect-bg #f3e2da 5.75:1, paper on it 6.29:1
+         --color-text on --color-sunken #e9e6d6               13.00:1
+         --color-accent on --color-selected #e3e6d0            6.45:1  selected answer (text 12.80:1)
+         --color-focus = signal orange, 3px: 3.49:1 on paper, 3.23:1 on olive-dark
+       Corners are square (2px at most); 1px hairlines replace boxes; shadows
+       only for true layering. Motion 120-200ms, no bounce, off under
+       prefers-reduced-motion.
+       ===================================================================== */
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Regular-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: italic; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Italic-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Medium-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-SemiBold-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Bold-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexMono-Regular-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/IBMPlexMono-Medium-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/IBMPlexMono-SemiBold-Latin1.woff2") format("woff2"); }
+    /* Metric-matched fallbacks (measured: Plex Sans Condensed sets 1.108x Arial Narrow, 0.909x Arial; Plex Mono 1.091x Consolas). */
+    @font-face { font-family: "Plex Condensed Fallback"; src: local("Arial Narrow"), local("ArialNarrow"); size-adjust: 110.8%; ascent-override: 92.5%; descent-override: 24.8%; line-gap-override: 0%; }
+    @font-face { font-family: "Plex Condensed Fallback Wide"; src: local("Arial"), local("Helvetica"); size-adjust: 90.9%; ascent-override: 112.8%; descent-override: 30.3%; line-gap-override: 0%; }
+    @font-face { font-family: "Plex Mono Fallback"; src: local("Consolas"), local("Menlo"); size-adjust: 109.1%; ascent-override: 94%; descent-override: 25.2%; line-gap-override: 0%; }
+
+    :root {
+      --color-paper: #f3efe4;
+      --color-surface: #f3efe4;
+      --color-sunken: #e9e6d6;
+      --color-selected: #e3e6d0;
+      --color-text: #1e211b;
+      --color-muted: #4a4c40;
+      --color-accent: #4b5320;
+      --color-accent-hover: #2e3418;
+      --color-accent-text: #f3efe4;
+      --color-olive-dark: #2e3418;
+      --color-khaki: #c9b98f;
+      --color-signal: #d9541e;
+      --color-signal-text: #a8431a;
+      --color-signal-light: #e68a5c;
+      --color-rule: #7d7865;
+      --color-hairline: #c8c2ae;
+      --color-correct: #2f6b2f;
+      --color-correct-bg: #e6ebd8;
+      --color-incorrect: #a32a1c;
+      --color-incorrect-bg: #f3e2da;
+      --color-focus: #d9541e;
+
+      /* Margin topography: olive contours, shown only in the page margins and the masthead band. */
+      --topo-line: #4b5320;
+      --topo-line-major: #2e3418;
+      --topo-minor-opacity: 0.1;
+      --topo-major-opacity: 0.16;
+      --topo-major-width: 1.2;
+      --grain: url("../assets/paper-grain.svg");
+
+      --font-sans: "IBM Plex Sans Condensed", "Plex Condensed Fallback", "Plex Condensed Fallback Wide", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --font-mono: "IBM Plex Mono", "Plex Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+
+      --text-label: 0.75rem;
+      --text-meta: 0.875rem;
+      --text-ui: 1rem;
+      --text-body: 1.125rem;
+      --text-h4: 1.25rem;
+      --text-h3: 1.5625rem;
+      --text-h2: 1.953rem;
+      --text-h1: clamp(2.44rem, 1.55rem + 3.6vw, 4.77rem);
+      --text-display: clamp(4rem, 2.2rem + 7.5vw, 7.45rem);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --space-7: 3rem;
+      --space-8: 4.5rem;
+      --space-9: 6rem;
+
+      --radius: 2px;
+      --page-max: 84rem;
+      --gutter: clamp(1rem, 3.2vw, 3rem);
+      --col-gap: clamp(1rem, 2vw, 2rem);
+      --rail: minmax(0, 3fr);
+      --body: minmax(0, 9fr);
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+      --speed: 160ms;
+      --shadow-layer: 0 1px 0 rgba(30, 33, 27, 0.08), 0 12px 32px rgba(30, 33, 27, 0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--color-paper); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--color-paper) var(--grain);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-size: var(--text-ui);
+      line-height: 1.5;
+      font-kerning: normal;
+      overflow-wrap: anywhere;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { margin: 0; font-weight: 600; line-height: 1.12; letter-spacing: -0.01em; text-wrap: balance; }
+    p { margin: 0 0 var(--space-3); }
+    a { color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+    a:hover { color: var(--color-text); text-decoration-thickness: 2px; }
+    strong { font-weight: 600; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    /* Uppercase small label: the manual's running heads, captions and table heads. */
+    .label {
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.4;
+    }
+    .wrap { width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin-inline: auto; }
+
+    /* Classification strip: the first line of every page. */
+    .strip { position: relative; z-index: 2; background: var(--color-olive-dark); color: var(--color-khaki); }
+    .strip-inner {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 var(--space-5);
+      min-height: 2rem; padding-block: 0.375rem;
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .strip-inner p { margin: 0; }
+    .strip-ref { color: var(--color-paper); letter-spacing: 0.08em; }
+    .strip .sep { padding-inline: 0.5em; color: var(--color-signal-light); }
+    @media (max-width: 600px) { .strip-inner { letter-spacing: 0.08em; } .strip-ref { display: none; } }
+
+    /* Paper with margin topography: a fixed, clipped, inert contour layer masked to the page edges and the masthead band. */
+    .terrain, .topo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - var(--page-max) / 2 - 2rem), transparent calc(50% - var(--page-max) / 2 + 3rem), transparent calc(50% + var(--page-max) / 2 - 3rem), #000 calc(50% + var(--page-max) / 2 + 2rem)), linear-gradient(180deg, #000 0, #000 9rem, transparent 26rem);
+      mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - var(--page-max) / 2 - 2rem), transparent calc(50% - var(--page-max) / 2 + 3rem), transparent calc(50% + var(--page-max) / 2 - 3rem), #000 calc(50% + var(--page-max) / 2 + 2rem)), linear-gradient(180deg, #000 0, #000 9rem, transparent 26rem);
+    }
+    .terrain svg, .topo svg { display: block; width: 100%; height: 100%; }
+    .terrain .contours, .topo .contours { fill: none; stroke-linejoin: round; stroke-linecap: round; }
+    .terrain .contours path, .topo .contours path { stroke: var(--topo-line); stroke-opacity: var(--topo-minor-opacity); stroke-width: 1; vector-effect: non-scaling-stroke; }
+    .terrain .contours path.major, .topo .contours path.major { stroke: var(--topo-line-major); stroke-opacity: var(--topo-major-opacity); stroke-width: var(--topo-major-width); }
+
+    /* Plate I: frame the title and complete soldiers as in the approved reference. */
+    .banner { position: relative; z-index: 1; width: 100%; background: #d8cfae; line-height: 0; overflow: hidden; isolation: isolate; }
+    .banner picture { display: block; }
+    .banner img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 1127 / 291; object-fit: cover; object-position: 50% 62%; max-height: none;
+      filter: grayscale(1) contrast(1.45) brightness(0.95);
+      mix-blend-mode: multiply;
+    }
+    /* Duotone: the multiply above maps white to khaki paper; lighten lifts black to ink. */
+    .banner::before { content: ""; position: absolute; inset: 0; z-index: 1; background: #1e211b; mix-blend-mode: lighten; pointer-events: none; }
+    .plate-caption {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 var(--space-5);
+      margin-block: 0; padding-block: var(--space-2);
+      border-bottom: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted);
+    }
+    .plate-caption b { font-weight: 600; color: var(--color-text); }
+
+    /* Figure: the SOAC 52 - 2026 class photograph. */
+    .class-photo {
+      position: relative; z-index: 1;
+      width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin: var(--space-8) auto 0;
+      background: var(--color-surface);
+    }
+    .class-photo img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 62%;
+      border-radius: 0; filter: grayscale(1) sepia(0.22) contrast(1.06);
+    }
+    .class-photo figcaption {
+      display: flex; flex-wrap: wrap; gap: 0 var(--space-4);
+      margin: 0; padding: var(--space-2) 0; border-top: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text);
+    }
+    .class-photo figcaption::before { content: var(--fig-photo, "Fig. 3") " \2014  Bandwidth Brothers,"; color: var(--color-muted); font-weight: 500; }
+
+    /* Buttons: square, hairline-precise, 44px targets. */
+    button {
+      font: inherit;
+      min-height: 44px;
+      min-width: 44px;
+      padding: var(--space-2) var(--space-5);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius);
+      background: var(--color-accent);
+      color: var(--color-accent-text);
+      font-family: var(--font-sans);
+      font-size: var(--text-ui);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: background-color var(--speed) var(--ease), border-color var(--speed) var(--ease), color var(--speed) var(--ease);
+    }
+    button:hover:not(:disabled) { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+    button.secondary { background: transparent; color: var(--color-text); border-color: var(--color-rule); }
+    button.secondary:hover:not(:disabled) { background: var(--color-sunken); color: var(--color-text); border-color: var(--color-text); }
+    button.compact { padding: var(--space-1) var(--space-4); font-size: var(--text-meta); }
+    button:disabled { cursor: not-allowed; opacity: 0.5; }
+    :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    /* Headings that receive focus from script (tabindex=-1, never reached by Tab) are marked by an orange underline, not a box. */
+    [tabindex="-1"]:focus-visible { outline: 3px solid transparent; text-decoration: underline; text-decoration-color: var(--color-signal); text-decoration-thickness: 3px; text-underline-offset: 0.3em; }
+    .strip :focus-visible, .on-dark :focus-visible { outline-color: var(--color-signal-light); }
+    .arrow-r::after { content: "\00a0\2192"; font-family: var(--font-mono); }
+    .arrow-l::before { content: "\2190\00a0"; font-family: var(--font-mono); }
+
+    /* Section with a margin rail: number and heading in the rail, content to the right (stacked on narrow screens). */
+    .sect { display: grid; grid-template-columns: var(--rail) var(--body); column-gap: var(--col-gap); padding-block: var(--space-7); border-top: 1px solid var(--color-text); }
+    .sect-head { min-width: 0; }
+    .sect-num { display: block; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; color: var(--color-signal-text); }
+    .sect-head h2 { margin-top: var(--space-2); font-size: var(--text-h3); }
+    .sect-body { min-width: 0; }
+    @media (max-width: 900px) {
+      .sect { grid-template-columns: 1fr; row-gap: var(--space-4); padding-block: var(--space-6); }
+    }
+
+    /* Tags: square-cornered labels with a text name, never colour alone. */
+    .tag {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      padding: 0.0625rem 0.5rem; border: 1px solid currentColor; border-radius: var(--radius);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.6;
+      white-space: nowrap;
+    }
+
+    /* Tables: hairline rules, Mono heads and tabular numerals. */
+    .table-wrap { max-width: 100%; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; background: transparent; font-variant-numeric: tabular-nums; }
+    caption { padding-bottom: var(--space-3); text-align: left; color: var(--color-muted); font-size: var(--text-meta); }
+    th, td { padding: var(--space-3) var(--space-3) var(--space-3) 0; border-bottom: 1px solid var(--color-hairline); text-align: left; vertical-align: baseline; }
+    thead th { padding-block: var(--space-2); border-bottom: 1px solid var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    td.num, th.num, .num { font-family: var(--font-mono); font-size: 0.9375rem; text-align: right; }
+
+    kbd {
+      display: inline-block;
+      min-width: 1.7em;
+      padding: 0 0.35em;
+      border: 1px solid var(--color-rule);
+      border-bottom-width: 2px;
+      border-radius: var(--radius);
+      background: var(--color-paper);
+      color: var(--color-text);
+      font-family: var(--font-mono);
+      font-size: 0.8em;
+      font-weight: 500;
+      line-height: 1.55;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .site-footer { position: relative; z-index: 1; }
+    .colophon {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-5);
+      margin-top: var(--space-8); padding-block: var(--space-4) var(--space-7); border-top: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted);
+    }
+  .study-wrap, .study-nav { width:min(100% - 2rem, 76rem); margin-inline:auto; }
+.study-nav { display:flex; flex-wrap:wrap; gap:.6rem; padding-block:1rem; border-bottom:1px solid var(--color-rule); }
+.study-nav a, .study-actions a { display:inline-flex; align-items:center; min-height:2.75rem; padding:.4rem .75rem; }
+.study-nav [aria-current] { border-bottom:3px solid var(--color-signal); font-weight:600; }
+.study-hero { padding-block:clamp(1.6rem, 4vw, 3.5rem); }
+.study-hero h1 { font-size:clamp(2.15rem, 5vw, 4.4rem); line-height:1.05; margin:.25em 0; }
+.study-hero > p:last-child, .study-panel p, .study-panel dd, .study-panel ol, .study-panel ul:not(.study-grid):not(.library-list) { max-width:73ch; }
+.study-eyebrow { font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.075em; font-size:.8rem; }
+.study-panel { padding:clamp(1rem, 3vw, 2rem); background:var(--color-paper); border:1px solid var(--color-rule); margin-block:0 1rem; }
+.study-panel h2 { margin-top:0; }
+.study-panel h3 { margin-block:0 .35rem; }
+.study-panel li + li { margin-top:.5rem; }
+.study-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr)); gap:1rem; padding:0; list-style:none; }
+.study-grid li, .library-row, .fact-list > div { border-top:1px solid var(--color-rule); padding-block:.75rem; margin-top:0; }
+.study-grid a, .fact-list dt { font-size:1.15rem; font-weight:600; }
+.fact-list dd { margin-inline:0; }
+.study-actions, .library-controls, .reader-controls { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem; }
+.study-actions { margin-block:0 1rem; }
+.study-muted { color:var(--color-muted); }
+.study-panel details { border-top:1px solid var(--color-rule); padding-block:.7rem; }
+.study-panel summary { cursor:pointer; font-weight:600; padding-block:.3rem; }
+.library-list { list-style:none; padding:0; }
+.library-row p { margin:0; }
+.library-controls input, .library-controls select, .reader-controls :is(input,button,select) { color:var(--color-text); background:var(--color-paper); border:1px solid var(--color-rule); padding:.45rem .65rem; min-height:2.75rem; font:inherit; }
+.library-controls input { min-width:0; width:min(100%,24rem); }
+.reader-controls input { width:5rem; }
+.reader-controls button:disabled { opacity:.55; }
+.reader-controls button:hover:not(:disabled), .reader-controls button:focus-visible { color:var(--color-paper); background:var(--color-olive-dark); }
+#pdf-surface { background:var(--color-selected); overflow:auto; max-height:78vh; padding:6px; }
+#reader { margin-bottom:1rem; }
+#pdf-canvas { display:block; margin-inline:auto; background:#fff; }
+[hidden] { display:none !important; }
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="study-nav" aria-label="Site sections">
+    <a href="../">Practice exams</a>
+    <a href="../reviewer/">Reviewer 101</a>
+    <a href="../library/" aria-current="page">Library</a>
+  </nav>
+  <main id="main" class="study-wrap">
+    <header class="study-hero">
+      <p class="study-eyebrow">SOAC 52–26 · Bandwidth Brothers</p>
+      <h1>Study Library</h1>
+      <p>Read lesson study editions, course sources and manuals directly on Quiz Hub.</p>
+    </header>
+    <section id="document" class="study-panel" hidden aria-labelledby="document-title"><p class="study-eyebrow">Library document</p><h2 id="document-title"></h2><p id="document-meta"></p><div id="reader" hidden><div class="reader-controls" aria-label="PDF controls"><button id="pdf-prev" type="button">Previous</button><label for="pdf-page">PDF page</label><input id="pdf-page" type="number" min="1" value="1"><span id="pdf-total"></span><button id="pdf-next" type="button">Next</button><label for="pdf-zoom">Zoom</label><select id="pdf-zoom"><option value="1">Fit width</option><option value="1.25">125%</option><option value="1.5">150%</option><option value="2">200%</option></select><a id="pdf-file">Open PDF file</a></div><p id="pdf-status" role="status"></p><div id="pdf-surface"><canvas id="pdf-canvas" aria-label="Current PDF page"></canvas></div></div><details><summary id="document-lesson-summary">Connected lessons</summary><ul id="document-lessons"></ul></details></section><section class="study-panel" aria-labelledby="catalogue-title"><h2 id="catalogue-title">Browse the library</h2><nav class="study-actions" aria-label="Library categories"><a href="./">All documents</a><a href="?type=lesson">Lessons</a><a href="?type=manual">Manuals</a></nav><div class="library-controls"><label for="library-search">Search by title, manual number or lesson</label><input id="library-search" type="search"><label for="library-type">Show</label><select id="library-type"><option value="all">All documents</option><option value="lesson">Lessons</option><option value="manual">Manuals</option></select></div><p id="library-count" role="status"></p><ul class="library-list"><li class="library-row" data-kind="manual"><h3><a href="?doc=pam-6-0102#document">PAM 6-0102 · Signal Operations</a></h3><p>Manual · 15 April 2022 · PDF available</p><p>CEOI / CESI Management · Signal Estimate · Signal Planning Process · C4ISTAR Weapon System Integration · NIST Framework · Zero Trust · LOE3 GSOMIA Compliance · Cyber Risk Assessment · Signal Support in Combined Arms Operations · Signal Support in Joint Operations · Signal Support in Coalition Operations</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=pam-6-00#document">PAM 6-00 · Command and Control, Communications, and Cyber Systems</a></h3><p>Manual · 2nd edition · 11 December 2017 · PDF available</p><p>MANET C4ISTAR Planning · NIST Framework · Zero Trust · LOE3 GSOMIA Compliance · Cyber Risk Assessment</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=pam-6-0001#document">PAM 6-0001 · Command and Control, Communications, Computer, Intelligence, Surveillance, Target Acquisition, and Reconnaissance</a></h3><p>Manual · Citation record</p><p>C4ISTAR Sensors Integration · C4ISTAR Weapon System Integration</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=pam-6-0102-04#document">PAM 6-0102-04 · Cyberspace Operations</a></h3><p>Manual · 24 February 2020 · PDF available</p><p>NIST Framework · Zero Trust · LOE3 GSOMIA Compliance · Cyber Risk Assessment</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=pam-3-00#document">PAM 3-00 · Army Operations</a></h3><p>Manual · Citation record</p><p>Army Operations · Armor Operations · NIST Framework · Zero Trust · LOE3 GSOMIA Compliance · Cyber Risk Assessment</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=pam-3-0502#document">PAM 3-0502 · Armor Operations</a></h3><p>Manual · Citation record</p><p>Armor Operations</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=pam-3-0101-04#document">PAM 3-0101-04 · Annex A cited in the TLP exercise</a></h3><p>Manual · Citation record</p><p>Troop Leading Procedure (TLP)</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=pam-3-0702-01#document">PAM 3-0702-01 · Electronic Warfare Operations</a></h3><p>Manual · September 2026 · cited edition · Citation record</p><p>Electronic Intelligence (ELINT) · Electronic Counter-Countermeasures (ECCM)</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=pam-8-0101#document">PAM 8-0101 · Army Leadership Development System</a></h3><p>Manual · 24 August 2022 · PDF available</p><p>Military Leadership Attributes · Military Leadership Competencies</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=pam-5-0104#document">PAM 5-0104 · Philippine Army Risk Management</a></h3><p>Manual · 15 July 2021 · PDF available</p><p>Company Management · Cyber Risk Assessment</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=fc-8-039#document">FC 8-039 · Army NCO Guide</a></h3><p>Manual · Citation record</p><p>NCO Empowerment</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=company-commanders-guide#document">Company Commander’s Guide Handbook</a></h3><p>Manual · 2020 · cited edition · Citation record</p><p>Company Management</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=adp-6-0#document">ADP 6-0 · Mission Command</a></h3><p>Manual · Citation record</p><p>Mission Command</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=fm-6-0#document">FM 6-0 · Commander and Staff Organization and Operations</a></h3><p>Manual · Citation record</p><p>Mission Command</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=fm-6-22#document">FM 6-22 (FM 22-100) · Army Leadership</a></h3><p>Manual · Citation record</p><p>Military Leadership Attributes</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=adp-6-22#document">ADP 6-22 · Army Leadership and the Profession</a></h3><p>Manual · Citation record</p><p>Military Leadership Attributes · Ethical and Transformational Leadership</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=fm-3-12#document">FM 3-12 · Cyberspace Operations and Electromagnetic Warfare</a></h3><p>Manual · Citation record</p><p>Electronic Counter-Countermeasures (ECCM) · NIST Framework</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=tc-24-2#document">TC 24-2 · The Automated CEOI</a></h3><p>Manual · Citation record</p><p>CEOI / CESI Management</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=nist-cswp-29#document">NIST CSWP 29 · The NIST Cybersecurity Framework (CSF) 2.0</a></h3><p>Manual · 26 February 2024 · PDF available</p><p>NIST Framework · Cyber Risk Assessment</p></li><li class="library-row" data-kind="manual"><h3><a href="?doc=nist-sp-800-207#document">NIST SP 800-207 · Zero Trust Architecture</a></h3><p>Manual · August 2020 · PDF available</p><p>Zero Trust</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-leadershipattributes#document">Military Leadership Attributes (CPI)</a></h3><p>Lesson · Original course source · Citation record</p><p>Military Leadership Attributes</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-leadershipattributes#document">Military Leadership Attributes · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Military Leadership Attributes</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-leadershipcompetencies#document">Military Leadership Competencies (Leading, Developing, and Achieving)</a></h3><p>Lesson · Original course source · Citation record</p><p>Military Leadership Competencies</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-leadershipcompetencies#document">Military Leadership Competencies · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Military Leadership Competencies</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-companymanagement#document">Company Management (Company Level)</a></h3><p>Lesson · Original course source · Citation record</p><p>Company Management</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-companymanagement#document">Company Management · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Company Management</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-missioncommand#document">Mission Command</a></h3><p>Lesson · Original course source · Citation record</p><p>Mission Command</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-missioncommand#document">Mission Command · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Mission Command</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-ethicalleadership#document">Ethical and Transformational Leadership</a></h3><p>Lesson · Original course source · PDF available</p><p>Ethical and Transformational Leadership</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-ethicalleadership#document">Ethical and Transformational Leadership · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Ethical and Transformational Leadership</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-ncoempowerment#document">NCO Empowerment</a></h3><p>Lesson · Original course source · Citation record</p><p>NCO Empowerment</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-ncoempowerment#document">NCO Empowerment · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>NCO Empowerment</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-effectivecommunication#document">Effective Communication 2</a></h3><p>Lesson · Original course source · Citation record</p><p>Effective Communication 2</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-effectivecommunication#document">Effective Communication 2 · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Effective Communication 2</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-fieldartillery#document">Field Artillery Operations</a></h3><p>Lesson · Original course source · Citation record</p><p>Field Artillery Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-fieldartillery#document">Field Artillery Operations · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Field Artillery Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-armor#document">Fundamentals of Armor Operations</a></h3><p>Lesson · Original course source · Citation record</p><p>Armor Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-armor#document">Armor Operations · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Armor Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-isr#document">Introduction to ISR Operations</a></h3><p>Lesson · Original course source · Citation record</p><p>ISR Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-isr#document">ISR Operations · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>ISR Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-tlp#document">Troop Leading Procedure · Worked Classroom Exercise</a></h3><p>Lesson · Original course source · Citation record</p><p>Troop Leading Procedure (TLP)</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-tlp#document">Troop Leading Procedure (TLP) · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Troop Leading Procedure (TLP)</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-signal#document">Signal Support in Combined Arms Operations · Student Handout</a></h3><p>Lesson · Original course source · PDF available</p><p>Signal Support in Combined Arms Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-signal#document">Signal Support in Combined Arms Operations · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Signal Support in Combined Arms Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-signaljoint#document">Signal Support in Joint Operations</a></h3><p>Lesson · Original course source · Citation record</p><p>Signal Support in Joint Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-signaljoint#document">Signal Support in Joint Operations · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Signal Support in Joint Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-coalition#document">Signal Support in Coalition Operations</a></h3><p>Lesson · Original course source · PDF available</p><p>Signal Support in Coalition Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-coalition#document">Signal Support in Coalition Operations · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Signal Support in Coalition Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-manet#document">MANET C4ISTAR Planning</a></h3><p>Lesson · Original course source · Citation record</p><p>MANET C4ISTAR Planning</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-manet#document">MANET C4ISTAR Planning · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>MANET C4ISTAR Planning</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-sensors#document">C4ISTAR Sensors Integration</a></h3><p>Lesson · Original course source · Citation record</p><p>C4ISTAR Sensors Integration</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-sensors#document">C4ISTAR Sensors Integration · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>C4ISTAR Sensors Integration</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-weapons#document">C4ISTAR Weapon System Integration</a></h3><p>Lesson · Original course source · Citation record</p><p>C4ISTAR Weapon System Integration</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-weapons#document">C4ISTAR Weapon System Integration · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>C4ISTAR Weapon System Integration</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-propagation#document">Signal Propagation · Worked Coverage Study</a></h3><p>Lesson · Original course source · Citation record</p><p>Signal Propagation (Mobile Apps/RF Clouds)</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-propagation#document">Signal Propagation (Mobile Apps/RF Clouds) · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Signal Propagation (Mobile Apps/RF Clouds)</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-sigint#document">Signals Intelligence</a></h3><p>Lesson · Original course source · Citation record</p><p>Signals Intelligence (SIGINT)</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-sigint#document">Signals Intelligence (SIGINT) · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Signals Intelligence (SIGINT)</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-elint#document">Electronic Intelligence (ELINT)</a></h3><p>Lesson · Original course source · Citation record</p><p>Electronic Intelligence (ELINT)</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-elint#document">Electronic Intelligence (ELINT) · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Electronic Intelligence (ELINT)</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-rdf#document">Radio Direction Finder (Revised)</a></h3><p>Lesson · Original course source · Citation record</p><p>Radio Direction Finding</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-rdf#document">Radio Direction Finding · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Radio Direction Finding</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-eccm#document">Electronic Counter-Countermeasures (ECCM)</a></h3><p>Lesson · Original course source · Citation record</p><p>Electronic Counter-Countermeasures (ECCM)</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-eccm#document">Electronic Counter-Countermeasures (ECCM) · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Electronic Counter-Countermeasures (ECCM)</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-nist#document">NIST Framework · SOAC Lesson</a></h3><p>Lesson · Original course source · Citation record</p><p>NIST Framework</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-nist#document">NIST Framework · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>NIST Framework</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-zerotrust#document">Zero Trust · SOAC Lesson</a></h3><p>Lesson · Original course source · Citation record</p><p>Zero Trust</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-zerotrust#document">Zero Trust · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Zero Trust</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-gsomia#document">LOE3 GSOMIA Compliance</a></h3><p>Lesson · Original course source · Citation record</p><p>LOE3 GSOMIA Compliance</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-gsomia#document">LOE3 GSOMIA Compliance · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>LOE3 GSOMIA Compliance</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-cyberrisk#document">Cyber Risk Assessment</a></h3><p>Lesson · Original course source · Citation record</p><p>Cyber Risk Assessment</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-cyberrisk#document">Cyber Risk Assessment · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Cyber Risk Assessment</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-ceoicesi#document">CEOI / CESI Management</a></h3><p>Lesson · Original course source · Citation record</p><p>CEOI / CESI Management</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-ceoicesi#document">CEOI / CESI Management · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>CEOI / CESI Management</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-signalestimate#document">Signal Estimate · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Signal Estimate</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-c4istarplanning#document">C4ISTAR Communications Planning</a></h3><p>Lesson · Original course source · Citation record</p><p>C4ISTAR Communications Planning</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-c4istarplanning#document">C4ISTAR Communications Planning · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>C4ISTAR Communications Planning</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-signalplanning#document">Signal Planning Process · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Signal Planning Process</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-armyops#document">Introduction to Army Operations</a></h3><p>Lesson · Original course source · Citation record</p><p>Army Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-armyops#document">Army Operations · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Army Operations</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=source-intcycle#document">Intelligence Cycle</a></h3><p>Lesson · Original course source · Citation record</p><p>Intelligence Cycle</p></li><li class="library-row" data-kind="lesson"><h3><a href="?doc=study-intcycle#document">Intelligence Cycle · Reviewer 101</a></h3><p>Lesson · Study edition · PDF available</p><p>Intelligence Cycle</p></li></ul></section>
+  </main>
+<script type="application/json" id="library-data">[{"kind":"manual","cited":["ceoicesi","signalestimate","signalplanning","weapons","nist","zerotrust","gsomia","cyberrisk"],"related":["signal","signaljoint","coalition"],"id":"pam-6-0102","title":"PAM 6-0102 · Signal Operations","edition":"15 April 2022","file":"pam-6-0102","lessons":[{"key":"ceoicesi","title":"CEOI / CESI Management","cited":true},{"key":"signalestimate","title":"Signal Estimate","cited":true},{"key":"signalplanning","title":"Signal Planning Process","cited":true},{"key":"weapons","title":"C4ISTAR Weapon System Integration","cited":true},{"key":"nist","title":"NIST Framework","cited":true},{"key":"zerotrust","title":"Zero Trust","cited":true},{"key":"gsomia","title":"LOE3 GSOMIA Compliance","cited":true},{"key":"cyberrisk","title":"Cyber Risk Assessment","cited":true},{"key":"signal","title":"Signal Support in Combined Arms Operations","cited":false},{"key":"signaljoint","title":"Signal Support in Joint Operations","cited":false},{"key":"coalition","title":"Signal Support in Coalition Operations","cited":false}]},{"kind":"manual","cited":["manet","nist","zerotrust","gsomia","cyberrisk"],"related":[],"id":"pam-6-00","title":"PAM 6-00 · Command and Control, Communications, and Cyber Systems","edition":"2nd edition · 11 December 2017","file":"pam-6-00","lessons":[{"key":"manet","title":"MANET C4ISTAR Planning","cited":true},{"key":"nist","title":"NIST Framework","cited":true},{"key":"zerotrust","title":"Zero Trust","cited":true},{"key":"gsomia","title":"LOE3 GSOMIA Compliance","cited":true},{"key":"cyberrisk","title":"Cyber Risk Assessment","cited":true}]},{"kind":"manual","cited":["sensors","weapons"],"related":[],"id":"pam-6-0001","title":"PAM 6-0001 · Command and Control, Communications, Computer, Intelligence, Surveillance, Target Acquisition, and Reconnaissance","lessons":[{"key":"sensors","title":"C4ISTAR Sensors Integration","cited":true},{"key":"weapons","title":"C4ISTAR Weapon System Integration","cited":true}]},{"kind":"manual","cited":["nist","zerotrust","gsomia","cyberrisk"],"related":[],"id":"pam-6-0102-04","title":"PAM 6-0102-04 · Cyberspace Operations","file":"pam-6-0102-04","edition":"24 February 2020","lessons":[{"key":"nist","title":"NIST Framework","cited":true},{"key":"zerotrust","title":"Zero Trust","cited":true},{"key":"gsomia","title":"LOE3 GSOMIA Compliance","cited":true},{"key":"cyberrisk","title":"Cyber Risk Assessment","cited":true}]},{"kind":"manual","cited":["armyops","armor","nist","zerotrust","gsomia","cyberrisk"],"related":[],"id":"pam-3-00","title":"PAM 3-00 · Army Operations","lessons":[{"key":"armyops","title":"Army Operations","cited":true},{"key":"armor","title":"Armor Operations","cited":true},{"key":"nist","title":"NIST Framework","cited":true},{"key":"zerotrust","title":"Zero Trust","cited":true},{"key":"gsomia","title":"LOE3 GSOMIA Compliance","cited":true},{"key":"cyberrisk","title":"Cyber Risk Assessment","cited":true}]},{"kind":"manual","cited":["armor"],"related":[],"id":"pam-3-0502","title":"PAM 3-0502 · Armor Operations","lessons":[{"key":"armor","title":"Armor Operations","cited":true}]},{"kind":"manual","cited":["tlp"],"related":[],"id":"pam-3-0101-04","title":"PAM 3-0101-04 · Annex A cited in the TLP exercise","lessons":[{"key":"tlp","title":"Troop Leading Procedure (TLP)","cited":true}]},{"kind":"manual","cited":["elint","eccm"],"related":[],"id":"pam-3-0702-01","title":"PAM 3-0702-01 · Electronic Warfare Operations","edition":"September 2026 · cited edition","lessons":[{"key":"elint","title":"Electronic Intelligence (ELINT)","cited":true},{"key":"eccm","title":"Electronic Counter-Countermeasures (ECCM)","cited":true}]},{"kind":"manual","cited":[],"related":["leadershipattributes","leadershipcompetencies"],"id":"pam-8-0101","title":"PAM 8-0101 · Army Leadership Development System","file":"pam-8-0101","edition":"24 August 2022","lessons":[{"key":"leadershipattributes","title":"Military Leadership Attributes","cited":false},{"key":"leadershipcompetencies","title":"Military Leadership Competencies","cited":false}]},{"kind":"manual","cited":[],"related":["companymanagement","cyberrisk"],"id":"pam-5-0104","title":"PAM 5-0104 · Philippine Army Risk Management","file":"pam-5-0104","edition":"15 July 2021","lessons":[{"key":"companymanagement","title":"Company Management","cited":false},{"key":"cyberrisk","title":"Cyber Risk Assessment","cited":false}]},{"kind":"manual","cited":["ncoempowerment"],"related":[],"id":"fc-8-039","title":"FC 8-039 · Army NCO Guide","lessons":[{"key":"ncoempowerment","title":"NCO Empowerment","cited":true}]},{"kind":"manual","cited":["companymanagement"],"related":[],"id":"company-commanders-guide","title":"Company Commander’s Guide Handbook","edition":"2020 · cited edition","lessons":[{"key":"companymanagement","title":"Company Management","cited":true}]},{"kind":"manual","cited":["missioncommand"],"related":[],"id":"adp-6-0","title":"ADP 6-0 · Mission Command","lessons":[{"key":"missioncommand","title":"Mission Command","cited":true}]},{"kind":"manual","cited":["missioncommand"],"related":[],"id":"fm-6-0","title":"FM 6-0 · Commander and Staff Organization and Operations","lessons":[{"key":"missioncommand","title":"Mission Command","cited":true}]},{"kind":"manual","cited":["leadershipattributes"],"related":[],"id":"fm-6-22","title":"FM 6-22 (FM 22-100) · Army Leadership","lessons":[{"key":"leadershipattributes","title":"Military Leadership Attributes","cited":true}]},{"kind":"manual","cited":["leadershipattributes","ethicalleadership"],"related":[],"id":"adp-6-22","title":"ADP 6-22 · Army Leadership and the Profession","lessons":[{"key":"leadershipattributes","title":"Military Leadership Attributes","cited":true},{"key":"ethicalleadership","title":"Ethical and Transformational Leadership","cited":true}]},{"kind":"manual","cited":["eccm","nist"],"related":[],"id":"fm-3-12","title":"FM 3-12 · Cyberspace Operations and Electromagnetic Warfare","lessons":[{"key":"eccm","title":"Electronic Counter-Countermeasures (ECCM)","cited":true},{"key":"nist","title":"NIST Framework","cited":true}]},{"kind":"manual","cited":["ceoicesi"],"related":[],"id":"tc-24-2","title":"TC 24-2 · The Automated CEOI","lessons":[{"key":"ceoicesi","title":"CEOI / CESI Management","cited":true}]},{"kind":"manual","cited":[],"related":["nist","cyberrisk"],"id":"nist-cswp-29","title":"NIST CSWP 29 · The NIST Cybersecurity Framework (CSF) 2.0","edition":"26 February 2024","file":"nist-cswp-29","lessons":[{"key":"nist","title":"NIST Framework","cited":false},{"key":"cyberrisk","title":"Cyber Risk Assessment","cited":false}]},{"kind":"manual","cited":["zerotrust"],"related":[],"id":"nist-sp-800-207","title":"NIST SP 800-207 · Zero Trust Architecture","edition":"August 2020","file":"nist-sp-800-207","lessons":[{"key":"zerotrust","title":"Zero Trust","cited":true}]},{"id":"source-leadershipattributes","title":"Military Leadership Attributes (CPI)","kind":"lesson","edition":"Original course source","cited":["leadershipattributes"],"related":[],"lessons":[{"key":"leadershipattributes","title":"Military Leadership Attributes","cited":true}]},{"id":"study-leadershipattributes","title":"Military Leadership Attributes · Reviewer 101","file":"reviewer-military-leadership-attributes","kind":"lesson","edition":"Study edition","cited":["leadershipattributes"],"related":[],"lessons":[{"key":"leadershipattributes","title":"Military Leadership Attributes","cited":true}]},{"id":"source-leadershipcompetencies","title":"Military Leadership Competencies (Leading, Developing, and Achieving)","kind":"lesson","edition":"Original course source","cited":["leadershipcompetencies"],"related":[],"lessons":[{"key":"leadershipcompetencies","title":"Military Leadership Competencies","cited":true}]},{"id":"study-leadershipcompetencies","title":"Military Leadership Competencies · Reviewer 101","file":"reviewer-military-leadership-competencies","kind":"lesson","edition":"Study edition","cited":["leadershipcompetencies"],"related":[],"lessons":[{"key":"leadershipcompetencies","title":"Military Leadership Competencies","cited":true}]},{"id":"source-companymanagement","title":"Company Management (Company Level)","kind":"lesson","edition":"Original course source","cited":["companymanagement"],"related":[],"lessons":[{"key":"companymanagement","title":"Company Management","cited":true}]},{"id":"study-companymanagement","title":"Company Management · Reviewer 101","file":"reviewer-company-management","kind":"lesson","edition":"Study edition","cited":["companymanagement"],"related":[],"lessons":[{"key":"companymanagement","title":"Company Management","cited":true}]},{"id":"source-missioncommand","title":"Mission Command","kind":"lesson","edition":"Original course source","cited":["missioncommand"],"related":[],"lessons":[{"key":"missioncommand","title":"Mission Command","cited":true}]},{"id":"study-missioncommand","title":"Mission Command · Reviewer 101","file":"reviewer-mission-command","kind":"lesson","edition":"Study edition","cited":["missioncommand"],"related":[],"lessons":[{"key":"missioncommand","title":"Mission Command","cited":true}]},{"id":"source-ethicalleadership","title":"Ethical and Transformational Leadership","file":"ethical-transformational-leadership","kind":"lesson","edition":"Original course source","cited":["ethicalleadership"],"related":[],"lessons":[{"key":"ethicalleadership","title":"Ethical and Transformational Leadership","cited":true}]},{"id":"study-ethicalleadership","title":"Ethical and Transformational Leadership · Reviewer 101","file":"reviewer-ethical-transformational-leadership","kind":"lesson","edition":"Study edition","cited":["ethicalleadership"],"related":[],"lessons":[{"key":"ethicalleadership","title":"Ethical and Transformational Leadership","cited":true}]},{"id":"source-ncoempowerment","title":"NCO Empowerment","kind":"lesson","edition":"Original course source","cited":["ncoempowerment"],"related":[],"lessons":[{"key":"ncoempowerment","title":"NCO Empowerment","cited":true}]},{"id":"study-ncoempowerment","title":"NCO Empowerment · Reviewer 101","file":"reviewer-nco-empowerment","kind":"lesson","edition":"Study edition","cited":["ncoempowerment"],"related":[],"lessons":[{"key":"ncoempowerment","title":"NCO Empowerment","cited":true}]},{"id":"source-effectivecommunication","title":"Effective Communication 2","kind":"lesson","edition":"Original course source","cited":["effectivecommunication"],"related":[],"lessons":[{"key":"effectivecommunication","title":"Effective Communication 2","cited":true}]},{"id":"study-effectivecommunication","title":"Effective Communication 2 · Reviewer 101","file":"reviewer-effective-communication-2","kind":"lesson","edition":"Study edition","cited":["effectivecommunication"],"related":[],"lessons":[{"key":"effectivecommunication","title":"Effective Communication 2","cited":true}]},{"id":"source-fieldartillery","title":"Field Artillery Operations","kind":"lesson","edition":"Original course source","cited":["fieldartillery"],"related":[],"lessons":[{"key":"fieldartillery","title":"Field Artillery Operations","cited":true}]},{"id":"study-fieldartillery","title":"Field Artillery Operations · Reviewer 101","file":"reviewer-field-artillery","kind":"lesson","edition":"Study edition","cited":["fieldartillery"],"related":[],"lessons":[{"key":"fieldartillery","title":"Field Artillery Operations","cited":true}]},{"id":"source-armor","title":"Fundamentals of Armor Operations","kind":"lesson","edition":"Original course source","cited":["armor"],"related":[],"lessons":[{"key":"armor","title":"Armor Operations","cited":true}]},{"id":"study-armor","title":"Armor Operations · Reviewer 101","file":"reviewer-armor","kind":"lesson","edition":"Study edition","cited":["armor"],"related":[],"lessons":[{"key":"armor","title":"Armor Operations","cited":true}]},{"id":"source-isr","title":"Introduction to ISR Operations","kind":"lesson","edition":"Original course source","cited":["isr"],"related":[],"lessons":[{"key":"isr","title":"ISR Operations","cited":true}]},{"id":"study-isr","title":"ISR Operations · Reviewer 101","file":"reviewer-isr","kind":"lesson","edition":"Study edition","cited":["isr"],"related":[],"lessons":[{"key":"isr","title":"ISR Operations","cited":true}]},{"id":"source-tlp","title":"Troop Leading Procedure · Worked Classroom Exercise","kind":"lesson","edition":"Original course source","cited":["tlp"],"related":[],"lessons":[{"key":"tlp","title":"Troop Leading Procedure (TLP)","cited":true}]},{"id":"study-tlp","title":"Troop Leading Procedure (TLP) · Reviewer 101","file":"reviewer-troop-leading-procedure","kind":"lesson","edition":"Study edition","cited":["tlp"],"related":[],"lessons":[{"key":"tlp","title":"Troop Leading Procedure (TLP)","cited":true}]},{"id":"source-signal","title":"Signal Support in Combined Arms Operations · Student Handout","file":"combined-arms-signal-support","kind":"lesson","edition":"Original course source","cited":["signal"],"related":[],"lessons":[{"key":"signal","title":"Signal Support in Combined Arms Operations","cited":true}]},{"id":"study-signal","title":"Signal Support in Combined Arms Operations · Reviewer 101","file":"reviewer-signal-support","kind":"lesson","edition":"Study edition","cited":["signal"],"related":[],"lessons":[{"key":"signal","title":"Signal Support in Combined Arms Operations","cited":true}]},{"id":"source-signaljoint","title":"Signal Support in Joint Operations","kind":"lesson","edition":"Original course source","cited":["signaljoint"],"related":[],"lessons":[{"key":"signaljoint","title":"Signal Support in Joint Operations","cited":true}]},{"id":"study-signaljoint","title":"Signal Support in Joint Operations · Reviewer 101","file":"reviewer-joint-signal","kind":"lesson","edition":"Study edition","cited":["signaljoint"],"related":[],"lessons":[{"key":"signaljoint","title":"Signal Support in Joint Operations","cited":true}]},{"id":"source-coalition","title":"Signal Support in Coalition Operations","file":"coalition-signal-support","kind":"lesson","edition":"Original course source","cited":["coalition"],"related":[],"lessons":[{"key":"coalition","title":"Signal Support in Coalition Operations","cited":true}]},{"id":"study-coalition","title":"Signal Support in Coalition Operations · Reviewer 101","file":"reviewer-coalition-signal","kind":"lesson","edition":"Study edition","cited":["coalition"],"related":[],"lessons":[{"key":"coalition","title":"Signal Support in Coalition Operations","cited":true}]},{"id":"source-manet","title":"MANET C4ISTAR Planning","kind":"lesson","edition":"Original course source","cited":["manet"],"related":[],"lessons":[{"key":"manet","title":"MANET C4ISTAR Planning","cited":true}]},{"id":"study-manet","title":"MANET C4ISTAR Planning · Reviewer 101","file":"reviewer-manet-c4istar-planning","kind":"lesson","edition":"Study edition","cited":["manet"],"related":[],"lessons":[{"key":"manet","title":"MANET C4ISTAR Planning","cited":true}]},{"id":"source-sensors","title":"C4ISTAR Sensors Integration","kind":"lesson","edition":"Original course source","cited":["sensors"],"related":[],"lessons":[{"key":"sensors","title":"C4ISTAR Sensors Integration","cited":true}]},{"id":"study-sensors","title":"C4ISTAR Sensors Integration · Reviewer 101","file":"reviewer-c4istar-sensors-integration","kind":"lesson","edition":"Study edition","cited":["sensors"],"related":[],"lessons":[{"key":"sensors","title":"C4ISTAR Sensors Integration","cited":true}]},{"id":"source-weapons","title":"C4ISTAR Weapon System Integration","kind":"lesson","edition":"Original course source","cited":["weapons"],"related":[],"lessons":[{"key":"weapons","title":"C4ISTAR Weapon System Integration","cited":true}]},{"id":"study-weapons","title":"C4ISTAR Weapon System Integration · Reviewer 101","file":"reviewer-c4istar-weapon-system-integration","kind":"lesson","edition":"Study edition","cited":["weapons"],"related":[],"lessons":[{"key":"weapons","title":"C4ISTAR Weapon System Integration","cited":true}]},{"id":"source-propagation","title":"Signal Propagation · Worked Coverage Study","kind":"lesson","edition":"Original course source","cited":["propagation"],"related":[],"lessons":[{"key":"propagation","title":"Signal Propagation (Mobile Apps/RF Clouds)","cited":true}]},{"id":"study-propagation","title":"Signal Propagation (Mobile Apps/RF Clouds) · Reviewer 101","file":"reviewer-signal-propagation","kind":"lesson","edition":"Study edition","cited":["propagation"],"related":[],"lessons":[{"key":"propagation","title":"Signal Propagation (Mobile Apps/RF Clouds)","cited":true}]},{"id":"source-sigint","title":"Signals Intelligence","kind":"lesson","edition":"Original course source","cited":["sigint"],"related":[],"lessons":[{"key":"sigint","title":"Signals Intelligence (SIGINT)","cited":true}]},{"id":"study-sigint","title":"Signals Intelligence (SIGINT) · Reviewer 101","file":"reviewer-signals-intelligence","kind":"lesson","edition":"Study edition","cited":["sigint"],"related":[],"lessons":[{"key":"sigint","title":"Signals Intelligence (SIGINT)","cited":true}]},{"id":"source-elint","title":"Electronic Intelligence (ELINT)","kind":"lesson","edition":"Original course source","cited":["elint"],"related":[],"lessons":[{"key":"elint","title":"Electronic Intelligence (ELINT)","cited":true}]},{"id":"study-elint","title":"Electronic Intelligence (ELINT) · Reviewer 101","file":"reviewer-electronic-intelligence","kind":"lesson","edition":"Study edition","cited":["elint"],"related":[],"lessons":[{"key":"elint","title":"Electronic Intelligence (ELINT)","cited":true}]},{"id":"source-rdf","title":"Radio Direction Finder (Revised)","kind":"lesson","edition":"Original course source","cited":["rdf"],"related":[],"lessons":[{"key":"rdf","title":"Radio Direction Finding","cited":true}]},{"id":"study-rdf","title":"Radio Direction Finding · Reviewer 101","file":"reviewer-radio-direction-finding","kind":"lesson","edition":"Study edition","cited":["rdf"],"related":[],"lessons":[{"key":"rdf","title":"Radio Direction Finding","cited":true}]},{"id":"source-eccm","title":"Electronic Counter-Countermeasures (ECCM)","kind":"lesson","edition":"Original course source","cited":["eccm"],"related":[],"lessons":[{"key":"eccm","title":"Electronic Counter-Countermeasures (ECCM)","cited":true}]},{"id":"study-eccm","title":"Electronic Counter-Countermeasures (ECCM) · Reviewer 101","file":"reviewer-electronic-counter-countermeasures","kind":"lesson","edition":"Study edition","cited":["eccm"],"related":[],"lessons":[{"key":"eccm","title":"Electronic Counter-Countermeasures (ECCM)","cited":true}]},{"id":"source-nist","title":"NIST Framework · SOAC Lesson","kind":"lesson","edition":"Original course source","cited":["nist"],"related":[],"lessons":[{"key":"nist","title":"NIST Framework","cited":true}]},{"id":"study-nist","title":"NIST Framework · Reviewer 101","file":"reviewer-nist-framework","kind":"lesson","edition":"Study edition","cited":["nist"],"related":[],"lessons":[{"key":"nist","title":"NIST Framework","cited":true}]},{"id":"source-zerotrust","title":"Zero Trust · SOAC Lesson","kind":"lesson","edition":"Original course source","cited":["zerotrust"],"related":[],"lessons":[{"key":"zerotrust","title":"Zero Trust","cited":true}]},{"id":"study-zerotrust","title":"Zero Trust · Reviewer 101","file":"reviewer-zero-trust","kind":"lesson","edition":"Study edition","cited":["zerotrust"],"related":[],"lessons":[{"key":"zerotrust","title":"Zero Trust","cited":true}]},{"id":"source-gsomia","title":"LOE3 GSOMIA Compliance","kind":"lesson","edition":"Original course source","cited":["gsomia"],"related":[],"lessons":[{"key":"gsomia","title":"LOE3 GSOMIA Compliance","cited":true}]},{"id":"study-gsomia","title":"LOE3 GSOMIA Compliance · Reviewer 101","file":"reviewer-gsomia-compliance","kind":"lesson","edition":"Study edition","cited":["gsomia"],"related":[],"lessons":[{"key":"gsomia","title":"LOE3 GSOMIA Compliance","cited":true}]},{"id":"source-cyberrisk","title":"Cyber Risk Assessment","kind":"lesson","edition":"Original course source","cited":["cyberrisk"],"related":[],"lessons":[{"key":"cyberrisk","title":"Cyber Risk Assessment","cited":true}]},{"id":"study-cyberrisk","title":"Cyber Risk Assessment · Reviewer 101","file":"reviewer-cyber-risk-assessment","kind":"lesson","edition":"Study edition","cited":["cyberrisk"],"related":[],"lessons":[{"key":"cyberrisk","title":"Cyber Risk Assessment","cited":true}]},{"id":"source-ceoicesi","title":"CEOI / CESI Management","kind":"lesson","edition":"Original course source","cited":["ceoicesi"],"related":[],"lessons":[{"key":"ceoicesi","title":"CEOI / CESI Management","cited":true}]},{"id":"study-ceoicesi","title":"CEOI / CESI Management · Reviewer 101","file":"reviewer-ceoi-cesi-management","kind":"lesson","edition":"Study edition","cited":["ceoicesi"],"related":[],"lessons":[{"key":"ceoicesi","title":"CEOI / CESI Management","cited":true}]},{"id":"study-signalestimate","title":"Signal Estimate · Reviewer 101","file":"reviewer-signal-estimate","kind":"lesson","edition":"Study edition","cited":["signalestimate"],"related":[],"lessons":[{"key":"signalestimate","title":"Signal Estimate","cited":true}]},{"id":"source-c4istarplanning","title":"C4ISTAR Communications Planning","kind":"lesson","edition":"Original course source","cited":["c4istarplanning"],"related":[],"lessons":[{"key":"c4istarplanning","title":"C4ISTAR Communications Planning","cited":true}]},{"id":"study-c4istarplanning","title":"C4ISTAR Communications Planning · Reviewer 101","file":"reviewer-c4istar-communications-planning","kind":"lesson","edition":"Study edition","cited":["c4istarplanning"],"related":[],"lessons":[{"key":"c4istarplanning","title":"C4ISTAR Communications Planning","cited":true}]},{"id":"study-signalplanning","title":"Signal Planning Process · Reviewer 101","file":"reviewer-signal-planning-process","kind":"lesson","edition":"Study edition","cited":["signalplanning"],"related":[],"lessons":[{"key":"signalplanning","title":"Signal Planning Process","cited":true}]},{"id":"source-armyops","title":"Introduction to Army Operations","kind":"lesson","edition":"Original course source","cited":["armyops"],"related":[],"lessons":[{"key":"armyops","title":"Army Operations","cited":true}]},{"id":"study-armyops","title":"Army Operations · Reviewer 101","file":"reviewer-army-operations","kind":"lesson","edition":"Study edition","cited":["armyops"],"related":[],"lessons":[{"key":"armyops","title":"Army Operations","cited":true}]},{"id":"source-intcycle","title":"Intelligence Cycle","kind":"lesson","edition":"Original course source","cited":["intcycle"],"related":[],"lessons":[{"key":"intcycle","title":"Intelligence Cycle","cited":true}]},{"id":"study-intcycle","title":"Intelligence Cycle · Reviewer 101","file":"reviewer-intelligence-cycle","kind":"lesson","edition":"Study edition","cited":["intcycle"],"related":[],"lessons":[{"key":"intcycle","title":"Intelligence Cycle","cited":true}]}]</script><script type="module" src="../assets/library.js"></script>
+</body>
+</html>

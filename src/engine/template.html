@@ -386,8 +386,8 @@
     .explanation > .section-label { padding-top: 0.2rem; border-top: 3px solid var(--lesson-accent); align-self: start; white-space: nowrap; }
     .explanation-text { margin: 0; max-width: 68ch; font-size: var(--text-body); line-height: 1.55; }
     .explanation-references { margin-top: var(--space-3); background: var(--color-paper); }
-    .source-ref { margin: 0; max-width: 68ch; font-size: var(--text-ui); line-height: 1.55; color: var(--color-muted); overflow-wrap: anywhere; }
-    .source-ref + .source-ref { margin-top: var(--space-2); }
+    .source-ref, .library-source { margin: 0; max-width: 68ch; font-size: var(--text-ui); line-height: 1.55; color: var(--color-muted); overflow-wrap: anywhere; }
+    .source-ref + .source-ref, .library-source { margin-top: var(--space-2); }
     .quiz-actions, .results-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
 
     /* Results: a debrief. Big Mono score, stamped band, topic table with bar sparklines, missed list. */
@@ -585,7 +585,7 @@
   <header class="site-header hero">
     <div class="wrap hero-bar">
       <a id="hub-link" class="hub-link" href="{{HUB_HREF}}"><span class="hub-arrow" aria-hidden="true">&#8592;</span> All quizzes</a>
-      <p class="fig-line label" aria-hidden="true">Fig. 1 — Bandwidth Brothers, SOAC 52 - 2026</p>
+      <a class="hub-link" href="{{STUDY_HREF}}">Reviewer 101</a>
       <button type="button" id="btn-sound" class="sound-toggle" aria-pressed="true" aria-keyshortcuts="S">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter">
           <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/>
@@ -807,6 +807,7 @@
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
 
   <script type="application/json" id="quiz-config">{{CONFIG}}</script>
+  <script type="application/json" id="study-links">{{STUDY_LINKS}}</script>
   <script type="application/json" id="questions-easy">{{EASY_QUESTIONS}}</script>
   <script type="application/json" id="questions-medium">{{MEDIUM_QUESTIONS}}</script>
   <script type="application/json" id="questions-hard">{{HARD_QUESTIONS}}</script>
@@ -879,6 +880,7 @@
     var POOL_QUOTAS = POOL ? poolQuotas(POOL.count, POOL.lessons.length) : [];
     // Optional per-question lesson reference ("Lesson reference: page 31"); null for pool exams.
     var SOURCE_REF = CONFIG ? CONFIG.sourceRef : null;
+    var STUDY_LINKS = JSON.parse(document.getElementById('study-links').textContent);
     var CATEGORY_ORDER = !CONFIG ? [] : POOL ? POOL.lessons.map(function (lesson) { return lesson.name; }) : CONFIG.categoryOrder.slice();
     // A primary topic counts as a strength at or above this percentage, otherwise a gap.
     var STRENGTH_THRESHOLD = 75;
@@ -1768,6 +1770,29 @@
       return line;
     }
 
+    function studyReferenceLinks(question, references) {
+      var study = STUDY_LINKS;
+      var keys = study.byQuestion[question.qid] || [question.lessonKey || HISTORY_LESSON];
+      var locator = (references[0] || '').match(/\b(?:pages?|slides?)\s+(\d+(?:,\s*\d+)*)/i);
+      var pages = question.sourceSlides || (locator ? locator[1].split(/,\s*/) : []);
+      var links = new Map();
+      keys.forEach(function (key) {
+        var source = study.sources[key];
+        if (!source) return;
+        var jump = source.exactPages && !study.byQuestion[question.qid] && pages.length;
+        if (jump) {
+          pages.forEach(function (page) { links.set(source.doc + '&page=' + page, source.title + ' · PDF page ' + page); });
+        } else {
+          links.set(source.doc, source.title);
+          if (!source.exactPages) links.set(source.studyDoc, source.title + ' · Reviewer 101 PDF');
+        }
+        source.manuals.forEach(function (manual) {
+          if (!links.has(manual.id)) links.set(manual.id, manual.title + ' · Cited in lesson');
+        });
+      });
+      return links;
+    }
+
     function explanationBlock(question, className) {
       var block = make('div', 'explanation-group ' + className);
       var note = question.explanation;
@@ -1797,6 +1822,15 @@
         var referenceBlock = make('div', 'explanation explanation-references');
         referenceBlock.appendChild(make('p', 'section-label', 'References'));
         references.forEach(function (reference) { referenceBlock.appendChild(make('p', 'source-ref', reference)); });
+        studyReferenceLinks(question, references).forEach(function (title, destination) {
+          var line = make('p', 'library-source');
+          var link = make('a', 'library-reference', title);
+          link.setAttribute('href', '../library/?doc=' + destination + '#document');
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener');
+          line.appendChild(link);
+          referenceBlock.appendChild(line);
+        });
         block.appendChild(referenceBlock);
       }
       return block;

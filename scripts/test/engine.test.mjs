@@ -1158,7 +1158,7 @@ export async function engineSuite(lesson) {
     }
   });
 
-  await T('no external URLs other than the history endpoint; links are in-page fragments or the relative hub link; self-hosted fonts with system fallbacks', () => {
+  await T('no external URLs other than the history endpoint; same-site links and self-hosted fonts', () => {
     assert.doesNotMatch(baseHtml, /https?:\/\//i, 'no absolute URLs outside HISTORY_ENDPOINT (inline SVG needs no xmlns)');
     assert.doesNotMatch(builtHtml, /data:[a-z]+\//i, 'no data: URIs');
     const urls = [...builtHtml.matchAll(/(?:https?:)?\/\/[a-z0-9.-]+\.[a-z]{2,}[^\s"'<>)]*/gi)].map(m => m[0]);
@@ -1171,7 +1171,7 @@ export async function engineSuite(lesson) {
     const preloads = [...builtHtml.matchAll(/<link\b[^>]*>/gi)].map(m => m[0]);
     assert.ok(preloads.length >= 2 && preloads.every(tag => /^<link rel="preload" href="\.\.\/assets\/fonts\/[\w-]+\.woff2" as="font" type="font\/woff2" crossorigin>$/.test(tag)), 'only font preloads, same-origin');
     for (const [, target] of withoutFontPreloads(builtHtml).matchAll(/\bhref\s*=\s*"([^"]*)"/gi)) {
-      assert.ok(target.startsWith('#') || target === hubHref, `href ${target} must be an in-page fragment or the quiz hub`);
+      assert.ok(target.startsWith('#') || target === hubHref || /^\.\.\/reviewer\/(?:#[\w-]+|[a-z0-9]+\/)$/.test(target), `unexpected href ${target}`);
     }
     const { rules } = parseCss(css);
     const bodyFont = rules.find(rule => !rule.media && rule.selectors.includes('body'))?.declarations.get('font-family') ?? '';
@@ -1187,7 +1187,8 @@ export async function engineSuite(lesson) {
     assert.equal(link.getAttribute('href'), hubHref);
     assert.equal(link.textContent.replace(/\s+/g, ' ').trim(), '← All quizzes');
     assert.ok(findAll(app.document.root, node => node.localName === 'header' && findAll(node, child => child === link).length).length, 'the link sits in the page header');
-    assert.deepEqual(findAll(app.document.root, node => node.localName === 'a').map(node => node.getAttribute('href')), [hubHref], 'the hub link is the only link');
+    const reviewer = findAll(app.document.root, node => node.localName === 'a' && node.textContent === 'Reviewer 101')[0];
+    assert.ok(reviewer.getAttribute('href').startsWith('../reviewer/'));
     assert.ok(existsSync(join(resolve(dirname(pagePath), '..'), 'index.html')), 'the hub page exists one folder up');
   });
 

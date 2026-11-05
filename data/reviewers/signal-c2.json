@@ -1,0 +1,586 @@
+{
+  "signal": {
+    "brief": "Signal support connects the Army's combined arms team so commanders can direct activity and participating units can coordinate across preparation, movement and operations at the destination.",
+    "facts": [
+      {
+        "term": "Combined arms",
+        "detail": "Infantry, armor, artillery, engineers and other capabilities work together. Signal support enables their exchange of instructions, reports and coordination information."
+      },
+      {
+        "term": "Signal support roles",
+        "detail": "Enable command and control, support cyberspace operations and electronic warfare, maintain equipment readiness, and restore disrupted service."
+      },
+      {
+        "term": "Five principles",
+        "detail": "Operations focused, interoperable, redundant, scalable and secured."
+      },
+      {
+        "term": "Signal estimate",
+        "detail": "METAL stands for Mission, Enemy, Troops, Area of Operations and Logistical Requirements. Use it before selecting systems and revisit the estimate as conditions change."
+      },
+      {
+        "term": "PACE",
+        "detail": "Primary is the normal means, Alternate the planned substitute, Contingency a means for a defined disruption, and Emergency the option for an urgent requirement when other means are inadequate."
+      },
+      {
+        "term": "Information security",
+        "detail": "Confidentiality limits disclosure, integrity protects accuracy, and availability keeps the service usable. Apply communication security to backup means as well."
+      }
+    ],
+    "insights": [
+      "A single coverage map can hide a break during movement. Check who needs to communicate while the team is moving and after it arrives.",
+      "Two services through the same fragile link can fail together. Trace what the primary and alternate depend on before counting them as redundancy."
+    ],
+    "scenario": {
+      "situation": "In a Philippine Army combined arms tabletop, engineers shift a crossing rehearsal to a new area. Infantry and armor still have voice contact at the assembly point, but the model shows a gap along the revised approach. The only spare support team is committed to routine traffic.",
+      "question": "Which requirement should the signal staff reassess before the exercise continues?",
+      "analysis": "Trace the essential coordination between the engineers, maneuver units and headquarters through the revised movement. Propose redirecting support to the gap and moving routine traffic to a lower priority if the commander agrees. Verify the revised route and an authorized backup before depending on the updated plan."
+    },
+    "steps": [
+      "List which units must exchange which instructions or reports in each phase.",
+      "Compare the required locations and times with assessed coverage, available operators and serviceable equipment.",
+      "Mark gaps and propose priorities and backup means for the essential exchanges.",
+      "Coordinate changes with operations and logistics staff. Put the approved arrangements in the signal plan or applicable annex."
+    ],
+    "checks": [
+      {
+        "question": "Which principle asks whether communication continues after a path fails?",
+        "answer": "Redundancy."
+      },
+      {
+        "question": "What should happen to a signal estimate when a unit changes route?",
+        "answer": "Update it and reassess coverage and support along the new route."
+      }
+    ]
+  },
+  "signaljoint": {
+    "brief": "Joint signal support connects the Philippine Army, Navy and Air Force so commanders, operating units and supporting elements can coordinate despite differences in equipment and procedures.",
+    "facts": [
+      {
+        "term": "Joint operations",
+        "detail": "Two or more services of the same nation combine capabilities for a common mission. The Army brings land capability, the Navy maritime capability and the Air Force air capability."
+      },
+      {
+        "term": "Operating environments",
+        "detail": "Terrain and weather shape the physical environment. Networks and information make up the cyberspace environment. Radio and satellite links use the electromagnetic spectrum."
+      },
+      {
+        "term": "Interoperability",
+        "detail": "People from different services can communicate effectively using compatible equipment or agreed procedures and interfaces."
+      },
+      {
+        "term": "Five principles",
+        "detail": "Operations focused, interoperable, redundant, scalable and secured."
+      },
+      {
+        "term": "Joint signal planning",
+        "detail": "Prepare the estimate, determine requirements and resources, set priorities, plan recovery, draft a tentative plan, validate it, then publish and keep coordinating."
+      },
+      {
+        "term": "Protection and restoration",
+        "detail": "Apply communication security, prepare backup paths, and arrange repair, replacement or technical support before disruption."
+      }
+    ],
+    "insights": [
+      "A check between two headquarters can pass while a supported element still cannot send the report it needs. Test the full exchange with its actual sender and recipient.",
+      "Compatibility answers whether participants can communicate. Scalability answers whether the arrangement can keep up when new participants join."
+    ],
+    "scenario": {
+      "situation": "In a Philippine Army-led AFP typhoon-response tabletop, a Navy team changes its unloading time while an Air Force element is preparing a simulated delivery. Each service can reach joint headquarters, but the updated timing reaches the Army ground team too late.",
+      "question": "Where should the joint signal planners concentrate their next test?",
+      "analysis": "Walk the timing update from the Navy sender to the Air Force and Army recipients, including who relays it and how receipt is confirmed. Test the authorized alternate with the same message. A working link to headquarters helps, but the exercise succeeds when every affected team gets and understands the change in time."
+    },
+    "steps": [
+      "Use the signal estimate to record participating services, coverage limits and available support.",
+      "Identify who needs contact, what information they must exchange, and when and for how long they need it.",
+      "Compare requirements with equipment, personnel and sustainment. Prioritize essential exchanges and identify recovery options.",
+      "Draft the plan with agreed interservice links, procedures, responsibilities and security measures.",
+      "Validate the plan with representative exchanges, resolve gaps and publish the approved signal instructions."
+    ],
+    "checks": [
+      {
+        "question": "Which principle covers adding another service element to the plan?",
+        "answer": "Scalability."
+      },
+      {
+        "question": "What should planners prepare before selecting joint communications systems?",
+        "answer": "A signal estimate that explains the situation and informs the requirements."
+      }
+    ]
+  },
+  "coalition": {
+    "brief": "Coalition signal support lets forces from different nations exchange the information they need for a common mission while honoring each participant's sharing and protection requirements.",
+    "facts": [
+      {
+        "term": "Coalition operations",
+        "detail": "Forces from two or more nations work toward a common operational purpose."
+      },
+      {
+        "term": "Staff and signal officers",
+        "detail": "Operational staff identify what must move, who needs it and when. The signal officer turns those needs into a communication arrangement the force can use."
+      },
+      {
+        "term": "Interoperability",
+        "detail": "Equipment, standards, procedures and terminology must support a usable exchange. Shared message meanings matter as much as a working link."
+      },
+      {
+        "term": "Releasability",
+        "detail": "Sharing depends on what information is approved for the recipient. Access to an exchange channel and permission to share a specific item are separate decisions."
+      },
+      {
+        "term": "Continuity and sustainment",
+        "detail": "Plan for degraded service, alternate means, trained operators, maintenance and restoration."
+      },
+      {
+        "term": "Mission-focused support",
+        "detail": "Use mission and command requirements to select suitable voice, data, connectivity and technical support capabilities."
+      }
+    ],
+    "insights": [
+      "A partner can correctly receive a report and still misread a status code. Test meaning and acknowledgment alongside technical delivery.",
+      "Wider distribution can speed coordination while creating release problems. An approved shared summary can support the common decision with fewer fields."
+    ],
+    "scenario": {
+      "situation": "A Philippine Army team and a partner nation run a fictional disaster-relief exercise. The partner needs road closure and supply handoff updates. An Army status file contains those fields and additional internal notes whose release has yet to be approved.",
+      "question": "How should the staff keep the partner informed in time for the next delivery?",
+      "analysis": "Confirm which fields can be released and agree on a short shared update using terms both teams understand. Test delivery and acknowledgment over an approved path and identify an approved alternate. The shared update gives the partner what it needs while the internal file stays in its authorized channel."
+    },
+    "steps": [
+      "Write the common decision and specify the minimum information each partner needs.",
+      "Compare mission needs with available capabilities and mark the requirements that are still unsupported.",
+      "Identify interfaces between partners, including message format, terminology and release permissions.",
+      "Assign responsibilities and align the shared format and path with the exercise phases and timings.",
+      "Agree on an approved alternate and the conditions for switching to it.",
+      "Rehearse a representative exchange and confirm receipt, interpretation and the handoff when the primary means fails."
+    ],
+    "checks": [
+      {
+        "question": "What distinguishes a coalition from a joint operation within one nation?",
+        "answer": "A coalition includes forces from two or more nations."
+      },
+      {
+        "question": "What must be checked before sending an internal file on a shared link?",
+        "answer": "Whether the information is approved for release to the intended recipients."
+      }
+    ]
+  },
+  "manet": {
+    "brief": "A mobile ad hoc network (MANET) lets mobile nodes form and adapt wireless paths without a permanent infrastructure. Plan the services those paths must carry and verify that each service works under exercise conditions.",
+    "facts": [
+      {
+        "term": "Mobile nodes",
+        "detail": "Nodes can forward traffic for one another across multiple hops where a usable path exists."
+      },
+      {
+        "term": "Self-healing",
+        "detail": "The network can adapt to a topology change by using an available alternate path. A disconnected group may still lose service."
+      },
+      {
+        "term": "Traffic and capacity",
+        "detail": "Unicast serves an individual destination, while broadcast reaches a broader audience. Quality of service helps manage competing traffic within available capacity."
+      },
+      {
+        "term": "Diagnostics",
+        "detail": "Received signal strength and signal-to-noise ratio measure different conditions. Review them alongside service and network evidence."
+      },
+      {
+        "term": "Fault handling",
+        "detail": "Identify and isolate the fault, carry out the approved repair and verify that the affected service has recovered."
+      },
+      {
+        "term": "Integration and protection",
+        "detail": "An integrator can connect legacy and newer services. Verify each needed service separately and preserve the controls on what may cross the boundary."
+      }
+    ],
+    "insights": [
+      "A network can reroute and still struggle with heavy updates. Judge restoration using the service the user needs, including its delay or loss.",
+      "A connected node and a successful voice test give limited evidence about data exchange. Each required service has its own traffic and compatibility demands."
+    ],
+    "scenario": {
+      "situation": "During a Philippine Army classroom simulation, one moving node loses its usual path. The network reroutes traffic and voice works, but map updates arrive too late for the exercise's movement decision.",
+      "question": "What should the team verify before it declares the network restored?",
+      "analysis": "Confirm that the receiving team gets a usable map update within the exercise's decision window. Compare the data path and traffic behavior before and after the reroute, and check whether the delay affects only that service. If capacity is limited, prioritize essential exchanges and repeat the same test."
+    },
+    "steps": [
+      "Define a success check for each required classroom service, such as intelligible voice or a timely map update.",
+      "Record which simulated nodes and services work before the instructor introduces a path or interface fault.",
+      "Use the authorized diagnostic view to compare the affected path and services, then isolate the likely fault.",
+      "Repeat the original service checks after the instructor-approved correction and record the outcome."
+    ],
+    "checks": [
+      {
+        "question": "What must exist for self-healing to restore connectivity after a path breaks?",
+        "answer": "A usable alternate path between the affected nodes."
+      },
+      {
+        "question": "Why should repair verification go beyond seeing that a node is connected?",
+        "answer": "Connectivity alone leaves the actual delivery and performance of the required service unverified."
+      }
+    ]
+  },
+  "sensors": {
+    "brief": "C4ISTAR sensor integration makes observations available and understandable to the people who need them. It supports a shared picture through usable data, compatible interfaces and clear responsibilities.",
+    "facts": [
+      {
+        "term": "System of systems",
+        "detail": "C4ISTAR connects capabilities for command, control, communications, computers, intelligence, surveillance, target acquisition and reconnaissance."
+      },
+      {
+        "term": "Common Operational Picture",
+        "detail": "The shared display draws on multiple inputs to support situational awareness. Its usefulness depends on the quality and currency of those inputs."
+      },
+      {
+        "term": "Sensor roles",
+        "detail": "Thermal imagers provide thermal observations, and radio direction finding provides a bearing. Aerial and ground platforms can carry different sensor payloads."
+      },
+      {
+        "term": "Interface Control Document",
+        "detail": "An ICD specifies how systems connect and exchange information. Defined interfaces allow systems with different internal designs to interoperate."
+      },
+      {
+        "term": "Integration limits",
+        "detail": "Weather, electromagnetic conditions, network capacity and analysis workload can affect the quality or timeliness of reports."
+      },
+      {
+        "term": "Responsibilities and testing",
+        "detail": "The lesson assigns core C4 responsibilities to the Army Signal Regiment and core sensor or ISTAR responsibilities to the Army Intelligence Regiment. Joint testing checks the exchange across their boundary."
+      }
+    ],
+    "insights": [
+      "A common display can make two observations look equally reliable. Preserve the source, time and uncertainty so staff can judge what each observation supports.",
+      "Higher volume can slow analysis and reporting. Select the data products needed for the decision and test them under realistic classroom load."
+    ],
+    "scenario": {
+      "situation": "In a Philippine Army flood-response tabletop, an aerial training feed shows a bridge from earlier in the morning. A ground team has just reported a possible closure, but the common display gives both entries the same apparent update time.",
+      "question": "What should the integration team correct before the planner uses the display to select a relief route?",
+      "analysis": "Restore distinct observation times and identify the source and confidence of each entry. Use the possible closure as a cue to verify current passability and consider a fallback route. A report can arrive late or be reloaded, so the display's receipt time alone cannot settle which observation is more current."
+    },
+    "steps": [
+      "Define the decision the sensor report should support and the observation fields the recipient needs.",
+      "Check the agreed interface for shared meanings and required fields before combining feeds.",
+      "Send a sample observation and verify that the receiving display preserves its meaning and time.",
+      "Repeat with a delayed or missing report and record how the display and staff handle uncertainty."
+    ],
+    "checks": [
+      {
+        "question": "What does an ICD describe?",
+        "answer": "How systems connect and exchange information."
+      },
+      {
+        "question": "What can a single radio direction finding observation contribute to a shared picture?",
+        "answer": "A bearing, with the uncertainty and limits of that observation."
+      }
+    ]
+  },
+  "weapons": {
+    "brief": "C4ISTAR weapon system integration links information and decision support across sensors, networks and command elements. The lesson separates information exchange from command authority and assesses the exchange in a simulated setting.",
+    "facts": [
+      {
+        "term": "Command and control",
+        "detail": "C2 combines people, processes, networks and facilities. Command involves authority and responsibility, and control coordinates actions and feedback."
+      },
+      {
+        "term": "Information flow",
+        "detail": "Sensors contribute observations, computers help process and store information, and communications move it between participants."
+      },
+      {
+        "term": "Interoperability",
+        "detail": "People, procedures and systems must exchange and use information. An Interface Control Document defines the exchange, including how its contents are interpreted."
+      },
+      {
+        "term": "Open architecture",
+        "detail": "Defined interfaces and standards support integration and upgrades. TCP/IP can carry messages while their meaning depends on a common format and interpretation."
+      },
+      {
+        "term": "Security and authority",
+        "detail": "Protect confidentiality, integrity and availability. Receiving a message or gaining network access leaves approval with the designated authority."
+      },
+      {
+        "term": "Conceptual frameworks",
+        "detail": "OODA stands for Observe, Orient, Decide, Act. D3A stands for Decide, Detect, Deliver, Assess."
+      }
+    ],
+    "insights": [
+      "A transport test establishes that messages arrive. An end-to-end test also checks that their status, source and other fields retain the intended meaning.",
+      "Shared data can shorten the time needed to understand a situation. The staff must still distinguish observations, assessments and authorized decisions."
+    ],
+    "scenario": {
+      "situation": "In a Philippine Army command-post simulation with all outputs limited to a training display, one system sends a tentative observation. The receiving display labels it confirmed because the two systems interpret the status field differently.",
+      "question": "What should the integration team recommend before the staff uses that feed in the exercise?",
+      "analysis": "Flag the feed as unsuitable for decisions that depend on confirmation, align the status mapping with the documented interface, and replay known test messages. Check that users can distinguish a report, a confirmation and a command decision. Connectivity alone would leave the mislabeling in place."
+    },
+    "steps": [
+      "Choose a harmless training message and write the meaning each receiver should display.",
+      "Compare the sending and receiving definitions in the agreed interface documentation.",
+      "Replay sample messages with different statuses and check their meaning at the receiving display.",
+      "Record discrepancies and retest the corrected mapping with access controls and authority boundaries in place."
+    ],
+    "checks": [
+      {
+        "question": "What does a successful TCP/IP exchange establish by itself?",
+        "answer": "The systems can transport the tested data. Shared interpretation and authorization require separate checks."
+      },
+      {
+        "question": "Where does decision authority reside in an integrated system?",
+        "answer": "With the designated people or command roles responsible for the decision."
+      }
+    ]
+  },
+  "propagation": {
+    "brief": "Propagation models estimate radio coverage and link performance. Compare the modeled results on consistent assumptions, then verify the links and gaps that matter to the exercise.",
+    "facts": [
+      {
+        "term": "Model inputs",
+        "detail": "Terrain, antenna height above local ground, transmit power, feed-line loss and receiver threshold affect the prediction."
+      },
+      {
+        "term": "Path profile",
+        "detail": "A path profile shows terrain relative to the direct path and its Fresnel zone. Diffraction can contribute to a usable signal even with an obstruction."
+      },
+      {
+        "term": "Link margin",
+        "detail": "Margin expresses the difference between predicted receive power and the required threshold. A small positive margin gives little room for worsening conditions."
+      },
+      {
+        "term": "Coverage and cellular tools",
+        "detail": "An area plot estimates the combined or individual coverage footprint. CellMapper can suggest tower locations and CloudRF predicts coverage from supplied inputs."
+      },
+      {
+        "term": "Relay and validation",
+        "detail": "A relay must support both legs of the intended connection. Confirm access, check the links in authorized field tests and update the model with the results."
+      }
+    ],
+    "insights": [
+      "A stronger coverage color away from the required route can make a relay look more valuable than it is. Compare the corridor and endpoints the exercise depends on.",
+      "Keep the recorded model settings with the plot. Comparing different receiver thresholds or extents can make a model change look like a service improvement."
+    ],
+    "scenario": {
+      "situation": "A Philippine Army disaster-response exercise models two relay options for a supply route. One adds a larger colored area but leaves a gap near a delivery point. The other covers the delivery point, although one of its modeled link margins is small and crew access is uncertain.",
+      "question": "Which option merits the first validation, and what would change that choice?",
+      "analysis": "Validate the second option first because it serves the delivery point, provided the crew can safely reach the site. Check both relay legs and the marginal link under representative conditions. If access or link performance fails, keep the approved alternate available and compare another option against the same route requirement."
+    },
+    "steps": [
+      "Mark the exercise route, key contact points and endpoints on the same analysis map.",
+      "Record the assumptions for the baseline and hold comparable settings constant when modeling a relay.",
+      "Read both relay path profiles and margins, then compare the before-and-after coverage along the required route.",
+      "Check access and conduct authorized link tests at the key points before updating the coverage plot and communications plan."
+    ],
+    "checks": [
+      {
+        "question": "What is link margin in a model output?",
+        "answer": "Predicted received power minus the threshold needed for that link."
+      },
+      {
+        "question": "Why should a proposed relay be assessed on both sides?",
+        "answer": "The intended connection depends on usable paths from each endpoint to the relay."
+      }
+    ]
+  },
+  "sigint": {
+    "brief": "Signals intelligence turns relevant observations from communications and non-communications signals into assessed information for a decision. Evaluate the quality of a report and share it with authorized recipients who need it.",
+    "facts": [
+      {
+        "term": "Intelligence product",
+        "detail": "Collection provides observations. Evaluation, analysis and integration turn them into information that can support a decision."
+      },
+      {
+        "term": "COMINT and ELINT",
+        "detail": "Communications intelligence concerns signals such as voice or messages. Electronic intelligence concerns non-communication signals."
+      },
+      {
+        "term": "RDF contribution",
+        "detail": "Radio direction finding can provide directional information about an emission. A direction alone leaves important questions about the source unresolved."
+      },
+      {
+        "term": "Three quality aims",
+        "detail": "Accuracy asks whether the information is sound, timeliness whether it reaches the user when needed, and relevance whether it answers the decision at hand."
+      },
+      {
+        "term": "Corroboration",
+        "detail": "Seek independent evidence where the original report is uncertain or cannot be clarified with the source. Repeated copies of one report share its limitations."
+      },
+      {
+        "term": "Cycle and dissemination",
+        "detail": "Start with mission requirements. Process and analyze the available material, disseminate the assessment securely to those who need it, and use feedback to refine requirements."
+      }
+    ],
+    "insights": [
+      "A timely report may be useful with an explicit confidence limit. Consider what decision can safely use it while substantiation is pending.",
+      "Check where reports originated before counting how many support a claim. A compromised channel or a common source can create apparent agreement."
+    ],
+    "scenario": {
+      "situation": "In a Philippine Army classroom exercise, two summaries suggest that a simulated exercise site has changed its operating hours. Both trace back to the same unverified report, and the planning team must brief soon.",
+      "question": "How should the analyst present the apparent agreement?",
+      "analysis": "Treat the two summaries as one unconfirmed line of evidence. Brief the authorized team on the possible change and what remains uncertain, and seek an independent report that addresses the operating hours. This preserves a timely lead while making its evidentiary weight clear."
+    },
+    "steps": [
+      "Write the exercise decision and the intelligence requirement it creates.",
+      "Sort the instructor-provided observations by source and time. Mark which summaries derive from the same observation.",
+      "Check accuracy, timeliness and relevance. Compare the claim with independent material available in the exercise.",
+      "Prepare a short assessment for the designated recipients, state the uncertainty and record the next information requirement."
+    ],
+    "checks": [
+      {
+        "question": "What are the two SIGINT sub-disciplines taught in the lesson?",
+        "answer": "Communications intelligence (COMINT) and electronic intelligence (ELINT)."
+      },
+      {
+        "question": "Do two reports with the same origin independently corroborate a claim?",
+        "answer": "No. They repeat the same source, so look for an independent line of evidence."
+      }
+    ]
+  },
+  "elint": {
+    "brief": "Electronic intelligence (ELINT) interprets non-communication emissions such as radar signals. Distinguish the features you observe, what they suggest about the emitter, and what evidence would support a firmer assessment.",
+    "facts": [
+      {
+        "term": "ELINT and COMINT",
+        "detail": "ELINT examines non-communication emissions and their technical signatures. COMINT examines communications such as voice, text or data messages."
+      },
+      {
+        "term": "Electronic Support and ELINT",
+        "detail": "Electronic Support serves a commander's immediate awareness needs. ELINT produces assessed technical intelligence that can build or update emitter knowledge."
+      },
+      {
+        "term": "Electronic Order of Battle",
+        "detail": "The lesson distinguishes Friendly, Adversary and Neutral EOBs. ELINT contributes to building and updating the Adversary EOB."
+      },
+      {
+        "term": "Radar echo",
+        "detail": "A pulsed radar uses the elapsed time for a transmitted pulse to return as an echo to estimate range. A passive receiver observes a signal on its outbound journey."
+      },
+      {
+        "term": "Signature parameters",
+        "detail": "Carrier frequency, pulse width, pulse repetition interval, scan behavior and other observed parameters help describe a radar signature. PRF is the reciprocal of PRI in seconds."
+      },
+      {
+        "term": "Search and track",
+        "detail": "A rotating or sector sweep is consistent with search. A more focused pattern with faster pulse repetition can suggest a shift toward tracking."
+      }
+    ],
+    "insights": [
+      "A behavior change can justify a prompt update while identification remains tentative. Report what changed and state how strongly it supports the interpretation.",
+      "One common parameter is a weak match. Look for agreement across several signature features and preserve uncertainty when a library entry is incomplete."
+    ],
+    "scenario": {
+      "situation": "A Philippine Army classroom team compares two simulated radar records. The same exercise emitter changes from a repeating sweep to a more focused pattern with faster pulses. A library entry matches its carrier band but lists a different pulse width.",
+      "question": "What should the team report about behavior and identity?",
+      "analysis": "Report the change as consistent with a shift from search toward tracking, and retain the recorded features that support that interpretation. Keep the equipment identity provisional because the band match alone is weak and another feature differs. The behavior update can reach the instructor before the identity is resolved."
+    },
+    "steps": [
+      "Use the supplied synthetic records to list measured features for each observation.",
+      "Compare the scan behavior and pulse timing across the records and describe the observed change.",
+      "Compare the set of features with the exercise signature library and mark matches, conflicts and unknowns.",
+      "Write an exercise update with separate observation, tentative assessment and validation fields."
+    ],
+    "checks": [
+      {
+        "question": "Which SIGINT sub-discipline studies a radar emission's technical signature?",
+        "answer": "Electronic intelligence (ELINT)."
+      },
+      {
+        "question": "If the pulse repetition interval is 2 milliseconds, what is the pulse repetition frequency?",
+        "answer": "500 hertz, because 1 divided by 0.002 seconds is 500 pulses per second."
+      }
+    ]
+  },
+  "rdf": {
+    "brief": "Radio direction finding estimates the direction from which an RF signal arrives. Use that bearing to support a decision while preserving the difference between a direction and a position.",
+    "facts": [
+      {
+        "term": "Direction of arrival",
+        "detail": "DOA is the azimuthal arrival angle relative to the RDF system."
+      },
+      {
+        "term": "Phase comparison",
+        "detail": "Phase comparison, including the interferometric example, compares phase differences across antennas or antenna elements."
+      },
+      {
+        "term": "Time difference of arrival",
+        "detail": "TDOA compares when a signal arrives at spatially separated antennas."
+      },
+      {
+        "term": "Sources and applications",
+        "detail": "Possible sources include communications, radar and distress beacons. The lesson discusses navigation assistance, search and rescue, and spectrum monitoring."
+      },
+      {
+        "term": "Limits of a bearing",
+        "detail": "A single direction can inform coordination while distance, precise location and transmitter identity still require other evidence."
+      }
+    ],
+    "insights": [
+      "State the reference for a direction before a recipient uses it. A bearing given relative to a system needs context to support a shared understanding.",
+      "A bearing can guide what a rescue team verifies next. Keep a possible source association tentative until independent exercise information supports it."
+    ],
+    "scenario": {
+      "situation": "A Philippine Army rescue tabletop presents a single synthetic bearing associated with a possible distress beacon. The exercise map shows two landing points in that direction, and the team can verify only one immediately.",
+      "question": "What should the team relay, and how should the coordinator use it?",
+      "analysis": "Relay the measured direction with its reference and keep both landing points open as possibilities. Use independent exercise reports and current access information to prioritize a check. The bearing narrows the discussion, but it cannot select one location or identify the beacon by itself."
+    },
+    "steps": [],
+    "checks": [
+      {
+        "question": "What does TDOA compare?",
+        "answer": "Differences in the time at which the same signal arrives at separated antennas."
+      },
+      {
+        "question": "Does one bearing establish an exact location?",
+        "answer": "No. It describes a direction, while a precise location requires additional evidence."
+      }
+    ]
+  },
+  "eccm": {
+    "brief": "Electronic counter-countermeasures are taught as Electronic Protection (EP). Use communications discipline and continuity planning to preserve friendly service, then distinguish an observed disruption from its possible causes.",
+    "facts": [
+      {
+        "term": "Electronic Protection",
+        "detail": "EP safeguards friendly capabilities in the electromagnetic environment. The lesson treats it as an all-unit responsibility."
+      },
+      {
+        "term": "EMCON and radio discipline",
+        "detail": "Emission control governs what may transmit under given conditions. The lesson names Level 3 AMBER as its field baseline and teaches necessary, brief transmissions."
+      },
+      {
+        "term": "Encryption and anti-jam measures",
+        "detail": "Encryption protects information content. Anti-jam measures address the ability to keep communicating despite interference."
+      },
+      {
+        "term": "Possible causes of disruption",
+        "detail": "Sudden static or lost service can stem from interference, equipment faults, terrain or distance, or jamming. A symptom alone leaves the cause uncertain."
+      },
+      {
+        "term": "PACE",
+        "detail": "Primary, Alternate, Contingency and Emergency. Rehearse when to switch and how to maintain essential exchange on the approved backup."
+      },
+      {
+        "term": "GNSS disruption",
+        "detail": "Jamming can deny reliable reception. Spoofing can make a receiver show misleading position or time. Cross-check inconsistent indications and report their effects."
+      }
+    ],
+    "insights": [
+      "Keep the essential service going while someone checks the evidence. Waiting for a confident diagnosis can unnecessarily delay the exercise.",
+      "Record the service lost, the circumstances and the actions taken. Clear observations help the recipient assess competing explanations."
+    ],
+    "scenario": {
+      "situation": "During a Philippine Army convoy tabletop, an instructor injects intermittent static on the primary voice service near an exercise checkpoint. An alternate passes a test message. One crew also reports an equipment warning.",
+      "question": "What should the signal team do first, and what should it report?",
+      "analysis": "Use the rehearsed trigger and approved alternate to keep the essential traffic moving. Check for local equipment faults and compare symptoms across stations and conditions. Report the observed static, mission effect and actions taken through the exercise channel, with the cause marked as unresolved."
+    },
+    "steps": [
+      "Identify the essential traffic and the symptom observed in the instructor's interference drill.",
+      "Apply the exercise's rehearsed PACE trigger and confirm that the required message reaches the recipient.",
+      "Compare operator observations and check plausible equipment and environmental causes under instructor supervision.",
+      "Send a training report covering who, when, where, affected service, symptom, effect and actions. Separate observations from the suspected cause."
+    ],
+    "checks": [
+      {
+        "question": "Which measure protects message content, encryption or anti-jam measures?",
+        "answer": "Encryption."
+      },
+      {
+        "question": "What should a PACE rehearsal confirm in addition to naming the four means?",
+        "answer": "When to switch and whether the recipient can still receive the essential traffic."
+      }
+    ]
+  }
+}

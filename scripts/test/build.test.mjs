@@ -95,11 +95,12 @@ export async function buildSuite({ lessons, modules }) {
   await T('every committed page is a fresh build (run node scripts/build.mjs), with the real endpoint written once per page', () => {
     const pages = build({ write: false });
     const expectedPages = ['index.html', 'class/index.html', 'schedule/index.html', 'schedule-2026-10-26/index.html', 'schedule-2026-11-02/index.html', 'schedule-2026-11-09/index.html', 'instructor/index.html', 'codes-ciphers/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
-    assert.deepEqual(Object.keys(pages).sort(), expectedPages.sort());
+    const studyPages = ['library/index.html', 'reviewer/index.html', ...lessons.filter(lesson => !lesson.pool && !(lesson.prominent && lesson.order === 0)).map(lesson => `reviewer/${lesson.key}/index.html`)];
+    assert.deepEqual(Object.keys(pages).sort(), [...expectedPages, ...studyPages].sort());
     for (const slug of ['isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal', 'coalition-signal', 'combined']) assert.ok(expectedPages.includes(`${slug}/index.html`), slug);
     for (const [path, html] of Object.entries(pages)) {
       assert.equal(readFileSync(join(ROOT, path), 'utf8'), html, `${path} is stale: run node scripts/build.mjs`);
-      if (['class/index.html', 'codes-ciphers/index.html'].includes(path) || /^schedule(?:-\d{4}-\d{2}-\d{2})?\//.test(path)) assert.ok(!html.includes('HISTORY_ENDPOINT') && !html.includes('script.google.com'), `${path} never contacts the history endpoint`);
+      if (studyPages.includes(path) || ['class/index.html', 'codes-ciphers/index.html'].includes(path) || /^schedule(?:-\d{4}-\d{2}-\d{2})?\//.test(path)) assert.ok(!html.includes('HISTORY_ENDPOINT') && !html.includes('script.google.com'), `${path} never contacts the history endpoint`);
       else assert.equal(html.split(`var HISTORY_ENDPOINT = '${HISTORY_ENDPOINT}';`).length - 1, 1, `${path} declares the endpoint once`);
       assert.doesNotMatch(html, /\{\{[A-Z_]+\}\}/, `${path} has no unfilled placeholder`);
     }
@@ -131,7 +132,7 @@ export async function buildSuite({ lessons, modules }) {
   await T('appending a question is a plain append + rebuild: a new question with the next id and qid builds, the counts follow', () => {
     const fixture = mkdtempSync(join(tmpdir(), 'quiz-append-'));
     try {
-      for (const dir of ['scripts', 'src', 'lessons', 'data']) cpSync(join(ROOT, dir), join(fixture, dir), { recursive: true });
+      for (const dir of ['scripts', 'src', 'lessons', 'data', 'library']) cpSync(join(ROOT, dir), join(fixture, dir), { recursive: true });
       const path = join(fixture, 'lessons', 'armor', 'medium.json');
       const bank = JSON.parse(readFileSync(path, 'utf8'));
       bank.pop();writeFileSync(path,JSON.stringify(bank));
@@ -160,7 +161,7 @@ export async function buildSuite({ lessons, modules }) {
   await T('a new lesson is just dropped in: lessons/_template + hero.svg + three banks builds a page, a hub card and an instructor entry', () => {
     const fixture = mkdtempSync(join(tmpdir(), 'quiz-slot-'));
     try {
-      for (const dir of ['scripts', 'src', 'lessons', 'data']) cpSync(join(ROOT, dir), join(fixture, dir), { recursive: true });
+      for (const dir of ['scripts', 'src', 'lessons', 'data', 'library']) cpSync(join(ROOT, dir), join(fixture, dir), { recursive: true });
       const dir = join(fixture, 'lessons', 'signaljoint');
       rmSync(dir, { recursive: true, force: true });
       cpSync(join(ROOT, 'lessons', '_template'), dir, { recursive: true });

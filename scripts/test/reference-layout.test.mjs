@@ -61,3 +61,13 @@ test('uncited explanations remain notes without an invented or empty reference s
   const app=exercise('module-5-exam',q=>({...q,explanation:'A note with no supplied citation.'}));
   for(const group of [app.feedback,app.finish()])assertSeparated(group,'A note with no supplied citation.',[]);
 });
+test('verified manual page numbers open inside the library from feedback and results',()=>{
+  const app=exercise('signal-estimate',q=>({...q,sourceSlides:[27,44]}));
+  for(const group of [app.feedback,app.finish()]){
+    const links=findAll(group,n=>hasClass(n,'library-reference')).map(node=>node.getAttribute('href'));
+    assert.deepEqual(links,[
+      '../library/?doc=pam-6-0102&page=27#document',
+      '../library/?doc=pam-6-0102&page=44#document'
+    ]);
+  }
+});

@@ -34,10 +34,14 @@ The whole site is published from this repository with GitHub Pages at https://at
   | Supporting | Intelligence Cycle | `intcycle` | `/quiz-hub/intelligence-cycle/` |
 
 - **Instructor view** (`/quiz-hub/instructor/`): question analysis.
+- **Reviewer 101** (`/quiz-hub/reviewer/`): lesson briefings, recall checks, worked Philippine Army classroom scenarios and source-backed practice steps.
+- **Study Library** (`/quiz-hub/library/`): searchable lesson and manual records, connected reviewers and an in-site PDF reader. Quiz references link to the catalogue and jump to the cited PDF page when the source and pagination match.
 - **Our class** (`/quiz-hub/class/`): class organization and roster.
 - **Weekly training schedule** (`/quiz-hub/schedule/`): click a day to show its timetable; today opens automatically within the week, with a Now / Next panel. Printing includes every day. Linked from the hub header and class page.
 
 The old per-lesson repositories now only redirect to these URLs.
+
+Reviewer text lives in `data/reviewers/`. Document names, editions and lesson relationships live in `data/library.json`. Put reviewed, publishable PDFs in `library/files/`. Keep a citation-only entry when the source PDF is unavailable for public distribution. To regenerate printable study editions, run `python scripts/build-study-pdfs.py` with ReportLab, then run `node scripts/build.mjs`. The viewer uses the self-hosted Apache-2.0 PDF.js 6.5.438 distribution in `assets/vendor/pdfjs/`.
 
 The seven Module 5/7 lesson quizzes contain 450 questions: NIST and Zero Trust have 25 per difficulty, and MANET, Sensors, Weapon Systems, GSOMIA and Cyber Risk have 20. The two separate hybrid module exams add 186 question records: Module 5 has 30 per difficulty across its three available lessons; Module 7 has 32 across all four lessons. Each mode combines 50% selected foundations with 50% new cross-lesson scenarios. Their `coverage.json` maps primary lessons, origins and supporting source qids; explanations cite lesson names and pages/slides. They have independent history and question identities. Existing oversized banks have 35 per difficulty; SIGINT, RDF and Intelligence Cycle retain 25. Every lesson's `coverage.md` maps assessed topics and records source limitations. Raw source decks are not published. CipherDesk is a standalone tool.
 

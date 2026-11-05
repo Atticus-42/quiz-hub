@@ -1,0 +1,296 @@
+{
+  "lessonSources": {
+    "leadershipattributes": [
+      "Military Leadership Attributes (CPI)"
+    ],
+    "leadershipcompetencies": [
+      "Military Leadership Competencies (Leading, Developing, and Achieving)"
+    ],
+    "companymanagement": [
+      "Company Management (Company Level)"
+    ],
+    "missioncommand": [
+      "Mission Command"
+    ],
+    "ethicalleadership": [
+      "Ethical and Transformational Leadership",
+      "ethical-transformational-leadership"
+    ],
+    "ncoempowerment": [
+      "NCO Empowerment"
+    ],
+    "effectivecommunication": [
+      "Effective Communication 2"
+    ],
+    "fieldartillery": [
+      "Field Artillery Operations"
+    ],
+    "armor": [
+      "Fundamentals of Armor Operations"
+    ],
+    "isr": [
+      "Introduction to ISR Operations"
+    ],
+    "tlp": [
+      "Troop Leading Procedure · Worked Classroom Exercise"
+    ],
+    "signal": [
+      "Signal Support in Combined Arms Operations · Student Handout",
+      "combined-arms-signal-support"
+    ],
+    "signaljoint": [
+      "Signal Support in Joint Operations"
+    ],
+    "coalition": [
+      "Signal Support in Coalition Operations",
+      "coalition-signal-support"
+    ],
+    "manet": [
+      "MANET C4ISTAR Planning"
+    ],
+    "sensors": [
+      "C4ISTAR Sensors Integration"
+    ],
+    "weapons": [
+      "C4ISTAR Weapon System Integration"
+    ],
+    "propagation": [
+      "Signal Propagation · Worked Coverage Study"
+    ],
+    "sigint": [
+      "Signals Intelligence"
+    ],
+    "elint": [
+      "Electronic Intelligence (ELINT)"
+    ],
+    "rdf": [
+      "Radio Direction Finder (Revised)"
+    ],
+    "eccm": [
+      "Electronic Counter-Countermeasures (ECCM)"
+    ],
+    "nist": [
+      "NIST Framework · SOAC Lesson"
+    ],
+    "zerotrust": [
+      "Zero Trust · SOAC Lesson"
+    ],
+    "gsomia": [
+      "LOE3 GSOMIA Compliance"
+    ],
+    "cyberrisk": [
+      "Cyber Risk Assessment"
+    ],
+    "ceoicesi": [
+      "CEOI / CESI Management"
+    ],
+    "signalestimate": [
+      "PAM 6-0102 · Signal Operations",
+      null,
+      "pam-6-0102"
+    ],
+    "c4istarplanning": [
+      "C4ISTAR Communications Planning"
+    ],
+    "signalplanning": [
+      "PAM 6-0102 · Signal Operations",
+      null,
+      "pam-6-0102"
+    ],
+    "armyops": [
+      "Introduction to Army Operations"
+    ],
+    "intcycle": [
+      "Intelligence Cycle"
+    ]
+  },
+  "manuals": [
+    {
+      "id": "pam-6-0102",
+      "title": "PAM 6-0102 · Signal Operations",
+      "edition": "15 April 2022",
+      "cited": [
+        "ceoicesi",
+        "signalestimate",
+        "signalplanning",
+        "weapons",
+        "nist",
+        "zerotrust",
+        "gsomia",
+        "cyberrisk"
+      ],
+      "related": [
+        "signal",
+        "signaljoint",
+        "coalition"
+      ],
+      "file": "pam-6-0102"
+    },
+    {
+      "id": "pam-6-00",
+      "title": "PAM 6-00 · Command and Control, Communications, and Cyber Systems",
+      "edition": "2nd edition · 11 December 2017",
+      "cited": [
+        "manet",
+        "nist",
+        "zerotrust",
+        "gsomia",
+        "cyberrisk"
+      ],
+      "file": "pam-6-00"
+    },
+    {
+      "id": "pam-6-0001",
+      "title": "PAM 6-0001 · Command and Control, Communications, Computer, Intelligence, Surveillance, Target Acquisition, and Reconnaissance",
+      "cited": [
+        "sensors",
+        "weapons"
+      ]
+    },
+    {
+      "id": "pam-6-0102-04",
+      "title": "PAM 6-0102-04 · Cyberspace Operations",
+      "cited": [
+        "nist",
+        "zerotrust",
+        "gsomia",
+        "cyberrisk"
+      ],
+      "file": "pam-6-0102-04",
+      "edition": "24 February 2020"
+    },
+    {
+      "id": "pam-3-00",
+      "title": "PAM 3-00 · Army Operations",
+      "cited": [
+        "armyops",
+        "armor",
+        "nist",
+        "zerotrust",
+        "gsomia",
+        "cyberrisk"
+      ]
+    },
+    {
+      "id": "pam-3-0502",
+      "title": "PAM 3-0502 · Armor Operations",
+      "cited": [
+        "armor"
+      ]
+    },
+    {
+      "id": "pam-3-0101-04",
+      "title": "PAM 3-0101-04 · Annex A cited in the TLP exercise",
+      "cited": [
+        "tlp"
+      ]
+    },
+    {
+      "id": "pam-3-0702-01",
+      "title": "PAM 3-0702-01 · Electronic Warfare Operations",
+      "edition": "September 2026 · cited edition",
+      "cited": [
+        "elint",
+        "eccm"
+      ]
+    },
+    {
+      "id": "pam-8-0101",
+      "title": "PAM 8-0101 · Army Leadership Development System",
+      "related": [
+        "leadershipattributes",
+        "leadershipcompetencies"
+      ],
+      "file": "pam-8-0101",
+      "edition": "24 August 2022"
+    },
+    {
+      "id": "pam-5-0104",
+      "title": "PAM 5-0104 · Philippine Army Risk Management",
+      "related": [
+        "companymanagement",
+        "cyberrisk"
+      ],
+      "file": "pam-5-0104",
+      "edition": "15 July 2021"
+    },
+    {
+      "id": "fc-8-039",
+      "title": "FC 8-039 · Army NCO Guide",
+      "cited": [
+        "ncoempowerment"
+      ]
+    },
+    {
+      "id": "company-commanders-guide",
+      "title": "Company Commander’s Guide Handbook",
+      "edition": "2020 · cited edition",
+      "cited": [
+        "companymanagement"
+      ]
+    },
+    {
+      "id": "adp-6-0",
+      "title": "ADP 6-0 · Mission Command",
+      "cited": [
+        "missioncommand"
+      ]
+    },
+    {
+      "id": "fm-6-0",
+      "title": "FM 6-0 · Commander and Staff Organization and Operations",
+      "cited": [
+        "missioncommand"
+      ]
+    },
+    {
+      "id": "fm-6-22",
+      "title": "FM 6-22 (FM 22-100) · Army Leadership",
+      "cited": [
+        "leadershipattributes"
+      ]
+    },
+    {
+      "id": "adp-6-22",
+      "title": "ADP 6-22 · Army Leadership and the Profession",
+      "cited": [
+        "leadershipattributes",
+        "ethicalleadership"
+      ]
+    },
+    {
+      "id": "fm-3-12",
+      "title": "FM 3-12 · Cyberspace Operations and Electromagnetic Warfare",
+      "cited": [
+        "eccm",
+        "nist"
+      ]
+    },
+    {
+      "id": "tc-24-2",
+      "title": "TC 24-2 · The Automated CEOI",
+      "cited": [
+        "ceoicesi"
+      ]
+    },
+    {
+      "id": "nist-cswp-29",
+      "title": "NIST CSWP 29 · The NIST Cybersecurity Framework (CSF) 2.0",
+      "edition": "26 February 2024",
+      "file": "nist-cswp-29",
+      "related": [
+        "nist",
+        "cyberrisk"
+      ]
+    },
+    {
+      "id": "nist-sp-800-207",
+      "title": "NIST SP 800-207 · Zero Trust Architecture",
+      "edition": "August 2020",
+      "file": "nist-sp-800-207",
+      "cited": [
+        "zerotrust"
+      ]
+    }
+  ]
+}
