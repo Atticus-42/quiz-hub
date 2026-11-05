@@ -10,16 +10,25 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <nav class="study-nav" aria-label="Site sections">
-    <a href="{{HOME}}">Practice exams</a>
-    <a href="{{REVIEWER_HREF}}"{{REVIEWER_CURRENT}}>Reviewer 101</a>
-    <a href="{{LIBRARY_HREF}}"{{LIBRARY_CURRENT}}>Library</a>
-  </nav>
+  <div class="study-masthead">
+    <div class="study-wrap study-header-inner">
+      <a class="study-brand" href="{{BRAND_HREF}}"><span class="brand-mark" aria-hidden="true">BB</span><span>Bandwidth Brothers <small>SOAC 52–26</small></span></a>
+      <nav class="study-nav" aria-label="Site sections">
+        <a href="{{HOME}}">Practice exams</a>
+        <a href="{{REVIEWER_HREF}}"{{REVIEWER_CURRENT}}>Reviewer 101</a>
+        <a href="{{LIBRARY_HREF}}"{{LIBRARY_CURRENT}}>Library</a>
+      </nav>
+    </div>
+  </div>
   <main id="main" class="study-wrap">
-    <header class="study-hero">
-      <p class="study-eyebrow">SOAC 52–26 · Bandwidth Brothers</p>
-      <h1>{{TITLE}}</h1>
-      <p>{{INTRO}}</p>
+    <header class="study-hero {{HERO_CLASS}}">
+      <div class="study-hero-copy">
+        <p class="study-eyebrow">{{EYEBROW}}</p>
+        <h1>{{TITLE}}</h1>
+        <p class="study-deck">{{INTRO}}</p>
+{{HERO_META}}
+      </div>
+{{HERO_ART}}
     </header>
     {{BODY}}
   </main>

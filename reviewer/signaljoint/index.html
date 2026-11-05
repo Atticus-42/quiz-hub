@@ -299,54 +299,180 @@
       margin-top: var(--space-8); padding-block: var(--space-4) var(--space-7); border-top: 1px solid var(--color-text);
       font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted);
     }
-  .study-wrap, .study-nav { width:min(100% - 2rem, 76rem); margin-inline:auto; }
-.study-nav { display:flex; flex-wrap:wrap; gap:.6rem; padding-block:1rem; border-bottom:1px solid var(--color-rule); }
-.study-nav a, .study-actions a { display:inline-flex; align-items:center; min-height:2.75rem; padding:.4rem .75rem; }
-.study-nav [aria-current] { border-bottom:3px solid var(--color-signal); font-weight:600; }
-.study-hero { padding-block:clamp(1.6rem, 4vw, 3.5rem); }
-.study-hero h1 { font-size:clamp(2.15rem, 5vw, 4.4rem); line-height:1.05; margin:.25em 0; }
-.study-hero > p:last-child, .study-panel p, .study-panel dd, .study-panel ol, .study-panel ul:not(.study-grid):not(.library-list) { max-width:73ch; }
-.study-eyebrow { font-family:var(--font-mono); text-transform:uppercase; letter-spacing:.075em; font-size:.8rem; }
-.study-panel { padding:clamp(1rem, 3vw, 2rem); background:var(--color-paper); border:1px solid var(--color-rule); margin-block:0 1rem; }
-.study-panel h2 { margin-top:0; }
-.study-panel h3 { margin-block:0 .35rem; }
-.study-panel li + li { margin-top:.5rem; }
-.study-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,17rem),1fr)); gap:1rem; padding:0; list-style:none; }
-.study-grid li, .library-row, .fact-list > div { border-top:1px solid var(--color-rule); padding-block:.75rem; margin-top:0; }
-.study-grid a, .fact-list dt { font-size:1.15rem; font-weight:600; }
-.fact-list dd { margin-inline:0; }
-.study-actions, .library-controls, .reader-controls { display:flex; flex-wrap:wrap; align-items:center; gap:.6rem; }
-.study-actions { margin-block:0 1rem; }
+  :root {
+  --study-ink: #203a30;
+  --study-dark: #142c24;
+  --study-gold: #dec58a;
+  --study-soft: #f8f5eb;
+  --study-line: #c8c2ae;
+}
+.study-wrap { width:min(100% - 2rem, 76rem); margin-inline:auto; }
+main.study-wrap { padding-bottom:3rem; }
+.skip-link { position:fixed; z-index:5; top:.75rem; left:.75rem; transform:translateY(-200%); padding:.65rem 1rem; background:var(--study-soft); }
+.skip-link:focus { transform:none; }
+.study-masthead { border-bottom:1px solid var(--study-line); background:var(--study-soft); }
+.study-header-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.35rem 1.5rem; }
+.study-brand { min-height:3.75rem; display:inline-flex; align-items:center; gap:.7rem; color:var(--study-dark); font-weight:700; text-decoration:none; line-height:1.1; }
+.study-brand small { display:block; margin-top:.22rem; color:var(--color-muted); font: .64rem var(--font-mono); letter-spacing:.05em; }
+.brand-mark { display:grid; place-items:center; width:2.1rem; height:2.1rem; background:var(--study-ink); color:var(--study-gold); font:.78rem var(--font-mono); font-weight:600; border-radius:50%; }
+.study-nav { display:flex; flex-wrap:wrap; align-items:center; }
+.study-nav a { display:inline-flex; align-items:center; min-height:3.75rem; padding:.4rem .9rem; color:var(--study-dark); text-decoration:none; border-bottom:3px solid transparent; }
+.study-nav a:hover { background:var(--color-sunken); }
+.study-nav [aria-current] { border-color:var(--color-signal); font-weight:700; }
+
+.study-hero { margin-block:clamp(1rem, 3vw, 2rem); }
+.section-hero { position:relative; isolation:isolate; display:flex; align-items:center; justify-content:space-between; gap:2rem; padding:clamp(1.35rem, 4vw, 3.25rem); background:var(--study-dark); color:var(--study-soft); border-top:3px solid var(--study-gold); }
+.section-hero::before { content:""; position:absolute; inset:0; z-index:-1; background:radial-gradient(ellipse at 90% 55%, #315142 0%, transparent 57%); }
+.study-hero-copy { min-width:0; }
+.study-hero h1 { font-size:clamp(2.4rem, 6.5vw, 5.5rem); line-height:.97; margin:.2em 0; letter-spacing:-.033em; overflow-wrap:break-word; }
+.study-deck { max-width:51ch; margin:.7rem 0 0; font-size:clamp(1.05rem, 2vw, 1.22rem); line-height:1.45; }
+.section-hero .study-eyebrow, .section-hero .hero-stats strong { color:var(--study-gold); }
+.study-eyebrow { margin:0 0 .35rem; font: .72rem/1.4 var(--font-mono); text-transform:uppercase; letter-spacing:.085em; }
+.hero-stats { display:flex; flex-wrap:wrap; gap:.6rem 1.35rem; margin:1.25rem 0 0; font-family:var(--font-mono); font-size:.75rem; }
+.hero-stats strong { font-size:.95rem; }
+.hero-plate { flex:none; width:clamp(8rem, 18vw, 15rem); aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.65rem; background:repeating-radial-gradient(circle at 50% 50%, transparent 0 18%, #dec58a26 18.1% 18.6%, transparent 18.7% 24%); }
+.hero-plate img { width:70%; height:auto; aspect-ratio:1; object-fit:contain; filter:drop-shadow(0 5px 8px #0004); }
+.hero-plate > span { color:var(--study-gold); font:.62rem var(--font-mono); letter-spacing:.09em; text-transform:uppercase; }
+.book-mark { display:grid; place-items:center; width:51%; aspect-ratio:4/5; border:1px solid var(--study-gold); border-left:6px double var(--study-gold); background:#243e33; box-shadow:.45rem .45rem 0 #101f19; color:var(--study-gold); font:600 clamp(1rem, 2.2vw, 2rem) var(--font-mono); }
+.lesson-hero { padding:clamp(1rem, 3vw, 2.25rem) 0 1.35rem; border-bottom:1px solid var(--study-line); }
+.lesson-hero .study-eyebrow { color:var(--color-signal-text); }
+.lesson-hero h1 { max-width:22ch; font-size:clamp(2.15rem, 5vw, 4.3rem); line-height:1.02; color:var(--study-dark); }
+.lesson-hero .study-deck { color:var(--color-muted); }
+
+.study-layout { display:grid; grid-template-columns:minmax(10rem, 14rem) minmax(0, 1fr); gap:clamp(1.25rem, 4vw, 3.5rem); align-items:start; }
+.reviewer-layout { grid-template-areas:"rail finder" "rail content"; row-gap:.15rem; }
+.reviewer-layout > .study-rail { grid-area:rail; }
+.reviewer-layout > .study-content { grid-area:content; }
+.reviewer-layout > .study-finder { grid-area:finder; }
+.study-content { min-width:0; }
+.study-rail { position:sticky; top:1rem; padding:1rem 0; }
+.study-rail > .study-eyebrow { color:var(--color-muted); margin-bottom:.7rem; }
+.study-rail summary { padding-block:.5rem; color:var(--color-muted); cursor:pointer; }
+.study-rail ul { list-style:none; padding:0; margin:0; }
+.study-rail li { border-top:1px solid var(--study-line); }
+.study-rail a { display:grid; grid-template-columns:auto 1fr; gap:.55rem; align-items:center; min-height:2.75rem; padding:.36rem .25rem; text-decoration:none; color:var(--study-dark); font-size:.95rem; line-height:1.25; }
+.study-rail a:hover { background:var(--study-soft); text-decoration:underline; }
+.study-rail a span { font:.65rem var(--font-mono); color:var(--color-muted); }
+.study-finder { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:.35rem 1rem; padding:1rem 1.15rem; background:var(--study-soft); border-left:3px solid var(--study-ink); }
+.study-finder label { grid-column:1/-1; font-weight:700; color:var(--study-dark); }
+.study-finder input, .library-controls input { width:100%; min-width:0; padding:.55rem .75rem; min-height:2.75rem; font:inherit; background:#fffdf6; color:var(--color-text); border:1px solid var(--color-rule); }
+.study-finder p { margin:0; font:.72rem var(--font-mono); color:var(--color-muted); }
+.reviewer-module { padding-block:1.35rem; border-bottom:1px solid var(--study-line); scroll-margin-top:1rem; }
+.module-heading { display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:.5rem 1rem; margin-bottom:.85rem; }
+.module-heading .study-eyebrow { color:var(--color-signal-text); }
+.module-heading h2, .library-catalogue h2, #document-title { margin:0; line-height:1.13; color:var(--study-dark); font-size:clamp(1.55rem, 3vw, 2.3rem); }
+.study-chip { display:inline-flex; align-items:center; width:fit-content; margin:0; padding:.28rem .52rem; border:1px solid var(--study-line); color:var(--color-muted); font:.7rem/1.25 var(--font-mono); white-space:nowrap; }
+.study-chip.available { background:#e5ead9; color:#2c4a31; border-color:#b0bda1; }
+.study-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.7rem; padding:0; margin:0; list-style:none; }
+.reviewer-card, .library-row { position:relative; min-width:0; background:var(--study-soft); border:1px solid var(--study-line); padding:.85rem 1rem 1rem; }
+.reviewer-card:hover, .library-row:hover { border-color:var(--study-ink); background:#fcf9ef; }
+.reviewer-card a, .library-row h3 a { display:flex; justify-content:space-between; gap:.7rem; align-items:baseline; color:var(--study-dark); font-size:1.14rem; line-height:1.25; font-weight:700; text-decoration:none; }
+.reviewer-card a::after, .library-row h3 a::after { content:""; position:absolute; inset:0; }
+.card-arrow { flex:none; color:var(--color-signal-text); font: .9rem var(--font-mono); }
+.reviewer-card p { margin:.45rem 0 0; color:var(--color-muted); font-size:.98rem; line-height:1.45; }
+
+.lesson-actions, .study-actions, .reader-controls { display:flex; flex-wrap:wrap; align-items:center; gap:.55rem .75rem; }
+.lesson-actions { padding-bottom:1.2rem; }
+.lesson-actions a, .study-actions a { display:inline-flex; align-items:center; min-height:2.75rem; padding:.45rem .7rem; }
+.lesson-actions .study-cta { color:var(--study-soft); background:var(--study-ink); text-decoration:none; font-weight:700; padding-inline:.95rem; }
+.lesson-actions .study-cta:hover { background:var(--study-dark); }
+.lesson-reading { max-width:72ch; font-size:1.11rem; line-height:1.6; }
+.lesson-section { padding:1.05rem 0 1.25rem; border-top:1px solid var(--study-line); scroll-margin-top:1rem; }
+.lesson-section h2 { display:flex; gap:.7rem; align-items:baseline; margin:0 0 .8rem; line-height:1.15; color:var(--study-dark); }
+.lesson-section h2 span { color:var(--color-signal-text); font:.72rem var(--font-mono); }
+.lesson-section :is(p, dl, ol, ul) { margin:.55rem 0 0; }
+.lesson-section li + li { margin-top:.5rem; }
+.fact-list > div { display:grid; grid-template-columns:minmax(7rem, 1fr) minmax(0, 2.6fr); gap:.35rem 1rem; padding:.7rem 0; border-bottom:1px solid var(--study-line); }
+.fact-list dt { color:var(--study-dark); font-weight:700; }
+.fact-list dd { margin:0; }
+.lesson-section:is(#scenario,#self-check) { background:var(--study-soft); border-top:2px solid var(--study-ink); padding:1.15rem clamp(.85rem, 2.4vw, 1.6rem); margin-bottom:1.15rem; }
+.lesson-section details, .document-workspace details { border-top:1px solid var(--study-line); padding:.6rem 0; margin-top:.8rem; }
+.lesson-section summary, .document-workspace summary { cursor:pointer; font-weight:700; min-height:2.75rem; padding-block:.4rem; color:var(--study-dark); }
 .study-muted { color:var(--color-muted); }
-.study-panel details { border-top:1px solid var(--color-rule); padding-block:.7rem; }
-.study-panel summary { cursor:pointer; font-weight:600; padding-block:.3rem; }
-.library-list { list-style:none; padding:0; }
-.library-row p { margin:0; }
-.library-controls input, .library-controls select, .reader-controls :is(input,button,select) { color:var(--color-text); background:var(--color-paper); border:1px solid var(--color-rule); padding:.45rem .65rem; min-height:2.75rem; font:inherit; }
-.library-controls input { min-width:0; width:min(100%,24rem); }
-.reader-controls input { width:5rem; }
-.reader-controls button:disabled { opacity:.55; }
-.reader-controls button:hover:not(:disabled), .reader-controls button:focus-visible { color:var(--color-paper); background:var(--color-olive-dark); }
-#pdf-surface { background:var(--color-selected); overflow:auto; max-height:78vh; padding:6px; }
-#reader { margin-bottom:1rem; }
-#pdf-canvas { display:block; margin-inline:auto; background:#fff; }
+
+.document-open .section-hero { display:none; }
+.document-workspace { margin-block:1rem 2rem; padding:clamp(.65rem, 2vw, 1.45rem); background:var(--study-soft); border-top:3px solid var(--study-ink); }
+.document-back { display:inline-flex; align-items:center; min-height:2.75rem; font-weight:700; }
+#document-meta { margin:.35rem 0 1rem; color:var(--color-muted); }
+#reader { margin-bottom:.65rem; }
+.reader-controls { padding:.65rem; border:1px solid var(--study-line); background:#ebe8dc; }
+.reader-paging, .reader-tools { display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; max-width:100%; }
+.reader-controls :is(input,button,select) { color:var(--study-dark); background:var(--study-soft); border:1px solid var(--color-rule); padding:.4rem .55rem; min-height:2.75rem; font:inherit; }
+.reader-controls input { width:4.1rem; }
+.reader-controls button:disabled { opacity:.58; }
+.reader-controls button:hover:not(:disabled), .reader-controls button:focus-visible { color:var(--study-soft); background:var(--study-dark); }
+#pdf-file { display:inline-flex; align-items:center; min-height:2.75rem; padding-inline:.3rem; }
+#pdf-status { margin:.45rem 0; font:.73rem var(--font-mono); }
+#pdf-surface { position:relative; background:#d7d9c9; overflow:auto; max-height:78vh; padding:6px; scrollbar-gutter:stable; }
+#pdf-surface:focus-visible { outline:3px solid var(--color-focus); outline-offset:1px; }
+.pdf-page { width:var(--pdf-page-width); margin-inline:auto; background:#fff; }
+.pdf-page + .pdf-page { margin-top:.65rem; }
+.pdf-page canvas { display:block; width:100%; height:100%; }
+.pdf-page p { padding:1rem; }
+
+.library-catalogue { padding-top:.5rem; }
+.library-catalogue .study-actions { margin-block:.65rem; }
+.library-catalogue .study-actions a { border:1px solid var(--study-line); background:var(--study-soft); text-decoration:none; color:var(--study-dark); }
+.library-catalogue .study-actions [aria-current] { color:var(--study-soft); background:var(--study-ink); border-color:var(--study-ink); }
+.library-controls { max-width:35rem; margin-top:.75rem; }
+.library-controls label { display:block; margin-bottom:.3rem; font-weight:700; }
+#library-count { color:var(--color-muted); font:.75rem var(--font-mono); }
+.library-list { list-style:none; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.7rem; }
+.library-row h3 { margin:.35rem 0; }
+.library-row .study-eyebrow { color:var(--color-signal-text); }
+.library-links { margin:0 0 .65rem; color:var(--color-muted); line-height:1.35; }
 [hidden] { display:none !important; }
+
+@media (max-width:840px) {
+  .study-layout { grid-template-columns:minmax(0,1fr); gap:.6rem; }
+  .reviewer-layout { grid-template-areas:"finder" "rail" "content"; }
+  .study-rail { position:static; padding:.4rem 0; }
+  .study-rail ul { display:flex; flex-wrap:wrap; gap:.35rem; }
+  .study-rail li { border:1px solid var(--study-line); }
+  .study-rail a { padding:.3rem .5rem; }
+  .study-rail a span { display:none; }
+  .lesson-reading { max-width:none; }
+  .library-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:520px) {
+  .study-wrap { width:calc(100% - 1.2rem); }
+  .study-header-inner { gap:0; }
+  .study-nav { width:100%; }
+  .study-nav a { min-height:2.75rem; padding:.35rem .65rem; }
+  .section-hero { gap:.55rem; padding:1.1rem .85rem; }
+  .hero-plate { display:none; }
+  .study-hero h1 { font-size:clamp(2.2rem, 10vw, 3rem); }
+  .study-finder { grid-template-columns:1fr; padding:.8rem; }
+  .study-grid, .library-list { grid-template-columns:minmax(0,1fr); }
+  .fact-list > div { grid-template-columns:minmax(0,1fr); }
+  .lesson-section h2 { font-size:1.55rem; }
+  .reader-page-label { position:absolute; width:1px; height:1px; clip-path:inset(50%); overflow:hidden; white-space:nowrap; }
+}
 </style>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <nav class="study-nav" aria-label="Site sections">
-    <a href="../../">Practice exams</a>
-    <a href="../../reviewer/" aria-current="page">Reviewer 101</a>
-    <a href="../../library/">Library</a>
-  </nav>
+  <div class="study-masthead">
+    <div class="study-wrap study-header-inner">
+      <a class="study-brand" href="../../"><span class="brand-mark" aria-hidden="true">BB</span><span>Bandwidth Brothers <small>SOAC 52–26</small></span></a>
+      <nav class="study-nav" aria-label="Site sections">
+        <a href="../../">Practice exams</a>
+        <a href="../../reviewer/" aria-current="page">Reviewer 101</a>
+        <a href="../../library/">Library</a>
+      </nav>
+    </div>
+  </div>
   <main id="main" class="study-wrap">
-    <header class="study-hero">
-      <p class="study-eyebrow">SOAC 52–26 · Bandwidth Brothers</p>
-      <h1>Signal Support in Joint Operations</h1>
-      <p>Reviewer 101 · Module 4</p>
+    <header class="study-hero lesson-hero">
+      <div class="study-hero-copy">
+        <p class="study-eyebrow">Reviewer 101 · Module 4</p>
+        <h1>Signal Support in Joint Operations</h1>
+        <p class="study-deck">Signal Support Integration</p>
+
+      </div>
+
     </header>
-    <p class="study-actions"><a href="../#module-4">All reviewers</a><a href="../../joint-signal/">Take the practice exam</a><a href="../../library/?doc=study-signaljoint">Signal Support in Joint Operations · Reviewer 101</a></p><section class="study-panel" ><h2>Quick briefing</h2><p>Joint signal support connects the Philippine Army, Navy and Air Force so commanders, operating units and supporting elements can coordinate despite differences in equipment and procedures.</p><p>Read with <a href="../../library/?doc=source-signaljoint">Signal Support in Joint Operations</a>.</p></section><section class="study-panel" ><h2>Know the facts</h2><dl class="fact-list"><div><dt>Joint operations</dt><dd>Two or more services of the same nation combine capabilities for a common mission. The Army brings land capability, the Navy maritime capability and the Air Force air capability.</dd></div><div><dt>Operating environments</dt><dd>Terrain and weather shape the physical environment. Networks and information make up the cyberspace environment. Radio and satellite links use the electromagnetic spectrum.</dd></div><div><dt>Interoperability</dt><dd>People from different services can communicate effectively using compatible equipment or agreed procedures and interfaces.</dd></div><div><dt>Five principles</dt><dd>Operations focused, interoperable, redundant, scalable and secured.</dd></div><div><dt>Joint signal planning</dt><dd>Prepare the estimate, determine requirements and resources, set priorities, plan recovery, draft a tentative plan, validate it, then publish and keep coordinating.</dd></div><div><dt>Protection and restoration</dt><dd>Apply communication security, prepare backup paths, and arrange repair, replacement or technical support before disruption.</dd></div></dl></section><section class="study-panel" ><h2>Understand the reasoning</h2><ul><li>A check between two headquarters can pass while a supported element still cannot send the report it needs. Test the full exchange with its actual sender and recipient.</li><li>Compatibility answers whether participants can communicate. Scalability answers whether the arrangement can keep up when new participants join.</li></ul></section><section class="study-panel" ><h2>Apply it</h2><p class="study-eyebrow">Fictional Philippine Army classroom exercise</p><p>In a Philippine Army-led AFP typhoon-response tabletop, a Navy team changes its unloading time while an Air Force element is preparing a simulated delivery. Each service can reach joint headquarters, but the updated timing reaches the Army ground team too late.</p><p><strong>Where should the joint signal planners concentrate their next test?</strong></p><details><summary>Show the decision and reasoning</summary><p>Walk the timing update from the Navy sender to the Air Force and Army recipients, including who relays it and how receipt is confirmed. Test the authorized alternate with the same message. A working link to headquarters helps, but the exercise succeeds when every affected team gets and understands the change in time.</p></details></section><section class="study-panel" ><h2>How to practice</h2><ol><li>Use the signal estimate to record participating services, coverage limits and available support.</li><li>Identify who needs contact, what information they must exchange, and when and for how long they need it.</li><li>Compare requirements with equipment, personnel and sustainment. Prioritize essential exchanges and identify recovery options.</li><li>Draft the plan with agreed interservice links, procedures, responsibilities and security measures.</li><li>Validate the plan with representative exchanges, resolve gaps and publish the approved signal instructions.</li></ol><p>Review the steps with <a href="../../library/?doc=source-signaljoint">Signal Support in Joint Operations</a>.</p></section><section class="study-panel" ><h2>Check yourself</h2><details><summary>Which principle covers adding another service element to the plan?</summary><p>Scalability.</p></details><details><summary>What should planners prepare before selecting joint communications systems?</summary><p>A signal estimate that explains the situation and informs the requirements.</p></details></section><section class="study-panel" ><h2>References</h2><ul><li><a href="../../library/?doc=pam-6-0102">PAM 6-0102 · Signal Operations</a> <span class="study-muted">· Related reading</span></li><li><a href="../../library/?doc=source-signaljoint">Signal Support in Joint Operations</a> <span class="study-muted">· Primary course source</span></li></ul></section>
+    <div class="lesson-actions"><a href="../#module-4">← All reviewers</a><a class="study-cta" href="../../joint-signal/">Take the practice exam</a><a href="../../library/?doc=study-signaljoint#document">Read study PDF</a></div><div class="study-layout"><nav class="study-rail" aria-label="Lesson sections"><p class="study-eyebrow">In this lesson</p><ul><li><a href="#briefing"><span>01</span><strong>Quick briefing</strong></a></li><li><a href="#facts"><span>02</span><strong>Know the facts</strong></a></li><li><a href="#reasoning"><span>03</span><strong>Understand the reasoning</strong></a></li><li><a href="#scenario"><span>04</span><strong>Apply it</strong></a></li><li><a href="#practice"><span>05</span><strong>How to practice</strong></a></li><li><a href="#self-check"><span>06</span><strong>Check yourself</strong></a></li><li><a href="#references"><span>07</span><strong>References</strong></a></li></ul></nav><article class="study-content lesson-reading"><section id="briefing" class="lesson-section"><h2><span aria-hidden="true">01</span>Quick briefing</h2><p>Joint signal support connects the Philippine Army, Navy and Air Force so commanders, operating units and supporting elements can coordinate despite differences in equipment and procedures.</p><p>Read with <a href="../../library/?doc=source-signaljoint#document">Signal Support in Joint Operations</a>.</p></section><section id="facts" class="lesson-section"><h2><span aria-hidden="true">02</span>Know the facts</h2><dl class="fact-list"><div><dt>Joint operations</dt><dd>Two or more services of the same nation combine capabilities for a common mission. The Army brings land capability, the Navy maritime capability and the Air Force air capability.</dd></div><div><dt>Operating environments</dt><dd>Terrain and weather shape the physical environment. Networks and information make up the cyberspace environment. Radio and satellite links use the electromagnetic spectrum.</dd></div><div><dt>Interoperability</dt><dd>People from different services can communicate effectively using compatible equipment or agreed procedures and interfaces.</dd></div><div><dt>Five principles</dt><dd>Operations focused, interoperable, redundant, scalable and secured.</dd></div><div><dt>Joint signal planning</dt><dd>Prepare the estimate, determine requirements and resources, set priorities, plan recovery, draft a tentative plan, validate it, then publish and keep coordinating.</dd></div><div><dt>Protection and restoration</dt><dd>Apply communication security, prepare backup paths, and arrange repair, replacement or technical support before disruption.</dd></div></dl></section><section id="reasoning" class="lesson-section"><h2><span aria-hidden="true">03</span>Understand the reasoning</h2><ul><li>A check between two headquarters can pass while a supported element still cannot send the report it needs. Test the full exchange with its actual sender and recipient.</li><li>Compatibility answers whether participants can communicate. Scalability answers whether the arrangement can keep up when new participants join.</li></ul></section><section id="scenario" class="lesson-section"><h2><span aria-hidden="true">04</span>Apply it</h2><p class="study-eyebrow">Fictional Philippine Army classroom exercise</p><p>In a Philippine Army-led AFP typhoon-response tabletop, a Navy team changes its unloading time while an Air Force element is preparing a simulated delivery. Each service can reach joint headquarters, but the updated timing reaches the Army ground team too late.</p><p><strong>Where should the joint signal planners concentrate their next test?</strong></p><details><summary>Show the decision and reasoning</summary><p>Walk the timing update from the Navy sender to the Air Force and Army recipients, including who relays it and how receipt is confirmed. Test the authorized alternate with the same message. A working link to headquarters helps, but the exercise succeeds when every affected team gets and understands the change in time.</p></details></section><section id="practice" class="lesson-section"><h2><span aria-hidden="true">05</span>How to practice</h2><ol><li>Use the signal estimate to record participating services, coverage limits and available support.</li><li>Identify who needs contact, what information they must exchange, and when and for how long they need it.</li><li>Compare requirements with equipment, personnel and sustainment. Prioritize essential exchanges and identify recovery options.</li><li>Draft the plan with agreed interservice links, procedures, responsibilities and security measures.</li><li>Validate the plan with representative exchanges, resolve gaps and publish the approved signal instructions.</li></ol><p>Review the steps with <a href="../../library/?doc=source-signaljoint#document">Signal Support in Joint Operations</a>.</p></section><section id="self-check" class="lesson-section"><h2><span aria-hidden="true">06</span>Check yourself</h2><details><summary>Which principle covers adding another service element to the plan?</summary><p>Scalability.</p></details><details><summary>What should planners prepare before selecting joint communications systems?</summary><p>A signal estimate that explains the situation and informs the requirements.</p></details></section><section id="references" class="lesson-section"><h2><span aria-hidden="true">07</span>References</h2><ul><li><a href="../../library/?doc=pam-6-0102#document">PAM 6-0102 · Signal Operations</a> <span class="study-muted">· Related reading</span></li><li><a href="../../library/?doc=source-signaljoint#document">Signal Support in Joint Operations</a> <span class="study-muted">· Primary course source</span></li></ul></section></article></div>
   </main>
 
 </body>
