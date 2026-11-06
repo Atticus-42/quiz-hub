@@ -1,5 +1,6 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { renderResources } from './resources.mjs';
 
 const slug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const json = path => JSON.parse(readFileSync(path, 'utf8'));
@@ -83,6 +84,8 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
       CREST_HREF: up + 'assets/bandwidth-brothers-colored.png', BRAND_HREF: up, HOME: up, REVIEWER_HREF: up + 'reviewer/', LIBRARY_HREF: up + 'library/',
       REVIEWER_CURRENT: section === 'reviewer' ? ' aria-current="page"' : '',
       LIBRARY_CURRENT: section === 'library' ? ' aria-current="page"' : '',
+      HOWTO_HREF: up + 'how-to/', APP_HREF: up + 'los-radios/',
+      HOWTO_CURRENT: section === 'howto' ? ' aria-current="page"' : '', APP_CURRENT: section === 'app' ? ' aria-current="page"' : '',
       PAGE_TITLE: e(title), TITLE: e(title), INTRO: e(intro), BODY: body, SCRIPTS: scripts,
       EYEBROW: e(eyebrow), HERO_CLASS: depth === 2 ? 'lesson-hero' : 'section-hero',
       HERO_META: meta, HERO_ART: art,
@@ -173,5 +176,6 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     art: '<div class="hero-plate library-plate" aria-hidden="true"><div class="book-stack"><div>DOCTRINE</div><div>FIELD NOTES</div><div>MANUALS</div></div><span>Read. Connect. Understand.</span></div>',
     scripts: '<script type="application/json" id="library-data">' + scriptJson(metadata) + '</script><script type="module" src="../assets/library.js?v=catalogue-6"></script>',
   });
+  renderResources(root, render, e);
   return pages;
 }

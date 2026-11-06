@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Know it. Do it. · SOAC 52-26</title>
+  <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-Regular-Latin1.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-SemiBold-Latin1.woff2" as="font" type="font/woff2" crossorigin>
+  <style>    /* =====================================================================
+       FIELD MANUAL DESIGN SYSTEM (src/shared/base.css). The build writes this
+       sheet into every page (hub, quizzes, class page, instructor view) at
+       the top of its one style element, with the assets placeholder replaced
+       by the page's path to assets/. Edit it here, never in a built page.
+
+       Type. IBM Plex Sans Condensed (text, headings, UI) and IBM Plex Mono
+       (numbers, codes, references, kbd), self-hosted Latin-1 subsets under
+       the SIL Open Font License (assets/fonts/OFL.txt), font-display: swap.
+       The subsets have no arrows; per-glyph fallback draws them from the
+       system stack. The metric-matched fallback faces keep line breaks close
+       to Plex while the files load, so the swap does not shift the layout.
+       Scale (ratio 1.25 from 16px): 12 label · 14 meta · 16 UI · 18 body ·
+       20 · 25 · 31 · 39-76 display. Body 18px, measure 60-75ch.
+
+       Colour. WCAG 2.1 contrast, computed (scripts/test checks them again):
+         --color-text      #1e211b on --color-paper #f3efe4   14.18:1  body
+         --color-muted     #4a4c40 on paper                    7.62:1  secondary text
+         --color-accent    #4b5320 on paper                    7.15:1  olive drab: links, primary buttons
+                           paper on --color-accent             7.15:1  button text
+         --color-olive-dark #2e3418: paper on it              11.28:1  dark bands, selected covers
+         --color-khaki     #c9b98f on olive-dark                6.68:1  labels on dark bands
+         --color-signal    #d9541e on paper                    3.49:1  non-text only: progress, current
+                           item, focus ring (UI >= 3:1); never small text
+         --color-signal-text #a8431a on paper                  5.25:1  orange text (small)
+         --color-signal-light #e68a5c on olive-dark            5.03:1  orange text on dark bands
+         --color-rule      #7d7865 on paper                    3.85:1  control borders (UI >= 3:1)
+         --color-hairline  #c8c2ae                                     decorative rules only
+         --color-correct   #2f6b2f on paper 5.60:1, on --color-correct-bg #e6ebd8 5.28:1, paper on it 5.60:1
+         --color-incorrect #a32a1c on paper 6.29:1, on --color-incorrect-bg #f3e2da 5.75:1, paper on it 6.29:1
+         --color-text on --color-sunken #e9e6d6               13.00:1
+         --color-accent on --color-selected #e3e6d0            6.45:1  selected answer (text 12.80:1)
+         --color-focus = signal orange, 3px: 3.49:1 on paper, 3.23:1 on olive-dark
+       Corners are square (2px at most); 1px hairlines replace boxes; shadows
+       only for true layering. Motion 120-200ms, no bounce, off under
+       prefers-reduced-motion.
+       ===================================================================== */
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Regular-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: italic; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Italic-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Medium-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-SemiBold-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("../assets/fonts/IBMPlexSansCondensed-Bold-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("../assets/fonts/IBMPlexMono-Regular-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("../assets/fonts/IBMPlexMono-Medium-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("../assets/fonts/IBMPlexMono-SemiBold-Latin1.woff2") format("woff2"); }
+    /* Metric-matched fallbacks (measured: Plex Sans Condensed sets 1.108x Arial Narrow, 0.909x Arial; Plex Mono 1.091x Consolas). */
+    @font-face { font-family: "Plex Condensed Fallback"; src: local("Arial Narrow"), local("ArialNarrow"); size-adjust: 110.8%; ascent-override: 92.5%; descent-override: 24.8%; line-gap-override: 0%; }
+    @font-face { font-family: "Plex Condensed Fallback Wide"; src: local("Arial"), local("Helvetica"); size-adjust: 90.9%; ascent-override: 112.8%; descent-override: 30.3%; line-gap-override: 0%; }
+    @font-face { font-family: "Plex Mono Fallback"; src: local("Consolas"), local("Menlo"); size-adjust: 109.1%; ascent-override: 94%; descent-override: 25.2%; line-gap-override: 0%; }
+
+    :root {
+      --color-paper: #f3efe4;
+      --color-surface: #f3efe4;
+      --color-sunken: #e9e6d6;
+      --color-selected: #e3e6d0;
+      --color-text: #1e211b;
+      --color-muted: #4a4c40;
+      --color-accent: #4b5320;
+      --color-accent-hover: #2e3418;
+      --color-accent-text: #f3efe4;
+      --color-olive-dark: #2e3418;
+      --color-khaki: #c9b98f;
+      --color-signal: #d9541e;
+      --color-signal-text: #a8431a;
+      --color-signal-light: #e68a5c;
+      --color-rule: #7d7865;
+      --color-hairline: #c8c2ae;
+      --color-correct: #2f6b2f;
+      --color-correct-bg: #e6ebd8;
+      --color-incorrect: #a32a1c;
+      --color-incorrect-bg: #f3e2da;
+      --color-focus: #d9541e;
+
+      /* Margin topography: olive contours, shown only in the page margins and the masthead band. */
+      --topo-line: #4b5320;
+      --topo-line-major: #2e3418;
+      --topo-minor-opacity: 0.1;
+      --topo-major-opacity: 0.16;
+      --topo-major-width: 1.2;
+      --grain: url("../assets/paper-grain.svg");
+
+      --font-sans: "IBM Plex Sans Condensed", "Plex Condensed Fallback", "Plex Condensed Fallback Wide", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --font-mono: "IBM Plex Mono", "Plex Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+
+      --text-label: 0.75rem;
+      --text-meta: 0.875rem;
+      --text-ui: 1rem;
+      --text-body: 1.125rem;
+      --text-h4: 1.25rem;
+      --text-h3: 1.5625rem;
+      --text-h2: 1.953rem;
+      --text-h1: clamp(2.44rem, 1.55rem + 3.6vw, 4.77rem);
+      --text-display: clamp(4rem, 2.2rem + 7.5vw, 7.45rem);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --space-7: 3rem;
+      --space-8: 4.5rem;
+      --space-9: 6rem;
+
+      --radius: 2px;
+      --page-max: 84rem;
+      --gutter: clamp(1rem, 3.2vw, 3rem);
+      --col-gap: clamp(1rem, 2vw, 2rem);
+      --rail: minmax(0, 3fr);
+      --body: minmax(0, 9fr);
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+      --speed: 160ms;
+      --shadow-layer: 0 1px 0 rgba(30, 33, 27, 0.08), 0 12px 32px rgba(30, 33, 27, 0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--color-paper); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--color-paper) var(--grain);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-size: var(--text-ui);
+      line-height: 1.5;
+      font-kerning: normal;
+      overflow-wrap: anywhere;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { margin: 0; font-weight: 600; line-height: 1.12; letter-spacing: -0.01em; text-wrap: balance; }
+    p { margin: 0 0 var(--space-3); }
+    a { color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+    a:hover { color: var(--color-text); text-decoration-thickness: 2px; }
+    strong { font-weight: 600; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    /* Uppercase small label: the manual's running heads, captions and table heads. */
+    .label {
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.4;
+    }
+    .wrap { width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin-inline: auto; }
+
+    /* Classification strip: the first line of every page. */
+    .strip { position: relative; z-index: 2; background: var(--color-olive-dark); color: var(--color-khaki); }
+    .strip-inner {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 var(--space-5);
+      min-height: 2rem; padding-block: 0.375rem;
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .strip-inner p { margin: 0; }
+    .strip-ref { color: var(--color-paper); letter-spacing: 0.08em; }
+    .strip .sep { padding-inline: 0.5em; color: var(--color-signal-light); }
+    @media (max-width: 600px) { .strip-inner { letter-spacing: 0.08em; } .strip-ref { display: none; } }
+
+    /* Paper with margin topography: a fixed, clipped, inert contour layer masked to the page edges and the masthead band. */
+    .terrain, .topo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - var(--page-max) / 2 - 2rem), transparent calc(50% - var(--page-max) / 2 + 3rem), transparent calc(50% + var(--page-max) / 2 - 3rem), #000 calc(50% + var(--page-max) / 2 + 2rem)), linear-gradient(180deg, #000 0, #000 9rem, transparent 26rem);
+      mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - var(--page-max) / 2 - 2rem), transparent calc(50% - var(--page-max) / 2 + 3rem), transparent calc(50% + var(--page-max) / 2 - 3rem), #000 calc(50% + var(--page-max) / 2 + 2rem)), linear-gradient(180deg, #000 0, #000 9rem, transparent 26rem);
+    }
+    .terrain svg, .topo svg { display: block; width: 100%; height: 100%; }
+    .terrain .contours, .topo .contours { fill: none; stroke-linejoin: round; stroke-linecap: round; }
+    .terrain .contours path, .topo .contours path { stroke: var(--topo-line); stroke-opacity: var(--topo-minor-opacity); stroke-width: 1; vector-effect: non-scaling-stroke; }
+    .terrain .contours path.major, .topo .contours path.major { stroke: var(--topo-line-major); stroke-opacity: var(--topo-major-opacity); stroke-width: var(--topo-major-width); }
+
+    /* Plate I: frame the title and complete soldiers as in the approved reference. */
+    .banner { position: relative; z-index: 1; width: 100%; background: #d8cfae; line-height: 0; overflow: hidden; isolation: isolate; }
+    .banner picture { display: block; }
+    .banner img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 1127 / 291; object-fit: cover; object-position: 50% 62%; max-height: none;
+      filter: grayscale(1) contrast(1.45) brightness(0.95);
+      mix-blend-mode: multiply;
+    }
+    /* Duotone: the multiply above maps white to khaki paper; lighten lifts black to ink. */
+    .banner::before { content: ""; position: absolute; inset: 0; z-index: 1; background: #1e211b; mix-blend-mode: lighten; pointer-events: none; }
+    .plate-caption {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 var(--space-5);
+      margin-block: 0; padding-block: var(--space-2);
+      border-bottom: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted);
+    }
+    .plate-caption b { font-weight: 600; color: var(--color-text); }
+
+    /* Figure: the SOAC 52 - 2026 class photograph. */
+    .class-photo {
+      position: relative; z-index: 1;
+      width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin: var(--space-8) auto 0;
+      background: var(--color-surface);
+    }
+    .class-photo img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 62%;
+      border-radius: 0; filter: grayscale(1) sepia(0.22) contrast(1.06);
+    }
+    .class-photo figcaption {
+      display: flex; flex-wrap: wrap; gap: 0 var(--space-4);
+      margin: 0; padding: var(--space-2) 0; border-top: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text);
+    }
+    .class-photo figcaption::before { content: var(--fig-photo, "Fig. 3") " \2014  Bandwidth Brothers,"; color: var(--color-muted); font-weight: 500; }
+
+    /* Buttons: square, hairline-precise, 44px targets. */
+    button {
+      font: inherit;
+      min-height: 44px;
+      min-width: 44px;
+      padding: var(--space-2) var(--space-5);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius);
+      background: var(--color-accent);
+      color: var(--color-accent-text);
+      font-family: var(--font-sans);
+      font-size: var(--text-ui);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: background-color var(--speed) var(--ease), border-color var(--speed) var(--ease), color var(--speed) var(--ease);
+    }
+    button:hover:not(:disabled) { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+    button.secondary { background: transparent; color: var(--color-text); border-color: var(--color-rule); }
+    button.secondary:hover:not(:disabled) { background: var(--color-sunken); color: var(--color-text); border-color: var(--color-text); }
+    button.compact { padding: var(--space-1) var(--space-4); font-size: var(--text-meta); }
+    button:disabled { cursor: not-allowed; opacity: 0.5; }
+    :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    /* Headings that receive focus from script (tabindex=-1, never reached by Tab) are marked by an orange underline, not a box. */
+    [tabindex="-1"]:focus-visible { outline: 3px solid transparent; text-decoration: underline; text-decoration-color: var(--color-signal); text-decoration-thickness: 3px; text-underline-offset: 0.3em; }
+    .strip :focus-visible, .on-dark :focus-visible { outline-color: var(--color-signal-light); }
+    .arrow-r::after { content: "\00a0\2192"; font-family: var(--font-mono); }
+    .arrow-l::before { content: "\2190\00a0"; font-family: var(--font-mono); }
+
+    /* Section with a margin rail: number and heading in the rail, content to the right (stacked on narrow screens). */
+    .sect { display: grid; grid-template-columns: var(--rail) var(--body); column-gap: var(--col-gap); padding-block: var(--space-7); border-top: 1px solid var(--color-text); }
+    .sect-head { min-width: 0; }
+    .sect-num { display: block; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; color: var(--color-signal-text); }
+    .sect-head h2 { margin-top: var(--space-2); font-size: var(--text-h3); }
+    .sect-body { min-width: 0; }
+    @media (max-width: 900px) {
+      .sect { grid-template-columns: 1fr; row-gap: var(--space-4); padding-block: var(--space-6); }
+    }
+
+    /* Tags: square-cornered labels with a text name, never colour alone. */
+    .tag {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      padding: 0.0625rem 0.5rem; border: 1px solid currentColor; border-radius: var(--radius);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.6;
+      white-space: nowrap;
+    }
+
+    /* Tables: hairline rules, Mono heads and tabular numerals. */
+    .table-wrap { max-width: 100%; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; background: transparent; font-variant-numeric: tabular-nums; }
+    caption { padding-bottom: var(--space-3); text-align: left; color: var(--color-muted); font-size: var(--text-meta); }
+    th, td { padding: var(--space-3) var(--space-3) var(--space-3) 0; border-bottom: 1px solid var(--color-hairline); text-align: left; vertical-align: baseline; }
+    thead th { padding-block: var(--space-2); border-bottom: 1px solid var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    td.num, th.num, .num { font-family: var(--font-mono); font-size: 0.9375rem; text-align: right; }
+
+    kbd {
+      display: inline-block;
+      min-width: 1.7em;
+      padding: 0 0.35em;
+      border: 1px solid var(--color-rule);
+      border-bottom-width: 2px;
+      border-radius: var(--radius);
+      background: var(--color-paper);
+      color: var(--color-text);
+      font-family: var(--font-mono);
+      font-size: 0.8em;
+      font-weight: 500;
+      line-height: 1.55;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .site-footer { position: relative; z-index: 1; }
+    .colophon {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-5);
+      margin-top: var(--space-8); padding-block: var(--space-4) var(--space-7); border-top: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted);
+    }
+  :root {
+  --study-ink: #203a30;
+  --study-dark: #142c24;
+  --study-gold: #dec58a;
+  --study-soft: #f8f5eb;
+  --study-line: #c8c2ae;
+}
+.study-wrap { width:min(100% - 3rem, 82rem); margin-inline:auto; }
+main.study-wrap { padding-bottom:3rem; }
+.skip-link { position:fixed; z-index:5; top:.75rem; left:.75rem; transform:translateY(-200%); padding:.65rem 1rem; background:var(--study-soft); }
+.skip-link:focus { transform:none; }
+.study-masthead { border-bottom:1px solid var(--study-line); background:#f7f5ec; }
+.study-header-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.35rem 1.5rem; }
+.study-brand { min-height:6.75rem; display:inline-flex; align-items:center; gap:.7rem; color:var(--study-dark); font-weight:700; text-decoration:none; line-height:1.1; }
+.study-brand small { display:block; margin-top:.22rem; color:var(--color-muted); font: .64rem var(--font-mono); letter-spacing:.05em; }
+.brand-mark { display:grid; place-items:center; width:2.1rem; height:2.1rem; background:var(--study-ink); color:var(--study-gold); font:.78rem var(--font-mono); font-weight:600; border-radius:50%; }
+.study-nav { display:flex; flex-wrap:wrap; align-items:center; }
+.study-nav a { display:inline-flex; align-items:center; min-height:3.75rem; padding:.4rem .9rem; color:var(--study-dark); text-decoration:none; border-bottom:3px solid transparent; }
+.study-nav a:hover { background:var(--color-sunken); }
+.study-nav [aria-current] { border-color:var(--color-signal); font-weight:700; }
+
+.study-hero { margin-block:clamp(1rem, 3vw, 2rem); }
+.section-hero { position:relative; isolation:isolate; display:grid; grid-template-columns:minmax(0,1fr) minmax(15rem,26%); gap:3rem; padding:clamp(1.5rem,4vw,3.5rem) 0; color:var(--study-dark); border-bottom:1px solid var(--study-line); }
+.section-hero::before { content:none; }
+.study-hero-copy { min-width:0; }
+.study-hero h1 { font-size:clamp(3.5rem,8vw,7.5rem); font-family:Georgia,serif; font-weight:400; line-height:1; margin:.18em 0 .25em; letter-spacing:-.065em; overflow-wrap:break-word; }
+.study-deck { max-width:40ch; margin:.7rem 0 0; font-size:clamp(1.1rem,2vw,1.4rem); line-height:1.5; }
+.section-hero .study-eyebrow, .section-hero .hero-stats strong { color:var(--study-ink); }
+.study-eyebrow { margin:0 0 .35rem; font: .72rem/1.4 var(--font-mono); text-transform:uppercase; letter-spacing:.085em; }
+.hero-stats { display:flex; flex-wrap:wrap; gap:.8rem 2rem; margin:1.8rem 0 0; font-family:var(--font-mono); font-size:.75rem; }
+.hero-stats strong { font-size:1.25rem; display:block; margin-bottom:.25rem; }
+.hero-plate { align-self:stretch; min-height:18rem; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.75rem; padding:1.5rem 1rem; background:var(--study-dark); border-radius:2px; color:var(--study-soft); text-align:center; }
+.hero-plate img { width:clamp(9rem,17vw,14rem); height:auto; aspect-ratio:1; object-fit:contain; }
+.hero-plate > span { color:var(--study-gold); font:.65rem var(--font-mono); letter-spacing:.08em; text-transform:uppercase; }
+.book-mark { display:grid; place-items:center; width:51%; aspect-ratio:4/5; border:1px solid var(--study-gold); border-left:6px double var(--study-gold); background:#243e33; box-shadow:.45rem .45rem 0 #101f19; color:var(--study-gold); font:600 clamp(1rem, 2.2vw, 2rem) var(--font-mono); }
+.lesson-hero { padding:clamp(1rem, 3vw, 2.25rem) 0 1.35rem; border-bottom:1px solid var(--study-line); }
+.lesson-hero .study-eyebrow { color:var(--color-signal-text); }
+.lesson-hero h1 { max-width:22ch; font-size:clamp(2.15rem, 5vw, 4.3rem); line-height:1.02; color:var(--study-dark); }
+.lesson-hero .study-deck { color:var(--color-muted); }
+
+.study-layout { display:grid; grid-template-columns:minmax(10rem,15rem) minmax(0,1fr); gap:clamp(1.25rem,4vw,4rem); align-items:start; }
+.reviewer-layout { grid-template-areas:"rail finder" "rail content"; row-gap:.15rem; }
+.reviewer-layout > .study-rail { grid-area:rail; }
+.reviewer-layout > .study-content { grid-area:content; }
+.reviewer-layout > .study-finder { grid-area:finder; }
+.study-content { min-width:0; }
+.study-rail { position:sticky; top:1rem; padding:1rem 0; }
+.study-rail > .study-eyebrow { color:var(--color-muted); margin-bottom:.7rem; }
+.study-rail summary { padding-block:.5rem; color:var(--color-muted); cursor:pointer; }
+.study-rail ul { list-style:none; padding:0; margin:0; }
+.study-rail li { border-top:1px solid var(--study-line); }
+.study-rail a { display:grid; grid-template-columns:auto 1fr; gap:.55rem; align-items:center; min-height:2.75rem; padding:.36rem .25rem; text-decoration:none; color:var(--study-dark); font-size:.95rem; line-height:1.25; }
+.study-rail a:hover { background:var(--study-soft); text-decoration:underline; }
+.study-rail a span { font:.65rem var(--font-mono); color:var(--color-muted); }
+.study-finder { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:.35rem 1rem; padding:0 0 1.25rem; border-bottom:1px solid var(--study-line); }
+.study-finder label { grid-column:1/-1; font-weight:700; color:var(--study-dark); }
+.study-finder input, .library-controls input { width:100%; min-width:0; padding:.55rem .75rem; min-height:2.75rem; font:inherit; background:#fffdf6; color:var(--color-text); border:1px solid var(--color-rule); }
+.study-finder p { margin:0; font:.72rem var(--font-mono); color:var(--color-muted); }
+.reviewer-module { padding-block:1.8rem 2.2rem; border-bottom:1px solid var(--study-line); scroll-margin-top:1rem; }
+.module-heading { display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:.5rem 1rem; margin-bottom:.85rem; }
+.module-heading .study-eyebrow { color:var(--color-signal-text); }
+.module-heading h2, .library-catalogue h2, #document-title { margin:0; line-height:1.13; color:var(--study-dark); font-size:clamp(1.55rem, 3vw, 2.3rem); }
+.study-chip { display:inline-flex; align-items:center; width:fit-content; margin:0; padding:.28rem .52rem; border:1px solid var(--study-line); color:var(--color-muted); font:.7rem/1.25 var(--font-mono); white-space:nowrap; }
+.study-chip.available { background:#e5ead9; color:#2c4a31; border-color:#b0bda1; }
+.study-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; padding:0; margin:0; list-style:none; }
+.reviewer-card, .library-row { position:relative; min-width:0; background:#faf8f0; border:1px solid var(--study-line); padding:1.3rem; transition:background .18s,border-color .18s,box-shadow .18s; }
+.reviewer-card:hover, .library-row:hover { border-color:var(--study-ink); background:#fffdf7; box-shadow:0 5px 0 -2px #203a3026; }
+.reviewer-card a, .library-row h3 a { display:flex; justify-content:space-between; gap:.7rem; align-items:baseline; color:var(--study-dark); font-size:1.35rem; line-height:1.2; font-weight:600; text-decoration:none; }
+.reviewer-card a::after, .library-row h3 a::after { content:""; position:absolute; inset:0; }
+.card-arrow { flex:none; color:var(--color-signal-text); font: .9rem var(--font-mono); }
+.reviewer-card p { margin:.65rem 0 1.5rem; color:var(--color-muted); font-size:1rem; line-height:1.5; }
+
+.lesson-actions, .study-actions, .reader-controls { display:flex; flex-wrap:wrap; align-items:center; gap:.55rem .75rem; }
+.lesson-actions { padding-bottom:1.2rem; }
+.lesson-actions a, .study-actions a { display:inline-flex; align-items:center; min-height:2.75rem; padding:.45rem .7rem; }
+.lesson-actions .study-cta { color:var(--study-soft); background:var(--study-ink); text-decoration:none; font-weight:700; padding-inline:.95rem; }
+.lesson-actions .study-cta:hover { background:var(--study-dark); }
+.lesson-reading { max-width:72ch; font-size:1.11rem; line-height:1.6; }
+.lesson-section { padding:1.05rem 0 1.25rem; border-top:1px solid var(--study-line); scroll-margin-top:1rem; }
+.lesson-section h2 { display:flex; gap:.7rem; align-items:baseline; margin:0 0 .8rem; line-height:1.15; color:var(--study-dark); }
+.lesson-section h2 span { color:var(--color-signal-text); font:.72rem var(--font-mono); }
+.lesson-section :is(p, dl, ol, ul) { margin:.55rem 0 0; }
+.lesson-section li + li { margin-top:.5rem; }
+.fact-list > div { display:grid; grid-template-columns:minmax(7rem, 1fr) minmax(0, 2.6fr); gap:.35rem 1rem; padding:.7rem 0; border-bottom:1px solid var(--study-line); }
+.fact-list dt { color:var(--study-dark); font-weight:700; }
+.fact-list dd { margin:0; }
+.lesson-section:is(#scenario,#self-check) { background:var(--study-soft); border-top:2px solid var(--study-ink); padding:1.15rem clamp(.85rem, 2.4vw, 1.6rem); margin-bottom:1.15rem; }
+.lesson-section details, .document-workspace details { border-top:1px solid var(--study-line); padding:.6rem 0; margin-top:.8rem; }
+.lesson-section summary, .document-workspace summary { cursor:pointer; font-weight:700; min-height:2.75rem; padding-block:.4rem; color:var(--study-dark); }
+.study-muted { color:var(--color-muted); }
+
+.document-open .section-hero { display:none; }
+.document-workspace { margin-block:1rem 2rem; padding:clamp(.65rem, 2vw, 1.45rem); background:var(--study-soft); border-top:3px solid var(--study-ink); }
+.document-back { display:inline-flex; align-items:center; min-height:2.75rem; font-weight:700; }
+#document-meta { margin:.35rem 0 1rem; color:var(--color-muted); }
+.library-catalogue { padding-top:.5rem; }
+.library-catalogue .study-actions { margin-block:.65rem; }
+.library-catalogue .study-actions a { border:1px solid var(--study-line); background:var(--study-soft); text-decoration:none; color:var(--study-dark); }
+.library-catalogue .study-actions [aria-current] { color:var(--study-soft); background:var(--study-ink); border-color:var(--study-ink); }
+.library-controls { max-width:35rem; margin-top:.75rem; }
+.library-controls label { display:block; margin-bottom:.3rem; font-weight:700; }
+#library-count { color:var(--color-muted); font:.75rem var(--font-mono); }
+.library-list { list-style:none; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.25rem; }
+.library-row h3 { margin:.65rem 0; }
+.library-row .study-eyebrow { color:var(--color-signal-text); }
+.library-links { margin:0 0 .65rem; color:var(--color-muted); line-height:1.35; }
+[hidden] { display:none !important; }
+
+
+body { background-color:#f3f1e7; }
+.hero-plate p { margin:0; font:italic 1.25rem/1.25 Georgia,serif; }
+.hero-plate a { color:var(--study-gold); font-size:.95rem; min-height:2.75rem; display:flex; align-items:center; }
+.lesson-number { display:block; margin-bottom:1rem; font:.7rem var(--font-mono); color:var(--color-signal-text); }
+.card-foot { display:flex; justify-content:space-between; gap:.5rem; margin-top:auto; padding-top:.65rem; border-top:1px solid var(--study-line); color:var(--color-muted); font:.61rem/1.6 var(--font-mono); letter-spacing:.025em; }
+.reviewer-card { display:flex; flex-direction:column; }
+.reviewer-card .card-arrow { display:none; }
+.study-rail a[aria-current="location"] { border-left:3px solid var(--study-ink); background:#e6eadc; padding-left:.6rem; }
+.document-mark { display:flex; align-items:flex-end; justify-content:space-between; height:4.5rem; padding:.8rem; margin:-1.3rem -1.3rem 1.2rem; background:#e2e6d7; color:var(--study-ink); font:.75rem var(--font-mono); border-bottom:1px solid var(--study-line); }
+.document-mark::after { content:"↗"; font-size:1.4rem; }
+.library-row[data-kind="manual"] .document-mark { background:var(--study-dark); color:var(--study-gold); }
+.library-links { font-size:.9rem; }
+.library-row { border-radius:2px; box-shadow:3px 3px 0 #e0dece; }
+.library-row .study-chip { margin-top:auto; }
+.book-stack { width:85%; padding:2rem 0; perspective:600px; }
+.book-stack div { height:3.1rem; padding:1rem .6rem; margin-top:.6rem; border-left:5px double #d6bc82; background:#eadfc3; color:var(--study-dark); font:.7rem var(--font-mono); box-shadow:4px 5px 0 #071b14; transform:rotate(-5deg); }
+.book-stack div:nth-child(2) { transform:rotate(4deg); background:#c8d0b1; }
+.book-stack div:nth-child(3) { transform:rotate(-2deg); background:#dfb96f; }
+.study-return { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; margin:0 0 1.75rem; padding:1rem 1.3rem; background:#e5eadb; border-left:3px solid var(--study-ink); }
+.study-return p { margin:.15rem 0; }
+.study-return a { font-size:1.1rem; color:var(--study-dark); font-weight:600; }
+.study-return button { background:transparent; border:1px solid var(--study-line); color:var(--study-dark); font:inherit; min-height:2.75rem; padding:.5rem .8rem; cursor:pointer; }
+.study-footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem 2rem; margin-top:2rem; padding-block:2rem; border-top:1px solid var(--study-line); color:var(--study-dark); }
+.study-footer > span { font-weight:700; }
+.study-footer small { display:block; font:.65rem var(--font-mono); margin-top:.3rem; }
+.study-footer p { font:italic 1.05rem Georgia,serif; }
+.study-footer a { display:flex; min-height:2.75rem; align-items:center; }
+.lesson-reading { padding:0 0 2rem; }
+.lesson-section h2 { font-size:1.85rem; }
+.lesson-section#scenario { border-top:3px solid var(--study-gold); background:#e5eadb; }
+.study-reading-progress { position:fixed; z-index:6; inset:0 0 auto; height:3px; background:var(--study-ink); transform-origin:left; transform:scaleX(0); pointer-events:none; }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; } }
+
+@media (max-width:840px) {
+  .section-hero { grid-template-columns:minmax(0,1fr) 13rem; gap:1.5rem; }
+  .hero-plate { min-height:16rem; }
+  .study-layout { grid-template-columns:minmax(0,1fr); gap:.6rem; }
+  .reviewer-layout { grid-template-areas:"finder" "rail" "content"; }
+  .study-rail { position:static; padding:.4rem 0; }
+  .study-rail ul { display:flex; flex-wrap:wrap; gap:.35rem; }
+  .study-rail li { border:1px solid var(--study-line); }
+  .study-rail a { padding:.3rem .5rem; }
+  .study-rail a span { display:none; }
+  .lesson-reading { max-width:none; }
+  .library-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:520px) {
+  .study-wrap { width:calc(100% - 1.2rem); }
+  .study-header-inner { gap:0; }
+  .study-nav { width:100%; }
+  .study-nav a { min-height:2.75rem; padding:.35rem .65rem; }
+  .section-hero { display:block; padding:1.5rem 0; }
+  .hero-plate { display:none; }
+  .study-hero h1 { font-size:clamp(2.8rem, 13vw, 4rem); }
+  .study-finder { grid-template-columns:1fr; padding:.8rem; }
+  .study-grid, .library-list { grid-template-columns:minmax(0,1fr); }
+  .fact-list > div { grid-template-columns:minmax(0,1fr); }
+  .lesson-section h2 { font-size:1.55rem; }
+  .reader-page-label { position:absolute; width:1px; height:1px; clip-path:inset(50%); overflow:hidden; white-space:nowrap; }
+}
+
+.review-topic { padding: 1.5rem 0; border-bottom: 1px solid #b8b6a6; }
+.review-topic:first-of-type { padding-top: 0; }
+.review-topic h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.3; }
+.exam-trap { border-left: 3px solid #a44825; padding: .75rem 1rem; background: #eae4d3; }
+.topic-source { font-size: .85rem; line-height: 1.8; overflow-wrap: anywhere; }
+.exam-practice summary .study-eyebrow { display: block; margin-bottom: .5rem; }
+</style>
+<link rel="stylesheet" href="../assets/identity.css">
+<link rel="stylesheet" href="../assets/ui-polish.css"><link rel="icon" type="image/png" href="../assets/bandwidth-brothers-colored.png">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="study-masthead">
+    <div class="study-wrap study-header-inner">
+      <a class="study-brand" href="../"><img class="brand-crest" data-class-crest src="../assets/bandwidth-brothers-colored.png" width="48" height="48" alt=""><span>Bandwidth Brothers <small>SOAC 52–26</small></span></a>
+      <nav class="study-nav" aria-label="Site sections">
+        <a href="../">Practice exams</a>
+        <a href="../reviewer/">Reviewer 101</a>
+        <a href="../library/">Library</a>
+        <a href="../how-to/" aria-current="page">How To</a>
+        <a href="../los-radios/">LOS Radios</a>
+      </nav>
+    </div>
+  </div>
+  <main id="main" class="study-wrap">
+    <header class="study-hero section-hero">
+      <div class="study-hero-copy">
+        <p class="study-eyebrow">HOW TO · The practical desk</p>
+        <h1>Know it. Do it.</h1>
+        <p class="study-deck">Short, practical guides for the moment you need the next step. Drawn from your lessons and available manuals.</p>
+<p class="resource-kicker">12 tasks / Five clear steps / Sources one click away</p>
+      </div>
+
+    </header>
+    <section class="resource-find" aria-label="Find a How To"><label for="task-search">What do you need to do?</label><input id="task-search" type="search" placeholder="Try briefing, risk, radio or planning"><div class="task-filters" role="group" aria-label="Guide categories"><button data-filter="all" aria-pressed="true">All guides</button><button data-filter="communications" aria-pressed="false">communications</button><button data-filter="leadership" aria-pressed="false">leadership</button><button data-filter="planning" aria-pressed="false">planning</button><button data-filter="cyber" aria-pressed="false">cyber</button><button data-filter="study" aria-pressed="false">study</button></div><p id="task-count" role="status">12 guides</p></section><div class="task-grid"><details class="task-card" id="give-a-clear-brief" data-category="communications"><summary><span class="task-meta">communications · 5 min read</span><h2>Give a one-minute brief</h2><p>Put the main point first and check that the listener knows what to do next.</p><span class="task-open">Open the steps <span aria-hidden="true">＋</span></span></summary><div class="task-body"><p class="task-when">Use this when a classmate or project team needs a quick update with a decision or action.</p><ol><li><h3>Decide what the listener needs to do</h3><p>Pick one outcome before you speak. For example, ask your group to confirm who will bring the printed handouts.</p></li><li><h3>Open with the request</h3><p>Say what you need in the first sentence. Try “Please confirm who will bring the handouts to tomorrow’s practice.”</p></li><li><h3>Give just enough context</h3><p>Add the facts the listener needs to act, such as the number of copies and when they’re needed. Use familiar words and explain any acronym that matters.</p></li><li><h3>Choose a channel that fits</h3><p>Use a quick message for a simple update. If people need to discuss the decision, speak live and leave time for questions.</p></li><li><h3>Ask for a reply you can check</h3><p>Ask who will do it and by when. Listen to the answer, correct any mismatch, and confirm the agreed action.</p></li></ol><div class="task-check"><strong>Done when</strong><p>The listener can repeat the action, who owns it, and when it’s due.</p></div><p><strong>Watch for:</strong> Treating silence as confirmation or burying the request under background.</p><aside class="task-sources"><h3>Go to the source</h3><ul><li><a href="../library/files/lesson-effective-communication-2.pdf#page=19" target="_blank" rel="noopener">Core communication techniques · PDF page 19 ↗</a></li><li><a href="../library/files/lesson-effective-communication-2.pdf#page=20" target="_blank" rel="noopener">Communication tools · PDF page 20 ↗</a></li><li><a href="../library/files/lesson-effective-communication-2.pdf#page=39" target="_blank" rel="noopener">Two-way communication · PDF page 39 ↗</a></li></ul><a class="resource-button secondary" href="../reviewer/effectivecommunication/">Read the lesson reviewer →</a></aside><a href="#give-a-clear-brief" class="guide-permalink">Link to this guide</a></div></details><details class="task-card" id="give-specific-feedback" data-category="leadership"><summary><span class="task-meta">leadership · 7 min read</span><h2>Coach one behavior at a time</h2><p>Turn an observation into a small change the other person can practice.</p><span class="task-open">Open the steps <span aria-hidden="true">＋</span></span></summary><div class="task-body"><p class="task-when">Use this after a classroom brief, rehearsal, or routine team task, while both people can still recall what happened.</p><ol><li><h3>Name the moment</h3><p>Choose one specific point in the task. Try “When we switched to the last slide in today’s rehearsal…”</p></li><li><h3>Describe what you saw</h3><p>Say what happened in terms the other person could verify. For example, “The due date was on the slide but didn’t come up in the explanation.”</p></li><li><h3>Ask how it went for them</h3><p>Invite their account first. Listen for context you missed and explain the effect you observed, such as two people leaving with different dates.</p></li><li><h3>Agree on a small adjustment</h3><p>Ask what they would do next time. Set a practice goal tied to the issue, such as saying the date aloud before opening questions.</p></li><li><h3>Look for the adjustment next time</h3><p>Check that behavior at the next rehearsal. Acknowledge when they make the change and close the loop.</p></li></ol><div class="task-check"><strong>Done when</strong><p>Both people can name the behavior to practice and how they’ll tell whether it improved.</p></div><p><strong>Watch for:</strong> Stacking several criticisms together or guessing why someone acted a certain way.</p><aside class="task-sources"><h3>Go to the source</h3><ul><li><a href="../library/files/lesson-nco-empowerment.pdf#page=33" target="_blank" rel="noopener">On-the-spot correction · PDF page 33 ↗</a></li><li><a href="../library/files/lesson-nco-empowerment.pdf#page=34" target="_blank" rel="noopener">Corrective training guidelines · PDF page 34 ↗</a></li><li><a href="../library/files/fm-6-22-2015.pdf#page=52" target="_blank" rel="noopener">Feedback and self-assessment · PDF page 52 ↗</a></li></ul><a class="resource-button secondary" href="../reviewer/ncoempowerment/">Read the lesson reviewer →</a></aside><a href="#give-specific-feedback" class="guide-permalink">Link to this guide</a></div></details><details class="task-card" id="build-a-backward-timeline" data-category="planning"><summary><span class="task-meta">planning · 8 min read</span><h2>Plan backward from a deadline</h2><p>Turn one fixed deadline into a short timeline the group can actually follow.</p><span class="task-open">Open the steps <span aria-hidden="true">＋</span></span></summary><div class="task-body"><p class="task-when">Use this classroom exercise when your team has a fixed presentation time and several tasks to finish first.</p><ol><li><h3>Start with the finish time</h3><p>Write the deadline and what counts as ready. For a 3 p.m. presentation, the deck is open, roles are clear, and the group can start on time.</p></li><li><h3>Put the last check just before it</h3><p>Decide when the group needs to rehearse or open the deck together. Leave time to make corrections before the presentation.</p></li><li><h3>Work back through dependencies</h3><p>Place tasks in reverse order. The rehearsal needs a merged deck, and the merged deck needs everyone’s slides.</p></li><li><h3>Protect the team’s preparation time</h3><p>Try the lesson’s one-third/two-thirds split as a classroom rule of thumb. For a 90-minute window, aim to give the group its direction in about 30 minutes so it has about 60 to prepare.</p></li><li><h3>Check and share the timeline</h3><p>Give each milestone one owner. Compare the times in the schedule and on the slides before sharing a single version.</p></li></ol><div class="task-check"><strong>Done when</strong><p>Every milestone has a time and owner, and the group can point to the time reserved for rehearsal or corrections.</p></div><p><strong>Watch for:</strong> Using most of the available time to perfect the plan before the group can start.</p><aside class="task-sources"><h3>Go to the source</h3><ul><li><a href="../library/files/lesson-troop-leading-procedure.pdf#page=5" target="_blank" rel="noopener">Worked reverse-planning timeline · PDF page 5 ↗</a></li><li><a href="../library/files/lesson-troop-leading-procedure.pdf#page=15" target="_blank" rel="noopener">Presentation preparation tips · PDF page 15 ↗</a></li><li><a href="../library/files/lesson-troop-leading-procedure.pdf#page=16" target="_blank" rel="noopener">One-third/two-thirds review · PDF page 16 ↗</a></li></ul><a class="resource-button secondary" href="../reviewer/tlp/">Read the lesson reviewer →</a></aside><a href="#build-a-backward-timeline" class="guide-permalink">Link to this guide</a></div></details><details class="task-card" id="reconcile-a-training-inventory" data-category="planning"><summary><span class="task-meta">planning · 10 min read</span><h2>Reconcile a training inventory</h2><p>Compare an authorized equipment count with the record and flag any difference for follow-up.</p><span class="task-open">Open the steps <span aria-hidden="true">＋</span></span></summary><div class="task-body"><p class="task-when">Use this for a classroom kit or demo equipment you’re authorized to count. Follow the custodian’s inventory process.</p><ol><li><h3>Agree on what is being counted</h3><p>Ask the custodian which items and approved record are in scope. For a practice run, use mock entries for a classroom kit.</p></li><li><h3>Count what you can verify</h3><p>Work through the list with the responsible person. For each line, compare the recorded count with what you can physically verify.</p></li><li><h3>Record the difference plainly</h3><p>Keep the expected and observed counts separate. For example, record “6 listed, 5 counted, 1 unresolved” so the gap stays visible.</p></li><li><h3>Flag the discrepancy</h3><p>Bring the difference and any supporting records to the custodian. Distinguish what you verified from explanations that still need checking.</p></li><li><h3>Follow the authorized update process</h3><p>Keep the item open until the custodian resolves it and updates the record through the proper process. Confirm the count and the final disposition agree.</p></li></ol><div class="task-check"><strong>Done when</strong><p>Someone reviewing the inventory can tell what was counted, what is unresolved, and who is following up.</p></div><p><strong>Watch for:</strong> Changing the record to make the count match before the discrepancy is resolved.</p><aside class="task-sources"><h3>Go to the source</h3><ul><li><a href="../library/files/lesson-company-management.pdf#page=30" target="_blank" rel="noopener">Supply and property accountability · PDF page 30 ↗</a></li><li><a href="../library/files/lesson-company-management.pdf#page=38" target="_blank" rel="noopener">Physical inventory and property records · PDF page 38 ↗</a></li><li><a href="../library/files/ethical-transformational-leadership.pdf#page=15" target="_blank" rel="noopener">Reporting an inventory discrepancy · PDF page 15 ↗</a></li></ul><a class="resource-button secondary" href="../reviewer/companymanagement/">Read the lesson reviewer →</a></aside><a href="#reconcile-a-training-inventory" class="guide-permalink">Link to this guide</a></div></details><details class="task-card" id="check-before-sharing" data-category="cyber"><summary><span class="task-meta">cyber · 5 min read</span><h2>Check before sharing a file</h2><p>Work through a short sharing decision using a fictional classroom document.</p><span class="task-open">Open the steps <span aria-hidden="true">＋</span></span></summary><div class="task-body"><p class="task-when">Use this classroom exercise to practice the checks that come before sending information. Work with a mock document and fictional recipients.</p><ol><li><h3>Read the document’s markings</h3><p>Start with the handling information provided in the exercise. If it is unclear, mark the decision as pending and ask the document owner what rules apply.</p></li><li><h3>Check who actually needs it</h3><p>List the intended recipients and the work each needs the file for. Check the authorization required by the exercise for each recipient.</p></li><li><h3>Confirm permission and channel</h3><p>Identify who can authorize the transfer and which channel the exercise permits for that information. Wait for clarification if either is missing.</p></li><li><h3>Record the decision</h3><p>Use the practice log to capture what would be shared, with whom, under whose authorization, and through which channel.</p></li><li><h3>Practice the escalation</h3><p>If the scenario says the file went to the wrong recipient, identify the designated reporting contact and flag the suspected disclosure promptly.</p></li></ol><div class="task-check"><strong>Done when</strong><p>You can point to the recipient’s need, the authorization, the approved channel, and the reporting contact.</p></div><p><strong>Watch for:</strong> Assuming that a familiar recipient or a convenient chat channel is enough to authorize a transfer.</p><aside class="task-sources"><h3>Go to the source</h3><ul><li><a href="../library/files/lesson-gsomia-compliance.pdf#page=21" target="_blank" rel="noopener">Classification and handling · PDF page 21 ↗</a></li><li><a href="../library/files/lesson-gsomia-compliance.pdf#page=22" target="_blank" rel="noopener">Clearance and need to know · PDF page 22 ↗</a></li><li><a href="../library/files/lesson-gsomia-compliance.pdf#page=26" target="_blank" rel="noopener">Sharing channels and records · PDF page 26 ↗</a></li><li><a href="../library/files/lesson-gsomia-compliance.pdf#page=27" target="_blank" rel="noopener">Incident reporting · PDF page 27 ↗</a></li></ul><a class="resource-button secondary" href="../reviewer/gsomia/">Read the lesson reviewer →</a></aside><a href="#check-before-sharing" class="guide-permalink">Link to this guide</a></div></details><details class="task-card" id="write-a-cyber-risk-entry" data-category="cyber"><summary><span class="task-meta">cyber · 8 min read</span><h2>Write one cyber risk entry</h2><p>Connect an asset, a threat, and a weakness to a concrete effect and next action.</p><span class="task-open">Open the steps <span aria-hidden="true">＋</span></span></summary><div class="task-body"><p class="task-when">Use this classroom exercise for a fictional group workspace, such as a shared copy of the presentation slides.</p><ol><li><h3>Choose one asset</h3><p>Name the file, service, or device and what the group relies on it for. For example, the group needs its shared slide deck to present on Friday.</p></li><li><h3>Describe what could go wrong</h3><p>Write a threat and the weakness that makes it possible. Accidental edits are the threat. Broad edit permissions are the weakness.</p></li><li><h3>Describe the effect</h3><p>Say what changes if it happens. Slides may become inaccurate, which affects integrity, or the group may lose access to a usable deck, which affects availability.</p></li><li><h3>Judge likelihood and impact</h3><p>Explain how plausible it is given the scenario and how much it would disrupt the group. Mark missing evidence as an assumption.</p></li><li><h3>Pick an action and a check</h3><p>Suggest one step that addresses the weakness, such as giving most participants view access, and say how the authorized owner could verify the result.</p></li></ol><div class="task-check"><strong>Done when</strong><p>Your entry reads as one clear chain from asset and weakness to impact, with an action that reduces the risk.</p></div><p><strong>Watch for:</strong> Listing a weakness without explaining its effect or assigning a precise score without supporting evidence.</p><aside class="task-sources"><h3>Go to the source</h3><ul><li><a href="../library/files/lesson-cyber-risk-assessment.pdf#page=15" target="_blank" rel="noopener">Confidentiality, integrity, and availability · PDF page 15 ↗</a></li><li><a href="../library/files/lesson-cyber-risk-assessment.pdf#page=16" target="_blank" rel="noopener">Assets, threats, vulnerabilities, and risk · PDF page 16 ↗</a></li></ul><a class="resource-button secondary" href="../reviewer/cyberrisk/">Read the lesson reviewer →</a></aside><a href="#write-a-cyber-risk-entry" class="guide-permalink">Link to this guide</a></div></details><details class="task-card" id="read-a-radio-link-result" data-category="communications"><summary><span class="task-meta">communications · 8 min read</span><h2>Read a modeled radio link</h2><p>Separate terrain clearance, predicted received level, and margin when reading a saved result.</p><span class="task-open">Open the steps <span aria-hidden="true">＋</span></span></summary><div class="task-body"><p class="task-when">Use this for a classroom interpretation exercise with a saved model or a fictional path between points A and B.</p><ol><li><h3>Identify the model inputs</h3><p>Write down the band, transmitter power, antenna heights, gains, and losses shown for the run. Keep these alongside the result so it’s clear which settings produced it.</p></li><li><h3>Read the path profile</h3><p>Check the legend and distinguish a clear optical path from terrain in the path. Notice whether the model also reports clearance around the direct path, called Fresnel clearance.</p></li><li><h3>Read the level and margin separately</h3><p>Received level is shown in dBm. Subtract the model’s receiver threshold from the predicted received level to find the margin in dB. In a fictional run, −90 dBm against −100 dBm gives 10 dB of margin.</p></li><li><h3>Explain the result in a sentence</h3><p>Say whether terrain blocks the direct path and whether the model still predicts a usable signal. The worked example shows both outcomes can occur together.</p></li><li><h3>Mark it as a prediction</h3><p>Keep the model result and any authorized real-world check in separate fields. For this exercise, leave the field result blank if all you have is a screenshot.</p></li></ol><div class="task-check"><strong>Done when</strong><p>You can explain the predicted margin and terrain clearance separately and name the inputs used.</p></div><p><strong>Watch for:</strong> Reading a modeled pass as measured coverage or comparing results without checking their settings.</p><aside class="task-sources"><h3>Go to the source</h3><ul><li><a href="../library/files/lesson-signal-propagation.pdf#page=16" target="_blank" rel="noopener">Recorded model inputs · PDF page 16 ↗</a></li><li><a href="../library/files/lesson-signal-propagation.pdf#page=23" target="_blank" rel="noopener">Path profile and received level · PDF page 23 ↗</a></li><li><a href="../library/files/lesson-signal-propagation.pdf#page=35" target="_blank" rel="noopener">Line-of-sight scorecard · PDF page 35 ↗</a></li><li><a href="../library/files/lesson-signal-propagation.pdf#page=53" target="_blank" rel="noopener">Validation recommendation · PDF page 53 ↗</a></li></ul><a class="resource-button secondary" href="../reviewer/propagation/">Read the lesson reviewer →</a></aside><a href="#read-a-radio-link-result" class="guide-permalink">Link to this guide</a></div></details><details class="task-card" id="compare-current-and-target" data-category="cyber"><summary><span class="task-meta">cyber · 12 min read</span><h2>Compare current and target safeguards</h2><p>Use a small NIST profile to turn a gap into an action your group can track.</p><span class="task-open">Open the steps <span aria-hidden="true">＋</span></span></summary><div class="task-body"><p class="task-when">Use this classroom exercise to compare what a fictional team does today with what it wants to achieve.</p><ol><li><h3>Set the boundary</h3><p>Pick one workflow, such as how your class group accounts for shared presentation files. Write down what is in scope and any assumptions you made.</p></li><li><h3>Gather the information you have</h3><p>List the mock rules, practices, roles, and tools in the scenario. Use those details when describing the current state.</p></li><li><h3>Pair current with target</h3><p>Pick one outcome from the framework. For example, for data inventory, write “The group knows the slide deck exists” under current and “The group keeps a list of designated shared files” under target.</p></li><li><h3>Write down the gap</h3><p>Explain what has to change and which part matters most. Turn that difference into one action with an owner and a date to review it.</p></li><li><h3>Recheck after the change</h3><p>Review the action against the target. Update the current description only when you have evidence that the change happened.</p></li></ol><div class="task-check"><strong>Done when</strong><p>Each target has a corresponding current entry and a visible next action if there’s a gap.</p></div><p><strong>Watch for:</strong> Treating an intended safeguard as already in place.</p><aside class="task-sources"><h3>Go to the source</h3><ul><li><a href="../library/files/nist-cswp-29.pdf#page=11" target="_blank" rel="noopener">Current and Target Profiles · PDF page 11 ↗</a></li><li><a href="../library/files/nist-cswp-29.pdf#page=12" target="_blank" rel="noopener">Steps for creating and using a profile · PDF page 12 ↗</a></li><li><a href="../library/files/nist-cswp-29.pdf#page=23" target="_blank" rel="noopener">Asset management outcomes · PDF page 23 ↗</a></li></ul><a class="resource-button secondary" href="../reviewer/nist/">Read the lesson reviewer →</a></aside><a href="#compare-current-and-target" class="guide-permalink">Link to this guide</a></div></details><details class="task-card" id="review-a-file-access-request" data-category="cyber"><summary><span class="task-meta">cyber · 7 min read</span><h2>Review a file access request</h2><p>Practice separating who is asking, what they need, and what the policy permits.</p><span class="task-open">Open the steps <span aria-hidden="true">＋</span></span></summary><div class="task-body"><p class="task-when">Use this paper exercise with a fictional class folder. Give a classmate a mock request to view a handout from a device described in the scenario.</p><ol><li><h3>Name the request</h3><p>Write the requester, the device, the file, and the action. A request to view one handout is specific enough to assess.</p></li><li><h3>Check identity and device separately</h3><p>Read the mock policy and identify what it requires you to know about the requester and the device. Mark any missing evidence as unknown.</p></li><li><h3>Check authorization for that file</h3><p>Decide whether the requester’s role and reason meet the policy for the file. A verified identity answers who is asking. The policy answers whether they may access it.</p></li><li><h3>Choose the smallest permission</h3><p>If the mock policy permits access, choose the minimum permission needed for that request. For viewing a handout, that means read access to the handout.</p></li><li><h3>Test a changed request</h3><p>Change one detail, such as a request to edit the file or a different device. Apply the policy again and explain whether the decision changes.</p></li></ol><div class="task-check"><strong>Done when</strong><p>You can explain the decision using the identity, device, resource, and permission required for this request.</p></div><p><strong>Watch for:</strong> Using access to one file or presence on a trusted network as permission for every request.</p><aside class="task-sources"><h3>Go to the source</h3><ul><li><a href="../library/files/lesson-zero-trust.pdf#page=20" target="_blank" rel="noopener">Verify explicitly and grant least privilege · PDF page 20 ↗</a></li><li><a href="../library/files/nist-sp-800-207.pdf#page=14" target="_blank" rel="noopener">NIST zero trust access model · PDF page 14 ↗</a></li><li><a href="../library/files/nist-sp-800-207.pdf#page=15" target="_blank" rel="noopener">NIST zero trust tenets · PDF page 15 ↗</a></li></ul><a class="resource-button secondary" href="../reviewer/zerotrust/">Read the lesson reviewer →</a></aside><a href="#review-a-file-access-request" class="guide-permalink">Link to this guide</a></div></details><details class="task-card" id="weigh-an-ethical-decision" data-category="leadership"><summary><span class="task-meta">leadership · 10 min read</span><h2>Work through an ethical decision</h2><p>Compare feasible choices when speed, accuracy, and responsibility pull in different directions.</p><span class="task-open">Open the steps <span aria-hidden="true">＋</span></span></summary><div class="task-body"><p class="task-when">Use this classroom exercise when a fictional group discovers a mistake in the attendance totals just before submitting a report.</p><ol><li><h3>Name the tension</h3><p>Write down the competing duties. The group wants to meet the deadline, and the person using the report needs an accurate total.</p></li><li><h3>Find the rules and duties</h3><p>Use the mock submission instructions to find who approves the report and what to do if a total is still being checked. Note any requirement you need to confirm.</p></li><li><h3>List feasible choices</h3><p>Compare options such as recounting before submission, filing a clearly marked provisional total if the procedure allows it, or asking the reviewer how to handle the deadline.</p></li><li><h3>Test the options</h3><p>Ask whether each option follows the rules, what happens to the people relying on the record, and what a responsible leader would be willing to stand behind.</p></li><li><h3>Decide and reflect</h3><p>Pick the option you can justify, say who needs to know, and explain what you’d do differently to prevent the same problem next time.</p></li></ol><div class="task-check"><strong>Done when</strong><p>You can explain the choice using a rule, a likely consequence, and a duty or value.</p></div><p><strong>Watch for:</strong> Choosing the fastest action before checking whose work depends on the record.</p><aside class="task-sources"><h3>Go to the source</h3><ul><li><a href="../library/files/ethical-transformational-leadership.pdf#page=10" target="_blank" rel="noopener">Six-step ethical decision process · PDF page 10 ↗</a></li><li><a href="../library/files/ethical-transformational-leadership.pdf#page=11" target="_blank" rel="noopener">Rules, outcomes, and virtue · PDF page 11 ↗</a></li><li><a href="../library/files/ethical-transformational-leadership.pdf#page=15" target="_blank" rel="noopener">Integrity in reporting · PDF page 15 ↗</a></li></ul><a class="resource-button secondary" href="../reviewer/ethicalleadership/">Read the lesson reviewer →</a></aside><a href="#weigh-an-ethical-decision" class="guide-permalink">Link to this guide</a></div></details><details class="task-card" id="read-a-leadership-scene" data-category="study"><summary><span class="task-meta">study · 10 min read</span><h2>Study leadership through a short scene</h2><p>Turn a film clip or classroom role-play into evidence you can discuss.</p><span class="task-open">Open the steps <span aria-hidden="true">＋</span></span></summary><div class="task-body"><p class="task-when">Use this classroom exercise after a short scene that shows someone guiding a team through a problem.</p><ol><li><h3>Pick one moment</h3><p>Choose a short exchange with a clear decision or interaction. Write one line about what the group needed at that point.</p></li><li><h3>Record the action</h3><p>Note the timestamp or scene cue and describe what the person said or did. For example, “She asked each group to explain its blocker before assigning a task.”</p></li><li><h3>Connect it to a competency</h3><p>Use the lesson’s leading, developing, and achieving categories. Explain which fits the action and how you can tell from the scene.</p></li><li><h3>Trace the effect</h3><p>Record what happened next, such as a teammate taking ownership or a timeline becoming clear. If the clip ends first, mark the effect as unknown.</p></li><li><h3>Share one observation</h3><p>Give a partner the scene cue, action, category, and evidence. Ask them which detail best supports the category you chose.</p></li></ol><div class="task-check"><strong>Done when</strong><p>Your partner can find the same moment and understand why you chose that competency.</p></div><p><strong>Watch for:</strong> Giving a general impression of the character without pointing to a specific action.</p><aside class="task-sources"><h3>Go to the source</h3><ul><li><a href="../library/files/lesson-military-leadership-competencies.pdf#page=18" target="_blank" rel="noopener">Core leader competencies · PDF page 18 ↗</a></li><li><a href="../library/files/lesson-military-leadership-competencies.pdf#page=39" target="_blank" rel="noopener">Film discussion and scene evidence · PDF page 39 ↗</a></li><li><a href="../library/files/lesson-military-leadership-competencies.pdf#page=40" target="_blank" rel="noopener">Film exercise instructions · PDF page 40 ↗</a></li></ul><a class="resource-button secondary" href="../reviewer/leadershipcompetencies/">Read the lesson reviewer →</a></aside><a href="#read-a-leadership-scene" class="guide-permalink">Link to this guide</a></div></details><details class="task-card" id="compare-with-a-worked-example" data-category="study"><summary><span class="task-meta">study · 15 min read</span><h2>Study with a worked example</h2><p>Try a classroom task first, then use the sample to see how the reasoning works.</p><span class="task-open">Open the steps <span aria-hidden="true">＋</span></span></summary><div class="task-body"><p class="task-when">Use this method with an assigned classroom exercise that has a worked solution. Start with one part of the exercise if time is short.</p><ol><li><h3>Pick a specific part to practice</h3><p>Choose a small output you can finish, such as the timeline or the format of a presentation. Read the requirement before opening the worked solution.</p></li><li><h3>Draft your answer first</h3><p>Write your own attempt and mark assumptions or places where you had to make a choice. Keep the draft so you can see what changed.</p></li><li><h3>Compare the reasoning</h3><p>Find the matching part of the sample. Read the notes explaining why the example works and look for the requirement each choice serves.</p></li><li><h3>Separate mistakes from valid differences</h3><p>Mark any mismatch with the stated requirement. If your answer differs from the sample but still meets the requirement, write one sentence defending your choice.</p></li><li><h3>Revise and explain</h3><p>Change the weakest part, then explain the revision aloud without reading from the sample. Use the handout reference beside the example if the reason remains unclear.</p></li></ol><div class="task-check"><strong>Done when</strong><p>You can identify one change you made and the requirement or evidence behind it.</p></div><p><strong>Watch for:</strong> Reading the sample first and treating its wording as the only correct answer.</p><aside class="task-sources"><h3>Go to the source</h3><ul><li><a href="../library/files/lesson-troop-leading-procedure.pdf#page=2" target="_blank" rel="noopener">How to use the worked sample · PDF page 2 ↗</a></li><li><a href="../library/files/lesson-troop-leading-procedure.pdf#page=15" target="_blank" rel="noopener">Presenting and explaining assumptions · PDF page 15 ↗</a></li></ul><a class="resource-button secondary" href="../reviewer/tlp/">Read the lesson reviewer →</a></aside><a href="#compare-with-a-worked-example" class="guide-permalink">Link to this guide</a></div></details></div><p id="task-empty" hidden>No guides match. Try a different word or choose All guides.</p><p class="resource-footnote">Study adaptations, with classroom examples. Open the original source for its full context.</p>
+  </main>
+  <footer class="study-footer study-wrap"><span>Bandwidth Brothers <small>SOAC 52–26</small></span><p>Read with purpose. Lead with understanding.</p><a href="#main">Back to top ↑</a></footer>
+<link rel="stylesheet" href="../assets/resources.css"><script src="../assets/resources.js" defer></script>
+<script src="../assets/identity.js" defer></script>
+</body>
+</html>
