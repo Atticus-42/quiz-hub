@@ -126,16 +126,20 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
       chapterLinks.push('<li><a href="#' + id + '"><span>' + number + '</span><strong>' + title + '</strong></a></li>');
       return '<section id="' + id + '" class="lesson-section"><h2><span aria-hidden="true">' + number + '</span>' + title + '</h2>' + body + '</section>';
     };
+    const guide = item.examGuide;
+    const sourcePages = pages => '<p class="topic-source">Lesson source: ' + pages.map(n => docLink(primaryDoc, '../../', primaryDoc.file ? n : null, 'page ' + n)).join(' · ') + '</p>';
     const chapters =
       panel('briefing', 'Quick briefing', '<p>' + e(item.brief) + '</p><p>Read with ' + docLink(primaryDoc, '../../', primaryDoc.file ? page : null) + '.</p>') +
       panel('facts', 'Know the facts', '<dl class="fact-list">' + item.facts.map(fact => '<div><dt>' + e(fact.term) + '</dt><dd>' + e(fact.detail) + '</dd></div>').join('') + '</dl>') +
+      (guide ? panel('detailed-review', 'Build your understanding', guide.topics.map(topic => '<section class="review-topic"><h3>' + e(topic.title) + '</h3><p>' + e(topic.explanation) + '</p><ul>' + topic.remember.map(text => '<li>' + e(text) + '</li>').join('') + '</ul><p class="exam-trap"><strong>Watch out:</strong> ' + e(topic.trap) + '</p>' + sourcePages(topic.pages) + '</section>').join('')) : '') +
       panel('reasoning', 'Understand the reasoning', '<ul>' + item.insights.map(insight => '<li>' + e(insight) + '</li>').join('') + '</ul>') +
       panel('scenario', 'Apply it', '<p class="study-eyebrow">Fictional Philippine Army classroom exercise</p><p>' + e(item.scenario.situation) +
         '</p><p><strong>' + e(item.scenario.question) + '</strong></p><details><summary>Show the decision and reasoning</summary><p>' + e(item.scenario.analysis) + '</p></details>') +
       (item.steps.length ? panel('practice', 'How to practice', '<ol>' + item.steps.map(step => '<li>' + e(step) + '</li>').join('') + '</ol><p>Review the steps with ' + docLink(primaryDoc, '../../', primaryDoc.file ? page : null) + '.</p>') : '') +
       panel('self-check', 'Check yourself', item.checks.map(check => '<details><summary>' + e(check.question) + '</summary><p>' + e(check.answer) + '</p></details>').join('')) +
-      panel('references', 'References', '<ul>' + docs.filter(doc => doc !== studyDoc).map(doc => '<li>' + docLink(doc, '../../', doc === primaryDoc && doc.file ? page : null) +
-        ' <span class="study-muted">· ' + (doc === primaryDoc ? 'Primary course source' : doc.cited.includes(key) ? 'Cited by the course' : 'Related reading') + '</span></li>').join('') + '</ul>');
+      (guide ? panel('exam-practice', 'Objective & analytical practice', '<p>Answer first, then reveal the explanation. Situations are fictional classroom exercises applying the lesson.</p>' + guide.practice.map(question => '<details class="exam-practice"><summary><span class="study-eyebrow">' + e(question.type) + '</span>' + e(question.question) + '</summary><p><strong>Answer:</strong> ' + e(question.answer) + '</p><p>' + e(question.reasoning) + '</p>' + sourcePages(question.pages) + '</details>').join('')) + panel('exam-checklist', 'Before the exam', '<ul>' + guide.checklist.map(text => '<li>' + e(text) + '</li>').join('') + '</ul>') : '') +
+      panel('references', 'References', '<p>Study the assigned lesson first. Supplementary manuals provide context; they do not add examinable material unless assigned as a lesson.</p>' + '<ul>' + docs.filter(doc => doc !== studyDoc).sort((a,b) => (a === primaryDoc ? 0 : a.cited.includes(key) ? 1 : 2) - (b === primaryDoc ? 0 : b.cited.includes(key) ? 1 : 2)).map(doc => '<li>' + docLink(doc, '../../', doc === primaryDoc && doc.file ? page : null) +
+        ' <span class="study-muted">· ' + (doc === primaryDoc ? 'Primary course source' : doc.cited.includes(key) ? 'Cited by the course' : 'Supplementary reading') + '</span></li>').join('') + '</ul>');
     const rail = '<nav class="study-rail" aria-label="Lesson sections"><p class="study-eyebrow">In this lesson</p><ul>' + chapterLinks.join('') + '</ul></nav>';
     const actions = '<div class="lesson-actions"><a href="../#' + lesson.module + '">← All reviewers</a><a class="study-cta" href="../../' +
       lesson.slug + '/">Take the practice exam</a>' + '<a href="#briefing">Start reviewing</a>' + '</div>';

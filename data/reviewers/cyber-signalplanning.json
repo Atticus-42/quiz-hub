@@ -28,7 +28,137 @@
     "checks": [
       {"question": "Which Function sets cybersecurity roles, risk direction and oversight?", "answer": "Govern."},
       {"question": "What comparison reveals gaps to prioritize?", "answer": "Compare the outcomes in the Current Profile with those in the Target Profile."}
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Outcomes and risk decisions",
+          "explanation": "The CSF gives commanders and technical staff a shared vocabulary for the cybersecurity outcomes a mission needs. Decide which outcomes deserve attention by comparing likelihood and impact. A training service that must be available tomorrow can deserve earlier attention than a frequently used system whose failure has only a small consequence.",
+          "remember": [
+            "Define the mission consequence before proposing a safeguard."
+          ],
+          "trap": "A purchase list can omit the outcome it is supposed to achieve.",
+          "pages": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "title": "Six Functions in one mission",
+          "explanation": "Govern establishes roles, policy and oversight. Identify clarifies assets, dependencies and risks. Protect applies safeguards, Detect finds and analyzes adverse events, Respond manages the incident, and Recover restores operations. The same service can need work in all six Functions at once.",
+          "remember": [
+            "Assign activities by their immediate purpose."
+          ],
+          "trap": "Monitoring an outage and restoring service solve different problems.",
+          "pages": [
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "title": "Core, Profiles and Tiers",
+          "explanation": "The Core is a hierarchy of Functions, Categories and Subcategories. Use it to describe Current Profile outcomes already achieved and Target Profile outcomes needed. The four Tiers describe the rigor of risk governance and management, from Partial through Risk Informed and Repeatable to Adaptive.",
+          "remember": [
+            "Profiles describe outcomes. Tiers characterize practices."
+          ],
+          "trap": "A Target Profile is easy to mistake for evidence of present capability.",
+          "pages": [
+            13,
+            14
+          ]
+        },
+        {
+          "title": "NICTEF and CSF alignment",
+          "explanation": "The lesson presents NICTEF as a national blueprint coordinating plans for accessible, useful and secure ICT. Its elements are human capital, affordable access and devices, platforms, infostructure and infrastructure, and standards, regulations and policies. The CSF translates cybersecurity aims into outcomes a unit can work toward.",
+          "remember": [
+            "Distinguish the service or content from the infrastructure connecting users to it."
+          ],
+          "trap": "Buying devices addresses only one part of an ICT access problem.",
+          "pages": [
+            19,
+            21,
+            22,
+            23,
+            25,
+            26
+          ]
+        },
+        {
+          "title": "From profile gaps to an action plan",
+          "explanation": "The lesson starts with scope and orientation, then identifies current outcomes and assesses risk. Set target outcomes, compare the Profiles, prioritize work, and implement and review. A Signal Corps classroom plan can connect command oversight, monitoring and recovery rehearsals to continuity of essential services.",
+          "remember": [
+            "Trace each proposed action to a gap and a mission need."
+          ],
+          "trap": "A long list of gaps can hide which ones would interrupt an essential task.",
+          "pages": [
+            15,
+            26,
+            27
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "Which Function sets responsibilities and policy, and which finds unusual events?",
+          "answer": "Govern sets policy and responsibilities. Detect finds events and analyzes them.",
+          "reasoning": "Both contribute to oversight, but the purpose of each task identifies its Function.",
+          "pages": [
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "Which CSF component gives the hierarchy of outcomes and which describes how consistently a unit manages risk?",
+          "answer": "The Core gives the hierarchy. Tiers characterize risk governance and management.",
+          "reasoning": "The Profile uses the Core’s outcomes to describe a particular scope.",
+          "pages": [
+            13,
+            14
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A classroom portal detects unauthorized changes and disables a compromised session. Which Functions are illustrated?",
+          "answer": "Detect for finding the changes and Respond for managing the incident.",
+          "reasoning": "The alert reveals the event. The action limits its effect.",
+          "pages": [
+            11,
+            12
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A unit has an inventory of workstations but no inventory of servers for a training service. How should this appear in its Profiles?",
+          "answer": "Describe the limited coverage in the Current Profile and the desired coverage in the Target Profile.",
+          "reasoning": "The difference identifies work to prioritize after considering how the servers support the mission.",
+          "pages": [
+            13,
+            15
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Learners have tablets and connectivity, but a course service is difficult to use and staff need training. Which elements should planners examine?",
+          "answer": "Platforms and human capital.",
+          "reasoning": "The service is part of the platform, and staff skills fall under human capital.",
+          "pages": [
+            21,
+            22,
+            23
+          ]
+        }
+      ],
+      "checklist": [
+        "Explain the purpose of each Function using one service.",
+        "Use Profiles to distinguish a verified outcome from a desired one.",
+        "Connect a local cyber action to the lesson’s national ICT direction."
+      ]
+    }
   },
   "zerotrust": {
     "brief": "Zero trust evaluates each session against resource-specific policy using verified identity, device state and other relevant context.",
@@ -59,7 +189,137 @@
     "checks": [
       {"question": "Which component grants, denies or revokes access according to policy?", "answer": "The Policy Engine."},
       {"question": "Which component enforces the decision at the connection to the resource?", "answer": "The Policy Enforcement Point."}
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Resource-centered access",
+          "explanation": "Zero trust treats data sources and computing services as resources and secures communication regardless of where it originates. The unit checks requests for a particular resource and evaluates identity, device condition and other relevant signals. A subject may be a person, system or service.",
+          "remember": [
+            "Location and ownership are insufficient grounds for granting access."
+          ],
+          "trap": "A session originating inside the network still needs an access decision.",
+          "pages": [
+            19,
+            20,
+            21
+          ]
+        },
+        {
+          "title": "Dynamic per-session policy",
+          "explanation": "The seven tenets connect per-session access with dynamic authentication and authorization, asset posture monitoring and feedback. Access is limited to the permitted task, and a change in device posture or request context can affect a decision during a session.",
+          "remember": [
+            "Authentication checks identity. Authorization determines allowed actions."
+          ],
+          "trap": "A valid login is easy to confuse with permission to use every resource.",
+          "pages": [
+            20,
+            21,
+            26
+          ]
+        },
+        {
+          "title": "Decide, carry out, enforce",
+          "explanation": "The Policy Engine decides to grant, deny or revoke access using policy and inputs. The Policy Administrator implements the decision by establishing or closing the path and configuring enforcement. The Policy Enforcement Point enables, monitors or terminates the actual connection. The Engine and Administrator make up the Policy Decision Point.",
+          "remember": [
+            "Trace a decision from the PE through the PA to the PEP."
+          ],
+          "trap": "A failed enforcement action can occur even when the PE reached the correct decision.",
+          "pages": [
+            22
+          ]
+        },
+        {
+          "title": "Three deployment approaches",
+          "explanation": "Enhanced identity governance makes the actor and privileges central to policy. Micro-segmentation protects smaller groups of resources behind gateways or agents acting as enforcement points. A software-defined perimeter uses the network controller to adjust paths according to policy decisions. One design may combine these approaches.",
+          "remember": [
+            "Name the mechanism that does the main work in the case."
+          ],
+          "trap": "A network divided into segments still needs policy and enforcement at its boundaries.",
+          "pages": [
+            23
+          ]
+        },
+        {
+          "title": "Threats to the access system",
+          "explanation": "Policy components can become mission-critical dependencies. Misconfiguration can approve inappropriate access, while disruption can prevent permitted sessions. Logging and auditing help find bad policy changes, and resilient hosting addresses availability. Metadata can support monitoring when traffic is encrypted, and the stored records need protection.",
+          "remember": [
+            "Explain whether the failure changes who is allowed or whether authorized access works at all."
+          ],
+          "trap": "MFA reduces stolen-credential risk, but the lesson also calls for contextual checks and monitoring.",
+          "pages": [
+            24
+          ]
+        },
+        {
+          "title": "Migration and classroom application",
+          "explanation": "Inventory actors and assets, rank processes and select a lower-risk workflow. Set policy for its resources before selecting a tool. Observe access in reporting-only mode, refine rules using evidence, and expand after the pilot works. Reevaluate when the mission changes.",
+          "remember": [
+            "Catalog non-person accounts as well as staff accounts."
+          ],
+          "trap": "An enforcement tool chosen before the workflow is mapped can solve the wrong access problem.",
+          "pages": [
+            25,
+            26
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "Name three inputs to dynamic access policy.",
+          "answer": "Identity, device state and behavior are taught examples.",
+          "reasoning": "The request is evaluated with current context in addition to the subject’s identity.",
+          "pages": [
+            21
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "Which components form the Policy Decision Point?",
+          "answer": "The Policy Engine and Policy Administrator.",
+          "reasoning": "The enforcement point controls the connection to the resource according to the decision.",
+          "pages": [
+            22
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "The access decision log records a denial, but the training resource remains reachable through its normal path. What would you examine?",
+          "answer": "Trace whether the Policy Administrator applied the decision and whether the PEP enforced it.",
+          "reasoning": "The denial suggests the PE decided correctly. The exposed path calls for checking implementation and enforcement.",
+          "pages": [
+            22,
+            24
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A partner liaison needs to read one rehearsal file from a managed device. What access fits the tenets?",
+          "answer": "Grant only the authorized action on that resource for the verified session.",
+          "reasoning": "Identity and device posture support the decision, while least privilege limits it to the needed file.",
+          "pages": [
+            21,
+            26
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "In a pilot, authorized instructors are regularly denied while reporting-only mode is active. What should the team do before enforcement?",
+          "answer": "Compare predicted denials to legitimate access patterns and refine the policy.",
+          "reasoning": "The pilot gives the team evidence to correct mistakes before legitimate instruction is interrupted.",
+          "pages": [
+            24,
+            25
+          ]
+        }
+      ],
+      "checklist": [
+        "Explain all seven tenets in terms of a specific resource.",
+        "Trace grant and revoke decisions through PE, PA and PEP.",
+        "Explain why a pilot starts with inventory, risk ranking and observation."
+      ]
+    }
   },
   "gsomia": {
     "brief": "Apply the lesson’s information-protection principles to controlled sharing of sensitive military information with authorized partners.",
@@ -89,7 +349,151 @@
     "checks": [
       {"question": "What two access conditions apply to classified information in the lesson?", "answer": "Appropriate clearance and a legitimate need to know."},
       {"question": "When should a credible suspected compromise be reported?", "answer": "Promptly through the required reporting channels."}
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Shared obligations and trust",
+          "explanation": "The lesson describes GSOMIA as protection for sensitive military information exchanged by partners. Both sides help protect it, with controls that preserve confidentiality and integrity and records supporting accountability. The exact requirements for an actual exchange depend on the applicable agreement.",
+          "remember": [
+            "Confidentiality concerns who can see information. Integrity concerns its accuracy and completeness."
+          ],
+          "trap": "Cooperation with a partner does not by itself authorize a particular release.",
+          "pages": [
+            19,
+            20,
+            23,
+            24,
+            25
+          ]
+        },
+        {
+          "title": "Protection across the information lifecycle",
+          "explanation": "Marking helps users recognize sensitivity and handling requirements. Use secure facilities or systems for storage, approved protected channels for transmission and the required secure disposal method when material is no longer retained. Physical controls matter even where a system uses technical protection.",
+          "remember": [
+            "Identify the stage of handling before selecting a protection."
+          ],
+          "trap": "Encryption during transmission cannot correct insecure storage or disposal.",
+          "pages": [
+            21,
+            30,
+            31,
+            32,
+            37,
+            45
+          ]
+        },
+        {
+          "title": "Access and release are separate decisions",
+          "explanation": "Individual access depends on appropriate clearance and a demonstrated need for the information. Role-based permissions help enforce duty-based access. A partner release also requires authorization under the applicable process, an approved recipient and channel, and documentation of the exchange.",
+          "remember": [
+            "Use an audit trail to determine who accessed an item, when and for what purpose."
+          ],
+          "trap": "A secure transmission can still be an unauthorized disclosure.",
+          "pages": [
+            22,
+            26,
+            33,
+            34,
+            35,
+            36
+          ]
+        },
+        {
+          "title": "Suspected compromise and response",
+          "explanation": "Notify the responsible authorities immediately when credible facts indicate a possible breach. Record the incident, the material involved and steps taken. Containment limits the effect, recovery helps restore secure handling, and forensic analysis helps establish the cause and guide prevention.",
+          "remember": [
+            "Prompt notice and follow-up documentation both support response."
+          ],
+          "trap": "Waiting for a complete investigation can delay the required report of a suspected breach.",
+          "pages": [
+            27,
+            38,
+            39
+          ]
+        },
+        {
+          "title": "Assurance and improvement",
+          "explanation": "Audits compare practice with procedures. Logs, current records, inspections and role-specific training help show whether controls operate as intended. When reviews reveal recurring weaknesses, use feedback to update the procedure, control or training and check the changed practice.",
+          "remember": [
+            "Technical protections, physical controls and trained users cover different weaknesses."
+          ],
+          "trap": "A signed policy alone does not show that personnel follow it.",
+          "pages": [
+            28,
+            29,
+            40,
+            41,
+            42,
+            44,
+            45,
+            46
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "What determines classification in the lesson?",
+          "answer": "Sensitivity and the potential effect of unauthorized disclosure.",
+          "reasoning": "Marking communicates the resulting handling requirement to people who use the material.",
+          "pages": [
+            21,
+            30
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "What two individual access conditions must be satisfied and what extra check matters for an exchange?",
+          "answer": "Appropriate clearance and demonstrated need to know. The exchange must also be authorized.",
+          "reasoning": "Being eligible to see information and being permitted to receive a particular release are distinct questions.",
+          "pages": [
+            22,
+            33,
+            36
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "An approved encrypted channel is ready, but the partner recipient’s authorization cannot be verified. What should a classroom coordinator do?",
+          "answer": "Hold the transfer and obtain verification through the designated process.",
+          "reasoning": "Encryption protects the data in transit. It does not establish who may receive the information.",
+          "pages": [
+            35,
+            36,
+            37
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A trainee reports that a protected exercise file may have gone to the wrong recipient. What actions come first?",
+          "answer": "Notify the appropriate authority promptly, record the facts and follow authorized containment procedures.",
+          "reasoning": "A suspected compromise is enough to start reporting and response.",
+          "pages": [
+            27,
+            38,
+            39
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "An audit shows personnel retain broad folder access after changing roles. What change addresses the finding?",
+          "answer": "Update role-based access when duties change and review access records to check whether the change works.",
+          "reasoning": "The audit identifies a gap between required access and actual permissions.",
+          "pages": [
+            34,
+            35,
+            40,
+            46
+          ]
+        }
+      ],
+      "checklist": [
+        "Distinguish information classification, individual access and authority to release.",
+        "Explain how controls change across storage, transmission and disposal.",
+        "Describe prompt notification, documentation, response and later improvement."
+      ]
+    }
   },
   "cyberrisk": {
     "brief": "Assess defensive cyber risks by linking a valued asset, a credible threat and a weakness to likelihood and mission impact.",
@@ -120,7 +524,134 @@
     "checks": [
       {"question": "Is a missing access restriction a threat or a vulnerability?", "answer": "A vulnerability. It is a weakness that a threat could exploit."},
       {"question": "Which incident phase limits spread before the cause is removed?", "answer": "Containment."}
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "From asset to mission risk",
+          "explanation": "Name the asset and the confidentiality, integrity or availability it needs. Identify a threat that could affect it and a weakness that lets the threat cause harm. Explain the likelihood and the mission consequence. For example, malicious changes to a training roster can harm integrity even when students can still open the file.",
+          "remember": [
+            "Asset means value, threat means potential harm, and vulnerability means exploitable weakness."
+          ],
+          "trap": "Describing outdated software by itself leaves the threat and mission effect unstated.",
+          "pages": [
+            15,
+            16,
+            17
+          ]
+        },
+        {
+          "title": "Six incident-response phases",
+          "explanation": "Preparation readies people, tools and procedures. Identification detects and recognizes incidents. Containment limits spread, eradication removes incident components and validates the cleanup, recovery restores healthy service, and assessment and review records findings for improvement.",
+          "remember": [
+            "A system can be contained while the cause is still present."
+          ],
+          "trap": "Restoring data before validating removal can recreate the problem.",
+          "pages": [
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ]
+        },
+        {
+          "title": "Defensive controls and assessment evidence",
+          "explanation": "The lesson’s legacy SANS list begins with inventories, secure configurations, vulnerability remediation and malware defense. It then covers applications, wireless devices, backup and restoration, skills and network device configuration. Inspect evidence that the chosen control addresses the observed weakness.",
+          "remember": [
+            "A device inventory and a software inventory answer different questions."
+          ],
+          "trap": "The presence of backup files is weaker evidence than a successful restore test.",
+          "pages": [
+            25,
+            26
+          ]
+        },
+        {
+          "title": "Access, visibility and validation",
+          "explanation": "The later controls include service restrictions, privileged access, boundary defense, logs, need-to-know access, account monitoring, data loss prevention, response plans, network engineering and authorized exercises. Match the control to the problem. Disabling stale accounts and reviewing logs support different decisions.",
+          "remember": [
+            "Check which asset, exposure or response gap a control addresses."
+          ],
+          "trap": "A firewall may control boundary traffic while unnecessary user privileges remain.",
+          "pages": [
+            27,
+            28
+          ]
+        },
+        {
+          "title": "People, Process and Technology scoring",
+          "explanation": "The worksheet groups personnel readiness, governance and procedures, and equipment or software safeguards. Calculate each weighted contribution by multiplying the provided risk output percentage by the allocated points and dividing by 100. Add contributions, then use the slide’s Low, Medium or High bands for defined values.",
+          "remember": [
+            "Use the supplied weights and scoring bands for the classroom problem."
+          ],
+          "trap": "A weighted total and one element’s raw percentage describe different things.",
+          "pages": [
+            29,
+            30
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "An outdated operating system makes a workstation easier to compromise. What does the outdated system represent?",
+          "answer": "A vulnerability.",
+          "reasoning": "The weakness allows a threat to affect the workstation, which is the asset.",
+          "pages": [
+            15,
+            16
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "What distinguishes containment, eradication and recovery?",
+          "answer": "Containment limits damage, eradication removes incident components, and recovery restores healthy service.",
+          "reasoning": "Each stage answers a different question about the remaining risk and state of the system.",
+          "pages": [
+            21,
+            22,
+            23
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A lab cannot tell which computers are connected or which account accessed a shared file. Which two controls address those gaps?",
+          "answer": "Device inventory and standardized audit logs with review.",
+          "reasoning": "Inventory makes assets visible, while logs help trace access.",
+          "pages": [
+            25,
+            27
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A training center backs up attendance files but has never restored them. What evidence should an assessor request?",
+          "answer": "A documented restoration test using the approved process.",
+          "reasoning": "The test checks that the data can actually be recovered.",
+          "pages": [
+            26,
+            29
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "The supplied worksheet gives 60% at 50 points, 40% at 40 points and 10% at 10 points. What is the resulting classroom rating?",
+          "answer": "47%, Medium.",
+          "reasoning": "The weighted contributions are 30, 16 and 1. A total of 47 falls in the slide’s 11–50% band.",
+          "pages": [
+            30
+          ]
+        }
+      ],
+      "checklist": [
+        "Write an asset, threat, vulnerability, likelihood and impact statement.",
+        "Match controls to specific evidence gaps.",
+        "Explain the six phases and calculate a supplied PPT score."
+      ]
+    }
   },
   "ceoicesi": {
     "brief": "Distinguish changing system-specific operating instructions from standing instructions, then verify that a classroom copy is authoritative, effective and complete.",
@@ -150,7 +681,158 @@
     "checks": [
       {"question": "Which publication explains how to use the operating items in the CEOI?", "answer": "The CESI."},
       {"question": "What distinguishes two revisions of an item that share a base number?", "answer": "The edition identifies the revision and the effective date indicates when it applies."}
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Operating items and standing methods",
+          "explanation": "The CEOI gives specific instructions for operating a communications system. The CESI explains how to use CEOI items and provides the standing method. The commander is responsible for communications. The signal officer performs technical control and staff supervision in preparing and issuing instructions.",
+          "remember": [
+            "Start with the applicable CEOI item, then consult the CESI for how to use it."
+          ],
+          "trap": "A standard method can remain applicable after the operating assignment changes.",
+          "pages": [
+            9,
+            10,
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "title": "Edition identity and copy control",
+          "explanation": "A copy number supports accounting for individual copies. A short title identifies an edition and an item’s base number identifies the item across revisions. Verify the effective date and edition before use. The four CEOI editions include reserves that allow replacement after compromise.",
+          "remember": [
+            "A reserve copy can be issued while still out of effect."
+          ],
+          "trap": "The latest-looking or highest-numbered copy may be a reserve.",
+          "pages": [
+            15,
+            16,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            41
+          ]
+        },
+        {
+          "title": "The general section and authoritative index",
+          "explanation": "The general section contains the index, distribution and general information. Use the index to identify items and verify publication authentication, distribution to check recipients and copy quantities, and general information for instructions incorporated into the SOP.",
+          "remember": [
+            "Authentication in the index and copy allocation solve separate problems."
+          ],
+          "trap": "A listed copy quantity does not verify the contents of an item.",
+          "pages": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            47
+          ]
+        },
+        {
+          "title": "Validate a document before use",
+          "explanation": "Check the preparing headquarters, titles, item number and edition details in the heading. Confirm the body covers the right operating subject, and cross-check the ending for copy number, page count and repeated item number. If a page is missing, obtain a complete applicable copy.",
+          "remember": [
+            "Verify identity, effective status, completeness and publication authority separately."
+          ],
+          "trap": "An authentic document can still be incomplete or out of effect.",
+          "pages": [
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+          ]
+        },
+        {
+          "title": "Compromise and message authentication",
+          "explanation": "Loss, unauthorized exposure or misuse can compromise an item. The lesson calls for immediate notification followed by a written report documenting circumstances and response. Reserve editions support controlled replacement. The authentication section protects against fraudulent reception or transmission, which is a separate problem from document loss.",
+          "remember": [
+            "Identify the affected edition or item in the initial notice."
+          ],
+          "trap": "Waiting for the detailed report delays the first notification.",
+          "pages": [
+            17,
+            18,
+            26,
+            33
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "Which publication explains how to use a specific operating item?",
+          "answer": "The CESI.",
+          "reasoning": "The CEOI provides the system-specific operating instruction.",
+          "pages": [
+            9,
+            12
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "Where would a student verify publication authentication and then check the authorized quantity of copies?",
+          "answer": "In the index for authentication and in distribution for quantities.",
+          "reasoning": "Both are in the general section and serve distinct checks.",
+          "pages": [
+            28,
+            29,
+            30,
+            47
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A reserve training item is complete but the exercise has received no activation notice. Which edition applies?",
+          "answer": "Use the effective edition after checking the authoritative information.",
+          "reasoning": "Issuance of a reserve copy does not make it effective.",
+          "pages": [
+            21,
+            22,
+            26,
+            41
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "The copy number matches the issue record, but a three-page item has only two pages. What should the team do?",
+          "answer": "Obtain the complete effective item and verify page and item identifiers before use.",
+          "reasoning": "Copy accountability cannot establish that the body is complete.",
+          "pages": [
+            15,
+            41,
+            45,
+            47
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "An unaccounted-for mock CEOI item may have been exposed. What response should the team explain?",
+          "answer": "Promptly report the affected item through the taught chain and prepare the follow-up account.",
+          "reasoning": "Early notice supports timely action. The later report records the facts and response.",
+          "pages": [
+            17,
+            18,
+            26
+          ]
+        }
+      ],
+      "checklist": [
+        "Distinguish CEOI and CESI, and command and signal officer responsibilities.",
+        "Verify the index, effective edition, copy identity and completeness.",
+        "Explain immediate reporting, written follow-up and controlled replacement."
+      ]
+    }
   },
   "signalestimate": {
     "brief": "A signal estimate organizes known and assumed factors, compares courses of action and recommends how to meet signal support requirements.",
@@ -180,7 +862,122 @@
     "checks": [
       {"question": "In METAL, what do T and L stand for?", "answer": "Troops available and Logistical requirements."},
       {"question": "Where in Annex A are tradeoffs across options brought together?", "answer": "Comparison of COAs, before Decision and Recommendations."}
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "An estimate is a revisable assessment",
+          "explanation": "PAM 6-0102 describes the signal estimate, or C4S estimate, as a logical examination of known and assumed factors affecting support. A planner may use one estimate for all means or separate estimates for services and capabilities. Revisit the assessment when a changed condition affects support or turns an assumption into a confirmed fact.",
+          "remember": [
+            "State the decision the estimate will support and date important assumptions."
+          ],
+          "trap": "A completed form can still contain an assumption that no longer holds.",
+          "pages": [
+            27
+          ]
+        },
+        {
+          "title": "METAL organizes the facts",
+          "explanation": "METAL stands for Mission, Enemy signal capabilities, Troops available, Area of Operations and Logistical requirements. A precise mission defines what must be supported. The other factors describe opposing capability, personnel, operating conditions and sustainment. Annex A shows where many of those inputs belong.",
+          "remember": [
+            "Connect each factor to its effect on support."
+          ],
+          "trap": "A list of equipment is incomplete without personnel and logistical requirements.",
+          "pages": [
+            27,
+            44
+          ]
+        },
+        {
+          "title": "Build the situation and examine its implications",
+          "explanation": "Annex A’s situation section records terrain, weather, existing communications, opposing and friendly conditions, and the proposed courses of action. The analysis section asks what opposing capabilities and limitations mean for friendly support, including propagation, friendly limitations and countermeasures.",
+          "remember": [
+            "Use the situation section to establish inputs and the analysis section to explain effects."
+          ],
+          "trap": "Copying observations into the analysis leaves their implications unstated.",
+          "pages": [
+            44
+          ]
+        },
+        {
+          "title": "Compare courses of action",
+          "explanation": "Compare how the proposed options meet the same mission under the conditions recorded in the estimate. Consider their supportability under actual or assumed staffing, communications assets, conditions and sustainment. Explain what would change the recommendation if a key assumption fails.",
+          "remember": [
+            "Use comparable mission requirements for each option."
+          ],
+          "trap": "An option with broader coverage may depend on unavailable personnel or sustainment.",
+          "pages": [
+            27,
+            44
+          ]
+        },
+        {
+          "title": "Prepare decision and recommendations",
+          "explanation": "Annex A carries the comparison into personnel, C4S and sustainment recommendations, means of communications, command post locations and a task list. Make the recommendation and its dependencies clear so the commander can decide how to provide support.",
+          "remember": [
+            "Specify which tasks and support requirements follow from the preferred option."
+          ],
+          "trap": "A comparison with no actionable recommendation leaves the decision-maker to infer the required support.",
+          "pages": [
+            44
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "What is METAL and why is it used?",
+          "answer": "Mission, Enemy signal capabilities, Troops available, Area of Operations and Logistical requirements organize the factors for a signal estimate.",
+          "reasoning": "It prompts the planner to examine more than the availability of a communication system.",
+          "pages": [
+            27
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "What follows situation and courses of action in Annex A?",
+          "answer": "Analysis of opposing COA, comparison of COAs, then decision and recommendations.",
+          "reasoning": "Each section builds from inputs through implications and tradeoffs to the decision.",
+          "pages": [
+            44
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A training signal estimate assumes a spare team will arrive. It is now confirmed unavailable. What should change?",
+          "answer": "Revise the personnel assumption and reassess each option relying on that team.",
+          "reasoning": "A change in the underlying fact can change both supportability and the recommendation.",
+          "pages": [
+            27,
+            44
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "One classroom option provides full coverage but cannot be maintained through the final phase. Another covers all priority sites for the whole period. What should the estimate explain?",
+          "answer": "Compare the lost coverage against the sustainment shortfall and recommend the option meeting the mission’s priority and duration.",
+          "reasoning": "The tradeoff belongs in the comparison, with sustainment and any coverage limits carried into the recommendation.",
+          "pages": [
+            27,
+            44
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A simulated ridge is recorded in the situation section. How should analysis use it?",
+          "answer": "Explain its expected effect on communications for the relevant options and whether a limitation requires a different arrangement.",
+          "reasoning": "Terrain belongs among inputs, but analysis must explain what it changes.",
+          "pages": [
+            44
+          ]
+        }
+      ],
+      "checklist": [
+        "Explain the purpose of an estimate and expand METAL.",
+        "Separate situation inputs, analysis and comparison.",
+        "State a supported recommendation and what evidence would change it."
+      ]
+    }
   },
   "c4istarplanning": {
     "brief": "Plan communications around the information that C4ISTAR components must exchange, the decisions that depend on it and the conditions in which it must arrive.",
@@ -210,7 +1007,147 @@
     "checks": [
       {"question": "What allows different communications systems to exchange usable information?", "answer": "Interoperability, supported by common standards and compatible interfaces."},
       {"question": "Which planning quality addresses growth in users or data volume?", "answer": "Scalability."}
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Requirements come from the information need",
+          "explanation": "Define the exchange that supports a decision, who produces and receives it, the required timing and the security conditions. Field and disaster situations call for communications that work under adverse conditions, and joint operations require coordination with other participants.",
+          "remember": [
+            "Describe how a late, unreadable or untrusted report would affect the decision."
+          ],
+          "trap": "A link can work technically while failing the time or handling requirement.",
+          "pages": [
+            14,
+            15,
+            16,
+            19,
+            20,
+            23
+          ]
+        },
+        {
+          "title": "Keep the capability usable",
+          "explanation": "The lesson includes trained personnel, exercises, maintained infrastructure, funding and ongoing threat assessment. A planning choice must be supportable after installation. Use training and exercises to reveal which procedures and skills need work, then consider those needs when assigning resources.",
+          "remember": [
+            "Verify the people, facilities and maintenance behind the service."
+          ],
+          "trap": "Equipment acquisition alone does not establish operational availability.",
+          "pages": [
+            17,
+            18,
+            21,
+            22
+          ]
+        },
+        {
+          "title": "Select technology by its role",
+          "explanation": "The deck lists secure radios, software-defined radios, fixed and mobile satellite systems and IP-based networks. These provide different transport capabilities. Field devices support use in demanding environments, while common protocols help systems exchange data. Choose equipment based on the required exchange and operating conditions.",
+          "remember": [
+            "Distinguish transport technology from the applications and information it carries."
+          ],
+          "trap": "A flexible radio or a satellite link does not ensure compatible report formats.",
+          "pages": [
+            25,
+            26,
+            27,
+            36,
+            38
+          ]
+        },
+        {
+          "title": "Trace component roles",
+          "explanation": "Sensors and reconnaissance systems produce observations, networks carry data, databases and computing resources support storage and processing, and analytical tools help extract insights. Command consoles and operations centers use information for coordination and decisions. Follow a report from source to display to locate a failed handoff.",
+          "remember": [
+            "Identify where an error first appears in the chain."
+          ],
+          "trap": "A display can accurately show faulty or incomplete data it received upstream.",
+          "pages": [
+            28,
+            29,
+            30,
+            31,
+            33,
+            34
+          ]
+        },
+        {
+          "title": "Interoperability and performance under stress",
+          "explanation": "Standardization gives systems a common way to understand data. Integration connects them, sometimes through an interface or middleware. Reliability concerns continued operation under stress, security protects information and scalability handles changes in demand. Exercise the whole exchange using representative traffic and access conditions.",
+          "remember": [
+            "Verify that the receiver can use the information as intended."
+          ],
+          "trap": "Growth in message volume and loss of a link are different tests.",
+          "pages": [
+            37,
+            42,
+            43,
+            44
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "What distinguishes standardization from integration?",
+          "answer": "Standardization gives systems common rules and formats. Integration connects disparate systems so they can exchange information.",
+          "reasoning": "Compatible rules are a basis for exchange, and integration implements the connection.",
+          "pages": [
+            42,
+            43
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "Which terms describe continued operation under adverse conditions and growth to meet demand?",
+          "answer": "Reliability and scalability, respectively.",
+          "reasoning": "Stress can come from failures or conditions, while scalability concerns a change in the size of demand.",
+          "pages": [
+            43,
+            44
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Two Philippine Army classroom teams can send reports to each other but use incompatible units. What should the planners change?",
+          "answer": "Agree on a common convention for the field and test that both systems process and display it correctly.",
+          "reasoning": "Transport works. The compatibility problem appears in the receiver’s interpretation.",
+          "pages": [
+            19,
+            20,
+            42
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A new field system succeeds in a vendor demonstration. What should instructors verify before relying on it in a joint exercise?",
+          "answer": "Check that unit personnel can operate and support it under representative conditions and can deliver required reports on time.",
+          "reasoning": "A demonstration proves only the tested setup. The lesson treats training, maintenance and field performance as planning requirements.",
+          "pages": [
+            17,
+            18,
+            20
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A simulated observation is accurate at the sensor but is omitted from the command display after processing. Where should staff start?",
+          "answer": "Trace transfer and processing between the known-good source and the display, and test the relevant interfaces.",
+          "reasoning": "The discrepancy may occur in the handoff or interpretation before the report reaches the command team.",
+          "pages": [
+            28,
+            33,
+            34,
+            43
+          ]
+        }
+      ],
+      "checklist": [
+        "State an exchange in terms of sender, recipient, timing and protection.",
+        "Explain transport, processing and command uses for the same report.",
+        "Distinguish standards, integration, reliability, security and scalability."
+      ]
+    }
   },
   "signalplanning": {
     "brief": "Develop signal support requirements, allocate feasible resources, prepare for disruptions and validate the plan before publication.",
@@ -241,7 +1178,124 @@
     "checks": [
       {"question": "What two considerations guide priorities when signal resources are insufficient?", "answer": "Supportability and importance to mission accomplishment."},
       {"question": "At which stage should the planner verify overall coverage, feasibility and responsibilities?", "answer": "Finalizing the plan, before publication."}
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Develop requirements alongside operational planning",
+          "explanation": "The signal planning process runs with MDMP, or with TLP at small-unit level. The commander gives priorities, staff describe user needs, and higher, adjacent and subordinate units provide guidance on dependencies and support. SOPs and applicable CEOI and CESI inform what the planner can employ.",
+          "remember": [
+            "Clarify each requirement and whose decision or task relies on it."
+          ],
+          "trap": "Reusing the previous plan without coordinating can omit a new user or priority.",
+          "pages": [
+            27,
+            28
+          ]
+        },
+        {
+          "title": "Check real capability and set priorities",
+          "explanation": "Maintain a current picture of equipment, personnel and funds. Authorized equipment and staffing establish baselines, while serviceability, actual fill, training, existing commitments and reserves determine usable support. Compare requirements with capability and prioritize by supportability and importance to the assigned mission.",
+          "remember": [
+            "Identify any support gap and explain the effect on the mission."
+          ],
+          "trap": "An authorized position or listed asset can be unavailable for the exercise.",
+          "pages": [
+            28,
+            29
+          ]
+        },
+        {
+          "title": "Prepare for disruptions",
+          "explanation": "For interrupted connectivity, consider redundant communications, repair or replacement and technical support. The handout separately calls for measures addressing electronic warfare, cyber incidents and compromised frequencies. Choose recovery procedures that address the actual failure and identify the support needed to carry them out.",
+          "remember": [
+            "Distinguish continuing priority traffic from restoring the original means."
+          ],
+          "trap": "A backup that uses the failed resource may be unavailable at the same time.",
+          "pages": [
+            29
+          ]
+        },
+        {
+          "title": "Prepare the tentative plan",
+          "explanation": "The tentative plan allocates resources and develops primary, alternate, contingency and emergency support. It also considers locations for facilities, security, interconnections and alternate routes. Site choices must account for demand, terrain, propagation, accessibility and support.",
+          "remember": [
+            "Check that each allocation and fallback can be staffed and supported."
+          ],
+          "trap": "A tentative site selected from a map may have a coverage or access gap.",
+          "pages": [
+            29
+          ]
+        },
+        {
+          "title": "Finalize, then publish",
+          "explanation": "Check the entire plan for practical support, resource adequacy, priorities, responsibilities and security. Confirm the site survey, locations and coverage gaps. Prepare plans and orders with diagrams and instructions, and coordinate the signal estimate and applicable annex material with operations staff.",
+          "remember": [
+            "Resolve unresolved requirements and assign responsibilities before publication."
+          ],
+          "trap": "Diagrams help communicate a plan, but they do not validate coverage.",
+          "pages": [
+            30
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "Name the main sources used to develop signal requirements.",
+          "answer": "Command guidance, staff users, higher and participating units, SOPs, and CEOI and CESI.",
+          "reasoning": "They provide different views of priorities, user needs and established procedures.",
+          "pages": [
+            27,
+            28
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "Which two considerations guide priorities when resources are inadequate?",
+          "answer": "Supportability and importance to mission accomplishment.",
+          "reasoning": "Requirements need to be ranked after comparing them with real capabilities.",
+          "pages": [
+            28,
+            29
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A fictional classroom unit has three listed systems, but one is unserviceable and another is committed elsewhere. How many can the plan confidently allocate?",
+          "answer": "One, assuming it has the staffing and support to operate.",
+          "reasoning": "The planner distinguishes listed assets from available, serviceable capability.",
+          "pages": [
+            28,
+            29
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "The alternate for urgent reports uses the same simulated failed device as the primary. What should the planner change?",
+          "answer": "Arrange a workable redundant means and plan repair, replacement or technical support for the original device.",
+          "reasoning": "The recovery plan must address the shared failure if priority traffic is to continue.",
+          "pages": [
+            29
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A tentative route covers most simulated desks, but survey results show a gap at the priority desk. What should happen before publication?",
+          "answer": "Revise the allocation or location, confirm coverage at the priority desk and update assignments and diagrams.",
+          "reasoning": "Final checks compare real coverage with mission priorities and practical resources.",
+          "pages": [
+            29,
+            30
+          ]
+        }
+      ],
+      "checklist": [
+        "Trace a requirement from its source to the assigned resource.",
+        "Distinguish recovery measures from the tentative allocation.",
+        "Check coverage, security, responsibilities and publication material."
+      ]
+    }
   },
   "armyops": {
     "brief": "Distinguish the platforms, operation types, tenets and principles used in the Philippine Army lesson, then apply them to a classroom coordination decision.",
@@ -266,7 +1320,167 @@
     "checks": [
       {"question": "What are the lesson’s three elements of full spectrum operations?", "answer": "Offensive operations, defensive operations and support to civil governance."},
       {"question": "Which tenet arranges activities in time and space so their effects come together?", "answer": "Synchronization."}
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Mandate and organizational platforms",
+          "explanation": "The lesson cites Article II of the 1987 Constitution for the AFP’s role protecting the people and the State and securing sovereignty and territorial integrity. It distinguishes coalition or alliance operations, joint operations by two or more services under one commander, and combined arms operations integrating multiple Army arms.",
+          "remember": [
+            "Classify a platform by the composition and command relationship of the forces."
+          ],
+          "trap": "Multiple Army arms alone do not make an operation joint.",
+          "pages": [
+            9,
+            10
+          ]
+        },
+        {
+          "title": "Offensive and defensive tasks",
+          "explanation": "The lesson groups operations into offensive, defensive and support to civil governance. Offensive operations aim to defeat opposing forces and seize objectives, with tasks such as movement to contact, attack, exploitation, strike and pursuit. Defensive tasks include mobile defense, area defense and retrograde, and serve purposes such as defeating attacks or gaining time.",
+          "remember": [
+            "Classify the stated task and explain its purpose in the scenario."
+          ],
+          "trap": "The offensive principle of retaining initiative can still apply in a defensive situation.",
+          "pages": [
+            11,
+            12,
+            13
+          ]
+        },
+        {
+          "title": "Support to civil governance",
+          "explanation": "The lesson places disaster response, protection of civil populations and installations, support to law enforcement and community development within this element. The activities involve coordination with other instruments of national power to maintain or restore a safe environment. Identify the civil objective and the military support requested.",
+          "remember": [
+            "Distinguish what the operation is doing from who is participating."
+          ],
+          "trap": "An operation can support civil governance while also being joint.",
+          "pages": [
+            11,
+            14
+          ]
+        },
+        {
+          "title": "Five tenets",
+          "explanation": "Initiative shapes events, agility responds quickly, depth extends an effort in space, time, purpose and resources, synchronization coordinates effects in time and space, and versatility meets varied requirements. A classroom case can show several tenets. Explain which behavior is most directly evidenced.",
+          "remember": [
+            "Look for the feature the scenario actually describes."
+          ],
+          "trap": "Speed alone does not demonstrate that activities are synchronized.",
+          "pages": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "title": "Army power and its eight functions",
+          "explanation": "Leadership ties the functions together, and information enhances them. The lesson lists movement and maneuver, intelligence, fires, civil military operations, information operation, sustainment, command and control, and protection. Distinguish producing understanding, directing activity, supporting endurance and preserving the force.",
+          "remember": [
+            "Classify a task by its primary contribution."
+          ],
+          "trap": "A report can assist C2 while the analysis producing it belongs to intelligence.",
+          "pages": [
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        {
+          "title": "Twelve principles and their tradeoffs",
+          "explanation": "The lesson lists objective, offensive, mass, economy of force, maneuver, unity of command, security, surprise, simplicity, perseverance, legitimacy and restraint. Consider how principles work together. Focusing effort at the decisive place uses mass, while assigning the minimum essential resources to secondary efforts uses economy of force. Clear orders support simplicity.",
+          "remember": [
+            "Explain why the stated decision fits the principle and what it costs."
+          ],
+          "trap": "Assigning every resource to one place can leave essential secondary tasks unsupported.",
+          "pages": [
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46,
+            47
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "What distinguishes joint operations from combined arms operations?",
+          "answer": "Joint involves two or more services under a single commander. Combined arms integrates several Army arms.",
+          "reasoning": "The first distinction is by service and command, the second by Army capabilities working together.",
+          "pages": [
+            10
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "What ties the eight warfighting functions together, and what enhances them?",
+          "answer": "Leadership ties them together and information enhances them.",
+          "reasoning": "The lesson treats both as integral to the force’s combined Army power.",
+          "pages": [
+            21,
+            22,
+            25
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "An Army team and another service support a municipal evacuation under one commander. What are the operation type and platform in this tabletop?",
+          "answer": "Support to civil governance and joint, respectively.",
+          "reasoning": "Disaster support identifies the purpose. Participation of two services under one commander identifies the platform.",
+          "pages": [
+            10,
+            14
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A simulated relief team drives quickly, but no shelter staff are present when it arrives. What tenet most directly addresses the problem?",
+          "answer": "Synchronization.",
+          "reasoning": "The issue is the alignment of the transport and receiving teams in time and space.",
+          "pages": [
+            17,
+            19
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A classroom plan concentrates support at the decisive point and assigns the minimum needed to maintain another site. Which two principles explain the allocation?",
+          "answer": "Mass and economy of force.",
+          "reasoning": "The plan focuses effects and provides an essential minimum for the secondary effort.",
+          "pages": [
+            38,
+            39
+          ]
+        }
+      ],
+      "checklist": [
+        "Separate mandate, platforms and operation types.",
+        "Use one example for each tenet and identify the eight warfighting functions.",
+        "Explain a tradeoff between two named principles."
+      ]
+    }
   },
   "intcycle": {
     "brief": "Follow the five stages of the intelligence cycle to turn collected information into a decision-support assessment and revise it as needs or evidence change.",
@@ -297,6 +1511,144 @@
     "checks": [
       {"question": "Which stage prepares collected material by translating or sorting it?", "answer": "Processing and exploitation."},
       {"question": "Which stage interprets the prepared information and develops an assessment?", "answer": "Analysis and production."}
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Intelligence as process and product",
+          "explanation": "The lesson uses intelligence for both the process of gathering, analyzing and sharing information and the resulting knowledge used in a decision. The cycle is iterative. A changed question or new report can prompt renewed collection or analysis.",
+          "remember": [
+            "State which decision the product supports."
+          ],
+          "trap": "More raw reports can leave the decision-maker’s uncertainty unchanged.",
+          "pages": [
+            10,
+            11
+          ]
+        },
+        {
+          "title": "Planning and direction",
+          "explanation": "Translate a mission objective into a specific requirement, set priorities and direct the resources needed to address the important gaps. A classroom requirement should identify the question that must be answered and the information relevant to it.",
+          "remember": [
+            "Use the decision and time available to rank requirements."
+          ],
+          "trap": "Collecting whatever is easiest may leave the key question unanswered.",
+          "pages": [
+            11,
+            12,
+            14
+          ]
+        },
+        {
+          "title": "Collection disciplines and methods",
+          "explanation": "Collection brings in raw information from sources such as HUMINT, SIGINT, IMINT and OSINT. In EW examples, COMINT concerns communications signals, while ELINT concerns non-communications emissions. Surveillance, interception and signal characterization are discussed conceptually as ways to obtain information.",
+          "remember": [
+            "Classify signal examples by the type of emission or source."
+          ],
+          "trap": "The fact that a sensor recorded a signal does not by itself establish what the signal means.",
+          "pages": [
+            12,
+            15,
+            16
+          ]
+        },
+        {
+          "title": "Processing and exploitation",
+          "explanation": "Convert collected material into usable forms through activities such as sorting or translation. The lesson also discusses early interpretation of patterns and anomalies while exploiting signal data. A prepared set of observations gives analysts the comparable material needed for a fuller assessment.",
+          "remember": [
+            "Identify the transformation that makes the data usable."
+          ],
+          "trap": "A sorted or translated report can still have gaps or errors.",
+          "pages": [
+            12,
+            17
+          ]
+        },
+        {
+          "title": "Analysis and production",
+          "explanation": "Correlation links related evidence, signal pattern analysis interprets characteristics, and trend analysis compares developments over time. A useful report presents findings and their implications for a decision. Where several explanations fit, identify what the observations support and what would require further evidence.",
+          "remember": [
+            "Separate the observation from the inference and its support."
+          ],
+          "trap": "A repeated pattern can suggest a relationship without establishing its cause.",
+          "pages": [
+            13,
+            18,
+            19
+          ]
+        },
+        {
+          "title": "Dissemination, integration and protection",
+          "explanation": "Deliver assessments to decision-makers and integrate them into plans and C2. Current updates and intelligible displays help maintain awareness. Limit access to authorized personnel, use secure communications and consider ethical and legal requirements and potential harm in classroom judgments.",
+          "remember": [
+            "Check recipient, secure channel and decision timing."
+          ],
+          "trap": "Posting a product is insufficient if its intended user cannot find or interpret it in time.",
+          "pages": [
+            13,
+            20,
+            21
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "Which stage prepares raw data, and which develops an assessed product?",
+          "answer": "Processing and exploitation prepares data. Analysis and production develops the assessment.",
+          "reasoning": "Preparation makes material usable, while analysis interprets its meaning.",
+          "pages": [
+            12,
+            13
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "Which discipline handles communications emissions, and which handles non-communications emissions?",
+          "answer": "COMINT and ELINT, respectively.",
+          "reasoning": "The distinction is the type of signal being examined.",
+          "pages": [
+            15
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A Philippine Army classroom team must answer an evacuation question before noon, but it has three unrelated collection requests. How should it act?",
+          "answer": "Set the decision deadline and prioritize collection that closes the information gap affecting evacuation.",
+          "reasoning": "Planning and direction align scarce effort with the mission.",
+          "pages": [
+            12,
+            14
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Two sources describe a similar mock signal event at different times. How should analysts use the records?",
+          "answer": "Align time references, compare the evidence and report what the match supports along with remaining uncertainty.",
+          "reasoning": "Processing makes the records comparable. Analysis determines whether they support a common explanation.",
+          "pages": [
+            17,
+            18,
+            19
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A mock EW assessment is ready but has appeared only on a public exercise screen. What should the team correct?",
+          "answer": "Limit access and deliver the current assessment through the authorized secure channel so the intended decision-maker can use it.",
+          "reasoning": "C2 integration requires usable delivery, and OPSEC requires protecting sensitive information.",
+          "pages": [
+            13,
+            20,
+            21
+          ]
+        }
+      ],
+      "checklist": [
+        "Explain the process and product meanings of intelligence.",
+        "Distinguish each stage and classify the classroom collection examples.",
+        "State evidence, uncertainty, authorized audience and the next update."
+      ]
+    }
   }
 }

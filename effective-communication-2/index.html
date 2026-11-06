@@ -362,6 +362,9 @@
       text-decoration: none;
       transition: color var(--speed) var(--ease);
     }
+    .hero-bar .reviewer-button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; padding: .85rem 1.15rem; min-height: 48px; background: var(--color-ink, #20251e); color: #fff8e5; border: 2px solid var(--color-ink, #20251e); font-size: .9rem; letter-spacing: .04em; text-decoration: none; box-shadow: 3px 3px 0 #c8ad65; }
+    .hero-bar .reviewer-button:hover, .hero-bar .reviewer-button:focus-visible { background: #4b5527; color: #fff; outline: 2px solid #a44422; outline-offset: 3px; }
+    @media(max-width: 540px) { .hero-bar .reviewer-button { order: 3; width: 100%; } }
     .hub-link:hover { color: var(--color-accent); text-decoration: underline; text-underline-offset: 0.3em; }
     .hub-arrow { font-size: 1rem; letter-spacing: 0; color: var(--color-signal-text); }
 
@@ -879,7 +882,7 @@
   <header class="site-header hero">
     <div class="wrap hero-bar">
       <a id="hub-link" class="hub-link" href="../#module-1"><span class="hub-arrow" aria-hidden="true">&#8592;</span> All quizzes</a>
-      <a class="hub-link" href="../reviewer/effectivecommunication/">Reviewer 101</a>
+      <a class="hub-link reviewer-button" href="../reviewer/effectivecommunication/"><span aria-hidden="true">&#128214;</span> Open Reviewer 101 <span aria-hidden="true">&#8599;</span></a>
       <button type="button" id="btn-sound" class="sound-toggle" aria-pressed="true" aria-keyshortcuts="S">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter">
           <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/>

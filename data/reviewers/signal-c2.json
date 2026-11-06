@@ -51,7 +51,150 @@
         "question": "What should happen to a signal estimate when a unit changes route?",
         "answer": "Update it and reassess coverage and support along the new route."
       }
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Mission, arms and signal services",
+          "explanation": "Combined arms operations synchronize complementary Army capabilities. Signal support makes that coordination possible by carrying orders, reports, and requests between the units and headquarters involved. The handout describes the signal task in three phases: establish the connection, sustain it as forces operate, and restore it after disruption. Maintenance helps preserve service before failure, while recovery brings interrupted service back.",
+          "remember": [
+            "Connect, sustain, recover.",
+            "The commander exercises command and control through the connection."
+          ],
+          "trap": "Treating a successful radio check as completion leaves sustainment and recovery unplanned.",
+          "pages": [
+            1,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "title": "Operational environment and consequences",
+          "explanation": "The combined arms view asks how local conditions affect employment of the force, including the effects of island geography, urbanization, and disaster response. The signal view asks how those conditions affect the physical, cyberspace, and electromagnetic environments. A building can simultaneously constrain troop movement and propagation. A shared network can improve coordination while introducing protection requirements.",
+          "remember": [
+            "Physical conditions shape coverage and equipment placement.",
+            "Network configuration and interference pose different problems."
+          ],
+          "trap": "Giving a terrain label alone fails to explain its effect on communication.",
+          "pages": [
+            2,
+            3,
+            12
+          ]
+        },
+        {
+          "title": "Service selection and actual readiness",
+          "explanation": "Fixed systems connect established facilities, tactical systems serve operating troops, and special-purpose systems supplement them subject to security policy. Service depends on functioning infrastructure, logical configurations, users, and power. Count equipment as usable only when it can support the required exchange with available people and support.",
+          "remember": [
+            "Assign the system to the information flow and movement pattern.",
+            "SMMART supports maintenance, repair, and refresher training."
+          ],
+          "trap": "An inventory of radios can overstate the capability a unit can put into service.",
+          "pages": [
+            4,
+            5,
+            7,
+            8,
+            13
+          ]
+        },
+        {
+          "title": "Principles, movement and priorities",
+          "explanation": "Operations-focused support starts with what the force needs to accomplish. Interoperability enables coordination between arms, while redundancy preserves essential exchanges through failure. Flexibility matters when units move or attach, and security applies across all arrangements. Evaluate likely locations, terrain, weather, equipment, and the cost of losing a critical exchange before assigning resources.",
+          "remember": [
+            "A backup must cover the exchange that matters.",
+            "Changes to force composition or locations can alter signal priorities."
+          ],
+          "trap": "Planning only for the assembly area can leave the unit without coverage en route.",
+          "pages": [
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "title": "Estimate, plan, protect and restore",
+          "explanation": "The signal estimate assesses operational requirements and usable resources. A shortfall drives a priority recommendation, then the tentative plan is coordinated with the operations staff and units that will execute it. Publication gives users a common arrangement. Updating it preserves alignment as the mission changes. Apply COMSEC and network protection to the paths chosen for both normal service and recovery.",
+          "remember": [
+            "Compare requirements to capability before allocating scarce assets.",
+            "Confirm the affected users understand revised support and alternate arrangements."
+          ],
+          "trap": "Fast commercial communication still has to meet the required protection.",
+          "pages": [
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "Which three verbs summarize the handout's signal support framework?",
+          "answer": "Connect, sustain, and recover.",
+          "reasoning": "They describe establishing connectivity, maintaining it during operations, and restoring it after disruption.",
+          "pages": [
+            5,
+            6
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "Which service category covers PANET and headquarters telephones?",
+          "answer": "Fixed communication.",
+          "reasoning": "The handout uses these as examples of established facilities and headquarters links.",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A radio inventory lists six sets, but only four have power and trained operators. Which count should shape support priorities?",
+          "answer": "Use four as the currently usable capability.",
+          "reasoning": "Equipment contributes to the mission only when it can be operated and sustained for the exchange.",
+          "pages": [
+            8,
+            13,
+            16
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "An engineer element joins the force during movement. What part of the plan deserves review first?",
+          "answer": "Recheck how it receives requests and reports back during each phase.",
+          "reasoning": "An attachment changes the communication users. Movement and location changes can invalidate existing coverage and coordination assumptions.",
+          "pages": [
+            10,
+            12,
+            13,
+            17
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A typhoon interrupts headquarters links. How should the staff apply sustainment and recovery?",
+          "answer": "Keep priority exchanges moving over an alternate path while teams restore the interrupted service.",
+          "reasoning": "Continuity limits the mission effect of the outage while recovery addresses the damage.",
+          "pages": [
+            5,
+            6,
+            14,
+            19
+          ]
+        }
+      ],
+      "checklist": [
+        "Explain how a combined arms condition creates a signal constraint.",
+        "Match fixed, tactical, and special-purpose service to the user and task.",
+        "Compare requirements with usable resources and describe protection and recovery for priority exchanges."
+      ]
+    }
   },
   "signaljoint": {
     "brief": "Joint signal support connects the Philippine Army, Navy and Air Force so commanders, operating units and supporting elements can coordinate despite differences in equipment and procedures.",
@@ -106,7 +249,170 @@
         "question": "What should planners prepare before selecting joint communications systems?",
         "answer": "A signal estimate that explains the situation and informs the requirements."
       }
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "A joint force and its information needs",
+          "explanation": "Joint operations bring two or more AFP services together. Army, Navy, and Air Force elements can each have working local communications yet lack a path across service boundaries. Signal support connects them, enables commanders to exercise C2, facilitates coordination, synchronizes efforts, and protects communications. Start by naming the participants and the exchange that enables joint action.",
+          "remember": [
+            "Separate issuing direction from providing the means to carry it.",
+            "Service interoperability includes procedures as well as equipment."
+          ],
+          "trap": "A service's own successful network test leaves the cross-service exchange unproven.",
+          "pages": [
+            6,
+            7,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ]
+        },
+        {
+          "title": "Match systems to purpose",
+          "explanation": "The lesson distinguishes fixed communications, tactical communications, special-purpose systems, operations-center systems, and network support and sustainment. Select among them by asking who exchanges which information, where they operate, and how service will be protected and restored. An operations center consolidates information for decision-makers, while network support maintains the systems that carry it.",
+          "remember": [
+            "Fixed serves established headquarters and tactical serves units in the field.",
+            "Compatible equipment and embedded operators are options when services cannot directly communicate."
+          ],
+          "trap": "Buying a second terminal addresses little when procedures are the actual barrier.",
+          "pages": [
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25
+          ]
+        },
+        {
+          "title": "Principles for a service crossing",
+          "explanation": "Operations-focused, interoperable, redundant, flexible, and secured arrangements reinforce one another. A backup path helps maintain a priority exchange, while flexibility lets the arrangement adapt to force and mission changes. Security is required for the primary and backup. Apply each principle to a specific exchange so the checks can reveal an actual planning gap.",
+          "remember": [
+            "Interoperability asks whether the services can exchange usable information.",
+            "Redundancy asks whether the exchange can survive a failure."
+          ],
+          "trap": "Confusing an extra route with a usable and protected alternate overstates readiness.",
+          "pages": [
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33
+          ]
+        },
+        {
+          "title": "Tactical conditions and the estimate",
+          "explanation": "Mission and commander intent define required exchanges. Terrain, weather, unit movement, site locations, spectrum, and equipment readiness then affect how those exchanges can occur. The estimate has to reflect changing conditions, including communications before, during, and after movement. Where a capability is scarce, assign it by the operational consequence of losing the exchange.",
+          "remember": [
+            "Coverage at a fixed site gives limited evidence about coverage during movement.",
+            "Recheck service compatibility alongside spectrum and equipment availability."
+          ],
+          "trap": "Repeating an old estimate after a phase change can obscure a new coverage or readiness gap.",
+          "pages": [
+            36,
+            38,
+            39,
+            40,
+            41,
+            42,
+            44,
+            45,
+            49,
+            50
+          ]
+        },
+        {
+          "title": "Coordinate, validate, secure and recover",
+          "explanation": "List the communication requirements, determine available capabilities, establish priorities, develop the support concept, and prepare the tentative plan. Validate the arrangement with affected staff and users before finalizing and publishing. Include protection and workable continuity arrangements. Monitor and update the plan when changes in the mission or service threaten the agreed exchange.",
+          "remember": [
+            "Verify user procedures and service paths before accepting the plan.",
+            "Include cyber and communication protection in normal and degraded operation."
+          ],
+          "trap": "A published plan can lose relevance when units move or communication support changes.",
+          "pages": [
+            51,
+            52,
+            53,
+            54,
+            55,
+            57,
+            58,
+            61,
+            63,
+            68,
+            69
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "What makes an operation joint in this lesson?",
+          "answer": "It involves two or more AFP services.",
+          "reasoning": "The lesson defines joint operations by service participation.",
+          "pages": [
+            6
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "Which support category brings reports from sensors and communications together for command use?",
+          "answer": "Operations-center systems.",
+          "reasoning": "They support situational understanding through the information made available to the center.",
+          "pages": [
+            22
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Army and Navy radios work internally, but a handoff report fails across the boundary. What should the S-6 validate?",
+          "answer": "The end-to-end joint exchange, including compatible equipment and agreed operator procedures.",
+          "reasoning": "The objective is a report the receiving service can use at the right time. A service-only check stops before the failed boundary.",
+          "pages": [
+            10,
+            11,
+            25,
+            40
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A supporting unit relocates and its former backup path shares the same coverage gap as the primary. What changes?",
+          "answer": "Reevaluate coverage from the new location and validate a viable alternate for priority traffic.",
+          "reasoning": "A movement change can invalidate a route. Redundancy depends on the alternate still serving the users through the failure.",
+          "pages": [
+            30,
+            39,
+            44
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A new report arrives after the tentative plan has been validated. The supported unit says it must move earlier. What should happen?",
+          "answer": "Reassess its phase-specific exchanges, coordinate the revision, and publish the updated support plan.",
+          "reasoning": "Changing movement affects communication coverage and timing. The units need the revised arrangement before they act on it.",
+          "pages": [
+            39,
+            49,
+            57,
+            58
+          ]
+        }
+      ],
+      "checklist": [
+        "Explain the operational purpose of an AFP cross-service exchange.",
+        "Match each service category and signal principle to a requirement.",
+        "Walk through the estimate, priority decision, validation, and plan update."
+      ]
+    }
   },
   "coalition": {
     "brief": "Coalition signal support lets forces from different nations exchange the information they need for a common mission while honoring each participant's sharing and protection requirements.",
@@ -162,7 +468,147 @@
         "question": "What must be checked before sending an internal file on a shared link?",
         "answer": "Whether the information is approved for release to the intended recipients."
       }
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Turn a coalition need into an exchange",
+          "explanation": "A coalition brings national systems, procedures, terminology, and command arrangements into one mission. The staff defines the information that must move, who needs it, when it is useful, and what protection is required. The S-6 turns those requirements into communication capability. Timeliness has value when the right information reaches the people who act on it.",
+          "remember": [
+            "Begin with the mission exchange and receiving user.",
+            "Link coordination and command decisions to specific reports or guidance."
+          ],
+          "trap": "More shared traffic can still leave the commander without the required report.",
+          "pages": [
+            2,
+            5,
+            7,
+            9
+          ]
+        },
+        {
+          "title": "Compatibility includes people and procedures",
+          "explanation": "Different equipment or standards can prevent an exchange, but a network that passes traffic can still fail operationally. Language, terminology, and different reporting procedures can make a message unusable. Diagnose the gap, assess its effect on the mission, and coordinate a solution with the affected partners before approving the arrangement.",
+          "remember": [
+            "Distinguish technical delivery from mutual understanding.",
+            "Use common reporting arrangements and liaison where the exercise needs them."
+          ],
+          "trap": "Treating every misunderstanding as a radio fault misses procedural and cultural barriers.",
+          "pages": [
+            6,
+            10,
+            11,
+            13
+          ]
+        },
+        {
+          "title": "Choose a system and scale its support",
+          "explanation": "Mission geography, mobility, tempo, and user numbers affect the communications arrangement. The classroom examples use gateways and BLOS or SATCOM where they address a specific gap. Larger or dispersed operations increase the burden on staff, equipment, operators, and maintenance. Plan who can troubleshoot and what support is available before the coalition expands.",
+          "remember": [
+            "A gateway supports defined exchanges between systems.",
+            "Scaling includes support personnel and traffic as well as endpoints."
+          ],
+          "trap": "Copying a small command post's architecture into a wider operation can leave dispersed teams unsupported.",
+          "pages": [
+            7,
+            8,
+            11,
+            12
+          ]
+        },
+        {
+          "title": "Share authorized information securely",
+          "explanation": "Availability and protection apply to the same exchange. Agree on what information is releasable to a partner and which people or systems may receive it. Choose approved protection and access controls, and consider network separation where national systems must remain distinct. Test that the shared path both serves mission needs and preserves the agreed boundaries.",
+          "remember": [
+            "Releasability and technical reachability are separate checks.",
+            "Protect data from unauthorized access, interception, and manipulation."
+          ],
+          "trap": "A functioning shared picture can still reveal material a recipient is unauthorized to see.",
+          "pages": [
+            6,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "title": "Keep priority exchanges available",
+          "explanation": "A loss of service requires three judgments: which mission activity is affected, which alternate can continue it, and how quickly the capability must be restored. Use the classroom PACE and continuity concepts to establish feasible paths before the incident. Coordinate who will use those paths and who will restore the interrupted service.",
+          "remember": [
+            "Identify the fault and coordinate with the affected user.",
+            "Apply protection requirements to alternate means."
+          ],
+          "trap": "An alternate listed on paper is incomplete until partners can use it for the required exchange.",
+          "pages": [
+            8,
+            11,
+            12,
+            13
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "What four details define the staff's information requirement?",
+          "answer": "What must move, between whom, when, and with what protection.",
+          "reasoning": "These details let the S-6 turn a mission need into a workable communication arrangement.",
+          "pages": [
+            5,
+            7
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "Which coalition support component accounts for the move from one command post to multiple dispersed locations?",
+          "answer": "Scalability.",
+          "reasoning": "The system must accommodate changes in size, location, tempo, and mission.",
+          "pages": [
+            7
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Partners receive each other's updates, but act on incompatible meanings of a report label. What should the staff address?",
+          "answer": "Agree on a common meaning and reporting procedure with partner users, then test an example end to end.",
+          "reasoning": "The working delivery path shows that the unresolved problem concerns procedural and language interoperability.",
+          "pages": [
+            6,
+            10,
+            11
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A partner needs a timely shared incident summary. Some details are restricted to the national network. What should move?",
+          "answer": "Send the releasable summary over an approved shared path to authorized users.",
+          "reasoning": "The report supports a decision only if it arrives in time and respects the agreed information boundary.",
+          "pages": [
+            6,
+            7,
+            10,
+            12
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A coalition command post loses its primary data service during a coordination window. What drives the response?",
+          "answer": "Identify the priority exchange, use an agreed alternate, coordinate with users, and restore the affected capability.",
+          "reasoning": "The maintenance and continuity lesson puts mission impact and the alternate path alongside fault identification and restoration.",
+          "pages": [
+            8,
+            11,
+            12,
+            13
+          ]
+        }
+      ],
+      "checklist": [
+        "Explain the difference between device compatibility and coalition interoperability.",
+        "Describe a releasable exchange, its recipients, and its protection.",
+        "Plan an alternate and restoration responsibility for a priority exchange."
+      ]
+    }
   },
   "manet": {
     "brief": "A mobile ad hoc network (MANET) lets mobile nodes form and adapt wireless paths without a permanent infrastructure. Plan the services those paths must carry and verify that each service works under exercise conditions.",
@@ -216,7 +662,172 @@
         "question": "Why should repair verification go beyond seeing that a node is connected?",
         "answer": "Connectivity alone leaves the actual delivery and performance of the required service unverified."
       }
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Mobile topology and recovery",
+          "explanation": "A mobile ad hoc network forms among mobile nodes without fixed infrastructure. Connectivity can change as nodes move, disappear, or rejoin. The lesson contrasts recovery by rebuilding a route with a flooding example in which remaining paths carry the traffic. Self-healing depends on viable connectivity among the remaining nodes.",
+          "remember": [
+            "Self-forming establishes the network and self-healing adapts to change.",
+            "Unicast, multicast, and broadcast describe different recipients."
+          ],
+          "trap": "Self-healing cannot make an isolated node reachable on its own.",
+          "pages": [
+            9,
+            11,
+            12,
+            13,
+            14,
+            15,
+            17,
+            18,
+            19
+          ]
+        },
+        {
+          "title": "Services, waveforms and protection",
+          "explanation": "The E-LynX examples distinguish narrowband, wideband, high-capacity mobile ad hoc, and compatibility waveforms. Match the supported services to the task, including voice, data, and position reports. Quality of service matters when different traffic shares a constrained network. Legacy or NATO compatibility still requires a separate check that the service and protection meet the mission need.",
+          "remember": [
+            "The chosen waveform affects both services and interoperability.",
+            "A waveform's compatibility and encryption properties are distinct."
+          ],
+          "trap": "Assuming every voice mode carries secure data can leave a planned exchange unavailable.",
+          "pages": [
+            12,
+            28,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35,
+            36
+          ]
+        },
+        {
+          "title": "Maintenance and restoration evidence",
+          "explanation": "The lesson uses the handheld and vehicular adapter to show that different equipment packages have different support needs. Preventive maintenance uses inspection and cleaning to preserve equipment. Corrective work follows identification, isolation, repair, and verification. Reproducing the affected function after repair gives the user evidence that it is restored.",
+          "remember": [
+            "Isolation narrows the problem before replacement or repair.",
+            "Verification follows repair and may include built-in testing."
+          ],
+          "trap": "A radio that powers up after maintenance may still fail to provide the service that prompted the repair.",
+          "pages": [
+            23,
+            24,
+            25,
+            26,
+            27,
+            38,
+            46,
+            47
+          ]
+        },
+        {
+          "title": "Interpret diagnostic evidence",
+          "explanation": "Node information helps the technician identify the local and remote radios. Received signal strength indicates level, while signal-to-noise ratio describes received quality relative to noise. Ping and packet tests offer different evidence about connectivity and performance. Use evidence from the affected path and service instead of assuming that one diagnostic proves the entire network works.",
+          "remember": [
+            "Associate readings with the correct node and path.",
+            "Separate signal level, signal quality, reachability, and service performance."
+          ],
+          "trap": "Good received strength alone does not explain missing packets or broken voice.",
+          "pages": [
+            54,
+            55,
+            56,
+            58,
+            60,
+            66,
+            67
+          ]
+        },
+        {
+          "title": "Integration across field, command post and headquarters",
+          "explanation": "The course architecture shows field, command post, headquarters, and legacy elements connected through an integrator. Position, video, data, and voice have distinct paths. Traffic separation supports security, limits traffic leakage, and reduces unnecessary traffic. Evaluate each user service from sender to recipient, since legacy voice and IP-based data can behave differently.",
+          "remember": [
+            "Follow each required service through its own interfaces.",
+            "A passing voice exchange provides evidence for the voice path."
+          ],
+          "trap": "Accepting the whole system from one passing service can conceal a separate data failure.",
+          "pages": [
+            22,
+            69,
+            70,
+            71,
+            72,
+            73,
+            74,
+            75,
+            76
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "What does self-forming mean for a MANET?",
+          "answer": "Mobile nodes can establish the network without fixed infrastructure.",
+          "reasoning": "The lesson identifies self-formation as an inherent MANET feature and discusses recovery separately.",
+          "pages": [
+            11,
+            12
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "What is the final step in corrective maintenance?",
+          "answer": "Repair verification.",
+          "reasoning": "Identification and isolation lead to repair. Verification checks the result afterward.",
+          "pages": [
+            27
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Voice is usable but a command post cannot see field position updates. What evidence should be collected?",
+          "answer": "Trace the position service from its field source through the data integration path to the receiving application.",
+          "reasoning": "Voice and position data use distinct integration paths. Testing the affected service narrows the failure.",
+          "pages": [
+            69,
+            70,
+            72,
+            73
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A radio reports good received strength and poor signal-to-noise ratio. How should you explain those readings?",
+          "answer": "The received level is good, but the signal is weak relative to the noise. Check the affected service and path.",
+          "reasoning": "The two readings measure different aspects of reception, so both can be true.",
+          "pages": [
+            54,
+            56,
+            67
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "The relay node drops and the remaining stations can still reach one another. What proves service continuity?",
+          "answer": "Retest the required traffic over the remaining connectivity.",
+          "reasoning": "The classroom recovery examples show how paths can survive or rebuild. The actual exchange confirms that users still receive service.",
+          "pages": [
+            13,
+            14,
+            15,
+            17,
+            18,
+            19,
+            67
+          ]
+        }
+      ],
+      "checklist": [
+        "Explain self-forming, self-healing, and the limit imposed by missing connectivity.",
+        "Choose a waveform based on required service, compatibility, and protection.",
+        "Distinguish fault isolation, verification, reachability, and end-to-end service testing."
+      ]
+    }
   },
   "sensors": {
     "brief": "C4ISTAR sensor integration makes observations available and understandable to the people who need them. It supports a shared picture through usable data, compatible interfaces and clear responsibilities.",
@@ -270,7 +881,144 @@
         "question": "What can a single radio direction finding observation contribute to a shared picture?",
         "answer": "A bearing, with the uncertainty and limits of that observation."
       }
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "From observation to command decision",
+          "explanation": "The sensor detects and collects, the decision-maker interprets the information and directs action, and the shooter acts on that decision. Integrating sensors shortens the information path and contributes to a common operational picture. The value comes from observations reaching the decision-maker in a usable form and in time to inform action.",
+          "remember": [
+            "Detection, decision, and action are separate functions.",
+            "The COP is a means of situational understanding."
+          ],
+          "trap": "Displaying a feed is incomplete evidence if the decision-maker cannot use it.",
+          "pages": [
+            3,
+            6,
+            7,
+            9,
+            30
+          ]
+        },
+        {
+          "title": "Select the sensor for the observation",
+          "explanation": "The lesson presents sniper fire location detectors, thermal imagers, ground-based radio direction finding, UAVs, and mini-UAVs. It groups them by the work they do, including acoustic or radio-frequency detection, optical observation, and aerial collection. Match a specific observation need to the capability, then establish how its output reaches the intended user.",
+          "remember": [
+            "Thermal imaging observes a heat signature.",
+            "Ground-based direction finding gives information about the direction of an RF source."
+          ],
+          "trap": "Assuming every sensor yields the same kind of location or identification leads to an overconfident report.",
+          "pages": [
+            10,
+            15
+          ]
+        },
+        {
+          "title": "Interfaces, media and constraints",
+          "explanation": "An interoperability point defines where separately operated systems exchange information, allowing them to keep their own internal technology. The lesson considers fixed, tactical, and special-purpose communication media. Each transport and interface must suit the sensor, the receiving system, and the operational context, including bandwidth, legacy equipment, and security constraints.",
+          "remember": [
+            "Assess the defined boundary and the exchange across it.",
+            "Interoperability and full integration address different scopes."
+          ],
+          "trap": "A cable connection or a reachable address does not by itself prove a usable sensor report.",
+          "pages": [
+            16,
+            17,
+            18,
+            28
+          ]
+        },
+        {
+          "title": "Design for the operation",
+          "explanation": "Combined arms, joint, and multinational settings impose different boundaries on sensor exchange. The Marawi case illustrates why technical collection and organizational coordination both matter. The classroom scenarios ask planners to identify sensors, explain their link to operations, and address testing and constraints. Reason from the observation that the operation needs and the users who need to receive it.",
+          "remember": [
+            "The mission context determines participating units and their information needs.",
+            "Choose the sensor, communications path, and receiving role together."
+          ],
+          "trap": "Designing around a device alone can miss who needs to receive its data.",
+          "pages": [
+            19,
+            20,
+            31,
+            32
+          ]
+        },
+        {
+          "title": "Integration responsibility and test evidence",
+          "explanation": "The Army Signal Regiment is identified as capability champion for installation, operation, and maintenance of core C4ISTAR systems. Integration combines systems and processes into a working whole. Interoperability enables systems to exchange and use information. Regular operational testing exposes malfunctions before field reliance. Verify behavior along the whole workflow under representative conditions.",
+          "remember": [
+            "Test that the receiving user gets and can interpret the intended information.",
+            "Check operational effectiveness as well as technical connectivity."
+          ],
+          "trap": "A demonstration under convenient conditions can conceal a weakness in the field scenario.",
+          "pages": [
+            27,
+            28,
+            29
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "What are the three roles in the conceptual C4ISTAR loop?",
+          "answer": "Sensor, decision-maker, and shooter.",
+          "reasoning": "The roles distinguish collection, interpretation and direction, and the action taken.",
+          "pages": [
+            6,
+            7
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "What is the purpose of an interoperability point?",
+          "answer": "It defines a boundary at which independent systems can exchange information.",
+          "reasoning": "Separate networks can retain internal designs while meeting the exchange requirements at that point.",
+          "pages": [
+            16
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A receiving operations center sees a thermal feed with no usable context for its staff. What must the integration test show?",
+          "answer": "Show that the observation reaches the intended staff in a form they can interpret in time for the decision.",
+          "reasoning": "Transport establishes delivery. The lesson evaluates integration by usable information in the decision loop.",
+          "pages": [
+            7,
+            9,
+            28,
+            29
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Two sensor systems pass a lab test separately. What needs testing before they support a joint exercise?",
+          "answer": "Verify the required information crosses the interface and remains usable at the joint receiving system under exercise conditions.",
+          "reasoning": "Separate component tests cannot reveal how the systems behave together under operational constraints.",
+          "pages": [
+            16,
+            18,
+            19,
+            29
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "An exercise planner needs a bearing to a radio emission and thermal observation of an area. How should the planner assign those jobs?",
+          "answer": "Use the ground-based direction-finding system for the RF bearing and the thermal imager for heat-based observation.",
+          "reasoning": "Each device supports a different kind of observation and has to report it through the integration workflow.",
+          "pages": [
+            10,
+            15
+          ]
+        }
+      ],
+      "checklist": [
+        "Explain why observation, interpretation, and action remain distinct.",
+        "Pair each taught sensor with the kind of observation it supports.",
+        "Define the interface and operational test that demonstrate an end-to-end exchange."
+      ]
+    }
   },
   "weapons": {
     "brief": "C4ISTAR weapon system integration links information and decision support across sensors, networks and command elements. The lesson separates information exchange from command authority and assesses the exchange in a simulated setting.",
@@ -324,7 +1072,158 @@
         "question": "Where does decision authority reside in an integrated system?",
         "answer": "With the designated people or command roles responsible for the decision."
       }
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Map the work of each C4ISTAR component",
+          "explanation": "Command and control organizes decisions and directs action. Communications move information and computers process and present it. Intelligence turns information into an assessment. Surveillance observes systematically, reconnaissance obtains information about a particular objective, and target acquisition develops information suitable for an engagement decision. Identify the missing function from the scenario rather than from the device name.",
+          "remember": [
+            "Communications and computing serve different roles.",
+            "Surveillance and reconnaissance differ in purpose and focus."
+          ],
+          "trap": "An observation on a screen has yet to satisfy the requirements of a later decision.",
+          "pages": [
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ]
+        },
+        {
+          "title": "Information flow and decision authority",
+          "explanation": "The sensor-to-decision-maker-to-shooter model shows who collects information, who evaluates it, and who carries out directed action. The D3A model presents Decide, Detect, Deliver, and Assess as distinct functions in a cycle. Read the two models at their intended scale: one traces handoffs among roles and the other organizes the decision and assessment process.",
+          "remember": [
+            "Decision authority remains with the command function.",
+            "Assess evaluates what happened after delivery."
+          ],
+          "trap": "Faster information transfer alone cannot replace a decision or the assessment afterward.",
+          "pages": [
+            14,
+            25,
+            26,
+            27
+          ]
+        },
+        {
+          "title": "Interface agreements and evidence",
+          "explanation": "An interoperability point is a defined boundary. A service interoperability point focuses on a specific service exchanged there. Common standards and profiles make independent implementations align, while an interface control document records details the connected systems must satisfy. A test should confirm the documented exchange with both ends and an actual receiving user.",
+          "remember": [
+            "Test the intended service at the agreed boundary.",
+            "The ICD explains interface requirements that a transport check cannot prove."
+          ],
+          "trap": "Identical suppliers or network connectivity alone are insufficient acceptance evidence.",
+          "pages": [
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "title": "Architectural choices and protected exchange",
+          "explanation": "Multiple communication media support interconnection across different settings. Open architecture makes components easier to connect through defined interfaces. Standardized networking and data exchange support compatibility, while security controls govern authorized access and protected use. Treat architecture, exchange, and protection as related design checks.",
+          "remember": [
+            "TCP/IP supports transport, while the application still needs a compatible exchange.",
+            "Open architecture supports integration through standards."
+          ],
+          "trap": "Conflating openness with unrestricted access weakens the approved boundary.",
+          "pages": [
+            21,
+            22,
+            23,
+            24,
+            28,
+            29
+          ]
+        },
+        {
+          "title": "Architecture in Philippine Army examples",
+          "explanation": "The architecture depicts Army operations and tactical operations centers, networks, sensors, MANET radios, and Blue Force Tracking. Study the diagrams as chains of functions rather than isolated inventory lists. Follow a field report through the available communication and computing services to the headquarters that uses it. A change in a field component should be assessed at the interfaces and user services it affects.",
+          "remember": [
+            "Friendly force position reporting is a distinct information service.",
+            "The diagrams show relationships among field devices, networks, and headquarters."
+          ],
+          "trap": "A local display at one node is insufficient evidence that the headquarters receives the information.",
+          "pages": [
+            29,
+            37,
+            38,
+            39
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "What distinguishes communications and computers in the component model?",
+          "answer": "Communications move information. Computers process, store, and present it.",
+          "reasoning": "The lesson assigns different supporting functions to these components.",
+          "pages": [
+            8,
+            9
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "What does an ICD establish?",
+          "answer": "The detailed requirements that the systems at an interface must meet.",
+          "reasoning": "The ICD is used to integrate systems around a defined exchange.",
+          "pages": [
+            20
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Two platforms exchange packets, but the recipient cannot interpret a required report. What test result is still missing?",
+          "answer": "Evidence that the defined service produces a usable report at the recipient under the documented interface requirements.",
+          "reasoning": "Transport success proves a path. Interface and data exchange requirements govern what the application can use.",
+          "pages": [
+            19,
+            20,
+            23
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A field observation reaches a command post quickly. What still belongs to the decision-maker?",
+          "answer": "Evaluate the information and decide or direct the response under the command arrangement.",
+          "reasoning": "The loop assigns collection to the sensor, decision to command, and directed action to the receiving operational element.",
+          "pages": [
+            7,
+            14,
+            25,
+            27
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A new Blue Force Tracking display works at one site. How would you assess compatibility with the operations center?",
+          "answer": "Follow the authorized location report across the specified links and verify that the receiving center can use it.",
+          "reasoning": "A distributed capability depends on each handoff and its interface, not just the local display.",
+          "pages": [
+            16,
+            20,
+            24,
+            37,
+            38,
+            39
+          ]
+        }
+      ],
+      "checklist": [
+        "Explain the distinct purposes of the sensor loop and D3A.",
+        "Distinguish an IOP, SIOP, and ICD in an example service.",
+        "Describe an acceptance test that proves both usable and protected exchange."
+      ]
+    }
   },
   "propagation": {
     "brief": "Propagation models estimate radio coverage and link performance. Compare the modeled results on consistent assumptions, then verify the links and gaps that matter to the exercise.",
@@ -374,7 +1273,154 @@
         "question": "Why should a proposed relay be assessed on both sides?",
         "answer": "The intended connection depends on usable paths from each endpoint to the relay."
       }
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Interpret a prediction from its inputs",
+          "explanation": "The Radio Mobile outputs reflect recorded assumptions about transmit power, antenna geometry and gain, line loss, frequency, and the receive threshold. Individual overlays describe modeled coverage from particular stations. The composite combines those overlays within the study corridor. Interpret the legend and the stated extent before drawing a coverage conclusion.",
+          "remember": [
+            "A coverage class applies under the recorded model assumptions.",
+            "Point-to-area coverage and a planned station pair answer different questions."
+          ],
+          "trap": "A green area in one plot is insufficient proof of coverage along an entire route.",
+          "pages": [
+            15,
+            16,
+            17,
+            18,
+            19
+          ]
+        },
+        {
+          "title": "Read optical clearance and fade margin separately",
+          "explanation": "A path profile shows terrain along a station pair and gives modeled receive level, fade margin, and Fresnel obstruction. Fade margin compares modeled receive level with the chosen receiver threshold. The scorecard shows some links closing despite terrain along the path. Explain the clearance and margin findings separately, then compare the margin with the study target.",
+          "remember": [
+            "Receive level is expressed in dBm and fade margin in dB.",
+            "The weakest passing link merits attention during validation."
+          ],
+          "trap": "Optical line of sight and a passing modeled radio link are different judgments.",
+          "pages": [
+            21,
+            23,
+            28,
+            29,
+            35
+          ]
+        },
+        {
+          "title": "Compare cellular overlays on equal terms",
+          "explanation": "CellMapper supplies site inputs and CloudRF produces cellular model outputs. The study places provider outputs on a common map extent and records shared settings for comparison. The modeled sites represent selected data rather than complete provider infrastructure. Check the legend and recorded assumptions before judging whether a required location appears covered.",
+          "remember": [
+            "A common map extent supports a fair visual comparison.",
+            "Tower identification and predicted service are separate steps."
+          ],
+          "trap": "A map of selected towers is insufficient evidence of full provider service.",
+          "pages": [
+            37,
+            38,
+            39,
+            40,
+            41,
+            42
+          ]
+        },
+        {
+          "title": "Test what the relay improves",
+          "explanation": "The baseline composite shows separated coverage clusters and a corridor gap. The relay comparison evaluates the station links and then measures the change to the usable corridor, dead-spot area, and number of radio basins. The model predicts that a relay connects the basins while leaving a residual gap. A suitable recommendation also addresses site access and feasibility.",
+          "remember": [
+            "Compare the before and after results over the same area.",
+            "Report which gaps remain after the modeled improvement."
+          ],
+          "trap": "Connecting all planned links does not demonstrate uninterrupted point-to-area coverage.",
+          "pages": [
+            19,
+            44,
+            46,
+            47,
+            48,
+            49
+          ]
+        },
+        {
+          "title": "Turn modeled closure into a decision",
+          "explanation": "The study compares mast and power choices against a target margin and weighs the benefit against what the model already predicts. Its mast example shows only a small improvement from a large height increase for one path. Recommend an arrangement, describe a continuity plan for uncovered areas, then reconcile model outputs with site access checks and radio checks of planned links.",
+          "remember": [
+            "The study's margin target is a planning criterion.",
+            "Field checks and updated plots support the final decision."
+          ],
+          "trap": "Treating one mast result as a universal rule exceeds what the example demonstrates.",
+          "pages": [
+            35,
+            50,
+            51,
+            52,
+            53
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "Which tool supplies tower locations and which produces cellular predictions?",
+          "answer": "CellMapper supplies site information. CloudRF produces the predicted coverage.",
+          "reasoning": "The study distinguishes tower inputs from the modeling output.",
+          "pages": [
+            37,
+            38
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "What does fade margin compare?",
+          "answer": "Predicted receive level with the receiver threshold.",
+          "reasoning": "A positive margin means the model predicts reception above the selected threshold.",
+          "pages": [
+            15,
+            28,
+            29
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A modeled link clears the margin target despite an obstructed profile. How should it be reported?",
+          "answer": "Report passing modeled closure and the observed terrain obstruction, then verify the path in field testing.",
+          "reasoning": "The scorecard distinguishes terrain along a path from predicted radio closure.",
+          "pages": [
+            29,
+            35,
+            53
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Two providers appear different on overlays that cover different map extents. What comparison should come first?",
+          "answer": "Use a common extent and comparable model settings, then examine required locations.",
+          "reasoning": "Different boundaries can alter the apparent footprint. The study compares like extents and limits the claim to sampled inputs.",
+          "pages": [
+            38,
+            42
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "The relay connects both modeled basins but a critical corridor segment remains uncovered. What belongs in the recommendation?",
+          "answer": "Report the residual gap, identify a continuity measure, and validate the required exchanges and access in the field.",
+          "reasoning": "A relay can join the basins without eliminating every dead spot.",
+          "pages": [
+            44,
+            49,
+            52,
+            53
+          ]
+        }
+      ],
+      "checklist": [
+        "Separate coverage overlay, point-to-point link profile, and cellular prediction.",
+        "Explain why a passing link does not imply complete corridor coverage.",
+        "Compare the baseline and relay results and state what must be checked on the ground."
+      ]
+    }
   },
   "sigint": {
     "brief": "Signals intelligence turns relevant observations from communications and non-communications signals into assessed information for a decision. Evaluate the quality of a report and share it with authorized recipients who need it.",
@@ -428,7 +1474,139 @@
         "question": "Do two reports with the same origin independently corroborate a claim?",
         "answer": "No. They repeat the same source, so look for an independent line of evidence."
       }
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "From signal intercept to intelligence",
+          "explanation": "The course describes intelligence as a product developed by collecting, evaluating, analyzing, and integrating information. SIGINT uses intercepted signals as its source. A record of activity may be useful, but the analyst has to interpret it in relation to the commander's need. The program emphasizes timely intelligence for users who can act on it.",
+          "remember": [
+            "Intercepted data is an input to the intelligence product.",
+            "Mission requirements give analysis a purpose."
+          ],
+          "trap": "An intercept alone gives less information than a corroborated assessment.",
+          "pages": [
+            10,
+            11,
+            12,
+            13
+          ]
+        },
+        {
+          "title": "Distinguish COMINT and ELINT by source",
+          "explanation": "COMINT deals with intercepted communications such as voice and messages. ELINT concerns non-communication emissions and the information available through electronic sensors. The difference rests on what the source emits and the question the analyst can answer. A radar emission can yield information about a system, while a message can reveal information conveyed between people.",
+          "remember": [
+            "Identify the nature of the signal before classifying it.",
+            "Communication content and non-communication emissions support different inferences."
+          ],
+          "trap": "Receiving both signals electronically does not make them the same collection category.",
+          "pages": [
+            13,
+            14,
+            15
+          ]
+        },
+        {
+          "title": "Interpret RDF evidence at the right confidence",
+          "explanation": "The lesson illustrates an RDF system with an antenna, a radio receiver, and a bearing processor. The receiver and processor support a direction estimate from the detected transmission. This can contribute to an estimated location and broader intelligence picture. Keep an observed bearing separate from the conclusions other evidence might support about identity, location, or intent.",
+          "remember": [
+            "State which bearing is observed and which conclusion is inferred.",
+            "An estimated location remains an assessment."
+          ],
+          "trap": "A bearing by itself provides limited evidence about a source's identity.",
+          "pages": [
+            11,
+            17
+          ]
+        },
+        {
+          "title": "Use strengths while accounting for limitations",
+          "explanation": "The slides present accuracy, timeliness, and relevance as advantages. They also teach that some SIGINT requires substantiation from other intelligence disciplines, and analysts cannot ask the intercepted source to clarify. Protect collection and consider deception when information may have been planted. A useful assessment explains which observations support the conclusion and which uncertainties remain.",
+          "remember": [
+            "Fast reporting and confidence are distinct.",
+            "Independent information can substantiate a signal-derived claim."
+          ],
+          "trap": "Clear reception does not guarantee that the content is truthful.",
+          "pages": [
+            19,
+            20
+          ]
+        },
+        {
+          "title": "Connect requirements, collection, analysis and delivery",
+          "explanation": "The SIGINT cycle ties collection and analysis to the mission and direction needs. Operators collect relevant material, evaluate it, and pass the resulting information to those who need it. Direction finding and technical control support the wider process. Reporting should preserve the distinction between what was observed and what was assessed so the consumer can use the product appropriately.",
+          "remember": [
+            "Begin with the supported decision or requirement.",
+            "Dissemination delivers the product to the intended consumer."
+          ],
+          "trap": "Collecting and analyzing useful material still leaves the decision unsupported if it reaches the consumer late.",
+          "pages": [
+            21,
+            22,
+            23
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "What two categories of SIGINT are taught?",
+          "answer": "COMINT and ELINT.",
+          "reasoning": "They distinguish intercepted communications from non-communication emissions.",
+          "pages": [
+            13,
+            14,
+            15
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "Which three strengths does the lesson list?",
+          "answer": "Accuracy, timeliness, and relevance.",
+          "reasoning": "These are advantages to pursue when the product serves an operational requirement.",
+          "pages": [
+            19
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A clear intercepted message conflicts with other reporting and may have been planted. How should it be handled?",
+          "answer": "Seek independent corroboration and state the unresolved conflict and possibility of deception.",
+          "reasoning": "The source cannot be asked to clarify and clear reception cannot confirm truthful content.",
+          "pages": [
+            19,
+            20
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "An urgent commander requirement asks where a suspected transmitter might be, and the operator has one bearing. What can be reported?",
+          "answer": "Report the direction estimate and what additional evidence is needed to substantiate a location.",
+          "reasoning": "The RDF output supports an estimated location, while intelligence assessment integrates available evidence.",
+          "pages": [
+            12,
+            17,
+            20
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A collector has a recent intercept that answers the stated requirement, but it sits in a local log. What must happen?",
+          "answer": "Evaluate and route the assessed information to the intended user in time for the decision.",
+          "reasoning": "The cycle serves the requirement through dissemination as well as collection and analysis.",
+          "pages": [
+            10,
+            21,
+            22
+          ]
+        }
+      ],
+      "checklist": [
+        "Classify a signal as COMINT or ELINT from its nature.",
+        "Distinguish the observation, assessment, uncertainty, and corroboration.",
+        "Explain the link between an operational requirement and timely dissemination."
+      ]
+    }
   },
   "elint": {
     "brief": "Electronic intelligence (ELINT) interprets non-communication emissions such as radar signals. Distinguish the features you observe, what they suggest about the emitter, and what evidence would support a firmer assessment.",
@@ -482,7 +1660,146 @@
         "question": "If the pulse repetition interval is 2 milliseconds, what is the pulse repetition frequency?",
         "answer": "500 hertz, because 1 divided by 0.002 seconds is 500 pulses per second."
       }
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Non-communications intelligence and electronic support",
+          "explanation": "ELINT interprets non-communication emissions, such as the signals from a radar. COMINT deals with messages carried by communications. The lesson distinguishes the intelligence role from electronic support, which produces perishable information for a tactical commander. The two can begin with a similar observation and differ in purpose, user, and time horizon.",
+          "remember": [
+            "Classify the signal before classifying the intelligence.",
+            "Immediate warning and longer-term characterization serve different needs."
+          ],
+          "trap": "Treating all electronic collection as ELINT hides the difference between the source and the intended product.",
+          "pages": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "title": "Electronic order of battle and confidence",
+          "explanation": "The electronic order of battle organizes known emitters. The lesson distinguishes friendly and other emitters, and it uses validated signatures to connect observations to existing records. A newly observed emission can resemble a known signature while differing in important ways. Compare the observations and account for friendly or neutral signals before changing the catalogue.",
+          "remember": [
+            "Keep an intercept record separate from a confirmed identification.",
+            "Use multiple measured characteristics and preserve uncertainty."
+          ],
+          "trap": "A familiar-looking trace can come from a source that has not yet been established.",
+          "pages": [
+            9,
+            19,
+            20
+          ]
+        },
+        {
+          "title": "Why a radar pulse can be observed",
+          "explanation": "A pulse radar infers range from the time between transmission and the returning echo. The echo covers the outbound and return paths. A passive receiver observes energy on the outbound path, which is why the lesson describes a one-way reception advantage. It is a physical distinction about the signal path and the required return signal.",
+          "remember": [
+            "The radar's echo time includes a round trip.",
+            "Passive observation uses transmitted energy."
+          ],
+          "trap": "Assuming that an intercepted pulse indicates the radar also detected the observer exceeds the available evidence.",
+          "pages": [
+            10,
+            11
+          ]
+        },
+        {
+          "title": "Read a fingerprint without overclaiming intent",
+          "explanation": "Carrier frequency indicates where the signal sits in the spectrum. Pulse width describes the duration of a pulse. Pulse repetition interval describes the spacing between pulses, while pulse repetition frequency describes how often they repeat. Scan behavior adds another clue. Patterns can support a preliminary judgment about the emitter's function or mode, with multiple features giving more context than a single number.",
+          "remember": [
+            "Distinguish pulse duration from pulse spacing.",
+            "Scan patterns are evidence for an assessment."
+          ],
+          "trap": "One observed characteristic is insufficient to establish identity or intent.",
+          "pages": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          ]
+        },
+        {
+          "title": "Collection, analysis and reporting roles",
+          "explanation": "The lesson traces observations through detection, location estimates, analysis, validation, and reporting. Record observable parameters separately from identification, then explain the quality and limitations of the evidence. The intelligence function evaluates the claim and updates records as warranted. Any later response belongs to the responsible decision authority.",
+          "remember": [
+            "Compare a new observation with the validated library.",
+            "Separate observation, identification, and decision."
+          ],
+          "trap": "Treating a provisional match as a decision skips validation and authorization.",
+          "pages": [
+            19,
+            20,
+            21,
+            22
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "Which SIGINT category deals with non-communication emissions?",
+          "answer": "ELINT.",
+          "reasoning": "It characterizes signals emitted by systems such as radars. COMINT addresses communications.",
+          "pages": [
+            6,
+            7
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "Which measurement describes the gap between successive pulses?",
+          "answer": "Pulse repetition interval.",
+          "reasoning": "Pulse width describes the length of an individual pulse. Repetition interval is spacing.",
+          "pages": [
+            12,
+            13
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "An observer hears outbound radar pulses but has no evidence of a returning echo. What conclusion is supported?",
+          "answer": "The observer received an emission. Radar detection of the observer is unconfirmed.",
+          "reasoning": "Passive reception and radar echo detection depend on different signal paths.",
+          "pages": [
+            10,
+            11
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A new emission shares a frequency with a catalogue entry but has different pulse and scan behavior. How should it be recorded?",
+          "answer": "Record the observed parameters and keep the identification provisional pending comparison and validation.",
+          "reasoning": "A signature combines several measurements, and the library is updated with validated evidence.",
+          "pages": [
+            12,
+            15,
+            19,
+            20
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "The same emission could support an immediate warning and a longer-term signature assessment. How do the uses differ?",
+          "answer": "Electronic support addresses the immediate tactical need. ELINT develops the intelligence characterization.",
+          "reasoning": "The lesson distinguishes the uses by user, time horizon, and resulting product.",
+          "pages": [
+            6,
+            8,
+            19
+          ]
+        }
+      ],
+      "checklist": [
+        "Distinguish ELINT, COMINT, and electronic support by purpose.",
+        "Explain why observing outbound radar energy differs from detecting an echo.",
+        "Separate measured fingerprint features, provisional identity, and authorized decisions."
+      ]
+    }
   },
   "rdf": {
     "brief": "Radio direction finding estimates the direction from which an RF signal arrives. Use that bearing to support a decision while preserving the difference between a direction and a position.",
@@ -527,7 +1844,155 @@
         "question": "Does one bearing establish an exact location?",
         "answer": "No. It describes a direction, while a precise location requires additional evidence."
       }
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "RDF roles and RF source categories",
+          "explanation": "Radio direction finding estimates the direction from which an emission arrives. The lesson uses military communications, radar, civilian broadcasts, and emergency beacons to illustrate varied sources. Direction information can support monitoring, navigation, or rescue depending on why the observation was made. Classify the source from corroborating context as well as the signal evidence.",
+          "remember": [
+            "An RF emission can originate from civilian or emergency equipment.",
+            "A distress beacon can guide a search."
+          ],
+          "trap": "Treating any detected emission as hostile skips identification.",
+          "pages": [
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ]
+        },
+        {
+          "title": "Interpret direction of arrival",
+          "explanation": "Direction of arrival is an azimuth relative to the RDF system. A single reported bearing describes a direction and leaves distance undetermined. To use it with other reports, record the direction reference and keep the measured bearing distinct from any inferred location. Additional observations can help substantiate an estimate.",
+          "remember": [
+            "A bearing and a location are different products.",
+            "A direction must be interpretable by the receiving team."
+          ],
+          "trap": "Plotting a single bearing as a precise point creates certainty the measurement did not provide.",
+          "pages": [
+            25,
+            30
+          ]
+        },
+        {
+          "title": "Compare the basis of measurement methods",
+          "explanation": "The taught methods compare how a signal arrives at separated receiving elements. Phase comparison uses differences in received phase. Time difference of arrival uses differences in arrival time. The interferometric example compares phase across antenna pairs or elements. Identify the method by the quantity measured and keep that evidence separate from later interpretation.",
+          "remember": [
+            "Phase and arrival time are different measured quantities.",
+            "Interferometry in this lesson compares phase across array elements."
+          ],
+          "trap": "The number of antennas alone does not identify the method used.",
+          "pages": [
+            27,
+            28,
+            29
+          ]
+        },
+        {
+          "title": "Read and qualify the result",
+          "explanation": "The lesson identifies setup, calibration, readings, and error mitigation as parts of RDF work. Even when a result is reported clearly, it remains a measurement tied to the system and observation. Compare readings for consistency, preserve the original observations, and explain when conflicting evidence leaves an estimate uncertain.",
+          "remember": [
+            "Relate a result to the system and direction reference that produced it.",
+            "Repeat or substantiate an inconsistent reading before reporting a stronger claim."
+          ],
+          "trap": "A neat plotted line does not establish the quality of the observation.",
+          "pages": [
+            25,
+            27,
+            28,
+            29,
+            30,
+            32
+          ]
+        },
+        {
+          "title": "Integrate direction evidence with C2",
+          "explanation": "RDF contributes to situational awareness when a command element can combine it with other information and coordinate a response. A rescue team might use a bearing as a search cue while seeking additional evidence about the beacon's location. The same reporting discipline helps other command users distinguish the observed emission, inferred source, and actions that remain for the authority to decide.",
+          "remember": [
+            "Report direction and relevant context to the receiving user.",
+            "Describe the limits of the inference alongside the observation."
+          ],
+          "trap": "Passing a bearing without context can cause the recipient to mistake a cue for a confirmed location.",
+          "pages": [
+            21,
+            22,
+            23,
+            24,
+            26,
+            31,
+            32
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "What does direction of arrival report?",
+          "answer": "The azimuth of the arriving signal relative to the RDF system.",
+          "reasoning": "This direction measurement leaves distance undetermined.",
+          "pages": [
+            30
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "What separates TDOA from the phase-comparison examples?",
+          "answer": "TDOA compares arrival times. The other examples compare received phase.",
+          "reasoning": "The lesson differentiates methods by the evidence they measure at the receiving antennas.",
+          "pages": [
+            27,
+            28,
+            29
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A search team hears an emergency beacon from a single bearing. What can its initial report say?",
+          "answer": "Give the bearing as a search cue, then seek additional observations before estimating a location.",
+          "reasoning": "RDF supports rescue, but a single azimuth only describes direction.",
+          "pages": [
+            20,
+            24,
+            25,
+            30
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A field element sends a direction reading to a command post. What information helps the receiving staff use it?",
+          "answer": "State the bearing and its reference, identify the observation and its uncertainty, and separate it from an inferred location.",
+          "reasoning": "C2 integration requires a report that the recipient can understand and combine with other information.",
+          "pages": [
+            26,
+            30,
+            31,
+            32
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Two readings differ and the operator is unsure how the system was set up. How should the report change?",
+          "answer": "Preserve the readings and qualify the direction estimate pending setup checks and corroboration.",
+          "reasoning": "The class treats setup, calibration, measurement, and error mitigation as related responsibilities.",
+          "pages": [
+            25,
+            30,
+            32
+          ]
+        }
+      ],
+      "checklist": [
+        "Identify civilian, military, radar, and emergency RF source examples.",
+        "Compare phase and time based methods by the measurement used.",
+        "Explain what a single bearing permits the receiving command element to infer."
+      ]
+    }
   },
   "eccm": {
     "brief": "Electronic counter-countermeasures are taught as Electronic Protection (EP). Use communications discipline and continuity planning to preserve friendly service, then distinguish an observed disruption from its possible causes.",
@@ -581,6 +2046,146 @@
         "question": "What should a PACE rehearsal confirm in addition to naming the four means?",
         "answer": "When to switch and whether the recipient can still receive the essential traffic."
       }
-    ]
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Electronic protection and three risks",
+          "explanation": "Electronic protection safeguards friendly people, facilities, and equipment from the effects of electromagnetic emissions, including friendly emissions. The lesson organizes protective thinking around three risks: being found, disrupted, or read. Emission discipline helps manage exposure and compatibility helps reduce friendly interference. Choose the type of protection that addresses the observed problem.",
+          "remember": [
+            "Friendly interference and equipment failure can resemble deliberate disruption.",
+            "Emission risk depends on what a signal reveals through its presence and pattern."
+          ],
+          "trap": "Assuming every spectrum problem has a hostile cause can misdirect the initial checks.",
+          "pages": [
+            4,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "title": "EMCON and the need to communicate",
+          "explanation": "Emission control matches transmission restrictions to the command-directed condition. More restrictive levels reduce ordinary emissions and can affect when reports may be sent. Plan how essential information will still reach users and follow the authority and exceptions defined for the selected condition. Evaluate exposure and mission need together.",
+          "remember": [
+            "Emission control concerns when and how a system emits.",
+            "Protection has to preserve required information flow."
+          ],
+          "trap": "Choosing a restriction without considering the command plan can leave a required user without a report.",
+          "pages": [
+            8,
+            9,
+            10,
+            11,
+            12
+          ]
+        },
+        {
+          "title": "Encryption, availability and continuity",
+          "explanation": "Encryption protects the content of a message. Anti-jam measures protect the ability of an exchange to get through. The class illustrates frequency agility conceptually and uses PACE to plan for degradation or loss. Assess confidentiality and service availability separately, then check whether an alternate covers the same priority user need.",
+          "remember": [
+            "PACE means primary, alternate, contingency, and emergency.",
+            "Confidentiality and availability are separate properties."
+          ],
+          "trap": "An encrypted message can remain unreadable to others and still fail to arrive.",
+          "pages": [
+            13,
+            14,
+            18
+          ]
+        },
+        {
+          "title": "Recognize, verify and report interference",
+          "explanation": "Noise, simultaneous service loss, or unreliable data can suggest interference. Equipment faults and friendly emissions are also plausible. Check the affected equipment and scope of symptoms, preserve relevant observations, use the planned response, and report through approved means. Distinguish a symptom report from a confirmed cause.",
+          "remember": [
+            "Record who was affected, what was observed, and when it happened.",
+            "Coordinate reporting and continuity with the responsible staff."
+          ],
+          "trap": "Reporting a symptom as confirmed jamming can give the command a false picture.",
+          "pages": [
+            3,
+            4,
+            15,
+            16,
+            17
+          ]
+        },
+        {
+          "title": "Navigation confidence and equipment protection",
+          "explanation": "Navigation systems can lose a fix or provide a plausible but false fix. Compare a suspicious indication with independent navigation references. Equipment hardening reduces vulnerability to damaging or disruptive emissions, while compatibility addresses systems operating near one another. These measures protect different parts of service reliability.",
+          "remember": [
+            "Treat missing and misleading navigation indications as different failures.",
+            "Hardening and compatibility support different protection checks."
+          ],
+          "trap": "A position that looks precise can still be unreliable when independent evidence disagrees.",
+          "pages": [
+            19,
+            20,
+            21
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "What does encryption protect in the lesson's comparison?",
+          "answer": "The content of the communication.",
+          "reasoning": "Encryption limits who can understand the message. Anti-jam protection concerns whether the exchange can get through.",
+          "pages": [
+            14
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "What do the four letters in PACE represent?",
+          "answer": "Primary, alternate, contingency, and emergency.",
+          "reasoning": "The sequence identifies planned communication options for degraded conditions.",
+          "pages": [
+            18
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Several operators hear static, but one radio also has a loose connection. What should a report say?",
+          "answer": "Record the symptoms and known equipment fault, check which stations are affected, and leave the interference cause open pending evidence.",
+          "reasoning": "The lesson lists deliberate interference, friendly interference, and equipment faults as alternatives to investigate.",
+          "pages": [
+            3,
+            4,
+            15,
+            16,
+            17
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A navigation display gives a stable position that conflicts with physical landmarks. What should the operator infer?",
+          "answer": "Treat the indicated fix as suspect and corroborate it with independent navigation references.",
+          "reasoning": "The lesson distinguishes a wrong but plausible fix from the loss of a fix.",
+          "pages": [
+            19
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "An approved encrypted link fails during an exercise. What should the communications staff check first for continuity?",
+          "answer": "Check which PACE option can support the affected exchange while the primary fault is investigated.",
+          "reasoning": "Content protection and service availability solve different problems. The continuity plan preserves priority information flow.",
+          "pages": [
+            14,
+            16,
+            18
+          ]
+        }
+      ],
+      "checklist": [
+        "Distinguish hostile disruption, friendly interference, and equipment failure as hypotheses.",
+        "Explain what emission control, encryption, and continuity arrangements each protect.",
+        "Describe how to validate a suspect navigation indication and report interference observations."
+      ]
+    }
   }
 }

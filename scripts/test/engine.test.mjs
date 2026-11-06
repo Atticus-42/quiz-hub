@@ -1187,7 +1187,7 @@ export async function engineSuite(lesson) {
     assert.equal(link.getAttribute('href'), hubHref);
     assert.equal(link.textContent.replace(/\s+/g, ' ').trim(), '← All quizzes');
     assert.ok(findAll(app.document.root, node => node.localName === 'header' && findAll(node, child => child === link).length).length, 'the link sits in the page header');
-    const reviewer = findAll(app.document.root, node => node.localName === 'a' && node.textContent === 'Reviewer 101')[0];
+    const reviewer = findAll(app.document.root, node => node.localName === 'a' && (node.getAttribute('class') || '').split(' ').includes('reviewer-button'))[0];
     assert.ok(reviewer.getAttribute('href').startsWith('../reviewer/'));
     assert.ok(existsSync(join(resolve(dirname(pagePath), '..'), 'index.html')), 'the hub page exists one folder up');
   });

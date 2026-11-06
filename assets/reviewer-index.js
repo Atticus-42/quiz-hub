@@ -39,7 +39,7 @@ try {
     label.className = 'study-eyebrow';
     label.textContent = 'Pick up where you left off';
     const link = document.createElement('a');
-    const sections = ['briefing', 'facts', 'reasoning', 'scenario', 'practice', 'self-check', 'references'];
+    const sections = ['briefing', 'facts', 'reasoning', 'scenario', 'practice', 'self-check', 'detailed-review', 'exam-practice', 'exam-checklist', 'references'];
     link.href = known.href + (sections.includes(saved.section) ? '#' + saved.section : '');
     link.textContent = known.querySelector('span').textContent + ' →';
     const note = document.createElement('p');

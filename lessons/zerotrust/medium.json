@@ -450,15 +450,15 @@
     "tags": [
       "migration and application"
     ],
-    "prompt": "A pilot blocks legitimate activity during observation. What should happen before broader enforcement?",
+    "prompt": "A reporting-only pilot shows that a proposed policy would deny legitimate classroom work. What should happen before broader enforcement?",
     "options": [
-      "Tune policies using the observed evidence",
-      "Expand unchanged to prove the design is consistent",
-      "Ignore the evidence because the pilot is small",
-      "Delete the logs to avoid confusing operators"
+      "Tune policies using the observed evidence.",
+      "Enforce the same policy and record the denials later.",
+      "Expand the policy to more workflows to average out the errors.",
+      "Classify the affected work as unauthorized without reviewing it."
     ],
     "answer": 0,
-    "explanation": "A pilot is intended to reveal mismatches and improve policies before their impact increases.",
+    "explanation": "Reporting-only mode lets planners compare predicted decisions with real traffic and adjust policy before enforcement.",
     "sourceSlides": [
       25
     ]
