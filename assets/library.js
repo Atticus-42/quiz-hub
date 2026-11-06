@@ -4,7 +4,7 @@ const selected = catalogue.find(doc => doc.id === query.get('doc'));
 const get = id => document.getElementById(id);
 const list = [...document.querySelectorAll('.library-row')];
 const search = get('library-search');
-let filter = ['lesson', 'manual', 'reviewer'].includes(query.get('type')) ? query.get('type') : 'all';
+let filter = ['lesson', 'manual'].includes(query.get('type')) ? query.get('type') : 'all';
 const moduleFilter = get('library-module');
 const availability = get('library-availability');
 const sort = get('library-sort');
