@@ -64,10 +64,10 @@ export function studyQuizLinks(root, lesson, study) {
     if (!study.byKey.has(key)) continue;
     const doc = study.documents.find(item => item.id === study.primary[key]);
     sources[key] = {
-      title: doc.title, doc: doc.id, href: doc.file ? '../library/files/' + doc.file + '.pdf' : '../library/?doc=' + doc.id + '#document', exactPages: Boolean(doc.file),
+      title: doc.title, citationName: study.byKey.get(key).name, available: Boolean(doc.file), doc: doc.id, href: doc.file ? '../library/files/' + doc.file + '.pdf' : '../library/?doc=' + doc.id + '#document', exactPages: Boolean(doc.file),
       studyDoc: '../reviewer/' + key + '/',
       manuals: study.documents.filter(item => item.kind === 'manual' && item.id !== doc.id && item.cited.includes(key))
-        .map(item => ({ title: item.title, id: item.id, href: item.file ? '../library/files/' + item.file + '.pdf' : '../library/?doc=' + item.id + '#document' })),
+        .map(item => ({ title: item.title, available: Boolean(item.file), citationPage: item.citationPage, id: item.id, href: item.file ? '../library/files/' + item.file + '.pdf' : '../library/?doc=' + item.id + '#document' })),
     };
   }
   const reviewer = study.byKey.has(lesson.key) ? '../reviewer/' + lesson.key + '/' : '../reviewer/#' + lesson.module;
@@ -91,7 +91,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     });
   };
   const documentHref = (doc, prefix = '', page) => doc.file ? prefix + 'library/files/' + doc.file + '.pdf' + (page ? '#page=' + page : '') : doc.web ? prefix + doc.web : prefix + 'library/?doc=' + doc.id + '#document';
-  const docLink = (doc, prefix, page, label = doc.title) => '<a href="' + documentHref(doc, prefix, page) + '"' + (doc.file ? ' target="_blank" rel="noopener"' : '') + '>' + e(label) + '</a>';
+  const docLink = (doc, prefix, page, label = doc.title) => '<a href="' + documentHref(doc, prefix, page) + '"' + (doc.file ? ' target="_blank" rel="noopener"' : '') + '>' + e(label) + '</a>' + (!doc.file && !doc.web ? ' <span class="file-missing">PDF unavailable</span>' : '');
   const groups = modules.map(module => ({
     ...module, entries: lessons.filter(lesson => lesson.module === module.id && study.byKey.has(lesson.key)),
   })).filter(group => group.entries.length);
@@ -100,11 +100,11 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
   const indexNav = '<nav class="study-rail" aria-label="Jump to a module"><details id="module-index" open><summary class="study-eyebrow">Browse by module</summary><ul>' +
     groups.map(group => '<li><a href="#' + group.id + '"><span>' + e(group.title) + '</span><strong>' + e(groupName(group)) + '</strong></a></li>').join('') + '</ul></details></nav>';
   const sections = groups.map(group =>
-    '<section id="' + group.id + '" class="reviewer-module"><div class="module-heading"><div><p class="study-eyebrow">' +
+    '<section id="' + group.id + '" class="reviewer-module" data-module="' + group.id + '"><div class="module-heading"><div><p class="study-eyebrow">' +
     e(group.id === 'supplemental' ? 'Course references' : group.title) + '</p><h2>' + e(groupName(group)) + '</h2></div><p class="study-chip">' +
     lessonCount(group.entries.length) + '</p></div><ul class="study-grid">' +
     group.entries.map((lesson, index) => '<li class="reviewer-card"><span class="lesson-number" aria-hidden="true">' + String(index + 1).padStart(2, '0') + '</span><a href="' + lesson.key + '/"><span>' + e(lesson.name) +
-      '</span><span class="card-arrow" aria-hidden="true">→</span></a><p>' + e(study.reviewers[lesson.key].brief) + '</p><span class="card-foot">Briefing · Scenario · Self-check<span aria-hidden="true">↗</span></span></li>').join('') +
+      '</span><span class="card-arrow" aria-hidden="true">→</span></a><p>' + e(study.reviewers[lesson.key].brief) + '</p><span class="card-foot">Learn · Apply · Test yourself<span aria-hidden="true">↗</span></span></li>').join('') +
     '</ul></section>').join('');
   const finder = '<div class="study-finder" hidden><label for="reviewer-search">Find a lesson</label><input id="reviewer-search" type="search" placeholder="Try Signal Estimate or Mission Command"><p id="reviewer-count" role="status"></p></div>';
   render('reviewer/index.html', 1, 'reviewer', 'Reviewer 101', 'Know the essentials. Understand the why. Be ready for the question.',
@@ -138,7 +138,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
       (item.steps.length ? panel('practice', 'How to practice', '<ol>' + item.steps.map(step => '<li>' + e(step) + '</li>').join('') + '</ol><p>Review the steps with ' + docLink(primaryDoc, '../../', primaryDoc.file ? page : null) + '.</p>') : '') +
       panel('self-check', 'Check yourself', item.checks.map(check => '<details><summary>' + e(check.question) + '</summary><p>' + e(check.answer) + '</p></details>').join('')) +
       (guide ? panel('exam-practice', 'Objective & analytical practice', '<p>Answer first, then reveal the explanation. Situations are fictional classroom exercises applying the lesson.</p>' + guide.practice.map(question => '<details class="exam-practice"><summary><span class="study-eyebrow">' + e(question.type) + '</span>' + e(question.question) + '</summary><p><strong>Answer:</strong> ' + e(question.answer) + '</p><p>' + e(question.reasoning) + '</p>' + sourcePages(question.pages) + '</details>').join('')) + panel('exam-checklist', 'Before the exam', '<ul>' + guide.checklist.map(text => '<li>' + e(text) + '</li>').join('') + '</ul>') : '') +
-      panel('references', 'References', '<p>Study the assigned lesson first. Supplementary manuals provide context; they do not add examinable material unless assigned as a lesson.</p>' + '<ul>' + docs.filter(doc => doc !== studyDoc).sort((a,b) => (a === primaryDoc ? 0 : a.cited.includes(key) ? 1 : 2) - (b === primaryDoc ? 0 : b.cited.includes(key) ? 1 : 2)).map(doc => '<li>' + docLink(doc, '../../', doc === primaryDoc && doc.file ? page : null) +
+      panel('references', 'References', '<p>Study the assigned lesson first. Supplementary manuals provide context; they do not add examinable material unless assigned as a lesson.</p>' + '<ul>' + docs.filter(doc => doc !== studyDoc).sort((a,b) => (a === primaryDoc ? 0 : a.cited.includes(key) ? 1 : 2) - (b === primaryDoc ? 0 : b.cited.includes(key) ? 1 : 2)).map(doc => '<li>' + docLink(doc, '../../', doc === primaryDoc && doc.file ? page : doc.citationPage) +
         ' <span class="study-muted">· ' + (doc === primaryDoc ? 'Primary course source' : doc.cited.includes(key) ? 'Cited by the course' : 'Supplementary reading') + '</span></li>').join('') + '</ul>');
     const rail = '<nav class="study-rail" aria-label="Lesson sections"><p class="study-eyebrow">In this lesson</p><ul>' + chapterLinks.join('') + '</ul></nav>';
     const actions = '<div class="lesson-actions"><a href="../#' + lesson.module + '">← All reviewers</a><a class="study-cta" href="../../' +
@@ -147,17 +147,19 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     render('reviewer/' + key + '/index.html', 2, 'reviewer', lesson.name, groupName(group),
       actions + '<div class="study-layout">' + rail + '<article class="study-content lesson-reading">' + chapters + '</article></div>', {
         eyebrow: 'Reviewer 101 · ' + (group.id === 'supplemental' ? 'Supporting lesson' : group.title),
+        art: '<figure class="reviewer-figure">' + lesson.heroSvg + '<figcaption>Lesson at a glance</figcaption></figure>',
         scripts: '<script src="../../assets/study-session.js" defer></script>',
       });
   }
   const metadata = study.documents.map(doc => ({
-    ...doc, lessons: [...doc.cited, ...doc.related].map(key => ({ key, title: study.byKey.get(key).name, cited: doc.cited.includes(key) })),
+    ...doc, modules: [...new Set([...doc.cited, ...doc.related].map(key => study.byKey.get(key).module))], lessons: [...doc.cited, ...doc.related].map(key => ({ key, title: study.byKey.get(key).name, cited: doc.cited.includes(key) })),
   }));
-  const rows = metadata.map(doc => '<li class="library-row" data-kind="' + doc.kind + '"><span class="document-mark" aria-hidden="true">' + (doc.kind === 'manual' ? 'REF' : doc.kind === 'reviewer' ? '101' : 'PDF') + '</span><p class="study-eyebrow">' +
+  metadata.sort((a,b) => Number(!(a.file || a.web)) - Number(!(b.file || b.web)) || (a.modules[0] || '').localeCompare(b.modules[0] || '', undefined, {numeric:true}) || a.title.localeCompare(b.title));
+  const rows = metadata.filter(doc => doc.file || doc.web).map(doc => '<li class="library-row" data-id="' + doc.id + '" data-modules="' + doc.modules.join(' ') + '" data-format="' + (doc.file ? 'pdf' : 'web') + '" data-available="' + Boolean(doc.file || doc.web) + '" data-kind="' + doc.kind + '"><span class="document-mark" aria-hidden="true">' + (doc.kind === 'manual' ? 'REFERENCE MANUAL' : doc.kind === 'reviewer' ? 'REVIEWER 101' : 'LESSON SOURCE') + '</span><p class="study-eyebrow">' +
     e(doc.edition || (doc.kind === 'manual' ? 'Manual' : 'Lesson')) + '</p><h3><a href="' + documentHref(doc, '../') + '"' + (doc.file ? ' target="_blank" rel="noopener"' : '') + '>' + e(doc.title) +
     '<span class="card-arrow" aria-hidden="true"> →</span></a></h3><p class="library-links">' +
     e(doc.lessons.map(lesson => lesson.title).join(' · ')) + '</p><span class="study-chip ' + (doc.file ? 'available' : '') + '">' +
-    (doc.file ? 'Open PDF ↗' : doc.web ? 'Read online →' : 'Citation record') + '</span></li>').join('');
+    (doc.file ? 'Open PDF ↗' : doc.web ? 'Read online →' : 'PDF unavailable') + '</span></li>').join('');
   const body = '<section id="document" class="study-panel document-workspace" hidden aria-labelledby="document-title">' +
     '<a class="document-back" href="./">← Back to library</a><h2 id="document-title"></h2><p id="document-meta"></p>' +
     '<p id="document-availability"></p>' +
@@ -165,13 +167,13 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     '<section class="library-catalogue" aria-labelledby="catalogue-title"><p class="study-eyebrow">Catalogue</p><h2 id="catalogue-title">Find a reference</h2>' +
     '<nav class="study-actions" aria-label="Library categories"><a data-type="all" href="./">All documents</a><a data-type="lesson" href="?type=lesson">Lessons</a><a data-type="manual" href="?type=manual">Manuals</a><a data-type="reviewer" href="?type=reviewer">Reviewer 101</a></nav>' +
     '<div class="library-controls"><label for="library-search">Search by title, manual number or lesson</label><input id="library-search" type="search" placeholder="Try PAM 6-0102 or Zero Trust"></div>' +
-    '<p id="library-count" role="status"></p><ul class="library-list">' + rows + '</ul></section>';
+    '<div class="library-filters"><label>Module<select id="library-module"><option value="all">All modules</option>' + groups.map(group => '<option value="' + group.id + '">' + e(group.title + ' · ' + groupName(group)) + '</option>').join('') + '</select></label><label>Format<select id="library-availability"><option value="all">All formats</option><option value="pdf">PDF documents</option><option value="web">Web reviewers</option></select></label><label>Sort by<select id="library-sort"><option value="course">Course order</option><option value="title">Title A–Z</option><option value="kind">Document type</option></select></label><button type="button" id="library-reset">Reset filters</button></div><div class="library-results-bar"><p id="library-count" role="status"></p><div class="library-view" role="group" aria-label="Document layout"><button type="button" id="library-cards" aria-pressed="true">Cards</button><button type="button" id="library-list-view" aria-pressed="false">List</button></div></div><p id="library-empty" hidden>No documents match these filters. Try a broader search or reset the filters.</p><ul class="library-list">' + rows + '</ul></section>';
   render('library/index.html', 1, 'library', 'Study Library', 'Original lessons and manuals open as PDFs. Reviewer 101 guides are ready to read on the web.', body, {
     eyebrow: 'SOAC 52–26 · Reference desk',
     meta: '<p class="hero-stats"><span><strong>' + metadata.filter(doc => doc.file).length + '</strong> readable PDFs</span><span><strong>' +
-      metadata.filter(doc => doc.kind === 'manual').length + '</strong> manual records</span></p>',
+      metadata.filter(doc => doc.kind === 'manual' && doc.file).length + '</strong> available manuals</span></p>',
     art: '<div class="hero-plate library-plate" aria-hidden="true"><div class="book-stack"><div>DOCTRINE</div><div>FIELD NOTES</div><div>REVIEWER 101</div></div><span>Read. Connect. Understand.</span></div>',
-    scripts: '<script type="application/json" id="library-data">' + scriptJson(metadata) + '</script><script type="module" src="../assets/library.js?v=browser-pdf-4"></script>',
+    scripts: '<script type="application/json" id="library-data">' + scriptJson(metadata) + '</script><script type="module" src="../assets/library.js?v=catalogue-5"></script>',
   });
   return pages;
 }

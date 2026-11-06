@@ -1,88 +1,97 @@
 <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
-  <g class="plate-grid" fill="none" stroke="currentColor">
-    <path class="grid-cross" d="M77 50h6M80 47v6M157 50h6M160 47v6M237 50h6M240 47v6M317 50h6M320 47v6M397 50h6M400 47v6M77 100h6M80 97v6M157 100h6M160 97v6M237 100h6M240 97v6M317 100h6M320 97v6M397 100h6M400 97v6M77 150h6M80 147v6M157 150h6M160 147v6M237 150h6M240 147v6M317 150h6M320 147v6M397 150h6M400 147v6"/>
-    <path class="thin" d="M80 0v6M160 0v6M240 0v6M320 0v6M400 0v6M80 244v6M160 244v6M240 244v6M320 244v6M400 244v6M0 50h6M0 100h6M0 150h6M0 200h6M474 50h6M474 100h6M474 150h6M474 200h6"/>
+  <rect x="0" y="0" width="480" height="250" rx="0" fill="#f8faf5" stroke="none" />
+  <path d="M0 209q86-30 176 0v41H0z" fill="#e4eee1" />
+  <path d="M275 212q101-19 205-1v39H275z" fill="#deebf2" />
+  <circle cx="240" cy="118" r="36" fill="#e2edf3" />
+  <path d="M179 145h122v42H179z" fill="#e4f0eb" />
+  <rect x="0" y="0" width="480" height="4" rx="0" fill="#305783" stroke="none" />
+  <g class="plate-grid" opacity=".55" fill="none" stroke="#305783">
+    <path class="grid-cross" d="M77 50h6M80 47v6M157 50h6M160 47v6M237 50h6M240 47v6M317 50h6M320 47v6M397 50h6M400 47v6M77 100h6M80 97v6M157 100h6M160 97v6M237 100h6M240 97v6M317 100h6M320 97v6M397 100h6M400 97v6M77 150h6M80 147v6M157 150h6M160 147v6M237 150h6M240 147v6M317 150h6M320 147v6M397 150h6M400 147v6" />
+    <path class="thin" d="M80 0v6M160 0v6M240 0v6M320 0v6M400 0v6M80 244v6M160 244v6M240 244v6M320 244v6M400 244v6M0 50h6M0 100h6M0 150h6M0 200h6M474 50h6M474 100h6M474 150h6M474 200h6" />
   </g>
-  <text class="t-title" x="12" y="20">SIGNAL SUPPORT · JOINT OPERATIONS</text>
-  <text class="t-mute" x="12" y="33">ARMY · NAVY · AIR FORCE</text>
-  <g class="env-band env-spectrum" fill="none" stroke="currentColor" stroke-width="0.9">
-    <path d="M250 52Q262 44 274 52T298 52T322 52T346 52T370 52T394 52T418 52T442 52T466 52"/>
-    <path class="faint" d="M286 62Q298 56 310 62T334 62T358 62T382 62T406 62T430 62T454 62"/>
+  <text class="t-title" x="12" y="20" style="font-family:system-ui,sans-serif;font-size:13px;letter-spacing:.03em;font-weight:740;fill:#192e2b">SIGNAL SUPPORT · JOINT OPERATIONS</text>
+  <text class="t-mute" x="12" y="33" style="font-family:system-ui,sans-serif;font-size:10.5px;letter-spacing:.03em;font-weight:670;fill:#48615a">ARMY · NAVY · AIR FORCE</text>
+  <g class="env-band env-spectrum" fill="none" stroke="#305783" stroke-width="0.9">
+    <path d="M250 52Q262 44 274 52T298 52T322 52T346 52T370 52T394 52T418 52T442 52T466 52" />
+    <path class="faint" d="M286 62Q298 56 310 62T334 62T358 62T382 62T406 62T430 62T454 62" />
   </g>
-  <text class="t-mute" x="468" y="42" text-anchor="end">ELECTROMAGNETIC SPECTRUM</text>
-  <g class="env-band env-cyberspace" fill="none" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2 3">
-    <circle cx="240" cy="118" r="44"/>
-    <path class="faint" d="M196 118H284M240 74V162M209 87L271 149M271 87L209 149"/>
+  <text class="t-mute" x="468" y="42" text-anchor="end" style="font-family:system-ui,sans-serif;font-size:10.5px;letter-spacing:.03em;font-weight:670;fill:#48615a">ELECTROMAGNETIC SPECTRUM</text>
+  <g class="env-band env-cyberspace" fill="none" stroke="#305783" stroke-width="0.9" stroke-dasharray="2 3">
+    <circle cx="240" cy="118" r="44" />
+    <path class="faint" d="M196 118H284M240 74V162M209 87L271 149M271 87L209 149" />
   </g>
-  <text class="t-mute" x="240" y="178" text-anchor="middle">CYBERSPACE</text>
-  <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
-    <path class="hill env-band env-physical ink" d="M0 214C60 208 130 216 200 212C230 210 250 214 262 214"/>
-    <path class="thin faint" d="M0 226C70 222 130 228 200 225M0 238C80 234 140 240 210 237"/>
-    <path class="sea env-band env-physical ink" d="M262 214H480"/>
-    <path class="thin" d="M276 222q5-3 10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0M286 234q5-3 10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0"/>
+  <text class="t-mute" x="240" y="178" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:10.5px;letter-spacing:.03em;font-weight:670;fill:#48615a">CYBERSPACE</text>
+  <g fill="none" stroke="#305783" stroke-width="1.1" stroke-linejoin="round">
+    <path class="hill env-band env-physical ink" d="M0 214C60 208 130 216 200 212C230 210 250 214 262 214" />
+    <path class="thin faint" d="M0 226C70 222 130 228 200 225M0 238C80 234 140 240 210 237" />
+    <path class="sea env-band env-physical ink" d="M262 214H480" />
+    <path class="thin" d="M276 222q5-3 10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0M286 234q5-3 10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0t10 0" />
   </g>
-  <text class="t-mute" x="240" y="244" text-anchor="middle">PHYSICAL</text>
-  <g class="link-lines" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="5 3">
-    <path class="link-line" d="M66 70L240 118"/>
-    <path class="link-line" d="M240 118L374 86"/>
-    <path class="link-line" d="M240 118L410 178"/>
+  <text class="t-mute" x="240" y="244" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:10.5px;letter-spacing:.03em;font-weight:670;fill:#48615a">PHYSICAL</text>
+  <g class="link-lines" fill="none" stroke="#305783" stroke-width="1" stroke-dasharray="5 3">
+    <path class="link-line" d="M66 70L240 118" />
+    <path class="link-line" d="M240 118L374 86" />
+    <path class="link-line" d="M240 118L410 178" />
   </g>
   <g class="service-node node-aircraft ink" fill="none" stroke-width="1.2" stroke-linejoin="round">
-    <path class="pf" d="M346 84L374 80L402 84L374 88Z"/>
-    <path class="pf" d="M370 81L362 66H368L382 81M370 87L362 102H368L382 87"/>
-    <path class="pf" d="M348 84L342 76H347L354 83"/>
+    <path class="pf" style="fill:#dce9f3" d="M346 84L374 80L402 84L374 88Z" />
+    <path class="pf" style="fill:#cee2ee" d="M370 81L362 66H368L382 81M370 87L362 102H368L382 87" />
+    <path class="pf" style="fill:#e7efe5" d="M348 84L342 76H347L354 83" />
   </g>
   <text x="374" y="116" text-anchor="middle">AIR FORCE</text>
   <g class="service-node node-ship ink" fill="none" stroke-width="1.2" stroke-linejoin="round">
-    <path class="pf" d="M364 196H458L448 212H372Z"/>
-    <path class="pf" d="M384 196V186H420V196M398 186V176H410V186"/>
-    <path d="M410 176V166M404 170H416"/>
-    <path class="thin" d="M390 191h4M402 191h4M414 191h4"/>
+    <path class="pf" style="fill:#d0e1d4" d="M364 196H458L448 212H372Z" />
+    <path class="pf" style="fill:#e7eff1" d="M384 196V186H420V196M398 186V176H410V186" />
+    <path d="M410 176V166M404 170H416" />
+    <path class="thin" d="M390 191h4M402 191h4M414 191h4" />
   </g>
   <text x="410" y="244" text-anchor="middle">NAVY</text>
   <text x="96" y="244" text-anchor="middle">ARMY</text>
   <g id="dust" fill="none" class="acc" stroke-width="1">
-    <circle class="dust-puff" cx="66" cy="70" r="6"/>
-    <circle class="dust-puff" cx="66" cy="70" r="10"/>
-    <circle class="dust-puff" cx="66" cy="70" r="14"/>
+    <circle class="dust-puff" cx="66" cy="70" r="6" />
+    <circle class="dust-puff" cx="66" cy="70" r="10" />
+    <circle class="dust-puff" cx="66" cy="70" r="14" />
   </g>
-  <g id="tank" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+  <g id="tank" fill="none" stroke="#305783" stroke-width="1.1" stroke-linejoin="round">
     <g id="tank-gun" class="ink">
-      <path class="pf" d="M63 78H69V166H63Z"/>
-      <path class="thin" d="M62 108H70M62 138H70"/>
-      <path d="M52 80H80M56 74L66 68L76 74"/>
-      <circle class="acc-f" cx="66" cy="70" r="2.5"/>
+      <path class="pf" style="fill:#dce9f3" d="M63 78H69V166H63Z" />
+      <path class="thin" d="M62 108H70M62 138H70" />
+      <path d="M52 80H80M56 74L66 68L76 74" />
+      <circle class="acc-f" cx="66" cy="70" r="2.5" />
     </g>
     <g class="ink">
-      <path class="pf" d="M34 164H110V200H34Z"/>
-      <path class="thin" d="M44 174H70V192H44ZM80 176H102M80 184H102"/>
-      <path class="pf" d="M112 200V178L120 168H144L154 182V200Z"/>
-      <path class="thin" d="M124 172H142L148 182H124Z"/>
-      <path class="pf" d="M28 198H160V207H28Z"/>
-      <circle class="pf" cx="52" cy="206" r="8.5"/><circle class="thin" cx="52" cy="206" r="3"/>
-      <circle class="pf" cx="82" cy="206" r="8.5"/><circle class="thin" cx="82" cy="206" r="3"/>
-      <circle class="pf" cx="138" cy="206" r="8.5"/><circle class="thin" cx="138" cy="206" r="3"/>
-      <path d="M96 164V154"/>
+      <path class="pf" style="fill:#cee2ee" d="M34 164H110V200H34Z" />
+      <path class="thin" d="M44 174H70V192H44ZM80 176H102M80 184H102" />
+      <path class="pf" style="fill:#e7efe5" d="M112 200V178L120 168H144L154 182V200Z" />
+      <path class="thin" d="M124 172H142L148 182H124Z" />
+      <path class="pf" style="fill:#d0e1d4" d="M28 198H160V207H28Z" />
+      <circle class="pf" style="fill:#e7eff1" cx="52" cy="206" r="8.5" />
+      <circle class="thin" cx="52" cy="206" r="3" />
+      <circle class="pf" style="fill:#dce9f3" cx="82" cy="206" r="8.5" />
+      <circle class="thin" cx="82" cy="206" r="3" />
+      <circle class="pf" style="fill:#cee2ee" cx="138" cy="206" r="8.5" />
+      <circle class="thin" cx="138" cy="206" r="3" />
+      <path d="M96 164V154" />
       <g transform="translate(98 152) rotate(-35)">
-        <path class="pf" d="M-14 0A14 7 0 0 0 14 0Z"/>
-        <path class="thin" d="M0 2V-12"/>
-        <circle class="ink-f" cx="0" cy="-13" r="2"/>
+        <path class="pf" style="fill:#e7efe5" d="M-14 0A14 7 0 0 0 14 0Z" />
+        <path class="thin" d="M0 2V-12" />
+        <circle class="ink-f" cx="0" cy="-13" r="2" />
       </g>
     </g>
     <g id="muzzle-blast" class="acc">
-      <path d="M110 128A9 9 0 0 1 114 137"/>
-      <path d="M114 121A16 16 0 0 1 121 137"/>
-      <path d="M118 114A23 23 0 0 1 128 137"/>
+      <path d="M110 128A9 9 0 0 1 114 137" />
+      <path d="M114 121A16 16 0 0 1 121 137" />
+      <path d="M118 114A23 23 0 0 1 128 137" />
     </g>
   </g>
-  <g id="objective" fill="none" stroke="currentColor" stroke-width="1.2">
-    <circle class="impact-pulse" cx="240" cy="118" r="22" stroke-width="1.6"/>
-    <path class="pf" d="M240 100L256 109V127L240 136L224 127V109Z"/>
-    <circle class="acc-f" cx="240" cy="118" r="3.5"/>
-    <path class="thin" d="M240 106V114M240 122V130M230 112L236 116M244 120L250 124M230 124L236 120M244 116L250 112"/>
-    <text class="t-acc" x="240" y="92" text-anchor="middle">JOINT NETWORK</text>
+  <g id="objective" fill="none" stroke="#305783" stroke-width="1.2">
+    <circle class="impact-pulse" cx="240" cy="118" r="22" stroke-width="1.6" />
+    <path class="pf" style="fill:#d0e1d4" d="M240 100L256 109V127L240 136L224 127V109Z" />
+    <circle class="acc-f" cx="240" cy="118" r="3.5" />
+    <path class="thin" d="M240 106V114M240 122V130M230 112L236 116M244 120L250 124M230 124L236 120M244 116L250 112" />
+    <text class="t-acc" x="240" y="92" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:10.5px;letter-spacing:.03em;font-weight:670;fill:#305783">JOINT NETWORK</text>
   </g>
   <g id="shell">
-    <rect class="acc-f" x="-5" y="-4" width="10" height="8"/>
+    <rect class="acc-f" x="-5" y="-4" width="10" height="8" />
   </g>
 </svg>

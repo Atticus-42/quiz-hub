@@ -1,10 +1,32 @@
 <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
-  <g class="plate-grid" fill="none" stroke="currentColor"><path class="thin faint" d="M0 50h480M0 125h480M0 200h480M80 0v250M160 0v250M240 0v250M320 0v250M400 0v250"/></g>
-  <text class="t-title" x="12" y="20">INTELLIGENCE CYCLE</text>
-  <g id="cycle-links" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M115 92L220 65M260 65L365 92M382 112L346 174M316 192H165M135 176L100 113"/><path class="acc" d="M211 62l9 3-6 7M357 86l8 6-10 3M347 163l-1 11 10-5M175 187l-10 5 10 4M104 121l-4-8-3 10"/></g>
-  <g id="cycle-nodes" fill="var(--color-paper)" stroke="currentColor" stroke-width="1.4">
-    <circle class="cycle-pulse" cx="95" cy="97" r="20"/><circle class="cycle-pulse" cx="240" cy="62" r="20"/><circle class="cycle-pulse" cx="385" cy="97" r="20"/><circle class="cycle-pulse" cx="335" cy="192" r="20"/><circle class="cycle-pulse" cx="145" cy="192" r="20"/>
+  <rect x="0" y="0" width="480" height="250" rx="0" fill="#f8faf5" stroke="none" />
+  <rect x="0" y="0" width="480" height="5" rx="0" fill="#16636a" stroke="none" />
+  <text x="20" y="20" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:740;letter-spacing:0.11em;fill:#16636a">INTELLIGENCE / DECISION SUPPORT</text>
+  <text x="20" y="48" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:23px;font-weight:720;letter-spacing:0em;fill:#192e2b">INTELLIGENCE CYCLE</text>
+  <path d="M20 59H460" fill="none" stroke="#b4c5ba" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+  <g id="cycle-links">
+    <path d="M146 111L185 88m-7.2 -0.4L185 88l-3.1 6.5" fill="none" stroke="#16636a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M294 88L334 111m-3.2 -6.5L334 111l-7.2 0.5" fill="none" stroke="#16636a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M395 143L349 172m7.2 0.2L349 172l2.9 -6.6" fill="none" stroke="#16636a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M258 183L220 183m6.0 4.0L220 183l6.0 -4.0" fill="none" stroke="#16636a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M130 172L86 143m2.8 6.6L86 143l7.2 -0.0" fill="none" stroke="#16636a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
   </g>
-  <g text-anchor="middle"><text x="95" y="102">01</text><text x="240" y="67">02</text><text x="385" y="102">03</text><text x="335" y="197">04</text><text x="145" y="197">05</text><text x="95" y="65">PLAN</text><text x="240" y="34">COLLECT</text><text x="385" y="65">PROCESS</text><text x="335" y="230">ANALYZE</text><text x="145" y="230">SHARE</text></g>
-  <g id="decision-support" text-anchor="middle"><text class="t-acc" x="240" y="129">DECISION SUPPORT</text><text class="t-mute" x="240" y="146">REVIEW · REFINE · REPEAT</text></g>
+  <g id="cycle-nodes">
+    <rect class="cycle-pulse" x="39" y="106" width="109" height="32" rx="16" fill="#d9eee0" stroke="#176149" stroke-width="1.4" />
+    <rect class="cycle-pulse" x="185" y="71" width="109" height="32" rx="16" fill="#dceeed" stroke="#16636a" stroke-width="1.4" />
+    <rect class="cycle-pulse" x="330" y="106" width="109" height="32" rx="16" fill="#dfe9f4" stroke="#305783" stroke-width="1.4" />
+    <rect class="cycle-pulse" x="258" y="168" width="109" height="32" rx="16" fill="#f4e7c9" stroke="#805520" stroke-width="1.4" />
+    <rect class="cycle-pulse" x="112" y="168" width="109" height="32" rx="16" fill="#d9eee0" stroke="#176149" stroke-width="1.4" />
+  </g>
+  <text x="93" y="127" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#192e2b">PLAN</text>
+  <text x="240" y="92" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#192e2b">COLLECT</text>
+  <text x="384" y="127" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#192e2b">PROCESS</text>
+  <text x="312" y="189" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#192e2b">ANALYZE</text>
+  <text x="167" y="189" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#192e2b">SHARE</text>
+  <g id="decision-support">
+    <text x="240" y="141" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:13px;font-weight:650;letter-spacing:0.035em;fill:#16636a">DECISION SUPPORT</text>
+  </g>
+  <path d="M20 218H460" fill="none" stroke="#b4c5ba" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="23" cy="234" r="2.8" fill="#16636a" stroke="none" />
+  <text x="33" y="238" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:12px;font-weight:650;letter-spacing:0.025em;fill:#48615a">Review, refine and repeat</text>
 </svg>

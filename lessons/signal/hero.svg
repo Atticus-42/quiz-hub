@@ -1,87 +1,95 @@
 <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
-  <g class="plate-grid" fill="none" stroke="currentColor">
-    <path class="grid-cross" d="M77 50h6M80 47v6M157 50h6M160 47v6M237 50h6M240 47v6M317 50h6M320 47v6M397 50h6M400 47v6M77 100h6M80 97v6M157 100h6M160 97v6M237 100h6M240 97v6M317 100h6M320 97v6M397 100h6M400 97v6M77 150h6M80 147v6M157 150h6M160 147v6M237 150h6M240 147v6M317 150h6M320 147v6M397 150h6M400 147v6"/>
-    <path class="thin" d="M80 0v6M160 0v6M240 0v6M320 0v6M400 0v6M80 244v6M160 244v6M240 244v6M320 244v6M400 244v6M0 50h6M0 100h6M0 150h6M0 200h6M474 50h6M474 100h6M474 150h6M474 200h6"/>
+  <rect x="0" y="0" width="480" height="250" rx="0" fill="#f8faf5" stroke="none" />
+  <path d="M0 216q93-38 185-7 102 23 295-12v53H0z" fill="#e3efe4" />
+  <path d="M202 156h269v77H202z" fill="#e9f3ef" />
+  <circle cx="320" cy="67" r="28" fill="#dceeed" />
+  <rect x="0" y="0" width="480" height="4" rx="0" fill="#16636a" stroke="none" />
+  <g class="plate-grid" opacity=".55" fill="none" stroke="#16636a">
+    <path class="grid-cross" d="M77 50h6M80 47v6M157 50h6M160 47v6M237 50h6M240 47v6M317 50h6M320 47v6M397 50h6M400 47v6M77 100h6M80 97v6M157 100h6M160 97v6M237 100h6M240 97v6M317 100h6M320 97v6M397 100h6M400 97v6M77 150h6M80 147v6M157 150h6M160 147v6M237 150h6M240 147v6M317 150h6M320 147v6M397 150h6M400 147v6" />
+    <path class="thin" d="M80 0v6M160 0v6M240 0v6M320 0v6M400 0v6M80 244v6M160 244v6M240 244v6M320 244v6M400 244v6M0 50h6M0 100h6M0 150h6M0 200h6M474 50h6M474 100h6M474 150h6M474 200h6" />
   </g>
-  <g class="terrain-contour" fill="none" stroke="currentColor" stroke-width="0.9" stroke-dasharray="3 4">
-    <path d="M150 214Q230 150 320 160T480 150"/>
-    <path class="faint" d="M190 214Q250 172 330 178T480 172"/>
-    <path class="faint" d="M0 150Q60 132 130 140"/>
+  <g class="terrain-contour" fill="none" stroke="#16636a" stroke-width="0.9" stroke-dasharray="3 4">
+    <path d="M150 214Q230 150 320 160T480 150" />
+    <path class="faint" d="M190 214Q250 172 330 178T480 172" />
+    <path class="faint" d="M0 150Q60 132 130 140" />
   </g>
-  <text class="t-title" x="12" y="20">SIGNAL SUPPORT · COMBINED ARMS OPS</text>
-  <text class="t-mute" x="12" y="33">CONNECT · COMMUNICATE · COORDINATE</text>
-  <g fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
-    <path class="hill ink" d="M0 214C80 208 160 216 240 212C320 208 400 216 480 210"/>
-    <path class="thin faint" d="M0 226C80 222 160 230 240 226C320 222 400 232 480 226"/>
+  <text class="t-title" x="12" y="20" style="font-family:system-ui,sans-serif;font-size:13px;letter-spacing:.03em;font-weight:740;fill:#192e2b">SIGNAL SUPPORT · COMBINED ARMS OPS</text>
+  <text class="t-mute" x="12" y="33" style="font-family:system-ui,sans-serif;font-size:10.5px;letter-spacing:.03em;font-weight:670;fill:#48615a">CONNECT · COMMUNICATE · COORDINATE</text>
+  <g fill="none" stroke="#16636a" stroke-width="1.1" stroke-linejoin="round">
+    <path class="hill ink" d="M0 214C80 208 160 216 240 212C320 208 400 216 480 210" />
+    <path class="thin faint" d="M0 226C80 222 160 230 240 226C320 222 400 232 480 226" />
   </g>
-  <g class="link-lines" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="5 3">
-    <path class="link-line" d="M118 128L296 70"/>
-    <path class="link-line" d="M118 128L232 180"/>
-    <path class="link-line" d="M118 128L322 182"/>
-    <path class="link-line" d="M118 128L412 182"/>
-    <path class="link-line" d="M322 80L339 176"/>
+  <g class="link-lines" fill="none" stroke="#16636a" stroke-width="1" stroke-dasharray="5 3">
+    <path class="link-line" d="M118 128L296 70" />
+    <path class="link-line" d="M118 128L232 180" />
+    <path class="link-line" d="M118 128L322 182" />
+    <path class="link-line" d="M118 128L412 182" />
+    <path class="link-line" d="M322 80L339 176" />
   </g>
   <g class="arm-marker arm-infantry ink" fill="none" stroke-width="1.2">
-    <path class="pf" d="M232 176H266V198H232Z"/>
-    <path d="M232 176L266 198M266 176L232 198"/>
-    <path class="thin" d="M249 198V212"/>
+    <path class="pf" style="fill:#dceee6" d="M232 176H266V198H232Z" />
+    <path d="M232 176L266 198M266 176L232 198" />
+    <path class="thin" d="M249 198V212" />
   </g>
   <g class="arm-marker arm-armor ink" fill="none" stroke-width="1.2">
-    <path class="pf" d="M322 176H356V198H322Z"/>
-    <path d="M334 181H344A6 6 0 0 1 344 193H334A6 6 0 0 1 334 181Z"/>
-    <path class="thin" d="M339 198V212"/>
+    <path class="pf" style="fill:#dbe9f3" d="M322 176H356V198H322Z" />
+    <path d="M334 181H344A6 6 0 0 1 344 193H334A6 6 0 0 1 334 181Z" />
+    <path class="thin" d="M339 198V212" />
   </g>
   <g class="arm-marker arm-artillery ink" fill="none" stroke-width="1.2">
-    <path class="pf" d="M412 176H446V198H412Z"/>
-    <circle class="ink-f" cx="429" cy="187" r="3.5"/>
-    <path class="thin" d="M429 198V212"/>
+    <path class="pf" style="fill:#f1e6cb" d="M412 176H446V198H412Z" />
+    <circle class="ink-f" cx="429" cy="187" r="3.5" />
+    <path class="thin" d="M429 198V212" />
   </g>
   <text x="249" y="240" text-anchor="middle">INFANTRY</text>
   <text x="339" y="240" text-anchor="middle">ARMOR</text>
   <text x="429" y="240" text-anchor="middle">ARTILLERY</text>
   <text x="96" y="240" text-anchor="middle">SIGNAL</text>
   <g id="dust" fill="none" class="acc" stroke-width="1">
-    <circle class="dust-puff" cx="58" cy="70" r="6"/>
-    <circle class="dust-puff" cx="58" cy="70" r="10"/>
-    <circle class="dust-puff" cx="58" cy="70" r="14"/>
+    <circle class="dust-puff" cx="58" cy="70" r="6" />
+    <circle class="dust-puff" cx="58" cy="70" r="10" />
+    <circle class="dust-puff" cx="58" cy="70" r="14" />
   </g>
-  <g id="tank" fill="none" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round">
+  <g id="tank" fill="none" stroke="#16636a" stroke-width="1.1" stroke-linejoin="round">
     <g id="tank-gun" class="ink">
-      <path class="pf" d="M55 74H61V158H55Z"/>
-      <path class="thin" d="M54 102H62M54 130H62"/>
-      <path d="M44 76H72M48 70L58 64L68 70"/>
-      <circle class="acc-f" cx="58" cy="64" r="2.5"/>
+      <path class="pf" style="fill:#e8f1e9" d="M55 74H61V158H55Z" />
+      <path class="thin" d="M54 102H62M54 130H62" />
+      <path d="M44 76H72M48 70L58 64L68 70" />
+      <circle class="acc-f" cx="58" cy="64" r="2.5" />
     </g>
     <g class="ink">
-      <path class="pf" d="M30 156H128V200H30Z"/>
-      <path class="thin" d="M44 166H74V192H44ZM86 170H118M86 178H118M86 186H118"/>
-      <path class="pf" d="M130 200V182L138 172H160L168 186V200Z"/>
-      <path class="thin" d="M141 176H158L163 186H141Z"/>
-      <path class="pf" d="M24 198H170V207H24Z"/>
-      <circle class="pf" cx="50" cy="206" r="8.5"/><circle class="thin" cx="50" cy="206" r="3"/>
-      <circle class="pf" cx="80" cy="206" r="8.5"/><circle class="thin" cx="80" cy="206" r="3"/>
-      <circle class="pf" cx="148" cy="206" r="8.5"/><circle class="thin" cx="148" cy="206" r="3"/>
-      <path d="M108 156V146"/>
+      <path class="pf" style="fill:#cbded7" d="M30 156H128V200H30Z" />
+      <path class="thin" d="M44 166H74V192H44ZM86 170H118M86 178H118M86 186H118" />
+      <path class="pf" style="fill:#dceee6" d="M130 200V182L138 172H160L168 186V200Z" />
+      <path class="thin" d="M141 176H158L163 186H141Z" />
+      <path class="pf" style="fill:#dbe9f3" d="M24 198H170V207H24Z" />
+      <circle class="pf" style="fill:#f1e6cb" cx="50" cy="206" r="8.5" />
+      <circle class="thin" cx="50" cy="206" r="3" />
+      <circle class="pf" style="fill:#e8f1e9" cx="80" cy="206" r="8.5" />
+      <circle class="thin" cx="80" cy="206" r="3" />
+      <circle class="pf" style="fill:#cbded7" cx="148" cy="206" r="8.5" />
+      <circle class="thin" cx="148" cy="206" r="3" />
+      <path d="M108 156V146" />
       <g transform="translate(110 144) rotate(-30)">
-        <path class="pf" d="M-15 0A15 7 0 0 0 15 0Z"/>
-        <path class="thin" d="M0 2V-13"/>
-        <circle class="ink-f" cx="0" cy="-14" r="2"/>
+        <path class="pf" style="fill:#dceee6" d="M-15 0A15 7 0 0 0 15 0Z" />
+        <path class="thin" d="M0 2V-13" />
+        <circle class="ink-f" cx="0" cy="-14" r="2" />
       </g>
     </g>
     <g id="muzzle-blast" class="acc">
-      <path d="M124 122A9 9 0 0 1 128 131"/>
-      <path d="M128 115A16 16 0 0 1 135 131"/>
-      <path d="M132 108A23 23 0 0 1 142 131"/>
+      <path d="M124 122A9 9 0 0 1 128 131" />
+      <path d="M128 115A16 16 0 0 1 135 131" />
+      <path d="M132 108A23 23 0 0 1 142 131" />
     </g>
   </g>
-  <g id="objective" fill="none" stroke="currentColor" stroke-width="1.2">
-    <circle class="impact-pulse" cx="320" cy="66" r="20" stroke-width="1.6"/>
-    <path class="pf" d="M298 54H342V80H298Z"/>
-    <path d="M298 80V92"/>
-    <path class="thin" d="M306 61H334M306 67H334M306 73H326"/>
-    <text class="t-acc" x="320" y="47" text-anchor="middle">COMMANDER</text>
+  <g id="objective" fill="none" stroke="#16636a" stroke-width="1.2">
+    <circle class="impact-pulse" cx="320" cy="66" r="20" stroke-width="1.6" />
+    <path class="pf" style="fill:#dbe9f3" d="M298 54H342V80H298Z" />
+    <path d="M298 80V92" />
+    <path class="thin" d="M306 61H334M306 67H334M306 73H326" />
+    <text class="t-acc" x="320" y="47" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:10.5px;letter-spacing:.03em;font-weight:670;fill:#16636a">COMMANDER</text>
   </g>
   <g id="shell">
-    <rect class="acc-f" x="-5" y="-4" width="10" height="8"/>
+    <rect class="acc-f" x="-5" y="-4" width="10" height="8" />
   </g>
 </svg>

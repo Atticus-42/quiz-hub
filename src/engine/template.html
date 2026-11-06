@@ -69,8 +69,8 @@
       text-decoration: none;
       transition: color var(--speed) var(--ease);
     }
-    .hero-bar .reviewer-button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; padding: .85rem 1.15rem; min-height: 48px; background: var(--color-ink, #20251e); color: #fff8e5; border: 2px solid var(--color-ink, #20251e); font-size: .9rem; letter-spacing: .04em; text-decoration: none; box-shadow: 3px 3px 0 #c8ad65; }
-    .hero-bar .reviewer-button:hover, .hero-bar .reviewer-button:focus-visible { background: #4b5527; color: #fff; outline: 2px solid #a44422; outline-offset: 3px; }
+    .hero-bar .reviewer-button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; padding: .85rem 1.15rem; min-height: 48px; background: #fff8e5; color: var(--color-text); border: 2px solid var(--color-text); font-size: .9rem; font-weight: 700; letter-spacing: .04em; text-decoration: none; box-shadow: 3px 3px 0 #c8ad65; }
+    .hero-bar .reviewer-button:hover, .hero-bar .reviewer-button:focus-visible { background: #f4e5b7; color: var(--color-text); outline: 2px solid #a44422; outline-offset: 3px; }
     @media(max-width: 540px) { .hero-bar .reviewer-button { order: 3; width: 100%; } }
     .hub-link:hover { color: var(--color-accent); text-decoration: underline; text-underline-offset: 0.3em; }
     .hub-arrow { font-size: 1rem; letter-spacing: 0; color: var(--color-signal-text); }
@@ -391,6 +391,7 @@
     .explanation-references { margin-top: var(--space-3); background: var(--color-paper); }
     .source-ref, .library-source { margin: 0; max-width: 68ch; font-size: var(--text-ui); line-height: 1.55; color: var(--color-muted); overflow-wrap: anywhere; }
     .source-ref + .source-ref, .library-source { margin-top: var(--space-2); }
+    .library-reference.reference-unavailable { color: var(--color-incorrect); font-weight: 600; }
     .quiz-actions, .results-actions { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-6); }
 
     /* Results: a debrief. Big Mono score, stamped band, topic table with bar sparklines, missed list. */
@@ -588,7 +589,7 @@
   <header class="site-header hero">
     <div class="wrap hero-bar">
       <a id="hub-link" class="hub-link" href="{{HUB_HREF}}"><span class="hub-arrow" aria-hidden="true">&#8592;</span> All quizzes</a>
-      <a class="hub-link reviewer-button" href="{{STUDY_HREF}}"><span aria-hidden="true">&#128214;</span> Open Reviewer 101 <span aria-hidden="true">&#8599;</span></a>
+      <a id="reviewer-link" class="hub-link reviewer-button" href="{{STUDY_HREF}}"><span aria-hidden="true">&#128214;</span> Open Reviewer 101 <span aria-hidden="true">&#8599;</span></a>
       <button type="button" id="btn-sound" class="sound-toggle" aria-pressed="true" aria-keyshortcuts="S">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter">
           <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/>
@@ -1403,6 +1404,7 @@
       },
       soundToggle: byId('btn-sound'),
       soundState: byId('sound-state'),
+      reviewerLink: byId('reviewer-link'),
       quizHeading: byId('quiz-heading'),
       quizStudent: byId('quiz-student'),
       quizPracticeNote: byId('quiz-practice-note'),
@@ -1512,6 +1514,7 @@
       });
       ui.historyPanel.hidden = !(name === 'landing' || name === 'results');
       ui.keyboardHelp.hidden = !(name === 'quiz' || name === 'results');
+      if (name !== 'quiz') ui.reviewerLink.setAttribute('href', STUDY_LINKS.reviewer);
       // Lets the stylesheet compact the hero outside the landing view.
       document.body.setAttribute('data-view', name);
     }
@@ -1669,6 +1672,9 @@
       var done = checkedCount(attempt);
       var total = attempt.questions.length;
 
+      var sources = questionSourceKeys(question);
+      var primary = STUDY_LINKS.sources[sources[0]];
+      ui.reviewerLink.setAttribute('href', primary ? primary.studyDoc : STUDY_LINKS.reviewer);
       ui.quizHeading.textContent = attempt.practice
         ? 'Practice: retrying missed questions (' + MODE_LABELS[attempt.mode] + ')'
         : MODE_LABELS[attempt.mode] + ' examination';
@@ -1773,24 +1779,39 @@
       return line;
     }
 
+    function questionSourceKeys(question) {
+      return STUDY_LINKS.byQuestion[question.qid] || [question.lessonKey || HISTORY_LESSON];
+    }
+
     function studyReferenceLinks(question, references) {
-      var study = STUDY_LINKS;
-      var keys = study.byQuestion[question.qid] || [question.lessonKey || HISTORY_LESSON];
-      var locator = (references[0] || '').match(/\b(?:pages?|slides?)\s+(\d+(?:,\s*\d+)*)/i);
-      var pages = question.sourceSlides || (locator ? locator[1].split(/,\s*/) : []);
+      var citations = new Map();
+      references.forEach(function (reference) {
+        reference.split(';').forEach(function (part) {
+          var locator = part.trim().match(/^(.+),\s*(?:pages?|slides?)\s+(\d+(?:,\s*\d+)*)\.?$/i);
+          if (!locator) return;
+          var pages = citations.get(locator[1]) || [];
+          citations.set(locator[1], pages.concat(locator[2].split(/,\s*/)));
+        });
+      });
       var links = new Map();
-      keys.forEach(function (key) {
-        var source = study.sources[key];
+      function add(href, title, unavailable) {
+        if (!links.has(href)) links.set(href, { title: title, unavailable: unavailable });
+      }
+      questionSourceKeys(question).forEach(function (key) {
+        var source = STUDY_LINKS.sources[key];
         if (!source) return;
-        var jump = source.exactPages && !study.byQuestion[question.qid] && pages.length;
-        if (jump) {
-          pages.forEach(function (page) { links.set(source.href + '#page=' + page, source.title + ' · PDF page ' + page); });
+        var pages = question.sourceSlides || citations.get(source.citationName) || [];
+        if (source.exactPages && pages.length) {
+          pages.forEach(function (page) { add(source.href + '#page=' + page, source.title + ' · PDF page ' + page); });
         } else {
-          links.set(source.href, source.title);
-          if (!source.exactPages) links.set(source.studyDoc, source.title + ' · Reviewer 101');
+          add(source.href, source.title, !source.available);
+          if (!source.available) add(source.studyDoc, source.title + ' · Reviewer 101');
         }
         source.manuals.forEach(function (manual) {
-          if (!links.has(manual.href)) links.set(manual.href, manual.title + ' · Cited in lesson');
+          var page = manual.available && manual.citationPage;
+          var href = page ? manual.href + '#page=' + page : manual.href;
+          var locator = page ? ' · PDF page ' + page : ' · Cited in lesson';
+          add(href, manual.title + locator, !manual.available);
         });
       });
       return links;
@@ -1825,9 +1846,11 @@
         var referenceBlock = make('div', 'explanation explanation-references');
         referenceBlock.appendChild(make('p', 'section-label', 'References'));
         references.forEach(function (reference) { referenceBlock.appendChild(make('p', 'source-ref', reference)); });
-        studyReferenceLinks(question, references).forEach(function (title, destination) {
+        studyReferenceLinks(question, references).forEach(function (reference, destination) {
           var line = make('p', 'library-source');
-          var link = make('a', 'library-reference', title);
+          var link = reference.unavailable
+            ? make('a', 'library-reference reference-unavailable', reference.title + ' · PDF unavailable')
+            : make('a', 'library-reference', reference.title);
           link.setAttribute('href', destination);
           link.setAttribute('target', '_blank');
           link.setAttribute('rel', 'noopener');

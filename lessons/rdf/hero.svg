@@ -1,8 +1,31 @@
 <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
-  <g class="plate-grid" fill="none" stroke="currentColor"><path class="thin faint" d="M0 50h480M0 125h480M0 200h480M80 0v250M160 0v250M240 0v250M320 0v250M400 0v250"/></g>
-  <text class="t-title" x="12" y="20">RADIO DIRECTION FINDING</text>
-  <g id="training-receiver" fill="none" stroke="currentColor" stroke-width="1.5"><path class="pf" d="M88 145h102v57H88z"/><path d="M106 155h66v24h-66zM113 187h15m7 0h15m7 0h15M139 145V75M112 85l27-17 27 17M117 91l22-13 22 13"/><circle cx="108" cy="190" r="3"/><path d="M79 205h120"/></g>
-  <g id="concept-waves" fill="none" stroke="currentColor" stroke-width="1.4"><path class="reception-pulse" d="M95 63q44-35 88 0"/><path class="reception-pulse" d="M79 49q60-48 120 0"/><path class="reception-pulse" d="M63 36q76-57 152 0"/></g>
-  <g id="bearing-display" fill="none" stroke="currentColor"><circle cx="338" cy="130" r="67"/><circle class="faint" cx="338" cy="130" r="45"/><path class="thin" d="M338 57v14m0 118v14m-73-73h14m118 0h14"/><path class="acc" stroke-width="2" d="M338 130l37-37m-12 2 12-2-2 12"/><circle cx="338" cy="130" r="3"/></g>
-  <text x="75" y="229">TRAINING RECEIVER</text><text x="300" y="218">DIRECTION</text><text class="t-mute" x="300" y="233">LIMITS MATTER</text>
+  <rect x="0" y="0" width="480" height="250" rx="0" fill="#f8faf5" stroke="none" />
+  <rect x="0" y="0" width="480" height="5" rx="0" fill="#176149" stroke="none" />
+  <text x="20" y="20" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:740;letter-spacing:0.11em;fill:#176149">ELECTRONIC WARFARE / RDF</text>
+  <text x="20" y="48" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:23px;font-weight:720;letter-spacing:0em;fill:#192e2b">RADIO DIRECTION FINDING</text>
+  <path d="M20 59H460" fill="none" stroke="#b4c5ba" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+  <g id="training-receiver">
+    <rect x="20" y="73" width="213" height="130" rx="8" fill="#fffefa" stroke="#b4c5ba" />
+    <rect x="73" y="121" width="109" height="44" rx="5" fill="#d9eee0" stroke="#176149" />
+    <rect x="84" y="130" width="54" height="21" rx="2" fill="#fffefa" stroke="#176149" />
+    <circle cx="157" cy="143" r="7" fill="#176149" stroke="none" />
+    <path d="M124 120V92m-8 3 8-6 8 6M89 141h11l5-6 5 10 6-4h13" fill="none" stroke="#176149" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="126" y="188" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:13px;font-weight:650;letter-spacing:0em;fill:#176149">TRAINING RECEIVER</text>
+  </g>
+  <g id="concept-waves">
+    <path d="M95 101q29-33 58 0m-70-8q41-47 82 0" fill="none" stroke="#16636a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="reception-pulse" />
+  </g>
+  <g id="bearing-display">
+    <rect x="247" y="73" width="213" height="130" rx="8" fill="#fffefa" stroke="#b4c5ba" />
+    <circle cx="354" cy="131" r="46" fill="#dfe9f4" stroke="#305783" />
+    <circle cx="354" cy="131" r="31" fill="#fffefa" stroke="#b4c5ba" />
+    <path d="M354 131l11-44a46 46 0 0 1 26 17z" fill="#dceeed" />
+    <path d="M354 82v12m0 75v10m-49-48h12m75 0h12" fill="none" stroke="#b4c5ba" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M354 131L382 99m-7.0 1.9L382 99l-0.9 7.1" fill="none" stroke="#305783" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    <circle cx="354" cy="131" r="4" fill="#305783" stroke="none" />
+    <text x="354" y="188" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:13px;font-weight:650;letter-spacing:0em;fill:#305783">DIRECTION</text>
+  </g>
+  <path d="M20 218H460" fill="none" stroke="#b4c5ba" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="23" cy="234" r="2.8" fill="#176149" stroke="none" />
+  <text x="33" y="238" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:12px;font-weight:650;letter-spacing:0.025em;fill:#48615a">LIMITS MATTER  /  A bearing indicates direction</text>
 </svg>

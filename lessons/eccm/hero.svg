@@ -1,10 +1,40 @@
 <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
-  <g class="plate-grid" fill="none" stroke="currentColor"><path class="thin faint" d="M0 50h480M0 125h480M0 200h480M80 0v250M160 0v250M240 0v250M320 0v250M400 0v250"/></g>
-  <text class="t-title" x="12" y="20">ELECTRONIC COUNTER-COUNTERMEASURES</text>
-  <g id="hopping-radio" fill="none" stroke="currentColor" stroke-width="1.5"><rect class="pf thin" x="20" y="44" width="140" height="82"/><path class="thin faint" d="M20 60h140M20 76h140M20 110h140"/><rect class="jam-band acc" stroke-width="1.5" stroke-dasharray="4 2" x="24" y="85" width="132" height="14"/><path class="hop-trace" d="M26 114h16V64h16V108h16V92h16V116h16V68h16V80h24"/><rect class="pf" x="34" y="140" width="64" height="42"/><path d="M42 148h28v12H42zM42 168h46M42 174h46"/><circle cx="86" cy="154" r="5"/><path d="M90 140v-10m-5-5q5-5 10 0"/></g>
-  <g id="terrain-mask" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M176 182h136"/><path class="pf" d="M232 182C240 140 256 110 274 110C292 110 302 146 310 182z"/><path d="M196 182V132M186 140h20M189 148h14M192 156h8"/><path class="acc" stroke-dasharray="5 3" d="M312 92L282 105"/><path class="acc" d="M280 99v12"/></g>
-  <g id="pace-ladder" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M344 46v140M424 46v140"/><rect class="pf acc" x="344" y="52" width="80" height="24"/><rect class="pf" x="344" y="90" width="80" height="24"/><rect class="pf" x="344" y="128" width="80" height="24"/><rect class="pf" x="344" y="166" width="80" height="20"/><path class="thin" d="M380 64h34M380 102h26M380 140h18M380 176h10"/><path class="acc" d="M440 64v38m-4-6 4 6 4-6"/></g>
-  <g id="pace-letters"><text x="355" y="68">P</text><text x="355" y="106">A</text><text x="355" y="144">C</text><text x="355" y="181">E</text></g>
-  <text x="20" y="207">HOP</text><text x="176" y="207">MASK</text><text x="344" y="207">PACE</text>
-  <text class="t-mute" x="20" y="230">HARD TO FIND · HARD TO JAM · HARD TO READ</text>
+  <rect x="0" y="0" width="480" height="250" rx="0" fill="#f8faf5" stroke="none" />
+  <rect x="0" y="0" width="480" height="5" rx="0" fill="#805520" stroke="none" />
+  <text x="20" y="20" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:740;letter-spacing:0.11em;fill:#805520">ELECTRONIC WARFARE / PROTECTION</text>
+  <text x="20" y="48" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:20px;font-weight:720;letter-spacing:0em;fill:#192e2b">ELECTRONIC COUNTER-COUNTERMEASURES</text>
+  <path d="M20 59H460" fill="none" stroke="#b4c5ba" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+  <g id="hopping-radio">
+    <rect x="20" y="73" width="139" height="129" rx="8" fill="#fffefa" stroke="#b4c5ba" />
+    <rect x="29" y="88" width="121" height="62" rx="8" fill="#dfe9f4" stroke="none" />
+    <rect x="33" y="111" width="113" height="12" rx="1" fill="#f4e7c9" stroke="#805520" class="jam-band" stroke-dasharray="3 3" />
+    <path d="M33 138h16v-37h16v25h16v-10h16v18h16v-35h16v13h15" fill="none" stroke="#305783" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="hop-trace" />
+    <text x="90" y="183" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#305783">HOP</text>
+  </g>
+  <g id="terrain-mask">
+    <rect x="171" y="73" width="138" height="129" rx="8" fill="#fffefa" stroke="#b4c5ba" />
+    <path d="M180 151l18-7 12 2 23-28 11-15 12 15 17 20 27 12z" fill="#d9eee0" />
+    <path d="M180 151l18-7 12 2 23-28 11-15 12 15 17 20 27 12m-105-7v-32m-5 6 5-6 5 6" fill="none" stroke="#176149" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M199 112l39-1m15 1 35 0" fill="none" stroke="#16636a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="4 4" />
+    <text x="240" y="183" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#176149">MASK</text>
+  </g>
+  <g id="pace-ladder">
+    <rect x="321" y="73" width="139" height="129" rx="8" fill="#fffefa" stroke="#b4c5ba" />
+    <rect x="330" y="82" width="121" height="17" rx="4" fill="#d9eee0" stroke="none" />
+    <text x="337" y="94" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:650;letter-spacing:0em;fill:#16636a">P</text>
+    <text x="355" y="94" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:650;letter-spacing:0em;fill:#192e2b">Primary</text>
+    <rect x="330" y="101" width="121" height="17" rx="4" fill="#dceeed" stroke="none" />
+    <text x="337" y="113" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:650;letter-spacing:0em;fill:#16636a">A</text>
+    <text x="355" y="113" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:650;letter-spacing:0em;fill:#192e2b">Alternate</text>
+    <rect x="330" y="120" width="121" height="17" rx="4" fill="#d9eee0" stroke="none" />
+    <text x="337" y="132" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:650;letter-spacing:0em;fill:#16636a">C</text>
+    <text x="355" y="132" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:650;letter-spacing:0em;fill:#192e2b">Contingency</text>
+    <rect x="330" y="139" width="121" height="17" rx="4" fill="#dceeed" stroke="none" />
+    <text x="337" y="151" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:650;letter-spacing:0em;fill:#16636a">E</text>
+    <text x="355" y="151" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:650;letter-spacing:0em;fill:#192e2b">Emergency</text>
+    <text x="391" y="183" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#16636a">PACE</text>
+  </g>
+  <path d="M20 218H460" fill="none" stroke="#b4c5ba" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="23" cy="234" r="2.8" fill="#805520" stroke="none" />
+  <text x="33" y="238" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:12px;font-weight:650;letter-spacing:0.025em;fill:#48615a">Frequency changes, terrain masking and backup plans</text>
 </svg>

@@ -1,6 +1,6 @@
 # Electronic Counter-Countermeasures (ECCM) coverage
 
-Source basis: the 27-page deck **Electronic Counter-Countermeasures (ECCM) — Electronic Protection for the soldier** (3 Nov 2026, Signal School). Slide numbers below are the deck page numbers. The doctrinal basis named in the deck is PAM 3-0702-01 *Electronic Warfare Operations* (Sep 2026), with FM 3-12 (2025) Table 3-1 for the EMCON levels. No other source and no outside doctrine, figures or equipment performance were introduced.
+Source basis: the 26-page deck **Electronic Counter-Countermeasures (ECCM) — Electronic Protection for the soldier** (3 Nov 2026, Signal School). Slide numbers below are the deck page numbers. The doctrinal basis named in the deck is PAM 3-0702-01 *Electronic Warfare Operations* (Sep 2026), with FM 3-12 (2025) Table 3-1 for the EMCON levels. No other source and no outside doctrine, figures or equipment performance were introduced.
 
 This standalone lesson (POI 6.4) has 22 easy, 22 medium and 22 hard questions (66 in total). About half of each bank is situational (a short, fictional Philippine Army field or classroom scenario that paraphrases one idea) and about half is objective (definitions, purposes, lists, numbers, acronyms, levels). The lesson is defensive: it tests the protective measures, EMCON levels, recognition tests, reporting and PACE as written, and nothing about how to build or operate a jammer.
 
@@ -30,7 +30,7 @@ Easy items recognise a definition, term or one neighbouring concept. Medium item
 - Slide 15 numbers the quick test as steps 1 and 3. The items test the two outcomes of the antenna test and the move-or-turn check as written and do not depend on the missing number.
 - Slide 16 allows raising power briefly as one adjustment after recognising jamming and checking equipment, while slide 9 sets lowest power that works as the normal rule. No item keys raising power. Higher power appears only as a distractor in routine-report and siting items (where the normal rule applies) and as the step-3 adjustment inside a wrong-order option of the reaction-sequence item.
 - Slides 21 and 22 explain the concepts with radar and air assets. Only the stated techniques (frequency agility, pulse compression, sidelobe blanking, low-probability-of-intercept) and the home-on-jam lesson are tested; no sensor or weapon performance is implied.
-- Slides 26 and 27 are outside the 4–25 citation range and are not used; no quiz claim depends on them.
+- Slide 26 closes the deck and falls outside the 4–25 citation range.
 - Items may use the Harris radios and Combat Net Radio System named on slides 13 and 18 only in the way those slides do. The deck gives no figures for them, and none are invented.
 
 ## Authoring and audit record

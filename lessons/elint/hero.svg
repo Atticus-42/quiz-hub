@@ -1,8 +1,31 @@
 <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
-  <g class="plate-grid" fill="none" stroke="currentColor"><path class="thin faint" d="M0 50h480M0 125h480M0 200h480M80 0v250M160 0v250M240 0v250M320 0v250M400 0v250"/></g>
-  <text class="t-title" x="12" y="20">ELECTRONIC INTELLIGENCE</text>
-  <g id="radar-antenna" fill="none" stroke="currentColor" stroke-width="1.5"><path class="pf" d="M58 196h54l-8-34H66z"/><path d="M85 162v-52M85 110l-10-8m10 8 10-8M56 98q29-30 58 0M56 98h58"/><circle cx="85" cy="110" r="3"/><path class="antenna-sweep acc" d="M124 88q16 12 16 34M134 76q24 18 24 46M144 64q32 24 32 58"/></g>
-  <g id="pulse-train" fill="none" stroke="currentColor" stroke-width="1.5"><rect class="pf" x="184" y="56" width="124" height="126"/><path d="M194 96h10v-22h4v22h18v-22h4v22h18v-22h4v22h18v-22h4v22h10"/><path class="thin faint" d="M194 108h112"/><path class="acc" stroke-dasharray="4 5" d="M206 114v60M228 114v60M250 114v60M272 114v60"/></g>
-  <g id="receiver-bearings" fill="none" stroke="currentColor" stroke-width="1.5"><path class="pf" d="M366 172h84v26h-84z"/><path d="M374 185h18M404 185h8m6 0h8M408 172v-22M398 158l10-10 10 10"/><path class="thin" d="M408 148L350 70M408 148L384 62M408 148L444 66"/><path class="acc" stroke-width="2" d="M408 148L424 62m-8 4 8-4 2 9"/><circle cx="408" cy="148" r="3"/></g>
-  <g text-anchor="middle"><text x="85" y="219">RADAR</text><text x="246" y="203">PULSE TRAIN</text><text x="408" y="219">RECEIVER</text><text class="t-mute" x="240" y="238">MACHINES REPEAT</text></g>
+  <rect x="0" y="0" width="480" height="250" rx="0" fill="#f8faf5" stroke="none" />
+  <rect x="0" y="0" width="480" height="5" rx="0" fill="#305783" stroke="none" />
+  <text x="20" y="20" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:740;letter-spacing:0.11em;fill:#305783">ELECTRONIC WARFARE / ELINT</text>
+  <text x="20" y="48" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:23px;font-weight:720;letter-spacing:0em;fill:#192e2b">ELECTRONIC INTELLIGENCE</text>
+  <path d="M20 59H460" fill="none" stroke="#b4c5ba" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+  <g id="radar-antenna">
+    <rect x="20" y="82" width="125" height="117" rx="8" fill="#fffefa" stroke="#b4c5ba" />
+    <path d="M50 146l11-32 14 32z" fill="#dfe9f4" stroke="#305783" />
+    <path d="M58 117l4-16M47 99q8 26 31 24l-31-24" fill="none" stroke="#305783" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M82 100q14 2 17 13m-12-23q20 3 25 19m-19-26q24 4 33 23" fill="none" stroke="#16636a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="antenna-sweep" />
+    <text x="83" y="184" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#305783">RADAR</text>
+  </g>
+  <g id="pulse-train">
+    <rect x="157" y="82" width="166" height="117" rx="8" fill="#dfe9f4" stroke="none" />
+    <path d="M174 106v48h135M194 106v48m26-48v48m26-48v48m26-48v48m26-48v48" fill="none" stroke="#b4c5ba" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M175 140h14v-23h7v23h20v-23h7v23h20v-23h7v23h20v-23h7v23h24" fill="none" stroke="#305783" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="240" y="184" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#305783">PULSE TRAIN</text>
+  </g>
+  <g id="receiver-bearings">
+    <rect x="335" y="82" width="125" height="117" rx="8" fill="#fffefa" stroke="#b4c5ba" />
+    <path d="M397 112l-21-20m21 20v-23m0 23 20-17" fill="none" stroke="#16636a" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="369" y="114" width="57" height="34" rx="4" fill="#dceeed" stroke="#16636a" />
+    <rect x="377" y="123" width="24" height="10" rx="2" fill="#fffefa" stroke="#16636a" />
+    <circle cx="415" cy="129" r="4" fill="#16636a" stroke="none" />
+    <text x="397" y="184" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#16636a">RECEIVER</text>
+  </g>
+  <path d="M20 218H460" fill="none" stroke="#b4c5ba" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="23" cy="234" r="2.8" fill="#305783" stroke="none" />
+  <text x="33" y="238" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:12px;font-weight:650;letter-spacing:0.025em;fill:#48615a">MACHINES REPEAT  /  Compare observed radar characteristics</text>
 </svg>

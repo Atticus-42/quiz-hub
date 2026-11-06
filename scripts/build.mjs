@@ -932,6 +932,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   for (const [path, source] of Object.entries(pages)) {
     const up = '../'.repeat(path.split('/').length - 1);
     let html = source.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/identity.css">\n</head>');
+    html = html.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/ui-polish.css"><link rel="icon" type="image/png" href="' + up + 'assets/bandwidth-brothers-colored.png">\n</head>');
     if (!path.startsWith('reviewer/') && !path.startsWith('library/')) {
       const ribbon = '<div class="identity-ribbon"><a href="' + (up || './') + '" class="identity-home"><img data-class-crest src="' + up + 'assets/bandwidth-brothers-colored.png" width="48" height="48" alt="Bandwidth Brothers crest"><span>Bandwidth Brothers<small>SOAC 52–26</small></span></a><span class="identity-edition">The crest collection <span data-crest-label>Original</span></span></div>';
       const skip = /(<a class="skip-link"[^>]*>[^<]*<\/a>)/;

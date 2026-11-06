@@ -8,6 +8,8 @@ function exercise(slug, transform, pick=()=>true) {
   const html=pages[`${slug}/index.html`].replace(/(<script type="application\/json" id="questions-easy">)([\s\S]*?)(<\/script>)/,
     (_,open,json,close)=>open+JSON.stringify(JSON.parse(json).map(transform))+close);
   const app=runPage(html),api=app.window.__quiz;
+  const reviewer=findAll(app.document.root,n=>hasClass(n,'reviewer-button'))[0];
+  const landingReviewer=reviewer.getAttribute('href');
   const input=app.document.getElementById('student-name');input.value='Local Reference Test';
   input.dispatchEvent({type:'input',target:input});input.dispatchEvent({type:'blur',target:input});
   api.setStudyConfirmed(true);assert.equal(api.startQuiz('easy'),true);
@@ -26,7 +28,7 @@ function exercise(slug, transform, pick=()=>true) {
     const row=app.document.getElementById('results-review').children[index];
     return findAll(row,n=>hasClass(n,'review-explanation'))[0];
   };
-  return {feedback,finish};
+  return {feedback,finish,reviewer,landingReviewer};
 }
 function assertSeparated(group,note,refs){
   const noteBox=findAll(group,n=>hasClass(n,'explanation-note'))[0];
@@ -70,4 +72,55 @@ test('verified manual page numbers open the PDF directly from feedback and resul
       '../library/files/pam-6-0102.pdf#page=44'
     ]);
   }
+});
+test('the Troop Leading Procedure manual opens at the verified start of Annex A',()=>{
+  const app=exercise('troop-leading-procedure',q=>q);
+  for(const group of [app.feedback,app.finish()]){
+    const manual=findAll(group,n=>hasClass(n,'library-reference')&&n.textContent.includes('PAM 3-0101-04'))[0];
+    assert.equal(manual.getAttribute('href'),'../library/files/pam-3-0101-04.pdf#page=253');
+  }
+});
+test('unavailable manual PDFs are explicitly marked in feedback and results',()=>{
+  const app=exercise('electronic-intelligence',q=>q);
+  for(const group of [app.feedback,app.finish()]){
+    const links=findAll(group,n=>hasClass(n,'library-reference'));
+    const unavailable=links.filter(n=>hasClass(n,'reference-unavailable'));
+    assert.deepEqual(unavailable.map(n=>n.getAttribute('href')),[
+      '../library/?doc=pam-3-0702-01#document',
+    ]);
+    for(const link of unavailable)assert.match(link.textContent,/PDF unavailable/);
+  }
+});
+test('course sources open on the authored ECCM, ELINT and Signal Propagation pages',()=>{
+  for(const [slug,qid,pages] of [
+    ['electronic-counter-countermeasures','eccm-e-01',[6]],
+    ['electronic-intelligence','elint-e-01',[5,7]],
+    ['signal-propagation','propagation-e-01',[15,16]],
+  ]){
+    const app=exercise(slug,q=>q,q=>q.qid===qid);
+    for(const group of [app.feedback,app.finish()]){
+      const links=findAll(group,n=>hasClass(n,'library-reference')).map(n=>n.getAttribute('href'));
+      assert.deepEqual(links.filter(href=>href.includes('#page=')),
+        pages.map(page=>'../library/files/lesson-'+slug+'.pdf#page='+page));
+    }
+  }
+});
+test('module exam locators open the correct PDFs for each cited lesson',()=>{
+  const app=exercise('module-5-exam',q=>q,q=>q.qid==='modulefive-e-06');
+  for(const group of [app.feedback,app.finish()]){
+    const links=findAll(group,n=>hasClass(n,'library-reference')).map(n=>n.getAttribute('href'));
+    assert.deepEqual(links.filter(href=>href.includes('#page=')),[
+      '../library/files/lesson-manet-c4istar-planning.pdf#page=9',
+      '../library/files/lesson-manet-c4istar-planning.pdf#page=12',
+      '../library/files/lesson-c4istar-sensors-integration.pdf#page=18',
+    ]);
+    assert.ok(links.includes('../library/files/pam-6-00.pdf'));
+  }
+});
+test('module exams point the reviewer to the current question’s primary lesson',()=>{
+  const app=exercise('module-5-exam',q=>q,q=>q.qid==='modulefive-e-06');
+  assert.equal(app.landingReviewer,'../reviewer/#module-5');
+  assert.equal(app.reviewer.getAttribute('href'),'../reviewer/manet/');
+  app.finish();
+  assert.equal(app.reviewer.getAttribute('href'),'../reviewer/#module-5');
 });

@@ -1,10 +1,32 @@
 <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
-  <g class="plate-grid" fill="none" stroke="currentColor"><path class="thin faint" d="M0 50h480M0 125h480M0 200h480M80 0v250M160 0v250M240 0v250M320 0v250M400 0v250"/></g>
-  <text class="t-title" x="12" y="20">EFFECTIVE COMMUNICATION 2</text>
-  <g id="message-source" fill="none" stroke="currentColor" stroke-width="1.5"><path class="ink" d="M43 95h58v43H73l-12 13v-13H43zM55 109h34m-34 12h24"/></g>
-  <text x="72" y="202" text-anchor="middle">SENDER</text>
-  <g id="exchange" fill="none" stroke="currentColor" stroke-width="1.5"><path class="ink" d="M185 105h110l-15-11m15 11-15 11"/><path class="acc" d="M295 136H185l15-11m-15 11 15 11"/></g>
-  <text x="240" y="202" text-anchor="middle">FEEDBACK</text>
-  <g id="message-receiver" fill="none" stroke="currentColor" stroke-width="1.5"><path class="ink" d="M387 95h58v43h-18v13l-12-13h-28zM399 109h34m-34 12h24"/></g>
-  <text x="416" y="202" text-anchor="middle">RECEIVER</text>
+  <rect x="0" y="0" width="480" height="250" rx="0" fill="#f8faf5" stroke="none" />
+  <rect x="0" y="0" width="480" height="5" rx="0" fill="#16636a" stroke="none" />
+  <text x="20" y="20" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:740;letter-spacing:0.11em;fill:#16636a">LEADERSHIP / COMMUNICATION</text>
+  <text x="20" y="48" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:23px;font-weight:720;letter-spacing:0em;fill:#192e2b">EFFECTIVE COMMUNICATION 2</text>
+  <path d="M20 59H460" fill="none" stroke="#b4c5ba" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+  <g id="message-source">
+    <rect x="20" y="82" width="118" height="96" rx="8" fill="#fffefa" stroke="#b4c5ba" />
+    <rect x="56" y="92" width="46" height="43" rx="7" fill="#d9eee0" stroke="none" />
+    <g transform="translate(63 97) scale(1)">
+      <path d="M4 5h24v17H14l-7 5v-5H4z M9 11h14m-14 5h9" fill="none" stroke="#176149" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="79" y="154" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#192e2b">SENDER</text>
+  </g>
+  <g id="message-receiver">
+    <rect x="342" y="82" width="118" height="96" rx="8" fill="#fffefa" stroke="#b4c5ba" />
+    <rect x="378" y="92" width="46" height="43" rx="7" fill="#dfe9f4" stroke="none" />
+    <g transform="translate(385 97) scale(1)">
+      <path d="M21 9a5 5 0 1 1-10 0 5 5 0 1 1 10 0z M6 27v-3a10 10 0 0 1 20 0v3z" fill="none" stroke="#305783" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="401" y="154" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#192e2b">RECEIVER</text>
+  </g>
+  <g id="exchange">
+    <path d="M143 122L337 122m-6.0 -4.0L337 122l-6.0 4.0" fill="none" stroke="#16636a" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="240" y="108" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#16636a">MESSAGE</text>
+    <path d="M337 158L143 158m6.0 4.0L143 158l6.0 -4.0" fill="none" stroke="#305783" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="240" y="181" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#305783">FEEDBACK</text>
+  </g>
+  <path d="M20 218H460" fill="none" stroke="#b4c5ba" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="23" cy="234" r="2.8" fill="#16636a" stroke="none" />
+  <text x="33" y="238" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:12px;font-weight:650;letter-spacing:0.025em;fill:#48615a">Feedback checks understanding</text>
 </svg>

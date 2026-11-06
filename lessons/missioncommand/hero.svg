@@ -1,10 +1,30 @@
 <svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">
-  <g class="plate-grid" fill="none" stroke="currentColor"><path class="thin faint" d="M0 50h480M0 125h480M0 200h480M80 0v250M160 0v250M240 0v250M320 0v250M400 0v250"/></g>
-  <text class="t-title" x="12" y="20">MISSION COMMAND</text>
-  <g id="mission-goal" fill="none" stroke="currentColor" stroke-width="1.5"><circle class="ink" cx="72" cy="120" r="28"/><circle class="acc" cx="72" cy="120" r="13"/><path d="M44 120h56m-28-28v56"/></g>
-  <text x="72" y="202" text-anchor="middle">PURPOSE</text>
-  <g id="decision-paths" fill="none" stroke="currentColor" stroke-width="1.5"><path class="ink" d="M178 120h30m0 0 34-46h52m-86 46 34 46h52m-86-46h86"/><circle class="acc-f" cx="208" cy="120" r="4"/></g>
-  <text x="240" y="202" text-anchor="middle">DISCRETION</text>
-  <g id="end-state" fill="none" stroke="currentColor" stroke-width="1.5"><path class="ink" d="M381 88h70v64h-70zM393 120l13 12 24-28"/></g>
-  <text x="416" y="202" text-anchor="middle">END STATE</text>
+  <rect x="0" y="0" width="480" height="250" rx="0" fill="#f8faf5" stroke="none" />
+  <rect x="0" y="0" width="480" height="5" rx="0" fill="#176149" stroke="none" />
+  <text x="20" y="20" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:11px;font-weight:740;letter-spacing:0.11em;fill:#176149">LEADERSHIP / MISSION</text>
+  <text x="20" y="48" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:23px;font-weight:720;letter-spacing:0em;fill:#192e2b">MISSION COMMAND</text>
+  <path d="M20 59H460" fill="none" stroke="#b4c5ba" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+  <g id="mission-goal">
+    <rect x="20" y="100" width="116" height="75" rx="8" fill="#d9eee0" stroke="#176149" />
+    <g transform="translate(62 109) scale(1)">
+      <path d="M7 29V4l18 3-5 5 5 5-18-3" fill="none" stroke="#176149" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="78" y="161" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#192e2b">PURPOSE</text>
+  </g>
+  <g id="decision-paths">
+    <path d="M136 136Q181 136 183 107T240 86Q290 86 300 111T344 136" fill="none" stroke="#16636a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <path d="M136 136Q181 136 183 166T240 185Q290 185 300 161T344 136" fill="none" stroke="#305783" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 4" />
+    <rect x="182" y="122" width="116" height="29" rx="6" fill="#dceeed" stroke="none" />
+    <text x="240" y="141" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:13px;font-weight:650;letter-spacing:0em;fill:#16636a">DISCRETION</text>
+  </g>
+  <g id="end-state">
+    <rect x="344" y="100" width="116" height="75" rx="8" fill="#dfe9f4" stroke="#305783" />
+    <g transform="translate(386 109) scale(1)">
+      <path d="M27 16a11 11 0 1 1-11-11 M16 10a6 6 0 1 0 6 6 M16 16 28 4m-7 0h7v7" fill="none" stroke="#305783" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+    <text x="402" y="161" text-anchor="middle" style="font-family:system-ui,sans-serif;font-size:14px;font-weight:650;letter-spacing:0em;fill:#192e2b">END STATE</text>
+  </g>
+  <path d="M20 218H460" fill="none" stroke="#b4c5ba" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="23" cy="234" r="2.8" fill="#176149" stroke="none" />
+  <text x="33" y="238" text-anchor="start" style="font-family:system-ui,sans-serif;font-size:12px;font-weight:650;letter-spacing:0.025em;fill:#48615a">Initiative guided by the commander’s intent</text>
 </svg>

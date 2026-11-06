@@ -1,6 +1,6 @@
 # Electronic Intelligence (ELINT) coverage
 
-Source basis: the 26-slide deck **Electronic Intelligence (ELINT)**, dated 3 Nov 2026, Signal School, whose doctrinal basis is PAM 3-0702-01 Electronic Warfare Operations (Sep 2026). Slide numbers below refer to that deck (PDF page numbers). No additional factual source was introduced; the questions use only the deck's own terms, worked examples and fictional records.
+Source basis: the 25-slide deck **Electronic Intelligence (ELINT)**, dated 3 Nov 2026, Signal School, whose doctrinal basis is PAM 3-0702-01 Electronic Warfare Operations (Sep 2026). Slide numbers below refer to that deck (PDF page numbers). No additional factual source was introduced; the questions use only the deck's own terms, worked examples and fictional records.
 
 This standalone lesson is POI 6.2 and has 20 easy, 20 medium, and 20 hard questions (60 in total). All scenarios are fictional Philippine Army classroom, Signal School, Camp O'Donnell or northern Luzon coast exercises with non-sensitive, simulated information. No real person or instructor is named, and no real equipment performance is asserted.
 
@@ -29,7 +29,7 @@ Easy items recognise a definition, term or one neighbouring concept. Medium item
 - **Slide 20 record.** The example record is fictional. Its values are used only as fictional exercise data; confidence, assessed-system and fix-grid fields are not treated as doctrine.
 - **Slide 22 SEAD.** The air-asset SEAD example is tested only as a concept (ELINT locates radars, then jam or strike so friendly aircraft can operate; ES data feeds the targeting board). No jamming or targeting method is taught or tested.
 - **Slide 17 bands.** Band lookups use the printed GHz ranges and the typical uses only, with the slide's caveat that range depends on power, antenna and target, not on the band letter. Frequencies are chosen well inside a band to avoid boundary conventions.
-- **Slides 25–26.** These are outside the cited range and supply no quiz claims.
+- **Slide 25** closes the deck and falls outside the cited range.
 - The slide 5 Ukraine and Zoopark-1 statement is used only as the slide's own "reports" illustration that found radars become targets.
 
 ## Authoring and audit record
