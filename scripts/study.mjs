@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { renderResources } from './resources.mjs';
+import { loadReviewerFocus, renderReviewerFocus } from './reviewer-focus.mjs';
 
 const slug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const json = path => JSON.parse(readFileSync(path, 'utf8'));
@@ -75,6 +76,7 @@ export function studyQuizLinks(root, lesson, study) {
 }
 
 export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e, scriptJson, fillTemplate, baseCss, fontPreloads, base }) {
+  const focus = loadReviewerFocus(root);
   const template = readFileSync(join(root, 'src', 'study', 'template.html'), 'utf8').replace(/\r\n/g, '\n');
   const css = readFileSync(join(root, 'src', 'study', 'study.css'), 'utf8');
   const pages = {};
@@ -130,7 +132,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     };
     const guide = item.examGuide;
     const sourcePages = pages => '<p class="topic-source">Lesson source: ' + pages.map(n => docLink(primaryDoc, '../../', primaryDoc.file ? n : null, 'page ' + n)).join(' · ') + '</p>';
-    const chapters =
+    const chapters = renderReviewerFocus(key, focus[key], panel, e, sourcePages) +
       panel('briefing', 'Quick briefing', '<p>' + e(item.brief) + '</p><p>Read with ' + docLink(primaryDoc, '../../', primaryDoc.file ? page : null) + '.</p>') +
       panel('facts', 'Know the facts', '<dl class="fact-list">' + item.facts.map(fact => '<div><dt>' + e(fact.term) + '</dt><dd>' + e(fact.detail) + '</dd></div>').join('') + '</dl>') +
       (guide ? panel('detailed-review', 'Build your understanding', guide.topics.map(topic => '<section class="review-topic"><h3>' + e(topic.title) + '</h3><p>' + e(topic.explanation) + '</p><ul>' + topic.remember.map(text => '<li>' + e(text) + '</li>').join('') + '</ul><p class="exam-trap"><strong>Watch out:</strong> ' + e(topic.trap) + '</p>' + sourcePages(topic.pages) + '</section>').join('')) : '') +
@@ -147,10 +149,10 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
       lesson.slug + '/">Take the practice exam</a>' + '<a href="#briefing">Start reviewing</a>' + '</div>';
     const group = groups.find(item => item.id === lesson.module);
     render('reviewer/' + key + '/index.html', 2, 'reviewer', lesson.name, groupName(group),
-      actions + '<div class="study-layout">' + rail + '<article class="study-content lesson-reading">' + chapters + '</article></div>', {
+      actions + '<nav class="review-jump" aria-label="Choose how to review"><a href="#exam-focus">Key points first</a><a href="#question-styles">Try exam-style questions</a><a href="#detailed-review">Read the full explanation</a></nav><div class="study-layout">' + rail + '<article class="study-content lesson-reading">' + chapters + '</article></div>', {
         eyebrow: 'Reviewer 101 · ' + (group.id === 'supplemental' ? 'Supporting lesson' : group.title),
         art: '<figure class="reviewer-figure">' + lesson.heroSvg + '<figcaption>Lesson at a glance</figcaption></figure>',
-        scripts: '<script src="../../assets/study-session.js" defer></script>',
+        scripts: '<link rel="stylesheet" href="../../assets/reviewer-focus.css"><script src="../../assets/reviewer-focus.js" defer></script><script src="../../assets/study-session.js" defer></script>',
       });
   }
   const metadata = study.documents.map(doc => ({

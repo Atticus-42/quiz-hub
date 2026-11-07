@@ -1,0 +1,1398 @@
+{
+  "signal": {
+    "takeaway": "Signal support connects, sustains and restores the information exchanges that let combined arms capabilities work together.",
+    "keyPoints": [
+      {
+        "label": "Three support tasks",
+        "answer": "Connect establishes service, sustain keeps it working, and recover restores disrupted service.",
+        "why": "An initial connection proves only the first task.",
+        "pages": [
+          5,
+          6
+        ]
+      },
+      {
+        "label": "Service categories",
+        "answer": "Fixed communications serve established facilities; tactical systems serve operating troops; special-purpose systems supplement them within security policy.",
+        "why": "The user, location and movement determine the appropriate service.",
+        "pages": [
+          4,
+          5,
+          7,
+          8
+        ]
+      },
+      {
+        "label": "Actual capability",
+        "answer": "Usable communications require working equipment, power, configuration, operators and support.",
+        "why": "An equipment count can exceed the service the unit can actually provide.",
+        "pages": [
+          8,
+          13,
+          16
+        ]
+      },
+      {
+        "label": "Support principles",
+        "answer": "Operations-focused support follows the mission; interoperability enables exchange; redundancy preserves it through failure; scalability expands support as requirements change; security protects it.",
+        "why": "Each principle must be assessed against an essential exchange.",
+        "pages": [
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      },
+      {
+        "label": "Estimate to plan",
+        "answer": "Assess requirements and resources, recommend priorities for shortfalls, coordinate the tentative plan, publish it and update it as conditions change.",
+        "why": "A changed location or requirement can invalidate the original support arrangement.",
+        "pages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "Maintenance",
+        "b": "Recovery",
+        "difference": "Maintenance preserves service before failure; recovery returns interrupted service.",
+        "pages": [
+          5,
+          6
+        ]
+      },
+      {
+        "a": "Inventory",
+        "b": "Usable capability",
+        "difference": "Inventory counts equipment; usable capability includes the people, power and support needed to operate it.",
+        "pages": [
+          8,
+          13,
+          16
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "Which support task restores service after an outage?",
+        "answer": "Recover.",
+        "reasoning": "Connect establishes service and sustain preserves it; recovery addresses the interruption.",
+        "pages": [
+          5,
+          6
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "Why can six listed radios represent fewer than six usable stations?",
+        "answer": "Some may lack power, correct configuration, trained operators or sustainment.",
+        "reasoning": "Readiness concerns the complete service rather than the inventory alone.",
+        "pages": [
+          8,
+          13,
+          16
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "A Philippine Army tabletop changes a unit location after the signal plan is published. What needs reassessment?",
+        "answer": "Reassess required exchanges, coverage and available support; coordinate and publish the revision.",
+        "reasoning": "A plan remains useful only while its assumptions match the users and locations.",
+        "pages": [
+          12,
+          13,
+          17,
+          18,
+          19
+        ]
+      }
+    ],
+    "memoryCue": "Connect, sustain, recover; count usable service, then plan.",
+    "lastCheck": [
+      "Name the three support tasks and explain what follows the first successful connection.",
+      "Classify headquarters telephones and field communications by service category.",
+      "Explain how a location change affects the estimate, priorities and published plan."
+    ]
+  },
+  "signaljoint": {
+    "takeaway": "Joint signal support must deliver usable, protected information across AFP service boundaries.",
+    "keyPoints": [
+      {
+        "label": "Joint definition",
+        "answer": "A joint operation involves two or more AFP services supporting a common mission.",
+        "why": "Separate Army, Navy and Air Force networks do not automatically provide a cross-service exchange.",
+        "pages": [
+          6,
+          7,
+          10,
+          11
+        ]
+      },
+      {
+        "label": "Interoperability",
+        "answer": "Compatible equipment and agreed operator procedures both contribute to a usable interservice exchange.",
+        "why": "An internal service test cannot prove that another service receives and understands a report.",
+        "pages": [
+          10,
+          11,
+          25,
+          40
+        ]
+      },
+      {
+        "label": "Support categories",
+        "answer": "Fixed systems serve established headquarters, tactical systems serve field units, operations-center systems consolidate information, and network support sustains the carrying systems.",
+        "why": "Information consolidation and maintenance perform different functions.",
+        "pages": [
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ]
+      },
+      {
+        "label": "Estimate factors",
+        "answer": "Mission, terrain, weather, movement, site locations, spectrum and equipment readiness shape joint communication requirements and capability.",
+        "why": "Coverage at one site does not establish coverage before, during and after movement.",
+        "pages": [
+          36,
+          38,
+          39,
+          40,
+          41,
+          42,
+          44,
+          45,
+          49,
+          50
+        ]
+      },
+      {
+        "label": "Planning sequence",
+        "answer": "Determine requirements and capabilities, set priorities, draft support, validate with users, publish and update the plan.",
+        "why": "Coordination and validation expose gaps before the arrangement is relied upon.",
+        "pages": [
+          51,
+          52,
+          53,
+          54,
+          55,
+          57,
+          58,
+          61,
+          63,
+          68,
+          69
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "Interoperability",
+        "b": "Redundancy",
+        "difference": "Interoperability enables services to exchange usable information; redundancy preserves that exchange through a failure.",
+        "pages": [
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33
+        ]
+      },
+      {
+        "a": "Operations-center systems",
+        "b": "Network support",
+        "difference": "The center consolidates information for decisions; network support maintains the systems that transport it.",
+        "pages": [
+          22,
+          23,
+          24,
+          25
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "Which is joint: two Army units or Army and Navy elements?",
+        "answer": "Army and Navy elements.",
+        "reasoning": "The defining boundary is between AFP services.",
+        "pages": [
+          6
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "Does adding a backup path prove interservice interoperability?",
+        "answer": "No; the receiving service must also be able to use the information.",
+        "reasoning": "Redundancy and interoperability answer different questions.",
+        "pages": [
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "In an AFP disaster-response tabletop, a report reaches Navy headquarters but cannot be interpreted by the Army recipient. What remains unproven?",
+        "answer": "The complete joint exchange, including agreed format or procedures and receiving-user understanding.",
+        "reasoning": "A working transport path alone does not establish the required usable exchange.",
+        "pages": [
+          10,
+          11,
+          25,
+          40
+        ]
+      }
+    ],
+    "memoryCue": "Across services: exchange, validate, protect, update.",
+    "lastCheck": [
+      "Define joint by service participation.",
+      "Explain why two successful internal service tests do not prove joint interoperability.",
+      "List the stages from requirements to an updated published plan."
+    ]
+  },
+  "coalition": {
+    "takeaway": "Coalition communications must support a timely, mutually understood exchange while respecting each partner’s information permissions.",
+    "keyPoints": [
+      {
+        "label": "Requirement definition",
+        "answer": "Specify what information moves, between whom, when it is needed and what protection it requires.",
+        "why": "The S-6 translates those mission requirements into communications capability.",
+        "pages": [
+          2,
+          5,
+          7,
+          9
+        ]
+      },
+      {
+        "label": "Interoperability barriers",
+        "answer": "Equipment and standards affect delivery; language, terminology and reporting procedures affect understanding.",
+        "why": "A received message may still be operationally unusable.",
+        "pages": [
+          6,
+          10,
+          11,
+          13
+        ]
+      },
+      {
+        "label": "Scaling support",
+        "answer": "More dispersed users and greater tempo increase demands on equipment, operators, maintenance and technical support.",
+        "why": "Adding endpoints alone does not sustain a larger coalition arrangement.",
+        "pages": [
+          7,
+          8,
+          11,
+          12
+        ]
+      },
+      {
+        "label": "Authorized sharing",
+        "answer": "Releasability determines what a partner may receive; approved protection and access controls govern the shared path.",
+        "why": "Technical reachability does not establish permission to disclose information.",
+        "pages": [
+          6,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "label": "Continuity",
+        "answer": "Identify the affected exchange, an agreed alternate, restoration urgency and responsibilities.",
+        "why": "A listed alternate must actually support the partners and protection requirement.",
+        "pages": [
+          8,
+          11,
+          12,
+          13
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "Technical delivery",
+        "b": "Mutual understanding",
+        "difference": "Delivery moves the report; mutual understanding depends on shared meanings and procedures.",
+        "pages": [
+          6,
+          10,
+          11,
+          13
+        ]
+      },
+      {
+        "a": "Reachability",
+        "b": "Releasability",
+        "difference": "Reachability means a path exists; releasability concerns permission to share the specific information.",
+        "pages": [
+          6,
+          10,
+          11,
+          12
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "Which officer converts staff information needs into communications capability?",
+        "answer": "The signal officer or S-6.",
+        "reasoning": "Operational requirements define the exchange that signal support must enable.",
+        "pages": [
+          5,
+          7
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "Can network access authorize every item on that network for a coalition partner?",
+        "answer": "No; the specific information must be releasable to the intended recipient.",
+        "reasoning": "Access and disclosure permission are separate checks.",
+        "pages": [
+          6,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "In a Philippine Army coalition tabletop, partners receive an update but assign different meanings to its status label. What change addresses the demonstrated gap?",
+        "answer": "Agree on terminology and reporting procedures, then verify an example with the recipients.",
+        "reasoning": "Successful delivery points to a procedural or language barrier rather than proving a radio fault.",
+        "pages": [
+          6,
+          10,
+          11,
+          13
+        ]
+      }
+    ],
+    "memoryCue": "What, who, when, protection; deliver, understand, authorize.",
+    "lastCheck": [
+      "Recite the four details of a communication requirement.",
+      "Explain how a working network can still fail coalition interoperability.",
+      "Describe an alternate that preserves both partner access and information permissions."
+    ]
+  },
+  "manet": {
+    "takeaway": "A MANET adapts among mobile nodes, but continuity and integration must be proved for each required service.",
+    "keyPoints": [
+      {
+        "label": "Formation and healing",
+        "answer": "Self-forming establishes a network without fixed infrastructure; self-healing adapts when usable connectivity changes.",
+        "why": "Neither feature guarantees communication with an isolated node.",
+        "pages": [
+          9,
+          11,
+          12,
+          13,
+          14,
+          15,
+          17,
+          18,
+          19
+        ]
+      },
+      {
+        "label": "Waveform choice",
+        "answer": "Narrowband, wideband, high-capacity MANET and compatibility waveforms support different service and interoperability requirements.",
+        "why": "A compatible voice mode does not automatically supply protected data.",
+        "pages": [
+          28,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36
+        ]
+      },
+      {
+        "label": "Corrective sequence",
+        "answer": "Identify the fault, isolate it, repair it and verify the affected function.",
+        "why": "Power-up after repair alone does not prove the original service has recovered.",
+        "pages": [
+          23,
+          24,
+          25,
+          26,
+          27,
+          46,
+          47
+        ]
+      },
+      {
+        "label": "Diagnostic meanings",
+        "answer": "Received strength measures level; SNR measures signal relative to noise; ping and packet tests provide connectivity and performance evidence.",
+        "why": "One favorable reading cannot establish that every service works.",
+        "pages": [
+          54,
+          55,
+          56,
+          58,
+          60,
+          66,
+          67
+        ]
+      },
+      {
+        "label": "Service integration",
+        "answer": "Voice, position, video and data have distinct paths through field, command post, headquarters and legacy interfaces.",
+        "why": "Acceptance must follow each required service to its recipient.",
+        "pages": [
+          22,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "Signal strength",
+        "b": "Signal-to-noise ratio",
+        "difference": "Strength describes received level; SNR describes that signal relative to noise.",
+        "pages": [
+          54,
+          56,
+          67
+        ]
+      },
+      {
+        "a": "Fault isolation",
+        "b": "Repair verification",
+        "difference": "Isolation narrows the fault before repair; verification checks the resulting function afterward.",
+        "pages": [
+          27,
+          46,
+          47
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "Which comes after repair in the corrective-maintenance sequence?",
+        "answer": "Verification of the repaired function.",
+        "reasoning": "A repair is not demonstrated by completion of the work alone.",
+        "pages": [
+          27
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "Can high received strength and poor SNR occur together?",
+        "answer": "Yes; a strong received signal may still have substantial noise relative to it.",
+        "reasoning": "The readings measure different reception properties.",
+        "pages": [
+          54,
+          56,
+          67
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "In a Philippine Army integration demonstration, voice passes but position updates fail. What should be tested?",
+        "answer": "The position-data path from the source through its interfaces to the receiving application.",
+        "reasoning": "A passing voice path cannot establish the health of a distinct data service.",
+        "pages": [
+          69,
+          70,
+          72,
+          73
+        ]
+      }
+    ],
+    "memoryCue": "Form, heal, verify each service; strength is not SNR.",
+    "lastCheck": [
+      "Explain why self-healing cannot reconnect an isolated group without a usable path.",
+      "Order identification, isolation, repair and verification.",
+      "Distinguish level, quality, reachability and user-service evidence."
+    ]
+  },
+  "sensors": {
+    "takeaway": "Sensor integration succeeds when the intended decision-maker receives an interpretable observation in time to use it.",
+    "keyPoints": [
+      {
+        "label": "Conceptual roles",
+        "answer": "The sensor collects, the decision-maker interprets and directs, and the shooter carries out directed action.",
+        "why": "Collection, decision and action are separate responsibilities.",
+        "pages": [
+          6,
+          7
+        ]
+      },
+      {
+        "label": "Observation types",
+        "answer": "Thermal imagers observe heat signatures; ground-based RDF supplies direction information about an RF source; aerial platforms support aerial collection.",
+        "why": "Different sensors produce different evidence and do not establish identical kinds of identification.",
+        "pages": [
+          10,
+          15
+        ]
+      },
+      {
+        "label": "Common operational picture",
+        "answer": "The COP combines information to support shared situational understanding.",
+        "why": "A displayed feed contributes only when its information is useful to the decision process.",
+        "pages": [
+          3,
+          7,
+          9,
+          30
+        ]
+      },
+      {
+        "label": "Interface boundary",
+        "answer": "An interoperability point defines where separate systems exchange information while retaining their internal technology.",
+        "why": "The boundary must support the intended report and account for bandwidth, legacy and security constraints.",
+        "pages": [
+          16,
+          17,
+          18,
+          28
+        ]
+      },
+      {
+        "label": "Operational testing",
+        "answer": "Test the complete workflow under representative conditions, including receipt and interpretation by the intended user.",
+        "why": "Independent component success can conceal failures at system boundaries.",
+        "pages": [
+          27,
+          28,
+          29
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "Integration",
+        "b": "Interoperability",
+        "difference": "Integration combines systems and processes into a working whole; interoperability enables separate systems to exchange and use information.",
+        "pages": [
+          28
+        ]
+      },
+      {
+        "a": "Thermal observation",
+        "b": "RF bearing",
+        "difference": "Thermal observation concerns heat signatures; an RF bearing concerns the direction of a radio emission.",
+        "pages": [
+          10,
+          15
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "What does an interoperability point define?",
+        "answer": "The boundary where independent systems exchange information.",
+        "reasoning": "Systems can retain different internal technology while meeting boundary requirements.",
+        "pages": [
+          16
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "Which sensor supplies a heat-based observation rather than an RF direction?",
+        "answer": "A thermal imager.",
+        "reasoning": "Thermal imaging and ground-based RDF sense different phenomena.",
+        "pages": [
+          10,
+          15
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "A Philippine Army operations-center demonstration displays a sensor feed that staff cannot interpret. Has the information requirement been met?",
+        "answer": "No; the observation must reach the intended user in a usable form and time.",
+        "reasoning": "Display and transport success do not establish effective information use in the decision loop.",
+        "pages": [
+          7,
+          9,
+          28,
+          29
+        ]
+      }
+    ],
+    "memoryCue": "Observe, interpret, direct; test the report at the user.",
+    "lastCheck": [
+      "Assign collection, decision and action to the three conceptual roles.",
+      "Match thermal and RDF sensors to their actual outputs.",
+      "Explain what a receiving-user test adds to a component test."
+    ]
+  },
+  "weapons": {
+    "takeaway": "C4ISTAR integration links distinct information functions through documented interfaces while preserving command decisions and protected exchange.",
+    "keyPoints": [
+      {
+        "label": "Component functions",
+        "answer": "Communications move information; computers process, store and present it; intelligence develops assessments; command and control organizes decisions and direction.",
+        "why": "A scenario may fail at one function even when another is working.",
+        "pages": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14
+        ]
+      },
+      {
+        "label": "Two conceptual models",
+        "answer": "The sensor–decision-maker–shooter model traces role handoffs; D3A orders Decide, Detect, Deliver and Assess.",
+        "why": "A role model and a decision cycle describe different aspects of the same information workflow.",
+        "pages": [
+          14,
+          25,
+          26,
+          27
+        ]
+      },
+      {
+        "label": "Interface terms",
+        "answer": "IOP defines an interoperability boundary; SIOP focuses on a service there; the ICD records the detailed interface requirements.",
+        "why": "An exchange must satisfy documented service requirements at both ends.",
+        "pages": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "label": "Open architecture",
+        "answer": "Defined standards and interfaces support connecting or upgrading components; TCP/IP supports transport.",
+        "why": "Application meaning and protected access remain requirements even when transport works.",
+        "pages": [
+          21,
+          22,
+          23,
+          24,
+          28,
+          29
+        ]
+      },
+      {
+        "label": "Distributed evidence",
+        "answer": "A field report or Blue Force Tracking update must cross the specified links and be usable at the receiving center.",
+        "why": "A successful local display cannot demonstrate the entire distributed capability.",
+        "pages": [
+          29,
+          37,
+          38,
+          39
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "IOP",
+        "b": "ICD",
+        "difference": "The IOP identifies an exchange boundary; the ICD specifies requirements for the systems meeting there.",
+        "pages": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ]
+      },
+      {
+        "a": "Transport compatibility",
+        "b": "Application compatibility",
+        "difference": "Transport carries information; application compatibility permits its intended interpretation and use.",
+        "pages": [
+          21,
+          22,
+          23,
+          24
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "Which D3A function evaluates the result after delivery?",
+        "answer": "Assess.",
+        "reasoning": "The model includes evaluation after the delivery function.",
+        "pages": [
+          25,
+          26,
+          27
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "Which document records detailed interface requirements?",
+        "answer": "The Interface Control Document (ICD).",
+        "reasoning": "A boundary or network connection alone does not specify the required exchange.",
+        "pages": [
+          20
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "In a Philippine Army systems demonstration, two platforms exchange packets but the receiving report is unreadable. What remains to be verified?",
+        "answer": "The intended service and data interpretation against the documented interface requirements.",
+        "reasoning": "Transport proves movement of packets; usable information requires the application exchange to work.",
+        "pages": [
+          19,
+          20,
+          23
+        ]
+      }
+    ],
+    "memoryCue": "Roles hand off; D3A cycles; interfaces specify; command decides.",
+    "lastCheck": [
+      "Expand D3A and distinguish it from the three-role model.",
+      "Define IOP, SIOP and ICD without treating them as synonyms.",
+      "Explain why packet exchange and a local position display are incomplete acceptance evidence."
+    ]
+  },
+  "propagation": {
+    "takeaway": "Propagation models estimate coverage under stated assumptions and require separate checks of link margin, area gaps and field feasibility.",
+    "keyPoints": [
+      {
+        "label": "Model inputs",
+        "answer": "Transmit power, antenna geometry and gain, line loss, frequency and receive threshold shape Radio Mobile predictions.",
+        "why": "A coverage class is conditional on the recorded assumptions.",
+        "pages": [
+          15,
+          16,
+          17,
+          18,
+          19
+        ]
+      },
+      {
+        "label": "Fade margin",
+        "answer": "Fade margin is predicted receive level minus the selected receiver threshold; receive level uses dBm and margin uses dB.",
+        "why": "A positive margin predicts reception above threshold, with the study target supplying an additional criterion.",
+        "pages": [
+          15,
+          21,
+          28,
+          29,
+          35
+        ]
+      },
+      {
+        "label": "Coverage products",
+        "answer": "A station-pair profile evaluates one link; an area overlay estimates a footprint; a composite combines station overlays.",
+        "why": "A passing pair cannot establish coverage everywhere along a corridor.",
+        "pages": [
+          15,
+          16,
+          17,
+          18,
+          19,
+          21,
+          23
+        ]
+      },
+      {
+        "label": "Cellular tools",
+        "answer": "CellMapper supplies selected tower inputs and CloudRF models cellular coverage from supplied settings.",
+        "why": "Selected sites are not evidence of a provider’s complete infrastructure or actual service.",
+        "pages": [
+          37,
+          38,
+          39,
+          40,
+          41,
+          42
+        ]
+      },
+      {
+        "label": "Relay comparison",
+        "answer": "Compare baseline and relay outputs over the same area, including link results, dead spots and connected coverage basins.",
+        "why": "Connecting basins may leave residual gaps that require explicit validation and continuity consideration.",
+        "pages": [
+          19,
+          44,
+          46,
+          47,
+          48,
+          49,
+          52,
+          53
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "Optical clearance",
+        "b": "Modeled radio closure",
+        "difference": "A terrain obstruction concerns the path profile; modeled closure concerns received power and margin against threshold.",
+        "pages": [
+          21,
+          23,
+          28,
+          29,
+          35
+        ]
+      },
+      {
+        "a": "Model prediction",
+        "b": "Field validation",
+        "difference": "The model applies recorded assumptions; field checks test actual access and planned exchanges and can justify updated plots.",
+        "pages": [
+          50,
+          51,
+          52,
+          53
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "Does positive fade margin mean predicted reception exceeds the chosen threshold?",
+        "answer": "Yes.",
+        "reasoning": "Margin compares modeled receive level with that threshold; it does not by itself prove field service.",
+        "pages": [
+          15,
+          28,
+          29,
+          53
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "Which tool provides tower inputs rather than the cellular prediction?",
+        "answer": "CellMapper.",
+        "reasoning": "CloudRF produces the modeled coverage using supplied inputs.",
+        "pages": [
+          37,
+          38
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "A Philippine Army coverage-study exercise shows every planned relay link passing, but one corridor section remains blank. What conclusion is justified?",
+        "answer": "The modeled links pass while area coverage still has a gap; report that limitation and validate the required exchanges.",
+        "reasoning": "Point-to-point closure and continuous point-to-area coverage are separate results.",
+        "pages": [
+          44,
+          49,
+          52,
+          53
+        ]
+      }
+    ],
+    "memoryCue": "Inputs condition plots; margin tests links; maps reveal gaps; field checks confirm.",
+    "lastCheck": [
+      "Compute the meaning of margin from receive level and threshold and name their units.",
+      "Explain why a passing station pair does not prove full corridor coverage.",
+      "Identify what must be held comparable when comparing provider or relay overlays."
+    ]
+  },
+  "sigint": {
+    "takeaway": "SIGINT turns signal observations into relevant, timely assessments while keeping evidence and uncertain inferences distinct.",
+    "keyPoints": [
+      {
+        "label": "Intelligence product",
+        "answer": "Collection provides observations; evaluation, analysis and integration develop an intelligence product.",
+        "why": "An intercept alone has not completed the analytical work needed by the consumer.",
+        "pages": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "label": "Source categories",
+        "answer": "COMINT addresses communications such as voice or messages; ELINT addresses non-communication emissions.",
+        "why": "Classification follows the nature of the emitted signal, not simply electronic reception.",
+        "pages": [
+          13,
+          14,
+          15
+        ]
+      },
+      {
+        "label": "RDF contribution",
+        "answer": "The antenna, receiver and bearing processor support an observed direction estimate.",
+        "why": "Direction can contribute to a broader assessment without establishing source identity or exact location.",
+        "pages": [
+          11,
+          17
+        ]
+      },
+      {
+        "label": "Quality and limits",
+        "answer": "Accuracy, timeliness and relevance are quality aims; some claims require independent substantiation, and intercepted sources cannot be asked to clarify.",
+        "why": "Clear or rapid reception does not prove truthful content.",
+        "pages": [
+          19,
+          20
+        ]
+      },
+      {
+        "label": "Requirement to delivery",
+        "answer": "Mission requirements guide collection and analysis, and dissemination gets the assessed information to its intended user.",
+        "why": "Useful material left in a local log cannot support a decision in time.",
+        "pages": [
+          21,
+          22,
+          23
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "Intercept",
+        "b": "Assessment",
+        "difference": "An intercept records signal-derived information; an assessment interprets and integrates it for a requirement.",
+        "pages": [
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "a": "Timeliness",
+        "b": "Confidence",
+        "difference": "Timeliness concerns arrival when needed; confidence depends on the supporting evidence and unresolved limitations.",
+        "pages": [
+          19,
+          20
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "Is a radar emission classified by its non-communication nature or by the fact that it is electronically received?",
+        "answer": "By its non-communication nature: ELINT.",
+        "reasoning": "Both COMINT and ELINT involve electronic signals; their sources differ.",
+        "pages": [
+          13,
+          14,
+          15
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "Which quality aim asks whether the product answers the user’s requirement?",
+        "answer": "Relevance.",
+        "reasoning": "Accuracy concerns soundness; timeliness concerns delivery when needed.",
+        "pages": [
+          19
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "In a Philippine Army intelligence exercise, a clear intercept conflicts with independent reporting. What should the assessment preserve?",
+        "answer": "The conflict, source limitations and need for corroboration, including possible deception.",
+        "reasoning": "Reception quality establishes neither truthfulness nor the resolution of contradictory evidence.",
+        "pages": [
+          19,
+          20
+        ]
+      }
+    ],
+    "memoryCue": "Require, collect, assess, deliver; observation is not identity.",
+    "lastCheck": [
+      "Classify a voice message and a radar emission as COMINT or ELINT.",
+      "Name accuracy, timeliness and relevance and explain each aim.",
+      "Distinguish a measured bearing, an inferred location and supporting corroboration."
+    ]
+  },
+  "elint": {
+    "takeaway": "ELINT characterizes non-communication emissions using measured signatures and validated comparisons rather than single-feature identification.",
+    "keyPoints": [
+      {
+        "label": "ELINT purpose",
+        "answer": "ELINT develops intelligence from non-communication emissions such as radar signals.",
+        "why": "COMINT instead concerns messages carried by communications.",
+        "pages": [
+          6,
+          7
+        ]
+      },
+      {
+        "label": "Electronic support",
+        "answer": "Electronic support serves immediate command awareness; ELINT supports assessed emitter characterization.",
+        "why": "The same observation can serve different users, products and time horizons.",
+        "pages": [
+          6,
+          8,
+          19
+        ]
+      },
+      {
+        "label": "Radar versus passive path",
+        "answer": "A pulse radar uses the elapsed time of an outbound pulse and returning echo; a passive receiver observes transmitted energy on its outward path.",
+        "why": "Reception of an emission does not prove the radar detected the receiver.",
+        "pages": [
+          10,
+          11
+        ]
+      },
+      {
+        "label": "Signature quantities",
+        "answer": "Carrier frequency identifies spectral position; pulse width measures pulse duration; PRI measures repetition spacing; PRF measures repetitions per unit time; scan behavior adds context.",
+        "why": "One measured feature cannot by itself establish identity or intent.",
+        "pages": [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18
+        ]
+      },
+      {
+        "label": "Validated emitter records",
+        "answer": "Compare new observations with validated signatures, account for friendly or neutral emitters, and qualify provisional identifications.",
+        "why": "A familiar frequency with different pulse or scan behavior warrants further validation.",
+        "pages": [
+          9,
+          19,
+          20,
+          21,
+          22
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "Pulse width",
+        "b": "Pulse repetition interval",
+        "difference": "Pulse width is one pulse’s duration; PRI is the spacing between successive pulse repetitions.",
+        "pages": [
+          12,
+          13
+        ]
+      },
+      {
+        "a": "Observed signature",
+        "b": "Confirmed identification",
+        "difference": "A signature records measured characteristics; identification requires comparison and validation, with uncertainty retained where needed.",
+        "pages": [
+          19,
+          20
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "Which quantity describes duration: pulse width or PRI?",
+        "answer": "Pulse width.",
+        "reasoning": "PRI concerns the repetition spacing between pulses.",
+        "pages": [
+          12,
+          13
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "What additional signal path does radar ranging require beyond outbound transmission?",
+        "answer": "The returning echo.",
+        "reasoning": "The radar measures a round-trip interval; a passive receiver can observe the outbound energy.",
+        "pages": [
+          10,
+          11
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "In an Army signals-analysis exercise, frequency matches a catalogue entry while pulse and scan measurements differ. How should the record read?",
+        "answer": "Preserve all measured parameters and mark the identification provisional pending validation.",
+        "reasoning": "A multi-feature signature comparison gives stronger support than a frequency match alone.",
+        "pages": [
+          12,
+          15,
+          19,
+          20
+        ]
+      }
+    ],
+    "memoryCue": "Frequency, width, spacing, rate, scan; compare before confirming.",
+    "lastCheck": [
+      "Explain why passive pulse reception does not prove radar detection of the observer.",
+      "Distinguish pulse duration, repetition spacing and repetition rate.",
+      "Compare immediate electronic-support use with ELINT characterization."
+    ]
+  },
+  "rdf": {
+    "takeaway": "Radio direction finding supplies a referenced direction whose location and identity implications require additional evidence.",
+    "keyPoints": [
+      {
+        "label": "Direction of arrival",
+        "answer": "DOA is the azimuthal arrival angle relative to the RDF system.",
+        "why": "The reference is necessary for another user to interpret the direction.",
+        "pages": [
+          25,
+          30
+        ]
+      },
+      {
+        "label": "Single-bearing limit",
+        "answer": "One bearing provides direction while distance, exact location and source identity remain unresolved.",
+        "why": "A plotted line cannot justify a precise point or a confirmed source.",
+        "pages": [
+          25,
+          30
+        ]
+      },
+      {
+        "label": "Phase methods",
+        "answer": "Phase comparison and the interferometric example compare received phase across antenna elements or pairs.",
+        "why": "The measured quantity identifies the method more reliably than the number of antennas.",
+        "pages": [
+          27,
+          29
+        ]
+      },
+      {
+        "label": "Time method",
+        "answer": "TDOA compares when the same signal reaches spatially separated antennas.",
+        "why": "Arrival-time differences are distinct from received-phase differences.",
+        "pages": [
+          28
+        ]
+      },
+      {
+        "label": "Sources and reporting",
+        "answer": "RDF can concern communications, radar, civilian broadcasts or emergency beacons; report the bearing, context and uncertainty to the receiving command user.",
+        "why": "Source association and a response decision require interpretation beyond detection.",
+        "pages": [
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          26,
+          31,
+          32
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "Bearing",
+        "b": "Location",
+        "difference": "A bearing gives a direction; a location fixes where the source is and requires more evidence.",
+        "pages": [
+          25,
+          30
+        ]
+      },
+      {
+        "a": "Phase comparison",
+        "b": "TDOA",
+        "difference": "Phase comparison measures phase differences; TDOA measures arrival-time differences.",
+        "pages": [
+          27,
+          28,
+          29
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "Does one referenced azimuth determine both direction and distance?",
+        "answer": "No; it determines direction while leaving distance undetermined.",
+        "reasoning": "A single bearing is not a precise location.",
+        "pages": [
+          25,
+          30
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "What measured quantity distinguishes TDOA from interferometric phase comparison?",
+        "answer": "Arrival-time differences rather than phase differences.",
+        "reasoning": "The lesson distinguishes methods by the quantity compared at receiving elements.",
+        "pages": [
+          27,
+          28,
+          29
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "An Army rescue tabletop has one beacon bearing and two candidate sites along it. What can the direction evidence establish?",
+        "answer": "Both sites remain possible; report the referenced direction and seek independent evidence for a location.",
+        "reasoning": "The bearing alone cannot select a distance, identify the source or confirm either site.",
+        "pages": [
+          20,
+          24,
+          25,
+          30
+        ]
+      }
+    ],
+    "memoryCue": "Direction needs a reference; a bearing needs corroboration.",
+    "lastCheck": [
+      "Define DOA and state what one bearing leaves unknown.",
+      "Identify whether phase or arrival time is compared in each taught method.",
+      "Describe a bearing report that separates observation from inferred source location."
+    ]
+  },
+  "eccm": {
+    "takeaway": "Electronic protection preserves friendly capability by separating exposure, content and availability risks and reporting disruption without overstating its cause.",
+    "keyPoints": [
+      {
+        "label": "Protection scope",
+        "answer": "Electronic protection safeguards friendly people, facilities and equipment from electromagnetic effects, including friendly emissions.",
+        "why": "Not every disruption implies a hostile source.",
+        "pages": [
+          4,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11
+        ]
+      },
+      {
+        "label": "Emission control",
+        "answer": "EMCON applies command-directed transmission restrictions while retaining arrangements for essential information flow.",
+        "why": "Emission exposure and the need to communicate must be considered together.",
+        "pages": [
+          8,
+          9,
+          10,
+          11,
+          12
+        ]
+      },
+      {
+        "label": "Content versus delivery",
+        "answer": "Encryption protects message content; anti-jam measures concern whether the exchange can get through.",
+        "why": "Confidentiality can remain intact while availability fails.",
+        "pages": [
+          13,
+          14
+        ]
+      },
+      {
+        "label": "Continuity options",
+        "answer": "PACE means Primary, Alternate, Contingency and Emergency; an alternate must support the affected priority exchange.",
+        "why": "Naming four options alone does not establish usable continuity.",
+        "pages": [
+          18
+        ]
+      },
+      {
+        "label": "Evidence and navigation",
+        "answer": "Interference symptoms can resemble faults or friendly interference; a missing navigation fix differs from a plausible false fix.",
+        "why": "Report observations and corroborate suspicious indications before claiming a cause.",
+        "pages": [
+          3,
+          4,
+          15,
+          16,
+          17,
+          19
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "Encryption",
+        "b": "Anti-jam protection",
+        "difference": "Encryption protects intelligible content; anti-jam protection addresses the ability to communicate despite interference.",
+        "pages": [
+          14
+        ]
+      },
+      {
+        "a": "Lost navigation fix",
+        "b": "False navigation fix",
+        "difference": "A lost fix gives no reliable indication; a false fix can appear precise while conflicting with independent references.",
+        "pages": [
+          19
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "Can an encrypted message remain confidential but fail to arrive?",
+        "answer": "Yes.",
+        "reasoning": "Encryption concerns content protection; successful delivery is an availability issue.",
+        "pages": [
+          14
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "What are the four PACE options?",
+        "answer": "Primary, Alternate, Contingency and Emergency.",
+        "reasoning": "They organize planned communication alternatives for degraded service.",
+        "pages": [
+          18
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "During an Army communications exercise, static appears while one set reports a connection fault. What should the report distinguish?",
+        "answer": "The observed symptoms, affected services and known fault from any unconfirmed interference cause.",
+        "reasoning": "Equipment faults and friendly interference remain plausible alongside deliberate disruption.",
+        "pages": [
+          3,
+          4,
+          15,
+          16,
+          17
+        ]
+      }
+    ],
+    "memoryCue": "Found, disrupted, read: exposure, availability, content.",
+    "lastCheck": [
+      "Explain the separate purposes of EMCON, encryption and PACE.",
+      "List plausible non-hostile explanations for static or service loss.",
+      "Contrast a missing fix with a misleading fix and describe the evidence needed to assess it."
+    ]
+  }
+}

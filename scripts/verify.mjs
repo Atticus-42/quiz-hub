@@ -27,6 +27,10 @@ for (const lesson of lessons.filter(item => item.pool)) {
 }
 
 await buildSuite({ modules, lessons });
+await test('[reviewers] every lesson has sourced key points and mixed exam-style recall', () => {
+  const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/reviewer-focus.test.mjs')], { encoding: 'utf8' });
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+});
 await test('[explanations] notes and source citations stay separate in feedback and results', () => {
   const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/reference-layout.test.mjs')], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stdout + result.stderr);
