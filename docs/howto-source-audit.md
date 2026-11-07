@@ -1,20 +1,35 @@
-# How To source audit
+# Signal How To source audit
 
-Each guide in [the How To data](../data/howto.json) uses PDFs from the [library catalogue](../data/library.json). The page numbers below count PDF pages starting at one, including covers and front matter. This is the numbering used by the PDF link's page parameter. Printed page numbers and slide labels can differ.
+Verified on 7 November 2026. This replaces the earlier general study-task directory with equipment-specific signal procedures.
 
-The reviewer data helped locate topics. The cited pages were read in the hosted copies under `library/files`. The short exercises, sample wording, and completion checks are adaptations for classroom or routine administrative use. The estimated times are editorial. The radio exercise uses invented values and treats model output as a prediction.
+The source collections are the two Drive folders supplied by the user:
+- https://drive.google.com/drive/folders/1fi3UzCAK0FSvetpg5LlOmIIjWNMJ-UxV
+- https://drive.google.com/drive/folders/15IGCS1ktT9nyeWE3VWBtPpblXRviCQU_
 
-| Guide | Verified source pages | Material carried into the guide |
-| --- | --- | --- |
-| Give a one-minute brief | [Effective Communication 2, p. 19](../library/files/lesson-effective-communication-2.pdf#page=19), [p. 20](../library/files/lesson-effective-communication-2.pdf#page=20), [p. 39](../library/files/lesson-effective-communication-2.pdf#page=39) | State the purpose early, use concise wording, select a channel, and obtain feedback. |
-| Coach one behavior at a time | [NCO Empowerment, p. 33](../library/files/lesson-nco-empowerment.pdf#page=33), [p. 34](../library/files/lesson-nco-empowerment.pdf#page=34), [FM 6-22 (2015), p. 52](../library/files/fm-6-22-2015.pdf#page=52) | Focus on one performance issue, ask for self-assessment, and connect the practice to the observed behavior. |
-| Plan backward from a deadline | [Troop Leading Procedure, p. 5](../library/files/lesson-troop-leading-procedure.pdf#page=5), [p. 15](../library/files/lesson-troop-leading-procedure.pdf#page=15), [p. 16](../library/files/lesson-troop-leading-procedure.pdf#page=16) | Work backward from the finish time, reserve preparation time, and check consistency across the timeline and slides. |
-| Reconcile a training inventory | [Company Management, p. 30](../library/files/lesson-company-management.pdf#page=30), [p. 38](../library/files/lesson-company-management.pdf#page=38), [Ethical and Transformational Leadership, p. 15](../library/files/ethical-transformational-leadership.pdf#page=15) | Compare the physical count with the record, document discrepancies accurately, and route follow-up through the authorized custodian. |
-| Check before sharing a file | [GSOMIA Compliance, p. 21](../library/files/lesson-gsomia-compliance.pdf#page=21), [p. 22](../library/files/lesson-gsomia-compliance.pdf#page=22), [p. 26](../library/files/lesson-gsomia-compliance.pdf#page=26), [p. 27](../library/files/lesson-gsomia-compliance.pdf#page=27) | Check markings, recipient authorization and need to know, the approved channel, documentation, and prompt reporting. |
-| Write one cyber risk entry | [Cyber Risk Assessment, p. 15](../library/files/lesson-cyber-risk-assessment.pdf#page=15), [p. 16](../library/files/lesson-cyber-risk-assessment.pdf#page=16) | Identify an asset, threat, vulnerability, likelihood, impact, and risk-reducing action using a fictional shared file. |
-| Read a modeled radio link | [Signal Propagation, p. 16](../library/files/lesson-signal-propagation.pdf#page=16), [p. 23](../library/files/lesson-signal-propagation.pdf#page=23), [p. 35](../library/files/lesson-signal-propagation.pdf#page=35), [p. 53](../library/files/lesson-signal-propagation.pdf#page=53) | Read the inputs, terrain profile, received level, and fade margin separately, then distinguish prediction from field validation. |
-| Compare current and target safeguards | [NIST CSF 2.0, p. 11](../library/files/nist-cswp-29.pdf#page=11), [p. 12](../library/files/nist-cswp-29.pdf#page=12), [p. 23](../library/files/nist-cswp-29.pdf#page=23) | Scope a small profile, compare current and target outcomes, make an action plan, and update the profile as evidence changes. |
-| Review a file access request | [Zero Trust, p. 20](../library/files/lesson-zero-trust.pdf#page=20), [NIST SP 800-207, p. 14](../library/files/nist-sp-800-207.pdf#page=14), [p. 15](../library/files/nist-sp-800-207.pdf#page=15) | Consider the identity, device, and individual resource request, then apply the mock policy and least privilege. |
-| Work through an ethical decision | [Ethical and Transformational Leadership, p. 10](../library/files/ethical-transformational-leadership.pdf#page=10), [p. 11](../library/files/ethical-transformational-leadership.pdf#page=11), [p. 15](../library/files/ethical-transformational-leadership.pdf#page=15) | Define the dilemma, identify applicable duties, compare choices, decide, and reflect in a fictional reporting scenario. |
-| Study leadership through a short scene | [Military Leadership Competencies, p. 18](../library/files/lesson-military-leadership-competencies.pdf#page=18), [p. 39](../library/files/lesson-military-leadership-competencies.pdf#page=39), [p. 40](../library/files/lesson-military-leadership-competencies.pdf#page=40) | Connect a specific observed action to leading, developing, or achieving and discuss the evidence with a partner. |
-| Study with a worked example | [Troop Leading Procedure, p. 2](../library/files/lesson-troop-leading-procedure.pdf#page=2), [p. 15](../library/files/lesson-troop-leading-procedure.pdf#page=15) | Attempt a small task before reading the sample, compare its reasoning, and justify a revision or valid difference. |
+The published PDFs are selected procedure excerpts, not complete manuals. Original page/slide numbers are shown in the guide; PDF fragments use the physical page in the excerpt. PPTX files were exported with PowerPoint and physical slide order preserved. Every excerpt page was checked against the corresponding original text (normalizing one font-specific square bullet).
+
+| Source | Original pages/slides, in excerpt order | Hosted excerpt |
+|---|---|---|
+| Retransmit, SMVRS Operation – Handout — procedure excerpt | 11, 12, 13, 14, 15, 16, 24 | [signal-howto-retransmit](../library/files/signal-howto-retransmit.pdf) |
+| Fixed Frequency Programming – Handout — procedure excerpt | 5, 10, 12, 13, 14, 15, 19, 24, 25, 32 | [signal-howto-rf5800h-fixed](../library/files/signal-howto-rf5800h-fixed.pdf) |
+| Installation of USB to Serial Cable, NRDI, IP Configuration of PC – Handout — procedure excerpt | 12, 22, 26, 28, 29, 30, 34, 35, 36, 37, 40 | [signal-howto-usb-rndis](../library/files/signal-howto-usb-rndis.pdf) |
+| Configuration of Tactical Chat – Handout — procedure excerpt | 14, 24, 25, 26, 37, 38, 39, 40, 41 | [signal-howto-tactical-chat](../library/files/signal-howto-tactical-chat.pdf) |
+| Philippine Space Agency – Signal Propagation Mapping — procedure excerpt | 27, 28, 38, 39, 40, 41, 55, 56 | [signal-howto-philas-radio-mobile](../library/files/signal-howto-philas-radio-mobile.pdf) |
+| Radio Telephone Procedures – Handout — procedure excerpt | 13, 14, 17, 24, 25, 26 | [signal-howto-radio-telephone](../library/files/signal-howto-radio-telephone.pdf) |
+| Antenna Types and Systems — BOLC handout — procedure excerpt | 25 | [signal-howto-antenna-types](../library/files/signal-howto-antenna-types.pdf) |
+
+## Interpretation and boundaries
+
+- The retransmit guide applies specifically to two RF-5800V-HH radios and cable 12011-0230-A050. General settings and firmware-dependent ON-SYNC/ON-ASYNC choices follow source slides 15–16. The schematic is a single test direction, not a duplex wiring diagram.
+- The RF-5800H-MP guide programs assigned channel values; it does not distribute channel plans or keys.
+- USB/RNDIS and Tactical Chat sources differ in the ordering of ADDRESS and ETHERNET menu entries. The guide names the labels without inventing one universal ordering.
+- Tactical Chat is radio data messaging, not RoIP voice. No model-specific RoIP gateway procedure was found in the supplied instructional material; the directory states this gap.
+- Radio Mobile steps follow the supplied PhilSA training walkthrough; modeled paths still require field verification.
+- The dipole calculator uses physical half-wave length 468/f feet, with each arm 234/f and conversion 0.3048 metres/foot. It is an initial estimate, not a tuning or installation certificate.
+- Instructor biographies, classroom rules, administrative records, example military repeater locations in other slides, and key/configuration files were not included in the published excerpts. The retained slides may contain illustrative training values; guides tell personnel to use their assigned settings.
+
+## Verification
+
+- Existing gate: all 2,557 checks passed.
+- Signal browser suite: 32 viewport/page combinations, filters, source links, reduced motion, animation, storage/reset, print, no-JavaScript, and dipole examples.
+- LOS page download/release behavior remains covered by the resources browser suite.

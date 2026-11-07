@@ -1,29 +1,4 @@
 (() => {
-  const search = document.querySelector('#task-search');
-  if (search) {
-    const cards = [...document.querySelectorAll('.task-card')];
-    const buttons = [...document.querySelectorAll('[data-filter]')];
-    let category = 'all';
-    const filter = () => {
-      const words = search.value.toLocaleLowerCase().trim().split(/\s+/).filter(Boolean);
-      let count = 0;
-      for (const card of cards) {
-        card.hidden = !(category === 'all' || card.dataset.category === category) || !words.every(word => card.textContent.toLocaleLowerCase().includes(word));
-        if (!card.hidden) count++;
-      }
-      document.querySelector('#task-count').textContent = `${count} ${count === 1 ? 'guide' : 'guides'}`;
-      document.querySelector('#task-empty').hidden = count !== 0;
-      buttons.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.filter === category)));
-    };
-    search.value = new URLSearchParams(location.search).get('q') || '';
-    search.addEventListener('input', filter);
-    buttons.forEach(b => b.addEventListener('click', () => {category=b.dataset.filter;filter();}));
-    const openLinked = () => {
-      const card = cards.find(c => '#' + c.id === location.hash);
-      if (card) {category='all';search.value='';filter();card.open=true;card.scrollIntoView({block:'start'});}
-    };
-    filter();openLinked();addEventListener('hashchange', openLinked);
-  }
   const download = document.querySelector('#apk-download');
   if (!download) return;
   const sha = document.querySelector('#apk-sha');

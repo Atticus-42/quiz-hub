@@ -27,6 +27,7 @@ export function loadStudy(root, lessons) {
     documents.push(doc);
   };
   for (const item of data.manuals) add({ kind: 'manual', cited: [], related: [], ...item });
+  for (const item of json(join(root, 'data', 'howto-sources.json'))) add(item);
   for (const [key, lesson] of byKey) {
     const reviewer = reviewers[key];
     const source = data.lessonSources[key];
