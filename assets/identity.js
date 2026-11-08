@@ -141,6 +141,56 @@
       "text": "The more they overthink the plumbing, the easier it is to stop up the drain.",
       "speaker": "Scotty",
       "work": "Star Trek III: The Search for Spock (1984)"
+    },
+    {
+      "text": "What is the cost of lies?",
+      "speaker": "Valery Legasov",
+      "work": "Chernobyl (HBO miniseries, 2019), Episode 1"
+    },
+    {
+      "text": "With great power there must also come—great responsibility!",
+      "speaker": "Stan Lee (narration caption)",
+      "work": "Amazing Fantasy #15 · Stan Lee and Steve Ditko (1962)"
+    },
+    {
+      "text": "Who watches the Watchmen?",
+      "speaker": "Graffiti",
+      "work": "Watchmen · Alan Moore and Dave Gibbons (1986–87)"
+    },
+    {
+      "text": "A strange game. The only winning move is not to play.",
+      "speaker": "Joshua (WOPR)",
+      "work": "WarGames (1983 film)"
+    },
+    {
+      "text": "Too many secrets.",
+      "speaker": "Martin Bishop",
+      "work": "Sneakers (1992 film) · anagram of “Setec Astronomy”"
+    },
+    {
+      "text": "Failure is not an option.",
+      "speaker": "Gene Kranz (film character)",
+      "work": "Apollo 13 (1995 film) · line written for the film"
+    },
+    {
+      "text": "Who controls the past controls the future: who controls the present controls the past.",
+      "speaker": "The Party slogan",
+      "work": "Nineteen Eighty-Four · George Orwell (1949)"
+    },
+    {
+      "text": "Fear is the mind-killer.",
+      "speaker": "Paul Atreides",
+      "work": "Dune · Frank Herbert (1965)"
+    },
+    {
+      "text": "Don’t Panic.",
+      "speaker": "The Guide",
+      "work": "The Hitchhiker’s Guide to the Galaxy · Douglas Adams (1979)"
+    },
+    {
+      "text": "Small moves, Ellie. Small moves.",
+      "speaker": "S. R. Hadden",
+      "work": "Contact (1997 film)"
     }
   ];
   const nodes = document.querySelectorAll('[data-domain-quote]');
