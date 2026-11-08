@@ -37,47 +37,112 @@
 /* Attributed quotations: sources recorded in docs/domain-quotes.json. */
 (() => {
   const quotes = [
-  {
-    "text": "Can’t stop the signal, Mal.",
-    "speaker": "Mr. Universe",
-    "work": "Serenity (2005)"
-  },
-  {
-    "text": "The needs of the many outweigh the needs of the few.",
-    "speaker": "Spock",
-    "work": "Star Trek II: The Wrath of Khan (1982)"
-  },
-  {
-    "text": "Do. Or do not. There is no try.",
-    "speaker": "Yoda",
-    "work": "Star Wars: The Empire Strikes Back (1980)"
-  },
-  {
-    "text": "You must unlearn what you have learned.",
-    "speaker": "Yoda",
-    "work": "Star Wars: The Empire Strikes Back (1980)"
-  },
-  {
-    "text": "You see, but you do not observe.",
-    "speaker": "Sherlock Holmes",
-    "work": "A Scandal in Bohemia · Arthur Conan Doyle"
-  },
-  {
-    "text": "Gongs and drums, banners and flags, are means whereby the ears and eyes of the host may be focussed on one particular point.",
-    "speaker": "Sun Tzu",
-    "work": "The Art of War, VII.24 · Lionel Giles translation (1910)"
-  },
-  {
-    "text": "I never go back on my word.",
-    "speaker": "Naruto Uzumaki",
-    "work": "Naruto · English translation"
-  },
-  {
-    "text": "Believe in the you that believes in yourself.",
-    "speaker": "Kamina",
-    "work": "Gurren Lagann · English translation"
-  }
-];
+    {
+      "text": "Can’t stop the signal, Mal.",
+      "speaker": "Mr. Universe",
+      "work": "Serenity (2005)"
+    },
+    {
+      "text": "The needs of the many outweigh the needs of the few.",
+      "speaker": "Spock",
+      "work": "Star Trek II: The Wrath of Khan (1982)"
+    },
+    {
+      "text": "Do. Or do not. There is no try.",
+      "speaker": "Yoda",
+      "work": "Star Wars: The Empire Strikes Back (1980)"
+    },
+    {
+      "text": "You must unlearn what you have learned.",
+      "speaker": "Yoda",
+      "work": "Star Wars: The Empire Strikes Back (1980)"
+    },
+    {
+      "text": "You see, but you do not observe.",
+      "speaker": "Sherlock Holmes",
+      "work": "A Scandal in Bohemia · Arthur Conan Doyle"
+    },
+    {
+      "text": "Gongs and drums, banners and flags, are means whereby the ears and eyes of the host may be focussed on one particular point.",
+      "speaker": "Sun Tzu",
+      "work": "The Art of War, VII.24 · Lionel Giles translation (1910)"
+    },
+    {
+      "text": "I never go back on my word.",
+      "speaker": "Naruto Uzumaki",
+      "work": "Naruto · English translation"
+    },
+    {
+      "text": "Believe in the you that believes in yourself.",
+      "speaker": "Kamina",
+      "work": "Gurren Lagann · English translation"
+    },
+    {
+      "text": "Plans are worthless, but planning is everything.",
+      "speaker": "Dwight D. Eisenhower",
+      "work": "Remarks to the National Defense Executive Reserve Conference, 14 Nov 1957"
+    },
+    {
+      "text": "War is the realm of uncertainty; three quarters of the factors on which action is based are wrapped in a fog of greater or lesser uncertainty.",
+      "speaker": "Carl von Clausewitz",
+      "work": "On War, Book I, Ch. 3 · Howard and Paret translation"
+    },
+    {
+      "text": "If you know the enemy and know yourself, you need not fear the result of a hundred battles.",
+      "speaker": "Sun Tzu",
+      "work": "The Art of War, III · Lionel Giles translation (1910)"
+    },
+    {
+      "text": "All warfare is based on deception.",
+      "speaker": "Sun Tzu",
+      "work": "The Art of War, I · Lionel Giles translation (1910)"
+    },
+    {
+      "text": "Rapidity is the essence of war: take advantage of the enemy’s unreadiness, make your way by unexpected routes, and attack unguarded spots.",
+      "speaker": "Sun Tzu",
+      "work": "The Art of War, XI · Lionel Giles translation (1910)"
+    },
+    {
+      "text": "When you have eliminated the impossible, whatever remains, however improbable, must be the truth.",
+      "speaker": "Sherlock Holmes",
+      "work": "The Sign of the Four, Ch. 6 · Arthur Conan Doyle (1890)"
+    },
+    {
+      "text": "What hath God wrought.",
+      "speaker": "Samuel F. B. Morse",
+      "work": "First long-distance telegraph message, 24 May 1844 (Numbers 23:23)"
+    },
+    {
+      "text": "Mr. Watson—come here—I want to see you.",
+      "speaker": "Alexander Graham Bell",
+      "work": "Laboratory notebook, 10 March 1876 · first telephone call"
+    },
+    {
+      "text": "Trust, but verify.",
+      "speaker": "Ronald Reagan",
+      "work": "Remarks at the INF Treaty signing, 8 Dec 1987 · Russian proverb"
+    },
+    {
+      "text": "Help me, Obi-Wan Kenobi. You’re my only hope.",
+      "speaker": "Princess Leia",
+      "work": "Star Wars: A New Hope (1977)"
+    },
+    {
+      "text": "In the moment when I truly understand my enemy, understand him well enough to defeat him, then in that very moment I also love him.",
+      "speaker": "Ender Wiggin",
+      "work": "Ender’s Game · Orson Scott Card (1985)"
+    },
+    {
+      "text": "Security is a process, not a product.",
+      "speaker": "Bruce Schneier",
+      "work": "Secrets and Lies (2000)"
+    },
+    {
+      "text": "The more they overthink the plumbing, the easier it is to stop up the drain.",
+      "speaker": "Scotty",
+      "work": "Star Trek III: The Search for Spock (1984)"
+    }
+  ];
   const nodes = document.querySelectorAll('[data-domain-quote]');
   if (!nodes.length) return;
   const key = 'quiz-hub:domain-quotes:v2';
