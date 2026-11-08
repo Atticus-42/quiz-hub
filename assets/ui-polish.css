@@ -112,9 +112,8 @@
 .domain-seal small { font:500 .62rem/1.6 ui-monospace,monospace; letter-spacing:.16em; }
 .domain-seal strong { font:600 .85rem/1.4 ui-monospace,monospace; letter-spacing:.12em; color:#304c42; }
 .domain-seal em { font:italic .8rem/1.5 Georgia,serif; }
-.domain-sigil { position:relative; display:grid; place-items:center; flex:0 0 48px; height:48px; border:1px solid #627a6c; border-radius:50%; font:500 .8rem ui-monospace,monospace; }
-.domain-sigil::before { content:""; position:absolute; inset:-5px; border:1px dashed #627a6c80; border-radius:50%; }
-.domain-sigil::after { content:""; position:absolute; inset:5px; border:1px solid #627a6c50; transform:rotate(45deg); }
+.domain-sigil { display:block; flex:0 0 112px; width:112px; height:146px; object-fit:contain; }
+@media(max-width:560px) { .domain-sigil { flex-basis:80px; width:80px; height:106px; } .domain-seal { align-items:center; } }
 @media(max-width:400px) { .domain-seal { gap:.8rem; padding-inline:1.2rem; } .domain-seal small { font-size:.55rem; letter-spacing:.09em; } }
 
 .domain-seal cite { font:400 .7rem/1.6 var(--font-body, sans-serif); color:#53615b; overflow-wrap:anywhere; }
