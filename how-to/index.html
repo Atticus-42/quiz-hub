@@ -499,7 +499,7 @@ body { background-color:#f3f1e7; }
         <p class="study-eyebrow">HOW TO / SIGNAL PERSONNEL</p>
         <h1>Signal field guides</h1>
         <p class="study-deck">Set up equipment, trace the signal path, and verify your work with step-by-step field checklists.</p>
-<p class="signal-meta"><span>10 guides</span><span>6 categories</span><span>Handout references</span></p>
+<p class="signal-meta"><span>11 guides</span><span>6 categories</span><span>Handout references</span></p>
       </div>
 <div class="signal-scope" aria-hidden="true">
   <div class="signal-scope-label"><span><i></i> FIELD REFERENCE</span><span>SOAC 52–26</span></div>
@@ -515,11 +515,11 @@ body { background-color:#f3f1e7; }
     </header>
     <section class="signal-index" aria-labelledby="signal-directory-title">
     <div class="signal-finder">
-      <div class="signal-section-head"><div><p class="signal-label">TASK DIRECTORY</p><h2 id="signal-directory-title">Find a field guide</h2></div><p id="signal-count" role="status">10 guides</p></div>
+      <div class="signal-section-head"><div><p class="signal-label">TASK DIRECTORY</p><h2 id="signal-directory-title">Find a field guide</h2></div><p id="signal-count" role="status">11 guides</p></div>
       <div class="signal-filters" data-signal-finder hidden>
         <div class="signal-field"><label for="signal-search">Search guides</label><input id="signal-search" type="search" placeholder="Try USB, repeater or dipole"></div>
         <div class="signal-field"><label for="signal-category">Category</label><select id="signal-category"><option value="">All categories</option><option value="programming">Radio programming</option><option value="repeater">Repeaters</option><option value="network">IP &amp; data</option><option value="dipole">Antennas</option><option value="coverage">Link planning</option><option value="radio-check">Radio procedure</option></select></div>
-        <div class="signal-field"><label for="signal-equipment">Equipment</label><select id="signal-equipment"><option value="">All equipment</option><option value="Conventional repeater">Conventional repeater</option><option value="RF-5800H-MP">RF-5800H-MP</option><option value="RF-5800V-HH">RF-5800V-HH</option><option value="RF-7800H-MP">RF-7800H-MP</option><option value="Radio Mobile">Radio Mobile</option><option value="Voice radios">Voice radios</option><option value="Wire dipole">Wire dipole</option></select></div>
+        <div class="signal-field"><label for="signal-equipment">Equipment</label><select id="signal-equipment"><option value="">All equipment</option><option value="Conventional repeater">Conventional repeater</option><option value="RF-5800H-MP">RF-5800H-MP</option><option value="RF-5800V-HH">RF-5800V-HH</option><option value="RF-7800H-MP">RF-7800H-MP</option><option value="RF-7800V-HH / CPA">RF-7800V-HH / CPA</option><option value="Radio Mobile">Radio Mobile</option><option value="Voice radios">Voice radios</option><option value="Wire dipole">Wire dipole</option></select></div>
       </div>
     </div>
     <ul class="signal-cards"><li class="signal-card" id="how-to-set-up-two-radio-retransmit" data-signal-card data-signal-type="repeater" data-signal-model="RF-5800V-HH" data-signal-search="Set up a two-radio repeater Connect two RF-5800V-HH radios and confirm a training call passes through the repeater. Repeaters RF-5800V-HH Two Harris RF-5800V-HH handhelds, matching antennas and batteries, and Harris retransmit cable 12011-0230-A050 Lay out the two radios Set the training channels Apply the handout’s general settings Enable retransmit mode Confirm the relayed path">
@@ -681,6 +681,24 @@ body { background-color:#f3f1e7; }
       <text x="240" y="222">CHECK FREQUENCIES + ACCESS TONE</text></svg></div>
       <div class="signal-card-copy"><p class="signal-card-meta">Conventional repeater <span>·</span> 10–15 min</p>
         <h3>Check a repeater channel pair</h3><p class="signal-card-summary">Trace who transmits and who receives before checking the offset, access tone and a relayed call.</p>
+        <span class="signal-card-link">Open guide <span aria-hidden="true">→</span></span>
+      </div>
+    </a>
+  </li><li class="signal-card" id="how-to-transfer-cpa-radio-plan" data-signal-card data-signal-type="network" data-signal-model="RF-7800V-HH / CPA" data-signal-search="Transfer a CPA plan to an RF-7800V Review the selected station and transfer an approved plan using CPA’s Ethernet/RNDIS option. IP &amp; data RF-7800V-HH / CPA RF-7800V-HH, compatible CPA installation and the radio interface configured according to its operator manual Review the plan before transfer Open Program Radio Check the connection and destination Review what will be loaded Start and verify the transfer">
+    <a href="./how-to-transfer-cpa-radio-plan/">
+      <div class="signal-card-art"><div class="signal-card-index"><span>IP &amp; data</span><span>11</span></div><svg viewBox="0 0 480 225" focusable="false" aria-hidden="true">
+      <g class="sig-device" transform="translate(55 61)">
+  <rect x="0" y="0" width="60" height="78" rx="9"/><path d="M12 0v-29m33 29v-8m-35 60h40m-38 10h10m7 0h8m7 0h5"/>
+  <rect class="sig-screen" x="10" y="16" width="40" height="24" rx="3"/><path d="M17 32h5l5-9 5 11 4-6h6"/>
+</g>
+      <g class="sig-device"><rect x="300" y="44" width="128" height="88" rx="8"/><rect class="sig-screen" x="312" y="56" width="104" height="62" rx="4"/>
+      <path d="M289 133h150l-13 15H302z"/></g>
+      <path class="sig-flow" d="M128 103h159"/><path class="sig-accent" d="M245 96l8 7-8 7m-62-14-8 7 8 7"/>
+      <text x="207" y="83">DIRECT USB</text><text x="364" y="94">RNDIS</text>
+      <text x="86" y="173">RADIO IP</text><text x="364" y="173">PC IP</text>
+      <text class="sig-note" x="240" y="203">Same subnet · distinct addresses</text></svg></div>
+      <div class="signal-card-copy"><p class="signal-card-meta">RF-7800V-HH / CPA <span>·</span> 10–15 min</p>
+        <h3>Transfer a CPA plan to an RF-7800V</h3><p class="signal-card-summary">Review the selected station and transfer an approved plan using CPA’s Ethernet/RNDIS option.</p>
         <span class="signal-card-link">Open guide <span aria-hidden="true">→</span></span>
       </div>
     </a>

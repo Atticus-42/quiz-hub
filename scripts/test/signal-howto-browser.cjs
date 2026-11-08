@@ -30,7 +30,7 @@ const server = http.createServer((req, res) => {
 });
 
 async function main() {
-  assert.equal(guides.length, 10, 'The signal directory must contain ten sourced guides.');
+  assert.equal(guides.length, 11, 'The signal directory must contain eleven sourced guides.');
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const base = 'http://127.0.0.1:' + server.address().port;
   const options = { headless: true };
@@ -105,7 +105,7 @@ async function main() {
       assert.equal(await page.locator('[data-signal-play]:visible').count(), 0);
       await page.emulateMedia({ media: 'screen' });
     }
-    assert.equal(sourceFiles.size, 10);
+    assert.equal(sourceFiles.size, 11);
     for (const file of sourceFiles) {
       const response = await context.request.get(base + file);
       assert.equal(response.status(), 200, file);

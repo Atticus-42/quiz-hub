@@ -47,3 +47,5 @@ The published PDFs are selected procedure excerpts, not complete manuals. Origin
 - Existing gate: all 2,557 checks passed.
 - Signal browser suite: 32 viewport/page combinations, filters, source links, reduced motion, animation, storage/reset, print, no-JavaScript, and dipole examples.
 - LOS page download/release behavior remains covered by the resources browser suite.
+
+CPA follow-up: added RF-7800V Program Radio workflow from physical page 108 (printed 102) of the local CPA application manual. Excerpt text matches the original. The guide requires an already configured RNDIS connection; it does not copy handout credentials or assume that Ethernet means a physical Ethernet cable. Includes plan/payload review and post-transfer verification.

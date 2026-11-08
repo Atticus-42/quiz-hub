@@ -1010,5 +1010,72 @@
         "pdfPage": 5
       }
     ]
+  },
+  {
+    "id": "how-to-transfer-cpa-radio-plan",
+    "title": "Transfer a CPA plan to an RF-7800V",
+    "category": "IP & data",
+    "model": "RF-7800V-HH / CPA",
+    "diagram": "network",
+    "duration": "10–15 min",
+    "summary": "Review the selected station and transfer an approved plan using CPA’s Ethernet/RNDIS option.",
+    "equipment": "RF-7800V-HH, compatible CPA installation and the radio interface configured according to its operator manual",
+    "requires": [
+      "An approved saved plan and a designated radio that may be reprogrammed",
+      "Radio and CPA versions checked for compatibility; this guide follows the supplied RF-7800V CPA application manual",
+      "The radio already connected as an RNDIS device, with a reachable assigned IP address",
+      "A recovery copy of the existing plan and authorized credentials if the equipment requests them"
+    ],
+    "steps": [
+      {
+        "title": "Review the plan before transfer",
+        "detail": "Confirm the intended station, nets and radio identity in the saved plan. Programming changes the radio configuration; resolve any mismatch before proceeding.",
+        "check": "You are authorized to replace the configuration on this specific radio."
+      },
+      {
+        "title": "Open Program Radio",
+        "detail": "In Network View or Topology View, select the intended radio. Choose Actions → Program Radio, or choose Program from its context menu.",
+        "check": "The left side of the dialog contains only the intended station or stations."
+      },
+      {
+        "title": "Check the connection and destination",
+        "detail": "Choose Ethernet in Programming Parameters. This manual describes a radio connected as an RNDIS device. Enter that radio’s assigned IP address. Use ipconfig on the PC to inspect its interface; configure the radio interface using its operator manual.",
+        "check": "The destination is the connected radio, not the PC address or an example address from a handout."
+      },
+      {
+        "title": "Review what will be loaded",
+        "detail": "Review Programming Options. The manual lists Radio Plan, Keys, Training File and CAM; availability depends on the plan. Inspect the applicable options before starting. Do not include unapproved material in the transfer.",
+        "check": "The plan and every applicable payload are intended for this radio."
+      },
+      {
+        "title": "Start and verify the transfer",
+        "detail": "Select Start Programming. Follow the installed version’s status prompts and wait for completion. If it fails, record the error and check connection and addressing before trying again. After success, inspect the intended net and coordinate a radio check.",
+        "check": "CPA reports completion and the radio’s intended settings and test call are verified."
+      }
+    ],
+    "check": "The correct station plan is transferred successfully and the radio configuration and coordinated call are verified.",
+    "avoid": "The Ethernet option is not proof that an arbitrary physical Ethernet connection is supported. This source requires a configured RNDIS connection. Never reuse example passwords or IP addresses.",
+    "troubleshooting": [
+      {
+        "symptom": "The radio is unreachable",
+        "action": "Check the RNDIS interface, assigned addressing and the radio interface instructions. Do not change unrelated network adapters."
+      },
+      {
+        "symptom": "Unexpected stations appear in the dialog",
+        "action": "Cancel and correct the selection in Network View or Topology View."
+      },
+      {
+        "symptom": "Programming succeeds but the radio check fails",
+        "action": "Compare the selected net and assigned settings with the approved plan; successful transfer alone does not prove a working radio link."
+      }
+    ],
+    "sources": [
+      {
+        "title": "CPA for RF-7800V-HH Application Manual — Program Radio (printed page 102)",
+        "page": 108,
+        "pdfPage": 1,
+        "file": "signal-howto-cpa-radio-transfer"
+      }
+    ]
   }
 ]
