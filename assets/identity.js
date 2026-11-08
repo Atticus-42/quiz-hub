@@ -34,21 +34,53 @@
   preview.src = new URL(file + '.png', base).href;
 })();
 
-/* Original Jujutsu Kaisen-inspired lines; one per visit, without repeats per deck. */
+/* Attributed quotations: sources recorded in docs/domain-quotes.json. */
 (() => {
   const quotes = [
-    'Expand your domain. Refine your technique.',
-    'A sharper mind is your strongest technique.',
-    'Turn exam-day curses into mastered techniques.',
-    'Within this barrier, preparation is power.',
-    'No shortcuts to a complete domain.',
-    'Your next breakthrough begins beyond your limits.',
-    'Channel the pressure. Control the outcome.',
-    'Domain Expansion: Unlimited Review.'
-  ];
+  {
+    "text": "Can’t stop the signal, Mal.",
+    "speaker": "Mr. Universe",
+    "work": "Serenity (2005)"
+  },
+  {
+    "text": "The needs of the many outweigh the needs of the few.",
+    "speaker": "Spock",
+    "work": "Star Trek II: The Wrath of Khan (1982)"
+  },
+  {
+    "text": "Do. Or do not. There is no try.",
+    "speaker": "Yoda",
+    "work": "Star Wars: The Empire Strikes Back (1980)"
+  },
+  {
+    "text": "You must unlearn what you have learned.",
+    "speaker": "Yoda",
+    "work": "Star Wars: The Empire Strikes Back (1980)"
+  },
+  {
+    "text": "You see, but you do not observe.",
+    "speaker": "Sherlock Holmes",
+    "work": "A Scandal in Bohemia · Arthur Conan Doyle"
+  },
+  {
+    "text": "Gongs and drums, banners and flags, are means whereby the ears and eyes of the host may be focussed on one particular point.",
+    "speaker": "Sun Tzu",
+    "work": "The Art of War, VII.24 · Lionel Giles translation (1910)"
+  },
+  {
+    "text": "I never go back on my word.",
+    "speaker": "Naruto Uzumaki",
+    "work": "Naruto · English translation"
+  },
+  {
+    "text": "Believe in the you that believes in yourself.",
+    "speaker": "Kamina",
+    "work": "Gurren Lagann · English translation"
+  }
+];
   const nodes = document.querySelectorAll('[data-domain-quote]');
   if (!nodes.length) return;
-  const key = 'quiz-hub:domain-quotes:v1';
+  const key = 'quiz-hub:domain-quotes:v2';
   const valid = i => Number.isInteger(i) && i >= 0 && i < quotes.length;
   let state;
   try { state = JSON.parse(sessionStorage.getItem(key)); } catch {}
@@ -62,6 +94,7 @@
     if (state.deck.at(-1) === state.last) [state.deck[0], state.deck[state.deck.length - 1]] = [state.deck.at(-1), state.deck[0]];
   }
   state.last = state.deck.pop();
-  nodes.forEach(node => { node.textContent = quotes[state.last]; });
+  nodes.forEach(node => { node.textContent = "“" + quotes[state.last].text + "”"; });
+  document.querySelectorAll("[data-domain-attribution]").forEach(node => { node.textContent = "— " + quotes[state.last].speaker + " · " + quotes[state.last].work; });
   try { sessionStorage.setItem(key, JSON.stringify(state)); } catch {}
 })();

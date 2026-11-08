@@ -938,7 +938,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
       const skip = /(<a class="skip-link"[^>]*>[^<]*<\/a>)/;
       html = skip.test(html) ? html.replace(skip, '$1' + ribbon) : html.replace(/(<body[^>]*>)/, '$1' + ribbon);
     }
-    html = html.replace('</body>', '<aside class="domain-seal" aria-label="Site signature"><span class="domain-sigil" aria-hidden="true">22</span><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>Expand your domain. Refine your technique.</em></span></aside>\n</body>');
+    html = html.replace('</body>', '<aside class="domain-seal" aria-label="Site signature"><span class="domain-sigil" aria-hidden="true">22</span><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>“You see, but you do not observe.”</em><cite data-domain-attribution>— Sherlock Holmes · A Scandal in Bohemia · Arthur Conan Doyle</cite></span></aside>\n</body>');
     pages[path] = html.replace('</body>', '<script src="' + up + 'assets/identity.js" defer></script>\n</body>');
   }
   if (write) {

@@ -125,3 +125,6 @@
 .domain-sigil::before { content:""; position:absolute; inset:-5px; border:1px dashed #627a6c80; border-radius:50%; }
 .domain-sigil::after { content:""; position:absolute; inset:5px; border:1px solid #627a6c50; transform:rotate(45deg); }
 @media(max-width:400px) { .domain-seal { gap:.8rem; padding-inline:1.2rem; } .domain-seal small { font-size:.55rem; letter-spacing:.09em; } }
+
+.domain-seal cite { font:400 .7rem/1.6 var(--font-body, sans-serif); color:#53615b; overflow-wrap:anywhere; }
+.domain-seal > span:last-child { min-width:0; }
