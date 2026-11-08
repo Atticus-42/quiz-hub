@@ -17,6 +17,38 @@ const radio = (x, y) => `<g class="sig-device" transform="translate(${x} ${y})">
 const dot = (x, y) => `<circle class="sig-node" cx="${x}" cy="${y}" r="5"/>`;
 
 const diagrams = {
+  'vhf-net': {
+    title: 'One net, six setting groups',
+    caption: 'Open PGM → NORM → NET on the RF-5800V-HH. Check every setting group against the same assigned net sheet.',
+    body: `<g class="sig-device"><rect x="172" y="62" width="136" height="92" rx="12"/><rect class="sig-screen" x="184" y="74" width="112" height="68" rx="5"/></g>
+      <path class="sig-flow" d="M170 82H110V42H45m125 66H45m125 27H110v48H45m265-101h60V42h65m-125 66h125m-125 27h60v48h65"/>
+      <text x="240" y="102">NORM → NET</text><text x="240" y="125">ASSIGNED SLOT</text>
+      <text x="74" y="31">FREQ</text><text x="74" y="99">COMSEC</text><text x="74" y="205">DATA / VOC</text>
+      <text x="405" y="31">SQUELCH</text><text x="405" y="99">POWER</text><text x="405" y="205">NAME</text>
+      ${dot(45,42)}${dot(45,108)}${dot(45,183)}${dot(435,42)}${dot(435,108)}${dot(435,183)}`,
+  },
+  'scan-cycle': {
+    title: 'List → priority → timing',
+    caption: 'Configuration has three parts. Confirm the scan activation control separately in the applicable operator manual.',
+    body: `<path class="sig-flow" d="M84 74H398v104H84z"/>
+      <g class="sig-device"><rect x="25" y="45" width="118" height="65" rx="8"/><rect x="180" y="45" width="118" height="65" rx="8"/><rect x="335" y="45" width="118" height="65" rx="8"/></g>
+      <text x="84" y="72">LIST</text><text x="84" y="94">NETS</text>
+      <text x="239" y="72">PRIORITY</text><text x="239" y="94">TX / RX</text>
+      <text x="394" y="72">CONFIG</text><text x="394" y="94">TIMING</text>
+      <path class="sig-accent" d="M153 68l8 6-8 6m154-12 8 6-8 6m-61 98-8 6 8 6"/>
+      <text x="240" y="151">REOPEN • COMPARE • TEST</text><text x="240" y="210">Saved list ≠ scanning active</text>`,
+  },
+  'repeater-pair': {
+    title: 'Reverse the viewpoint, not the assignment',
+    caption: 'The subscriber transmits into the repeater input and listens on its output. Arrows show the two directions of one relayed conversation.',
+    body: `${radio(30,83)}
+      <g class="sig-device"><rect x="348" y="57" width="107" height="112" rx="8"/><rect class="sig-screen" x="360" y="69" width="83" height="34" rx="4"/><path d="M365 120h72m-72 14h72m-72 14h72M401 57V24m-13 10 13-10 13 10"/></g>
+      <text x="401" y="91">REPEATER</text><text x="60" y="194">SUBSCRIBER</text>
+      <path class="sig-flow" d="M105 90h228"/><path class="sig-flow sig-flow-return" d="M333 145H105"/>
+      <path class="sig-accent" d="M319 83l8 7-8 7m-200 41-8 7 8 7"/>
+      <text x="219" y="73">YOUR TX → INPUT</text><text x="219" y="129">YOUR RX ← OUTPUT</text>
+      <text x="240" y="222">CHECK FREQUENCIES + ACCESS TONE</text>`,
+  },
   repeater: {
     title: 'Two radios and a retransmit cable',
     caption: 'The RX radio hears the approved input. The retransmit cable carries the call to the TX radio, which relays it on the approved output.',
@@ -121,7 +153,7 @@ function guideModel(guide) {
 }
 
 function diagramKey(guide) {
-  return guide.id === 'how-to-test-tactical-chat-link' ? 'chat' : guide.diagram;
+  return guide.art ?? (guide.id === 'how-to-test-tactical-chat-link' ? 'chat' : guide.diagram);
 }
 
 const dipoleCalculator = `<section class="signal-panel signal-calculator" aria-labelledby="signal-calc-title">

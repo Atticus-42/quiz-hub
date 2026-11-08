@@ -30,7 +30,7 @@ const server = http.createServer((req, res) => {
 });
 
 async function main() {
-  assert.equal(guides.length, 7, 'The signal directory must contain seven sourced guides.');
+  assert.equal(guides.length, 10, 'The signal directory must contain ten sourced guides.');
   await new Promise(resolve => server.listen(0, '127.0.0.1', resolve));
   const base = 'http://127.0.0.1:' + server.address().port;
   const options = { headless: true };
@@ -55,13 +55,16 @@ async function main() {
             .map(element => element.tagName + '.' + element.getAttribute('class'));
         });
         assert.deepEqual(overflow, [], route + ' overflows at ' + width + 'px');
+        if ([375, 1440].includes(width) && /program-rf5800v-net|configure-rf5800v-scan|check-repeater-channel-pair/.test(route)) {
+          await page.locator('.signal-diagram').screenshot({path: path.join(root, 'tmp', route.split('/')[2] + '-' + width + '.png')});
+        }
         assert.equal(await page.locator('.identity-ribbon').count(), 0, 'Duplicate identity header');
       }
     }
 
     await page.goto(base + '/how-to/');
     const cards = page.locator('[data-signal-card]');
-    assert.equal(await cards.count(), 7);
+    assert.equal(await cards.count(), guides.length);
     for (const guide of guides) {
       const card = page.locator('[data-signal-card]').filter({ has: page.locator('a[href="./' + guide.id + '/"]') });
       assert.equal(await card.count(), 1, 'Missing guide card ' + guide.id);
@@ -72,7 +75,7 @@ async function main() {
     await page.locator('#signal-category').selectOption('repeater');
     assert(await page.locator('#signal-empty').isVisible());
     await page.locator('#signal-search').fill('');
-    assert.equal(await page.locator('[data-signal-card]:visible').count(), 1);
+    assert.equal(await page.locator('[data-signal-card]:visible').count(), guides.filter(guide => guide.diagram === 'repeater').length);
     await page.locator('#signal-category').selectOption('');
     const model = await page.locator('[data-signal-card]').first().getAttribute('data-signal-model');
     await page.locator('#signal-equipment').selectOption(model);
@@ -102,7 +105,7 @@ async function main() {
       assert.equal(await page.locator('[data-signal-play]:visible').count(), 0);
       await page.emulateMedia({ media: 'screen' });
     }
-    assert.equal(sourceFiles.size, 7);
+    assert.equal(sourceFiles.size, 10);
     for (const file of sourceFiles) {
       const response = await context.request.get(base + file);
       assert.equal(response.status(), 200, file);
@@ -151,7 +154,7 @@ async function main() {
     const noJs = await browser.newContext({ javaScriptEnabled: false });
     const staticPage = await noJs.newPage();
     await staticPage.goto(base + '/how-to/');
-    assert.equal(await staticPage.locator('[data-signal-card]:visible').count(), 7);
+    assert.equal(await staticPage.locator('[data-signal-card]:visible').count(), guides.length);
     for (const guide of guides) {
       await staticPage.goto(base + '/how-to/' + guide.id + '/');
       assert.equal(await staticPage.locator('.signal-steps li:visible').count(), guide.steps.length);
@@ -172,7 +175,7 @@ async function main() {
     await storageBlocked.close();
 
     assert.deepEqual(errors, []);
-    console.log('PASS signal guides: 32 responsive layouts, seven exact local PDF sources, filters, signal flow, reduced motion, checklist persistence/reset/storage fallback, print, dipole calculator, and script-free pages.');
+    console.log(`PASS signal guides: ${routes.length * 4} responsive layouts, ${sourceFiles.size} exact local PDF sources, filters, signal flow, reduced motion, checklist persistence/reset/storage fallback, print, dipole calculator, and script-free pages.`);
   } finally {
     await browser.close();
   }

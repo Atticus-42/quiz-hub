@@ -716,5 +716,299 @@
         "pdfPage": 1
       }
     ]
+  },
+  {
+    "id": "how-to-program-rf5800v-net",
+    "title": "Program an RF-5800V voice net",
+    "summary": "Work through the six net settings, then compare the saved configuration with your assigned net sheet.",
+    "category": "Radio programming",
+    "model": "RF-5800V-HH",
+    "diagram": "programming",
+    "art": "vhf-net",
+    "duration": "10–15 min",
+    "equipment": "RF-5800V-HH, fitted antenna, charged battery, assigned net sheet and a second station for a radio check",
+    "requires": [
+      "A designated net slot that you are authorized to modify",
+      "Assigned RX/TX frequencies, voice settings, squelch, power and net name",
+      "The prescribed COMSEC profile already available through local procedures; this guide does not create or distribute keys",
+      "This handout describes a fixed-frequency net with Advanced Repeater disabled. Use the separate retransmit guide for repeater operation."
+    ],
+    "steps": [
+      {
+        "title": "Open the assigned net slot",
+        "detail": "Press [8-PGM] → NORM → NET. Select the net to modify. Set Active in List to Yes, Net Type to Fixed Frequency and Advanced Repeater to No for this procedure.",
+        "check": "The selected slot is the one on your worksheet; an unrelated net has not been overwritten."
+      },
+      {
+        "title": "Enter receive and transmit frequencies",
+        "detail": "Open FREQ and enter the assigned RX and TX values separately. Set Receive Only according to the task; the two-way voice example uses No. The example frequency on source page 10 is not a channel assignment.",
+        "check": "RX, TX and Receive Only match the worksheet exactly."
+      },
+      {
+        "title": "Apply the assigned COMSEC profile",
+        "detail": "Open COMSEC and select the prescribed existing key reference and crypto mode. The handout’s example labels are not instructions to reuse an example key.",
+        "check": "Both stations use the required profile. If it is unavailable, resolve that before testing."
+      },
+      {
+        "title": "Match the voice and squelch settings",
+        "detail": "Under DATA/VOC, set Data/Voice, D/V Type and FM deviation from the net sheet. Under SQUELCH, match the specified digital squelch and analog squelch type. Source pages 12–13 show the fields.",
+        "check": "The two stations agree on these settings; do not assume frequency alone is enough."
+      },
+      {
+        "title": "Set power and label the net",
+        "detail": "Under POWER, choose the assigned transmit power. Under NAME, enter the net name. Use CLR to return to the general screen as shown on page 15.",
+        "check": "The intended net is identifiable and its displayed settings agree with the assigned values."
+      },
+      {
+        "title": "Reopen the settings and make a radio check",
+        "detail": "Reopen the net and compare each saved field with the worksheet. Select the intended net and coordinate a short identified radio check with the second station.",
+        "check": "The partner hears the call and you hear the reply. Record the result without recording key material."
+      }
+    ],
+    "check": "All six setting groups match the assigned sheet and the two-way radio check succeeds.",
+    "avoid": "The handout’s frequencies, net name, key label and mode are examples, not universal defaults. Do not copy them into an operational net.",
+    "troubleshooting": [
+      {
+        "symptom": "The partner cannot hear the call",
+        "action": "Check selected net, TX/RX agreement and Receive Only before changing power."
+      },
+      {
+        "symptom": "A signal is present but speech is absent or unreadable",
+        "action": "Compare voice type, deviation, squelch and the prescribed COMSEC profile at both stations."
+      },
+      {
+        "symptom": "The wrong net name appears",
+        "action": "Return to NET and verify which slot was edited before making further changes."
+      }
+    ],
+    "sources": [
+      {
+        "title": "4. Net Programming 5800",
+        "driveId": "1V28RRm5FVuvWXCCAX-qXaKWwkhq7i57w",
+        "page": 9,
+        "file": "signal-howto-program-rf5800v-net",
+        "pdfPage": 1
+      },
+      {
+        "title": "4. Net Programming 5800",
+        "driveId": "1V28RRm5FVuvWXCCAX-qXaKWwkhq7i57w",
+        "page": 10,
+        "file": "signal-howto-program-rf5800v-net",
+        "pdfPage": 2
+      },
+      {
+        "title": "4. Net Programming 5800",
+        "driveId": "1V28RRm5FVuvWXCCAX-qXaKWwkhq7i57w",
+        "page": 11,
+        "file": "signal-howto-program-rf5800v-net",
+        "pdfPage": 3
+      },
+      {
+        "title": "4. Net Programming 5800",
+        "driveId": "1V28RRm5FVuvWXCCAX-qXaKWwkhq7i57w",
+        "page": 12,
+        "file": "signal-howto-program-rf5800v-net",
+        "pdfPage": 4
+      },
+      {
+        "title": "4. Net Programming 5800",
+        "driveId": "1V28RRm5FVuvWXCCAX-qXaKWwkhq7i57w",
+        "page": 13,
+        "file": "signal-howto-program-rf5800v-net",
+        "pdfPage": 5
+      },
+      {
+        "title": "4. Net Programming 5800",
+        "driveId": "1V28RRm5FVuvWXCCAX-qXaKWwkhq7i57w",
+        "page": 14,
+        "file": "signal-howto-program-rf5800v-net",
+        "pdfPage": 6
+      },
+      {
+        "title": "4. Net Programming 5800",
+        "driveId": "1V28RRm5FVuvWXCCAX-qXaKWwkhq7i57w",
+        "page": 15,
+        "file": "signal-howto-program-rf5800v-net",
+        "pdfPage": 7
+      }
+    ]
+  },
+  {
+    "id": "how-to-configure-rf5800v-scan",
+    "title": "Configure an RF-5800V scan list",
+    "summary": "Choose which nets to monitor, set the priority nets, and check the scan timing against your task.",
+    "category": "Radio programming",
+    "model": "RF-5800V-HH",
+    "diagram": "programming",
+    "art": "scan-cycle",
+    "duration": "10–15 min",
+    "equipment": "RF-5800V-HH with existing programmed nets and a coordinated test station",
+    "requires": [
+      "An approved list of existing nets to monitor",
+      "Assigned priority transmit/receive nets and timing values",
+      "Radio firmware/menu labels checked against the operator manual; this handout covers configuration, not the scan activation control"
+    ],
+    "steps": [
+      {
+        "title": "Build the scan list",
+        "detail": "Press [8-PGM] → SCAN → LIST → ADD. Add each assigned existing net and confirm with Enter. The source uses Net 01 only as an example.",
+        "check": "Every intended net is included and unrelated nets are absent."
+      },
+      {
+        "title": "Set the priority transmit net",
+        "detail": "Open PRIORITY and set Priority TX to the assigned net. Do not assume the currently heard net is the transmit destination.",
+        "check": "The priority TX entry agrees with the communication task."
+      },
+      {
+        "title": "Set priority receive monitoring",
+        "detail": "In PRIORITY, set Enable Priority RX and Priority RX Net as assigned. The source example enables priority reception on Net 02.",
+        "check": "Priority reception is enabled only when required, with the correct net selected."
+      },
+      {
+        "title": "Configure the timing",
+        "detail": "Open CONFIG. Set Hang Time, enable Hold Time if required, and set its duration. The slide illustrates 3 seconds and 9 seconds; use your assigned values. It repeats the label “Enable Hold Time” for the duration line, so verify the actual field label on your radio.",
+        "check": "The enable choice and duration are checked separately; the example timings have not been treated as defaults."
+      },
+      {
+        "title": "Review the configuration and test monitoring",
+        "detail": "Reopen LIST, PRIORITY and CONFIG to confirm the saved entries. Use the applicable operator-manual control to activate scanning; that control is not shown in this excerpt. With a partner, make identified test calls on the listed nets and confirm reception.",
+        "check": "Record which test nets were heard and whether priority reception behaved as intended."
+      }
+    ],
+    "check": "The scan list, priority entries and timing match the task, and the coordinated monitoring test is recorded.",
+    "avoid": "Adding a net to the list is not proof that scanning has been activated. The supplied three procedure slides do not identify the activation control.",
+    "troubleshooting": [
+      {
+        "symptom": "An expected net is not heard",
+        "action": "Check that the net exists, is in LIST, and scanning is active using the applicable operator manual."
+      },
+      {
+        "symptom": "Priority traffic is missed",
+        "action": "Check Enable Priority RX and Priority RX Net before changing unrelated settings."
+      },
+      {
+        "symptom": "The radio appears to linger after traffic",
+        "action": "Review Hang Time and Hold Time against the assigned values; use the operator manual for their exact firmware-specific behavior."
+      }
+    ],
+    "sources": [
+      {
+        "title": "7.Net Scanning Operation 5800",
+        "driveId": "1DpYZ8puAKvpSM5n4oN-rXkGZ-CyKQaXP",
+        "page": 10,
+        "file": "signal-howto-configure-rf5800v-scan",
+        "pdfPage": 1
+      },
+      {
+        "title": "7.Net Scanning Operation 5800",
+        "driveId": "1DpYZ8puAKvpSM5n4oN-rXkGZ-CyKQaXP",
+        "page": 11,
+        "file": "signal-howto-configure-rf5800v-scan",
+        "pdfPage": 2
+      },
+      {
+        "title": "7.Net Scanning Operation 5800",
+        "driveId": "1DpYZ8puAKvpSM5n4oN-rXkGZ-CyKQaXP",
+        "page": 12,
+        "file": "signal-howto-configure-rf5800v-scan",
+        "pdfPage": 3
+      }
+    ]
+  },
+  {
+    "id": "how-to-check-repeater-channel-pair",
+    "title": "Check a repeater channel pair",
+    "summary": "Trace who transmits and who receives before checking the offset, access tone and a relayed call.",
+    "category": "Repeater setup",
+    "model": "Conventional repeater",
+    "diagram": "repeater",
+    "art": "repeater-pair",
+    "duration": "10–15 min",
+    "equipment": "A conventional repeater channel assignment, a compatible subscriber radio and a partner station",
+    "requires": [
+      "Assigned repeater input and output frequencies, stated in the same units",
+      "Assigned access tone and subscriber-radio programming instructions",
+      "An authorized test window; this is a settings check, not a hardware installation or duplexer-tuning procedure"
+    ],
+    "steps": [
+      {
+        "title": "Identify the repeater’s two directions",
+        "detail": "Write the repeater input as “repeater receives” and output as “repeater transmits.” Keep these labels visible while preparing the subscriber settings.",
+        "check": "Input/output labels are from the repeater’s point of view."
+      },
+      {
+        "title": "Map the subscriber frequencies",
+        "detail": "Set the subscriber TX to the repeater input and subscriber RX to the repeater output, using the radio’s own programming instructions. A second subscriber using the same repeater normally uses that same pair.",
+        "check": "Subscriber TX → repeater RX; repeater TX → subscriber RX."
+      },
+      {
+        "title": "Check the offset direction",
+        "detail": "If the radio asks for an offset instead of separate TX/RX entries, calculate subscriber TX minus subscriber RX in matching units. A negative result means subscriber TX is below RX. Verify how that particular radio represents the sign before saving.",
+        "check": "The resulting TX frequency equals the assigned repeater input. Do not choose an offset from a generic band table."
+      },
+      {
+        "title": "Check the access tone",
+        "detail": "Compare the assigned transmit CTCSS/PL tone with the repeater’s access requirement. Use any receive-tone setting only as specified by the channel plan.",
+        "check": "The tone value and the direction in which it applies are both checked."
+      },
+      {
+        "title": "Make a brief identified call",
+        "detail": "Coordinate with the partner, listen first, then make a short identified test call. Confirm that the partner receives it through the repeater and that you receive the reply. Leave a pause between transmissions.",
+        "check": "Both directions pass a readable call; record the result rather than repeatedly keying the repeater."
+      }
+    ],
+    "check": "The subscriber frequencies map to the repeater’s opposite directions, the assigned tone is correct, and a two-way relayed call succeeds.",
+    "avoid": "Do not tune up on the repeater frequency or key it without an identified call. The source’s band-offset table is illustrative, not authority to select frequencies.",
+    "troubleshooting": [
+      {
+        "symptom": "You hear the repeater but cannot access it",
+        "action": "Check subscriber TX against repeater input and verify the assigned transmit access tone."
+      },
+      {
+        "symptom": "The partner hears you but you hear no reply",
+        "action": "Check subscriber RX against repeater output and verify any required receive-tone setting."
+      },
+      {
+        "symptom": "Both radios talk directly but not through the repeater",
+        "action": "Confirm the pair is not accidentally programmed as simplex. Then verify repeater availability and coverage."
+      }
+    ],
+    "sources": [
+      {
+        "title": "Repeater Systems",
+        "driveId": "1OGUWKPsGt0NooJqtL9vjnOfItwo4VFhI",
+        "page": 7,
+        "file": "signal-howto-check-repeater-channel-pair",
+        "pdfPage": 1
+      },
+      {
+        "title": "Repeater Systems",
+        "driveId": "1OGUWKPsGt0NooJqtL9vjnOfItwo4VFhI",
+        "page": 8,
+        "file": "signal-howto-check-repeater-channel-pair",
+        "pdfPage": 2
+      },
+      {
+        "title": "Repeater Systems",
+        "driveId": "1OGUWKPsGt0NooJqtL9vjnOfItwo4VFhI",
+        "page": 9,
+        "file": "signal-howto-check-repeater-channel-pair",
+        "pdfPage": 3
+      },
+      {
+        "title": "Repeater Systems",
+        "driveId": "1OGUWKPsGt0NooJqtL9vjnOfItwo4VFhI",
+        "page": 13,
+        "file": "signal-howto-check-repeater-channel-pair",
+        "pdfPage": 4
+      },
+      {
+        "title": "Repeater Systems",
+        "driveId": "1OGUWKPsGt0NooJqtL9vjnOfItwo4VFhI",
+        "page": 16,
+        "file": "signal-howto-check-repeater-channel-pair",
+        "pdfPage": 5
+      }
+    ]
   }
 ]

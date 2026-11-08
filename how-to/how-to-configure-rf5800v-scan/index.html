@@ -1,0 +1,568 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Configure an RF-5800V scan list · SOAC 52-26</title>
+  <link rel="preload" href="../../assets/fonts/IBMPlexSansCondensed-Regular-Latin1.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../assets/fonts/IBMPlexSansCondensed-SemiBold-Latin1.woff2" as="font" type="font/woff2" crossorigin>
+  <style>    /* =====================================================================
+       FIELD MANUAL DESIGN SYSTEM (src/shared/base.css). The build writes this
+       sheet into every page (hub, quizzes, class page, instructor view) at
+       the top of its one style element, with the assets placeholder replaced
+       by the page's path to assets/. Edit it here, never in a built page.
+
+       Type. IBM Plex Sans Condensed (text, headings, UI) and IBM Plex Mono
+       (numbers, codes, references, kbd), self-hosted Latin-1 subsets under
+       the SIL Open Font License (assets/fonts/OFL.txt), font-display: swap.
+       The subsets have no arrows; per-glyph fallback draws them from the
+       system stack. The metric-matched fallback faces keep line breaks close
+       to Plex while the files load, so the swap does not shift the layout.
+       Scale (ratio 1.25 from 16px): 12 label · 14 meta · 16 UI · 18 body ·
+       20 · 25 · 31 · 39-76 display. Body 18px, measure 60-75ch.
+
+       Colour. WCAG 2.1 contrast, computed (scripts/test checks them again):
+         --color-text      #1e211b on --color-paper #f3efe4   14.18:1  body
+         --color-muted     #4a4c40 on paper                    7.62:1  secondary text
+         --color-accent    #4b5320 on paper                    7.15:1  olive drab: links, primary buttons
+                           paper on --color-accent             7.15:1  button text
+         --color-olive-dark #2e3418: paper on it              11.28:1  dark bands, selected covers
+         --color-khaki     #c9b98f on olive-dark                6.68:1  labels on dark bands
+         --color-signal    #d9541e on paper                    3.49:1  non-text only: progress, current
+                           item, focus ring (UI >= 3:1); never small text
+         --color-signal-text #a8431a on paper                  5.25:1  orange text (small)
+         --color-signal-light #e68a5c on olive-dark            5.03:1  orange text on dark bands
+         --color-rule      #7d7865 on paper                    3.85:1  control borders (UI >= 3:1)
+         --color-hairline  #c8c2ae                                     decorative rules only
+         --color-correct   #2f6b2f on paper 5.60:1, on --color-correct-bg #e6ebd8 5.28:1, paper on it 5.60:1
+         --color-incorrect #a32a1c on paper 6.29:1, on --color-incorrect-bg #f3e2da 5.75:1, paper on it 6.29:1
+         --color-text on --color-sunken #e9e6d6               13.00:1
+         --color-accent on --color-selected #e3e6d0            6.45:1  selected answer (text 12.80:1)
+         --color-focus = signal orange, 3px: 3.49:1 on paper, 3.23:1 on olive-dark
+       Corners are square (2px at most); 1px hairlines replace boxes; shadows
+       only for true layering. Motion 120-200ms, no bounce, off under
+       prefers-reduced-motion.
+       ===================================================================== */
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 400; font-display: swap; src: url("../../assets/fonts/IBMPlexSansCondensed-Regular-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: italic; font-weight: 400; font-display: swap; src: url("../../assets/fonts/IBMPlexSansCondensed-Italic-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 500; font-display: swap; src: url("../../assets/fonts/IBMPlexSansCondensed-Medium-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 600; font-display: swap; src: url("../../assets/fonts/IBMPlexSansCondensed-SemiBold-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Sans Condensed"; font-style: normal; font-weight: 700; font-display: swap; src: url("../../assets/fonts/IBMPlexSansCondensed-Bold-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 400; font-display: swap; src: url("../../assets/fonts/IBMPlexMono-Regular-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 500; font-display: swap; src: url("../../assets/fonts/IBMPlexMono-Medium-Latin1.woff2") format("woff2"); }
+    @font-face { font-family: "IBM Plex Mono"; font-style: normal; font-weight: 600; font-display: swap; src: url("../../assets/fonts/IBMPlexMono-SemiBold-Latin1.woff2") format("woff2"); }
+    /* Metric-matched fallbacks (measured: Plex Sans Condensed sets 1.108x Arial Narrow, 0.909x Arial; Plex Mono 1.091x Consolas). */
+    @font-face { font-family: "Plex Condensed Fallback"; src: local("Arial Narrow"), local("ArialNarrow"); size-adjust: 110.8%; ascent-override: 92.5%; descent-override: 24.8%; line-gap-override: 0%; }
+    @font-face { font-family: "Plex Condensed Fallback Wide"; src: local("Arial"), local("Helvetica"); size-adjust: 90.9%; ascent-override: 112.8%; descent-override: 30.3%; line-gap-override: 0%; }
+    @font-face { font-family: "Plex Mono Fallback"; src: local("Consolas"), local("Menlo"); size-adjust: 109.1%; ascent-override: 94%; descent-override: 25.2%; line-gap-override: 0%; }
+
+    :root {
+      --color-paper: #f3efe4;
+      --color-surface: #f3efe4;
+      --color-sunken: #e9e6d6;
+      --color-selected: #e3e6d0;
+      --color-text: #1e211b;
+      --color-muted: #4a4c40;
+      --color-accent: #4b5320;
+      --color-accent-hover: #2e3418;
+      --color-accent-text: #f3efe4;
+      --color-olive-dark: #2e3418;
+      --color-khaki: #c9b98f;
+      --color-signal: #d9541e;
+      --color-signal-text: #a8431a;
+      --color-signal-light: #e68a5c;
+      --color-rule: #7d7865;
+      --color-hairline: #c8c2ae;
+      --color-correct: #2f6b2f;
+      --color-correct-bg: #e6ebd8;
+      --color-incorrect: #a32a1c;
+      --color-incorrect-bg: #f3e2da;
+      --color-focus: #d9541e;
+
+      /* Margin topography: olive contours, shown only in the page margins and the masthead band. */
+      --topo-line: #4b5320;
+      --topo-line-major: #2e3418;
+      --topo-minor-opacity: 0.1;
+      --topo-major-opacity: 0.16;
+      --topo-major-width: 1.2;
+      --grain: url("../../assets/paper-grain.svg");
+
+      --font-sans: "IBM Plex Sans Condensed", "Plex Condensed Fallback", "Plex Condensed Fallback Wide", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+      --font-mono: "IBM Plex Mono", "Plex Mono Fallback", ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono", monospace;
+
+      --text-label: 0.75rem;
+      --text-meta: 0.875rem;
+      --text-ui: 1rem;
+      --text-body: 1.125rem;
+      --text-h4: 1.25rem;
+      --text-h3: 1.5625rem;
+      --text-h2: 1.953rem;
+      --text-h1: clamp(2.44rem, 1.55rem + 3.6vw, 4.77rem);
+      --text-display: clamp(4rem, 2.2rem + 7.5vw, 7.45rem);
+
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --space-7: 3rem;
+      --space-8: 4.5rem;
+      --space-9: 6rem;
+
+      --radius: 2px;
+      --page-max: 84rem;
+      --gutter: clamp(1rem, 3.2vw, 3rem);
+      --col-gap: clamp(1rem, 2vw, 2rem);
+      --rail: minmax(0, 3fr);
+      --body: minmax(0, 9fr);
+      --ease: cubic-bezier(0.2, 0, 0, 1);
+      --speed: 160ms;
+      --shadow-layer: 0 1px 0 rgba(30, 33, 27, 0.08), 0 12px 32px rgba(30, 33, 27, 0.18);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; background: var(--color-paper); }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--color-paper) var(--grain);
+      color: var(--color-text);
+      font-family: var(--font-sans);
+      font-size: var(--text-ui);
+      line-height: 1.5;
+      font-kerning: normal;
+      overflow-wrap: anywhere;
+      -webkit-font-smoothing: antialiased;
+    }
+    h1, h2, h3, h4 { margin: 0; font-weight: 600; line-height: 1.12; letter-spacing: -0.01em; text-wrap: balance; }
+    p { margin: 0 0 var(--space-3); }
+    a { color: var(--color-accent); text-decoration-thickness: 1px; text-underline-offset: 0.2em; }
+    a:hover { color: var(--color-text); text-decoration-thickness: 2px; }
+    strong { font-weight: 600; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+    .mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+    /* Uppercase small label: the manual's running heads, captions and table heads. */
+    .label {
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase; line-height: 1.4;
+    }
+    .wrap { width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin-inline: auto; }
+
+    /* Classification strip: the first line of every page. */
+    .strip { position: relative; z-index: 2; background: var(--color-olive-dark); color: var(--color-khaki); }
+    .strip-inner {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0 var(--space-5);
+      min-height: 2rem; padding-block: 0.375rem;
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase;
+    }
+    .strip-inner p { margin: 0; }
+    .strip-ref { color: var(--color-paper); letter-spacing: 0.08em; }
+    .strip .sep { padding-inline: 0.5em; color: var(--color-signal-light); }
+    @media (max-width: 600px) { .strip-inner { letter-spacing: 0.08em; } .strip-ref { display: none; } }
+
+    /* Paper with margin topography: a fixed, clipped, inert contour layer masked to the page edges and the masthead band. */
+    .terrain, .topo {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      overflow: hidden;
+      pointer-events: none;
+      -webkit-mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - var(--page-max) / 2 - 2rem), transparent calc(50% - var(--page-max) / 2 + 3rem), transparent calc(50% + var(--page-max) / 2 - 3rem), #000 calc(50% + var(--page-max) / 2 + 2rem)), linear-gradient(180deg, #000 0, #000 9rem, transparent 26rem);
+      mask-image: linear-gradient(90deg, #000 0, #000 calc(50% - var(--page-max) / 2 - 2rem), transparent calc(50% - var(--page-max) / 2 + 3rem), transparent calc(50% + var(--page-max) / 2 - 3rem), #000 calc(50% + var(--page-max) / 2 + 2rem)), linear-gradient(180deg, #000 0, #000 9rem, transparent 26rem);
+    }
+    .terrain svg, .topo svg { display: block; width: 100%; height: 100%; }
+    .terrain .contours, .topo .contours { fill: none; stroke-linejoin: round; stroke-linecap: round; }
+    .terrain .contours path, .topo .contours path { stroke: var(--topo-line); stroke-opacity: var(--topo-minor-opacity); stroke-width: 1; vector-effect: non-scaling-stroke; }
+    .terrain .contours path.major, .topo .contours path.major { stroke: var(--topo-line-major); stroke-opacity: var(--topo-major-opacity); stroke-width: var(--topo-major-width); }
+
+    /* Plate I: frame the title and complete soldiers as in the approved reference. */
+    .banner { position: relative; z-index: 1; width: 100%; background: #d8cfae; line-height: 0; overflow: hidden; isolation: isolate; }
+    .banner picture { display: block; }
+    .banner img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 1127 / 291; object-fit: cover; object-position: 50% 62%; max-height: none;
+      filter: grayscale(1) contrast(1.45) brightness(0.95);
+      mix-blend-mode: multiply;
+    }
+    /* Duotone: the multiply above maps white to khaki paper; lighten lifts black to ink. */
+    .banner::before { content: ""; position: absolute; inset: 0; z-index: 1; background: #1e211b; mix-blend-mode: lighten; pointer-events: none; }
+    .plate-caption {
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0 var(--space-5);
+      margin-block: 0; padding-block: var(--space-2);
+      border-bottom: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted);
+    }
+    .plate-caption b { font-weight: 600; color: var(--color-text); }
+
+    /* Figure: the SOAC 52 - 2026 class photograph. */
+    .class-photo {
+      position: relative; z-index: 1;
+      width: calc(100% - 2 * var(--gutter)); max-width: var(--page-max); margin: var(--space-8) auto 0;
+      background: var(--color-surface);
+    }
+    .class-photo img {
+      display: block; width: 100%; height: auto;
+      aspect-ratio: 16 / 9; object-fit: cover; object-position: 50% 62%;
+      border-radius: 0; filter: grayscale(1) sepia(0.22) contrast(1.06);
+    }
+    .class-photo figcaption {
+      display: flex; flex-wrap: wrap; gap: 0 var(--space-4);
+      margin: 0; padding: var(--space-2) 0; border-top: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text);
+    }
+    .class-photo figcaption::before { content: var(--fig-photo, "Fig. 3") " \2014  Bandwidth Brothers,"; color: var(--color-muted); font-weight: 500; }
+
+    /* Buttons: square, hairline-precise, 44px targets. */
+    button {
+      font: inherit;
+      min-height: 44px;
+      min-width: 44px;
+      padding: var(--space-2) var(--space-5);
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius);
+      background: var(--color-accent);
+      color: var(--color-accent-text);
+      font-family: var(--font-sans);
+      font-size: var(--text-ui);
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+      cursor: pointer;
+      transition: background-color var(--speed) var(--ease), border-color var(--speed) var(--ease), color var(--speed) var(--ease);
+    }
+    button:hover:not(:disabled) { background: var(--color-accent-hover); border-color: var(--color-accent-hover); }
+    button.secondary { background: transparent; color: var(--color-text); border-color: var(--color-rule); }
+    button.secondary:hover:not(:disabled) { background: var(--color-sunken); color: var(--color-text); border-color: var(--color-text); }
+    button.compact { padding: var(--space-1) var(--space-4); font-size: var(--text-meta); }
+    button:disabled { cursor: not-allowed; opacity: 0.5; }
+    :focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    /* Headings that receive focus from script (tabindex=-1, never reached by Tab) are marked by an orange underline, not a box. */
+    [tabindex="-1"]:focus-visible { outline: 3px solid transparent; text-decoration: underline; text-decoration-color: var(--color-signal); text-decoration-thickness: 3px; text-underline-offset: 0.3em; }
+    .strip :focus-visible, .on-dark :focus-visible { outline-color: var(--color-signal-light); }
+    .arrow-r::after { content: "\00a0\2192"; font-family: var(--font-mono); }
+    .arrow-l::before { content: "\2190\00a0"; font-family: var(--font-mono); }
+
+    /* Section with a margin rail: number and heading in the rail, content to the right (stacked on narrow screens). */
+    .sect { display: grid; grid-template-columns: var(--rail) var(--body); column-gap: var(--col-gap); padding-block: var(--space-7); border-top: 1px solid var(--color-text); }
+    .sect-head { min-width: 0; }
+    .sect-num { display: block; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; color: var(--color-signal-text); }
+    .sect-head h2 { margin-top: var(--space-2); font-size: var(--text-h3); }
+    .sect-body { min-width: 0; }
+    @media (max-width: 900px) {
+      .sect { grid-template-columns: 1fr; row-gap: var(--space-4); padding-block: var(--space-6); }
+    }
+
+    /* Tags: square-cornered labels with a text name, never colour alone. */
+    .tag {
+      display: inline-flex; align-items: center; gap: 0.375rem;
+      padding: 0.0625rem 0.5rem; border: 1px solid currentColor; border-radius: var(--radius);
+      font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.6;
+      white-space: nowrap;
+    }
+
+    /* Tables: hairline rules, Mono heads and tabular numerals. */
+    .table-wrap { max-width: 100%; overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; background: transparent; font-variant-numeric: tabular-nums; }
+    caption { padding-bottom: var(--space-3); text-align: left; color: var(--color-muted); font-size: var(--text-meta); }
+    th, td { padding: var(--space-3) var(--space-3) var(--space-3) 0; border-bottom: 1px solid var(--color-hairline); text-align: left; vertical-align: baseline; }
+    thead th { padding-block: var(--space-2); border-bottom: 1px solid var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    td.num, th.num, .num { font-family: var(--font-mono); font-size: 0.9375rem; text-align: right; }
+
+    kbd {
+      display: inline-block;
+      min-width: 1.7em;
+      padding: 0 0.35em;
+      border: 1px solid var(--color-rule);
+      border-bottom-width: 2px;
+      border-radius: var(--radius);
+      background: var(--color-paper);
+      color: var(--color-text);
+      font-family: var(--font-mono);
+      font-size: 0.8em;
+      font-weight: 500;
+      line-height: 1.55;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .site-footer { position: relative; z-index: 1; }
+    .colophon {
+      display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-5);
+      margin-top: var(--space-8); padding-block: var(--space-4) var(--space-7); border-top: 1px solid var(--color-text);
+      font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted);
+    }
+  :root {
+  --study-ink: #203a30;
+  --study-dark: #142c24;
+  --study-gold: #dec58a;
+  --study-soft: #f8f5eb;
+  --study-line: #c8c2ae;
+}
+.study-wrap { width:min(100% - 3rem, 82rem); margin-inline:auto; }
+main.study-wrap { padding-bottom:3rem; }
+.skip-link { position:fixed; z-index:5; top:.75rem; left:.75rem; transform:translateY(-200%); padding:.65rem 1rem; background:var(--study-soft); }
+.skip-link:focus { transform:none; }
+.study-masthead { border-bottom:1px solid var(--study-line); background:#f7f5ec; }
+.study-header-inner { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.35rem 1.5rem; }
+.study-brand { min-height:6.75rem; display:inline-flex; align-items:center; gap:.7rem; color:var(--study-dark); font-weight:700; text-decoration:none; line-height:1.1; }
+.study-brand small { display:block; margin-top:.22rem; color:var(--color-muted); font: .64rem var(--font-mono); letter-spacing:.05em; }
+.brand-mark { display:grid; place-items:center; width:2.1rem; height:2.1rem; background:var(--study-ink); color:var(--study-gold); font:.78rem var(--font-mono); font-weight:600; border-radius:50%; }
+.study-nav { display:flex; flex-wrap:wrap; align-items:center; }
+.study-nav a { display:inline-flex; align-items:center; min-height:3.75rem; padding:.4rem .9rem; color:var(--study-dark); text-decoration:none; border-bottom:3px solid transparent; }
+.study-nav a:hover { background:var(--color-sunken); }
+.study-nav [aria-current] { border-color:var(--color-signal); font-weight:700; }
+
+.study-hero { margin-block:clamp(1rem, 3vw, 2rem); }
+.section-hero { position:relative; isolation:isolate; display:grid; grid-template-columns:minmax(0,1fr) minmax(15rem,26%); gap:3rem; padding:clamp(1.5rem,4vw,3.5rem) 0; color:var(--study-dark); border-bottom:1px solid var(--study-line); }
+.section-hero::before { content:none; }
+.study-hero-copy { min-width:0; }
+.study-hero h1 { font-size:clamp(3.5rem,8vw,7.5rem); font-family:Georgia,serif; font-weight:400; line-height:1; margin:.18em 0 .25em; letter-spacing:-.065em; overflow-wrap:break-word; }
+.study-deck { max-width:40ch; margin:.7rem 0 0; font-size:clamp(1.1rem,2vw,1.4rem); line-height:1.5; }
+.section-hero .study-eyebrow, .section-hero .hero-stats strong { color:var(--study-ink); }
+.study-eyebrow { margin:0 0 .35rem; font: .72rem/1.4 var(--font-mono); text-transform:uppercase; letter-spacing:.085em; }
+.hero-stats { display:flex; flex-wrap:wrap; gap:.8rem 2rem; margin:1.8rem 0 0; font-family:var(--font-mono); font-size:.75rem; }
+.hero-stats strong { font-size:1.25rem; display:block; margin-bottom:.25rem; }
+.hero-plate { align-self:stretch; min-height:18rem; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.75rem; padding:1.5rem 1rem; background:var(--study-dark); border-radius:2px; color:var(--study-soft); text-align:center; }
+.hero-plate img { width:clamp(9rem,17vw,14rem); height:auto; aspect-ratio:1; object-fit:contain; }
+.hero-plate > span { color:var(--study-gold); font:.65rem var(--font-mono); letter-spacing:.08em; text-transform:uppercase; }
+.book-mark { display:grid; place-items:center; width:51%; aspect-ratio:4/5; border:1px solid var(--study-gold); border-left:6px double var(--study-gold); background:#243e33; box-shadow:.45rem .45rem 0 #101f19; color:var(--study-gold); font:600 clamp(1rem, 2.2vw, 2rem) var(--font-mono); }
+.lesson-hero { padding:clamp(1rem, 3vw, 2.25rem) 0 1.35rem; border-bottom:1px solid var(--study-line); }
+.lesson-hero .study-eyebrow { color:var(--color-signal-text); }
+.lesson-hero h1 { max-width:22ch; font-size:clamp(2.15rem, 5vw, 4.3rem); line-height:1.02; color:var(--study-dark); }
+.lesson-hero .study-deck { color:var(--color-muted); }
+
+.study-layout { display:grid; grid-template-columns:minmax(10rem,15rem) minmax(0,1fr); gap:clamp(1.25rem,4vw,4rem); align-items:start; }
+.reviewer-layout { grid-template-areas:"rail finder" "rail content"; row-gap:.15rem; }
+.reviewer-layout > .study-rail { grid-area:rail; }
+.reviewer-layout > .study-content { grid-area:content; }
+.reviewer-layout > .study-finder { grid-area:finder; }
+.study-content { min-width:0; }
+.study-rail { position:sticky; top:1rem; padding:1rem 0; }
+.study-rail > .study-eyebrow { color:var(--color-muted); margin-bottom:.7rem; }
+.study-rail summary { padding-block:.5rem; color:var(--color-muted); cursor:pointer; }
+.study-rail ul { list-style:none; padding:0; margin:0; }
+.study-rail li { border-top:1px solid var(--study-line); }
+.study-rail a { display:grid; grid-template-columns:auto 1fr; gap:.55rem; align-items:center; min-height:2.75rem; padding:.36rem .25rem; text-decoration:none; color:var(--study-dark); font-size:.95rem; line-height:1.25; }
+.study-rail a:hover { background:var(--study-soft); text-decoration:underline; }
+.study-rail a span { font:.65rem var(--font-mono); color:var(--color-muted); }
+.study-finder { display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:.35rem 1rem; padding:0 0 1.25rem; border-bottom:1px solid var(--study-line); }
+.study-finder label { grid-column:1/-1; font-weight:700; color:var(--study-dark); }
+.study-finder input, .library-controls input { width:100%; min-width:0; padding:.55rem .75rem; min-height:2.75rem; font:inherit; background:#fffdf6; color:var(--color-text); border:1px solid var(--color-rule); }
+.study-finder p { margin:0; font:.72rem var(--font-mono); color:var(--color-muted); }
+.reviewer-module { padding-block:1.8rem 2.2rem; border-bottom:1px solid var(--study-line); scroll-margin-top:1rem; }
+.module-heading { display:flex; flex-wrap:wrap; align-items:end; justify-content:space-between; gap:.5rem 1rem; margin-bottom:.85rem; }
+.module-heading .study-eyebrow { color:var(--color-signal-text); }
+.module-heading h2, .library-catalogue h2, #document-title { margin:0; line-height:1.13; color:var(--study-dark); font-size:clamp(1.55rem, 3vw, 2.3rem); }
+.study-chip { display:inline-flex; align-items:center; width:fit-content; margin:0; padding:.28rem .52rem; border:1px solid var(--study-line); color:var(--color-muted); font:.7rem/1.25 var(--font-mono); white-space:nowrap; }
+.study-chip.available { background:#e5ead9; color:#2c4a31; border-color:#b0bda1; }
+.study-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:1rem; padding:0; margin:0; list-style:none; }
+.reviewer-card, .library-row { position:relative; min-width:0; background:#faf8f0; border:1px solid var(--study-line); padding:1.3rem; transition:background .18s,border-color .18s,box-shadow .18s; }
+.reviewer-card:hover, .library-row:hover { border-color:var(--study-ink); background:#fffdf7; box-shadow:0 5px 0 -2px #203a3026; }
+.reviewer-card a, .library-row h3 a { display:flex; justify-content:space-between; gap:.7rem; align-items:baseline; color:var(--study-dark); font-size:1.35rem; line-height:1.2; font-weight:600; text-decoration:none; }
+.reviewer-card a::after, .library-row h3 a::after { content:""; position:absolute; inset:0; }
+.card-arrow { flex:none; color:var(--color-signal-text); font: .9rem var(--font-mono); }
+.reviewer-card p { margin:.65rem 0 1.5rem; color:var(--color-muted); font-size:1rem; line-height:1.5; }
+
+.lesson-actions, .study-actions, .reader-controls { display:flex; flex-wrap:wrap; align-items:center; gap:.55rem .75rem; }
+.lesson-actions { padding-bottom:1.2rem; }
+.lesson-actions a, .study-actions a { display:inline-flex; align-items:center; min-height:2.75rem; padding:.45rem .7rem; }
+.lesson-actions .study-cta { color:var(--study-soft); background:var(--study-ink); text-decoration:none; font-weight:700; padding-inline:.95rem; }
+.lesson-actions .study-cta:hover { background:var(--study-dark); }
+.lesson-reading { max-width:72ch; font-size:1.11rem; line-height:1.6; }
+.lesson-section { padding:1.05rem 0 1.25rem; border-top:1px solid var(--study-line); scroll-margin-top:1rem; }
+.lesson-section h2 { display:flex; gap:.7rem; align-items:baseline; margin:0 0 .8rem; line-height:1.15; color:var(--study-dark); }
+.lesson-section h2 span { color:var(--color-signal-text); font:.72rem var(--font-mono); }
+.lesson-section :is(p, dl, ol, ul) { margin:.55rem 0 0; }
+.lesson-section li + li { margin-top:.5rem; }
+.fact-list > div { display:grid; grid-template-columns:minmax(7rem, 1fr) minmax(0, 2.6fr); gap:.35rem 1rem; padding:.7rem 0; border-bottom:1px solid var(--study-line); }
+.fact-list dt { color:var(--study-dark); font-weight:700; }
+.fact-list dd { margin:0; }
+.lesson-section:is(#scenario,#self-check) { background:var(--study-soft); border-top:2px solid var(--study-ink); padding:1.15rem clamp(.85rem, 2.4vw, 1.6rem); margin-bottom:1.15rem; }
+.lesson-section details, .document-workspace details { border-top:1px solid var(--study-line); padding:.6rem 0; margin-top:.8rem; }
+.lesson-section summary, .document-workspace summary { cursor:pointer; font-weight:700; min-height:2.75rem; padding-block:.4rem; color:var(--study-dark); }
+.study-muted { color:var(--color-muted); }
+
+.document-open .section-hero { display:none; }
+.document-workspace { margin-block:1rem 2rem; padding:clamp(.65rem, 2vw, 1.45rem); background:var(--study-soft); border-top:3px solid var(--study-ink); }
+.document-back { display:inline-flex; align-items:center; min-height:2.75rem; font-weight:700; }
+#document-meta { margin:.35rem 0 1rem; color:var(--color-muted); }
+.library-catalogue { padding-top:.5rem; }
+.library-catalogue .study-actions { margin-block:.65rem; }
+.library-catalogue .study-actions a { border:1px solid var(--study-line); background:var(--study-soft); text-decoration:none; color:var(--study-dark); }
+.library-catalogue .study-actions [aria-current] { color:var(--study-soft); background:var(--study-ink); border-color:var(--study-ink); }
+.library-controls { max-width:35rem; margin-top:.75rem; }
+.library-controls label { display:block; margin-bottom:.3rem; font-weight:700; }
+#library-count { color:var(--color-muted); font:.75rem var(--font-mono); }
+.library-list { list-style:none; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:1.25rem; }
+.library-row h3 { margin:.65rem 0; }
+.library-row .study-eyebrow { color:var(--color-signal-text); }
+.library-links { margin:0 0 .65rem; color:var(--color-muted); line-height:1.35; }
+[hidden] { display:none !important; }
+
+
+body { background-color:#f3f1e7; }
+.hero-plate p { margin:0; font:italic 1.25rem/1.25 Georgia,serif; }
+.hero-plate a { color:var(--study-gold); font-size:.95rem; min-height:2.75rem; display:flex; align-items:center; }
+.lesson-number { display:block; margin-bottom:1rem; font:.7rem var(--font-mono); color:var(--color-signal-text); }
+.card-foot { display:flex; justify-content:space-between; gap:.5rem; margin-top:auto; padding-top:.65rem; border-top:1px solid var(--study-line); color:var(--color-muted); font:.61rem/1.6 var(--font-mono); letter-spacing:.025em; }
+.reviewer-card { display:flex; flex-direction:column; }
+.reviewer-card .card-arrow { display:none; }
+.study-rail a[aria-current="location"] { border-left:3px solid var(--study-ink); background:#e6eadc; padding-left:.6rem; }
+.document-mark { display:flex; align-items:flex-end; justify-content:space-between; height:4.5rem; padding:.8rem; margin:-1.3rem -1.3rem 1.2rem; background:#e2e6d7; color:var(--study-ink); font:.75rem var(--font-mono); border-bottom:1px solid var(--study-line); }
+.document-mark::after { content:"↗"; font-size:1.4rem; }
+.library-row[data-kind="manual"] .document-mark { background:var(--study-dark); color:var(--study-gold); }
+.library-links { font-size:.9rem; }
+.library-row { border-radius:2px; box-shadow:3px 3px 0 #e0dece; }
+.library-row .study-chip { margin-top:auto; }
+.book-stack { width:85%; padding:2rem 0; perspective:600px; }
+.book-stack div { height:3.1rem; padding:1rem .6rem; margin-top:.6rem; border-left:5px double #d6bc82; background:#eadfc3; color:var(--study-dark); font:.7rem var(--font-mono); box-shadow:4px 5px 0 #071b14; transform:rotate(-5deg); }
+.book-stack div:nth-child(2) { transform:rotate(4deg); background:#c8d0b1; }
+.book-stack div:nth-child(3) { transform:rotate(-2deg); background:#dfb96f; }
+.study-return { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem; margin:0 0 1.75rem; padding:1rem 1.3rem; background:#e5eadb; border-left:3px solid var(--study-ink); }
+.study-return p { margin:.15rem 0; }
+.study-return a { font-size:1.1rem; color:var(--study-dark); font-weight:600; }
+.study-return button { background:transparent; border:1px solid var(--study-line); color:var(--study-dark); font:inherit; min-height:2.75rem; padding:.5rem .8rem; cursor:pointer; }
+.study-footer { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem 2rem; margin-top:2rem; padding-block:2rem; border-top:1px solid var(--study-line); color:var(--study-dark); }
+.study-footer > span { font-weight:700; }
+.study-footer small { display:block; font:.65rem var(--font-mono); margin-top:.3rem; }
+.study-footer p { font:italic 1.05rem Georgia,serif; }
+.study-footer a { display:flex; min-height:2.75rem; align-items:center; }
+.lesson-reading { padding:0 0 2rem; }
+.lesson-section h2 { font-size:1.85rem; }
+.lesson-section#scenario { border-top:3px solid var(--study-gold); background:#e5eadb; }
+.study-reading-progress { position:fixed; z-index:6; inset:0 0 auto; height:3px; background:var(--study-ink); transform-origin:left; transform:scaleX(0); pointer-events:none; }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { scroll-behavior:auto!important; transition:none!important; } }
+
+@media (max-width:840px) {
+  .section-hero { grid-template-columns:minmax(0,1fr) 13rem; gap:1.5rem; }
+  .hero-plate { min-height:16rem; }
+  .study-layout { grid-template-columns:minmax(0,1fr); gap:.6rem; }
+  .reviewer-layout { grid-template-areas:"finder" "rail" "content"; }
+  .study-rail { position:static; padding:.4rem 0; }
+  .study-rail ul { display:flex; flex-wrap:wrap; gap:.35rem; }
+  .study-rail li { border:1px solid var(--study-line); }
+  .study-rail a { padding:.3rem .5rem; }
+  .study-rail a span { display:none; }
+  .lesson-reading { max-width:none; }
+  .library-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media (max-width:520px) {
+  .study-wrap { width:calc(100% - 1.2rem); }
+  .study-header-inner { gap:0; }
+  .study-nav { width:100%; }
+  .study-nav a { min-height:2.75rem; padding:.35rem .65rem; }
+  .section-hero { display:block; padding:1.5rem 0; }
+  .hero-plate { display:none; }
+  .study-hero h1 { font-size:clamp(2.8rem, 13vw, 4rem); }
+  .study-finder { grid-template-columns:1fr; padding:.8rem; }
+  .study-grid, .library-list { grid-template-columns:minmax(0,1fr); }
+  .fact-list > div { grid-template-columns:minmax(0,1fr); }
+  .lesson-section h2 { font-size:1.55rem; }
+  .reader-page-label { position:absolute; width:1px; height:1px; clip-path:inset(50%); overflow:hidden; white-space:nowrap; }
+}
+
+.review-topic { padding: 1.5rem 0; border-bottom: 1px solid #b8b6a6; }
+.review-topic:first-of-type { padding-top: 0; }
+.review-topic h3 { font-size: clamp(1.2rem, 2vw, 1.6rem); line-height: 1.3; }
+.exam-trap { border-left: 3px solid #a44825; padding: .75rem 1rem; background: #eae4d3; }
+.topic-source { font-size: .85rem; line-height: 1.8; overflow-wrap: anywhere; }
+.exam-practice summary .study-eyebrow { display: block; margin-bottom: .5rem; }
+</style>
+<link rel="stylesheet" href="../../assets/identity.css">
+<link rel="stylesheet" href="../../assets/ui-polish.css"><link rel="icon" type="image/png" href="../../assets/bandwidth-brothers-colored.png">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="study-masthead">
+    <div class="study-wrap study-header-inner">
+      <a class="study-brand" href="../../"><img class="brand-crest" data-class-crest src="../../assets/bandwidth-brothers-colored.png" width="48" height="48" alt=""><span>Bandwidth Brothers <small>SOAC 52–26</small></span></a>
+      <nav class="study-nav" aria-label="Site sections">
+        <a href="../../"><svg class="nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="1"/><path d="M9 4V2h6v2M8 10l2 2 4-4M8 17h8"/></svg><span>Practice exams</span></a>
+        <a href="../../reviewer/"><svg class="nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v16M3 4h5a4 4 0 0 1 4 2 4 4 0 0 1 4-2h5v15h-5a4 4 0 0 0-4 2 4 4 0 0 0-4-2H3z"/></svg><span>Reviewer 101</span></a>
+        <a href="../../library/"><svg class="nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h4v16H4zM10 4h4v16h-4zM16 5l4-1 3 15-4 1zM4 16h4M10 16h4"/></svg><span>Library</span></a>
+        <a href="../../how-to/" aria-current="page"><svg class="nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v4H9zM12 7v4M5 11h14M5 11v5M19 11v5M2 16h6v5H2zM16 16h6v5h-6z"/></svg><span>How To</span></a>
+        <a href="../../los-radios/"><svg class="nav-icon" aria-hidden="true" focusable="false" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="8" width="12" height="14" rx="1"/><path d="M8 8V2M10 12h4M10 17h4M10 19h4M16 2a6 6 0 0 1 6 6M16 5a3 3 0 0 1 3 3"/></svg><span>LOS Radios</span></a>
+      </nav>
+    </div>
+  </div>
+  <main id="main" class="study-wrap">
+    <header class="study-hero lesson-hero">
+      <div class="study-hero-copy">
+        <p class="study-eyebrow">HOW TO / Radio programming</p>
+        <h1>Configure an RF-5800V scan list</h1>
+        <p class="study-deck">Choose which nets to monitor, set the priority nets, and check the scan timing against your task.</p>
+<div class="signal-meta"><span>RF-5800V-HH</span><span>10–15 min</span><span>5 steps</span></div><a class="signal-back" href="../">← All signal guides</a>
+      </div>
+
+    </header>
+    <article class="signal-guide" data-signal-guide="how-to-configure-rf5800v-scan" data-signal-type="programming">
+    <div class="signal-setup">
+      <figure class="signal-diagram">
+        <div class="signal-diagram-head"><span class="signal-label"><i></i> CONNECTION DIAGRAM</span><button type="button" class="signal-control signal-play" data-signal-play hidden>Play signal flow</button></div>
+        <svg viewBox="0 0 480 225" focusable="false" role="img" aria-label="List → priority → timing"><path class="sig-flow" d="M84 74H398v104H84z"/>
+      <g class="sig-device"><rect x="25" y="45" width="118" height="65" rx="8"/><rect x="180" y="45" width="118" height="65" rx="8"/><rect x="335" y="45" width="118" height="65" rx="8"/></g>
+      <text x="84" y="72">LIST</text><text x="84" y="94">NETS</text>
+      <text x="239" y="72">PRIORITY</text><text x="239" y="94">TX / RX</text>
+      <text x="394" y="72">CONFIG</text><text x="394" y="94">TIMING</text>
+      <path class="sig-accent" d="M153 68l8 6-8 6m154-12 8 6-8 6m-61 98-8 6 8 6"/>
+      <text x="240" y="151">REOPEN • COMPARE • TEST</text><text x="240" y="210">Saved list ≠ scanning active</text></svg>
+        <figcaption><strong>List → priority → timing</strong> Configuration has three parts. Confirm the scan activation control separately in the applicable operator manual. <span>Training schematic · not to scale</span></figcaption>
+      </figure>
+      <section class="signal-panel signal-kit" aria-labelledby="signal-kit-title">
+        <p class="signal-label">BEFORE YOU START</p><h2 id="signal-kit-title">Kit &amp; prerequisites</h2>
+        <p><strong>Equipment</strong><br>RF-5800V-HH with existing programmed nets and a coordinated test station</p>
+        <ul><li>An approved list of existing nets to monitor</li><li>Assigned priority transmit/receive nets and timing values</li><li>Radio firmware/menu labels checked against the operator manual; this handout covers configuration, not the scan activation control</li></ul>
+      </section>
+    </div>
+    
+    <section class="signal-procedure" aria-labelledby="signal-steps-title">
+      <div class="signal-section-head"><div><p class="signal-label">FIELD CHECKLIST</p><h2 id="signal-steps-title">Follow the steps</h2></div><button type="button" class="signal-control" data-signal-print hidden>Print guide</button></div>
+      <div class="signal-progress" data-signal-progress hidden>
+        <div class="signal-progress-copy"><p role="status" data-signal-progress-text>0 of 5 steps complete</p><progress max="5" value="0" aria-label="Checklist progress"></progress><p data-signal-storage>Progress is saved on this device.</p></div>
+        <button type="button" class="signal-control" data-signal-reset>Reset checklist</button>
+      </div>
+      <ol class="signal-steps"><li>
+        <span class="signal-step-number" aria-hidden="true">01</span>
+        <div class="signal-step-copy"><h3>Build the scan list</h3><p>Press [8-PGM] → SCAN → LIST → ADD. Add each assigned existing net and confirm with Enter. The source uses Net 01 only as an example.</p><p class="signal-step-check"><strong>Verify</strong> Every intended net is included and unrelated nets are absent.</p>
+        <label class="signal-step-control" hidden><input type="checkbox" data-signal-step><span>Mark step 1 complete</span></label></div>
+      </li><li>
+        <span class="signal-step-number" aria-hidden="true">02</span>
+        <div class="signal-step-copy"><h3>Set the priority transmit net</h3><p>Open PRIORITY and set Priority TX to the assigned net. Do not assume the currently heard net is the transmit destination.</p><p class="signal-step-check"><strong>Verify</strong> The priority TX entry agrees with the communication task.</p>
+        <label class="signal-step-control" hidden><input type="checkbox" data-signal-step><span>Mark step 2 complete</span></label></div>
+      </li><li>
+        <span class="signal-step-number" aria-hidden="true">03</span>
+        <div class="signal-step-copy"><h3>Set priority receive monitoring</h3><p>In PRIORITY, set Enable Priority RX and Priority RX Net as assigned. The source example enables priority reception on Net 02.</p><p class="signal-step-check"><strong>Verify</strong> Priority reception is enabled only when required, with the correct net selected.</p>
+        <label class="signal-step-control" hidden><input type="checkbox" data-signal-step><span>Mark step 3 complete</span></label></div>
+      </li><li>
+        <span class="signal-step-number" aria-hidden="true">04</span>
+        <div class="signal-step-copy"><h3>Configure the timing</h3><p>Open CONFIG. Set Hang Time, enable Hold Time if required, and set its duration. The slide illustrates 3 seconds and 9 seconds; use your assigned values. It repeats the label “Enable Hold Time” for the duration line, so verify the actual field label on your radio.</p><p class="signal-step-check"><strong>Verify</strong> The enable choice and duration are checked separately; the example timings have not been treated as defaults.</p>
+        <label class="signal-step-control" hidden><input type="checkbox" data-signal-step><span>Mark step 4 complete</span></label></div>
+      </li><li>
+        <span class="signal-step-number" aria-hidden="true">05</span>
+        <div class="signal-step-copy"><h3>Review the configuration and test monitoring</h3><p>Reopen LIST, PRIORITY and CONFIG to confirm the saved entries. Use the applicable operator-manual control to activate scanning; that control is not shown in this excerpt. With a partner, make identified test calls on the listed nets and confirm reception.</p><p class="signal-step-check"><strong>Verify</strong> Record which test nets were heard and whether priority reception behaved as intended.</p>
+        <label class="signal-step-control" hidden><input type="checkbox" data-signal-step><span>Mark step 5 complete</span></label></div>
+      </li></ol>
+    </section>
+    <section class="signal-finish" aria-labelledby="signal-finish-title"><p class="signal-label">VERIFICATION</p><h2 id="signal-finish-title">Done when</h2><p>The scan list, priority entries and timing match the task, and the coordinated monitoring test is recorded.</p></section>
+    <div class="signal-reference">
+      <section class="signal-panel" aria-labelledby="signal-trouble-title"><p class="signal-label">FIELD DIAGNOSIS</p><h2 id="signal-trouble-title">Troubleshooting</h2>
+        <dl><dt>An expected net is not heard</dt><dd>Check that the net exists, is in LIST, and scanning is active using the applicable operator manual.</dd><dt>Priority traffic is missed</dt><dd>Check Enable Priority RX and Priority RX Net before changing unrelated settings.</dd><dt>The radio appears to linger after traffic</dt><dd>Review Hang Time and Hold Time against the assigned values; use the operator manual for their exact firmware-specific behavior.</dd></dl>
+        <p class="signal-watch"><strong>Watch for</strong> Adding a net to the list is not proof that scanning has been activated. The supplied three procedure slides do not identify the activation control.</p>
+      </section>
+      <section class="signal-panel" aria-labelledby="signal-source-title"><p class="signal-label">SOURCE MATERIAL</p><h2 id="signal-source-title">Open the handout</h2><p>Page numbers refer to the original handout. Each link opens the matching page in the PDF excerpt.</p><div class="signal-document"><h3>7.Net Scanning Operation 5800</h3><div class="signal-source-pages"><a href="../../library/files/signal-howto-configure-rf5800v-scan.pdf#page=1" target="_blank" rel="noopener" aria-label="7.Net Scanning Operation 5800, original page 10 (opens PDF in a new tab)">Page 10 <span aria-hidden="true">↗</span></a><a href="../../library/files/signal-howto-configure-rf5800v-scan.pdf#page=2" target="_blank" rel="noopener" aria-label="7.Net Scanning Operation 5800, original page 11 (opens PDF in a new tab)">Page 11 <span aria-hidden="true">↗</span></a><a href="../../library/files/signal-howto-configure-rf5800v-scan.pdf#page=3" target="_blank" rel="noopener" aria-label="7.Net Scanning Operation 5800, original page 12 (opens PDF in a new tab)">Page 12 <span aria-hidden="true">↗</span></a></div></div></section>
+    </div>
+  </article>
+  </main>
+  <footer class="study-footer study-wrap"><span>Bandwidth Brothers <small>SOAC 52–26</small></span><p>Read with purpose. Lead with understanding.</p><a href="#main">Back to top ↑</a></footer>
+<link rel="stylesheet" href="../../assets/signal-howto.css"><script src="../../assets/signal-howto.js" defer></script>
+<script src="../../assets/identity.js" defer></script>
+</body>
+</html>

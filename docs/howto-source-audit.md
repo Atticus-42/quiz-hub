@@ -1,5 +1,19 @@
 # Signal How To source audit
 
+## Expansion — 8 November 2026
+
+Added three guides from the newly inventoried local lesson PDFs. Each source excerpt was compared page-by-page against its original extracted text, and its opening page was visually reviewed.
+
+| Guide | Original source pages | Hosted excerpt |
+|---|---|---|
+| RF-5800V-HH net programming | Net Programming 5800, 9–15 | signal-howto-program-rf5800v-net.pdf |
+| RF-5800V-HH scan configuration | Net Scanning Operation 5800, 10–12 | signal-howto-configure-rf5800v-scan.pdf |
+| Repeater channel-pair check | Repeater Systems, 7–9, 13, 16 | signal-howto-check-repeater-channel-pair.pdf |
+
+The scan guide explicitly distinguishes configuration from activation: the excerpt does not show the activation control. Page 12 duplicates the Enable Hold Time label for the duration line; the guide flags this rather than inventing a menu label. Repeater offset arithmetic is explained from the subscriber's viewpoint (TX minus RX); generic band offsets and example frequencies are not treated as assignments. No operational channel plans or key material were added.
+
+The new schematics are task-specific: six net-setting groups, scan configuration flow, and subscriber/repeater frequency directions. Existing filtering, local checklists, animation controls, reduced-motion behavior and print support apply to all ten guides.
+
 Verified on 7 November 2026. This replaces the earlier general study-task directory with equipment-specific signal procedures.
 
 The source collections are the two Drive folders supplied by the user:
