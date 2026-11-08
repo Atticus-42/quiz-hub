@@ -6,16 +6,24 @@ const pages = ['index.html', 'reviewer/index.html', 'reviewer/eccm/index.html', 
 const labels = ['Practice exams', 'Reviewer 101', 'Library', 'How To', 'LOS Radios'];
 
 for (const path of pages) {
-  test(`${path}: section links keep readable labels beside decorative vector icons`, () => {
+  test(`${path}: section links keep consistent text-only labels`, () => {
     const html = readFileSync(new URL('../../' + path, import.meta.url), 'utf8');
     const nav = html.match(/<nav[^>]*aria-label="Site sections"[^>]*>([\s\S]*?)<\/nav>/)?.[1];
     assert.ok(nav, 'site section navigation exists');
     for (const label of labels) {
       const link = [...nav.matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/g)].map(match => match[0]).find(link => link.includes(label));
       assert.ok(link, label);
-      assert.match(link, /<svg\b[^>]*class="nav-icon"[^>]*aria-hidden="true"[^>]*focusable="false"/, label + ' decorative icon');
+      assert.doesNotMatch(link, /<svg|<img/, label + ' text-only navigation');
       assert.match(link, new RegExp('<span>' + label + '</span>'), label + ' visible label');
     }
     assert.equal((nav.match(/aria-current="page"/g) || []).length, 1, 'one current section');
   });
+}
+
+for (const [section,icon] of Object.entries({'':'exams',reviewer:'reviewer',library:'library','how-to':'howto','los-radios':'radio','codes-ciphers':'cipher',schedule:'schedule',class:'class',instructor:'instructor'})) {
+ test(`browser favicon: ${section || 'home'}`,()=>{
+  const html=readFileSync(new URL('../../'+(section ? section+'/' : '')+'index.html',import.meta.url),'utf8');
+  assert.ok(html.includes('assets/favicons/'+icon+'.svg'));
+  assert.match(readFileSync(new URL('../../assets/favicons/'+icon+'.svg',import.meta.url),'utf8'),/<svg/);
+ });
 }
