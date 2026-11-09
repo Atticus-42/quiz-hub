@@ -1,0 +1,335 @@
+[
+  {
+    "id": "signal",
+    "title": "Army Signal Regiment",
+    "branch": "Signal",
+    "tag": "Doctrine · 15 April 2022 edition",
+    "intro": "Follow the signal-support organization described in PAM 6-0102. These are subordinate-unit types and missions, not a current personnel roster.",
+    "sources": [
+      {
+        "file": "pam-6-0102",
+        "page": 16,
+        "label": "Signal Operations · printed page 7 · figure 1.3 and paragraph 0130"
+      }
+    ],
+    "notes": [
+      "Seven subordinate-unit categories are listed. Figure 1.3 depicts eleven signal battalions. These are 2022 source-edition unit counts, not current personnel strengths.",
+      "Officer and enlisted strengths are not stated on the cited page."
+    ],
+    "tree": {
+      "title": "Army Signal Regiment",
+      "role": "Signal support and services for the Philippine Army.",
+      "children": [
+        {
+          "title": "Headquarters & Headquarters Company",
+          "role": "Command, control and administration."
+        },
+        {
+          "title": "Command Signal Battalion",
+          "role": "Signal support to HPA post units and other PA units in NCR."
+        },
+        {
+          "title": "Network Enterprise Technology Battalion",
+          "role": "Operate, maintain, enhance and secure PA IT infrastructure."
+        },
+        {
+          "title": "Signal Battalion",
+          "role": "Signal support to infantry division and brigade headquarters. Figure 1.3 depicts eleven signal battalions in the 15 April 2022 edition.",
+          "quantity": 11
+        },
+        {
+          "title": "Signal Installation & Maintenance Battalion",
+          "role": "Signal installation and maintenance support."
+        },
+        {
+          "title": "Cyber Battalion",
+          "role": "Cybersecurity operations to protect PA cyber assets."
+        },
+        {
+          "title": "The Signal School",
+          "role": "Specialized communications, electronics and information-systems education."
+        }
+      ]
+    }
+  },
+  {
+    "id": "infantry",
+    "title": "Infantry rifle company",
+    "branch": "Infantry",
+    "tag": "Doctrine · 2 June 2018 edition",
+    "intro": "Explore the company down to its nine-person squads. Quantities beside branches show how many subunits the parent contains.",
+    "sources": [
+      {
+        "file": "pam-3-0101-04",
+        "page": 13,
+        "label": "Infantry Company Operations · printed page 2 · company and platoon"
+      },
+      {
+        "file": "pam-3-0101-04",
+        "page": 14,
+        "label": "Infantry Company Operations · printed page 3 · squad and fire teams"
+      },
+      {
+        "file": "pam-3-0101-04",
+        "page": 16,
+        "label": "Infantry Company Operations · printed pages 5–7 · key personnel"
+      }
+    ],
+    "notes": [
+      "Nine personnel per squad and four per fire team are explicit source counts. Three squads contain 27 people, but this excludes platoon HQ and the attached medic.",
+      "The designated marksman is not an additional person. The cited pages do not explicitly tabulate officer/EP totals."
+    ],
+    "tree": {
+      "title": "Infantry rifle company",
+      "role": "One headquarters platoon and three rifle platoons.",
+      "children": [
+        {
+          "title": "Headquarters platoon",
+          "role": "",
+          "children": [
+            {
+              "title": "Command section",
+              "role": "Company commander and staff. Command and control, resupply and casualty evacuation coordination."
+            },
+            {
+              "title": "Anti-armor section",
+              "role": "Company anti-armor support."
+            },
+            {
+              "title": "Mortar section",
+              "role": "Immediate indirect-fire support."
+            }
+          ]
+        },
+        {
+          "title": "Rifle platoon",
+          "role": "The source specifies three squads. The full headquarters strength and officer/EP split are not confirmed here.",
+          "quantity": 3,
+          "children": [
+            {
+              "title": "Platoon headquarters",
+              "role": "Leader, sergeant, radio operator, assault-weapon gunner, ammunition bearer and machine-gun personnel. The wording about machine-gun crews is ambiguous, so no total is calculated."
+            },
+            {
+              "title": "Rifle squad",
+              "role": "One squad leader and two four-person fire teams.",
+              "id": "rifle-squad",
+              "quantity": 3,
+              "personnel": 9,
+              "children": [
+                {
+                  "title": "Squad leader",
+                  "role": "",
+                  "personnel": 1
+                },
+                {
+                  "title": "Fire Team A",
+                  "role": "Four positions. The rifleman also serves as the squad designated marksman.",
+                  "personnel": 4,
+                  "children": [
+                    {
+                      "title": "Team leader",
+                      "role": "",
+                      "personnel": 1
+                    },
+                    {
+                      "title": "Automatic rifleman",
+                      "role": "",
+                      "personnel": 1
+                    },
+                    {
+                      "title": "Grenadier",
+                      "role": "",
+                      "personnel": 1
+                    },
+                    {
+                      "title": "Rifleman / squad designated marksman",
+                      "role": "The marksman occupies an existing rifleman position.",
+                      "personnel": 1
+                    }
+                  ]
+                },
+                {
+                  "title": "Fire Team B",
+                  "role": "Four positions.",
+                  "personnel": 4,
+                  "children": [
+                    {
+                      "title": "Team leader",
+                      "role": "",
+                      "personnel": 1
+                    },
+                    {
+                      "title": "Automatic rifleman",
+                      "role": "",
+                      "personnel": 1
+                    },
+                    {
+                      "title": "Grenadier",
+                      "role": "",
+                      "personnel": 1
+                    },
+                    {
+                      "title": "Rifleman",
+                      "role": "Rifleman position in Fire Team B.",
+                      "personnel": 1
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Medical aid-man",
+              "role": "Attached from the battalion medical platoon. Kept separate from organic personnel.",
+              "relation": "Attached",
+              "personnel": 1
+            }
+          ]
+        }
+      ]
+    },
+    "roles": [
+      {
+        "title": "Company commander",
+        "role": "Responsible for employment, training, administration, personnel management and sustainment."
+      },
+      {
+        "title": "Executive officer",
+        "role": "Second in command. Assists planning and coordinates sustainment."
+      },
+      {
+        "title": "Platoon leader",
+        "role": "Responsible for the platoon’s employment, training, administration and logistics."
+      },
+      {
+        "title": "First sergeant",
+        "role": "Senior company NCO. Supervises routine operations and advises the commander."
+      },
+      {
+        "title": "Platoon sergeant",
+        "role": "Advises the platoon leader and supervises administration, logistics and maintenance."
+      },
+      {
+        "title": "Communications sergeant / senior radio operator",
+        "role": "Supervises operation, maintenance and installation of organic communications."
+      },
+      {
+        "title": "Radio operator",
+        "role": "Operates and maintains the assigned radio."
+      }
+    ],
+    "rolesSource": 2
+  },
+  {
+    "id": "scout",
+    "title": "Cavalry scout platoon",
+    "branch": "Cavalry",
+    "tag": "Armor lesson · slides 58–59",
+    "intro": "Read the lesson’s platoon diagram alongside its illustrated scout-section positions.",
+    "sources": [
+      {
+        "file": "lesson-armor",
+        "page": 58,
+        "label": "Armor lesson · slide 58 · scout platoon"
+      },
+      {
+        "file": "lesson-armor",
+        "page": 59,
+        "label": "Armor lesson · slide 59 · scout section"
+      }
+    ],
+    "notes": [
+      "Slide 58 labels the platoon “1 | 19” and its headquarters “1 | 9”. The slide does not provide an officer/EP legend. Those labels are preserved without claiming a verified personnel split.",
+      "The section illustration depicts ten positions. That count is derived from the pictured roles, not a separate authorized-strength table. “SL” is retained as printed."
+    ],
+    "tree": {
+      "title": "Scout platoon",
+      "role": "Source chart notation: 1 | 19. Officer/EP interpretation requires a legend.",
+      "children": [
+        {
+          "title": "Platoon headquarters",
+          "role": "Source chart notation: 1 | 9."
+        },
+        {
+          "title": "Scout section",
+          "role": "Ten positions depicted on slide 59.",
+          "personnel": 10,
+          "countBasis": "Counted from illustrated roles",
+          "children": [
+            {
+              "title": "Section leader",
+              "role": "",
+              "personnel": 1
+            },
+            {
+              "title": "SL",
+              "role": "Abbreviation as printed in the source.",
+              "personnel": 1
+            },
+            {
+              "title": "Vehicle crew",
+              "role": "Two sets of four labelled positions.",
+              "quantity": 2,
+              "personnel": 4,
+              "children": [
+                {
+                  "title": "Gunner",
+                  "role": "",
+                  "personnel": 1
+                },
+                {
+                  "title": "Driver",
+                  "role": "",
+                  "personnel": 1
+                },
+                {
+                  "title": "Scout",
+                  "role": "",
+                  "personnel": 1
+                },
+                {
+                  "title": "Loader",
+                  "role": "",
+                  "personnel": 1
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "artillery-signal",
+    "title": "Signal platoon in Field Artillery",
+    "branch": "Signal",
+    "tag": "Course lesson · organic relationship",
+    "intro": "Locate the signal platoon within the Field Artillery Battalion organization described in your lesson.",
+    "sources": [
+      {
+        "file": "lesson-field-artillery",
+        "page": 37,
+        "label": "Field Artillery lesson · slide 37 · communications"
+      }
+    ],
+    "notes": [
+      "The lesson establishes the platoon’s parent organization. It does not specify its sections, individual designations or officer/EP establishment. Those details remain open until a supporting source is available."
+    ],
+    "tree": {
+      "title": "Field Artillery Battalion",
+      "role": "",
+      "children": [
+        {
+          "title": "Headquarters & Headquarters Battery",
+          "role": "",
+          "children": [
+            {
+              "title": "Signal platoon",
+              "role": "Organic to the FABn Headquarters and Headquarters Battery. Personnel establishment not specified."
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

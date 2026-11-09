@@ -100,7 +100,7 @@ export async function buildSuite({ lessons, modules }) {
       ...scheduleWeeks.map(start => `schedule-${start}/index.html`),
       'instructor/index.html', 'codes-ciphers/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
     const howtoPages = JSON.parse(readFileSync(join(ROOT, 'data/howto.json'), 'utf8')).map(guide => `how-to/${guide.id}/index.html`);
-    const studyPages = [...howtoPages, 'how-to/index.html', 'los-radios/index.html', 'library/index.html', 'reviewer/index.html', ...lessons.filter(lesson => !lesson.pool && !(lesson.prominent && lesson.order === 0)).map(lesson => `reviewer/${lesson.key}/index.html`)];
+    const studyPages = [...howtoPages, 'how-to/index.html', 'los-radios/index.html', 'library/index.html', 'library/unit-organization/index.html', 'reviewer/index.html', ...lessons.filter(lesson => !lesson.pool && !(lesson.prominent && lesson.order === 0)).map(lesson => `reviewer/${lesson.key}/index.html`)];
     assert.deepEqual(Object.keys(pages).sort(), [...expectedPages, ...studyPages].sort());
     for (const slug of ['isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal', 'coalition-signal', 'combined']) assert.ok(expectedPages.includes(`${slug}/index.html`), slug);
     for (const [path, html] of Object.entries(pages)) {

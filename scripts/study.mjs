@@ -1,3 +1,4 @@
+import { renderOrganizations } from './unit-organizations.mjs';
 import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { renderResources } from './resources.mjs';
@@ -170,6 +171,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     '<a class="document-back" href="./">← Back to library</a><h2 id="document-title"></h2><p id="document-meta"></p>' +
     '<p id="document-availability"></p>' +
     '<details><summary id="document-lesson-summary">Connected lessons</summary><ul id="document-lessons"></ul></details></section>' +
+    '<nav class="study-actions" aria-label="Library tools"><a href="unit-organization/">Explore Unit Organization →</a></nav>' +
     '<section class="library-catalogue" aria-labelledby="catalogue-title"><p class="study-eyebrow">Catalogue</p><h2 id="catalogue-title">Find a reference</h2>' +
     '<nav class="study-actions" aria-label="Library categories"><a data-type="all" href="./">All documents</a><a data-type="lesson" href="?type=lesson">Lessons</a><a data-type="manual" href="?type=manual">Manuals</a></nav>' +
     '<div class="library-controls"><label for="library-search">Search by title, manual number or lesson</label><input id="library-search" type="search" placeholder="Try PAM 6-0102 or Zero Trust"></div>' +
@@ -181,6 +183,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     art: '<div class="hero-plate library-plate" aria-hidden="true"><div class="book-stack"><div>DOCTRINE</div><div>FIELD NOTES</div><div>MANUALS</div></div><span>Read. Connect. Understand.</span></div>',
     scripts: '<script type="application/json" id="library-data">' + scriptJson(metadata) + '</script><script type="module" src="../assets/library.js?v=catalogue-6"></script>',
   });
+  renderOrganizations(root, render, e);
   renderResources(root, render, e);
   return pages;
 }
