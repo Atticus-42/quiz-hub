@@ -862,21 +862,56 @@ function scheduleBlock(block, lessons) {
 }
 
 export function renderSchedule(template, contours, data, lessons, { base = '', activities = [] } = {}) {
-  const activityList = activities.map(({ when, title, detail }) =>
-    `<li><p class="label activity-date">${escapeHtml(when)}</p><p class="activity-title">${escapeHtml(title)}</p>${
-      detail ? `<p class="activity-detail">${escapeHtml(detail)}</p>` : ''
-    }</li>`
-  ).join('\n      ');
-  const activitySection = activityList ? [
+  const activitiesByDate = new Map();
+  for (const activity of activities) {
+    if (!activity.start) continue;
+    const start = parseDate(activity.start);
+    const end = parseDate(activity.end ?? activity.start);
+    if (!start || !end || end < start || end - start > 31 * 86400000) {
+      throw new Error(`Invalid calendar dates for ${activity.title}`);
+    }
+    for (let day = start.getTime(); day <= end.getTime(); day += 86400000) {
+      const date = new Date(day).toISOString().slice(0, 10);
+      if (!activitiesByDate.has(date)) activitiesByDate.set(date, []);
+      activitiesByDate.get(date).push(activity);
+    }
+  }
+  const calendarDates = [...activitiesByDate.keys()].sort();
+  const timetableDates = new Set(data.days.map(day => day.date));
+  const extraDates = calendarDates.filter(date => !timetableDates.has(date));
+  const renderActivities = (entries, linkDates = false) => entries.map(({ when, title, detail, start }) => {
+    const date = linkDates && start
+      ? `<a href="#day-${escapeHtml(start)}">${escapeHtml(when)}</a>`
+      : escapeHtml(when);
+    return [
+      '<li>',
+      `  <p class="label activity-date">${date}</p>`,
+      `  <p class="activity-title">${escapeHtml(title)}</p>`,
+      ...(detail ? [`  <p class="activity-detail">${escapeHtml(detail)}</p>`] : []),
+      '</li>',
+    ].join('\n');
+  }).join('\n');
+  const activitySection = activities.length ? [
     '<section class="schedule-activities" aria-labelledby="schedule-activities-title">',
     '  <h2 id="schedule-activities-title">Upcoming activities</h2>',
-    `  <ul role="list">\n      ${activityList}\n  </ul>`,
+    `  <ul role="list">\n${renderActivities(activities, true)}\n  </ul>`,
     '</section>',
   ].join('\n    ') : '';
+  const dayActivities = date => activitiesByDate.has(date)
+    ? `<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list">${renderActivities(activitiesByDate.get(date))}</ul></div>`
+    : '';
+  const extraDays = extraDates.map(date => [
+    `<section class="day" id="day-${date}" aria-labelledby="day-h-${date}" hidden>`,
+    `  <h2 class="day-head" id="day-h-${date}">${escapeHtml(scheduleDate(date))}</h2>`,
+    dayActivities(date),
+    '  <p class="note">No hourly timetable has been published for this date.</p>',
+    '</section>',
+  ].join('\n')).join('\n');
   const academic = data.days.flatMap(day => day.blocks).filter(block => block.kind !== 'routine').length;
   const days = data.days.map(day => [
     `        <section class="day" id="day-${day.date}" data-date="${day.date}" aria-labelledby="day-h-${day.date}"${day.date !== data.days[0].date ? ' hidden' : ''}>`,
     `          <h2 class="day-head" id="day-h-${day.date}"><span class="day-name">${escapeHtml(day.day)}</span> <span class="day-date mono">${escapeHtml(scheduleDate(day.date, { year: false }))}</span><span class="day-today" hidden> · Today</span></h2>`,
+    ...(activitiesByDate.has(day.date) ? [dayActivities(day.date)] : []),
     '          <ol class="blocks">',
     ...day.blocks.map(block => scheduleBlock(block, lessons)),
     '          </ol>',
@@ -900,9 +935,11 @@ export function renderSchedule(template, contours, data, lessons, { base = '', a
     ].map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('\n          '),
     PREPARED: escapeHtml([data.notice || '', data.prepared ? `Schedule prepared ${scheduleDate(data.prepared)}.` : '', data.menuNotice || ''].filter(Boolean).join(' ')),
     ACTIVITIES: activitySection,
+    CALENDAR_DATES: calendarDates.map(date => `<option value="${date}">${escapeHtml(scheduleDate(date))}</option>`).join('\n'),
+    EXTRA_ACTIVITY_DAYS: extraDays,
     DAY_NAV: dayNav,
     DAYS: days,
-    SCHEDULE_DATA: scriptJson({ start: week.start, end: week.end, range: scheduleRange(week), days: data.days.map(day => day.date) }),
+    SCHEDULE_DATA: scriptJson({ start: week.start, end: week.end, range: scheduleRange(week), days: data.days.map(day => day.date), extraDates }),
   });
 }
 

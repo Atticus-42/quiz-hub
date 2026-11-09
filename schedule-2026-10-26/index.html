@@ -356,6 +356,11 @@
     .schedule-activities .activity-title { margin-top: var(--space-1); font-weight: 700; }
     .schedule-activities .activity-detail { margin-top: var(--space-1); color: var(--color-muted); }
 
+    .activity-calendar { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-4) 0; }
+    .activity-calendar select { font: inherit; min-height: 44px; max-width: 100%; }
+    .day-activities { margin: var(--space-3) 0; padding: var(--space-2) 0; }
+    .day-activities ul { margin-top: var(--space-2); }
+
     /* Day links */
     .week-nav { padding: var(--space-4) 0; border-top: 1px solid var(--color-text); }
     .week-nav ul { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
@@ -522,13 +527,36 @@
     <section class="schedule-activities" aria-labelledby="schedule-activities-title">
       <h2 id="schedule-activities-title">Upcoming activities</h2>
       <ul role="list">
-      <li><p class="label activity-date">11–13 Nov 2026</p><p class="activity-title">In-House Training</p><p class="activity-detail">Tactical Radio Operation and Maintenance under Mission Command Training.</p></li>
-      <li><p class="label activity-date">16–20 Nov 2026</p><p class="activity-title">Integrated Signal Operation Exercise (ISOPEX)</p></li>
-      <li><p class="label activity-date">26 Nov – 08 Dec 2026</p><p class="activity-title">CAPEX 03-2026</p></li>
-      <li><p class="label activity-date">16 Dec 2026 · Tentative</p><p class="activity-title">Closing Ceremony of 3TP CY 2026</p></li>
-      <li><p class="label activity-date">Immediately after graduation through 3 Jan 2027</p><p class="activity-title">Breakthrough!</p><p class="activity-detail">Combined Christmas and New Year’s break.</p></li>
-      <li><p class="label activity-date">4 Jan 2027</p><p class="activity-title">Return To Unit</p></li>
-      <li><p class="label activity-date">TBAL</p><p class="activity-title">Signal School Christmas Party 2026</p></li>
+<li>
+  <p class="label activity-date"><a href="#day-2026-11-11">11–13 Nov 2026</a></p>
+  <p class="activity-title">In-House Training</p>
+  <p class="activity-detail">Tactical Radio Operation and Maintenance under Mission Command Training.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="#day-2026-11-16">16–20 Nov 2026</a></p>
+  <p class="activity-title">Integrated Signal Operation Exercise (ISOPEX)</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="#day-2026-11-26">26 Nov – 08 Dec 2026</a></p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="#day-2026-12-16">16 Dec 2026 · Tentative</a></p>
+  <p class="activity-title">Closing Ceremony of 3TP CY 2026</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="#day-2026-12-16">Immediately after graduation through 3 Jan 2027</a></p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="#day-2027-01-04">4 Jan 2027</a></p>
+  <p class="activity-title">Return To Unit</p>
+</li>
+<li>
+  <p class="label activity-date">TBAL</p>
+  <p class="activity-title">Signal School Christmas Party 2026</p>
+</li>
   </ul>
     </section>
 
@@ -543,6 +571,53 @@
           <li><a href="#day-2026-11-01" data-date="2026-11-01"><span>Sun</span> <span class="mono">01</span></a></li>
       </ul>
     </nav>
+    <div class="activity-calendar" id="activity-calendar" hidden>
+      <label for="activity-date-picker">Jump to an activity date</label>
+      <select id="activity-date-picker">
+        <option value="">Choose a date</option>
+        <option value="2026-11-11">11 Nov 2026</option>
+<option value="2026-11-12">12 Nov 2026</option>
+<option value="2026-11-13">13 Nov 2026</option>
+<option value="2026-11-16">16 Nov 2026</option>
+<option value="2026-11-17">17 Nov 2026</option>
+<option value="2026-11-18">18 Nov 2026</option>
+<option value="2026-11-19">19 Nov 2026</option>
+<option value="2026-11-20">20 Nov 2026</option>
+<option value="2026-11-26">26 Nov 2026</option>
+<option value="2026-11-27">27 Nov 2026</option>
+<option value="2026-11-28">28 Nov 2026</option>
+<option value="2026-11-29">29 Nov 2026</option>
+<option value="2026-11-30">30 Nov 2026</option>
+<option value="2026-12-01">01 Dec 2026</option>
+<option value="2026-12-02">02 Dec 2026</option>
+<option value="2026-12-03">03 Dec 2026</option>
+<option value="2026-12-04">04 Dec 2026</option>
+<option value="2026-12-05">05 Dec 2026</option>
+<option value="2026-12-06">06 Dec 2026</option>
+<option value="2026-12-07">07 Dec 2026</option>
+<option value="2026-12-08">08 Dec 2026</option>
+<option value="2026-12-16">16 Dec 2026</option>
+<option value="2026-12-17">17 Dec 2026</option>
+<option value="2026-12-18">18 Dec 2026</option>
+<option value="2026-12-19">19 Dec 2026</option>
+<option value="2026-12-20">20 Dec 2026</option>
+<option value="2026-12-21">21 Dec 2026</option>
+<option value="2026-12-22">22 Dec 2026</option>
+<option value="2026-12-23">23 Dec 2026</option>
+<option value="2026-12-24">24 Dec 2026</option>
+<option value="2026-12-25">25 Dec 2026</option>
+<option value="2026-12-26">26 Dec 2026</option>
+<option value="2026-12-27">27 Dec 2026</option>
+<option value="2026-12-28">28 Dec 2026</option>
+<option value="2026-12-29">29 Dec 2026</option>
+<option value="2026-12-30">30 Dec 2026</option>
+<option value="2026-12-31">31 Dec 2026</option>
+<option value="2027-01-01">01 Jan 2027</option>
+<option value="2027-01-02">02 Jan 2027</option>
+<option value="2027-01-03">03 Jan 2027</option>
+<option value="2027-01-04">04 Jan 2027</option>
+      </select>
+    </div>
     <p class="label">Choose a day to view its schedule.</p>
     <p class="legend" aria-hidden="true"><span><i class="key-lecture"></i>Lecture</span><span><i class="key-exam"></i>Exam or assessment</span><span><i></i>Routine</span></p>
 
@@ -1191,12 +1266,366 @@
           </ol>
         </section>
     </div>
+    <section class="day" id="day-2026-11-11" aria-labelledby="day-h-2026-11-11" hidden>
+  <h2 class="day-head" id="day-h-2026-11-11">11 Nov 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">11–13 Nov 2026</p>
+  <p class="activity-title">In-House Training</p>
+  <p class="activity-detail">Tactical Radio Operation and Maintenance under Mission Command Training.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-11-12" aria-labelledby="day-h-2026-11-12" hidden>
+  <h2 class="day-head" id="day-h-2026-11-12">12 Nov 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">11–13 Nov 2026</p>
+  <p class="activity-title">In-House Training</p>
+  <p class="activity-detail">Tactical Radio Operation and Maintenance under Mission Command Training.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-11-13" aria-labelledby="day-h-2026-11-13" hidden>
+  <h2 class="day-head" id="day-h-2026-11-13">13 Nov 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">11–13 Nov 2026</p>
+  <p class="activity-title">In-House Training</p>
+  <p class="activity-detail">Tactical Radio Operation and Maintenance under Mission Command Training.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-11-16" aria-labelledby="day-h-2026-11-16" hidden>
+  <h2 class="day-head" id="day-h-2026-11-16">16 Nov 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">16–20 Nov 2026</p>
+  <p class="activity-title">Integrated Signal Operation Exercise (ISOPEX)</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-11-17" aria-labelledby="day-h-2026-11-17" hidden>
+  <h2 class="day-head" id="day-h-2026-11-17">17 Nov 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">16–20 Nov 2026</p>
+  <p class="activity-title">Integrated Signal Operation Exercise (ISOPEX)</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-11-18" aria-labelledby="day-h-2026-11-18" hidden>
+  <h2 class="day-head" id="day-h-2026-11-18">18 Nov 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">16–20 Nov 2026</p>
+  <p class="activity-title">Integrated Signal Operation Exercise (ISOPEX)</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-11-19" aria-labelledby="day-h-2026-11-19" hidden>
+  <h2 class="day-head" id="day-h-2026-11-19">19 Nov 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">16–20 Nov 2026</p>
+  <p class="activity-title">Integrated Signal Operation Exercise (ISOPEX)</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-11-20" aria-labelledby="day-h-2026-11-20" hidden>
+  <h2 class="day-head" id="day-h-2026-11-20">20 Nov 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">16–20 Nov 2026</p>
+  <p class="activity-title">Integrated Signal Operation Exercise (ISOPEX)</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-11-26" aria-labelledby="day-h-2026-11-26" hidden>
+  <h2 class="day-head" id="day-h-2026-11-26">26 Nov 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">26 Nov – 08 Dec 2026</p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-11-27" aria-labelledby="day-h-2026-11-27" hidden>
+  <h2 class="day-head" id="day-h-2026-11-27">27 Nov 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">26 Nov – 08 Dec 2026</p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-11-28" aria-labelledby="day-h-2026-11-28" hidden>
+  <h2 class="day-head" id="day-h-2026-11-28">28 Nov 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">26 Nov – 08 Dec 2026</p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-11-29" aria-labelledby="day-h-2026-11-29" hidden>
+  <h2 class="day-head" id="day-h-2026-11-29">29 Nov 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">26 Nov – 08 Dec 2026</p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-11-30" aria-labelledby="day-h-2026-11-30" hidden>
+  <h2 class="day-head" id="day-h-2026-11-30">30 Nov 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">26 Nov – 08 Dec 2026</p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-01" aria-labelledby="day-h-2026-12-01" hidden>
+  <h2 class="day-head" id="day-h-2026-12-01">01 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">26 Nov – 08 Dec 2026</p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-02" aria-labelledby="day-h-2026-12-02" hidden>
+  <h2 class="day-head" id="day-h-2026-12-02">02 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">26 Nov – 08 Dec 2026</p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-03" aria-labelledby="day-h-2026-12-03" hidden>
+  <h2 class="day-head" id="day-h-2026-12-03">03 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">26 Nov – 08 Dec 2026</p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-04" aria-labelledby="day-h-2026-12-04" hidden>
+  <h2 class="day-head" id="day-h-2026-12-04">04 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">26 Nov – 08 Dec 2026</p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-05" aria-labelledby="day-h-2026-12-05" hidden>
+  <h2 class="day-head" id="day-h-2026-12-05">05 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">26 Nov – 08 Dec 2026</p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-06" aria-labelledby="day-h-2026-12-06" hidden>
+  <h2 class="day-head" id="day-h-2026-12-06">06 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">26 Nov – 08 Dec 2026</p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-07" aria-labelledby="day-h-2026-12-07" hidden>
+  <h2 class="day-head" id="day-h-2026-12-07">07 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">26 Nov – 08 Dec 2026</p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-08" aria-labelledby="day-h-2026-12-08" hidden>
+  <h2 class="day-head" id="day-h-2026-12-08">08 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">26 Nov – 08 Dec 2026</p>
+  <p class="activity-title">CAPEX 03-2026</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-16" aria-labelledby="day-h-2026-12-16" hidden>
+  <h2 class="day-head" id="day-h-2026-12-16">16 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">16 Dec 2026 · Tentative</p>
+  <p class="activity-title">Closing Ceremony of 3TP CY 2026</p>
+</li>
+<li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-17" aria-labelledby="day-h-2026-12-17" hidden>
+  <h2 class="day-head" id="day-h-2026-12-17">17 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-18" aria-labelledby="day-h-2026-12-18" hidden>
+  <h2 class="day-head" id="day-h-2026-12-18">18 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-19" aria-labelledby="day-h-2026-12-19" hidden>
+  <h2 class="day-head" id="day-h-2026-12-19">19 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-20" aria-labelledby="day-h-2026-12-20" hidden>
+  <h2 class="day-head" id="day-h-2026-12-20">20 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-21" aria-labelledby="day-h-2026-12-21" hidden>
+  <h2 class="day-head" id="day-h-2026-12-21">21 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-22" aria-labelledby="day-h-2026-12-22" hidden>
+  <h2 class="day-head" id="day-h-2026-12-22">22 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-23" aria-labelledby="day-h-2026-12-23" hidden>
+  <h2 class="day-head" id="day-h-2026-12-23">23 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-24" aria-labelledby="day-h-2026-12-24" hidden>
+  <h2 class="day-head" id="day-h-2026-12-24">24 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-25" aria-labelledby="day-h-2026-12-25" hidden>
+  <h2 class="day-head" id="day-h-2026-12-25">25 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-26" aria-labelledby="day-h-2026-12-26" hidden>
+  <h2 class="day-head" id="day-h-2026-12-26">26 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-27" aria-labelledby="day-h-2026-12-27" hidden>
+  <h2 class="day-head" id="day-h-2026-12-27">27 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-28" aria-labelledby="day-h-2026-12-28" hidden>
+  <h2 class="day-head" id="day-h-2026-12-28">28 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-29" aria-labelledby="day-h-2026-12-29" hidden>
+  <h2 class="day-head" id="day-h-2026-12-29">29 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-30" aria-labelledby="day-h-2026-12-30" hidden>
+  <h2 class="day-head" id="day-h-2026-12-30">30 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2026-12-31" aria-labelledby="day-h-2026-12-31" hidden>
+  <h2 class="day-head" id="day-h-2026-12-31">31 Dec 2026</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2027-01-01" aria-labelledby="day-h-2027-01-01" hidden>
+  <h2 class="day-head" id="day-h-2027-01-01">01 Jan 2027</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2027-01-02" aria-labelledby="day-h-2027-01-02" hidden>
+  <h2 class="day-head" id="day-h-2027-01-02">02 Jan 2027</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2027-01-03" aria-labelledby="day-h-2027-01-03" hidden>
+  <h2 class="day-head" id="day-h-2027-01-03">03 Jan 2027</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">Immediately after graduation through 3 Jan 2027</p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
+<section class="day" id="day-2027-01-04" aria-labelledby="day-h-2027-01-04" hidden>
+  <h2 class="day-head" id="day-h-2027-01-04">04 Jan 2027</h2>
+<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list"><li>
+  <p class="label activity-date">4 Jan 2027</p>
+  <p class="activity-title">Return To Unit</p>
+</li></ul></div>
+  <p class="note">No hourly timetable has been published for this date.</p>
+</section>
     <p class="note" id="schedule-note">Schedule prepared 23 Oct 2026. PAALALA: Ang Menu ay nag babago depende sa presyo ng supply ng mga bilihin . Salamat po Times, venues and uniforms (AU, SGOU, PHILARPAT) are as printed on the official weekly training schedule; announcements by the Training Directorate take precedence.</p>
   </main>
 
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
 
-  <script type="application/json" id="schedule-data">{"start":"2026-10-26","end":"2026-11-01","range":"26 Oct – 01 Nov 2026","days":["2026-10-26","2026-10-27","2026-10-28","2026-10-29","2026-10-30","2026-10-31","2026-11-01"]}</script>
+  <script type="application/json" id="schedule-data">{"start":"2026-10-26","end":"2026-11-01","range":"26 Oct – 01 Nov 2026","days":["2026-10-26","2026-10-27","2026-10-28","2026-10-29","2026-10-30","2026-10-31","2026-11-01"],"extraDates":["2026-11-11","2026-11-12","2026-11-13","2026-11-16","2026-11-17","2026-11-18","2026-11-19","2026-11-20","2026-11-26","2026-11-27","2026-11-28","2026-11-29","2026-11-30","2026-12-01","2026-12-02","2026-12-03","2026-12-04","2026-12-05","2026-12-06","2026-12-07","2026-12-08","2026-12-16","2026-12-17","2026-12-18","2026-12-19","2026-12-20","2026-12-21","2026-12-22","2026-12-23","2026-12-24","2026-12-25","2026-12-26","2026-12-27","2026-12-28","2026-12-29","2026-12-30","2026-12-31","2027-01-01","2027-01-02","2027-01-03","2027-01-04"]}</script>
   <script>
   (function () {
     'use strict';
@@ -1308,7 +1737,7 @@
       var nextList = byId('nn-next-list');
       nowList.replaceChildren();
       nextList.replaceChildren();
-      panel.hidden = false;
+      panel.hidden = selectedDay !== null && config.days.indexOf(selectedDay) === -1;
       byId('nn-now').hidden = !s.inWeek;
       byId('nn-foot').hidden = !s.inWeek;
       if (s.inWeek) {
@@ -1341,10 +1770,20 @@
     }(document.body));
 
     var selectedDay = null;
+    var selectableDates = config.days.concat(config.extraDates || []);
+    var activityPicker = byId('activity-date-picker');
+    if (activityPicker && activityPicker.children.length > 1) {
+      byId('activity-calendar').hidden = false;
+      activityPicker.addEventListener('change', function () {
+        if (activityPicker.value) window.location.hash = 'day-' + activityPicker.value;
+      });
+    }
     function selectDay(day) {
-      if (config.days.indexOf(day) === -1) return;
+      if (selectableDates.indexOf(day) === -1) return;
       selectedDay = day;
-      config.days.forEach(function (date) { byId('day-' + date).hidden = date !== day; });
+      if (activityPicker) activityPicker.value = day;
+      byId('now-next').hidden = config.days.indexOf(day) === -1;
+      selectableDates.forEach(function (date) { byId('day-' + date).hidden = date !== day; });
       navLinks.forEach(function (link) {
         var selected = link.getAttribute('data-date') === day;
         link.classList.toggle('is-selected', selected);
@@ -1367,7 +1806,9 @@
     var fixed = fixedNow();
     var current = update(fixed && !isNaN(fixed.getTime()) ? fixed : new Date());
     var hashDay = ((window.location && window.location.hash) || '').replace(/^#day-/, '');
-    selectDay(config.days.indexOf(hashDay) !== -1 ? hashDay : current.inWeek ? current.today : config.days[0]);
+    if (selectableDates.indexOf(hashDay) !== -1) selectDay(hashDay);
+    else if (selectableDates.indexOf(current.today) !== -1) selectDay(current.today);
+    else selectDay(config.days[0]);
     if (typeof window.addEventListener === 'function') window.addEventListener('hashchange', function () {
       var day = ((window.location && window.location.hash) || '').replace(/^#day-/, '');
       selectDay(day);
