@@ -1,5 +1,732 @@
 [
   {
+    "id": "ew-company",
+    "title": "Electronic Warfare Company (P)",
+    "branch": "Electronic Warfare",
+    "tag": "Supplied TO · undated · provisional interpretation",
+    "intro": "Explore the headquarters and three EW platoons in your supplied table. Each platoon contains Electronic Attack, Electronic Protection and Electronic Support squads.",
+    "sources": [
+      {
+        "file": "electronic-warfare-company-organization",
+        "page": 1,
+        "label": "TO.docx converted to PDF · Company HQ and 1st platoon"
+      },
+      {
+        "file": "electronic-warfare-company-organization",
+        "page": 2,
+        "label": "TO.docx converted to PDF · continuation of 2nd and 3rd platoons"
+      }
+    ],
+    "notes": [
+      "(1) is provisionally interpreted as a dual designation following the uploader’s explanation. The document provides no legend, so the interpretation is not confirmed. These entries remain visible but add no extra personnel.",
+      "Company headquarters prints TOTAL 4, while eight unparenthesized entries list two officer and six enlisted billets. The discrepancy remains unresolved.",
+      "Counting unparenthesized rows gives 5 officer and 36 enlisted billets (41 total). Adding printed group subtotals gives 37. Neither is presented as a confirmed company establishment.",
+      "The platoon totals of 11 are calculated from HQ 2 plus three squads of 3. These are required billets under the provisional interpretation, not actual assigned personnel. The Designated Personnel column is blank.",
+      "Grade labels 03 and 02 are displayed as O3 and O2 for readability. Designation spacing and obvious typographical errors have been normalized; the original table is preserved in the PDF."
+    ],
+    "personnelRecord": [
+      [
+        "Officers · row-derived",
+        "5 provisional"
+      ],
+      [
+        "EP · row-derived",
+        "36 provisional"
+      ],
+      [
+        "Company establishment",
+        "Unconfirmed · 41 by rows / 37 by subtotals"
+      ]
+    ],
+    "tree": {
+      "title": "Electronic Warfare Company (P)",
+      "role": "Company HQ and three EW platoons. No confirmed company total.",
+      "children": [
+        {
+          "title": "Company Headquarters",
+          "children": [
+            {
+              "title": "Commanding Officer",
+              "grade": "O3",
+              "rawRequirement": "1",
+              "role": "Grade O3 · AFPOS SC",
+              "personnel": 1
+            },
+            {
+              "title": "Executive Officer",
+              "grade": "O2",
+              "rawRequirement": "1",
+              "role": "Grade O2 · AFPOS SC",
+              "personnel": 1
+            },
+            {
+              "title": "Company First Sergeant",
+              "grade": "E7",
+              "rawRequirement": "1",
+              "role": "Grade E7 · AFPOS SC",
+              "personnel": 1
+            },
+            {
+              "title": "Personnel NCO",
+              "grade": "E5",
+              "rawRequirement": "1",
+              "role": "Grade E5 · AFPOS SC/AGS",
+              "personnel": 1
+            },
+            {
+              "title": "Intelligence and Operations NCO",
+              "grade": "E5",
+              "rawRequirement": "1",
+              "role": "Grade E5 · AFPOS SC",
+              "personnel": 1
+            },
+            {
+              "title": "Signal NCO",
+              "grade": "E5",
+              "rawRequirement": "(1)",
+              "role": "Grade E5 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+              "dualDesignation": true
+            },
+            {
+              "title": "Logistics NCO",
+              "grade": "E5",
+              "rawRequirement": "1",
+              "role": "Grade E5 · AFPOS SC/QMS/OS",
+              "personnel": 1
+            },
+            {
+              "title": "Finance NCO",
+              "grade": "E4",
+              "rawRequirement": "1",
+              "role": "Grade E4 · AFPOS SC/FS",
+              "personnel": 1
+            },
+            {
+              "title": "Mess NCO / Cook",
+              "grade": "E4",
+              "rawRequirement": "(1)",
+              "role": "Grade E4 · AFPOS SC/QMS · Required (1), provisionally treated as a dual designation; no extra person counted.",
+              "dualDesignation": true
+            },
+            {
+              "title": "Armorer",
+              "grade": "E4",
+              "rawRequirement": "1",
+              "role": "Grade E4 · AFPOS SC/OS",
+              "personnel": 1
+            },
+            {
+              "title": "Driver and Mechanic",
+              "grade": "E4",
+              "rawRequirement": "(1)",
+              "role": "Grade E4 · AFPOS SC/OS · Required (1), provisionally treated as a dual designation; no extra person counted.",
+              "dualDesignation": true
+            },
+            {
+              "title": "Clerk",
+              "grade": "E3",
+              "rawRequirement": "(1)",
+              "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+              "dualDesignation": true
+            },
+            {
+              "title": "Radio Operator",
+              "grade": "E3",
+              "rawRequirement": "(1)",
+              "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+              "dualDesignation": true
+            }
+          ],
+          "sourceTotal": 4,
+          "officers": 2,
+          "ep": 6,
+          "personnel": 8,
+          "countBasis": "Provisional count of unparenthesized required entries",
+          "role": "Printed subtotal: 4. Conflict: listed unparenthesized entries total 8. Parenthesized entries are excluded provisionally."
+        },
+        {
+          "title": "1st Electronic Warfare Platoon",
+          "personnel": 11,
+          "officers": 1,
+          "ep": 10,
+          "countBasis": "Calculated: HQ 2 + three squads of 3; excludes (1) entries provisionally",
+          "children": [
+            {
+              "title": "Platoon headquarters",
+              "children": [
+                {
+                  "title": "Platoon Leader",
+                  "grade": "O2",
+                  "rawRequirement": "1",
+                  "role": "Grade O2 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Platoon Sergeant",
+                  "grade": "E6",
+                  "rawRequirement": "1",
+                  "role": "Grade E6 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Radio Operator",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                }
+              ],
+              "sourceTotal": 2,
+              "officers": 1,
+              "ep": 1,
+              "personnel": 2,
+              "countBasis": "Provisional count of unparenthesized required entries",
+              "role": "Printed subtotal: 2. Parenthesized entries are excluded provisionally."
+            },
+            {
+              "title": "1st Electronic Attack Squad",
+              "children": [
+                {
+                  "title": "Squad Leader",
+                  "grade": "E5",
+                  "rawRequirement": "1",
+                  "role": "Grade E5 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Electronic Jamming Specialist",
+                  "grade": "E4",
+                  "rawRequirement": "1",
+                  "role": "Grade E4 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Electronic Countermeasures Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Electronic Deception Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "1",
+                  "role": "Grade E3 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Directed Energy Weapon Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Electronic Warfare Technician",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                }
+              ],
+              "sourceTotal": 3,
+              "officers": 0,
+              "ep": 3,
+              "personnel": 3,
+              "countBasis": "Provisional count of unparenthesized required entries",
+              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+            },
+            {
+              "title": "1st Electronic Protection Squad",
+              "children": [
+                {
+                  "title": "Squad Leader",
+                  "grade": "E5",
+                  "rawRequirement": "1",
+                  "role": "Grade E5 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Electromagnetic Hardening Specialist",
+                  "grade": "E4",
+                  "rawRequirement": "1",
+                  "role": "Grade E4 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Spectrum Management Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "1",
+                  "role": "Grade E3 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Frequency Deconfliction Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "EW Reprogramming Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Emission Control Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                }
+              ],
+              "sourceTotal": 3,
+              "officers": 0,
+              "ep": 3,
+              "personnel": 3,
+              "countBasis": "Provisional count of unparenthesized required entries",
+              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+            },
+            {
+              "title": "1st Electronic Support Squad",
+              "children": [
+                {
+                  "title": "Squad Leader",
+                  "grade": "E5",
+                  "rawRequirement": "1",
+                  "role": "Grade E5 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Threat Warning Specialist",
+                  "grade": "E4",
+                  "rawRequirement": "1",
+                  "role": "Grade E4 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Direction Finding Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Collection Support Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Cyber Operations Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "1",
+                  "role": "Grade E3 · AFPOS SC",
+                  "personnel": 1
+                }
+              ],
+              "sourceTotal": 3,
+              "officers": 0,
+              "ep": 3,
+              "personnel": 3,
+              "countBasis": "Provisional count of unparenthesized required entries",
+              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+            }
+          ]
+        },
+        {
+          "title": "2nd Electronic Warfare Platoon",
+          "personnel": 11,
+          "officers": 1,
+          "ep": 10,
+          "countBasis": "Calculated: HQ 2 + three squads of 3; excludes (1) entries provisionally",
+          "children": [
+            {
+              "title": "Platoon headquarters",
+              "children": [
+                {
+                  "title": "Platoon Leader",
+                  "grade": "O2",
+                  "rawRequirement": "1",
+                  "role": "Grade O2 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Platoon Sergeant",
+                  "grade": "E6",
+                  "rawRequirement": "1",
+                  "role": "Grade E6 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Radio Operator",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                }
+              ],
+              "sourceTotal": 2,
+              "officers": 1,
+              "ep": 1,
+              "personnel": 2,
+              "countBasis": "Provisional count of unparenthesized required entries",
+              "role": "Printed subtotal: 2. Parenthesized entries are excluded provisionally."
+            },
+            {
+              "title": "2nd Electronic Attack Squad",
+              "children": [
+                {
+                  "title": "Squad Leader",
+                  "grade": "E5",
+                  "rawRequirement": "1",
+                  "role": "Grade E5 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Electronic Jamming Specialist",
+                  "grade": "E4",
+                  "rawRequirement": "1",
+                  "role": "Grade E4 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Electronic Countermeasures Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Electronic Deception Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "1",
+                  "role": "Grade E3 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Directed Energy Weapon Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Electronic Warfare Technician",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                }
+              ],
+              "sourceTotal": 3,
+              "officers": 0,
+              "ep": 3,
+              "personnel": 3,
+              "countBasis": "Provisional count of unparenthesized required entries",
+              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+            },
+            {
+              "title": "2nd Electronic Protection Squad",
+              "children": [
+                {
+                  "title": "Squad Leader",
+                  "grade": "E5",
+                  "rawRequirement": "1",
+                  "role": "Grade E5 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Electromagnetic Hardening Specialist",
+                  "grade": "E4",
+                  "rawRequirement": "1",
+                  "role": "Grade E4 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Spectrum Management Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "1",
+                  "role": "Grade E3 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Frequency Deconfliction Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "EW Reprogramming Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Emission Control Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                }
+              ],
+              "sourceTotal": 3,
+              "officers": 0,
+              "ep": 3,
+              "personnel": 3,
+              "countBasis": "Provisional count of unparenthesized required entries",
+              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+            },
+            {
+              "title": "2nd Electronic Support Squad",
+              "children": [
+                {
+                  "title": "Squad Leader",
+                  "grade": "E5",
+                  "rawRequirement": "1",
+                  "role": "Grade E5 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Threat Warning Specialist",
+                  "grade": "E4",
+                  "rawRequirement": "1",
+                  "role": "Grade E4 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Direction Finding Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Collection Support Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Cyber Operations Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "1",
+                  "role": "Grade E3 · AFPOS SC",
+                  "personnel": 1
+                }
+              ],
+              "sourceTotal": 3,
+              "officers": 0,
+              "ep": 3,
+              "personnel": 3,
+              "countBasis": "Provisional count of unparenthesized required entries",
+              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+            }
+          ]
+        },
+        {
+          "title": "3rd Electronic Warfare Platoon",
+          "personnel": 11,
+          "officers": 1,
+          "ep": 10,
+          "countBasis": "Calculated: HQ 2 + three squads of 3; excludes (1) entries provisionally",
+          "children": [
+            {
+              "title": "Platoon headquarters",
+              "children": [
+                {
+                  "title": "Platoon Leader",
+                  "grade": "O2",
+                  "rawRequirement": "1",
+                  "role": "Grade O2 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Platoon Sergeant",
+                  "grade": "E6",
+                  "rawRequirement": "1",
+                  "role": "Grade E6 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Radio Operator",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                }
+              ],
+              "sourceTotal": 2,
+              "officers": 1,
+              "ep": 1,
+              "personnel": 2,
+              "countBasis": "Provisional count of unparenthesized required entries",
+              "role": "Printed subtotal: 2. Parenthesized entries are excluded provisionally."
+            },
+            {
+              "title": "3rd Electronic Attack Squad",
+              "children": [
+                {
+                  "title": "Squad Leader",
+                  "grade": "E5",
+                  "rawRequirement": "1",
+                  "role": "Grade E5 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Electronic Jamming Specialist",
+                  "grade": "E4",
+                  "rawRequirement": "1",
+                  "role": "Grade E4 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Electronic Countermeasures Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Electronic Deception Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "1",
+                  "role": "Grade E3 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Directed Energy Weapon Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Electronic Warfare Technician",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                }
+              ],
+              "sourceTotal": 3,
+              "officers": 0,
+              "ep": 3,
+              "personnel": 3,
+              "countBasis": "Provisional count of unparenthesized required entries",
+              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+            },
+            {
+              "title": "3rd Electronic Protection Squad",
+              "children": [
+                {
+                  "title": "Squad Leader",
+                  "grade": "E5",
+                  "rawRequirement": "1",
+                  "role": "Grade E5 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Electromagnetic Hardening Specialist",
+                  "grade": "E4",
+                  "rawRequirement": "1",
+                  "role": "Grade E4 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Spectrum Management Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "1",
+                  "role": "Grade E3 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Frequency Deconfliction Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "EW Reprogramming Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Emission Control Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                }
+              ],
+              "sourceTotal": 3,
+              "officers": 0,
+              "ep": 3,
+              "personnel": 3,
+              "countBasis": "Provisional count of unparenthesized required entries",
+              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+            },
+            {
+              "title": "3rd Electronic Support Squad",
+              "children": [
+                {
+                  "title": "Squad Leader",
+                  "grade": "E5",
+                  "rawRequirement": "1",
+                  "role": "Grade E5 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Threat Warning Specialist",
+                  "grade": "E4",
+                  "rawRequirement": "1",
+                  "role": "Grade E4 · AFPOS SC",
+                  "personnel": 1
+                },
+                {
+                  "title": "Direction Finding Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Collection Support Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "(1)",
+                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+                  "dualDesignation": true
+                },
+                {
+                  "title": "Cyber Operations Specialist",
+                  "grade": "E3",
+                  "rawRequirement": "1",
+                  "role": "Grade E3 · AFPOS SC",
+                  "personnel": 1
+                }
+              ],
+              "sourceTotal": 3,
+              "officers": 0,
+              "ep": 3,
+              "personnel": 3,
+              "countBasis": "Provisional count of unparenthesized required entries",
+              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
     "id": "signal",
     "title": "Army Signal Regiment",
     "branch": "Signal",

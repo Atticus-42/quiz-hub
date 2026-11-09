@@ -27,3 +27,11 @@ Every figure needs a source, edition and PDF page. Distinguish explicit source c
 ## Acceptance checks
 
 Check all links and page fragments, role text and arithmetic against cited pages. Verify keyboard expansion, 320/390-pixel mobile layouts and desktop, no horizontal overflow, and existing library filters. Run the repository verification suite before publishing.
+
+## Supplied TO.docx addition
+
+User supplied C:/Users/yurizen/Downloads/Telegram Desktop/TO.docx. Read-only Word PDF export, two pages, inspected both rendered pages and embedded images. No restricted marking or designated names found. The original table is retained in electronic-warfare-company-organization.pdf.
+
+User interpretation of (1) is tentative dual designation. Counted only unparenthesized entries. Company HQ prints 4 but lists 2 officer and 6 EP billets. Each of three platoons has 1 officer + 10 EP (HQ 2 and three squads of 3), calculated provisionally. Company row sum 41 (5 officers, 36 EP) conflicts with printed subtotal sum 37. No confirmed company establishment is asserted. All 32 parenthesized positions are displayed as provisional dual duties, with no extra people added. Grade 03/02 normalized to O3/O2. No named personnel are present.
+
+Operational note: PowerShell does not expand wildcards in rg path arguments; use a concrete directory and rg -g patterns.

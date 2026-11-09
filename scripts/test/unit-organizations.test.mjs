@@ -44,3 +44,17 @@ test('restricted sources cannot be introduced as organization downloads',()=>{
   assert.throws(()=>loadOrganizations(fixture),/Unavailable organization source/);
  } finally { rmSync(fixture,{recursive:true,force:true}); }
 });
+
+test('EW provisional personnel exclude parenthesized dual designations and preserve conflicting HQ total',()=>{
+ const ew=loadOrganizations(root).find(g=>g.id==='ew-company');
+ assert.equal(ew.tree.personnel,undefined);
+ const hq=ew.tree.children[0];assert.equal(hq.sourceTotal,4);assert.equal(hq.personnel,8);assert.equal(hq.officers,2);assert.equal(hq.ep,6);
+ for(const platoon of ew.tree.children.slice(1)){
+  assert.equal(platoon.personnel,11);assert.equal(platoon.officers,1);assert.equal(platoon.ep,10);
+  assert.equal(platoon.children.reduce((n,x)=>n+x.personnel,0),11);
+ }
+ const walk=n=>[n,...(n.children||[]).flatMap(walk)];
+ const dual=walk(ew.tree).filter(n=>n.dualDesignation);
+ assert.equal(dual.length,32);assert.ok(dual.every(n=>n.personnel===undefined&&n.rawRequirement==='(1)'));
+ assert.match(ew.notes.join(' '),/Neither is presented as a confirmed/);
+});

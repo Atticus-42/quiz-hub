@@ -2,3 +2,5 @@
 @media(max-width:800px){.org-workspace{grid-template-columns:1fr}.org-index{grid-template-columns:repeat(2,minmax(0,1fr))}.org-intro{display:block}.org-evidence{border-top:1px solid #bdb7a3;padding-top:1rem}.org-roles>div{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:480px){.org-diagram{padding:.75rem}.org-tree ul{margin-left:.2rem;padding-left:.6rem}.org-tree ul>li:before{left:-.6rem;width:.6rem}.org-tree details,.org-leaf{padding:.6rem}.org-tree summary,.org-leaf-heading{flex-wrap:wrap;gap:.35rem}.org-count{font-size:1.25rem}.org-node-name{min-width:70px}.org-roles>div{grid-template-columns:1fr}.org-index a{padding:1rem}.org-seal{padding:1.2rem}}
 @media print{.org-index,.org-top{display:none}.org-workspace{display:block}.org-formation{break-before:page}.org-evidence{margin-top:1rem}}
+
+.org-ew-company{--branch:#8d4932}.org-dual{text-align:right;color:#875124;font:bold 1.2rem monospace}.org-dual small{display:block;font:10px/1.4 monospace}.org-split{font:12px/1.5 monospace!important;color:#73462a!important}

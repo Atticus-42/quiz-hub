@@ -30,6 +30,7 @@ export function loadStudy(root, lessons) {
     documents.push(doc);
   };
   for (const item of data.manuals) add({ kind: 'manual', cited: [], related: [], ...item });
+  for (const item of data.additionalDocuments || []) add({ cited: [], related: [], ...item });
   for (const item of json(join(root, 'data', 'howto-sources.json'))) add(item);
   for (const [key, lesson] of byKey) {
     const reviewer = reviewers[key];
@@ -162,7 +163,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     ...doc, modules: [...new Set([...doc.cited, ...doc.related].map(key => study.byKey.get(key).module))], lessons: [...doc.cited, ...doc.related].map(key => ({ key, title: study.byKey.get(key).name, cited: doc.cited.includes(key) })),
   }));
   metadata.sort((a,b) => Number(!(a.file || a.web)) - Number(!(b.file || b.web)) || (a.modules[0] || '').localeCompare(b.modules[0] || '', undefined, {numeric:true}) || a.title.localeCompare(b.title));
-  const rows = metadata.filter(doc => doc.file || doc.web).map(doc => '<li class="library-row" data-id="' + doc.id + '" data-modules="' + doc.modules.join(' ') + '" data-format="' + (doc.file ? 'pdf' : 'web') + '" data-available="' + Boolean(doc.file || doc.web) + '" data-kind="' + doc.kind + '"><span class="document-mark" aria-hidden="true">' + (doc.kind === 'manual' ? 'REFERENCE MANUAL' : 'LESSON SOURCE') + '</span><p class="study-eyebrow">' +
+  const rows = metadata.filter(doc => doc.file || doc.web).map(doc => '<li class="library-row" data-id="' + doc.id + '" data-modules="' + doc.modules.join(' ') + '" data-format="' + (doc.file ? 'pdf' : 'web') + '" data-available="' + Boolean(doc.file || doc.web) + '" data-kind="' + doc.kind + '"><span class="document-mark" aria-hidden="true">' + (doc.kind === 'manual' ? 'REFERENCE MANUAL' : doc.kind === 'organization' ? 'ORGANIZATION SOURCE' : 'LESSON SOURCE') + '</span><p class="study-eyebrow">' +
     e(doc.edition || (doc.kind === 'manual' ? 'Manual' : 'Lesson')) + '</p><h3><a href="' + documentHref(doc, '../') + '"' + (doc.file ? ' target="_blank" rel="noopener"' : '') + '>' + e(doc.title) +
     '<span class="card-arrow" aria-hidden="true"> →</span></a></h3><p class="library-links">' +
     e(doc.lessons.map(lesson => lesson.title).join(' · ')) + '</p><span class="study-chip ' + (doc.file ? 'available' : '') + '">' +
@@ -173,7 +174,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     '<details><summary id="document-lesson-summary">Connected lessons</summary><ul id="document-lessons"></ul></details></section>' +
     '<nav class="study-actions" aria-label="Library tools"><a href="unit-organization/">Explore Unit Organization →</a></nav>' +
     '<section class="library-catalogue" aria-labelledby="catalogue-title"><p class="study-eyebrow">Catalogue</p><h2 id="catalogue-title">Find a reference</h2>' +
-    '<nav class="study-actions" aria-label="Library categories"><a data-type="all" href="./">All documents</a><a data-type="lesson" href="?type=lesson">Lessons</a><a data-type="manual" href="?type=manual">Manuals</a></nav>' +
+    '<nav class="study-actions" aria-label="Library categories"><a data-type="all" href="./">All documents</a><a data-type="lesson" href="?type=lesson">Lessons</a><a data-type="manual" href="?type=manual">Manuals</a><a data-type="organization" href="?type=organization">Organization sources</a></nav>' +
     '<div class="library-controls"><label for="library-search">Search by title, manual number or lesson</label><input id="library-search" type="search" placeholder="Try PAM 6-0102 or Zero Trust"></div>' +
     '<div class="library-filters"><label>Module<select id="library-module"><option value="all">All modules</option>' + groups.map(group => '<option value="' + group.id + '">' + e(group.title + ' · ' + groupName(group)) + '</option>').join('') + '</select></label><label>Format<select id="library-availability"><option value="all">All formats</option><option value="pdf">PDF documents</option></select></label><label>Sort by<select id="library-sort"><option value="course">Course order</option><option value="title">Title A–Z</option><option value="kind">Document type</option></select></label><button type="button" id="library-reset">Reset filters</button></div><div class="library-results-bar"><p id="library-count" role="status"></p><div class="library-view" role="group" aria-label="Document layout"><button type="button" id="library-cards" aria-pressed="true">Cards</button><button type="button" id="library-list-view" aria-pressed="false">List</button></div></div><p id="library-empty" hidden>No documents match these filters. Try a broader search or reset the filters.</p><ul class="library-list">' + rows + '</ul></section>';
   render('library/index.html', 1, 'library', 'Study Library', 'Original lessons and manuals open as PDFs.', body, {
@@ -181,7 +182,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     meta: '<p class="hero-stats"><span><strong>' + metadata.filter(doc => doc.file).length + '</strong> readable PDFs</span><span><strong>' +
       metadata.filter(doc => doc.kind === 'manual' && doc.file).length + '</strong> available manuals</span></p>',
     art: '<div class="hero-plate library-plate" aria-hidden="true"><div class="book-stack"><div>DOCTRINE</div><div>FIELD NOTES</div><div>MANUALS</div></div><span>Read. Connect. Understand.</span></div>',
-    scripts: '<script type="application/json" id="library-data">' + scriptJson(metadata) + '</script><script type="module" src="../assets/library.js?v=catalogue-6"></script>',
+    scripts: '<script type="application/json" id="library-data">' + scriptJson(metadata) + '</script><script type="module" src="../assets/library.js?v=catalogue-7"></script>',
   });
   renderOrganizations(root, render, e);
   renderResources(root, render, e);
