@@ -21,6 +21,7 @@ export function loadStudy(root, lessons) {
   const primary = {};
   const add = doc => {
     if (!slug.test(doc.id) || documents.some(item => item.id === doc.id)) throw new Error('Invalid or duplicate document ID: ' + doc.id);
+    if (doc.restricted && (doc.file || doc.web)) throw new Error('Restricted source has a public download: ' + doc.id);
     if (doc.file && (!slug.test(doc.file) || !existsSync(join(root, 'library', 'files', doc.file + '.pdf')))) {
       throw new Error('Missing PDF: ' + doc.file);
     }
@@ -42,7 +43,7 @@ export function loadStudy(root, lessons) {
       primary[key] = manual;
     } else {
       primary[key] = 'source-' + key;
-      add({ id: primary[key], title, file, kind: 'lesson', edition: 'Original course source', cited: [key], related: [] });
+      add({ id: primary[key], title, file, kind: 'lesson', edition: 'Original course source', cited: [key], related: [], ...(data.restrictedLessonSources?.includes(key) ? { restricted: true } : {}) });
     }
   }
   for (const key of Object.keys(reviewers)) if (!byKey.has(key)) throw new Error('Unknown reviewer: ' + key);
@@ -96,7 +97,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     });
   };
   const documentHref = (doc, prefix = '', page) => doc.file ? prefix + 'library/files/' + doc.file + '.pdf' + (page ? '#page=' + page : '') : doc.web ? prefix + doc.web : prefix + 'library/?doc=' + doc.id + '#document';
-  const docLink = (doc, prefix, page, label = doc.title) => '<a href="' + documentHref(doc, prefix, page) + '"' + (doc.file ? ' target="_blank" rel="noopener"' : '') + '>' + e(label) + '</a>' + (!doc.file && !doc.web ? ' <span class="file-missing">PDF unavailable</span>' : '');
+  const docLink = (doc, prefix, page, label = doc.title) => '<a href="' + documentHref(doc, prefix, page) + '"' + (doc.file ? ' target="_blank" rel="noopener"' : '') + '>' + e(label) + '</a>' + (!doc.file && !doc.web ? ' <span class="file-missing">' + (doc.restricted ? 'Restricted · citation only' : 'PDF unavailable') + '</span>' : '');
   const groups = modules.map(module => ({
     ...module, entries: lessons.filter(lesson => lesson.module === module.id && study.byKey.has(lesson.key)),
   })).filter(group => group.entries.length);

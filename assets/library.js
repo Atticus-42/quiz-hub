@@ -73,7 +73,9 @@ if (selected) {
     get('document').hidden = false;
     get('document-title').textContent = selected.title;
     get('document-meta').textContent = selected.edition || 'Course reference';
-    get('document-availability').textContent = 'Citation record. A matching PDF is not available in the public library yet.';
+    get('document-availability').textContent = selected.restricted
+      ? 'Restricted source. Request access through the Training Directorate.'
+      : 'Citation record. A matching PDF is not available in the public library yet.';
     get('document-lesson-summary').textContent = 'Connected lessons (' + selected.lessons.length + ')';
     for (const lesson of selected.lessons) {
       const item = document.createElement('li');

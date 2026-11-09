@@ -78,7 +78,7 @@
     ],
     "elint": [
       "Electronic Intelligence (ELINT)",
-      "lesson-electronic-intelligence"
+      null
     ],
     "rdf": [
       "Radio Direction Finder (Revised)",
@@ -86,7 +86,7 @@
     ],
     "eccm": [
       "Electronic Counter-Countermeasures (ECCM)",
-      "lesson-electronic-counter-countermeasures"
+      null
     ],
     "nist": [
       "NIST Framework · SOAC Lesson",
@@ -264,7 +264,9 @@
       "title": "FC 8-039 · Army NCO Guide",
       "cited": [
         "ncoempowerment"
-      ]
+      ],
+      "restricted": true,
+      "edition": "March 2005"
     },
     {
       "id": "company-commanders-guide",
@@ -276,24 +278,32 @@
     },
     {
       "id": "adp-6-0",
-      "title": "ADP 6-0 · Mission Command",
+      "title": "ADP 6-0 · Mission Command: Command and Control of Army Forces",
       "cited": [
         "missioncommand"
-      ]
+      ],
+      "file": "adp-6-0",
+      "edition": "31 July 2019"
     },
     {
       "id": "fm-6-0",
       "title": "FM 6-0 · Commander and Staff Organization and Operations",
       "cited": [
         "missioncommand"
-      ]
+      ],
+      "file": "fm-6-0",
+      "edition": "16 May 2022"
     },
     {
       "id": "fm-6-22",
-      "title": "FM 6-22 (FM 22-100) · Army Leadership",
+      "title": "FM 6-22 (FM 22-100) · Army Leadership: Competent, Confident, and Agile",
       "cited": [
-        "leadershipattributes"
-      ]
+        "leadershipattributes",
+        "leadershipcompetencies",
+        "ethicalleadership"
+      ],
+      "file": "fm-6-22",
+      "edition": "12 October 2006 · cited edition"
     },
     {
       "id": "adp-6-22",
@@ -301,24 +311,30 @@
       "cited": [
         "leadershipattributes",
         "ethicalleadership"
-      ]
+      ],
+      "file": "adp-6-22",
+      "edition": "31 July 2019 · Change 1"
     },
     {
       "id": "fm-3-12",
-      "title": "FM 3-12 · Cyberspace Operations and Electromagnetic Warfare",
+      "title": "FM 3-12 · Cyberspace and Electromagnetic Warfare Operations",
       "cited": [
         "eccm",
         "nist",
         "coalition",
         "rdf"
-      ]
+      ],
+      "file": "fm-3-12",
+      "edition": "September 2025 · available edition"
     },
     {
       "id": "tc-24-2",
       "title": "TC 24-2 · The Automated CEOI",
       "cited": [
         "ceoicesi"
-      ]
+      ],
+      "file": "tc-24-2",
+      "edition": "31 December 1975 · historical training circular"
     },
     {
       "id": "nist-cswp-29",
@@ -349,6 +365,91 @@
         "leadershipcompetencies",
         "ncoempowerment"
       ]
+    },
+    {
+      "id": "pam-3-03",
+      "title": "PAM 3-03 · Combined Arms Operations",
+      "file": "pam-3-03",
+      "edition": "17 July 2017",
+      "cited": [
+        "isr",
+        "signaljoint"
+      ],
+      "related": [
+        "signal",
+        "coalition"
+      ]
+    },
+    {
+      "id": "pam-3-0502-01",
+      "title": "PAM 3-0502-01 · Tank Operations",
+      "file": "pam-3-0502-01",
+      "edition": "2018",
+      "cited": [
+        "armor"
+      ]
+    },
+    {
+      "id": "pam-3-0502-02",
+      "title": "PAM 3-0502-02 · Cavalry Operations",
+      "file": "pam-3-0502-02",
+      "edition": "2018",
+      "cited": [
+        "armor"
+      ]
+    },
+    {
+      "id": "c4istar-sensors-handout",
+      "title": "C4ISTAR Sensors Integration · Student Handout",
+      "file": "c4istar-sensors-handout",
+      "edition": "Original course handout",
+      "kind": "lesson",
+      "cited": [
+        "sensors"
+      ]
+    },
+    {
+      "id": "afpm-6-07",
+      "title": "AFPM 6-07 · Joint C4ISTAR (Interim)",
+      "edition": "2020",
+      "related": [
+        "manet",
+        "sensors",
+        "weapons",
+        "c4istarplanning"
+      ],
+      "restricted": true
+    },
+    {
+      "id": "fc-1-012",
+      "title": "FC 1-012 · AFP Code of Ethics",
+      "edition": "April 2006",
+      "cited": [
+        "ethicalleadership"
+      ],
+      "restricted": true
+    },
+    {
+      "id": "pam-2-00",
+      "title": "PAM 2-00 · PA Intelligence",
+      "edition": "2008",
+      "cited": [
+        "sigint"
+      ],
+      "restricted": true
+    },
+    {
+      "id": "sp-3-043",
+      "title": "SP 3-043 · Field Artillery Technical Handbook",
+      "edition": "August 2005",
+      "cited": [
+        "fieldartillery"
+      ],
+      "restricted": true
     }
+  ],
+  "restrictedLessonSources": [
+    "elint",
+    "eccm"
   ]
 }

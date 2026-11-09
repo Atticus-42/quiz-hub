@@ -29,6 +29,17 @@ test('catalogue omits every record without a readable file or web reviewer', () 
   for (const field of ['library-module','library-availability','library-sort','library-reset','library-list-view']) assert.ok(html.includes('id="'+field+'"'));
 });
 
+test('restricted references have citation records and no public download', () => {
+  for (const id of ['afpm-6-07', 'source-elint', 'source-eccm', 'fc-8-039']) {
+    const doc = docs.find(record => record.id === id);
+    assert.ok(doc?.restricted, id);
+    assert.ok(!doc.file && !doc.web, id);
+  }
+  for (const file of ['lesson-electronic-intelligence', 'lesson-electronic-counter-countermeasures']) {
+    assert.ok(!existsSync(new URL('../../library/files/' + file + '.pdf', import.meta.url)));
+  }
+});
+
 test('shared style and crest favicon are local files on library and exams', () => {
   for (const path of ['library/index.html','module-6-exam/index.html','reviewer/eccm/index.html']) {
     const page = readFileSync(new URL('../../'+path, import.meta.url),'utf8');

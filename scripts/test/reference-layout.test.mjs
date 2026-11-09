@@ -86,23 +86,31 @@ test('unavailable manual PDFs are explicitly marked in feedback and results',()=
     const links=findAll(group,n=>hasClass(n,'library-reference'));
     const unavailable=links.filter(n=>hasClass(n,'reference-unavailable'));
     assert.deepEqual(unavailable.map(n=>n.getAttribute('href')),[
+      '../library/?doc=source-elint#document',
       '../library/?doc=pam-3-0702-01#document',
     ]);
     for(const link of unavailable)assert.match(link.textContent,/PDF unavailable/);
   }
 });
-test('course sources open on the authored ECCM, ELINT and Signal Propagation pages',()=>{
-  for(const [slug,qid,pages] of [
-    ['electronic-counter-countermeasures','eccm-e-01',[6]],
-    ['electronic-intelligence','elint-e-01',[5,7]],
-    ['signal-propagation','propagation-e-01',[15,16]],
-  ]){
-    const app=exercise(slug,q=>q,q=>q.qid===qid);
-    for(const group of [app.feedback,app.finish()]){
-      const links=findAll(group,n=>hasClass(n,'library-reference')).map(n=>n.getAttribute('href'));
-      assert.deepEqual(links.filter(href=>href.includes('#page=')),
-        pages.map(page=>'../library/files/lesson-'+slug+'.pdf#page='+page));
+test('restricted lesson sources keep their citations without a downloadable PDF', () => {
+  for (const [slug, key] of [
+    ['electronic-counter-countermeasures', 'eccm'],
+    ['electronic-intelligence', 'elint'],
+  ]) {
+    const app = exercise(slug, q => q, q => q.qid === key + '-e-01');
+    for (const group of [app.feedback, app.finish()]) {
+      const links = findAll(group, node => hasClass(node, 'library-reference'));
+      assert.ok(links.some(link => link.getAttribute('href') === '../library/?doc=source-' + key + '#document'));
+      assert.ok(links.every(link => !link.getAttribute('href').includes('lesson-' + slug + '.pdf')));
     }
+  }
+});
+test('the public Signal Propagation source still opens on its cited pages', () => {
+  const app = exercise('signal-propagation', q => q, q => q.qid === 'propagation-e-01');
+  for (const group of [app.feedback, app.finish()]) {
+    const links = findAll(group, node => hasClass(node, 'library-reference'));
+    assert.deepEqual(links.map(link => link.getAttribute('href')).filter(href => href.includes('#page=')),
+      [15, 16].map(page => '../library/files/lesson-signal-propagation.pdf#page=' + page));
   }
 });
 test('module exam locators open the correct PDFs for each cited lesson',()=>{
