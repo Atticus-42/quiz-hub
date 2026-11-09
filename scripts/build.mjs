@@ -861,7 +861,7 @@ function scheduleBlock(block, lessons) {
   ].join('\n');
 }
 
-export function renderSchedule(template, contours, data, lessons, { base = '', activities = [] } = {}) {
+export function renderSchedule(template, contours, data, lessons, { base = '', activities = [], weeks = [] } = {}) {
   const activitiesByDate = new Map();
   for (const activity of activities) {
     if (!activity.start) continue;
@@ -877,11 +877,13 @@ export function renderSchedule(template, contours, data, lessons, { base = '', a
     }
   }
   const calendarDates = [...activitiesByDate.keys()].sort();
-  const timetableDates = new Set(data.days.map(day => day.date));
-  const extraDates = calendarDates.filter(date => !timetableDates.has(date));
+  const { week } = data;
+  const activityOnly = week.number === undefined;
   const renderActivities = (entries, linkDates = false) => entries.map(({ when, title, detail, start }) => {
+    const target = weeks.find(item => start >= item.start && start <= item.end);
+    const path = target && target.start !== week.start ? `../schedule-${target.start}/` : '';
     const date = linkDates && start
-      ? `<a href="#day-${escapeHtml(start)}">${escapeHtml(when)}</a>`
+      ? `<a href="${path}#day-${escapeHtml(start)}">${escapeHtml(when)}</a>`
       : escapeHtml(when);
     return [
       '<li>',
@@ -900,47 +902,66 @@ export function renderSchedule(template, contours, data, lessons, { base = '', a
   const dayActivities = date => activitiesByDate.has(date)
     ? `<div class="schedule-activities day-activities"><p class="label">Activities for this date</p><ul role="list">${renderActivities(activitiesByDate.get(date))}</ul></div>`
     : '';
-  const extraDays = extraDates.map(date => [
-    `<section class="day" id="day-${date}" aria-labelledby="day-h-${date}" hidden>`,
-    `  <h2 class="day-head" id="day-h-${date}">${escapeHtml(scheduleDate(date))}</h2>`,
-    dayActivities(date),
-    '  <p class="note">No hourly timetable has been published for this date.</p>',
-    '</section>',
-  ].join('\n')).join('\n');
   const academic = data.days.flatMap(day => day.blocks).filter(block => block.kind !== 'routine').length;
   const days = data.days.map(day => [
     `        <section class="day" id="day-${day.date}" data-date="${day.date}" aria-labelledby="day-h-${day.date}"${day.date !== data.days[0].date ? ' hidden' : ''}>`,
     `          <h2 class="day-head" id="day-h-${day.date}"><span class="day-name">${escapeHtml(day.day)}</span> <span class="day-date mono">${escapeHtml(scheduleDate(day.date, { year: false }))}</span><span class="day-today" hidden> · Today</span></h2>`,
     ...(activitiesByDate.has(day.date) ? [dayActivities(day.date)] : []),
-    '          <ol class="blocks">',
-    ...day.blocks.map(block => scheduleBlock(block, lessons)),
-    '          </ol>',
+    ...(day.blocks.length ? [
+      '          <ol class="blocks">',
+      ...day.blocks.map(block => scheduleBlock(block, lessons)),
+      '          </ol>',
+    ] : [`          <p class="note">${activitiesByDate.has(day.date)
+      ? 'No hourly timetable has been published for this date.'
+      : 'No activities have been published for this date.'}</p>`]),
     '        </section>',
   ].join('\n')).join('\n');
   const dayNav = data.days.map(day => `<li><a href="#day-${day.date}" data-date="${day.date}"><span>${escapeHtml(day.day.slice(0, 3))}</span> <span class="mono">${escapeHtml(day.date.slice(8))}</span></a></li>`).join('\n          ');
-  const week = data.week;
   return fillTemplate(template, {
     BASE_CSS: baseCss(base, '../assets/'),
     FONT_PRELOAD: fontPreloads('../assets/'),
     CONTOURS: contours.trim(),
-    WEEK_LABEL: escapeHtml(`${ordinal(week.number)} week of ${week.of}`),
+    WEEK_LABEL: activityOnly ? 'Activity calendar' : escapeHtml(`${ordinal(week.number)} week of ${week.of}`),
     WEEK_RANGE: escapeHtml(scheduleRange(week)),
+    WEEK_DESCRIPTION: activityOnly
+      ? 'Select a day to see its published activities.'
+      : 'Lectures and exams are shaded; a subject with a mock exam on this site links to its quiz.',
     COURSE: escapeHtml(data.course),
     UNIT: escapeHtml(data.unit),
     SCHEDULE_META: [
-      ['Week', `${week.number} of ${week.of}`],
+      ...(activityOnly ? [] : [['Week', `${week.number} of ${week.of}`]]),
       ['Dates', scheduleRange(week)],
-      ['Academic blocks', String(academic)],
+      ...(activityOnly ? [] : [['Academic blocks', String(academic)]]),
       ...(data.students ? [['Students', String(data.students)]] : []),
     ].map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('\n          '),
     PREPARED: escapeHtml([data.notice || '', data.prepared ? `Schedule prepared ${scheduleDate(data.prepared)}.` : '', data.menuNotice || ''].filter(Boolean).join(' ')),
     ACTIVITIES: activitySection,
     CALENDAR_DATES: calendarDates.map(date => `<option value="${date}">${escapeHtml(scheduleDate(date))}</option>`).join('\n'),
-    EXTRA_ACTIVITY_DAYS: extraDays,
     DAY_NAV: dayNav,
     DAYS: days,
-    SCHEDULE_DATA: scriptJson({ start: week.start, end: week.end, range: scheduleRange(week), days: data.days.map(day => day.date), extraDates }),
+    SCHEDULE_DATA: scriptJson({ start: week.start, end: week.end, range: scheduleRange(week), days: data.days.map(day => day.date), weeks, activityOnly }),
   });
+}
+
+function activityScheduleWeeks(timetables, activities) {
+  const lastWeek = timetables.at(-1);
+  const lastDate = activities.reduce((latest, entry) => {
+    const end = entry.end ?? entry.start;
+    return end > latest ? end : latest;
+  }, lastWeek.week.end);
+  const weeks = [];
+  const { course, unit } = lastWeek;
+  const monday = parseDate(lastWeek.week.start);
+  monday.setUTCDate(monday.getUTCDate() + 7);
+  for (; monday.toISOString().slice(0, 10) <= lastDate; monday.setUTCDate(monday.getUTCDate() + 7)) {
+    const days = Array.from({ length: 7 }, (_, offset) => {
+      const date = new Date(monday.getTime());
+      date.setUTCDate(date.getUTCDate() + offset);
+      return { date: date.toISOString().slice(0, 10), day: SCHEDULE_DAYS[date.getUTCDay()], blocks: [] };
+    });
+    weeks.push({ course, unit, week: { start: days[0].date, end: days[6].date }, days });
+  }
+  return weeks;
 }
 
 // Builds every page; returns { path: html } for the files written.
@@ -956,20 +977,24 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   pages['class/index.html'] = renderClass(readFileSync(join(root, 'src', 'class', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadClass(root), { base });
   const scheduleTemplate = readFileSync(join(root, 'src', 'schedule', 'template.html'), 'utf8').replace(/\r\n/g, '\n');
   const activities = readJson(join(root, 'data', 'schedule-activities.json'));
-  const scheduleOptions = { base, activities };
   const activeSchedule = loadSchedule(root);
-  pages['schedule/index.html'] = renderSchedule(scheduleTemplate, contours, activeSchedule, lessons, scheduleOptions);
   // The public feed includes upcoming dates for the bot; the main page keeps the active week.
   const upcoming = readdirSync(join(root, 'data', 'schedules')).filter(name => /^\d{4}-\d{2}-\d{2}_\d{4}-\d{2}-\d{2}\.json$/.test(name) && name.slice(0,10) > activeSchedule.week.start)
     .map(name => loadSchedule(root, join(root, 'data', 'schedules', name))).sort((a,b) => a.week.start.localeCompare(b.week.start));
-  const weekLinks = `<nav aria-label="Available weeks"><p class="legend"><a href="../schedule/?week=${activeSchedule.week.start}">${escapeHtml(scheduleRange(activeSchedule.week))}</a>` + upcoming.map(data => ` · <a href="../schedule-${data.week.start}/">${escapeHtml(scheduleRange(data.week))}</a>`).join('') + '</p></nav>';
-  pages[`schedule-${activeSchedule.week.start}/index.html`] = pages['schedule/index.html'].replace('<nav class="week-nav"',weekLinks+'<nav class="week-nav"');
-  if(upcoming.length){
-    pages['schedule/index.html'] = pages['schedule/index.html'].replace('<nav class="week-nav"', weekLinks + '<nav class="week-nav"');
-    const rollover = `<script>(function(){if(!window.location)return;if(new URLSearchParams(location.search).get('week')==='${activeSchedule.week.start}')return;const weeks=${scriptJson(upcoming.map(data=>({start:data.week.start,end:data.week.end})))};const today=(window.__SCHEDULE_NOW||new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Manila',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())).slice(0,10);const requested=location.hash.match(/^#day-(\\d{4}-\\d{2}-\\d{2})$/)?.[1];const week=weeks.find(w=>(requested||today)>=w.start&&(requested||today)<=w.end);if(week)location.replace('../schedule-'+week.start+'/'+location.search+location.hash);})();</script>`;
-    pages['schedule/index.html'] = pages['schedule/index.html'].replace('</body>',rollover+'</body>');
-    for(const data of upcoming)pages[`schedule-${data.week.start}/index.html`] = renderSchedule(scheduleTemplate, contours, data, lessons, scheduleOptions).replace('<nav class="week-nav"',weekLinks+'<nav class="week-nav"');
-  }
+  const timetables = [activeSchedule, ...upcoming];
+  const weekPages = [...timetables, ...activityScheduleWeeks(timetables, activities)];
+  const weeks = weekPages.map(({ week: { start, end } }) => ({ start, end }));
+  const renderWeek = data => {
+    const links = weekPages.map(({ week }) => {
+      const href = week.start === activeSchedule.week.start ? `../schedule/?week=${week.start}` : `../schedule-${week.start}/`;
+      return `<a href="${href}"${week.start === data.week.start ? ' aria-current="page"' : ''}>${escapeHtml(scheduleRange(week))}</a>`;
+    }).join('');
+    return renderSchedule(scheduleTemplate, contours, data, lessons, { base, activities, weeks })
+      .replace('<nav class="week-nav"', `<nav class="schedule-weeks" aria-label="Available weeks">${links}</nav><nav class="week-nav"`);
+  };
+  for (const data of weekPages) pages[`schedule-${data.week.start}/index.html`] = renderWeek(data);
+  const rollover = `<script>(function(){if(!window.location||location.hash||new URLSearchParams(location.search).get('week')==='${activeSchedule.week.start}')return;const weeks=${scriptJson(weeks.slice(1))};const today=(window.__SCHEDULE_NOW||new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Manila',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())).slice(0,10);const week=weeks.find(w=>today>=w.start&&today<=w.end);if(week)location.replace('../schedule-'+week.start+'/'+location.search+'#day-'+today);})();</script>`;
+  pages['schedule/index.html'] = pages[`schedule-${activeSchedule.week.start}/index.html`].replace('</body>', rollover + '</body>');
   pages['instructor/index.html'] = renderInstructor(readFileSync(join(root, 'src', 'instructor', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base });
   pages['codes-ciphers/index.html'] = fillTemplate(readFileSync(join(root, 'src', 'cipher', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), {
     BASE_CSS: baseCss(base, '../assets/'), FONT_PRELOAD: fontPreloads('../assets/'),

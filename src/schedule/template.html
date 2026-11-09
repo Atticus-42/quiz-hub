@@ -81,6 +81,9 @@
     .week-nav a.is-selected { background: var(--color-olive-dark); border-color: var(--color-olive-dark); color: var(--color-paper); }
     .week-nav a[aria-current="date"] { outline: 2px solid var(--color-signal); outline-offset: 2px; }
     .legend { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin: 0 0 var(--space-5); font-size: var(--text-meta); color: var(--color-muted); }
+    .schedule-weeks { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0 0 var(--space-4); }
+    .schedule-weeks a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-2); border: 1px solid var(--color-rule); font-size: var(--text-meta); }
+    .schedule-weeks a[aria-current="page"] { background: var(--color-selected); border-color: var(--color-accent); font-weight: 700; }
     .legend span { display: inline-flex; align-items: center; gap: var(--space-2); }
     .legend i { display: inline-block; width: 0.875rem; height: 0.875rem; border: 1px solid var(--color-rule); border-left-width: 4px; }
     .legend .key-lecture { border-left-color: var(--color-accent); background: var(--color-selected); }
@@ -207,7 +210,7 @@
         <p class="eyebrow label">{{UNIT}}</p>
         <h1 id="schedule-title">Weekly training schedule</h1>
         <p class="hero-subtitle" id="schedule-subtitle">SOAC 52 - 2026 · Bandwidth Brothers</p>
-        <p class="hero-lede" id="schedule-week"><span class="week-label">{{WEEK_LABEL}}</span>, <span class="mono">{{WEEK_RANGE}}</span>. Lectures and exams are shaded; a subject with a mock exam on this site links to its quiz.</p>
+        <p class="hero-lede" id="schedule-week"><span class="week-label">{{WEEK_LABEL}}</span>, <span class="mono">{{WEEK_RANGE}}</span>. {{WEEK_DESCRIPTION}}</p>
       </div>
       <dl class="hero-meta">
           {{SCHEDULE_META}}
@@ -245,7 +248,6 @@
     <div class="week" id="week">
 {{DAYS}}
     </div>
-    {{EXTRA_ACTIVITY_DAYS}}
     <p class="note" id="schedule-note">{{PREPARED}} Times, venues and uniforms (AU, SGOU, PHILARPAT) are as printed on the official weekly training schedule; announcements by the Training Directorate take precedence.</p>
   </main>
 
@@ -363,7 +365,7 @@
       var nextList = byId('nn-next-list');
       nowList.replaceChildren();
       nextList.replaceChildren();
-      panel.hidden = selectedDay !== null && config.days.indexOf(selectedDay) === -1;
+      panel.hidden = config.activityOnly === true;
       byId('nn-now').hidden = !s.inWeek;
       byId('nn-foot').hidden = !s.inWeek;
       if (s.inWeek) {
@@ -396,7 +398,7 @@
     }(document.body));
 
     var selectedDay = null;
-    var selectableDates = config.days.concat(config.extraDates || []);
+    var selectableDates = config.days;
     var activityPicker = byId('activity-date-picker');
     if (activityPicker && activityPicker.children.length > 1) {
       byId('activity-calendar').hidden = false;
@@ -405,10 +407,17 @@
       });
     }
     function selectDay(day) {
-      if (selectableDates.indexOf(day) === -1) return;
+      if (selectableDates.indexOf(day) === -1) {
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || !window.location) return;
+        var week = (config.weeks || []).find(function (entry) { return day >= entry.start && day <= entry.end; });
+        if (week && week.start !== config.start) {
+          window.location.replace('../schedule-' + week.start + '/' + window.location.search + '#day-' + day);
+        }
+        return;
+      }
       selectedDay = day;
       if (activityPicker) activityPicker.value = day;
-      byId('now-next').hidden = config.days.indexOf(day) === -1;
+      byId('now-next').hidden = config.activityOnly === true;
       selectableDates.forEach(function (date) { byId('day-' + date).hidden = date !== day; });
       navLinks.forEach(function (link) {
         var selected = link.getAttribute('data-date') === day;
@@ -432,9 +441,9 @@
     var fixed = fixedNow();
     var current = update(fixed && !isNaN(fixed.getTime()) ? fixed : new Date());
     var hashDay = ((window.location && window.location.hash) || '').replace(/^#day-/, '');
-    if (selectableDates.indexOf(hashDay) !== -1) selectDay(hashDay);
-    else if (selectableDates.indexOf(current.today) !== -1) selectDay(current.today);
+    if (selectableDates.indexOf(current.today) !== -1) selectDay(current.today);
     else selectDay(config.days[0]);
+    if (hashDay) selectDay(hashDay);
     if (typeof window.addEventListener === 'function') window.addEventListener('hashchange', function () {
       var day = ((window.location && window.location.hash) || '').replace(/^#day-/, '');
       selectDay(day);

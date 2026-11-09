@@ -94,7 +94,11 @@ export async function buildSuite({ lessons, modules }) {
 
   await T('every committed page is a fresh build (run node scripts/build.mjs), with the real endpoint written once per page', () => {
     const pages = build({ write: false });
-    const expectedPages = ['index.html', 'class/index.html', 'schedule/index.html', 'schedule-2026-10-26/index.html', 'schedule-2026-11-02/index.html', 'schedule-2026-11-09/index.html', 'instructor/index.html', 'codes-ciphers/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
+    const scheduleWeeks = ['2026-10-26', '2026-11-02', '2026-11-09', '2026-11-16', '2026-11-23', '2026-11-30',
+      '2026-12-07', '2026-12-14', '2026-12-21', '2026-12-28', '2027-01-04'];
+    const expectedPages = ['index.html', 'class/index.html', 'schedule/index.html',
+      ...scheduleWeeks.map(start => `schedule-${start}/index.html`),
+      'instructor/index.html', 'codes-ciphers/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
     const howtoPages = JSON.parse(readFileSync(join(ROOT, 'data/howto.json'), 'utf8')).map(guide => `how-to/${guide.id}/index.html`);
     const studyPages = [...howtoPages, 'how-to/index.html', 'los-radios/index.html', 'library/index.html', 'reviewer/index.html', ...lessons.filter(lesson => !lesson.pool && !(lesson.prominent && lesson.order === 0)).map(lesson => `reviewer/${lesson.key}/index.html`)];
     assert.deepEqual(Object.keys(pages).sort(), [...expectedPages, ...studyPages].sort());

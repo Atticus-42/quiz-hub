@@ -67,4 +67,17 @@ test('week 8 includes all training rows and 21 menus, and both future weeks reac
  }
  const pages=build({write:false});assert.ok(pages['schedule-2026-11-09/index.html'].includes('day-2026-11-15'));
  assert.ok(pages['schedule/index.html'].includes('../schedule-2026-11-09/'));
+ const activityWeeks=['2026-11-16','2026-11-23','2026-11-30','2026-12-07','2026-12-14','2026-12-21','2026-12-28','2027-01-04'];
+ for(const start of activityWeeks){
+  const page=pages[`schedule-${start}/index.html`];
+  const config=JSON.parse(page.match(/<script type="application\/json" id="schedule-data">([^<]+)<\/script>/)[1]);
+  assert.equal(config.days.length,7);
+  assert.equal(config.days[0],start);
+  assert.equal(new Date(config.days[0]).getUTCDay(),1);
+  assert.equal(new Date(config.days[6]).getUTCDay(),0);
+  assert.equal(config.activityOnly,true);
+  assert.ok(pages['schedule/index.html'].includes(`href="../schedule-${start}/"`));
+ }
+ assert.match(pages['schedule-2026-12-14/index.html'],/id="day-2026-12-16"[\s\S]*Closing Ceremony of 3TP CY 2026/);
+ assert.match(pages['schedule-2027-01-04/index.html'],/id="day-2027-01-10"[\s\S]*No activities have been published for this date/);
 });
