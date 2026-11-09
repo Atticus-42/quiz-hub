@@ -931,10 +931,10 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   // Give every generated section the same per-visit crest selection.
   for (const [path, source] of Object.entries(pages)) {
     const up = '../'.repeat(path.split('/').length - 1);
-    const favicon = ({reviewer:'reviewer',library:'library','how-to':'howto','los-radios':'radio','codes-ciphers':'cipher',schedule:'schedule',class:'class',instructor:'instructor'})[path.split('/')[0]] || 'exams';
+    const favicon = ({reviewer:'anime',library:'bronze','how-to':'jungle','los-radios':'neon','codes-ciphers':'red',schedule:'philippines',class:'comic',instructor:'realistic'})[path.split('/')[0]] || 'colored';
     let html = source.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/identity.css">\n</head>');
     html = html.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/ui-polish.css"><link rel="icon" type="image/png" href="' + up + 'assets/bandwidth-brothers-colored.png">\n</head>');
-    html = html.replace('</head>', '<link rel="icon" type="image/svg+xml" href="' + up + 'assets/favicons/' + favicon + '.svg">\n</head>');
+    html = html.replace('</head>', '<link rel="icon" type="image/png" href="' + up + 'assets/favicons/crest-' + favicon + '.png">\n</head>');
     if (!source.includes('class="study-masthead"')) {
       const ribbon = '<div class="identity-ribbon"><a href="' + (up || './') + '" class="identity-home"><img data-class-crest src="' + up + 'assets/bandwidth-brothers-colored.png" width="48" height="48" alt="Bandwidth Brothers crest"><span>Bandwidth Brothers<small>SOAC 52–26</small></span></a><span class="identity-edition">The crest collection <span data-crest-label>Original</span></span></div>';
       const skip = /(<a class="skip-link"[^>]*>[^<]*<\/a>)/;

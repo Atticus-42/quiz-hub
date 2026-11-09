@@ -20,10 +20,10 @@ for (const path of pages) {
   });
 }
 
-for (const [section,icon] of Object.entries({'':'exams',reviewer:'reviewer',library:'library','how-to':'howto','los-radios':'radio','codes-ciphers':'cipher',schedule:'schedule',class:'class',instructor:'instructor'})) {
+for (const [section,icon] of Object.entries({'':'colored',reviewer:'anime',library:'bronze','how-to':'jungle','los-radios':'neon','codes-ciphers':'red',schedule:'philippines',class:'comic',instructor:'realistic'})) {
  test(`browser favicon: ${section || 'home'}`,()=>{
   const html=readFileSync(new URL('../../'+(section ? section+'/' : '')+'index.html',import.meta.url),'utf8');
-  assert.ok(html.includes('assets/favicons/'+icon+'.svg'));
-  assert.match(readFileSync(new URL('../../assets/favicons/'+icon+'.svg',import.meta.url),'utf8'),/<svg/);
+  assert.ok(html.includes('assets/favicons/crest-'+icon+'.png'));
+  assert.equal(readFileSync(new URL('../../assets/favicons/crest-'+icon+'.png',import.meta.url)).readUInt32BE(16),64);
  });
 }

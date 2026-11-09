@@ -14,6 +14,15 @@
 @media(max-width:1100px) { .study-nav, .site-tabs { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); } .study-nav a, .site-tabs a { border-bottom:1px solid #b9baa950; } }
 @media(max-width:560px) { .study-nav, .site-tabs { grid-template-columns:repeat(2,minmax(0,1fr)); } .study-nav a, .site-tabs a { min-height:48px; padding:.7rem .4rem; font-size:.92rem; } }
 @media(prefers-reduced-motion:reduce) { .study-nav a, .site-tabs a { transition:none; } }
+
+.study-nav,.site-tabs{background:transparent;border-top:1px solid #b9baa9;border-bottom:1px solid #b9baa9;gap:0}
+.study-nav a,.site-tabs a,.site-tabs .cipher-tab{background:transparent;color:#344238;min-height:56px;padding:.85rem 1rem;font-weight:500;letter-spacing:.015em}
+.study-nav a[aria-current],.site-tabs a[aria-current]{background:transparent;color:#9a4328;font-weight:700;box-shadow:none}
+.study-nav a::after,.site-tabs a::after{left:50%;right:auto;bottom:8px;width:24px;height:2px;transform:translateX(-50%)}
+.study-nav a[aria-current]::after,.site-tabs a[aria-current]::after{background:#9a4328}
+.study-nav a:hover,.site-tabs a:hover{background:#a16a3510;color:#9a4328}
+@media(max-width:560px){.study-nav a,.site-tabs a{min-height:48px;padding:.65rem .35rem;font-size:.9rem;border-bottom:1px solid #b9baa935}.study-nav a::after,.site-tabs a::after{bottom:4px;width:20px}.study-nav a[aria-current],.site-tabs a[aria-current]{border-bottom:1px solid #b9baa935}}
+
 .library-catalogue { padding-top:1.5rem; }
 .library-catalogue .study-actions { gap:.5rem; margin:1.25rem 0; }
 .library-catalogue .study-actions a { border-radius:5px; padding:.7rem 1rem; font-weight:600; min-height:44px; }

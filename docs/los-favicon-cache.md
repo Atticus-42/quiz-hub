@@ -1,0 +1,1 @@
+LOS favicon: blank data URI and a cache-first shell with no skipWaiting kept existing tabs on old HTML. Presentation-only update retains identical JS/CSS bundles, precaches crest-neon-v1.png, then skipWaiting + clients.claim. Do not generalize forced activation to incompatible app releases. Source favicon updated in D:/LOS/app/index.html and public/.
