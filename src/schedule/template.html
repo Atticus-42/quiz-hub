@@ -53,6 +53,16 @@
     .nn-foot { grid-column: 2; margin: 0; font-size: var(--text-meta); }
     .nn-foot a { display: inline-flex; align-items: center; min-height: 44px; }
 
+    /* Upcoming activities */
+    .schedule-activities { margin: var(--space-5) 0; padding: var(--space-4) 0; border-top: 1px solid var(--color-rule); }
+    .schedule-activities h2 { margin: 0 0 var(--space-3); font-size: 1.375rem; }
+    .schedule-activities ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: var(--space-3); list-style: none; margin: 0; padding: 0; }
+    .schedule-activities li { padding: var(--space-3); background: var(--color-sunken); border-top: 2px solid var(--color-signal); break-inside: avoid; }
+    .schedule-activities p { margin: 0; }
+    .schedule-activities .activity-date { color: var(--color-signal-text); }
+    .schedule-activities .activity-title { margin-top: var(--space-1); font-weight: 700; }
+    .schedule-activities .activity-detail { margin-top: var(--space-1); color: var(--color-muted); }
+
     /* Day links */
     .week-nav { padding: var(--space-4) 0; border-top: 1px solid var(--color-text); }
     .week-nav ul { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
@@ -209,6 +219,8 @@
       </div>
       <p class="nn-foot" id="nn-foot"><a id="nn-jump" href="#week">Go to today</a></p>
     </section>
+
+    {{ACTIVITIES}}
 
     <nav class="week-nav" aria-label="Days of the week">
       <ul>

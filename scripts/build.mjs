@@ -861,7 +861,18 @@ function scheduleBlock(block, lessons) {
   ].join('\n');
 }
 
-export function renderSchedule(template, contours, data, lessons, { base = '' } = {}) {
+export function renderSchedule(template, contours, data, lessons, { base = '', activities = [] } = {}) {
+  const activityList = activities.map(({ when, title, detail }) =>
+    `<li><p class="label activity-date">${escapeHtml(when)}</p><p class="activity-title">${escapeHtml(title)}</p>${
+      detail ? `<p class="activity-detail">${escapeHtml(detail)}</p>` : ''
+    }</li>`
+  ).join('\n      ');
+  const activitySection = activityList ? [
+    '<section class="schedule-activities" aria-labelledby="schedule-activities-title">',
+    '  <h2 id="schedule-activities-title">Upcoming activities</h2>',
+    `  <ul role="list">\n      ${activityList}\n  </ul>`,
+    '</section>',
+  ].join('\n    ') : '';
   const academic = data.days.flatMap(day => day.blocks).filter(block => block.kind !== 'routine').length;
   const days = data.days.map(day => [
     `        <section class="day" id="day-${day.date}" data-date="${day.date}" aria-labelledby="day-h-${day.date}"${day.date !== data.days[0].date ? ' hidden' : ''}>`,
@@ -888,6 +899,7 @@ export function renderSchedule(template, contours, data, lessons, { base = '' } 
       ...(data.students ? [['Students', String(data.students)]] : []),
     ].map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('\n          '),
     PREPARED: escapeHtml([data.notice || '', data.prepared ? `Schedule prepared ${scheduleDate(data.prepared)}.` : '', data.menuNotice || ''].filter(Boolean).join(' ')),
+    ACTIVITIES: activitySection,
     DAY_NAV: dayNav,
     DAYS: days,
     SCHEDULE_DATA: scriptJson({ start: week.start, end: week.end, range: scheduleRange(week), days: data.days.map(day => day.date) }),
@@ -905,9 +917,12 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   for (const lesson of lessons) pages[`${lesson.slug}/index.html`] = renderQuizPage(engine, contours, lesson, { endpoint, base, study: studyQuizLinks(root, lesson, study) });
   pages['index.html'] = renderHub(readFileSync(join(root, 'src', 'hub', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base });
   pages['class/index.html'] = renderClass(readFileSync(join(root, 'src', 'class', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadClass(root), { base });
-  pages['schedule/index.html'] = renderSchedule(readFileSync(join(root, 'src', 'schedule', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadSchedule(root), lessons, { base });
-  // The public feed includes upcoming dates for the bot; the main page keeps the active week.
+  const scheduleTemplate = readFileSync(join(root, 'src', 'schedule', 'template.html'), 'utf8').replace(/\r\n/g, '\n');
+  const activities = readJson(join(root, 'data', 'schedule-activities.json'));
+  const scheduleOptions = { base, activities };
   const activeSchedule = loadSchedule(root);
+  pages['schedule/index.html'] = renderSchedule(scheduleTemplate, contours, activeSchedule, lessons, scheduleOptions);
+  // The public feed includes upcoming dates for the bot; the main page keeps the active week.
   const upcoming = readdirSync(join(root, 'data', 'schedules')).filter(name => /^\d{4}-\d{2}-\d{2}_\d{4}-\d{2}-\d{2}\.json$/.test(name) && name.slice(0,10) > activeSchedule.week.start)
     .map(name => loadSchedule(root, join(root, 'data', 'schedules', name))).sort((a,b) => a.week.start.localeCompare(b.week.start));
   const weekLinks = `<nav aria-label="Available weeks"><p class="legend"><a href="../schedule/?week=${activeSchedule.week.start}">${escapeHtml(scheduleRange(activeSchedule.week))}</a>` + upcoming.map(data => ` · <a href="../schedule-${data.week.start}/">${escapeHtml(scheduleRange(data.week))}</a>`).join('') + '</p></nav>';
@@ -916,7 +931,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
     pages['schedule/index.html'] = pages['schedule/index.html'].replace('<nav class="week-nav"', weekLinks + '<nav class="week-nav"');
     const rollover = `<script>(function(){if(!window.location)return;if(new URLSearchParams(location.search).get('week')==='${activeSchedule.week.start}')return;const weeks=${scriptJson(upcoming.map(data=>({start:data.week.start,end:data.week.end})))};const today=(window.__SCHEDULE_NOW||new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Manila',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())).slice(0,10);const requested=location.hash.match(/^#day-(\\d{4}-\\d{2}-\\d{2})$/)?.[1];const week=weeks.find(w=>(requested||today)>=w.start&&(requested||today)<=w.end);if(week)location.replace('../schedule-'+week.start+'/'+location.search+location.hash);})();</script>`;
     pages['schedule/index.html'] = pages['schedule/index.html'].replace('</body>',rollover+'</body>');
-    for(const data of upcoming)pages[`schedule-${data.week.start}/index.html`] = renderSchedule(readFileSync(join(root,'src','schedule','template.html'),'utf8'),contours,data,lessons,{base}).replace('<nav class="week-nav"',weekLinks+'<nav class="week-nav"');
+    for(const data of upcoming)pages[`schedule-${data.week.start}/index.html`] = renderSchedule(scheduleTemplate, contours, data, lessons, scheduleOptions).replace('<nav class="week-nav"',weekLinks+'<nav class="week-nav"');
   }
   pages['instructor/index.html'] = renderInstructor(readFileSync(join(root, 'src', 'instructor', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base });
   pages['codes-ciphers/index.html'] = fillTemplate(readFileSync(join(root, 'src', 'cipher', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), {
