@@ -54,12 +54,49 @@
 .library-row:hover { box-shadow:0 7px 18px #203c3017; border-color:var(--file-ink); }
 .library-row[hidden], .reviewer-card[hidden] { display:none; }
 .library-list.compact-list { grid-template-columns:1fr; }
-.compact-list .library-row { display:grid; grid-template-columns:10rem 1fr 8rem; gap:.4rem 1.25rem; align-items:center; }
-.compact-list .document-mark, .compact-list .library-row[data-kind="manual"] .document-mark { margin:0; padding:.6rem; border-top:0; border-left:4px solid var(--file-ink); grid-row:1/4; height:100%; min-height:4rem; }
-.compact-list .library-row .study-eyebrow { margin:0; }
-.compact-list .library-row h3 { grid-column:2; margin:0; }
-.compact-list .library-links { grid-column:2; margin:0; }
-.compact-list .library-row .study-chip { grid-column:3; grid-row:1/4; margin:0; }
+.compact-list .library-row {
+  display: grid;
+  grid-template-columns: 10rem minmax(0, 1fr) 8rem;
+  grid-template-areas: "mark meta action" "mark title action" "mark links action";
+  gap: .4rem 1.25rem;
+  align-items: center;
+}
+.compact-list .library-row .document-mark {
+  grid-area: mark;
+  margin: 0;
+  padding: .6rem;
+  border-top: 0;
+  border-left: 4px solid var(--file-ink);
+  height: 100%;
+  min-height: 4rem;
+}
+.compact-list .library-row .study-eyebrow { grid-area: meta; margin: 0; }
+.compact-list .library-row h3 { grid-area: title; margin: 0; }
+.compact-list .library-links { grid-area: links; margin: 0; }
+.compact-list .library-row .study-chip { grid-area: action; margin: 0; }
+
+@media (max-width: 680px) {
+  .compact-list .library-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas: "mark action" "meta meta" "title title" "links links";
+    gap: .45rem .65rem;
+    padding: .9rem;
+  }
+  .compact-list .library-row .document-mark {
+    height: auto;
+    min-height: 2rem;
+    justify-content: flex-start;
+    padding: .4rem .45rem;
+  }
+  .compact-list .document-mark::before { font-size: 1rem; margin-right: .4rem; }
+  .compact-list .document-mark::after { content: none; }
+  .compact-list .library-row .study-chip {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    white-space: nowrap;
+  }
+}
 .reviewer-module { --module-ink:#28654c; --module-tint:#e4eee2; border:0; }
 .reviewer-module[data-module="module-2"] { --module-ink:#805623; --module-tint:#f3ead8; }
 .reviewer-module[data-module="module-3"] { --module-ink:#365e83; --module-tint:#e3edf5; }
@@ -92,7 +129,7 @@
 #references h2 { color:#80551c; }
 #exam-checklist { background:#e7eee2; padding:1.5rem; border-left:4px solid #356341; }
 @media (max-width:900px) { .library-filters { grid-template-columns:1fr 1fr; } .lesson-hero { grid-template-columns:1fr; } .reviewer-figure { max-width:28rem; } }
-@media (max-width:560px) { .library-filters { grid-template-columns:1fr; } .compact-list .library-row { grid-template-columns:1fr; gap:.6rem; } .compact-list .library-row > * { grid-column:1; grid-row:auto; } .compact-list .document-mark { height:auto; min-height:2rem; } .section-hero h1 { font-size:3.5rem; } .library-catalogue .study-actions a { flex:1 1 auto; justify-content:center; } }
+@media (max-width:560px) { .library-filters { grid-template-columns:1fr; } .section-hero h1 { font-size:3.5rem; } .library-catalogue .study-actions a { flex:1 1 auto; justify-content:center; } }
 @media (prefers-reduced-motion:reduce) { .library-row { transition:none; } }
 /* Cohesive filing colours on the exam catalogue and analysis tools. */
 .module-card { --module-colour:#28654c; border-top:4px solid var(--module-colour); border-radius:5px; }
