@@ -31,7 +31,7 @@
     try { sessionStorage.setItem(key, JSON.stringify(state)); } catch {}
   };
   // Preserve the original on load failure and load only the selected rendition.
-  preview.src = new URL(file + '.png', base).href;
+  preview.src = new URL(file + '-320.webp', base).href;
 })();
 
 /* Attributed quotations: sources recorded in docs/domain-quotes.json. */
