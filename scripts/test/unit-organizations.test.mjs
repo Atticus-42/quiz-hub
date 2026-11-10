@@ -58,3 +58,14 @@ test('EW provisional personnel exclude parenthesized dual designations and prese
  assert.equal(dual.length,32);assert.ok(dual.every(n=>n.personnel===undefined&&n.rawRequirement==='(1)'));
  assert.match(ew.notes.join(' '),/Neither is presented as a confirmed/);
 });
+
+test('every formation has a connected schematic and source-derived subunit labels',async()=>{
+ const {renderOrganizationCharts}=await import('../organization-charts.mjs');
+ for(const group of loadOrganizations(root)){
+  const html=renderOrganizationCharts(group,x=>String(x).replaceAll('&','&amp;').replaceAll('<','&lt;'));
+  assert.match(html,/org-chart-parent/);assert.match(html,/org-chart-branches/);
+  assert.match(html,/tabindex="0" role="region"/);
+  for(const child of group.tree.children) assert.ok(html.includes(child.title.replaceAll('&','&amp;')));
+  assert.match(html,/Schematic teaching graphic/);
+ }
+});
