@@ -5,10 +5,10 @@ import { join } from 'node:path';
 import vm from 'node:vm';
 import assert from 'node:assert/strict';
 import { ROOT as root, HISTORY_ENDPOINT as ENDPOINT } from '../build.mjs';
-import { test as runTest, withoutFontPreloads, cssUrls, isLocalAsset, parseHtml, findAll } from './harness.mjs';
+import { test as runTest, withoutShareMeta, withoutFontPreloads, cssUrls, isLocalAsset, parseHtml, findAll } from './harness.mjs';
 
 export async function hubSuite({ lessons }) {
-const html = readFileSync(join(root, 'index.html'), 'utf8');
+const html = withoutShareMeta(readFileSync(join(root, 'index.html'), 'utf8'));
 const scriptMatch = html.match(/<script>([\s\S]*?)<\/script>/);
 assert.ok(scriptMatch, 'inline script present');
 const script = scriptMatch[1];
@@ -198,7 +198,7 @@ test('no external URLs except the history endpoint; quiz, class and instructor l
   const hrefs = [...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map((m) => m[1]);
   const allowedHref = new Set(['assets/identity.css', ...Object.values(EXPECTED), './', 'class/', 'schedule/?v=day-picker-2', 'instructor/', 'codes-ciphers/', 'reviewer/', 'library/', 'how-to/', 'los-radios/', '#main', '#choose-module', ...Object.keys(MODULE_EXAMS).map((id) => `#${id}`)]);
   assert.deepEqual(hrefs.filter((href) => !allowedHref.has(href)), [], 'every link is a quiz folder, the class or instructor page, or an in-page fragment');
-  const nonAsset = html.replace(/<(?:img|source)\b[^>]*>/gi, (tag) => (/\b(?:src|srcset)="(?:assets\/[\w-]+\.(?:jpg|png)(?: [\w.]+)?(?:, )?)+"/.test(tag) && !/\/\/|https?:/i.test(tag) ? '' : tag));
+  const nonAsset = html.replace(/<(?:img|source)\b[^>]*>/gi, (tag) => (/\b(?:src|srcset)="(?:assets\/[\w-]+\.(?:jpg|png|webp)(?: [\w.]+)?(?:, )?)+"/.test(tag) && !/\/\/|https?:/i.test(tag) ? '' : tag));
   assert.ok(!/<(img|iframe|video|audio|source|object|embed)\b/i.test(nonAsset), 'no embedded media except same-origin assets/ images');
 });
 
@@ -530,7 +530,7 @@ test('topographic contours: decorative, fixed, sliced, quiet, in the margins onl
   for (const sel of ['.exam-card {', '.module-card {', '.history-card {']) assert.match(css.slice(css.indexOf(sel)), /^[^}]*background: var\(--color-surface\)/, sel);
 });
 
-test('hub masthead presents the accessible class crest from a local, dimensioned PNG', () => {
+test('hub masthead presents the accessible class crest from a local, dimensioned image', () => {
   const doc = parseHtml(html);
   const crest = doc.getElementById('class-crest');
   assert.ok(crest, 'the masthead must display the supplied class crest');
@@ -539,11 +539,19 @@ test('hub masthead presents the accessible class crest from a local, dimensioned
   assert.match(image.getAttribute('alt'), /Bandwidth Brothers/);
   for (let node = image; node; node = node.parentNode) assert.notEqual(node.getAttribute?.('aria-hidden'), 'true');
   const src = image.getAttribute('src');
-  assert.ok(src.startsWith('assets/') && src.endsWith('.png'), 'self-host the supplied PNG');
+  assert.ok(src.startsWith('assets/') && /\.(?:png|webp)$/.test(src), 'self-host the class crest');
   const bytes = readFileSync(join(root, src));
-  assert.equal(bytes.subarray(1, 4).toString(), 'PNG');
-  assert.equal(Number(image.getAttribute('width')), bytes.readUInt32BE(16));
-  assert.equal(Number(image.getAttribute('height')), bytes.readUInt32BE(20));
+  if (src.endsWith('.png')) {
+    assert.equal(bytes.subarray(1, 4).toString(), 'PNG');
+    assert.equal(Number(image.getAttribute('width')), bytes.readUInt32BE(16));
+    assert.equal(Number(image.getAttribute('height')), bytes.readUInt32BE(20));
+  } else {
+    assert.equal(bytes.subarray(0, 4).toString(), 'RIFF');
+    assert.equal(bytes.subarray(8, 12).toString(), 'WEBP');
+    assert.equal(bytes.subarray(12, 16).toString(), 'VP8X');
+    assert.equal(Number(image.getAttribute('width')), 1 + bytes.readUIntLE(24, 3));
+    assert.equal(Number(image.getAttribute('height')), 1 + bytes.readUIntLE(27, 3));
+  }
 });
 
 test('Bandwidth Brothers banner sits above the hero with srcset, dimensions, priority and alt text', () => {

@@ -499,6 +499,8 @@ export function keyEvent(document, key, options = {}) {
 // ---------------------------------------------------------------------------
 
 // The font preloads the build writes into each page's <head> (scripts/build.mjs PRELOADED_FONTS).
+// Share-preview tags carry the site's own absolute URLs for chat link cards; they are not page requests.
+export const withoutShareMeta = html => html.replace(/\n?\s*<meta (?:property="og:[^"]*"|name="(?:twitter:card|theme-color)") content="[^"]*">/g, '');
 export const FONT_PRELOAD = /<link rel="preload" href="((?:\.\.\/)?assets\/fonts\/[\w-]+\.woff2)" as="font" type="font\/woff2" crossorigin>/g;
 export const withoutFontPreloads = html => html.replace(FONT_PRELOAD, '').replace(/<link rel="icon" type="image\/png" href="(?:\.\.\/)*assets\/favicons\/crest-[a-z]+\.png">/g, '').replace(/<link rel="stylesheet" href="(?:\.\.\/)*assets\/ui-polish\.css">|<link rel="icon" type="image\/png" href="(?:\.\.\/)*assets\/bandwidth-brothers-colored\.png">/g, '');
 

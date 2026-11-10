@@ -18,7 +18,7 @@
   }
   const choice = state.deck.pop();
   const [file, label] = variants[choice];
-  const images = [...document.querySelectorAll('[data-class-crest], img[src$="bandwidth-brothers-colored.png"]')];
+  const images = [...document.querySelectorAll('[data-class-crest], img[src*="bandwidth-brothers-colored"]')];
   const preview = new Image();
   preview.onload = () => {
     images.forEach(image => {

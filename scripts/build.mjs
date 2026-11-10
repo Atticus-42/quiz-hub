@@ -989,7 +989,10 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
       const href = week.start === activeSchedule.week.start ? `../schedule/?week=${week.start}` : `../schedule-${week.start}/`;
       return `<a href="${href}"${week.start === data.week.start ? ' aria-current="page"' : ''}>${escapeHtml(scheduleRange(week))}</a>`;
     }).join('');
+    const range = escapeHtml(scheduleRange(data.week));
     return renderSchedule(scheduleTemplate, contours, data, lessons, { base, activities, weeks })
+      .replace(/<title>[^<]*<\/title>/, `<title>Weekly training schedule · ${range} · SOAC 52 - 2026 · Bandwidth Brothers</title>`)
+      .replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="Bandwidth Brothers, SOAC 52 - 2026: training schedule for ${range}, with times, instructors, venues, uniforms and menus.">`)
       .replace('<nav class="week-nav"', `<nav class="schedule-weeks" aria-label="Available weeks">${links}</nav><nav class="week-nav"`);
   };
   for (const data of weekPages) pages[`schedule-${data.week.start}/index.html`] = renderWeek(data);
@@ -1010,14 +1013,15 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
     const up = '../'.repeat(path.split('/').length - 1);
     const favicon = ({reviewer:'anime',library:'bronze','how-to':'jungle','los-radios':'neon','codes-ciphers':'red',schedule:'philippines',class:'comic',instructor:'realistic'})[path.split('/')[0]] || 'colored';
     let html = source.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/identity.css">\n</head>');
-    html = html.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/ui-polish.css"><link rel="icon" type="image/png" href="' + up + 'assets/bandwidth-brothers-colored.png">\n</head>');
+    html = html.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/ui-polish.css">\n</head>');
     html = html.replace('</head>', '<link rel="icon" type="image/png" href="' + up + 'assets/favicons/crest-' + favicon + '.png">\n</head>');
     if (!source.includes('class="study-masthead"')) {
-      const ribbon = '<div class="identity-ribbon"><a href="' + (up || './') + '" class="identity-home"><img data-class-crest src="' + up + 'assets/bandwidth-brothers-colored.png" width="48" height="48" alt="Bandwidth Brothers crest"><span>Bandwidth Brothers<small>SOAC 52–26</small></span></a><span class="identity-edition">The crest collection <span data-crest-label>Original</span></span></div>';
+      const ribbon = '<div class="identity-ribbon" role="region" aria-label="Class identity"><a href="' + (up || './') + '" class="identity-home"><img data-class-crest src="' + up + 'assets/bandwidth-brothers-colored-400.webp" width="48" height="48" alt="Bandwidth Brothers crest"><span>Bandwidth Brothers<small>SOAC 52–26</small></span></a><span class="identity-edition">The crest collection <span data-crest-label>Original</span></span></div>';
       const skip = /(<a class="skip-link"[^>]*>[^<]*<\/a>)/;
       html = skip.test(html) ? html.replace(skip, '$1' + ribbon) : html.replace(/(<body[^>]*>)/, '$1' + ribbon);
     }
-    html = html.replace('</body>', '<aside class="domain-seal" aria-label="Site signature"><img class="domain-sigil" src="' + up + 'assets/domain-void-hand.png" width="160" height="200" alt="" loading="lazy" decoding="async"><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>“You see, but you do not observe.”</em><cite data-domain-attribution>— Sherlock Holmes · A Scandal in Bohemia · Arthur Conan Doyle</cite></span></aside>\n</body>');
+    html = withShareMetadata(html, path, up);
+    html = html.replace('</body>', '<aside class="domain-seal" aria-label="Site signature"><img class="domain-sigil" src="' + up + 'assets/domain-void-hand-320.webp" width="160" height="221" alt="" loading="lazy" decoding="async"><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>“You see, but you do not observe.”</em><cite data-domain-attribution>— Sherlock Holmes · A Scandal in Bohemia · Arthur Conan Doyle</cite></span></aside>\n</body>');
     pages[path] = html.replace('</body>', '<script src="' + up + 'assets/identity.js" defer></script>\n</body>');
   }
   if (write) {
@@ -1027,6 +1031,32 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
     }
   }
   return pages;
+}
+
+const SITE_URL = 'https://atticus-42.github.io/quiz-hub/';
+// Every page gets a description (when its template has none) and share-preview tags, so links posted in chat show a card.
+function withShareMetadata(html, path, up) {
+  if (html.includes('<meta name="robots" content="noindex">')) return html;
+  const plain = value => value.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim();
+  const clip = (value, max) => {
+    if (value.length <= max) return value;
+    return value.slice(0, max).replace(/&[#a-z0-9]*$/i, '').replace(/\s+\S*$/, '').replace(/[,;:\s]+$/, '') + '…';
+  };
+  const title = (html.match(/<title>([^<]*)<\/title>/) || [])[1] || 'Bandwidth Brothers';
+  let description = (html.match(/<meta name="description" content="([^"]*)"/) || [])[1];
+  if (!description) {
+    const lede = (html.match(/<p class="(?:hero-lede|lede)">([\s\S]*?)<\/p>/) || [])[1];
+    description = lede ? clip(plain(lede).replace(/"/g, '&quot;'), 155) : `${title}: Bandwidth Brothers, SOAC 52 - 2026 practice quizzes, reviewers and study tools.`;
+    html = html.replace(/(<meta name="viewport"[^>]*>)/, `$1\n  <meta name="description" content="${description}">`);
+  }
+  const dir = path.replace(/index\.html$/, '');
+  const tags = [
+    ['property', 'og:site_name', 'Bandwidth Brothers · SOAC 52 - 2026'], ['property', 'og:type', 'website'],
+    ['property', 'og:title', title], ['property', 'og:description', description], ['property', 'og:url', SITE_URL + dir],
+    ['property', 'og:image', SITE_URL + 'assets/banner-1600.jpg'], ['property', 'og:image:width', '1600'], ['property', 'og:image:height', '900'],
+    ['name', 'twitter:card', 'summary_large_image'], ['name', 'theme-color', '#2e3418'],
+  ].map(([attr, key, value]) => `<meta ${attr}="${key}" content="${value}">`).join('\n  ');
+  return html.replace('</head>', `  ${tags}\n</head>`);
 }
 
 function parseArgs(argv) {

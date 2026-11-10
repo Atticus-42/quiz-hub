@@ -45,7 +45,7 @@ test('shared style and crest favicon are local files on library and exams', () =
     const page = readFileSync(new URL('../../'+path, import.meta.url),'utf8');
     const prefix = '../'.repeat(path.split('/').length-1);
     assert.ok(page.includes('href="'+prefix+'assets/ui-polish.css"'));
-    assert.ok(page.includes('<link rel="icon" type="image/png" href="'+prefix+'assets/bandwidth-brothers-colored.png">'));
+    assert.ok(page.includes('<link rel="icon" type="image/png" href="'+prefix+'assets/favicons/crest-'),'crest favicon');
   }
   assert.ok(existsSync(new URL('../../assets/ui-polish.css',import.meta.url)));
   assert.ok(existsSync(new URL('../../assets/bandwidth-brothers-colored.png',import.meta.url)));

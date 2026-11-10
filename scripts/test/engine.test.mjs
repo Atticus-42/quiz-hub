@@ -5,6 +5,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { MODES, ROOT, validateBank, quizTotal, lessonText } from '../build.mjs';
 import {
+  withoutShareMeta,
   test, plain, seededRandom, normalize, findAll, isShown, hasClass, parseHtml, appScripts, runPage,
   withEndpoint, fakeFetch, TEST_ENDPOINT, ENDPOINT_PATTERN, stylesheetText, parseCss, REDUCED_MOTION_MEDIA, hasMotion,
   keyEvent, loadCodeGs, FakeStorage, withoutFontPreloads, cssUrls, isLocalAsset,
@@ -21,7 +22,7 @@ const NATIVE_RADIO_STEP = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft:
 export async function engineSuite(lesson) {
   const T = (name, run) => test(`[${lesson.key}] ${name}`, run);
   const pagePath = join(ROOT, lesson.slug, 'index.html');
-  const builtHtml = readFileSync(pagePath, 'utf8');
+  const builtHtml = withoutShareMeta(readFileSync(pagePath, 'utf8'));
   const baseHtml = withEndpoint(builtHtml, '');
   const configuredHtml = withEndpoint(builtHtml, TEST_ENDPOINT);
   const banks = lesson.banks;
@@ -580,7 +581,7 @@ export async function engineSuite(lesson) {
     // The self-hosted font preloads are same-origin assets too (checked in the design suite).
     const withoutAssetImages = withoutFontPreloads(builtHtml).replace(/<link rel="stylesheet" href="\.\.\/assets\/identity\.css">|<script src="\.\.\/assets\/identity\.js" defer><\/script>/g, '').replace(/<(?:img|source)\b[^>]*>/gi, tag => {
       const urls = [...tag.matchAll(/\b(?:src|srcset)="([^"]*)"/gi)].flatMap(m => m[1].split(',').map(u => u.trim().split(/\s+/)[0]));
-      return urls.length && urls.every(u => /^\.\.\/assets\/[\w.-]+\.(?:jpg|png)$/.test(u)) ? '' : tag;
+      return urls.length && urls.every(u => /^\.\.\/assets\/[\w.-]+\.(?:jpg|png|webp)$/.test(u)) ? '' : tag;
     });
     assert.doesNotMatch(withoutAssetImages, /<link\b|<img\b|<source\b|<iframe\b|<audio\b|\bsrc\s*=|\bsrcset\s*=|@import|url\(\s*['"]?(?:https?:)?\/\//i, 'only same-origin ../assets/ images are allowed');
     assert.doesNotMatch(builtHtml, /\.(?:mp3|wav|ogg|m4a)\b/i, 'sounds are synthesised, never loaded');

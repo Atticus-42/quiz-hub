@@ -87,7 +87,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     const up = '../'.repeat(depth);
     pages[path] = fillTemplate(template, {
       BASE_CSS: baseCss(base, up + 'assets/'), STUDY_CSS: css, FONT_PRELOAD: fontPreloads(up + 'assets/'),
-      CREST_HREF: up + 'assets/bandwidth-brothers-colored.png', BRAND_HREF: up, HOME: up, REVIEWER_HREF: up + 'reviewer/', LIBRARY_HREF: up + 'library/',
+      CREST_HREF: up + 'assets/bandwidth-brothers-colored-400.webp', BRAND_HREF: up, HOME: up, REVIEWER_HREF: up + 'reviewer/', LIBRARY_HREF: up + 'library/',
       REVIEWER_CURRENT: section === 'reviewer' ? ' aria-current="page"' : '',
       LIBRARY_CURRENT: section === 'library' ? ' aria-current="page"' : '',
       CIPHER_HREF: up + 'codes-ciphers/', SCHEDULE_HREF: up + 'schedule/?v=day-picker-2', CLASS_HREF: up + 'class/',
@@ -119,7 +119,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     '<section class="study-return" id="study-return" hidden aria-label="Continue studying"></section><div class="study-layout reviewer-layout">' + finder + indexNav + '<div class="study-content">' + sections + '</div></div>', {
       eyebrow: 'The officers’ study journal / Vol. 01',
       meta: '<p class="hero-stats"><span><strong>' + study.byKey.size + '</strong> lesson guides</span><span><strong>' + groups.filter(group => group.id !== 'supplemental').length + '</strong> course modules</span></p>',
-      art: '<div class="hero-plate"><img src="../assets/bandwidth-brothers-colored.png" width="176" height="176" alt=""><span>Bandwidth Brothers</span><p>One frequency.<br>Shared understanding.</p><a href="../library/">Explore the library ↗</a></div>',
+      art: '<div class="hero-plate"><img src="../assets/bandwidth-brothers-colored-400.webp" width="176" height="176" alt=""><span>Bandwidth Brothers</span><p>One frequency.<br>Shared understanding.</p><a href="../library/">Explore the library ↗</a></div>',
       scripts: '<script src="../assets/reviewer-index.js" defer></script>',
     });
   for (const [key, lesson] of study.byKey) {

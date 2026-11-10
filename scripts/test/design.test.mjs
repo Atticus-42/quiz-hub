@@ -4,7 +4,7 @@ import assert from 'node:assert/strict';
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { ROOT, HISTORY_ENDPOINT, PRELOADED_FONTS } from '../build.mjs';
-import { test, parseCss, cssUrls, isLocalAsset, FONT_PRELOAD } from './harness.mjs';
+import { test, withoutShareMeta, parseCss, cssUrls, isLocalAsset, FONT_PRELOAD } from './harness.mjs';
 
 const FONT_FILES = [
   'IBMPlexSansCondensed-Regular-Latin1.woff2', 'IBMPlexSansCondensed-Italic-Latin1.woff2', 'IBMPlexSansCondensed-Medium-Latin1.woff2',
@@ -94,7 +94,7 @@ export async function designSuite({ lessons }) {
 
   await T('no page makes an external request: every URL is the history endpoint or a same-origin relative path', () => {
     for (const page of pages) {
-      const html = readFileSync(join(ROOT, page), 'utf8');
+      const html = withoutShareMeta(readFileSync(join(ROOT, page), 'utf8'));
       const absolute = [...html.matchAll(/(?:https?:)?\/\/[a-z0-9.-]+\.[a-z]{2,}[^\s"'<>)]*/gi)].map(match => match[0]);
       assert.deepEqual(absolute.filter(url => url !== HISTORY_ENDPOINT), [], `${page}: only the history endpoint`);
       for (const url of cssUrls(styles(html))) assert.ok(url.startsWith('#') || isLocalAsset(url), `${page}: url(${url}) is same-origin`);

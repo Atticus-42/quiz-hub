@@ -4,7 +4,7 @@ import { readFileSync, existsSync, mkdtempSync, mkdirSync, writeFileSync, rmSync
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { ROOT, MODES, CLASS_FORBIDDEN, loadClass } from '../build.mjs';
-import { test, plain, findAll, isShown, hasClass, parseHtml, appScripts, runPage, withEndpoint, fakeFetch, TEST_ENDPOINT, loadCodeGs, withoutFontPreloads } from './harness.mjs';
+import { test, plain, findAll, isShown, hasClass, parseHtml, appScripts, runPage, withEndpoint, fakeFetch, TEST_ENDPOINT, loadCodeGs, withoutFontPreloads, withoutShareMeta } from './harness.mjs';
 
 export async function instructorSuite({ lessons }) {
   const T = (name, run) => test(`[instructor] ${name}`, run);
@@ -417,6 +417,6 @@ export async function classSuite() {
     assert.match(html, /body \{[^}]*overflow-wrap: anywhere;/);
       assert.deepEqual([...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../assets/identity.css', '../', '../', '../schedule/?v=day-picker-2']);
       assert.match(html, /<a class="hub-link" id="schedule-link" href="\.\.\/schedule\/\?v=day-picker-2">This week's schedule /);
-    assert.doesNotMatch(html, /https?:\/\//);
+    assert.doesNotMatch(withoutShareMeta(html), /https?:\/\//);
   });
 }
