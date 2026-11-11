@@ -96,7 +96,7 @@
     .dir-office { margin: var(--space-1) 0 0; font-size: var(--text-meta); color: var(--color-muted); }
     .dir-duties { margin: var(--space-1) 0 0; font-size: var(--text-meta); line-height: 1.45; }
     .dir-quals { margin-top: var(--space-2); font-size: var(--text-meta); }
-    .dir-quals summary { display: inline-block; cursor: pointer; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-signal-text); padding: var(--space-1) 0; }
+    .dir-quals summary { display: inline-flex; align-items: center; min-height: 44px; cursor: pointer; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-signal-text); padding: var(--space-1) 0; }
     .dir-quals summary:focus-visible { outline: 2px solid var(--color-signal); outline-offset: 2px; }
     .dir-quals-group { margin: var(--space-2) 0 0; font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-muted); }
     .dir-quals ul { margin: var(--space-1) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--color-hairline); }
@@ -143,7 +143,7 @@
   <div class="topo" aria-hidden="true">
     {{CONTOURS}}
   </div>
-  <div class="strip">
+  <div class="strip" role="region" aria-label="Page context">
     <div class="wrap strip-inner">
       <p>For training purposes<span class="sep" aria-hidden="true">·</span>SOAC 52 - 2026<span class="sep" aria-hidden="true">·</span>Bandwidth Brothers</p>
       <p class="strip-ref">Class organization</p>

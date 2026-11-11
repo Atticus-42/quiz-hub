@@ -2,9 +2,9 @@
 .identity-home { display:inline-flex; align-items:center; gap:.75rem; text-decoration:none; color:inherit; font-weight:600; line-height:1.2; }
 .identity-home img,.brand-crest { width:5.5rem; height:5.5rem; object-fit:contain; flex:none; }
 .identity-home small { display:block; margin-top:.25rem; font:.6rem var(--font-mono,monospace); letter-spacing:.1em; }
-.identity-edition { font:.65rem var(--font-mono,monospace); text-align:right; line-height:1.5; }
+.identity-edition { font:.7rem var(--font-mono,monospace); text-align:right; line-height:1.5; }
 .identity-edition [data-crest-label] { display:block; text-transform:uppercase; color:#79511d; }
-@media(max-width:520px) { .identity-ribbon { padding:.5rem .75rem; } .identity-edition { max-width:8rem; font-size:.58rem; } }
+@media(max-width:520px) { .identity-ribbon { padding:.5rem .75rem; } .identity-edition { max-width:8rem; font-size:.65rem; } }
 @media print { .identity-ribbon { display:none; } }
 
 @media(max-width:520px) { .identity-home img,.brand-crest { width:64px; height:64px; } .identity-home { gap:.45rem; } .identity-home > span { max-width:9rem; } .identity-edition { max-width:5rem; } }

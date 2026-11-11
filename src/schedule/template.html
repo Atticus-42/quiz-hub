@@ -60,6 +60,7 @@
     .schedule-activities li { padding: var(--space-3); background: var(--color-sunken); border-top: 2px solid var(--color-signal); break-inside: avoid; }
     .schedule-activities p { margin: 0; }
     .schedule-activities .activity-date { color: var(--color-signal-text); }
+    .schedule-activities .activity-date a { display: inline-flex; align-items: center; min-height: 44px; }
     .schedule-activities .activity-title { margin-top: var(--space-1); font-weight: 700; }
     .schedule-activities .activity-detail { margin-top: var(--space-1); color: var(--color-muted); }
 
@@ -186,7 +187,7 @@
   <div class="topo" aria-hidden="true">
     {{CONTOURS}}
   </div>
-  <div class="strip">
+  <div class="strip" role="region" aria-label="Page context">
     <div class="wrap strip-inner">
       <p>For training purposes<span class="sep" aria-hidden="true">·</span>SOAC 52 - 2026<span class="sep" aria-hidden="true">·</span>Bandwidth Brothers</p>
       <p class="strip-ref">Weekly training schedule</p>
