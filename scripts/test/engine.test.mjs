@@ -28,6 +28,7 @@ export async function engineSuite(lesson) {
   const banks = lesson.banks;
   const pool = lesson.rules.pool;
   const ref = lesson.rules.ref;
+  const alt = lesson.rules.alt;
   const text = lessonText(lesson);
   // Questions per attempt (a lesson serves its whole bank, at most 35; a pool exam's fixed count).
   const count = mode => lesson.attempts[mode];
@@ -356,7 +357,9 @@ export async function engineSuite(lesson) {
     assert.ok(feedbackText.includes(`Your answer: ${LETTERS[wrong]}. ${first.options[wrong]}`), feedbackText);
     assertExplanationPresent(feedback, first);
     const refs = findAll(feedback, node => hasClass(node, 'source-ref')).map(node => node.textContent);
-    if (ref && Array.isArray(first.sourceSlides)) assert.deepEqual(refs, [`Lesson reference: ${ref.label} ${first.sourceSlides.join(', ')}`]);
+    const altRef = alt && first.sourceAlt ? [`${alt.label} · ${first.sourceAlt.pages.length === 1 ? 'page' : 'pages'} ${first.sourceAlt.pages.join(', ')}`] : [];
+    const slideRef = ref && Array.isArray(first.sourceSlides) && first.sourceSlides.length ? [`Lesson reference: ${ref.label} ${first.sourceSlides.join(', ')}`] : [];
+    if (slideRef.length || altRef.length) assert.deepEqual(refs, [...slideRef, ...altRef]);
     else if (/\breferences?:/i.test(first.explanation) || (pool && first.explanation.includes(' (' + first.lesson + ', '))) assert.ok(refs.length > 0, 'authored citations have separate references');
     else assert.deepEqual(refs, [], 'no invented references when none are supplied');
     assert.doesNotMatch(feedbackText, /undefined/);
@@ -405,6 +408,24 @@ export async function engineSuite(lesson) {
       const result = plain(api.validateBanks({ ...banks, easy: bank }));
       assert.equal(result.valid, false, JSON.stringify(mutated)?.slice(0, 80));
       assert.deepEqual(result.errors, validateBank(bank, 'easy', lesson.rules).map(error => `easy ${error}`));
+    }
+    if (alt) {
+      const ok = { ref: alt.ref, pages: [alt.min] };
+      for (const bad of [{ ...ok, ref: 'other-doc' }, { ...ok, pages: [] }, { ...ok, pages: [alt.min - 1] }, { ...ok, pages: [alt.max + 1] }, { ...ok, pages: [String(alt.min)] }, { ...ok, pages: [1.5] }, { ref: alt.ref }, null, 3, []]) {
+        const bank = [{ ...base, sourceAlt: bad }, ...easy.slice(1)];
+        const result = plain(api.validateBanks({ ...banks, easy: bank }));
+        assert.equal(result.valid, false, `sourceAlt ${JSON.stringify(bad)} must be rejected`);
+        assert.deepEqual(result.errors, validateBank(bank, 'easy', lesson.rules).map(error => `easy ${error}`));
+      }
+      // sourceAlt may stand in for the primary reference: sourceSlides omitted or empty is then accepted.
+      for (const accepted of [{ ...base, sourceAlt: ok }, { ...without(base, 'sourceSlides'), sourceAlt: ok }, { ...base, sourceSlides: [], sourceAlt: ok }]) {
+        assert.deepEqual(plain(api.validateBanks({ ...banks, easy: [accepted, ...easy.slice(1)] })), { valid: true, errors: [] }, 'sourceAlt can replace sourceSlides');
+      }
+    } else if (!pool) {
+      const stray = [{ ...base, sourceAlt: { ref: 'any-doc', pages: [1] } }, ...easy.slice(1)];
+      const result = plain(api.validateBanks({ ...banks, easy: stray }));
+      assert.equal(result.valid, false, 'sourceAlt needs a lesson-level sourceAlt');
+      assert.deepEqual(result.errors, validateBank(stray, 'easy', lesson.rules).map(error => `easy ${error}`));
     }
     if (!pool && !ref.required) {
       for (const accepted of [{ ...base, sourceSlides: [ref.min] }, without(base, 'sourceSlides')]) {

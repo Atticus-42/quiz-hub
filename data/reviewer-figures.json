@@ -155,6 +155,39 @@
     },
     {
       "topic": "Read a fingerprint without overclaiming intent",
+      "kind": "bands",
+      "title": "NATO radar bands and their typical uses",
+      "caption": "The band letter says where the carrier sits and what the band is typically used for; it does not set the radar's range.",
+      "pages": [17],
+      "unit": "GHz",
+      "bands": [
+        { "letter": "A", "range": "0–0.25" },
+        { "letter": "B", "range": "0.25–0.5" },
+        { "letter": "C", "range": "0.5–1" },
+        { "letter": "D", "range": "1–2" },
+        { "letter": "E", "range": "2–3" },
+        { "letter": "F", "range": "3–4" },
+        { "letter": "G", "range": "4–6" },
+        { "letter": "H", "range": "6–8" },
+        { "letter": "I", "range": "8–10" },
+        { "letter": "J", "range": "10–20" },
+        { "letter": "K", "range": "20–40" },
+        { "letter": "L", "range": "40–60" },
+        { "letter": "M", "range": "60–100" }
+      ],
+      "groups": [
+        { "from": "A", "to": "D", "use": "Long-range search and early warning" },
+        { "from": "E", "to": "H", "use": "Air surveillance, air defence and weapon-locating" },
+        { "from": "I", "to": "J", "use": "Tracking, fire control, ground and coastal surveillance" },
+        { "from": "K", "to": "M", "use": "Short-range, high-precision sensors and seekers" }
+      ],
+      "notes": [
+        "Lower frequency: sees farther, less precise. Higher frequency: more precise, shorter range.",
+        "Range depends on power, antenna and target, not on the band letter. These are typical uses only."
+      ]
+    },
+    {
+      "topic": "Read a fingerprint without overclaiming intent",
       "kind": "matrix",
       "title": "Search compared with track",
       "caption": "Search and track differ in scan, repetition rate and pulse width. A switch from search to track on the same emitter is reported immediately.",

@@ -289,3 +289,32 @@ export async function buildSuite({ lessons, modules }) {
     }
   });
 }
+
+test('sourceAlt is a secondary per-question reference validated against the lesson sourceAlt range', () => {
+  const rules = { key: 'armor', categoryOrder: ['Fire support'], ref: { label: 'page', plural: 'pages', min: 13, max: 83, required: true }, alt: { ref: 'armor-handout', label: 'Student handout', min: 1, max: 8 }, pool: null };
+  const question = { id: 1, qid: 'armor-e-01', difficulty: 'easy', category: 'Fire support', prompt: 'Which?', options: ['a', 'b', 'c', 'd'], answer: 2, explanation: 'Because.', tags: ['t'], sourceSlides: [13] };
+  const alt = { ref: 'armor-handout', pages: [3] };
+  const { sourceSlides, ...noSlides } = question;
+  const slidesMessage = ['sourceSlides must contain integers from 13 to 83'];
+  assert.deepEqual(validateQuestion({ ...question, sourceAlt: alt }, 'easy', 1, rules), [], 'both references');
+  assert.deepEqual(validateQuestion({ ...noSlides, sourceAlt: alt }, 'easy', 1, rules), [], 'sourceAlt alone satisfies the required reference');
+  assert.deepEqual(validateQuestion({ ...question, sourceSlides: [], sourceAlt: alt }, 'easy', 1, rules), [], 'empty sourceSlides with sourceAlt');
+  assert.deepEqual(validateQuestion(noSlides, 'easy', 1, rules), slidesMessage, 'neither reference');
+  assert.deepEqual(validateQuestion({ ...question, sourceSlides: [] }, 'easy', 1, rules), slidesMessage);
+  const message = ['sourceAlt must be { ref: "armor-handout", pages: [integers from 1 to 8] }'];
+  for (const bad of [{ ...alt, ref: 'other' }, { ref: 'armor-handout', pages: [] }, { ref: 'armor-handout', pages: [0] }, { ref: 'armor-handout', pages: [9] }, { ref: 'armor-handout', pages: ['3'] }, { ref: 'armor-handout' }, null, [3]]) {
+    assert.deepEqual(validateQuestion({ ...question, sourceAlt: bad }, 'easy', 1, rules), message, JSON.stringify(bad));
+  }
+  assert.deepEqual(validateQuestion({ ...noSlides, sourceAlt: { ref: 'armor-handout', pages: [9] } }, 'easy', 1, rules), message, 'a bad sourceAlt is still reported');
+  assert.deepEqual(validateQuestion({ ...question, sourceAlt: alt }, 'easy', 1, { ...rules, alt: null }), ['sourceAlt is not enabled for this lesson (declare sourceAlt in lesson.json)']);
+});
+
+test('checkLessonConfig validates a lesson sourceAlt declaration', () => {
+  const dir = join(ROOT, 'lessons', 'signalestimate');
+  const config = JSON.parse(readFileSync(join(dir, 'lesson.json'), 'utf8'));
+  assert.ok(config.sourceAlt, 'signalestimate declares sourceAlt');
+  assert.doesNotThrow(() => checkLessonConfig(config, dir));
+  for (const bad of [null, { ...config.sourceAlt, ref: 'Not A Slug' }, { ...config.sourceAlt, label: '' }, { ...config.sourceAlt, min: 0 }, { ...config.sourceAlt, min: 9, max: 8 }, { ...config.sourceAlt, max: 1.5 }]) {
+    assert.throws(() => checkLessonConfig({ ...config, sourceAlt: bad }, dir), /sourceAlt must be/);
+  }
+});

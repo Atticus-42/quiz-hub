@@ -6,6 +6,9 @@ Folders whose name starts with `_` are ignored by the build. To add a lesson:
 2. Edit `lesson.json`. The `key` must equal the folder name and `historyLesson`, and it must be listed in
    `LESSONS` in `apps-script/Code.gs` (`signaljoint` already is). Set `categoryOrder`, `sourceRef`
    (page/slide range, or `"required": false`), `slug` (the URL folder) and `order` (position in its module).
+   Optional `sourceAlt` (`{ "ref": "<Library document id>", "label": "Student handout", "min": 1, "max": <PDF pages> }`) lets a
+   question cite a second source: `"sourceAlt": { "ref": "<same id>", "pages": [N] }`. A question needs `sourceSlides` or
+   `sourceAlt` (or both); `sourceSlides` may then be omitted when the primary reference does not hold the content.
 3. Add `hero.svg` (one decorative `<svg viewBox="0 0 480 250" aria-hidden="true" focusable="false">`) and,
    optionally, `hero.css` (its animation; it must also stop it under `prefers-reduced-motion: reduce`).
    Then list the animated selectors in `art.stilled` and the art's ids/labels in `art.groups`/`art.labels`

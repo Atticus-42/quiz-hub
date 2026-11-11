@@ -30,3 +30,17 @@ for (const [key, list] of Object.entries(figures)) {
     assert(html.includes('class="lesson-glance"'));
   });
 }
+
+test('the ELINT radar band chart carries the full NATO band table, uses and caveats from slide 17', () => {
+  const fig = figures.elint.find(f => f.kind === 'bands');
+  assert(fig, 'ELINT has a band figure');
+  assert.deepEqual(fig.pages, [17]);
+  assert.deepEqual(fig.bands.map(b => b.letter + ' ' + b.range), ['A 0–0.25', 'B 0.25–0.5', 'C 0.5–1', 'D 1–2', 'E 2–3', 'F 3–4', 'G 4–6', 'H 6–8', 'I 8–10', 'J 10–20', 'K 20–40', 'L 40–60', 'M 60–100']);
+  assert.deepEqual(fig.groups.map(g => g.from + '-' + g.to), ['A-D', 'E-H', 'I-J', 'K-M']);
+  const html = readFileSync(new URL('reviewer/elint/index.html', root), 'utf8');
+  const figure = html.match(/<figure class="review-diagram" id="fig-\d+"><svg[^>]*><title id="fig-\d+-t">NATO radar bands[\s\S]*?<\/figure>/)[0];
+  for (const band of fig.bands) assert(figure.includes('>' + band.letter + '</text>') && figure.includes('>' + band.range + '</text>'), band.letter);
+  assert(figure.includes('Range depends on power, antenna and target, not on the band letter. These are typical uses only.'));
+  assert(figure.includes('Lower frequency: sees farther, less precise. Higher frequency: more precise, shorter range.'));
+  assert(html.includes('Range depends on power, antenna and target, not on the band letter'), 'the topic explanation states the caveat');
+});

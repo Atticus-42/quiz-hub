@@ -64,7 +64,7 @@ test('uncited explanations remain notes without an invented or empty reference s
   for(const group of [app.feedback,app.finish()])assertSeparated(group,'A note with no supplied citation.',[]);
 });
 test('verified manual page numbers open the PDF directly from feedback and results',()=>{
-  const app=exercise('signal-estimate',q=>({...q,sourceSlides:[27,44]}));
+  const app=exercise('signal-estimate',q=>{const {sourceAlt,...rest}=q;return {...rest,sourceSlides:[27,44]};});
   for(const group of [app.feedback,app.finish()]){
     const links=findAll(group,n=>hasClass(n,'library-reference')).map(node=>node.getAttribute('href'));
     assert.deepEqual(links,[
@@ -131,4 +131,23 @@ test('module exams point the reviewer to the current question’s primary lesson
   assert.equal(app.reviewer.getAttribute('href'),'../reviewer/manet/');
   app.finish();
   assert.equal(app.reviewer.getAttribute('href'),'../reviewer/#module-5');
+});
+test('a secondary sourceAlt reference is its own line and links the Library PDF page',()=>{
+  const alt={ref:'signal-estimate-handout',pages:[3,5]};
+  const app=exercise('signal-estimate',q=>({...q,explanation:'A standalone study note.',sourceSlides:[27],sourceAlt:alt}));
+  for(const group of [app.feedback,app.finish()]){
+    assertSeparated(group,'A standalone study note.',['Lesson reference: PAM 6-0102 PDF page 27','Student handout · pages 3, 5']);
+    const links=findAll(group,n=>hasClass(n,'library-reference')).map(n=>n.getAttribute('href'));
+    assert.ok(links.includes('../library/files/signal-estimate-handout.pdf#page=3')&&links.includes('../library/files/signal-estimate-handout.pdf#page=5'),links.join(' '));
+    assert.ok(links.some(href=>href.includes('pam-6-0102.pdf#page=27')),'the primary page stays linked');
+  }
+});
+test('a question citing only sourceAlt shows the handout page and no primary page',()=>{
+  const app=exercise('signal-estimate',q=>{const {sourceSlides,...rest}=q;return {...rest,explanation:'A standalone study note.',sourceAlt:{ref:'signal-estimate-handout',pages:[4]}};});
+  for(const group of [app.feedback,app.finish()]){
+    assertSeparated(group,'A standalone study note.',['Student handout · page 4']);
+    const links=findAll(group,n=>hasClass(n,'library-reference')).map(n=>n.getAttribute('href'));
+    assert.ok(links.includes('../library/files/signal-estimate-handout.pdf#page=4'),links.join(' '));
+    assert.ok(!links.some(href=>href.includes('pam-6-0102.pdf#page=')),'no PAM page is claimed: '+links.join(' '));
+  }
 });

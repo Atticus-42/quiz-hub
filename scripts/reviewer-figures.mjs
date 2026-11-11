@@ -2,7 +2,8 @@
 // data/reviewer-figures.json. Every label comes from that data (which is drawn only from the
 // lesson's own reviewer and question-bank content); this file only supplies geometry.
 // Kinds: flow (process, optional cycle and group outline), ladder (levels), matrix (table graphic),
-// tree (parent with children), spectrum (two ends of a scale) and pulse (radar pulse train).
+// tree (parent with children), spectrum (two ends of a scale), pulse (radar pulse train) and bands
+// (a lettered frequency-band strip whose rows are grouped by typical use).
 // Output is accessible (role="img", <title>, <desc> listing the same content as text), uses real
 // <text>, and is styled by classes in assets/reviewer-focus.css (site tokens, print-safe).
 import { readFileSync } from 'node:fs';
@@ -162,7 +163,43 @@ function pulse(fig) {
   return { body: out, h: y - 6, desc: rows.map(r => `${r.label}${r.symbol && r.symbol !== r.label ? ' (' + r.symbol + ')' : ''}: ${r.note}.`).join(' ') };
 }
 
-const KINDS = { flow, ladder, matrix, tree, spectrum, pulse };
+function bands(fig) {
+  // One row per band (letter and GHz range); consecutive rows share a tinted block with the typical use beside it.
+  const rowH = 22, head = 22, xr = 124, pad = 7;
+  const index = new Map(fig.bands.map((b, i) => [b.letter, i]));
+  const groups = fig.groups.map(g => ({ ...g, a: index.get(g.from), b: index.get(g.to) }));
+  const covered = groups.flatMap(g => Array.from({ length: g.b - g.a + 1 }, (_, i) => g.a + i));
+  if (groups.some(g => !(g.a <= g.b)) || covered.length !== fig.bands.length || new Set(covered).size !== fig.bands.length) throw Error('Band groups must cover every band exactly once: ' + fig.title);
+  let out = `<rect x="1" y="1" width="${W - 2}" height="${head}" class="rd-head"/>` +
+    text(1 + pad, 16, ['BAND'], 'rd-head-text', 12) + text(46, 16, [fig.unit || 'GHZ'], 'rd-head-text', 12) + text(xr + pad, 16, ['TYPICAL USE'], 'rd-head-text', 12);
+  const top = 1 + head;
+  groups.forEach((g, gi) => {
+    const y = top + g.a * rowH, h = (g.b - g.a + 1) * rowH, cls = gi % 2 ? 'rd-cell' : 'rd-cell-alt';
+    out += `<rect x="1" y="${y}" width="${W - 2}" height="${h}" class="${cls}"/>`;
+    if (gi) out += `<path d="M1 ${y}H${W - 1}" class="rd-rule-dark"/>`;
+    for (let i = g.a; i <= g.b; i++) {
+      const b = fig.bands[i], ry = top + i * rowH;
+      if (i > g.a) out += `<path d="M1 ${ry}H${xr - 8}" class="rd-rule"/>`;
+      out += text(1 + pad, ry + 15, [b.letter], 'rd-label', 14) + text(46, ry + 15, [b.range], 'rd-label rd-small', 14);
+    }
+    out += `<path d="M${xr - 8} ${y + 3}V${y + h - 3}" class="rd-line-accent"/>`;
+    const lines = wrap(g.use, NOTE, W - xr - 2 * pad), ty = y + h / 2 - (lines.length - 1) * LH_N / 2 + 4;
+    out += text(xr + pad, ty, lines, 'rd-note', LH_N);
+  });
+  let y = top + fig.bands.length * rowH;
+  out += `<rect x="1" y="1" width="${W - 2}" height="${y - 1}" class="rd-frame"/>`;
+  y += 8;
+  const notes = fig.notes.map(n => wrap(n, NOTE, W - 2 * pad - 4));
+  const nh = notes.reduce((a, l) => a + l.length * LH_N + 5, 0) + 6;
+  out += `<rect x="1" y="${y}" width="${W - 2}" height="${nh}" class="rd-box rd-box-hi"/>`;
+  let ny = y + 17;
+  notes.forEach(l => { out += text(1 + pad, ny, l, 'rd-note', LH_N); ny += l.length * LH_N + 5; });
+  y += nh;
+  const desc = 'NATO radar bands, frequency in ' + (fig.unit || 'GHz') + ': ' + fig.bands.map(b => `${b.letter} ${b.range}`).join('; ') + '. Typical uses: ' + groups.map(g => `bands ${g.from} to ${g.to}, ${g.use}`).join('; ') + '. ' + fig.notes.join(' ');
+  return { body: out, h: y + 2, desc };
+}
+
+const KINDS = { flow, ladder, matrix, tree, spectrum, pulse, bands };
 
 export function loadReviewerFigures(root, reviewers) {
   const figures = JSON.parse(readFileSync(join(root, 'data', 'reviewer-figures.json'), 'utf8'));

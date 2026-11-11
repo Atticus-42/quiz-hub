@@ -144,8 +144,22 @@ export function validateQuestion(question, expectedDifficulty, expectedId, rules
   if (!Number.isInteger(question.answer) || question.answer < 0 || question.answer > 3) {
     errors.push('answer must be an integer from 0 to 3');
   }
+  const hasAlt = question.sourceAlt !== undefined;
+  if (hasAlt) {
+    const alt = rules.alt;
+    const shape = question.sourceAlt;
+    if (!rules.ref || !alt) {
+      errors.push('sourceAlt is not enabled for this lesson (declare sourceAlt in lesson.json)');
+    } else if (shape === null || typeof shape !== 'object' || Array.isArray(shape) || shape.ref !== alt.ref
+      || !Array.isArray(shape.pages) || shape.pages.length === 0 || shape.pages.some(page => !Number.isInteger(page) || page < alt.min || page > alt.max)) {
+      errors.push(`sourceAlt must be { ref: "${alt.ref}", pages: [integers from ${alt.min} to ${alt.max}] }`);
+    }
+  }
   if (rules.ref) {
-    if (rules.ref.required || question.sourceSlides !== undefined) {
+    // A question needs at least one of sourceSlides (the lesson's primary reference) or sourceAlt (a secondary one).
+    // With sourceAlt, sourceSlides may be omitted or empty when the primary reference does not hold the content.
+    const altOnly = hasAlt && rules.alt && (question.sourceSlides === undefined || (Array.isArray(question.sourceSlides) && question.sourceSlides.length === 0));
+    if (!altOnly && (rules.ref.required || question.sourceSlides !== undefined)) {
       if (!Array.isArray(question.sourceSlides) || question.sourceSlides.length === 0 || question.sourceSlides.some(slide => !Number.isInteger(slide) || slide < rules.ref.min || slide > rules.ref.max)) {
         errors.push(`sourceSlides${rules.ref.required ? '' : ', when present,'} must contain integers from ${rules.ref.min} to ${rules.ref.max}`);
       }
@@ -221,6 +235,10 @@ export function checkLessonConfig(config, dir) {
     if (!ref || typeof ref.label !== 'string' || typeof ref.plural !== 'string' || !Number.isInteger(ref.min) || !Number.isInteger(ref.max) || ref.min > ref.max || typeof ref.required !== 'boolean') {
       fail('sourceRef must be { label, plural, min, max, required }');
     }
+    const alt = config.sourceAlt;
+    if (alt !== undefined && (alt === null || typeof alt !== 'object' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(alt.ref ?? '') || typeof alt.label !== 'string' || !alt.label.trim() || !Number.isInteger(alt.min) || !Number.isInteger(alt.max) || alt.min < 1 || alt.min > alt.max)) {
+      fail('sourceAlt must be { ref: <library document id>, label, min, max } (page numbers start at 1)');
+    }
   }
   for (const [name, value] of Object.entries(config.palette ?? {})) {
     if (!/^--[a-z0-9-]+$/.test(name) || !/^[#a-z0-9(),.\s%-]+$/i.test(String(value))) fail(`palette entry ${name} is not a plain CSS custom property`);
@@ -233,16 +251,18 @@ function lessonRules(config, lessonsByKey) {
       key: config.key,
       categoryOrder: config.pool.lessons.map(key => lessonsByKey.get(key).name),
       ref: null,
+      alt: null,
       pool: { count: config.pool.count, lessons: config.pool.lessons.map(key => ({ key, name: lessonsByKey.get(key).name })) },
     };
   }
-  return { key: config.key, categoryOrder: config.categoryOrder, ref: { ...config.sourceRef }, pool: null };
+  return { key: config.key, categoryOrder: config.categoryOrder, ref: { ...config.sourceRef }, alt: config.sourceAlt ? { ...config.sourceAlt } : null, pool: null };
 }
 
-function reference(source, slides) {
-  if (!Array.isArray(slides) || !slides.length) return '';
-  const unit = slides.length === 1 ? source.sourceRef.label : source.sourceRef.plural;
-  return ` (${source.name}, ${unit} ${slides.join(', ')})`;
+function reference(source, slides, alt) {
+  const parts = [];
+  if (Array.isArray(slides) && slides.length) parts.push(`${slides.length === 1 ? source.sourceRef.label : source.sourceRef.plural} ${slides.join(', ')}`);
+  if (alt && source.sourceAlt) parts.push(`${source.sourceAlt.label} · ${alt.pages.length === 1 ? 'page' : 'pages'} ${alt.pages.join(', ')}`);
+  return parts.length ? ` (${source.name}, ${parts.join('; ')})` : '';
 }
 
 // A pool exam's bank for one difficulty: every question of that difficulty from each source lesson, in lesson
@@ -265,11 +285,31 @@ export function buildPoolBank(config, lessonsByKey, mode) {
         prompt: item.prompt,
         options: item.options,
         answer: item.answer,
-        explanation: item.explanation.trim() + reference(source, item.sourceSlides),
+        explanation: item.explanation.trim() + reference(source, item.sourceSlides, item.sourceAlt),
       });
     }
   }
   return merged;
+}
+
+// Resolves a lesson's secondary reference against the Library: the document must exist with a PDF, and the
+// page range must fit inside that PDF. Adds the title and the link target the quiz page needs.
+function resolveAlt(root, lesson, alt) {
+  const where = join(lesson.dir, 'lesson.json');
+  const library = readJson(join(root, 'data', 'library.json'));
+  const doc = [...library.manuals, ...(library.additionalDocuments ?? [])].find(item => item.id === alt.ref);
+  if (!doc || !doc.file) throw new Error(`${where}: sourceAlt.ref "${alt.ref}" is not a Library document with a PDF`);
+  const pdf = join(root, 'library', 'files', `${doc.file}.pdf`);
+  if (!existsSync(pdf)) throw new Error(`${where}: sourceAlt PDF is missing: ${pdf}`);
+  const count = pdfPageCount(readFileSync(pdf));
+  if (count && alt.max > count) throw new Error(`${where}: sourceAlt.max ${alt.max} is beyond the ${count}-page PDF ${doc.file}`);
+  return { ...alt, title: doc.title, href: `../library/files/${doc.file}.pdf` };
+}
+
+export function pdfPageCount(buffer) {
+  const text = buffer.toString('latin1');
+  const counts = [...text.matchAll(/\/Type\s*\/Pages\b[^>]*?\/Count\s+(\d+)/g)].map(match => Number(match[1]));
+  return counts.length ? Math.max(...counts) : (text.match(/\/Type\s*\/Page\b(?!s)/g) ?? []).length;
 }
 
 // Reads every lessons/<key>/lesson.json (and its banks), validates them and returns the lessons in hub order.
@@ -322,6 +362,7 @@ export function loadLessons(root = ROOT) {
   const allQids = new Map();
   for (const lesson of ordered) {
     lesson.rules = lessonRules(lesson, byKey);
+    if (lesson.rules.alt) lesson.rules.alt = resolveAlt(root, lesson, lesson.rules.alt);
     if (lesson.pool) {
       lesson.banks = {};
       for (const mode of MODES) lesson.banks[mode] = buildPoolBank(lesson, byKey, mode);
@@ -396,6 +437,7 @@ export function quizConfig(lesson) {
     title: lesson.title,
     categoryOrder: lesson.rules.categoryOrder,
     sourceRef: lesson.rules.ref ? { label: lesson.rules.ref.label, min: lesson.rules.ref.min, max: lesson.rules.ref.max, required: lesson.rules.ref.required } : null,
+    sourceAlt: lesson.rules.alt ? { ref: lesson.rules.alt.ref, label: lesson.rules.alt.label, min: lesson.rules.alt.min, max: lesson.rules.alt.max, title: lesson.rules.alt.title, href: lesson.rules.alt.href } : null,
     pool: lesson.rules.pool,
     text: {
       topicNoun: text.topicNoun,
