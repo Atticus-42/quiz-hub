@@ -1,1062 +1,4656 @@
 [
-  {
-    "id": "ew-company",
-    "title": "Electronic Warfare Company (P)",
-    "branch": "Electronic Warfare",
-    "tag": "Supplied TO · undated · provisional interpretation",
-    "intro": "Explore the headquarters and three EW platoons in your supplied table. Each platoon contains Electronic Attack, Electronic Protection and Electronic Support squads.",
-    "sources": [
+ {
+  "id": "signal",
+  "title": "Army Signal Regiment",
+  "branch": "Signal",
+  "estimate": "toe",
+  "tag": "DND-approved PA TO 2019 · required strength",
+  "intro": "The regiment and its six subordinate elements, with officer, enlisted and civilian authorizations from the approved Table of Organization. Eleven Signal Battalions are shown as one branch with a × count.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "ASR personnel recap · sheet “ASR RECAP”",
+    "locator": "3 Specialty Enablers / 5-ASR / 1 ASR_TOE / 3-ASR_PersRecap.xls"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "ASR organizational chart · slide 1 (Required), slide 2 (Reduced)",
+    "locator": "3 Specialty Enablers / 5-ASR / 1 ASR_TOE / 2-ASR_Orgn Structure.ppt"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "ASR basic document · mission and basis of allocation",
+    "locator": "3 Specialty Enablers / 5-ASR / 1 ASR_TOE / 1-ASR_BasicDoc.docx"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "HHC manning · sheet “HHC, ASR”",
+    "locator": "3 Specialty Enablers / 5-ASR / 2 HHC / 3-HHC_Unit Manning.xls"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "The Signal School manning · sheet “TSS Manning”",
+    "locator": "3 Specialty Enablers / 5-ASR / 7 TSS / 3-TSS_UnitManning.xls"
+   },
+   {
+    "file": "pam-6-0102",
+    "page": 16,
+    "label": "Signal Operations (2022) · printed page 7 · figure 1.3 and paragraph 0130, used for comparison"
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "169 · TO 2019 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "1,713 required · 1,677 reduced"
+   ],
+   [
+    "Civilian employees",
+    "55 · not in military totals"
+   ],
+   [
+    "Total allowance",
+    "1,937 required (1,882 military + 55 civilian)"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "The six elements sum to the regiment totals: officers 34 + 9 + 9 + 11 × 9 + 9 + 9 = 169, EP 87 + 110 + 118 + 11 × 115 + 112 + 21 = 1,713, civilians 6 + 14 + 13 + 11 + 7 + 4 = 55.",
+   "Conflict with the earlier PAM 6-0102 (2022) page: that figure also lists a Cyber Battalion. The 2019 TO has no Cyber Battalion; cyber security sits in the Cyber Security Company of the Network Enterprise Technology Battalion. Eleven Signal Battalions agree in both sources.",
+   "The HHC counts are calculated from billet rows (Regiment Headquarters 31 officers / 59 EP / 5 civilians, Headquarters Company 3 / 28 / 1), and agree with the printed HHC chart figures of 34 / 87 / 6.",
+   "The ASR recap workbook also contains hidden worksheets with older draft figures (for example Command Signal Bn 9 / 151 / 39, Signal Bn 9 / 146 / 6, Signal School 4 / 21 / 8). They disagree with the visible recap and the organizational charts and are not used."
+  ],
+  "tree": {
+   "title": "Army Signal Regiment",
+   "role": "Signal support for the command, control and administration of the Philippine Army. One regiment for the Army.",
+   "officers": 169,
+   "ep": 1713,
+   "personnel": 1882,
+   "civilians": 55,
+   "children": [
+    {
+     "title": "Headquarters and Headquarters Company (HHC)",
+     "role": "Command, control and administration of the Army Signal Regiment; transport and limited vehicle maintenance for its units.",
+     "officers": 34,
+     "ep": 87,
+     "personnel": 121,
+     "civilians": 6,
+     "children": [
       {
-        "file": "electronic-warfare-company-organization",
-        "page": 1,
-        "label": "TO.docx converted to PDF · Company HQ and 1st platoon"
+       "title": "Regiment Headquarters",
+       "role": "Staff offices of the regiment commander. Sub-section counts are calculated from the billet rows.",
+       "officers": 31,
+       "ep": 59,
+       "personnel": 90,
+       "civilians": 5
       },
       {
-        "file": "electronic-warfare-company-organization",
-        "page": 2,
-        "label": "TO.docx converted to PDF · continuation of 2nd and 3rd platoons"
+       "title": "Headquarters Company",
+       "officers": 3,
+       "ep": 28,
+       "personnel": 31,
+       "civilians": 1
       }
-    ],
-    "notes": [
-      "(1) is provisionally interpreted as a dual designation following the uploader’s explanation. The document provides no legend, so the interpretation is not confirmed. These entries remain visible but add no extra personnel.",
-      "Company headquarters prints TOTAL 4, while eight unparenthesized entries list two officer and six enlisted billets. The discrepancy remains unresolved.",
-      "Counting unparenthesized rows gives 5 officer and 36 enlisted billets (41 total). Adding printed group subtotals gives 37. Neither is presented as a confirmed company establishment.",
-      "The platoon totals of 11 are calculated from HQ 2 plus three squads of 3. These are required billets under the provisional interpretation, not actual assigned personnel. The Designated Personnel column is blank.",
-      "Grade labels 03 and 02 are displayed as O3 and O2 for readability. Designation spacing and obvious typographical errors have been normalized; the original table is preserved in the PDF."
-    ],
-    "personnelRecord": [
-      [
-        "Officers · row-derived",
-        "5 provisional"
-      ],
-      [
-        "EP · row-derived",
-        "36 provisional"
-      ],
-      [
-        "Company establishment",
-        "Unconfirmed · 41 by rows / 37 by subtotals"
-      ]
-    ],
-    "tree": {
-      "title": "Electronic Warfare Company (P)",
-      "role": "Company HQ and three EW platoons. No confirmed company total.",
-      "children": [
-        {
-          "title": "Company Headquarters",
-          "children": [
-            {
-              "title": "Commanding Officer",
-              "grade": "O3",
-              "rawRequirement": "1",
-              "role": "Grade O3 · AFPOS SC",
-              "personnel": 1
-            },
-            {
-              "title": "Executive Officer",
-              "grade": "O2",
-              "rawRequirement": "1",
-              "role": "Grade O2 · AFPOS SC",
-              "personnel": 1
-            },
-            {
-              "title": "Company First Sergeant",
-              "grade": "E7",
-              "rawRequirement": "1",
-              "role": "Grade E7 · AFPOS SC",
-              "personnel": 1
-            },
-            {
-              "title": "Personnel NCO",
-              "grade": "E5",
-              "rawRequirement": "1",
-              "role": "Grade E5 · AFPOS SC/AGS",
-              "personnel": 1
-            },
-            {
-              "title": "Intelligence and Operations NCO",
-              "grade": "E5",
-              "rawRequirement": "1",
-              "role": "Grade E5 · AFPOS SC",
-              "personnel": 1
-            },
-            {
-              "title": "Signal NCO",
-              "grade": "E5",
-              "rawRequirement": "(1)",
-              "role": "Grade E5 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-              "dualDesignation": true
-            },
-            {
-              "title": "Logistics NCO",
-              "grade": "E5",
-              "rawRequirement": "1",
-              "role": "Grade E5 · AFPOS SC/QMS/OS",
-              "personnel": 1
-            },
-            {
-              "title": "Finance NCO",
-              "grade": "E4",
-              "rawRequirement": "1",
-              "role": "Grade E4 · AFPOS SC/FS",
-              "personnel": 1
-            },
-            {
-              "title": "Mess NCO / Cook",
-              "grade": "E4",
-              "rawRequirement": "(1)",
-              "role": "Grade E4 · AFPOS SC/QMS · Required (1), provisionally treated as a dual designation; no extra person counted.",
-              "dualDesignation": true
-            },
-            {
-              "title": "Armorer",
-              "grade": "E4",
-              "rawRequirement": "1",
-              "role": "Grade E4 · AFPOS SC/OS",
-              "personnel": 1
-            },
-            {
-              "title": "Driver and Mechanic",
-              "grade": "E4",
-              "rawRequirement": "(1)",
-              "role": "Grade E4 · AFPOS SC/OS · Required (1), provisionally treated as a dual designation; no extra person counted.",
-              "dualDesignation": true
-            },
-            {
-              "title": "Clerk",
-              "grade": "E3",
-              "rawRequirement": "(1)",
-              "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-              "dualDesignation": true
-            },
-            {
-              "title": "Radio Operator",
-              "grade": "E3",
-              "rawRequirement": "(1)",
-              "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-              "dualDesignation": true
-            }
-          ],
-          "sourceTotal": 4,
-          "officers": 2,
-          "ep": 6,
-          "personnel": 8,
-          "countBasis": "Provisional count of unparenthesized required entries",
-          "role": "Printed subtotal: 4. Conflict: listed unparenthesized entries total 8. Parenthesized entries are excluded provisionally."
-        },
-        {
-          "title": "1st Electronic Warfare Platoon",
-          "personnel": 11,
-          "officers": 1,
-          "ep": 10,
-          "countBasis": "Calculated: HQ 2 + three squads of 3; excludes (1) entries provisionally",
-          "children": [
-            {
-              "title": "Platoon headquarters",
-              "children": [
-                {
-                  "title": "Platoon Leader",
-                  "grade": "O2",
-                  "rawRequirement": "1",
-                  "role": "Grade O2 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Platoon Sergeant",
-                  "grade": "E6",
-                  "rawRequirement": "1",
-                  "role": "Grade E6 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Radio Operator",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                }
-              ],
-              "sourceTotal": 2,
-              "officers": 1,
-              "ep": 1,
-              "personnel": 2,
-              "countBasis": "Provisional count of unparenthesized required entries",
-              "role": "Printed subtotal: 2. Parenthesized entries are excluded provisionally."
-            },
-            {
-              "title": "1st Electronic Attack Squad",
-              "children": [
-                {
-                  "title": "Squad Leader",
-                  "grade": "E5",
-                  "rawRequirement": "1",
-                  "role": "Grade E5 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Electronic Jamming Specialist",
-                  "grade": "E4",
-                  "rawRequirement": "1",
-                  "role": "Grade E4 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Electronic Countermeasures Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Electronic Deception Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "1",
-                  "role": "Grade E3 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Directed Energy Weapon Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Electronic Warfare Technician",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                }
-              ],
-              "sourceTotal": 3,
-              "officers": 0,
-              "ep": 3,
-              "personnel": 3,
-              "countBasis": "Provisional count of unparenthesized required entries",
-              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
-            },
-            {
-              "title": "1st Electronic Protection Squad",
-              "children": [
-                {
-                  "title": "Squad Leader",
-                  "grade": "E5",
-                  "rawRequirement": "1",
-                  "role": "Grade E5 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Electromagnetic Hardening Specialist",
-                  "grade": "E4",
-                  "rawRequirement": "1",
-                  "role": "Grade E4 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Spectrum Management Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "1",
-                  "role": "Grade E3 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Frequency Deconfliction Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "EW Reprogramming Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Emission Control Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                }
-              ],
-              "sourceTotal": 3,
-              "officers": 0,
-              "ep": 3,
-              "personnel": 3,
-              "countBasis": "Provisional count of unparenthesized required entries",
-              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
-            },
-            {
-              "title": "1st Electronic Support Squad",
-              "children": [
-                {
-                  "title": "Squad Leader",
-                  "grade": "E5",
-                  "rawRequirement": "1",
-                  "role": "Grade E5 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Threat Warning Specialist",
-                  "grade": "E4",
-                  "rawRequirement": "1",
-                  "role": "Grade E4 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Direction Finding Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Collection Support Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Cyber Operations Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "1",
-                  "role": "Grade E3 · AFPOS SC",
-                  "personnel": 1
-                }
-              ],
-              "sourceTotal": 3,
-              "officers": 0,
-              "ep": 3,
-              "personnel": 3,
-              "countBasis": "Provisional count of unparenthesized required entries",
-              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
-            }
-          ]
-        },
-        {
-          "title": "2nd Electronic Warfare Platoon",
-          "personnel": 11,
-          "officers": 1,
-          "ep": 10,
-          "countBasis": "Calculated: HQ 2 + three squads of 3; excludes (1) entries provisionally",
-          "children": [
-            {
-              "title": "Platoon headquarters",
-              "children": [
-                {
-                  "title": "Platoon Leader",
-                  "grade": "O2",
-                  "rawRequirement": "1",
-                  "role": "Grade O2 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Platoon Sergeant",
-                  "grade": "E6",
-                  "rawRequirement": "1",
-                  "role": "Grade E6 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Radio Operator",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                }
-              ],
-              "sourceTotal": 2,
-              "officers": 1,
-              "ep": 1,
-              "personnel": 2,
-              "countBasis": "Provisional count of unparenthesized required entries",
-              "role": "Printed subtotal: 2. Parenthesized entries are excluded provisionally."
-            },
-            {
-              "title": "2nd Electronic Attack Squad",
-              "children": [
-                {
-                  "title": "Squad Leader",
-                  "grade": "E5",
-                  "rawRequirement": "1",
-                  "role": "Grade E5 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Electronic Jamming Specialist",
-                  "grade": "E4",
-                  "rawRequirement": "1",
-                  "role": "Grade E4 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Electronic Countermeasures Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Electronic Deception Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "1",
-                  "role": "Grade E3 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Directed Energy Weapon Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Electronic Warfare Technician",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                }
-              ],
-              "sourceTotal": 3,
-              "officers": 0,
-              "ep": 3,
-              "personnel": 3,
-              "countBasis": "Provisional count of unparenthesized required entries",
-              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
-            },
-            {
-              "title": "2nd Electronic Protection Squad",
-              "children": [
-                {
-                  "title": "Squad Leader",
-                  "grade": "E5",
-                  "rawRequirement": "1",
-                  "role": "Grade E5 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Electromagnetic Hardening Specialist",
-                  "grade": "E4",
-                  "rawRequirement": "1",
-                  "role": "Grade E4 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Spectrum Management Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "1",
-                  "role": "Grade E3 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Frequency Deconfliction Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "EW Reprogramming Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Emission Control Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                }
-              ],
-              "sourceTotal": 3,
-              "officers": 0,
-              "ep": 3,
-              "personnel": 3,
-              "countBasis": "Provisional count of unparenthesized required entries",
-              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
-            },
-            {
-              "title": "2nd Electronic Support Squad",
-              "children": [
-                {
-                  "title": "Squad Leader",
-                  "grade": "E5",
-                  "rawRequirement": "1",
-                  "role": "Grade E5 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Threat Warning Specialist",
-                  "grade": "E4",
-                  "rawRequirement": "1",
-                  "role": "Grade E4 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Direction Finding Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Collection Support Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Cyber Operations Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "1",
-                  "role": "Grade E3 · AFPOS SC",
-                  "personnel": 1
-                }
-              ],
-              "sourceTotal": 3,
-              "officers": 0,
-              "ep": 3,
-              "personnel": 3,
-              "countBasis": "Provisional count of unparenthesized required entries",
-              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
-            }
-          ]
-        },
-        {
-          "title": "3rd Electronic Warfare Platoon",
-          "personnel": 11,
-          "officers": 1,
-          "ep": 10,
-          "countBasis": "Calculated: HQ 2 + three squads of 3; excludes (1) entries provisionally",
-          "children": [
-            {
-              "title": "Platoon headquarters",
-              "children": [
-                {
-                  "title": "Platoon Leader",
-                  "grade": "O2",
-                  "rawRequirement": "1",
-                  "role": "Grade O2 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Platoon Sergeant",
-                  "grade": "E6",
-                  "rawRequirement": "1",
-                  "role": "Grade E6 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Radio Operator",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                }
-              ],
-              "sourceTotal": 2,
-              "officers": 1,
-              "ep": 1,
-              "personnel": 2,
-              "countBasis": "Provisional count of unparenthesized required entries",
-              "role": "Printed subtotal: 2. Parenthesized entries are excluded provisionally."
-            },
-            {
-              "title": "3rd Electronic Attack Squad",
-              "children": [
-                {
-                  "title": "Squad Leader",
-                  "grade": "E5",
-                  "rawRequirement": "1",
-                  "role": "Grade E5 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Electronic Jamming Specialist",
-                  "grade": "E4",
-                  "rawRequirement": "1",
-                  "role": "Grade E4 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Electronic Countermeasures Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Electronic Deception Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "1",
-                  "role": "Grade E3 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Directed Energy Weapon Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Electronic Warfare Technician",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                }
-              ],
-              "sourceTotal": 3,
-              "officers": 0,
-              "ep": 3,
-              "personnel": 3,
-              "countBasis": "Provisional count of unparenthesized required entries",
-              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
-            },
-            {
-              "title": "3rd Electronic Protection Squad",
-              "children": [
-                {
-                  "title": "Squad Leader",
-                  "grade": "E5",
-                  "rawRequirement": "1",
-                  "role": "Grade E5 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Electromagnetic Hardening Specialist",
-                  "grade": "E4",
-                  "rawRequirement": "1",
-                  "role": "Grade E4 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Spectrum Management Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "1",
-                  "role": "Grade E3 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Frequency Deconfliction Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "EW Reprogramming Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Emission Control Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                }
-              ],
-              "sourceTotal": 3,
-              "officers": 0,
-              "ep": 3,
-              "personnel": 3,
-              "countBasis": "Provisional count of unparenthesized required entries",
-              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
-            },
-            {
-              "title": "3rd Electronic Support Squad",
-              "children": [
-                {
-                  "title": "Squad Leader",
-                  "grade": "E5",
-                  "rawRequirement": "1",
-                  "role": "Grade E5 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Threat Warning Specialist",
-                  "grade": "E4",
-                  "rawRequirement": "1",
-                  "role": "Grade E4 · AFPOS SC",
-                  "personnel": 1
-                },
-                {
-                  "title": "Direction Finding Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Collection Support Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "(1)",
-                  "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
-                  "dualDesignation": true
-                },
-                {
-                  "title": "Cyber Operations Specialist",
-                  "grade": "E3",
-                  "rawRequirement": "1",
-                  "role": "Grade E3 · AFPOS SC",
-                  "personnel": 1
-                }
-              ],
-              "sourceTotal": 3,
-              "officers": 0,
-              "ep": 3,
-              "personnel": 3,
-              "countBasis": "Provisional count of unparenthesized required entries",
-              "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "id": "signal",
-    "title": "Army Signal Regiment",
-    "branch": "Signal",
-    "tag": "Doctrine · 15 April 2022 edition",
-    "intro": "Follow the signal-support organization described in PAM 6-0102. These are subordinate-unit types and missions, not a current personnel roster.",
-    "sources": [
-      {
-        "file": "pam-6-0102",
-        "page": 16,
-        "label": "Signal Operations · printed page 7 · figure 1.3 and paragraph 0130"
-      }
-    ],
-    "notes": [
-      "Seven subordinate-unit categories are listed. Figure 1.3 depicts eleven signal battalions. These are 2022 source-edition unit counts, not current personnel strengths.",
-      "Officer and enlisted strengths are not stated on the cited page."
-    ],
-    "tree": {
-      "title": "Army Signal Regiment",
-      "role": "Signal support and services for the Philippine Army.",
-      "children": [
-        {
-          "title": "Headquarters & Headquarters Company",
-          "role": "Command, control and administration."
-        },
-        {
-          "title": "Command Signal Battalion",
-          "role": "Signal support to HPA post units and other PA units in NCR."
-        },
-        {
-          "title": "Network Enterprise Technology Battalion",
-          "role": "Operate, maintain, enhance and secure PA IT infrastructure."
-        },
-        {
-          "title": "Signal Battalion",
-          "role": "Signal support to infantry division and brigade headquarters. Figure 1.3 depicts eleven signal battalions in the 15 April 2022 edition.",
-          "quantity": 11
-        },
-        {
-          "title": "Signal Installation & Maintenance Battalion",
-          "role": "Signal installation and maintenance support."
-        },
-        {
-          "title": "Cyber Battalion",
-          "role": "Cybersecurity operations to protect PA cyber assets."
-        },
-        {
-          "title": "The Signal School",
-          "role": "Specialized communications, electronics and information-systems education."
-        }
-      ]
-    }
-  },
-  {
-    "id": "infantry",
-    "title": "Infantry rifle company",
-    "branch": "Infantry",
-    "tag": "Doctrine · 2 June 2018 edition",
-    "intro": "Explore the company down to its nine-person squads. Quantities beside branches show how many subunits the parent contains.",
-    "sources": [
-      {
-        "file": "pam-3-0101-04",
-        "page": 13,
-        "label": "Infantry Company Operations · printed page 2 · company and platoon"
-      },
-      {
-        "file": "pam-3-0101-04",
-        "page": 14,
-        "label": "Infantry Company Operations · printed page 3 · squad and fire teams"
-      },
-      {
-        "file": "pam-3-0101-04",
-        "page": 16,
-        "label": "Infantry Company Operations · printed pages 5–7 · key personnel"
-      }
-    ],
-    "notes": [
-      "Nine personnel per squad and four per fire team are explicit source counts. Three squads contain 27 people, but this excludes platoon HQ and the attached medic.",
-      "The designated marksman is not an additional person. The cited pages do not explicitly tabulate officer/EP totals."
-    ],
-    "tree": {
-      "title": "Infantry rifle company",
-      "role": "One headquarters platoon and three rifle platoons.",
-      "children": [
-        {
-          "title": "Headquarters platoon",
-          "role": "",
-          "children": [
-            {
-              "title": "Command section",
-              "role": "Company commander and staff. Command and control, resupply and casualty evacuation coordination."
-            },
-            {
-              "title": "Anti-armor section",
-              "role": "Company anti-armor support."
-            },
-            {
-              "title": "Mortar section",
-              "role": "Immediate indirect-fire support."
-            }
-          ]
-        },
-        {
-          "title": "Rifle platoon",
-          "role": "The source specifies three squads. The full headquarters strength and officer/EP split are not confirmed here.",
-          "quantity": 3,
-          "children": [
-            {
-              "title": "Platoon headquarters",
-              "role": "Leader, sergeant, radio operator, assault-weapon gunner, ammunition bearer and machine-gun personnel. The wording about machine-gun crews is ambiguous, so no total is calculated."
-            },
-            {
-              "title": "Rifle squad",
-              "role": "One squad leader and two four-person fire teams.",
-              "id": "rifle-squad",
-              "quantity": 3,
-              "personnel": 9,
-              "children": [
-                {
-                  "title": "Squad leader",
-                  "role": "",
-                  "personnel": 1
-                },
-                {
-                  "title": "Fire Team A",
-                  "role": "Four positions. The rifleman also serves as the squad designated marksman.",
-                  "personnel": 4,
-                  "children": [
-                    {
-                      "title": "Team leader",
-                      "role": "",
-                      "personnel": 1
-                    },
-                    {
-                      "title": "Automatic rifleman",
-                      "role": "",
-                      "personnel": 1
-                    },
-                    {
-                      "title": "Grenadier",
-                      "role": "",
-                      "personnel": 1
-                    },
-                    {
-                      "title": "Rifleman / squad designated marksman",
-                      "role": "The marksman occupies an existing rifleman position.",
-                      "personnel": 1
-                    }
-                  ]
-                },
-                {
-                  "title": "Fire Team B",
-                  "role": "Four positions.",
-                  "personnel": 4,
-                  "children": [
-                    {
-                      "title": "Team leader",
-                      "role": "",
-                      "personnel": 1
-                    },
-                    {
-                      "title": "Automatic rifleman",
-                      "role": "",
-                      "personnel": 1
-                    },
-                    {
-                      "title": "Grenadier",
-                      "role": "",
-                      "personnel": 1
-                    },
-                    {
-                      "title": "Rifleman",
-                      "role": "Rifleman position in Fire Team B.",
-                      "personnel": 1
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "title": "Medical aid-man",
-              "role": "Attached from the battalion medical platoon. Kept separate from organic personnel.",
-              "relation": "Attached",
-              "personnel": 1
-            }
-          ]
-        }
-      ]
+     ]
     },
-    "roles": [
+    {
+     "title": "Command Signal Battalion",
+     "role": "Signal support to HPA, post units and other PA units in the National Capital Region: communications, electronics and information technology.",
+     "officers": 9,
+     "ep": 110,
+     "personnel": 119,
+     "civilians": 14,
+     "children": [
       {
-        "title": "Company commander",
-        "role": "Responsible for employment, training, administration, personnel management and sustainment."
+       "title": "Headquarters and Headquarters Company",
+       "officers": 4,
+       "ep": 19,
+       "personnel": 23
       },
       {
-        "title": "Executive officer",
-        "role": "Second in command. Assists planning and coordinates sustainment."
+       "title": "Command Communications Company",
+       "role": "Communications centers, command communications and fixed/wireless links for HPA and NCR units.",
+       "officers": 2,
+       "ep": 44,
+       "personnel": 46,
+       "civilians": 14
       },
       {
-        "title": "Platoon leader",
-        "role": "Responsible for the platoon’s employment, training, administration and logistics."
+       "title": "Command Electronics Company",
+       "role": "Electronics support: public address and photo/video coverage.",
+       "officers": 2,
+       "ep": 30,
+       "personnel": 32
       },
       {
-        "title": "First sergeant",
-        "role": "Senior company NCO. Supervises routine operations and advises the commander."
-      },
-      {
-        "title": "Platoon sergeant",
-        "role": "Advises the platoon leader and supervises administration, logistics and maintenance."
-      },
-      {
-        "title": "Communications sergeant / senior radio operator",
-        "role": "Supervises operation, maintenance and installation of organic communications."
-      },
-      {
-        "title": "Radio operator",
-        "role": "Operates and maintains the assigned radio."
+       "title": "Command Information Technology Company",
+       "role": "Information technology, network and electronic warfare support.",
+       "officers": 1,
+       "ep": 17,
+       "personnel": 18
       }
-    ],
-    "rolesSource": 2
-  },
-  {
-    "id": "scout",
-    "title": "Cavalry scout platoon",
-    "branch": "Cavalry",
-    "tag": "Armor lesson · slides 58–59",
-    "intro": "Read the lesson’s platoon diagram alongside its illustrated scout-section positions.",
-    "sources": [
+     ]
+    },
+    {
+     "title": "Network Enterprise Technology Battalion",
+     "role": "Operate, maintain, enhance and secure the Army IT infrastructure; includes the Cyber Security Company.",
+     "officers": 9,
+     "ep": 118,
+     "personnel": 127,
+     "civilians": 13,
+     "children": [
       {
-        "file": "lesson-armor",
-        "page": 58,
-        "label": "Armor lesson · slide 58 · scout platoon"
+       "title": "Headquarters and Headquarters Company",
+       "officers": 3,
+       "ep": 24,
+       "personnel": 27,
+       "civilians": 1
       },
       {
-        "file": "lesson-armor",
-        "page": 59,
-        "label": "Armor lesson · slide 59 · scout section"
+       "title": "Systems Management and Operation Company",
+       "officers": 2,
+       "ep": 37,
+       "personnel": 39,
+       "civilians": 5
+      },
+      {
+       "title": "Information Systems Development Company",
+       "officers": 2,
+       "ep": 29,
+       "personnel": 31,
+       "civilians": 5
+      },
+      {
+       "title": "Cyber Security Company",
+       "officers": 2,
+       "ep": 28,
+       "personnel": 30,
+       "civilians": 2
       }
-    ],
-    "notes": [
-      "Slide 58 labels the platoon “1 | 19” and its headquarters “1 | 9”. The slide does not provide an officer/EP legend. Those labels are preserved without claiming a verified personnel split.",
-      "The section illustration depicts ten positions. That count is derived from the pictured roles, not a separate authorized-strength table. “SL” is retained as printed."
-    ],
-    "tree": {
-      "title": "Scout platoon",
-      "role": "Source chart notation: 1 | 19. Officer/EP interpretation requires a legend.",
-      "children": [
+     ]
+    },
+    {
+     "title": "Signal Battalion",
+     "role": "Signal support to the Infantry Division headquarters and its infantry brigade headquarters.",
+     "officers": 9,
+     "ep": 115,
+     "personnel": 124,
+     "civilians": 1,
+     "children": [
+      {
+       "title": "Headquarters and Headquarters Company",
+       "officers": 6,
+       "ep": 14,
+       "personnel": 20
+      },
+      {
+       "title": "Command Signal Company",
+       "role": "Signal support for the division headquarters: main, tactical command post and rear signal support.",
+       "officers": 0,
+       "ep": 29,
+       "personnel": 29,
+       "civilians": 1
+      },
+      {
+       "title": "Brigade Support Signal Company",
+       "role": "One platoon of 1 officer and 15 EP for each of three supported brigade headquarters.",
+       "officers": 3,
+       "ep": 50,
+       "personnel": 53
+      },
+      {
+       "title": "Signal Installation and Maintenance Company",
+       "role": "Installation and maintenance support for the battalion. Five officer positions are printed in parentheses and are not counted.",
+       "officers": 0,
+       "ep": 22,
+       "personnel": 22
+      }
+     ],
+     "quantity": 11
+    },
+    {
+     "title": "Signal Installation and Maintenance Battalion",
+     "role": "Repair, installation and maintenance (levels 3 and 4) of communications, electronics and IT equipment of the Philippine Army; test, evaluation and research.",
+     "officers": 9,
+     "ep": 112,
+     "personnel": 121,
+     "civilians": 7,
+     "children": [
+      {
+       "title": "Headquarters and Headquarters Company",
+       "officers": 6,
+       "ep": 24,
+       "personnel": 30,
+       "civilians": 1
+      },
+      {
+       "title": "Communications Installation and Maintenance Company",
+       "officers": 1,
+       "ep": 29,
+       "personnel": 30,
+       "civilians": 2
+      },
+      {
+       "title": "Electronics Installation and Maintenance Company",
+       "officers": 1,
+       "ep": 29,
+       "personnel": 30,
+       "civilians": 2
+      },
+      {
+       "title": "Information Technology Installation and Maintenance Company",
+       "officers": 1,
+       "ep": 30,
+       "personnel": 31,
+       "civilians": 2
+      }
+     ]
+    },
+    {
+     "title": "The Signal School",
+     "role": "Specialized C4S education and training; assists the Signal Corps career courses; fields mobile training teams.",
+     "officers": 9,
+     "ep": 21,
+     "personnel": 30,
+     "civilians": 4,
+     "children": [
+      {
+       "title": "Headquarters",
+       "officers": 5,
+       "ep": 12,
+       "personnel": 17,
+       "civilians": 3
+      },
+      {
+       "title": "Academic Department",
+       "officers": 1,
+       "ep": 3,
+       "personnel": 4
+      },
+      {
+       "title": "Non-Academic Department",
+       "officers": 1,
+       "ep": 3,
+       "personnel": 4
+      },
+      {
+       "title": "Doctrine and Research Department",
+       "officers": 2,
+       "ep": 3,
+       "personnel": 5,
+       "civilians": 1
+      },
+      {
+       "title": "Mobile Training Team",
+       "relation": "Dashed in chart · no strength printed"
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "signal-battalion",
+  "title": "Signal Battalion (division and brigade support)",
+  "branch": "Signal",
+  "estimate": "toe",
+  "tag": "DND-approved PA TO 2019 · required strength",
+  "intro": "The battalion that supports an Infantry Division headquarters and its brigade headquarters. Eleven per Army Signal Regiment. Open the companies to see platoons, squads and teams.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Signal Battalion chart · slide 1 (Required), slide 2 (Reduced); company slides 3–10",
+    "locator": "3 Specialty Enablers / 5-ASR / 5 Signal Bn / 2-Signal Bn_Org'l Structure.ppt"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Signal Battalion manning · sheets “HHC”, “CSC”, “BDESPT”, “SIMC”",
+    "locator": "3 Specialty Enablers / 5-ASR / 5 Signal Bn / 3-Signal Bn_Unit Manning.xls"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Signal Battalion basic document · mission and basis of allocation",
+    "locator": "3 Specialty Enablers / 5-ASR / 5 Signal Bn / 1-Div Sig Bn_BasicDoc.doc"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Army Signal Regiment recap · Signal Battalion column",
+    "locator": "3 Specialty Enablers / 5-ASR / 1 ASR_TOE / 3-ASR_PersRecap.xls"
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "9 · TO 2019 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "115 required · 113 reduced"
+   ],
+   [
+    "Civilian employees",
+    "1 · not in military totals"
+   ],
+   [
+    "Total allowance",
+    "125 required (124 military + 1 civilian)"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "Company totals sum to the battalion: officers 6 + 0 + 3 + 0 = 9, EP 14 + 29 + 50 + 22 = 115. The single civilian is in the Command Signal Company console squad.",
+   "The Brigade Support Signal Company counts three identical platoons (one officer and 15 EP each: platoon headquarters 3 plus four teams of 3). The company commander and executive officer positions are printed in parentheses and are not counted.",
+   "The Rear Signal Support Platoon and the five officer positions of the Signal Installation and Maintenance Company are printed in parentheses and add no counted strength."
+  ],
+  "tree": {
+   "title": "Signal Battalion",
+   "role": "Signal support to the Infantry Division headquarters and its infantry brigade headquarters.",
+   "officers": 9,
+   "ep": 115,
+   "personnel": 124,
+   "civilians": 1,
+   "children": [
+    {
+     "title": "Headquarters and Headquarters Company",
+     "officers": 6,
+     "ep": 14,
+     "personnel": 20,
+     "children": [
+      {
+       "title": "Command section",
+       "officers": 2,
+       "ep": 1,
+       "personnel": 3
+      },
+      {
+       "title": "S1 and Adjutant section",
+       "officers": 1,
+       "ep": 2,
+       "personnel": 3
+      },
+      {
+       "title": "Intelligence section",
+       "officers": 1,
+       "ep": 1,
+       "personnel": 2
+      },
+      {
+       "title": "Operations section",
+       "officers": 1,
+       "ep": 1,
+       "personnel": 2
+      },
+      {
+       "title": "S4 section",
+       "officers": 1,
+       "ep": 2,
+       "personnel": 3
+      },
+      {
+       "title": "Company headquarters",
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3
+      },
+      {
+       "title": "Supply section",
+       "officers": 0,
+       "ep": 2,
+       "personnel": 2
+      },
+      {
+       "title": "Motor pool section",
+       "officers": 0,
+       "ep": 2,
+       "personnel": 2
+      }
+     ]
+    },
+    {
+     "title": "Command Signal Company",
+     "role": "Signal support for the division headquarters: main, tactical command post and rear signal support.",
+     "officers": 0,
+     "ep": 29,
+     "personnel": 29,
+     "civilians": 1,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3
+      },
+      {
+       "title": "Main Signal Support Platoon",
+       "officers": 0,
+       "ep": 18,
+       "personnel": 18,
+       "civilians": 1,
+       "children": [
         {
-          "title": "Platoon headquarters",
-          "role": "Source chart notation: 1 | 9."
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
         },
         {
-          "title": "Scout section",
-          "role": "Ten positions depicted on slide 59.",
-          "personnel": 10,
-          "countBasis": "Counted from illustrated roles",
-          "children": [
-            {
-              "title": "Section leader",
-              "role": "",
-              "personnel": 1
-            },
-            {
-              "title": "SL",
-              "role": "Abbreviation as printed in the source.",
-              "personnel": 1
-            },
-            {
-              "title": "Vehicle crew",
-              "role": "Two sets of four labelled positions.",
-              "quantity": 2,
-              "personnel": 4,
-              "children": [
-                {
-                  "title": "Gunner",
-                  "role": "",
-                  "personnel": 1
-                },
-                {
-                  "title": "Driver",
-                  "role": "",
-                  "personnel": 1
-                },
-                {
-                  "title": "Scout",
-                  "role": "",
-                  "personnel": 1
-                },
-                {
-                  "title": "Loader",
-                  "role": "",
-                  "personnel": 1
-                }
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "id": "artillery-signal",
-    "title": "Signal platoon in Field Artillery",
-    "branch": "Signal",
-    "tag": "Course lesson · organic relationship",
-    "intro": "Locate the signal platoon within the Field Artillery Battalion organization described in your lesson.",
-    "sources": [
-      {
-        "file": "lesson-field-artillery",
-        "page": 37,
-        "label": "Field Artillery lesson · slide 37 · communications"
-      }
-    ],
-    "notes": [
-      "The lesson establishes the platoon’s parent organization. It does not specify its sections, individual designations or officer/EP establishment. Those details remain open until a supporting source is available."
-    ],
-    "tree": {
-      "title": "Field Artillery Battalion",
-      "role": "",
-      "children": [
+         "title": "Message Center",
+         "officers": 0,
+         "ep": 4,
+         "personnel": 4
+        },
         {
-          "title": "Headquarters & Headquarters Battery",
-          "role": "",
-          "children": [
-            {
-              "title": "Signal platoon",
-              "role": "Organic to the FABn Headquarters and Headquarters Battery. Personnel establishment not specified."
-            }
-          ]
+         "title": "Electronics Squad",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        },
+        {
+         "title": "Information System Team",
+         "officers": 0,
+         "ep": 4,
+         "personnel": 4
+        },
+        {
+         "title": "Console Squad",
+         "officers": 0,
+         "ep": 6,
+         "personnel": 6,
+         "civilians": 1
         }
-      ]
+       ]
+      },
+      {
+       "title": "Tactical CP Signal Support Section",
+       "officers": 0,
+       "ep": 8,
+       "personnel": 8
+      },
+      {
+       "title": "Rear Signal Support Platoon",
+       "role": "All rear-support positions are printed in parentheses (dual designation), so no additional strength is counted.",
+       "officers": 0,
+       "ep": 0,
+       "personnel": 0,
+       "children": [
+        {
+         "title": "Message Center Team",
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0
+        },
+        {
+         "title": "Electronics Squad",
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0
+        },
+        {
+         "title": "Information System Team",
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0
+        },
+        {
+         "title": "Console Squad",
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Brigade Support Signal Company",
+     "role": "One platoon of 1 officer and 15 EP for each of three supported brigade headquarters.",
+     "officers": 3,
+     "ep": 50,
+     "personnel": 53,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 0,
+       "ep": 5,
+       "personnel": 5
+      },
+      {
+       "title": "Brigade Support Signal Platoon",
+       "quantity": 3,
+       "officers": 1,
+       "ep": 15,
+       "personnel": 16,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 1,
+         "ep": 3,
+         "personnel": 4
+        },
+        {
+         "title": "Message Center Team",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        },
+        {
+         "title": "Electronics Team",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        },
+        {
+         "title": "Information System Squad",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        },
+        {
+         "title": "Wires and Cable Team",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Signal Installation and Maintenance Company",
+     "role": "Installation and maintenance support for the battalion. Five officer positions are printed in parentheses and are not counted.",
+     "officers": 0,
+     "ep": 22,
+     "personnel": 22,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3
+      },
+      {
+       "title": "Communications Installation and Maintenance Platoon",
+       "officers": 0,
+       "ep": 9,
+       "personnel": 9,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 2,
+         "personnel": 2
+        },
+        {
+         "title": "Radio Communications Support Squad",
+         "officers": 0,
+         "ep": 4,
+         "personnel": 4
+        },
+        {
+         "title": "Fixed Communications Support Squad",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        }
+       ]
+      },
+      {
+       "title": "Information Technology Support Platoon",
+       "officers": 0,
+       "ep": 7,
+       "personnel": 7,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 2,
+         "personnel": 2
+        },
+        {
+         "title": "Software Support Section",
+         "officers": 0,
+         "ep": 2,
+         "personnel": 2
+        },
+        {
+         "title": "Hardware Support Section",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "Network Support Section",
+         "officers": 0,
+         "ep": 2,
+         "personnel": 2
+        }
+       ]
+      },
+      {
+       "title": "Electronic Support Platoon",
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "CFS and EW Support Section",
+         "officers": 0,
+         "ep": 2,
+         "personnel": 2
+        }
+       ]
+      }
+     ]
     }
+   ]
   }
+ },
+ {
+  "id": "command-signal-battalion",
+  "title": "Command Signal Battalion",
+  "branch": "Signal",
+  "estimate": "toe",
+  "tag": "DND-approved PA TO 2019 · required strength",
+  "intro": "Signal support to General Headquarters, Philippine Army, post units and other PA units in the National Capital Region. Four companies cover communications, electronics, IT and an electronic warfare platoon.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Command Signal Battalion chart · slides 1–2 (battalion), 3–10 (companies)",
+    "locator": "3 Specialty Enablers / 5-ASR / 3 CSBn / 2-CSBn_Org'l Structure.ppt"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Command Signal Battalion manning · sheets “HHC-CSBN”, “CCC-CSBN”, “CEC-CSBN”, “CITC-CSBN”",
+    "locator": "3 Specialty Enablers / 5-ASR / 3 CSBn / 3-CSB_UnitManning.xlsx"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Command Signal Battalion basic document · mission and basis of allocation",
+    "locator": "3 Specialty Enablers / 5-ASR / 3 CSBn / 1-CSBn_BasicDoc.doc"
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "9 · TO 2019 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "110 required · 106 reduced"
+   ],
+   [
+    "Civilian employees",
+    "14 · not in military totals"
+   ],
+   [
+    "Total allowance",
+    "133 required (119 military + 14 civilian)"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "Company totals sum to the battalion: officers 4 + 2 + 2 + 1 = 9, EP 19 + 44 + 30 + 17 = 110. The 14 civilians are the Telephone Console Section of the Command Communications Company.",
+   "The Electronic Warfare Platoon of the Command Information Technology Company (officer, NCO and three squads) is entirely in parentheses. The TO counts zero additional strength for it. This confirms the dual-designation reading used for the supplied EW company table."
+  ],
+  "tree": {
+   "title": "Command Signal Battalion",
+   "role": "Signal support to HPA, post units and other PA units in the National Capital Region: communications, electronics and information technology.",
+   "officers": 9,
+   "ep": 110,
+   "personnel": 119,
+   "civilians": 14,
+   "children": [
+    {
+     "title": "Headquarters and Headquarters Company",
+     "officers": 4,
+     "ep": 19,
+     "personnel": 23,
+     "children": [
+      {
+       "title": "Headquarters section",
+       "officers": 2,
+       "ep": 2,
+       "personnel": 4
+      },
+      {
+       "title": "S1 and Adjutant section",
+       "officers": 0,
+       "ep": 2,
+       "personnel": 2
+      },
+      {
+       "title": "S2 section",
+       "officers": 0,
+       "ep": 2,
+       "personnel": 2
+      },
+      {
+       "title": "S3 section",
+       "officers": 1,
+       "ep": 2,
+       "personnel": 3
+      },
+      {
+       "title": "S4 section",
+       "officers": 1,
+       "ep": 2,
+       "personnel": 3
+      },
+      {
+       "title": "Supply section",
+       "officers": 0,
+       "ep": 2,
+       "personnel": 2
+      },
+      {
+       "title": "Finance section",
+       "officers": 0,
+       "ep": 1,
+       "personnel": 1
+      },
+      {
+       "title": "Company headquarters",
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3
+      },
+      {
+       "title": "Motor pool section",
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3
+      }
+     ]
+    },
+    {
+     "title": "Command Communications Company",
+     "role": "Communications centers, command communications and fixed/wireless links for HPA and NCR units.",
+     "officers": 2,
+     "ep": 44,
+     "personnel": 46,
+     "civilians": 14,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 1,
+       "ep": 5,
+       "personnel": 6
+      },
+      {
+       "title": "HPA Communications Center Operations Platoon",
+       "officers": 1,
+       "ep": 11,
+       "personnel": 12,
+       "civilians": 14,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 1,
+         "ep": 1,
+         "personnel": 2
+        },
+        {
+         "title": "Message Center Squad",
+         "officers": 0,
+         "ep": 4,
+         "personnel": 4
+        },
+        {
+         "title": "Central Office Terminal Squad",
+         "officers": 0,
+         "ep": 5,
+         "personnel": 5
+        },
+        {
+         "title": "Telephone Console Section",
+         "role": "Includes 14 civilian console positions.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1,
+         "civilians": 14
+        }
+       ]
+      },
+      {
+       "title": "Command Communications Platoon",
+       "officers": 0,
+       "ep": 17,
+       "personnel": 17,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "Command Communications Squad",
+         "officers": 0,
+         "ep": 5,
+         "personnel": 5
+        },
+        {
+         "title": "AOC Communications Squad",
+         "officers": 0,
+         "ep": 5,
+         "personnel": 5
+        },
+        {
+         "title": "Mobile Command Communications Squad",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        },
+        {
+         "title": "Tactical Communications Squad",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        }
+       ]
+      },
+      {
+       "title": "Fixed and Wireless Communications Platoon",
+       "officers": 0,
+       "ep": 11,
+       "personnel": 11,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "Wireless Communications Squad",
+         "officers": 0,
+         "ep": 5,
+         "personnel": 5
+        },
+        {
+         "title": "Outside Plant Operations Squad",
+         "officers": 0,
+         "ep": 5,
+         "personnel": 5
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Command Electronics Company",
+     "role": "Electronics support: public address and photo/video coverage.",
+     "officers": 2,
+     "ep": 30,
+     "personnel": 32,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 2,
+       "ep": 5,
+       "personnel": 7
+      },
+      {
+       "title": "Public Address System Platoon",
+       "officers": 0,
+       "ep": 20,
+       "personnel": 20,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "Fixed PAS Squad",
+         "officers": 0,
+         "ep": 5,
+         "personnel": 5
+        },
+        {
+         "title": "Mobile PAS Squad",
+         "quantity": 2,
+         "officers": 0,
+         "ep": 7,
+         "personnel": 7
+        }
+       ]
+      },
+      {
+       "title": "Photo and Video Coverage Platoon",
+       "officers": 0,
+       "ep": 5,
+       "personnel": 5,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "Photo Coverage Squad",
+         "officers": 0,
+         "ep": 2,
+         "personnel": 2
+        },
+        {
+         "title": "Video Coverage Squad",
+         "officers": 0,
+         "ep": 2,
+         "personnel": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Command Information Technology Company",
+     "role": "Information technology, network and electronic warfare support.",
+     "officers": 1,
+     "ep": 17,
+     "personnel": 18,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 1,
+       "ep": 4,
+       "personnel": 5
+      },
+      {
+       "title": "Network Installation and Maintenance Platoon",
+       "officers": 0,
+       "ep": 13,
+       "personnel": 13,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "Systems Management Squad",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        },
+        {
+         "title": "Network Operations Squad",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        },
+        {
+         "title": "Network Security Squad",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        },
+        {
+         "title": "Information Systems Analysis Squad",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        }
+       ]
+      },
+      {
+       "title": "Electronic Warfare Platoon",
+       "role": "Every position in this platoon is printed in parentheses (dual designation), so the TOE counts no additional strength.",
+       "officers": 0,
+       "ep": 0,
+       "personnel": 0,
+       "countBasis": "Platoon officer, NCO and three squads of dual-designated positions. Required strength added: 0.",
+       "children": [
+        {
+         "title": "Electronic Support Measures (ESM) Squad",
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0
+        },
+        {
+         "title": "Electronic Countermeasures (ECM) Squad",
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0
+        },
+        {
+         "title": "Electronic Counter-Countermeasures (ECCM) Squad",
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "network-enterprise-technology-battalion",
+  "title": "Network Enterprise Technology Battalion",
+  "branch": "Signal",
+  "estimate": "toe",
+  "tag": "DND-approved PA TO 2019 · required strength",
+  "intro": "Operates, maintains, enhances and secures the Army IT infrastructure. Includes the Cyber Security Company.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "NET Battalion chart · slides 1–2 (battalion), 3–10 (companies)",
+    "locator": "3 Specialty Enablers / 5-ASR / 4 NETBn / NETB Org'l Structure.pptx"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "NET Battalion manning · sheets “HHC”, “SMOC”, “ISDC”, “CybSecCoy”",
+    "locator": "3 Specialty Enablers / 5-ASR / 4 NETBn / NETB TOE - Unit Manning.xlsx"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "NET Battalion basic document · mission and basis of allocation",
+    "locator": "3 Specialty Enablers / 5-ASR / 4 NETBn / NETB Docs.docx"
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "9 · TO 2019 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "118 required · 110 reduced"
+   ],
+   [
+    "Civilian employees",
+    "13 · not in military totals"
+   ],
+   [
+    "Total allowance",
+    "140 required (127 military + 13 civilian)"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "Company totals sum to the battalion: officers 3 + 2 + 2 + 2 = 9, EP 24 + 37 + 29 + 28 = 118, civilians 1 + 5 + 5 + 2 = 13."
+  ],
+  "tree": {
+   "title": "Network Enterprise Technology Battalion",
+   "role": "Operate, maintain, enhance and secure the Army IT infrastructure; includes the Cyber Security Company.",
+   "officers": 9,
+   "ep": 118,
+   "personnel": 127,
+   "civilians": 13,
+   "children": [
+    {
+     "title": "Headquarters and Headquarters Company",
+     "officers": 3,
+     "ep": 24,
+     "personnel": 27,
+     "civilians": 1,
+     "children": [
+      {
+       "title": "Headquarters section",
+       "officers": 1,
+       "ep": 3,
+       "personnel": 4
+      },
+      {
+       "title": "S1 and Adjutant section",
+       "officers": 1,
+       "ep": 2,
+       "personnel": 3,
+       "civilians": 1
+      },
+      {
+       "title": "S2 section",
+       "officers": 0,
+       "ep": 2,
+       "personnel": 2
+      },
+      {
+       "title": "S3 section",
+       "officers": 1,
+       "ep": 3,
+       "personnel": 4
+      },
+      {
+       "title": "S4 section",
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3
+      },
+      {
+       "title": "Finance section",
+       "officers": 0,
+       "ep": 1,
+       "personnel": 1
+      },
+      {
+       "title": "Company headquarters",
+       "officers": 0,
+       "ep": 4,
+       "personnel": 4
+      },
+      {
+       "title": "Supply section",
+       "officers": 0,
+       "ep": 2,
+       "personnel": 2
+      },
+      {
+       "title": "Motor pool section",
+       "officers": 0,
+       "ep": 4,
+       "personnel": 4
+      }
+     ]
+    },
+    {
+     "title": "Systems Management and Operation Company",
+     "officers": 2,
+     "ep": 37,
+     "personnel": 39,
+     "civilians": 5,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 1,
+       "ep": 5,
+       "personnel": 6
+      },
+      {
+       "title": "Network Operations Platoon",
+       "officers": 1,
+       "ep": 17,
+       "personnel": 18,
+       "civilians": 4,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 1,
+         "ep": 1,
+         "personnel": 2,
+         "civilians": 1
+        },
+        {
+         "title": "LAN Operations Section",
+         "officers": 0,
+         "ep": 8,
+         "personnel": 8,
+         "civilians": 1
+        },
+        {
+         "title": "WAN Operations Section",
+         "officers": 0,
+         "ep": 8,
+         "personnel": 8,
+         "civilians": 2
+        }
+       ]
+      },
+      {
+       "title": "Information Systems Management Platoon",
+       "officers": 0,
+       "ep": 8,
+       "personnel": 8,
+       "civilians": 1
+      },
+      {
+       "title": "Web Management Platoon",
+       "officers": 0,
+       "ep": 7,
+       "personnel": 7,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "Web Development, HPA and Post Units Section",
+         "officers": 0,
+         "ep": 6,
+         "personnel": 6
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Information Systems Development Company",
+     "officers": 2,
+     "ep": 29,
+     "personnel": 31,
+     "civilians": 5,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 1,
+       "ep": 5,
+       "personnel": 6
+      },
+      {
+       "title": "Information Systems Development Platoon",
+       "officers": 1,
+       "ep": 14,
+       "personnel": 15,
+       "civilians": 2
+      },
+      {
+       "title": "Information Systems Analysis Platoon",
+       "officers": 0,
+       "ep": 7,
+       "personnel": 7,
+       "civilians": 1
+      },
+      {
+       "title": "Quality Assurance Platoon",
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3,
+       "civilians": 2
+      }
+     ]
+    },
+    {
+     "title": "Cyber Security Company",
+     "officers": 2,
+     "ep": 28,
+     "personnel": 30,
+     "civilians": 2,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 1,
+       "ep": 6,
+       "personnel": 7
+      },
+      {
+       "title": "Network and Systems Security Platoon",
+       "officers": 1,
+       "ep": 10,
+       "personnel": 11
+      },
+      {
+       "title": "Computer Emergency Response Platoon",
+       "officers": 0,
+       "ep": 7,
+       "personnel": 7,
+       "civilians": 1
+      },
+      {
+       "title": "Research and Development Section",
+       "officers": 0,
+       "ep": 5,
+       "personnel": 5,
+       "civilians": 1
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "signal-installation-maintenance-battalion",
+  "title": "Signal Installation and Maintenance Battalion",
+  "branch": "Signal",
+  "estimate": "toe",
+  "tag": "DND-approved PA TO 2019 · required strength",
+  "intro": "Repair, installation and maintenance of Army communications, electronics and IT systems, with test, evaluation and research.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "SIM Battalion chart · slides 1–2 (battalion), 3–10 (companies)",
+    "locator": "3 Specialty Enablers / 5-ASR / 6 SIMBn / 2-SIMBn_Org'l Structure.ppt"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "SIM Battalion manning · sheets “HHC”, “CIMC”, “EIMC”, “ITIMC”",
+    "locator": "3 Specialty Enablers / 5-ASR / 6 SIMBn / 3-SIMBn_UnitManning.xls"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "SIM Battalion basic document · mission and basis of allocation",
+    "locator": "3 Specialty Enablers / 5-ASR / 6 SIMBn / 1-SIMBn-BasicDoc.doc"
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "9 · TO 2019 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "112 required · 112 reduced"
+   ],
+   [
+    "Civilian employees",
+    "7 · not in military totals"
+   ],
+   [
+    "Total allowance",
+    "128 required (121 military + 7 civilian)"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "Company totals sum to the battalion: officers 6 + 1 + 1 + 1 = 9, EP 24 + 29 + 29 + 30 = 112, civilians 1 + 2 + 2 + 2 = 7.",
+   "The Electronic Warfare Support Platoon (Electronics company) and the Electronic Warfare Platoon (IT company) are printed entirely in parentheses and count zero additional personnel."
+  ],
+  "tree": {
+   "title": "Signal Installation and Maintenance Battalion",
+   "role": "Repair, installation and maintenance (levels 3 and 4) of communications, electronics and IT equipment of the Philippine Army; test, evaluation and research.",
+   "officers": 9,
+   "ep": 112,
+   "personnel": 121,
+   "civilians": 7,
+   "children": [
+    {
+     "title": "Headquarters and Headquarters Company",
+     "officers": 6,
+     "ep": 24,
+     "personnel": 30,
+     "civilians": 1,
+     "children": [
+      {
+       "title": "Command section",
+       "officers": 2,
+       "ep": 2,
+       "personnel": 4
+      },
+      {
+       "title": "S1 and Adjutant section",
+       "officers": 1,
+       "ep": 3,
+       "personnel": 4
+      },
+      {
+       "title": "S2 section",
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3
+      },
+      {
+       "title": "S3 section",
+       "officers": 1,
+       "ep": 4,
+       "personnel": 5
+      },
+      {
+       "title": "S4 section",
+       "officers": 1,
+       "ep": 4,
+       "personnel": 5
+      },
+      {
+       "title": "Company headquarters",
+       "officers": 1,
+       "ep": 4,
+       "personnel": 5
+      },
+      {
+       "title": "Maintenance section",
+       "officers": 0,
+       "ep": 4,
+       "personnel": 4,
+       "civilians": 1
+      }
+     ]
+    },
+    {
+     "title": "Communications Installation and Maintenance Company",
+     "officers": 1,
+     "ep": 29,
+     "personnel": 30,
+     "civilians": 2,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 1,
+       "ep": 4,
+       "personnel": 5,
+       "civilians": 2
+      },
+      {
+       "title": "Radio Communications IMR Platoon",
+       "officers": 0,
+       "ep": 12,
+       "personnel": 12,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "Tactical Radio IMR Squad",
+         "officers": 0,
+         "ep": 6,
+         "personnel": 6
+        },
+        {
+         "title": "Commercial Radio IMR Squad",
+         "officers": 0,
+         "ep": 5,
+         "personnel": 5
+        }
+       ]
+      },
+      {
+       "title": "Fixed Communications IMR Platoon",
+       "officers": 0,
+       "ep": 13,
+       "personnel": 13,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "CAFAC IMR Squad",
+         "officers": 0,
+         "ep": 5,
+         "personnel": 5
+        },
+        {
+         "title": "Wireless Facilities IMR Squad",
+         "officers": 0,
+         "ep": 7,
+         "personnel": 7
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Electronics Installation and Maintenance Company",
+     "officers": 1,
+     "ep": 29,
+     "personnel": 30,
+     "civilians": 2,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 1,
+       "ep": 4,
+       "personnel": 5,
+       "civilians": 2
+      },
+      {
+       "title": "Electronics IMR Platoon",
+       "officers": 0,
+       "ep": 13,
+       "personnel": 13,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "Electronics IMR Squad",
+         "quantity": 2,
+         "officers": 0,
+         "ep": 6,
+         "personnel": 6
+        }
+       ]
+      },
+      {
+       "title": "Combat Fighting System Support Platoon",
+       "officers": 0,
+       "ep": 12,
+       "personnel": 12,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "NFS Equipment IMR Squad",
+         "officers": 0,
+         "ep": 7,
+         "personnel": 7
+        },
+        {
+         "title": "Research and Development Squad",
+         "officers": 0,
+         "ep": 4,
+         "personnel": 4
+        }
+       ]
+      },
+      {
+       "title": "Electronic Warfare Support Platoon",
+       "role": "All positions are printed in parentheses (dual designation), so no additional strength is counted.",
+       "officers": 0,
+       "ep": 0,
+       "personnel": 0,
+       "children": [
+        {
+         "title": "EWS Repair and Maintenance Squad",
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0
+        },
+        {
+         "title": "EWS Installation Squad",
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0
+        },
+        {
+         "title": "Mobile EWS Support Squad",
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Information Technology Installation and Maintenance Company",
+     "officers": 1,
+     "ep": 30,
+     "personnel": 31,
+     "civilians": 2,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 1,
+       "ep": 4,
+       "personnel": 5,
+       "civilians": 2
+      },
+      {
+       "title": "IT Equipment IMR Platoon",
+       "officers": 0,
+       "ep": 13,
+       "personnel": 13,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "Software IMR Squad",
+         "officers": 0,
+         "ep": 5,
+         "personnel": 5
+        },
+        {
+         "title": "Hardware IMR Squad",
+         "officers": 0,
+         "ep": 7,
+         "personnel": 7
+        }
+       ]
+      },
+      {
+       "title": "Network IMR Platoon",
+       "officers": 0,
+       "ep": 13,
+       "personnel": 13,
+       "children": [
+        {
+         "title": "Headquarters positions",
+         "role": "Leadership and administrative positions counted at this level.",
+         "officers": 0,
+         "ep": 1,
+         "personnel": 1
+        },
+        {
+         "title": "Wired Network IMR Squad",
+         "officers": 0,
+         "ep": 6,
+         "personnel": 6
+        },
+        {
+         "title": "Wireless Network IMR Squad",
+         "officers": 0,
+         "ep": 6,
+         "personnel": 6
+        }
+       ]
+      },
+      {
+       "title": "Electronic Warfare Platoon",
+       "role": "All positions are printed in parentheses (dual designation), so no additional strength is counted.",
+       "officers": 0,
+       "ep": 0,
+       "personnel": 0,
+       "children": [
+        {
+         "title": "ESM Squad",
+         "quantity": 2,
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0
+        },
+        {
+         "title": "ECM Squad",
+         "quantity": 2,
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0
+        },
+        {
+         "title": "ECCM Squad",
+         "quantity": 2,
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "ew-company",
+  "title": "Electronic Warfare Company (P)",
+  "branch": "Electronic Warfare",
+  "tag": "Supplied TO · undated · provisional interpretation",
+  "intro": "Explore the headquarters and three EW platoons in your supplied table. Each platoon contains Electronic Attack, Electronic Protection and Electronic Support squads.",
+  "sources": [
+   {
+    "file": "electronic-warfare-company-organization",
+    "page": 1,
+    "label": "TO.docx converted to PDF · Company HQ and 1st platoon"
+   },
+   {
+    "file": "electronic-warfare-company-organization",
+    "page": 2,
+    "label": "TO.docx converted to PDF · continuation of 2nd and 3rd platoons"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Comparison only · Command IT Company, EW platoon rows in “CITC-CSBN”",
+    "locator": "3 Specialty Enablers / 5-ASR / 3 CSBn / 3-CSB_UnitManning.xlsx"
+   }
+  ],
+  "notes": [
+   "(1) is provisionally interpreted as a dual designation following the uploader’s explanation. The document provides no legend, so the interpretation is not confirmed. These entries remain visible but add no extra personnel.",
+   "Company headquarters prints TOTAL 4, while eight unparenthesized entries list two officer and six enlisted billets. The discrepancy remains unresolved.",
+   "Counting unparenthesized rows gives 5 officer and 36 enlisted billets (41 total). Adding printed group subtotals gives 37. Neither is presented as a confirmed company establishment.",
+   "The platoon totals of 11 are calculated from HQ 2 plus three squads of 3. These are required billets under the provisional interpretation, not actual assigned personnel. The Designated Personnel column is blank.",
+   "Grade labels 03 and 02 are displayed as O3 and O2 for readability. Designation spacing and obvious typographical errors have been normalized; the original table is preserved in the PDF.",
+   "DND-approved PA TO 2019 comparison: the Army Signal Regiment TO has no electronic warfare company and no company with three Electronic Attack / Protection / Support platoons. Its EW elements are an Electronic Warfare Platoon in the Command IT Company, an Electronic Warfare Platoon in the SIM Battalion IT company and an EW Support Platoon in the Electronics company, each with ESM, ECM and ECCM squads and every position in parentheses.",
+   "The TO 2019 confirms that a parenthesized (1) is a dual designation that is not added to the TOTAL row. This supports the reading used here, but the supplied company table itself is still unverified: its counts remain provisional and are not replaced by TO 2019 figures."
+  ],
+  "personnelRecord": [
+   [
+    "Officers · row-derived",
+    "5 provisional"
+   ],
+   [
+    "EP · row-derived",
+    "36 provisional"
+   ],
+   [
+    "Company establishment",
+    "Unconfirmed · 41 by rows / 37 by subtotals"
+   ],
+   [
+    "TO 2019 EW platoon strength",
+    "0 additional · all positions dual-designated"
+   ]
+  ],
+  "tree": {
+   "title": "Electronic Warfare Company (P)",
+   "role": "Company HQ and three EW platoons. No confirmed company total.",
+   "children": [
+    {
+     "title": "Company Headquarters",
+     "children": [
+      {
+       "title": "Commanding Officer",
+       "grade": "O3",
+       "rawRequirement": "1",
+       "role": "Grade O3 · AFPOS SC",
+       "personnel": 1
+      },
+      {
+       "title": "Executive Officer",
+       "grade": "O2",
+       "rawRequirement": "1",
+       "role": "Grade O2 · AFPOS SC",
+       "personnel": 1
+      },
+      {
+       "title": "Company First Sergeant",
+       "grade": "E7",
+       "rawRequirement": "1",
+       "role": "Grade E7 · AFPOS SC",
+       "personnel": 1
+      },
+      {
+       "title": "Personnel NCO",
+       "grade": "E5",
+       "rawRequirement": "1",
+       "role": "Grade E5 · AFPOS SC/AGS",
+       "personnel": 1
+      },
+      {
+       "title": "Intelligence and Operations NCO",
+       "grade": "E5",
+       "rawRequirement": "1",
+       "role": "Grade E5 · AFPOS SC",
+       "personnel": 1
+      },
+      {
+       "title": "Signal NCO",
+       "grade": "E5",
+       "rawRequirement": "(1)",
+       "role": "Grade E5 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+       "dualDesignation": true
+      },
+      {
+       "title": "Logistics NCO",
+       "grade": "E5",
+       "rawRequirement": "1",
+       "role": "Grade E5 · AFPOS SC/QMS/OS",
+       "personnel": 1
+      },
+      {
+       "title": "Finance NCO",
+       "grade": "E4",
+       "rawRequirement": "1",
+       "role": "Grade E4 · AFPOS SC/FS",
+       "personnel": 1
+      },
+      {
+       "title": "Mess NCO / Cook",
+       "grade": "E4",
+       "rawRequirement": "(1)",
+       "role": "Grade E4 · AFPOS SC/QMS · Required (1), provisionally treated as a dual designation; no extra person counted.",
+       "dualDesignation": true
+      },
+      {
+       "title": "Armorer",
+       "grade": "E4",
+       "rawRequirement": "1",
+       "role": "Grade E4 · AFPOS SC/OS",
+       "personnel": 1
+      },
+      {
+       "title": "Driver and Mechanic",
+       "grade": "E4",
+       "rawRequirement": "(1)",
+       "role": "Grade E4 · AFPOS SC/OS · Required (1), provisionally treated as a dual designation; no extra person counted.",
+       "dualDesignation": true
+      },
+      {
+       "title": "Clerk",
+       "grade": "E3",
+       "rawRequirement": "(1)",
+       "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+       "dualDesignation": true
+      },
+      {
+       "title": "Radio Operator",
+       "grade": "E3",
+       "rawRequirement": "(1)",
+       "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+       "dualDesignation": true
+      }
+     ],
+     "sourceTotal": 4,
+     "officers": 2,
+     "ep": 6,
+     "personnel": 8,
+     "countBasis": "Provisional count of unparenthesized required entries",
+     "role": "Printed subtotal: 4. Conflict: listed unparenthesized entries total 8. Parenthesized entries are excluded provisionally."
+    },
+    {
+     "title": "1st Electronic Warfare Platoon",
+     "personnel": 11,
+     "officers": 1,
+     "ep": 10,
+     "countBasis": "Calculated: HQ 2 + three squads of 3; excludes (1) entries provisionally",
+     "children": [
+      {
+       "title": "Platoon headquarters",
+       "children": [
+        {
+         "title": "Platoon Leader",
+         "grade": "O2",
+         "rawRequirement": "1",
+         "role": "Grade O2 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Platoon Sergeant",
+         "grade": "E6",
+         "rawRequirement": "1",
+         "role": "Grade E6 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Radio Operator",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        }
+       ],
+       "sourceTotal": 2,
+       "officers": 1,
+       "ep": 1,
+       "personnel": 2,
+       "countBasis": "Provisional count of unparenthesized required entries",
+       "role": "Printed subtotal: 2. Parenthesized entries are excluded provisionally."
+      },
+      {
+       "title": "1st Electronic Attack Squad",
+       "children": [
+        {
+         "title": "Squad Leader",
+         "grade": "E5",
+         "rawRequirement": "1",
+         "role": "Grade E5 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Electronic Jamming Specialist",
+         "grade": "E4",
+         "rawRequirement": "1",
+         "role": "Grade E4 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Electronic Countermeasures Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Electronic Deception Specialist",
+         "grade": "E3",
+         "rawRequirement": "1",
+         "role": "Grade E3 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Directed Energy Weapon Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Electronic Warfare Technician",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        }
+       ],
+       "sourceTotal": 3,
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3,
+       "countBasis": "Provisional count of unparenthesized required entries",
+       "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+      },
+      {
+       "title": "1st Electronic Protection Squad",
+       "children": [
+        {
+         "title": "Squad Leader",
+         "grade": "E5",
+         "rawRequirement": "1",
+         "role": "Grade E5 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Electromagnetic Hardening Specialist",
+         "grade": "E4",
+         "rawRequirement": "1",
+         "role": "Grade E4 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Spectrum Management Specialist",
+         "grade": "E3",
+         "rawRequirement": "1",
+         "role": "Grade E3 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Frequency Deconfliction Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "EW Reprogramming Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Emission Control Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        }
+       ],
+       "sourceTotal": 3,
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3,
+       "countBasis": "Provisional count of unparenthesized required entries",
+       "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+      },
+      {
+       "title": "1st Electronic Support Squad",
+       "children": [
+        {
+         "title": "Squad Leader",
+         "grade": "E5",
+         "rawRequirement": "1",
+         "role": "Grade E5 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Threat Warning Specialist",
+         "grade": "E4",
+         "rawRequirement": "1",
+         "role": "Grade E4 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Direction Finding Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Collection Support Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Cyber Operations Specialist",
+         "grade": "E3",
+         "rawRequirement": "1",
+         "role": "Grade E3 · AFPOS SC",
+         "personnel": 1
+        }
+       ],
+       "sourceTotal": 3,
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3,
+       "countBasis": "Provisional count of unparenthesized required entries",
+       "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+      }
+     ]
+    },
+    {
+     "title": "2nd Electronic Warfare Platoon",
+     "personnel": 11,
+     "officers": 1,
+     "ep": 10,
+     "countBasis": "Calculated: HQ 2 + three squads of 3; excludes (1) entries provisionally",
+     "children": [
+      {
+       "title": "Platoon headquarters",
+       "children": [
+        {
+         "title": "Platoon Leader",
+         "grade": "O2",
+         "rawRequirement": "1",
+         "role": "Grade O2 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Platoon Sergeant",
+         "grade": "E6",
+         "rawRequirement": "1",
+         "role": "Grade E6 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Radio Operator",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        }
+       ],
+       "sourceTotal": 2,
+       "officers": 1,
+       "ep": 1,
+       "personnel": 2,
+       "countBasis": "Provisional count of unparenthesized required entries",
+       "role": "Printed subtotal: 2. Parenthesized entries are excluded provisionally."
+      },
+      {
+       "title": "2nd Electronic Attack Squad",
+       "children": [
+        {
+         "title": "Squad Leader",
+         "grade": "E5",
+         "rawRequirement": "1",
+         "role": "Grade E5 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Electronic Jamming Specialist",
+         "grade": "E4",
+         "rawRequirement": "1",
+         "role": "Grade E4 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Electronic Countermeasures Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Electronic Deception Specialist",
+         "grade": "E3",
+         "rawRequirement": "1",
+         "role": "Grade E3 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Directed Energy Weapon Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Electronic Warfare Technician",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        }
+       ],
+       "sourceTotal": 3,
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3,
+       "countBasis": "Provisional count of unparenthesized required entries",
+       "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+      },
+      {
+       "title": "2nd Electronic Protection Squad",
+       "children": [
+        {
+         "title": "Squad Leader",
+         "grade": "E5",
+         "rawRequirement": "1",
+         "role": "Grade E5 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Electromagnetic Hardening Specialist",
+         "grade": "E4",
+         "rawRequirement": "1",
+         "role": "Grade E4 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Spectrum Management Specialist",
+         "grade": "E3",
+         "rawRequirement": "1",
+         "role": "Grade E3 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Frequency Deconfliction Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "EW Reprogramming Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Emission Control Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        }
+       ],
+       "sourceTotal": 3,
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3,
+       "countBasis": "Provisional count of unparenthesized required entries",
+       "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+      },
+      {
+       "title": "2nd Electronic Support Squad",
+       "children": [
+        {
+         "title": "Squad Leader",
+         "grade": "E5",
+         "rawRequirement": "1",
+         "role": "Grade E5 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Threat Warning Specialist",
+         "grade": "E4",
+         "rawRequirement": "1",
+         "role": "Grade E4 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Direction Finding Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Collection Support Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Cyber Operations Specialist",
+         "grade": "E3",
+         "rawRequirement": "1",
+         "role": "Grade E3 · AFPOS SC",
+         "personnel": 1
+        }
+       ],
+       "sourceTotal": 3,
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3,
+       "countBasis": "Provisional count of unparenthesized required entries",
+       "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+      }
+     ]
+    },
+    {
+     "title": "3rd Electronic Warfare Platoon",
+     "personnel": 11,
+     "officers": 1,
+     "ep": 10,
+     "countBasis": "Calculated: HQ 2 + three squads of 3; excludes (1) entries provisionally",
+     "children": [
+      {
+       "title": "Platoon headquarters",
+       "children": [
+        {
+         "title": "Platoon Leader",
+         "grade": "O2",
+         "rawRequirement": "1",
+         "role": "Grade O2 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Platoon Sergeant",
+         "grade": "E6",
+         "rawRequirement": "1",
+         "role": "Grade E6 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Radio Operator",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        }
+       ],
+       "sourceTotal": 2,
+       "officers": 1,
+       "ep": 1,
+       "personnel": 2,
+       "countBasis": "Provisional count of unparenthesized required entries",
+       "role": "Printed subtotal: 2. Parenthesized entries are excluded provisionally."
+      },
+      {
+       "title": "3rd Electronic Attack Squad",
+       "children": [
+        {
+         "title": "Squad Leader",
+         "grade": "E5",
+         "rawRequirement": "1",
+         "role": "Grade E5 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Electronic Jamming Specialist",
+         "grade": "E4",
+         "rawRequirement": "1",
+         "role": "Grade E4 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Electronic Countermeasures Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Electronic Deception Specialist",
+         "grade": "E3",
+         "rawRequirement": "1",
+         "role": "Grade E3 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Directed Energy Weapon Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Electronic Warfare Technician",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        }
+       ],
+       "sourceTotal": 3,
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3,
+       "countBasis": "Provisional count of unparenthesized required entries",
+       "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+      },
+      {
+       "title": "3rd Electronic Protection Squad",
+       "children": [
+        {
+         "title": "Squad Leader",
+         "grade": "E5",
+         "rawRequirement": "1",
+         "role": "Grade E5 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Electromagnetic Hardening Specialist",
+         "grade": "E4",
+         "rawRequirement": "1",
+         "role": "Grade E4 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Spectrum Management Specialist",
+         "grade": "E3",
+         "rawRequirement": "1",
+         "role": "Grade E3 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Frequency Deconfliction Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "EW Reprogramming Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Emission Control Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        }
+       ],
+       "sourceTotal": 3,
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3,
+       "countBasis": "Provisional count of unparenthesized required entries",
+       "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+      },
+      {
+       "title": "3rd Electronic Support Squad",
+       "children": [
+        {
+         "title": "Squad Leader",
+         "grade": "E5",
+         "rawRequirement": "1",
+         "role": "Grade E5 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Threat Warning Specialist",
+         "grade": "E4",
+         "rawRequirement": "1",
+         "role": "Grade E4 · AFPOS SC",
+         "personnel": 1
+        },
+        {
+         "title": "Direction Finding Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Collection Support Specialist",
+         "grade": "E3",
+         "rawRequirement": "(1)",
+         "role": "Grade E3 · AFPOS SC · Required (1), provisionally treated as a dual designation; no extra person counted.",
+         "dualDesignation": true
+        },
+        {
+         "title": "Cyber Operations Specialist",
+         "grade": "E3",
+         "rawRequirement": "1",
+         "role": "Grade E3 · AFPOS SC",
+         "personnel": 1
+        }
+       ],
+       "sourceTotal": 3,
+       "officers": 0,
+       "ep": 3,
+       "personnel": 3,
+       "countBasis": "Provisional count of unparenthesized required entries",
+       "role": "Printed subtotal: 3. Parenthesized entries are excluded provisionally."
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "infantry-division",
+  "title": "Infantry Division (2019)",
+  "branch": "Infantry",
+  "estimate": "toe",
+  "tag": "DND-approved PA TO 2019 · required strength",
+  "intro": "The division as drawn in the TO: headquarters, brigade headquarters companies, nine infantry battalions and its combat support and service units. Open the headquarters to see the staff offices, including the G6 signal staff.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Infantry Division chart · slide 1 (Required), slide 2 (Reduced)",
+    "locator": "2 Ground Operating Units / 1-Infantry Division / 1 - Inf Div / 2-InfDiv_OrgnlChart.ppt"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Infantry Division recap · sheet “InfDiv_Recap-2019”",
+    "locator": "2 Ground Operating Units / 1-Infantry Division / 1 - Inf Div / 3-InfDiv_Recap.xls"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Division Headquarters manning · sheet “DivHqs_Manning”",
+    "locator": "2 Ground Operating Units / 1-Infantry Division / 4-InfDiv_CSS Units / 1-HHSBn / 2-HHSBn_Recap 2019.xls"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Infantry Division basic document · mission and basis of allocation",
+    "locator": "2 Ground Operating Units / 1-Infantry Division / 1 - Inf Div / 1-InfDiv_BasicDoc.doc"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Approval memorandum, DND, 28 February 2020",
+    "locator": "0 Philippine Army / Memo fm DND dtd 28 Feb 2020 re Approved PA TO 2019.pdf"
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "516 · TO 2019 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "6,528 required · 6,230 reduced"
+   ],
+   [
+    "Civilian employees",
+    "78 · not in military totals"
+   ],
+   [
+    "Signal Battalion support",
+    "Not specified in the division chart"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "Unit boxes sum to the division: officers 71 + 3 × 15 + 9 × 32 + 3 × 5 + 21 + 17 + 13 + 8 + 14 + 24 = 516, EP 149 + 3 × 83 + 9 × 570 + 3 × 95 + 194 + 181 + 123 + 37 + 148 + 32 = 6,528, civilians 36 + 1 + 3 + 38 = 78.",
+   "The Division Headquarters offices are calculated from billet rows of the Division Headquarters manning sheet and sum to the printed 71 / 149 / 36.",
+   "Dashed boxes in the chart carry no strength. The Signal Battalion shown dashed is supplied by the Army Signal Regiment. The CADRE battalion is unfilled and its parenthesized figures are excluded.",
+   "The Infantry Battalion Weapons Company was only provisionally approved in the DND memorandum of 28 February 2020."
+  ],
+  "tree": {
+   "title": "Infantry Division (2019)",
+   "role": "Independent offensive and defensive operations, internal security, civil-military operations and limited disaster response.",
+   "officers": 516,
+   "ep": 6528,
+   "personnel": 7044,
+   "civilians": 78,
+   "children": [
+    {
+     "title": "Division headquarters",
+     "role": "Command and staff of the division. Sub-office counts are calculated from the billet rows.",
+     "officers": 71,
+     "ep": 149,
+     "personnel": 220,
+     "civilians": 36,
+     "children": [
+      {
+       "title": "Command section",
+       "officers": 7,
+       "ep": 12,
+       "personnel": 19,
+       "civilians": 4,
+       "children": [
+        {
+         "title": "Office of the Division Commander",
+         "officers": 3,
+         "ep": 6,
+         "personnel": 9,
+         "civilians": 1
+        },
+        {
+         "title": "Assistant Division Commander (Administration and Operations)",
+         "officers": 1,
+         "ep": 2,
+         "personnel": 3,
+         "civilians": 1
+        },
+        {
+         "title": "Assistant Division Commander (RRA)",
+         "officers": 1,
+         "ep": 2,
+         "personnel": 3,
+         "civilians": 1
+        },
+        {
+         "title": "Office of the Chief of Staff",
+         "officers": 2,
+         "ep": 2,
+         "personnel": 4,
+         "civilians": 1
+        }
+       ]
+      },
+      {
+       "title": "Personal staff",
+       "officers": 7,
+       "ep": 20,
+       "personnel": 27,
+       "civilians": 4,
+       "children": [
+        {
+         "title": "Office of the Division Inspector General",
+         "officers": 2,
+         "ep": 4,
+         "personnel": 6,
+         "civilians": 2
+        },
+        {
+         "title": "Governance and Strategy Management Office",
+         "officers": 4,
+         "ep": 6,
+         "personnel": 10,
+         "civilians": 2
+        },
+        {
+         "title": "Office of Ethical Standards and Public Accountability",
+         "officers": 1,
+         "ep": 6,
+         "personnel": 7
+        },
+        {
+         "title": "Office of the Division Sergeant Major",
+         "officers": 0,
+         "ep": 4,
+         "personnel": 4
+        }
+       ]
+      },
+      {
+       "title": "Coordinating staff",
+       "officers": 42,
+       "ep": 85,
+       "personnel": 127,
+       "civilians": 22,
+       "children": [
+        {
+         "title": "G1 · Personnel",
+         "officers": 6,
+         "ep": 18,
+         "personnel": 24,
+         "civilians": 6
+        },
+        {
+         "title": "G2 · Intelligence",
+         "officers": 6,
+         "ep": 12,
+         "personnel": 18,
+         "civilians": 3
+        },
+        {
+         "title": "G3 · Operations (includes the Division Tactical Operations Center)",
+         "officers": 11,
+         "ep": 16,
+         "personnel": 27,
+         "civilians": 3
+        },
+        {
+         "title": "G4 · Logistics",
+         "officers": 4,
+         "ep": 9,
+         "personnel": 13,
+         "civilians": 1
+        },
+        {
+         "title": "G6 · Command, control, communications and cyber systems (C4S)",
+         "role": "The division signal staff office; works with the Signal Battalion that supports the division.",
+         "officers": 6,
+         "ep": 13,
+         "personnel": 19,
+         "civilians": 4,
+         "children": [
+          {
+           "title": "Executive section",
+           "officers": 2,
+           "ep": 2,
+           "personnel": 4
+          },
+          {
+           "title": "Administrative section",
+           "officers": 1,
+           "ep": 3,
+           "personnel": 4,
+           "civilians": 1
+          },
+          {
+           "title": "Readiness and sustainment section",
+           "officers": 1,
+           "ep": 1,
+           "personnel": 2,
+           "civilians": 1
+          },
+          {
+           "title": "C3S operations section",
+           "officers": 1,
+           "ep": 4,
+           "personnel": 5,
+           "civilians": 1
+          },
+          {
+           "title": "Cyberspace management section",
+           "officers": 1,
+           "ep": 3,
+           "personnel": 4,
+           "civilians": 1
+          }
+         ]
+        },
+        {
+         "title": "G7 · Civil-military operations",
+         "officers": 5,
+         "ep": 9,
+         "personnel": 14,
+         "civilians": 2
+        },
+        {
+         "title": "G8 · Training",
+         "officers": 4,
+         "ep": 8,
+         "personnel": 12,
+         "civilians": 3
+        }
+       ]
+      },
+      {
+       "title": "Special and technical staff",
+       "officers": 15,
+       "ep": 32,
+       "personnel": 47,
+       "civilians": 6,
+       "children": [
+        {
+         "title": "Division Judge Advocate",
+         "officers": 2,
+         "ep": 2,
+         "personnel": 4,
+         "civilians": 1
+        },
+        {
+         "title": "Division Adjutant",
+         "officers": 1,
+         "ep": 3,
+         "personnel": 4,
+         "civilians": 1
+        },
+        {
+         "title": "Division Provost Marshal",
+         "officers": 1,
+         "ep": 3,
+         "personnel": 4,
+         "civilians": 1
+        },
+        {
+         "title": "Division Chaplain",
+         "officers": 2,
+         "ep": 7,
+         "personnel": 9
+        },
+        {
+         "title": "Division Surgeon",
+         "officers": 1,
+         "ep": 1,
+         "personnel": 2
+        },
+        {
+         "title": "Office of Financial Management",
+         "officers": 2,
+         "ep": 4,
+         "personnel": 6,
+         "civilians": 1
+        },
+        {
+         "title": "Division Special Disbursing Office",
+         "officers": 1,
+         "ep": 2,
+         "personnel": 3
+        },
+        {
+         "title": "Division Public Affairs Office",
+         "officers": 2,
+         "ep": 4,
+         "personnel": 6
+        },
+        {
+         "title": "Gender and Development Office",
+         "officers": 1,
+         "ep": 3,
+         "personnel": 4,
+         "civilians": 1
+        },
+        {
+         "title": "Real Estate Office",
+         "officers": 2,
+         "ep": 3,
+         "personnel": 5,
+         "civilians": 1
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "HHC, Infantry Brigade",
+     "role": "Detailed in the Infantry Brigade headquarters plate.",
+     "quantity": 3,
+     "officers": 15,
+     "ep": 83,
+     "personnel": 98
+    },
+    {
+     "title": "Infantry Battalion",
+     "role": "Detailed in the Infantry Battalion plate.",
+     "quantity": 9,
+     "officers": 32,
+     "ep": 570,
+     "personnel": 602
+    },
+    {
+     "title": "Reconnaissance company",
+     "quantity": 3,
+     "officers": 5,
+     "ep": 95,
+     "personnel": 100
+    },
+    {
+     "title": "Military Intelligence Battalion",
+     "officers": 21,
+     "ep": 194,
+     "personnel": 215
+    },
+    {
+     "title": "Civil-Military Operations Battalion",
+     "officers": 17,
+     "ep": 181,
+     "personnel": 198
+    },
+    {
+     "title": "Headquarters and Service Battalion (HSBn)",
+     "officers": 13,
+     "ep": 123,
+     "personnel": 136,
+     "civilians": 1
+    },
+    {
+     "title": "Division Training School (DTS)",
+     "officers": 8,
+     "ep": 37,
+     "personnel": 45
+    },
+    {
+     "title": "Service Support Battalion",
+     "officers": 14,
+     "ep": 148,
+     "personnel": 162,
+     "civilians": 3
+    },
+    {
+     "title": "Station Hospital",
+     "officers": 24,
+     "ep": 32,
+     "personnel": 56,
+     "civilians": 38
+    },
+    {
+     "title": "Signal Battalion (from the Army Signal Regiment)",
+     "role": "Signal support to the division and brigade headquarters comes from the Army Signal Regiment, not from the division's own printed strength.",
+     "relation": "Supporting · dashed in chart · strength not printed"
+    },
+    {
+     "title": "CADRE battalion",
+     "role": "The chart prints (22) officers and (710) EP in parentheses for an unfilled cadre unit. These are not added to the division strength.",
+     "relation": "Unfilled · figures in parentheses"
+    }
+   ]
+  }
+ },
+ {
+  "id": "infantry-brigade-hq",
+  "title": "Infantry Brigade headquarters company",
+  "branch": "Infantry",
+  "estimate": "toe",
+  "tag": "DND-approved PA TO 2019 · required strength",
+  "intro": "The headquarters and headquarters company of an Infantry Brigade: command and staff sections, support platoon and a rifle platoon. Three per Infantry Division.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Brigade HHC chart · Required",
+    "locator": "2 Ground Operating Units / 1-Infantry Division / 2-InfDiv_Combat Units / 1-Inf Bde / 2-InfBde_Orgn'lStructure (REQUIRED).PPT"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Brigade HHC manning · sheets “PERS RECAP”, “IBDE_Manning”",
+    "locator": "2 Ground Operating Units / 1-Infantry Division / 2-InfDiv_Combat Units / 1-Inf Bde / 3-InfBdeHqs_UnitManning.xls"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Brigade HHC basic document · mission and basis of allocation",
+    "locator": "2 Ground Operating Units / 1-Infantry Division / 2-InfDiv_Combat Units / 1-Inf Bde / 1-InfBde_BasicDocument.doc"
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "15 · TO 2019 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "83 required · 75 reduced"
+   ],
+   [
+    "Civilian employees",
+    "0"
+   ],
+   [
+    "Total allowance",
+    "98 required · 90 reduced"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "Brigade headquarters 11 / 29 plus headquarters company 4 / 54 sum to 15 / 83. The brigade has no organic signal unit in this table: its S6 section is a staff section, and signal support comes from the Signal Battalion."
+  ],
+  "tree": {
+   "title": "Headquarters and Headquarters Company, Infantry Brigade",
+   "role": "Command and supervision of the brigade's tactical operations; can control up to five maneuver battalions. Three per Infantry Division.",
+   "officers": 15,
+   "ep": 83,
+   "personnel": 98,
+   "children": [
+    {
+     "title": "Brigade headquarters",
+     "officers": 11,
+     "ep": 29,
+     "personnel": 40,
+     "children": [
+      {
+       "title": "Command section",
+       "officers": 3,
+       "ep": 4,
+       "personnel": 7
+      },
+      {
+       "title": "S1 section",
+       "officers": 1,
+       "ep": 4,
+       "personnel": 5
+      },
+      {
+       "title": "S2 section",
+       "officers": 1,
+       "ep": 5,
+       "personnel": 6
+      },
+      {
+       "title": "S3 section",
+       "officers": 2,
+       "ep": 5,
+       "personnel": 7
+      },
+      {
+       "title": "S4 section",
+       "officers": 1,
+       "ep": 3,
+       "personnel": 4
+      },
+      {
+       "title": "S6 section (communications / C4S)",
+       "role": "The brigade signal staff. Signal support comes from the Brigade Support Signal Company of the Signal Battalion.",
+       "officers": 1,
+       "ep": 2,
+       "personnel": 3
+      },
+      {
+       "title": "S7 section",
+       "officers": 1,
+       "ep": 5,
+       "personnel": 6
+      },
+      {
+       "title": "Finance section",
+       "officers": 1,
+       "ep": 1,
+       "personnel": 2
+      }
+     ]
+    },
+    {
+     "title": "Headquarters company",
+     "officers": 4,
+     "ep": 54,
+     "personnel": 58,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 2,
+       "ep": 6,
+       "personnel": 8
+      },
+      {
+       "title": "Support platoon",
+       "officers": 1,
+       "ep": 15,
+       "personnel": 16,
+       "children": [
+        {
+         "title": "Platoon headquarters",
+         "officers": 1,
+         "ep": 1,
+         "personnel": 2
+        },
+        {
+         "title": "Supply section",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        },
+        {
+         "title": "Maintenance and transportation section",
+         "officers": 0,
+         "ep": 11,
+         "personnel": 11
+        }
+       ]
+      },
+      {
+       "title": "Rifle platoon",
+       "officers": 1,
+       "ep": 33,
+       "personnel": 34,
+       "children": [
+        {
+         "title": "Platoon headquarters",
+         "officers": 1,
+         "ep": 6,
+         "personnel": 7
+        },
+        {
+         "title": "Rifle squad",
+         "quantity": 3,
+         "officers": 0,
+         "ep": 9,
+         "personnel": 9
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "infantry-battalion",
+  "title": "Infantry Battalion",
+  "branch": "Infantry",
+  "estimate": "toe",
+  "tag": "DND-approved PA TO 2019 · required strength",
+  "intro": "Headquarters company with its signal, medical, intelligence, scout and support platoons, a weapons company and three rifle companies. Nine per Infantry Division.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Infantry Battalion charts · slides 1–4 (Required)",
+    "locator": "2 Ground Operating Units / 1-Infantry Division / 2-InfDiv_Combat Units / 2-Inf Bn / 2-InfBn_Orgn'l_Charts (REQUIRED).pptx"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Infantry Battalion manning · sheets “HHC”, “Weapons Coy”, “Rifle Coy”",
+    "locator": "2 Ground Operating Units / 1-Infantry Division / 2-InfDiv_Combat Units / 2-Inf Bn / 4-InfBn_UnitManning.xlsx"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Infantry Battalion basic document · mission and basis of allocation",
+    "locator": "2 Ground Operating Units / 1-Infantry Division / 2-InfDiv_Combat Units / 2-Inf Bn / 1-InfBn_BasicDocument.doc"
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "32 · TO 2019 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "570 required · 540 reduced"
+   ],
+   [
+    "Civilian employees",
+    "0"
+   ],
+   [
+    "Total allowance",
+    "602 required · 572 reduced"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "Elements sum to the battalion: officers 15 + 2 + 3 × 5 = 32, EP 124 + 56 + 3 × 130 = 570. The battalion Signal Platoon is 11 EP: platoon headquarters 1, communication section 6, electronics section 2, information system section 2.",
+   "The Weapons Company was only provisionally approved in the DND memorandum of 28 February 2020."
+  ],
+  "tree": {
+   "title": "Infantry Battalion",
+   "role": "Close with and destroy the enemy by fire, maneuver and close combat. Nine battalions per Infantry Division.",
+   "officers": 32,
+   "ep": 570,
+   "personnel": 602,
+   "children": [
+    {
+     "title": "Headquarters and Headquarters Company",
+     "role": "Battalion staff plus support, medical, signal, intelligence and scout platoons.",
+     "officers": 15,
+     "ep": 124,
+     "personnel": 139,
+     "children": [
+      {
+       "title": "Battalion headquarters",
+       "officers": 10,
+       "ep": 28,
+       "personnel": 38,
+       "children": [
+        {
+         "title": "Command section",
+         "officers": 2,
+         "ep": 4,
+         "personnel": 6
+        },
+        {
+         "title": "S1 and Adjutant section",
+         "officers": 1,
+         "ep": 4,
+         "personnel": 5
+        },
+        {
+         "title": "S2 section",
+         "officers": 1,
+         "ep": 5,
+         "personnel": 6
+        },
+        {
+         "title": "S3 section",
+         "officers": 2,
+         "ep": 4,
+         "personnel": 6
+        },
+        {
+         "title": "S4 section",
+         "officers": 1,
+         "ep": 3,
+         "personnel": 4
+        },
+        {
+         "title": "S6 section (communications / C4S)",
+         "officers": 1,
+         "ep": 2,
+         "personnel": 3
+        },
+        {
+         "title": "S7 section",
+         "officers": 1,
+         "ep": 5,
+         "personnel": 6
+        },
+        {
+         "title": "Finance section",
+         "officers": 1,
+         "ep": 1,
+         "personnel": 2
+        }
+       ]
+      },
+      {
+       "title": "Headquarters company",
+       "officers": 5,
+       "ep": 96,
+       "personnel": 101,
+       "children": [
+        {
+         "title": "Company headquarters",
+         "officers": 2,
+         "ep": 5,
+         "personnel": 7
+        },
+        {
+         "title": "Support platoon",
+         "officers": 1,
+         "ep": 22,
+         "personnel": 23,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "officers": 1,
+           "ep": 1,
+           "personnel": 2
+          },
+          {
+           "title": "Supply section",
+           "officers": 0,
+           "ep": 3,
+           "personnel": 3
+          },
+          {
+           "title": "Transportation and maintenance section",
+           "officers": 0,
+           "ep": 16,
+           "personnel": 16
+          },
+          {
+           "title": "Liaison section",
+           "officers": 0,
+           "ep": 2,
+           "personnel": 2
+          }
+         ]
+        },
+        {
+         "title": "Medical platoon",
+         "officers": 0,
+         "ep": 17,
+         "personnel": 17,
+         "children": [
+          {
+           "title": "Headquarters section",
+           "officers": 0,
+           "ep": 1,
+           "personnel": 1
+          },
+          {
+           "title": "Treatment section",
+           "officers": 0,
+           "ep": 3,
+           "personnel": 3
+          },
+          {
+           "title": "Evacuation section",
+           "officers": 0,
+           "ep": 3,
+           "personnel": 3
+          },
+          {
+           "title": "Combat medic section",
+           "officers": 0,
+           "ep": 10,
+           "personnel": 10
+          }
+         ]
+        },
+        {
+         "title": "Signal platoon",
+         "role": "Battalion communications, electronics and information-system support.",
+         "officers": 0,
+         "ep": 11,
+         "personnel": 11,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "officers": 0,
+           "ep": 1,
+           "personnel": 1
+          },
+          {
+           "title": "Communication section",
+           "officers": 0,
+           "ep": 6,
+           "personnel": 6
+          },
+          {
+           "title": "Electronics section",
+           "officers": 0,
+           "ep": 2,
+           "personnel": 2
+          },
+          {
+           "title": "Information system section",
+           "officers": 0,
+           "ep": 2,
+           "personnel": 2
+          }
+         ]
+        },
+        {
+         "title": "Intelligence platoon",
+         "officers": 1,
+         "ep": 16,
+         "personnel": 17,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "officers": 1,
+           "ep": 1,
+           "personnel": 2
+          },
+          {
+           "title": "Collection team",
+           "quantity": 3,
+           "officers": 0,
+           "ep": 4,
+           "personnel": 4
+          },
+          {
+           "title": "Signal intelligence team",
+           "officers": 0,
+           "ep": 3,
+           "personnel": 3
+          }
+         ]
+        },
+        {
+         "title": "Scout platoon",
+         "officers": 1,
+         "ep": 25,
+         "personnel": 26,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "officers": 1,
+           "ep": 4,
+           "personnel": 5
+          },
+          {
+           "title": "Scout team",
+           "quantity": 3,
+           "officers": 0,
+           "ep": 7,
+           "personnel": 7
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Weapons company",
+     "role": "Weapons company; activation was only provisionally approved in the DND memo of 28 Feb 2020.",
+     "officers": 2,
+     "ep": 56,
+     "personnel": 58,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 2,
+       "ep": 10,
+       "personnel": 12
+      },
+      {
+       "title": "Sniper section",
+       "officers": 0,
+       "ep": 7,
+       "personnel": 7
+      },
+      {
+       "title": "Mortar platoon",
+       "officers": 0,
+       "ep": 21,
+       "personnel": 21,
+       "children": [
+        {
+         "title": "Platoon headquarters",
+         "officers": 0,
+         "ep": 5,
+         "personnel": 5
+        },
+        {
+         "title": "Mortar squad",
+         "quantity": 4,
+         "officers": 0,
+         "ep": 4,
+         "personnel": 4
+        }
+       ]
+      },
+      {
+       "title": "Heavy machine-gun platoon",
+       "officers": 0,
+       "ep": 18,
+       "personnel": 18,
+       "children": [
+        {
+         "title": "Platoon headquarters",
+         "officers": 0,
+         "ep": 2,
+         "personnel": 2
+        },
+        {
+         "title": "Machine-gun squad",
+         "quantity": 4,
+         "officers": 0,
+         "ep": 4,
+         "personnel": 4
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Rifle company",
+     "role": "Command, headquarters platoon and three rifle platoons.",
+     "quantity": 3,
+     "officers": 5,
+     "ep": 130,
+     "personnel": 135,
+     "children": [
+      {
+       "title": "Headquarters platoon",
+       "officers": 2,
+       "ep": 25,
+       "personnel": 27,
+       "children": [
+        {
+         "title": "Headquarters section",
+         "officers": 2,
+         "ep": 11,
+         "personnel": 13
+        },
+        {
+         "title": "Anti-armor section",
+         "officers": 0,
+         "ep": 7,
+         "personnel": 7
+        },
+        {
+         "title": "Mortar section",
+         "officers": 0,
+         "ep": 7,
+         "personnel": 7
+        }
+       ]
+      },
+      {
+       "title": "Rifle platoon",
+       "quantity": 3,
+       "officers": 1,
+       "ep": 35,
+       "personnel": 36,
+       "children": [
+        {
+         "title": "Platoon headquarters",
+         "officers": 1,
+         "ep": 8,
+         "personnel": 9
+        },
+        {
+         "title": "Rifle squad",
+         "quantity": 3,
+         "officers": 0,
+         "ep": 9,
+         "personnel": 9
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "infantry",
+  "title": "Infantry rifle company",
+  "branch": "Infantry",
+  "tag": "DND-approved PA TO 2019 · cross-checked with 2018 PAM",
+  "intro": "Explore the company down to its nine-person squads. Quantities beside branches show how many subunits the parent contains. Company and platoon strengths are from the 2019 Table of Organization; squad and fire-team composition agrees with the 2018 pamphlet.",
+  "sources": [
+   {
+    "file": "pam-3-0101-04",
+    "page": 13,
+    "label": "Infantry Company Operations · printed page 2 · company and platoon"
+   },
+   {
+    "file": "pam-3-0101-04",
+    "page": 14,
+    "label": "Infantry Company Operations · printed page 3 · squad and fire teams"
+   },
+   {
+    "file": "pam-3-0101-04",
+    "page": 16,
+    "label": "Infantry Company Operations · printed pages 5–7 · key personnel"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Rifle company manning · sheet “Rifle Coy”",
+    "locator": "2 Ground Operating Units / 1-Infantry Division / 2-InfDiv_Combat Units / 2-Inf Bn / 4-InfBn_UnitManning.xlsx"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Infantry Battalion chart · slide 4 (Required), infantry company",
+    "locator": "2 Ground Operating Units / 1-Infantry Division / 2-InfDiv_Combat Units / 2-Inf Bn / 2-InfBn_Orgn'l_Charts (REQUIRED).pptx"
+   }
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "The TO 2019 confirms the nine-person squad (squad leader, two team leaders, two grenadiers, two automatic riflemen, two riflemen). Three squads per platoon is also confirmed: platoon 36 = headquarters 9 + 27, company 135 = headquarters platoon 27 + 3 × 36.",
+   "Resolves the earlier ambiguity: the platoon headquarters row lists two machine gunners and two assistant machine gunners (two two-person crews), a platoon leader, platoon sergeant, assault-weapon gunner, ammunition bearer and radio operator, nine in all. The wording “four machine gun crews” in the 2018 pamphlet is not supported by the TO count.",
+   "The combat medic is printed in parentheses in the platoon headquarters, matching the pamphlet’s attached medic. Not counted.",
+   "Headquarters section also lists four dual-designated positions (second radio operator, clerk, cook, driver) that add no strength. Reduced strength removes 3 EP, all in the anti-armor section (7 → 4)."
+  ],
+  "tree": {
+   "title": "Infantry rifle company",
+   "role": "One headquarters platoon and three rifle platoons.",
+   "officers": 5,
+   "ep": 130,
+   "personnel": 135,
+   "children": [
+    {
+     "title": "Headquarters platoon",
+     "role": "Command, anti-armor and mortar sections.",
+     "officers": 2,
+     "ep": 25,
+     "personnel": 27,
+     "children": [
+      {
+       "title": "Headquarters section",
+       "officers": 2,
+       "ep": 11,
+       "personnel": 13,
+       "children": [
+        {
+         "title": "Commanding officer",
+         "personnel": 1,
+         "grade": "O3"
+        },
+        {
+         "title": "Executive officer",
+         "personnel": 1,
+         "grade": "O2"
+        },
+        {
+         "title": "Company first sergeant",
+         "personnel": 1,
+         "grade": "E7"
+        },
+        {
+         "title": "Operations NCO",
+         "personnel": 1,
+         "grade": "E6"
+        },
+        {
+         "title": "Intelligence NCO",
+         "personnel": 1,
+         "grade": "E6"
+        },
+        {
+         "title": "Personnel NCO",
+         "personnel": 1,
+         "grade": "E5"
+        },
+        {
+         "title": "Communications chief",
+         "personnel": 1,
+         "grade": "E5"
+        },
+        {
+         "title": "Supply NCO",
+         "personnel": 1,
+         "grade": "E5"
+        },
+        {
+         "title": "Finance NCO",
+         "personnel": 1,
+         "grade": "E5"
+        },
+        {
+         "title": "CMO NCO",
+         "personnel": 1,
+         "grade": "E5"
+        },
+        {
+         "title": "Mess NCO",
+         "personnel": 1,
+         "grade": "E4"
+        },
+        {
+         "title": "Armorer / driver",
+         "personnel": 1,
+         "grade": "E4"
+        },
+        {
+         "title": "Radio operator",
+         "personnel": 1,
+         "grade": "E3"
+        }
+       ]
+      },
+      {
+       "title": "Anti-armor section",
+       "officers": 0,
+       "ep": 7,
+       "personnel": 7,
+       "children": [
+        {
+         "title": "Section leader",
+         "personnel": 1,
+         "grade": "E5"
+        },
+        {
+         "title": "Gunner",
+         "personnel": 2,
+         "grade": "E4"
+        },
+        {
+         "title": "Assistant gunner",
+         "personnel": 2,
+         "grade": "E3"
+        },
+        {
+         "title": "Ammunition bearer",
+         "personnel": 2,
+         "grade": "E2"
+        }
+       ]
+      },
+      {
+       "title": "Mortar section",
+       "officers": 0,
+       "ep": 7,
+       "personnel": 7,
+       "children": [
+        {
+         "title": "Section leader",
+         "personnel": 1,
+         "grade": "E5"
+        },
+        {
+         "title": "Gunner",
+         "personnel": 2,
+         "grade": "E4"
+        },
+        {
+         "title": "Assistant gunner",
+         "personnel": 2,
+         "grade": "E3"
+        },
+        {
+         "title": "Ammunition bearer",
+         "personnel": 2,
+         "grade": "E2"
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Rifle platoon",
+     "role": "Platoon headquarters of nine and three nine-person squads.",
+     "quantity": 3,
+     "officers": 1,
+     "ep": 35,
+     "personnel": 36,
+     "children": [
+      {
+       "title": "Platoon headquarters",
+       "officers": 1,
+       "ep": 8,
+       "personnel": 9,
+       "children": [
+        {
+         "title": "Platoon leader",
+         "personnel": 1,
+         "grade": "O1"
+        },
+        {
+         "title": "Platoon sergeant",
+         "personnel": 1,
+         "grade": "E6"
+        },
+        {
+         "title": "Machine gunner",
+         "personnel": 2,
+         "grade": "E4"
+        },
+        {
+         "title": "Assistant machine gunner",
+         "personnel": 2,
+         "grade": "E3"
+        },
+        {
+         "title": "Light assault weapon gunner",
+         "personnel": 1,
+         "grade": "E3"
+        },
+        {
+         "title": "Ammunition bearer",
+         "personnel": 1,
+         "grade": "E2"
+        },
+        {
+         "title": "Radio operator",
+         "personnel": 1,
+         "grade": "E3"
+        }
+       ]
+      },
+      {
+       "title": "Rifle squad",
+       "role": "One squad leader and two four-person fire teams. TO 2019 rows: squad leader, two team leaders, two grenadiers, two automatic riflemen and two riflemen.",
+       "id": "rifle-squad",
+       "quantity": 3,
+       "personnel": 9,
+       "children": [
+        {
+         "title": "Squad leader",
+         "role": "",
+         "personnel": 1
+        },
+        {
+         "title": "Fire Team A",
+         "role": "Four positions. The rifleman also serves as the squad designated marksman.",
+         "personnel": 4,
+         "children": [
+          {
+           "title": "Team leader",
+           "role": "",
+           "personnel": 1
+          },
+          {
+           "title": "Automatic rifleman",
+           "role": "",
+           "personnel": 1
+          },
+          {
+           "title": "Grenadier",
+           "role": "",
+           "personnel": 1
+          },
+          {
+           "title": "Rifleman / squad designated marksman",
+           "role": "The marksman occupies an existing rifleman position.",
+           "personnel": 1
+          }
+         ]
+        },
+        {
+         "title": "Fire Team B",
+         "role": "Four positions.",
+         "personnel": 4,
+         "children": [
+          {
+           "title": "Team leader",
+           "role": "",
+           "personnel": 1
+          },
+          {
+           "title": "Automatic rifleman",
+           "role": "",
+           "personnel": 1
+          },
+          {
+           "title": "Grenadier",
+           "role": "",
+           "personnel": 1
+          },
+          {
+           "title": "Rifleman",
+           "role": "Rifleman position in Fire Team B.",
+           "personnel": 1
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Medical aid-man / combat medic",
+       "relation": "Attached",
+       "personnel": 1,
+       "role": "Printed in parentheses in the platoon headquarters row of the TO, so not counted in platoon strength."
+      }
+     ]
+    }
+   ]
+  },
+  "roles": [
+   {
+    "title": "Company commander",
+    "role": "Responsible for employment, training, administration, personnel management and sustainment."
+   },
+   {
+    "title": "Executive officer",
+    "role": "Second in command. Assists planning and coordinates sustainment."
+   },
+   {
+    "title": "Platoon leader",
+    "role": "Responsible for the platoon’s employment, training, administration and logistics."
+   },
+   {
+    "title": "First sergeant",
+    "role": "Senior company NCO. Supervises routine operations and advises the commander."
+   },
+   {
+    "title": "Platoon sergeant",
+    "role": "Advises the platoon leader and supervises administration, logistics and maintenance."
+   },
+   {
+    "title": "Communications sergeant / senior radio operator",
+    "role": "Supervises operation, maintenance and installation of organic communications."
+   },
+   {
+    "title": "Radio operator",
+    "role": "Operates and maintains the assigned radio."
+   }
+  ],
+  "rolesSource": 2,
+  "estimate": "toe",
+  "personnelRecord": [
+   [
+    "Officers",
+    "5 · TO 2019 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "130 required · 127 reduced"
+   ],
+   [
+    "Total establishment",
+    "135 required · 132 reduced"
+   ],
+   [
+    "Attached combat medic",
+    "Not counted · dual designation"
+   ]
+  ]
+ },
+ {
+  "id": "artillery-signal",
+  "title": "Field Artillery Battalion and its signal platoon",
+  "branch": "Signal",
+  "tag": "DND-approved PA TO 2019 · 105 mm battalion, required strength",
+  "intro": "The 105 mm towed field artillery battalion with its headquarters battery, signal platoon and three firing batteries. The signal platoon is organic to the headquarters battery.",
+  "sources": [
+   {
+    "file": "lesson-field-artillery",
+    "page": 37,
+    "label": "Field Artillery lesson · slide 37 · communications"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "105 mm battalion chart · slides 1–6 (Required and Reduced)",
+    "locator": "3 Specialty Enablers / 1-AAR / 3-105MM / 4-105MM Bn Org Structure.pptx"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "105 mm battalion manning · sheets “RECAP”, “HHB, FABn (105mm)”, “FA BTRY, FABN (105)”",
+    "locator": "3 Specialty Enablers / 1-AAR / 3-105MM / 5-105MM Bn Unit Manning & Recap.xlsx"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Field Artillery Battalion basic document · mission",
+    "locator": "3 Specialty Enablers / 1-AAR / 3-105MM / 1-FIELD ARTILLERY BATTALION (105MM TOWED).DOC"
+   }
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "The 2019 TO now supplies what the lesson slide did not: the signal platoon has a platoon headquarters, communication section, electronics section and information system section. Only the communication section (6 EP required, 4 reduced) has counted positions. The other three elements are entirely in parentheses.",
+   "Elements sum to the battalion: officers 11 + 3 × 2 = 17, EP 55 + 3 × 48 = 199. Fire support elements attached to maneuver units are dual-designated and not counted.",
+   "This is the 105 mm towed battalion. A 155 mm towed battalion TO also exists in the TOE but is not reproduced here."
+  ],
+  "tree": {
+   "title": "Field Artillery Battalion (105 mm towed)",
+   "role": "Direct-support cannon fires to a maneuver unit; provides communication, survey and fire direction to its subordinate units.",
+   "officers": 17,
+   "ep": 199,
+   "personnel": 216,
+   "children": [
+    {
+     "title": "Headquarters and Headquarters Battery",
+     "role": "Battalion staff and support. Fire support elements for maneuver units are dual-designated positions and add no counted strength.",
+     "officers": 11,
+     "ep": 55,
+     "personnel": 66,
+     "children": [
+      {
+       "title": "Battalion headquarters",
+       "officers": 9,
+       "ep": 19,
+       "personnel": 28,
+       "children": [
+        {
+         "title": "Command section",
+         "officers": 2,
+         "ep": 3,
+         "personnel": 5
+        },
+        {
+         "title": "S1 and Adjutant section",
+         "officers": 1,
+         "ep": 3,
+         "personnel": 4
+        },
+        {
+         "title": "S2 section",
+         "officers": 1,
+         "ep": 2,
+         "personnel": 3
+        },
+        {
+         "title": "S3 section",
+         "officers": 1,
+         "ep": 3,
+         "personnel": 4
+        },
+        {
+         "title": "S4 section",
+         "officers": 1,
+         "ep": 3,
+         "personnel": 4
+        },
+        {
+         "title": "S6 section (communications / C4S)",
+         "officers": 1,
+         "ep": 0,
+         "personnel": 1
+        },
+        {
+         "title": "S7 section",
+         "officers": 1,
+         "ep": 3,
+         "personnel": 4
+        },
+        {
+         "title": "Finance section",
+         "officers": 1,
+         "ep": 2,
+         "personnel": 3
+        }
+       ]
+      },
+      {
+       "title": "Headquarters battery",
+       "officers": 2,
+       "ep": 36,
+       "personnel": 38,
+       "children": [
+        {
+         "title": "Battery headquarters",
+         "officers": 2,
+         "ep": 5,
+         "personnel": 7
+        },
+        {
+         "title": "Signal platoon",
+         "role": "Organic to the headquarters battery. Its counted strength is the communication section; its other elements are dual-designated positions.",
+         "officers": 0,
+         "ep": 6,
+         "personnel": 6,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "relation": "Dual designation in TO · not counted"
+          },
+          {
+           "title": "Communication section",
+           "role": "The only counted element of the platoon: 6 EP.",
+           "officers": 0,
+           "ep": 6,
+           "personnel": 6
+          },
+          {
+           "title": "Electronics section",
+           "relation": "Dual designation in TO · not counted"
+          },
+          {
+           "title": "Information system section",
+           "relation": "Dual designation in TO · not counted"
+          }
+         ]
+        },
+        {
+         "title": "Medical section",
+         "officers": 0,
+         "ep": 4,
+         "personnel": 4
+        },
+        {
+         "title": "Target acquisition platoon",
+         "officers": 0,
+         "ep": 5,
+         "personnel": 5,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "relation": "Dual designation in TO · not counted"
+          },
+          {
+           "title": "Survey party",
+           "officers": 0,
+           "ep": 5,
+           "personnel": 5
+          },
+          {
+           "title": "Radar section",
+           "relation": "Dual designation in TO · not counted"
+          }
+         ]
+        },
+        {
+         "title": "Support platoon",
+         "officers": 0,
+         "ep": 14,
+         "personnel": 14,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "officers": 0,
+           "ep": 1,
+           "personnel": 1
+          },
+          {
+           "title": "Supply section",
+           "officers": 0,
+           "ep": 2,
+           "personnel": 2
+          },
+          {
+           "title": "Transportation and maintenance section",
+           "officers": 0,
+           "ep": 8,
+           "personnel": 8
+          },
+          {
+           "title": "Ammunition section",
+           "officers": 0,
+           "ep": 3,
+           "personnel": 3
+          }
+         ]
+        },
+        {
+         "title": "Fire direction center",
+         "officers": 0,
+         "ep": 2,
+         "personnel": 2
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Firing battery",
+     "role": "Battery headquarters and three firing platoons of two sections each.",
+     "quantity": 3,
+     "officers": 2,
+     "ep": 48,
+     "personnel": 50,
+     "children": [
+      {
+       "title": "Battery headquarters",
+       "officers": 2,
+       "ep": 9,
+       "personnel": 11
+      },
+      {
+       "title": "Firing platoon",
+       "quantity": 3,
+       "officers": 0,
+       "ep": 13,
+       "personnel": 13,
+       "children": [
+        {
+         "title": "Platoon headquarters",
+         "officers": 0,
+         "ep": 5,
+         "personnel": 5
+        },
+        {
+         "title": "Howitzer section",
+         "quantity": 2,
+         "officers": 0,
+         "ep": 4,
+         "personnel": 4
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "estimate": "toe",
+  "personnelRecord": [
+   [
+    "Officers",
+    "17 · TO 2019 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "199 required · 176 reduced"
+   ],
+   [
+    "Signal platoon",
+    "0 officers / 6 EP · communication section only"
+   ],
+   [
+    "Civilian employees",
+    "0"
+   ]
+  ]
+ },
+ {
+  "id": "cavalry-battalion",
+  "title": "Cavalry Battalion (Armor Division)",
+  "branch": "Armor",
+  "estimate": "toe",
+  "tag": "DND-approved PA TO 2019 · required strength",
+  "intro": "Reconnaissance and security battalion of the Armor Division: headquarters company and three Cavalry companies, each with scout platoons. Two battalions per division.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Cavalry Battalion chart · slides 1–2 (battalion), 3–4 (HHC), 5–7 (company and platoons)",
+    "locator": "2 Ground Operating Units / 2. Armor Division / 2-ARMOR DIV_COMBAT UNITS / 3-Cav Bn / 2-Cav Bn_Orgn'l Structure.ppt"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Cavalry Battalion manning · sheets “HHC_CAV BN”, “Cav Coy Manning”",
+    "locator": "2 Ground Operating Units / 2. Armor Division / 2-ARMOR DIV_COMBAT UNITS / 3-Cav Bn / 4-Cav Bn_UnitManning&Recap.XLS"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Cavalry Battalion basic document · mission and basis of allocation",
+    "locator": "2 Ground Operating Units / 2. Armor Division / 2-ARMOR DIV_COMBAT UNITS / 3-Cav Bn / 1-Cav Bn_BasicDoc.doc"
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "24 · TO 2019 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "242 required · 236 reduced"
+   ],
+   [
+    "Civilian employees",
+    "0"
+   ],
+   [
+    "Total allowance",
+    "266 required · 260 reduced"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "Headquarters company 12 / 77 plus three Cavalry companies of 4 / 55 sum to 24 / 242. The Heavy Mortar and Medical platoons of the headquarters company and the Light Armor platoons are printed in parentheses and add no strength."
+  ],
+  "tree": {
+   "title": "Cavalry Battalion",
+   "role": "Reconnaissance, surveillance and security for the Armor Division. Two battalions per division.",
+   "officers": 24,
+   "ep": 242,
+   "personnel": 266,
+   "children": [
+    {
+     "title": "Headquarters and Headquarters Company",
+     "officers": 12,
+     "ep": 77,
+     "personnel": 89,
+     "children": [
+      {
+       "title": "Battalion headquarters",
+       "officers": 9,
+       "ep": 17,
+       "personnel": 26,
+       "children": [
+        {
+         "title": "Command section",
+         "officers": 2,
+         "ep": 2,
+         "personnel": 4
+        },
+        {
+         "title": "Adjutant and S1 section",
+         "officers": 1,
+         "ep": 2,
+         "personnel": 3
+        },
+        {
+         "title": "S2 section",
+         "officers": 1,
+         "ep": 3,
+         "personnel": 4
+        },
+        {
+         "title": "S3 section",
+         "officers": 1,
+         "ep": 3,
+         "personnel": 4
+        },
+        {
+         "title": "S4 section",
+         "officers": 1,
+         "ep": 2,
+         "personnel": 3
+        },
+        {
+         "title": "S6 section (communications / C4S)",
+         "officers": 1,
+         "ep": 1,
+         "personnel": 2
+        },
+        {
+         "title": "S7 section",
+         "officers": 1,
+         "ep": 3,
+         "personnel": 4
+        },
+        {
+         "title": "Finance section",
+         "officers": 1,
+         "ep": 1,
+         "personnel": 2
+        }
+       ]
+      },
+      {
+       "title": "Headquarters company",
+       "officers": 3,
+       "ep": 60,
+       "personnel": 63,
+       "children": [
+        {
+         "title": "Company headquarters",
+         "officers": 2,
+         "ep": 9,
+         "personnel": 11
+        },
+        {
+         "title": "Heavy mortar platoon",
+         "relation": "Dual designation in TO · not counted"
+        },
+        {
+         "title": "Support platoon",
+         "officers": 0,
+         "ep": 16,
+         "personnel": 16,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "officers": 0,
+           "ep": 1,
+           "personnel": 1
+          },
+          {
+           "title": "Transportation section",
+           "officers": 0,
+           "ep": 11,
+           "personnel": 11
+          },
+          {
+           "title": "Supply section",
+           "officers": 0,
+           "ep": 2,
+           "personnel": 2
+          },
+          {
+           "title": "Mess section",
+           "officers": 0,
+           "ep": 2,
+           "personnel": 2
+          }
+         ]
+        },
+        {
+         "title": "Medical platoon",
+         "relation": "Dual designation in TO · not counted"
+        },
+        {
+         "title": "Maintenance platoon",
+         "officers": 1,
+         "ep": 35,
+         "personnel": 36,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "officers": 1,
+           "ep": 1,
+           "personnel": 2
+          },
+          {
+           "title": "Maintenance supply section",
+           "officers": 0,
+           "ep": 2,
+           "personnel": 2
+          },
+          {
+           "title": "Recovery section",
+           "officers": 0,
+           "ep": 6,
+           "personnel": 6
+          },
+          {
+           "title": "Maintenance and service section",
+           "officers": 0,
+           "ep": 8,
+           "personnel": 8
+          },
+          {
+           "title": "Company maintenance team",
+           "quantity": 3,
+           "officers": 0,
+           "ep": 6,
+           "personnel": 6
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Cavalry company",
+     "quantity": 3,
+     "officers": 4,
+     "ep": 55,
+     "personnel": 59,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 2,
+       "ep": 17,
+       "personnel": 19
+      },
+      {
+       "title": "Scout platoon",
+       "quantity": 2,
+       "officers": 1,
+       "ep": 19,
+       "personnel": 20,
+       "children": [
+        {
+         "title": "Platoon headquarters",
+         "officers": 1,
+         "ep": 9,
+         "personnel": 10,
+         "children": [
+          {
+           "title": "Platoon leader",
+           "personnel": 1,
+           "grade": "O1"
+          },
+          {
+           "title": "Platoon sergeant",
+           "personnel": 1,
+           "grade": "E6"
+          },
+          {
+           "title": "Vehicle gunner",
+           "personnel": 2
+          },
+          {
+           "title": "Vehicle driver",
+           "personnel": 2
+          },
+          {
+           "title": "Scout / loader",
+           "personnel": 2
+          },
+          {
+           "title": "Scout",
+           "personnel": 2
+          }
+         ]
+        },
+        {
+         "title": "Scout section",
+         "officers": 0,
+         "ep": 10,
+         "personnel": 10,
+         "children": [
+          {
+           "title": "Section leader",
+           "personnel": 1,
+           "grade": "E5"
+          },
+          {
+           "title": "Squad leader (SL)",
+           "personnel": 1,
+           "grade": "E5"
+          },
+          {
+           "title": "Vehicle crew",
+           "quantity": 2,
+           "officers": 0,
+           "ep": 4,
+           "personnel": 4,
+           "children": [
+            {
+             "title": "Gunner",
+             "personnel": 1
+            },
+            {
+             "title": "Driver",
+             "personnel": 1
+            },
+            {
+             "title": "Scout / loader",
+             "personnel": 1
+            },
+            {
+             "title": "Scout",
+             "personnel": 1
+            }
+           ]
+          }
+         ]
+        }
+       ]
+      },
+      {
+       "title": "Light armor platoon",
+       "relation": "Dual designation in TO · not counted",
+       "quantity": 2
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "scout",
+  "title": "Cavalry scout platoon",
+  "branch": "Cavalry",
+  "tag": "Armor lesson · cross-checked with DND-approved PA TO 2019",
+  "intro": "The scout platoon of a Cavalry company: a platoon headquarters and a scout section of ten. Strengths from the 2019 TO match the lesson slide labels.",
+  "sources": [
+   {
+    "file": "lesson-armor",
+    "page": 58,
+    "label": "Armor lesson · slide 58 · scout platoon"
+   },
+   {
+    "file": "lesson-armor",
+    "page": 59,
+    "label": "Armor lesson · slide 59 · scout section"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Cavalry company manning · sheet “Cav Coy Manning”",
+    "locator": "2 Ground Operating Units / 2. Armor Division / 2-ARMOR DIV_COMBAT UNITS / 3-Cav Bn / 4-Cav Bn_UnitManning&Recap.XLS"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Cavalry Battalion chart · slides 5–6 (Cavalry company, scout platoon)",
+    "locator": "2 Ground Operating Units / 2. Armor Division / 2-ARMOR DIV_COMBAT UNITS / 3-Cav Bn / 2-Cav Bn_Orgn'l Structure.ppt"
+   }
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "The TO confirms the slide labels: platoon 1 officer / 19 EP, platoon headquarters 1 / 9, scout section 10. “SL” in the lesson section illustration is the squad leader row of the TO. The scout section is a section leader, a squad leader and two four-person vehicle crews (gunner, driver, scout / loader and scout).",
+   "The Cavalry company has two scout platoons, a company headquarters of 19 and two light armor platoons whose positions are all in parentheses. Company total 4 officers / 55 EP."
+  ],
+  "tree": {
+   "title": "Scout platoon",
+   "role": "Two scout platoons per Cavalry company in the Cavalry battalion of the Armor Division.",
+   "officers": 1,
+   "ep": 19,
+   "personnel": 20,
+   "children": [
+    {
+     "title": "Platoon headquarters",
+     "officers": 1,
+     "ep": 9,
+     "personnel": 10,
+     "children": [
+      {
+       "title": "Platoon leader",
+       "personnel": 1,
+       "grade": "O1"
+      },
+      {
+       "title": "Platoon sergeant",
+       "personnel": 1,
+       "grade": "E6"
+      },
+      {
+       "title": "Vehicle gunner",
+       "personnel": 2
+      },
+      {
+       "title": "Vehicle driver",
+       "personnel": 2
+      },
+      {
+       "title": "Scout / loader",
+       "personnel": 2
+      },
+      {
+       "title": "Scout",
+       "personnel": 2
+      }
+     ]
+    },
+    {
+     "title": "Scout section",
+     "officers": 0,
+     "ep": 10,
+     "personnel": 10,
+     "children": [
+      {
+       "title": "Section leader",
+       "personnel": 1,
+       "grade": "E5"
+      },
+      {
+       "title": "Squad leader (SL)",
+       "personnel": 1,
+       "grade": "E5"
+      },
+      {
+       "title": "Vehicle crew",
+       "quantity": 2,
+       "officers": 0,
+       "ep": 4,
+       "personnel": 4,
+       "children": [
+        {
+         "title": "Gunner",
+         "personnel": 1
+        },
+        {
+         "title": "Driver",
+         "personnel": 1
+        },
+        {
+         "title": "Scout / loader",
+         "personnel": 1
+        },
+        {
+         "title": "Scout",
+         "personnel": 1
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  },
+  "estimate": "toe",
+  "personnelRecord": [
+   [
+    "Officers",
+    "1 · TO 2019 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "19 required"
+   ],
+   [
+    "Total platoon",
+    "20 required"
+   ],
+   [
+    "Civilian employees",
+    "0"
+   ]
+  ]
+ },
+ {
+  "id": "armor-division",
+  "title": "Armor Division",
+  "branch": "Armor",
+  "estimate": "toe",
+  "tag": "DND-approved PA TO 2019 · required strength",
+  "intro": "The division renamed from the Mechanized Infantry Division in 2019. Combat, combat support and combat service support units as drawn in the TO.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Armor Division chart · slide 1 (Required), slide 2 (Reduced)",
+    "locator": "2 Ground Operating Units / 2. Armor Division / 1-ARMOR DIV_TOE / 2-ARMOR DIV _Orgn'lStructure.pptx"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Armor Division basic document · mission",
+    "locator": "2 Ground Operating Units / 2. Armor Division / 1-ARMOR DIV_TOE / 1-ARMOR DIV_BasicDoc.DOC"
+   },
+   {
+    "toe": true,
+    "edition": "DND-approved PA TO 2019",
+    "label": "Approval memorandum, DND, 28 February 2020 · re-designation of the Mechanized Infantry Division",
+    "locator": "0 Philippine Army / Memo fm DND dtd 28 Feb 2020 re Approved PA TO 2019.pdf"
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "384 · TO 2019 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "4,630 required · 4,547 reduced"
+   ],
+   [
+    "Civilian employees",
+    "28 · not in military totals"
+   ],
+   [
+    "Combat engineer battalion",
+    "Not specified in the division chart"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "Unit boxes sum to the division: officers 2 × 13 + 6 × 27 + 2 × 24 + 8 × 4 + 21 + 74 + 12 + 9 = 384, EP 2 × 48 + 6 × 455 + 2 × 242 + 8 × 90 + 138 + 305 + 114 + 43 = 4,630, civilians 27 + 1 = 28.",
+   "The dashed combat engineer battalion box has no printed strength. Unit names for the aviation and maintenance battalions come from the TO folder names and basic documents."
+  ],
+  "tree": {
+   "title": "Armor Division",
+   "role": "Armor operations: combined-arms ground operations with mounted mobility and dismounted close combat.",
+   "officers": 384,
+   "ep": 4630,
+   "personnel": 5014,
+   "civilians": 28,
+   "children": [
+    {
+     "title": "HHC, mechanized infantry brigade",
+     "quantity": 2,
+     "officers": 13,
+     "ep": 48,
+     "personnel": 61
+    },
+    {
+     "title": "Mechanized infantry battalion",
+     "quantity": 6,
+     "officers": 27,
+     "ep": 455,
+     "personnel": 482
+    },
+    {
+     "title": "Cavalry battalion",
+     "role": "Detailed in the Cavalry Battalion plate.",
+     "quantity": 2,
+     "officers": 24,
+     "ep": 242,
+     "personnel": 266
+    },
+    {
+     "title": "Cavalry company (separate)",
+     "quantity": 8,
+     "officers": 4,
+     "ep": 90,
+     "personnel": 94
+    },
+    {
+     "title": "Army aviation battalion",
+     "officers": 21,
+     "ep": 138,
+     "personnel": 159
+    },
+    {
+     "title": "Combat engineer battalion",
+     "relation": "Dashed in chart · no strength printed"
+    },
+    {
+     "title": "Headquarters and Service Battalion (HHSB)",
+     "role": "Division headquarters and service support. The division civilian strength is carried here (27) and in the Armor School (1).",
+     "officers": 74,
+     "ep": 305,
+     "personnel": 379,
+     "civilians": 27
+    },
+    {
+     "title": "Armor Maintenance Battalion",
+     "officers": 12,
+     "ep": 114,
+     "personnel": 126
+    },
+    {
+     "title": "The Armor School",
+     "officers": 9,
+     "ep": 43,
+     "personnel": 52,
+     "civilians": 1
+    }
+   ]
+  }
+ }
 ]
