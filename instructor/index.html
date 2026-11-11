@@ -391,7 +391,12 @@
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { animation: none !important; transition: none !important; }
     }
+    .more-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
+    .more-actions button { min-height: 44px; }
+    .items-table tbody tr.row-extra { display: none; }
     @media print {
+      .items-table tbody tr.row-extra { display: table-row; }
+      .more-actions { display: none !important; }
       html, body { background: #ffffff; }
       .topo, .hub-link, .controls, .strip, .hero-bar { display: none !important; }
     }
@@ -486,6 +491,11 @@
           <tbody id="items-body"></tbody>
         </table>
       </div>
+      <p id="items-count" class="status" role="status" aria-live="polite" tabindex="-1"></p>
+      <div id="items-more" class="more-actions" hidden>
+        <button type="button" id="show-more" class="secondary">Show 25 more</button>
+        <button type="button" id="show-all" class="secondary">Show all</button>
+      </div>
       </div>
     </section>
   </main>
@@ -514,6 +524,7 @@
 
     // The question text lives in items.json beside this page; it is fetched before the first full render.
     var DATA_URL = 'items.json';
+    var PAGE = 25;
     var DATA = { modules: [], questions: {} };
     var lessonNames = {};
 
@@ -525,7 +536,8 @@
       sort: { key: 'rate', dir: 'desc' },
       status: 'idle',
       stats: {},
-      request: 0
+      request: 0,
+      limit: 25
     };
     var pending = [];
 
@@ -714,8 +726,8 @@
       return wrap;
     }
 
-    function rowNode(entry) {
-      var tr = make('tr', entry.review ? 'is-review' : null);
+    function rowNode(entry, extra) {
+      var tr = make('tr', (entry.review ? 'is-review' : '') + (extra ? (entry.review ? ' ' : '') + 'row-extra' : '') || null);
       tr.appendChild(questionCell(entry));
       tr.appendChild(dataCell('Lesson', (lessonNames[entry.lesson] || entry.lesson) + ' · ' + MODE_LABELS[entry.mode]));
       tr.appendChild(dataCell('Topic', entry.category || '—'));
@@ -778,7 +790,14 @@
       byId('refresh').disabled = state.data !== 'ready' || state.status === 'loading' || !ENDPOINT;
       byId('items-card').hidden = !ready;
       byId('most-missed-card').hidden = !ready;
-      setChildren(byId('items-body'), entries.map(rowNode));
+      setChildren(byId('items-body'), entries.map(function (entry, index) {
+        return rowNode(entry, index >= state.limit);
+      }));
+      var shown = Math.min(state.limit, entries.length);
+      byId('items-count').textContent = ready ? 'Showing ' + shown + ' of ' + entries.length + ' question' + (entries.length === 1 ? '' : 's') + '.' : '';
+      var hadMore = !byId('items-more').hidden;
+      byId('items-more').hidden = !ready || entries.length <= state.limit;
+      if (hadMore && byId('items-more').hidden && byId('items-more').contains(document.activeElement)) byId('items-count').focus();
       var top = ready ? mostMissed(entries) : [];
       setChildren(byId('most-missed'), top.map(function (entry) {
         var item = make('li', null);
@@ -871,6 +890,7 @@
       if (!DATA.modules.some(function (module) { return module.id === id; })) return false;
       state.module = id;
       state.lesson = 'all';
+      state.limit = PAGE;
       render();
       return true;
     }
@@ -878,12 +898,14 @@
       var module = currentModule();
       if (key !== 'all' && !(module && module.lessons.some(function (lesson) { return lesson.key === key; }))) return false;
       state.lesson = key;
+      state.limit = PAGE;
       render();
       return true;
     }
     function setMode(mode) {
       if (mode !== 'all' && MODES.indexOf(mode) === -1) return false;
       state.mode = mode;
+      state.limit = PAGE;
       render();
       return true;
     }
@@ -892,6 +914,7 @@
       if (['question', 'lesson', 'topic', 'asked', 'missed', 'rate'].indexOf(key) === -1) return false;
       if (state.sort.key === key) state.sort.dir = state.sort.dir === 'asc' ? 'desc' : 'asc';
       else state.sort = { key: key, dir: ['question', 'lesson', 'topic'].indexOf(key) !== -1 ? 'asc' : 'desc' };
+      state.limit = PAGE;
       render();
       return true;
     }
@@ -899,6 +922,8 @@
     function init() {
       ['all'].concat(MODES).forEach(function (mode) { byId('mode-' + mode).addEventListener('click', function () { setMode(mode); }); });
       ['question', 'lesson', 'topic', 'asked', 'missed', 'rate'].forEach(function (key) { byId('sort-' + key).addEventListener('click', function () { setSort(key); }); });
+      byId('show-more').addEventListener('click', function () { state.limit += PAGE; render(); });
+      byId('show-all').addEventListener('click', function () { state.limit = Infinity; render(); });
       byId('refresh').addEventListener('click', function () { load(); });
       byId('retry').addEventListener('click', function () { load(); });
       render();

@@ -135,7 +135,11 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
       return '<section id="' + id + '" class="lesson-section"><h2><span aria-hidden="true">' + number + '</span>' + title + '</h2>' + body + '</section>';
     };
     const guide = item.examGuide;
-    const sourcePages = pages => '<p class="topic-source">Lesson source: ' + pages.map(n => docLink(primaryDoc, '../../', primaryDoc.file ? n : null, 'page ' + n)).join(' · ') + '</p>';
+    const sourcePages = pages => {
+      const body = (primaryDoc.file || primaryDoc.web) ? pages.map(n => docLink(primaryDoc, '../../', primaryDoc.file ? n : null, 'page ' + n)).join(' · ')
+        : '<span class="file-missing">' + (primaryDoc.restricted ? 'Restricted · citation only' : 'PDF unavailable') + '</span> · ' + (pages.length === 1 ? 'page ' : 'pages ') + pages.map(n => '<a href="' + documentHref(primaryDoc, '../../', null) + '">' + e(String(n)) + '</a>').join(', ');
+      return '<p class="topic-source">Lesson source: ' + body + '</p>';
+    };
     const chapters = renderReviewerFocus(key, focus[key], panel, e, sourcePages) +
       panel('briefing', 'Quick briefing', '<p>' + e(item.brief) + '</p><p>Read with ' + docLink(primaryDoc, '../../', primaryDoc.file ? page : null) + '.</p>') +
       panel('facts', 'Know the facts', '<dl class="fact-list">' + item.facts.map(fact => '<div><dt>' + e(fact.term) + '</dt><dd>' + e(fact.detail) + '</dd></div>').join('') + '</dl>') +
