@@ -389,8 +389,9 @@
   </div>
   <nav class="site-tabs wrap" aria-label="Site sections">
     <a href="./" aria-current="page"><span>Practice exams</span></a>
-    <a href="reviewer/"><span>Reviewer 101</span></a>
+    <a href="reviewer/"><span>Reviewer</span></a>
     <a href="library/"><span>Library</span></a>
+    <a href="library/unit-organization/"><span>Unit Organization</span></a>
     <a href="how-to/"><span>How To</span></a>
     <a href="los-radios/"><span>LOS Radios</span></a>
     <a class="cipher-tab" id="cipher-tab" href="codes-ciphers/">Codes &amp; Ciphers</a>
@@ -456,7 +457,7 @@
       <div class="sect-body">
       <p class="section-intro">Pick the module you are studying. Its exams and class history appear below.</p>
       <div class="finder" id="finder" role="search" hidden>
-        <label class="finder-label label" for="exam-search">Or find an exam by topic</label>
+        <label class="finder-label label" for="exam-search">Or find an exam or study page by topic</label>
         <div class="finder-field"><input id="exam-search" type="search" autocomplete="off" spellcheck="false" placeholder="Try “radar”, “zero trust” or “TLP”" aria-describedby="finder-status" aria-controls="finder-results"><kbd aria-hidden="true">/</kbd></div>
         <p id="finder-status" class="sr-only" role="status" aria-live="polite"></p>
         <ol class="finder-results" id="finder-results" hidden></ol>
@@ -613,6 +614,9 @@
         var m = modules[e.m] || { n: '', t: '', s: '' };
         return { exam: e, mod: m, title: e.t.toLowerCase(), hay: [e.t, e.d, m.t, m.s, e.c].join(' · ').toLowerCase() };
       });
+      (data.pages || []).forEach(function (p) {
+        index.push({ exam: { t: p.t, d: p.d, u: p.u, c: '', pool: true }, mod: { n: p.k, t: p.k, s: '' }, page: true, title: p.t.toLowerCase(), hay: [p.t, p.d, p.k].join(' · ').toLowerCase() });
+      });
       function tokens(q) { return q.toLowerCase().replace(/[^a-z0-9/ -]+/g, ' ').split(/\s+/).filter(Boolean); }
       function snippet(text, words) {
         // The first question topic (or description) that mentions a search word: "why this matched".
@@ -646,7 +650,7 @@
           var title = make('span', 'finder-title');
           title.appendChild(marked(x.exam.t, words));
           a.appendChild(title);
-          a.appendChild(make('span', 'finder-go', 'Start'));
+          a.appendChild(make('span', 'finder-go', x.page ? 'Open' : 'Start'));
           var why = x.title.indexOf(words[0]) !== -1 ? x.mod.t + (x.mod.s ? ' · ' + x.mod.s : '') : snippet([x.exam.c, x.exam.d, x.mod.s].join(' · '), words) || x.mod.t;
           var whyNode = make('span', 'finder-why');
           whyNode.appendChild(marked(why, words));

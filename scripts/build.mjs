@@ -8,6 +8,7 @@
 //   node scripts/build.mjs                         build into the repository (what GitHub Pages serves)
 //   node scripts/build.mjs --out DIR --endpoint ""  build a copy elsewhere, e.g. a local preview with class
 //                                                  history switched off (no request ever reaches the sheet)
+import { buildSiteIndex, siteSearchPages } from './site-index.mjs';
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -1077,6 +1078,13 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
     SCAN_UI: readFileSync(join(root, 'src', 'cipher', 'scan-ui.js'), 'utf8').replace(/\r\n/g, '\n'),
   });
   Object.assign(pages, renderStudyPages(root, modules, lessons, study, { escapeHtml, scriptJson, fillTemplate, baseCss, fontPreloads, base }));
+  const siteIndex = buildSiteIndex({ modules, lessons, study, pages });
+  // The hub's quick finder also lists the study pages, tools and guides.
+  pages['index.html'] = pages['index.html'].replace(/(<script type="application\/json" id="hub-data">)([\s\S]*?)(<\/script>)/, (all, open, json, close) => {
+    const hub = JSON.parse(json);
+    hub.pages = siteSearchPages({ lessons, study, pages });
+    return open + scriptJson(hub) + close;
+  });
   // Give every generated section the same per-visit crest selection.
   for (const [path, source] of Object.entries(pages)) {
     const up = '../'.repeat(path.split('/').length - 1);
@@ -1090,6 +1098,8 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
       html = skip.test(html) ? html.replace(skip, '$1' + ribbon) : html.replace(/(<body[^>]*>)/, '$1' + ribbon);
     }
     html = withShareMetadata(html, path, up);
+    html = html.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/site-index.css">\n</head>');
+    html = html.replace('</body>', () => siteIndex(up) + '\n</body>');
     html = html.replace('</body>', '<aside class="domain-seal" aria-label="Site signature"><img class="domain-sigil" src="' + up + 'assets/domain-void-hand-320.webp" width="160" height="221" alt="" loading="lazy" decoding="async"><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>“You see, but you do not observe.”</em><cite data-domain-attribution>— Sherlock Holmes · A Scandal in Bohemia · Arthur Conan Doyle</cite></span></aside>\n</body>');
     pages[path] = html.replace('</body>', '<script src="' + up + 'assets/identity.js" defer></script>\n</body>');
   }

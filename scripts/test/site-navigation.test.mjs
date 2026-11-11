@@ -2,8 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 
-const pages = ['index.html', 'reviewer/index.html', 'reviewer/eccm/index.html', 'library/index.html', 'how-to/index.html', 'los-radios/index.html'];
-const labels = ['Practice exams', 'Reviewer 101', 'Library', 'How To', 'LOS Radios'];
+const pages = ['index.html', 'reviewer/index.html', 'reviewer/eccm/index.html', 'library/index.html', 'how-to/index.html', 'los-radios/index.html', 'library/unit-organization/index.html'];
+const labels = ['Practice exams', 'Reviewer', 'Library', 'Unit Organization', 'How To', 'LOS Radios'];
 
 for (const path of pages) {
   test(`${path}: section links keep consistent text-only labels`, () => {

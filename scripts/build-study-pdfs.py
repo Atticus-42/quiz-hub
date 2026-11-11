@@ -1,4 +1,4 @@
-"""Build the printable Reviewer 101 editions from the site content (requires ReportLab)."""
+"""Build the printable Reviewer editions from the site content (requires ReportLab)."""
 import json
 import os
 from pathlib import Path
@@ -68,7 +68,7 @@ def build(key, reviewer):
     story.extend(labeled(check['question'], check['answer']) for check in reviewer['checks'])
     story.extend([paragraph('Course source', HEADING), paragraph(LIBRARY['lessonSources'][key][0])])
     target = ROOT / 'library' / 'files' / f"reviewer-{lesson['slug']}.pdf"
-    doc = SimpleDocTemplate(str(target), pagesize=A4, title=name + ' | Reviewer 101', author='SOAC 52-26',
+    doc = SimpleDocTemplate(str(target), pagesize=A4, title=name + ' | Reviewer', author='SOAC 52-26',
                             leftMargin=17 * mm, rightMargin=17 * mm, topMargin=16 * mm, bottomMargin=20 * mm)
     doc.build(story, onFirstPage=footer, onLaterPages=footer)
 

@@ -28,7 +28,7 @@
          forced-colors: caps, ticks, bars and gauges redrawn in system colours
        Phones (<= 760px): the question controls are a sticky bottom thumb bar
        (52px targets, safe-area inset). Results open with "Review next": the
-       Reviewer 101 pages for the missed questions, most missed first.
+       Reviewer pages for the missed questions, most missed first.
        Difficulty is named in text and drawn as a three-step gauge (1, 2 or 3
        filled squares), never by colour alone.
        Lesson palettes (lessons/<key>/lesson.json "palette") only set
@@ -484,7 +484,7 @@
     .review-item .answer-line { max-width: 46rem; }
     .review-item .explanation { max-width: 52rem; }
 
-    /* Review next: the after-action "improve" list. One row per Reviewer 101 page, most missed first. */
+    /* Review next: the after-action "improve" list. One row per Reviewer page, most missed first. */
     .results-next { display: grid; grid-template-columns: var(--rail) var(--body); column-gap: var(--col-gap); padding-top: var(--space-6); }
     .results-next > * { grid-column: 2; min-width: 0; }
     .results-next > h3 { grid-column: 1; grid-row: 1 / span 2; margin: 0; font-size: var(--text-h4); }
@@ -680,7 +680,7 @@
   <header class="site-header hero">
     <div class="wrap hero-bar">
       <a id="hub-link" class="hub-link" href="{{HUB_HREF}}"><span class="hub-arrow" aria-hidden="true">&#8592;</span> All quizzes</a>
-      <a id="reviewer-link" class="hub-link reviewer-button" href="{{STUDY_HREF}}"><span aria-hidden="true">&#128214;</span> Open Reviewer 101 <span aria-hidden="true">&#8599;</span></a>
+      <a id="reviewer-link" class="hub-link reviewer-button" href="{{STUDY_HREF}}"><span aria-hidden="true">&#128214;</span> Open Reviewer <span aria-hidden="true">&#8599;</span></a>
       <button type="button" id="btn-sound" class="sound-toggle" aria-pressed="true" aria-keyshortcuts="S">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter">
           <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/>
@@ -815,7 +815,7 @@
       <p id="results-keyboard-hint" class="keyboard-hint"><span class="hint-label">Keyboard:</span> <span class="hint-item"><kbd>R</kbd> retake</span> · <span class="hint-item"><kbd>C</kbd> choose another difficulty</span><span id="hint-retry-missed" hidden> · <span class="hint-item"><kbd>M</kbd> retry missed</span></span> · <span class="hint-item"><kbd>?</kbd> help</span></p>
       <section id="results-next" class="results-next" aria-labelledby="next-heading" hidden>
         <h3 id="next-heading">Review next</h3>
-        <p class="next-intro">The Reviewer 101 pages that cover the questions you missed, most missed first.</p>
+        <p class="next-intro">The Reviewer pages that cover the questions you missed, most missed first.</p>
         <ol id="results-next-list" class="next-list"></ol>
       </section>
       <section class="results-topics" aria-labelledby="topics-heading">
@@ -1904,7 +1904,7 @@
           pages.forEach(function (page) { add(source.href + '#page=' + page, source.title + ' · PDF page ' + page); });
         } else {
           add(source.href, source.title, !source.available);
-          if (!source.available) add(source.studyDoc, source.title + ' · Reviewer 101');
+          if (!source.available) add(source.studyDoc, source.title + ' · Reviewer');
         }
         source.manuals.forEach(function (manual) {
           var page = manual.available && manual.citationPage;
@@ -2300,7 +2300,7 @@
       setChildren(ui.resultsReview, items);
     }
 
-    // "Review next": the missed questions grouped by the Reviewer 101 page of their primary source,
+    // "Review next": the missed questions grouped by the Reviewer page of their primary source,
     // most missed first (ties keep the order the questions were asked). Links stay on this site.
     function renderReviewPlan(results) {
       var groups = [];
@@ -2323,7 +2323,7 @@
         var item = make('li', 'next-item');
         var link = make('a', 'next-link');
         link.setAttribute('href', group.href);
-        link.append(make('span', 'next-kicker', 'Reviewer 101'), make('span', 'next-title', group.title));
+        link.append(make('span', 'next-kicker', 'Reviewer'), make('span', 'next-title', group.title));
         item.append(
           link,
           make('span', 'next-count', group.missed === 1 ? '1 missed' : group.missed + ' missed'),

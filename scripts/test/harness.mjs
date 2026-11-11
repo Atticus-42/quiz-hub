@@ -502,7 +502,7 @@ export function keyEvent(document, key, options = {}) {
 // Share-preview tags carry the site's own absolute URLs for chat link cards; they are not page requests.
 export const withoutShareMeta = html => html.replace(/\n?\s*<meta (?:property="og:[^"]*"|name="(?:twitter:card|theme-color)") content="[^"]*">/g, '');
 export const FONT_PRELOAD = /<link rel="preload" href="((?:\.\.\/)?assets\/fonts\/[\w-]+\.woff2)" as="font" type="font\/woff2" crossorigin>/g;
-export const withoutFontPreloads = html => html.replace(FONT_PRELOAD, '').replace(/<link rel="icon" type="image\/png" href="(?:\.\.\/)*assets\/favicons\/crest-[a-z]+\.png">/g, '').replace(/<link rel="stylesheet" href="(?:\.\.\/)*assets\/ui-polish\.css">|<link rel="icon" type="image\/png" href="(?:\.\.\/)*assets\/bandwidth-brothers-colored\.png">/g, '');
+export const withoutFontPreloads = html => html.replace(/<nav class="site-index"[\s\S]*?<\/nav>/, '').replace(FONT_PRELOAD, '').replace(/<link rel="icon" type="image\/png" href="(?:\.\.\/)*assets\/favicons\/crest-[a-z]+\.png">/g, '').replace(/<link rel="stylesheet" href="(?:\.\.\/)*assets\/(?:ui-polish|site-index)\.css">|<link rel="icon" type="image\/png" href="(?:\.\.\/)*assets\/bandwidth-brothers-colored\.png">/g, '');
 
 // Every url(...) target in a stylesheet (quotes removed).
 export const cssUrls = css => [...css.matchAll(/url\(\s*['"]?([^'")]*)/gi)].map(match => match[1]);

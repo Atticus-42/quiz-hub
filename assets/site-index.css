@@ -1,0 +1,19 @@
+.site-index{max-width:72rem;margin:var(--space-6,2rem) auto 0;padding:0 16px;color:var(--color-text,#1e211b);font:inherit}
+.site-index>details{border-top:1px solid var(--color-hairline,#c8c2ae);border-bottom:1px solid var(--color-hairline,#c8c2ae)}
+.site-index summary{display:flex;align-items:center;gap:.6rem;min-height:44px;padding:.4rem 0;cursor:pointer;font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.8125rem;color:var(--color-olive-dark,#2e3418)}
+.site-index summary small{font-weight:400;letter-spacing:0;text-transform:none;color:var(--color-muted,#4a4c40)}
+.site-index summary:focus-visible,.site-index a:focus-visible{outline:3px solid #a46b27;outline-offset:2px}
+.site-index-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(15rem,1fr));gap:.5rem 2rem;padding:.5rem 0 1.25rem}
+.site-index h2{margin:.75rem 0 0;padding-bottom:.25rem;border-bottom:1px solid var(--color-hairline,#c8c2ae);font-size:.8125rem;letter-spacing:.08em;text-transform:uppercase;color:var(--color-muted,#4a4c40);font-weight:600}
+.site-index ul{list-style:none;margin:0;padding:0}
+.site-index li{display:flex;flex-wrap:wrap;gap:0 .9rem;align-items:center;border-bottom:1px solid var(--color-hairline,#c8c2ae)}
+.site-index li a{display:inline-flex;align-items:center;min-height:44px;color:var(--color-accent,#4b5320);text-decoration:underline;text-underline-offset:.2em}
+.site-index li a.main{flex:1 1 auto;font-weight:500}
+.site-index li a:hover{color:var(--color-accent-hover,#2e3418)}
+.site-index .mod{margin:.6rem 0 0;font-size:.75rem;color:var(--color-muted,#4a4c40);font-weight:600}
+.library-subtabs{display:flex;flex-wrap:wrap;gap:0;margin:0 0 1rem;border:1px solid var(--color-hairline,#c8c2ae);width:fit-content;max-width:100%}
+.library-subtabs a{display:inline-flex;align-items:center;min-height:44px;padding:.45rem 1rem;color:var(--color-accent,#4b5320);text-decoration:none;font-weight:600}
+.library-subtabs a+a{border-left:1px solid var(--color-hairline,#c8c2ae)}
+.library-subtabs a[aria-current]{background:var(--color-olive-dark,#2e3418);color:var(--color-paper,#f3efe4)}
+.library-subtabs a:focus-visible{outline:3px solid #a46b27;outline-offset:-3px}
+@media print{.site-index{display:none}}
