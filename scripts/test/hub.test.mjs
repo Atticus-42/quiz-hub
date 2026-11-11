@@ -144,7 +144,7 @@ test('MODULES config is generated from lessons/*/lesson.json: unique ids, keys a
     assert.ok(MODULE_EXAMS[e.module].includes(e.key), `module back-reference for ${e.key}`);
   }
   assert.deepEqual([...exams.find((e) => e.key === 'combined').tags].map((tag) => tag.text), ['All four lessons', '30 questions', 'Easy · Medium · Hard']);
-  assert.deepEqual([...exams.filter((e) => e.prominent).map((e) => e.key)], ['moduleone','combined','modulethree','modulefive','modulesix','moduleseven']);
+  assert.deepEqual([...exams.filter((e) => e.prominent).map((e) => e.key)], ['moduleone','combined','modulethreeops','modulethree','modulefive','modulesix','moduleseven','moduleeight']);
   assert.deepEqual([...exams.find((e) => e.key === 'modulethree').tags].map((tag) => tag.text), ['All three lessons', '30 questions', 'Easy · Medium · Hard']);
   for (const lesson of lessons.filter((item) => !item.pool)) {
     const counts = ['easy', 'medium', 'hard'].map((mode) => lesson.attempts[mode]);

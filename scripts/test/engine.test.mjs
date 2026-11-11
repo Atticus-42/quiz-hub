@@ -422,9 +422,9 @@ export async function engineSuite(lesson) {
       const relabelled = easy.map((item, index) => (index === easy.findIndex(question => question.lessonKey === pool.lessons[1].key) ? { ...item, lessonKey: pool.lessons[0].key, lesson: pool.lessons[0].name, category: pool.lessons[0].name, qid: item.qid.replace(/^[a-z0-9]+-/, `${pool.lessons[0].key}-`) } : item));
       const lopsided = plain(api.validateBanks({ ...banks, easy: relabelled }));
       assert.deepEqual(lopsided.errors, validateBank(relabelled, 'easy', lesson.rules).map(error => `easy ${error}`));
-      const thin = easy.filter(item => item.lessonKey !== pool.lessons[2].key || Number(item.qid.slice(-2)) <= lesson.poolQuotas[0] - 1).map((item, index) => ({ ...item, id: index + 1 }));
+      const thin = easy.filter(item => item.lessonKey !== pool.lessons[pool.lessons.length - 1].key || Number(item.qid.slice(-2)) <= lesson.poolQuotas[0] - 1).map((item, index) => ({ ...item, id: index + 1 }));
       const short = plain(api.validateBanks({ ...banks, easy: thin }));
-      assert.ok(short.errors.some(error => error.includes(`at least ${lesson.poolQuotas[0]} ${pool.lessons[2].name} questions`)), short.errors.join('; '));
+      assert.ok(short.errors.some(error => error.includes(`at least ${lesson.poolQuotas[0]} ${pool.lessons[pool.lessons.length - 1].name} questions`)), short.errors.join('; '));
     } else {
       const big = Array.from({ length: 36 }, (_, index) => ({ ...easy[index % easy.length], id: index + 1, qid: `${lesson.key}-e-${String(index + 1).padStart(3, '0')}` }));
       const tooBig = plain(api.validateBanks({ ...banks, easy: big }));

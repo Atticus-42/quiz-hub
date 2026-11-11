@@ -1,0 +1,46 @@
+{
+  "key": "modulethreeops",
+  "slug": "module-3-planning-exam",
+  "module": "module-3",
+  "order": 0,
+  "prominent": true,
+  "name": "Module 3 Planning Exam",
+  "title": "Module 3 Planning Exam",
+  "eyebrow": "SOAC 52-26 · Battalion/Brigade Operations Planning",
+  "hubDescription": "30 questions per attempt, with 15 from each of the 2 lessons: Troop Leading Procedure and MDMP.",
+  "lede": "Practice Battalion/Brigade Operations Planning with {count} questions per attempt in Easy, Medium or Hard mode. Each attempt draws 15 questions from each lesson: Troop Leading Procedure (TLP) and the Military Decision-Making Process (MDMP).",
+  "hubKicker": "Module examination",
+  "hubTags": [
+    {
+      "text": "Both lessons",
+      "comprehensive": true
+    },
+    {
+      "text": "{count} questions"
+    }
+  ],
+  "historyLesson": "modulethreeops",
+  "pool": {
+    "lessons": [
+      "tlp",
+      "mdmp"
+    ],
+    "count": 30
+  },
+  "palette": {
+    "--lesson-accent": "#3d4a8f"
+  },
+  "text": {
+    "studyWarningLead": "Review the complete module before you begin.",
+    "studyWarningBody": "This exam draws from Troop Leading Procedure (TLP) and Military Decision-Making Process (MDMP).",
+    "studyConfirm": "I have reviewed the lessons included in this module.",
+    "resultsReminder": "Use your lesson scores and the source references to guide your next review.",
+    "modeDescPrefix": "{attempt} questions per attempt, drawn from {bank} across the module.",
+    "topicNoun": "Lesson",
+    "topicsHeading": "Lesson analysis",
+    "topicsCaption": "Correct answers by source lesson. The line marks 75% proficiency.",
+    "gapsHeading": "Lessons to review",
+    "strengthsEmpty": "No lesson reached 75% in this attempt.",
+    "gapsEmpty": "Every lesson reached 75% in this attempt."
+  }
+}

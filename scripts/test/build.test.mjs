@@ -73,15 +73,15 @@ export async function buildSuite({ lessons, modules }) {
   await T('every lesson folder loads: unique keys, slugs and qids; modules exist; the combined exam is a pool of the four Module 2 lessons', () => {
     assert.deepEqual(lessons.map(lesson => lesson.key), [
       'moduleone','leadershipattributes','leadershipcompetencies','companymanagement','missioncommand','ethicalleadership','ncoempowerment','effectivecommunication',
-      'combined','fieldartillery','armor','isr','tlp','mdmp','modulethree','signal','signaljoint','coalition',
+      'combined','fieldartillery','armor','isr','modulethreeops','tlp','mdmp','modulethree','signal','signaljoint','coalition',
       'modulefive','manet','sensors','weapons','propagation','modulesix','sigint','elint','rdf','eccm',
-      'moduleseven','nist','zerotrust','gsomia','cyberrisk','ceoicesi','signalestimate','c4istarplanning','signalplanning','armyops','intcycle'
+      'moduleseven','nist','zerotrust','gsomia','cyberrisk','moduleeight','ceoicesi','signalestimate','c4istarplanning','signalplanning','armyops','intcycle'
     ]);
     assert.deepEqual(lessons.map(lesson => lesson.slug), [
       'module-1-exam','military-leadership-attributes','military-leadership-competencies','company-management','mission-command','ethical-transformational-leadership','nco-empowerment','effective-communication-2',
-      'combined','field-artillery','armor','isr','troop-leading-procedure','military-decision-making-process','module-3-exam','signal-support','joint-signal','coalition-signal',
+      'combined','field-artillery','armor','isr','module-3-planning-exam','troop-leading-procedure','military-decision-making-process','module-3-exam','signal-support','joint-signal','coalition-signal',
       'module-5-exam','manet-c4istar-planning','c4istar-sensors-integration','c4istar-weapon-system-integration','signal-propagation','module-6-exam','signals-intelligence','electronic-intelligence','radio-direction-finding','electronic-counter-countermeasures',
-      'module-7-exam','nist-framework','zero-trust','gsomia-compliance','cyber-risk-assessment','ceoi-cesi-management','signal-estimate','c4istar-communications-planning','signal-planning-process','army-operations','intelligence-cycle'
+      'module-7-exam','nist-framework','zero-trust','gsomia-compliance','cyber-risk-assessment','module-8-exam','ceoi-cesi-management','signal-estimate','c4istar-communications-planning','signal-planning-process','army-operations','intelligence-cycle'
     ]);
     assert.deepEqual(modules.map(module => module.id), ['module-1','module-2','module-3','module-4','module-5','module-6','module-7','module-8','supplemental']);
     const combined = lessons.find(lesson => lesson.key === 'combined');

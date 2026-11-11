@@ -13,6 +13,7 @@ The whole site is published from this repository with GitHub Pages at https://at
   | Module 2 | Field Artillery Operations | `fieldartillery` | `/quiz-hub/field-artillery/` |
   | Module 2 | Armor Operations | `armor` | `/quiz-hub/armor/` |
   | Module 2 | ISR Operations | `isr` | `/quiz-hub/isr/` |
+  | Module 3 | Module 3 Planning Exam (30 questions, 15 per lesson) | `modulethreeops` | `/quiz-hub/module-3-planning-exam/` |
   | Module 3 | Military Decision-Making Process (MDMP) | `mdmp` | `/quiz-hub/military-decision-making-process/` |
   | Module 4 | Module 4 Exam (30 questions, 10 per lesson) | `modulethree` | `/quiz-hub/module-3-exam/` |
   | Module 4 | Signal Support in Combined Arms Operations | `signal` | `/quiz-hub/signal-support/` |
@@ -31,6 +32,7 @@ The whole site is published from this repository with GitHub Pages at https://at
   | Module 7 | Zero Trust | `zerotrust` | `/quiz-hub/zero-trust/` |
   | Module 7 | LOE3 GSOMIA Compliance | `gsomia` | `/quiz-hub/gsomia-compliance/` |
   | Module 7 | Cyber Risk Assessment | `cyberrisk` | `/quiz-hub/cyber-risk-assessment/` |
+  | Module 8 | Module 8 Exam (32 questions, 8 per available lesson; 4 lessons) | `moduleeight` | `/quiz-hub/module-8-exam/` |
   | Supporting | Army Operations | `armyops` | `/quiz-hub/army-operations/` |
   | Supporting | Intelligence Cycle | `intcycle` | `/quiz-hub/intelligence-cycle/` |
 

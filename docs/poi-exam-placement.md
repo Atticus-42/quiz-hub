@@ -60,12 +60,12 @@ The catalogue covers 30 of 36 numbered lessons. The 13 new lesson quizzes each s
 | --- | --- | --- |
 | 1 · Leadership | 1.1–1.7, all seven lessons | New, 35 questions per difficulty, five per lesson |
 | 2 · Army Operating Concept | No additions | Pending 2.1 |
-| 3 · Battalion/Brigade Operations Planning | 3.1 TLP, based on the worked classroom exercise; 3.2 MDMP, added 11 November 2026 from the 15-page SOAC 3.2 student handout (25 questions per difficulty; the handout's Parts V and VI were not in the supplied PDF) | Not yet created; both lesson quizzes now exist |
+| 3 · Battalion/Brigade Operations Planning | 3.1 TLP, based on the worked classroom exercise; 3.2 MDMP, added 11 November 2026 from the 15-page SOAC 3.2 student handout (25 questions per difficulty; the handout's Parts V and VI were not in the supplied PDF) | Module 3 Planning Exam, 30 questions per attempt (15 per lesson), added 11 November 2026 |
 | 4 · Signal Support Integration | Already complete | Existing, 30 questions per difficulty |
 | 5 · Advanced C2 Communications | 5.6 Signal Propagation, based on the worked coverage and link examples | Pending 5.1 and 5.2 |
 | 6 · Advanced Electronic Warfare Operations | All four lesson quizzes already present | New, 32 questions per difficulty, eight per lesson |
 | 7 · Advanced Cyberspace Operations | Already complete | Existing, 32 questions per difficulty |
-| 8 · Signal Planning | 8.1 CEOI/CESI Management, 8.2 Signal Estimate, 8.5 C4ISTAR Communications Planning, 8.6 Signal Planning Process | Pending 8.3 and 8.4 |
+| 8 · Signal Planning | 8.1 CEOI/CESI Management, 8.2 Signal Estimate, 8.5 C4ISTAR Communications Planning, 8.6 Signal Planning Process | Module 8 Exam, 32 per attempt (8 per available lesson), covering 8.1, 8.2, 8.5 and 8.6; 8.3 and 8.4 absent |
 
 The Module 2 Combined Practice Exam and the Module 5 exam retain their labeled partial coverage. Supporting and off-POI topics do not count toward module completion.
 
@@ -76,3 +76,9 @@ The Module 2 Combined Practice Exam and the Module 5 exam retain their labeled p
 | 5.2 C2 Applications (PA BMS / ATAK) | PA BMS / ATAK teaching materials covering the lesson objectives. The WinTAK/ATAK archive contains setup and import notes and a practical checklist. |
 | 8.3 Voice Communications Planning | Voice planning lesson, worked plan or instructor handout. |
 | 8.4 Data Communications Planning | Data planning lesson, worked plan or instructor handout. The C4ISTAR lesson lists the data plan on its roadmap. |
+
+## Module 8 and Module 3 exams (11 November 2026)
+
+- `moduleeight` (route `module-8-exam`, tab `Module 8 Exam History`): pool exam, 32 questions per attempt, 8 from each of the four lessons that exist: 8.1 CEOI/CESI Management, 8.2 Signal Estimate, 8.5 C4ISTAR Communications Planning and 8.6 Signal Planning Process. 8.3 Voice and 8.4 Data Communications Planning have no material, so the exam says it covers the four available lessons and shows no placeholders.
+- `modulethreeops` (route `module-3-planning-exam`, tab `Module 3 Planning Exam History`): pool exam, 30 questions per attempt, 15 from each of 3.1 TLP and 3.2 MDMP. The key is not `modulethree`, which remains the historical key of the Module 4 exam (`module-3-exam`).
+- Both draw live from the lesson banks (pool approach), like `moduleone` and `modulesix`, so later fixes to lesson questions propagate. History keys are new; no existing key was renamed.

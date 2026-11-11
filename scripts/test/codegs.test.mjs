@@ -20,6 +20,8 @@ const TABS = {
   mdmp: 'MDMP History',
   propagation: 'Signal Propagation History',
   modulesix: 'Module 6 Exam History',
+  moduleeight: 'Module 8 Exam History',
+  modulethreeops: 'Module 3 Planning Exam History',
   ceoicesi: 'CEOI CESI Management History',
   signalestimate: 'Signal Estimate History',
   c4istarplanning: 'C4ISTAR Communications Planning History',

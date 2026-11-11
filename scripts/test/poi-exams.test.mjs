@@ -59,7 +59,9 @@ test('POI placement preserves legacy routes and history identities without unsup
   for(const key of ['cpa','bms','infantry','voiceplanning','dataplanning'])assert.ok(!byKey.has(key));
   const fullPools = [
     ['moduleone', 35, ['leadershipattributes','leadershipcompetencies','companymanagement','missioncommand','ethicalleadership','ncoempowerment','effectivecommunication']],
-    ['modulesix', 32, ['sigint','elint','rdf','eccm']]
+    ['modulesix', 32, ['sigint','elint','rdf','eccm']],
+    ['moduleeight', 32, ['ceoicesi','signalestimate','c4istarplanning','signalplanning']],
+    ['modulethreeops', 30, ['tlp','mdmp']]
   ];
   for (const [key, count, sources] of fullPools) {
     const exam = byKey.get(key);
