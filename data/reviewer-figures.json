@@ -2,7 +2,7 @@
   "$comment": "Reviewer diagrams (scripts/reviewer-figures.mjs). Each figure sits in the named examGuide topic and uses only labels already in that lesson's reviewer, focus or question-bank data. pages must be pages the lesson already cites.",
   "mdmp": [
     {
-      "topic": "Steps 1 and 2: Receipt of mission and mission analysis",
+      "topic": "Foundations: definition, characteristics, and time",
       "kind": "flow",
       "title": "The seven MDMP steps and their key outputs",
       "caption": "The seven MDMP steps. The outputs of one step become the inputs of the next; warning orders go out after Steps 1, 2 and 6.",
@@ -61,7 +61,9 @@
       "title": "Structure of the signal estimate",
       "caption": "METAL organizes the facts; the Annex A estimate then moves from situation to analysis, comparison and recommendation. Revise it when key facts change.",
       "pages": [27, 44],
-      "groups": [{ "from": 0, "to": 4, "label": "METAL — organize the facts", "list": true }],
+      "groups": [
+        { "from": 0, "to": 4, "label": "METAL — organize the facts", "list": true }
+      ],
       "steps": [
         { "n": "M", "label": "Mission", "note": "Defines what must be supported" },
         { "n": "E", "label": "Enemy signal capabilities", "note": "Opposing capability" },
@@ -150,20 +152,35 @@
         { "label": "Carrier frequency", "symbol": "Carrier frequency", "note": "Where the signal sits in the spectrum" },
         { "label": "Scan behavior", "symbol": "Scan", "note": "Rotating or sector sweep is consistent with search; a focused pattern with faster repetition can suggest tracking" }
       ]
+    },
+    {
+      "topic": "Read a fingerprint without overclaiming intent",
+      "kind": "matrix",
+      "title": "Search compared with track",
+      "caption": "Search and track differ in scan, repetition rate and pulse width. A switch from search to track on the same emitter is reported immediately.",
+      "pages": [16],
+      "columns": ["", "Search", "Track"],
+      "widths": [0.8, 1.4, 1.4],
+      "rows": [
+        ["Scan", "Rotating or sector scan", "Steady scan on the target"],
+        ["PRF", "Lower PRF", "Higher PRF"],
+        ["PW", "Longer PW", "Shorter PW"],
+        ["Picture", "A lighthouse glancing around", "A steady beam held on one target"]
+      ]
     }
   ],
   "sigint": [
     {
-      "topic": "Distinguish COMINT and ELINT by source",
-      "kind": "tree",
-      "title": "COMINT and ELINT under SIGINT",
-      "caption": "SIGINT uses intercepted signals as its source. Classify by what the source emits.",
-      "pages": [13, 14, 15],
-      "cols": 2,
-      "root": { "label": "SIGINT", "note": "Intercepted signals as source" },
-      "children": [
-        { "label": "COMINT", "note": "Intercepted communications such as voice and messages; reveals information conveyed between people" },
-        { "label": "ELINT", "note": "Non-communication emissions, such as a radar; yields information about a system" }
+      "topic": "Connect requirements, collection, analysis and delivery",
+      "kind": "flow",
+      "title": "The SIGINT cycle from requirement to delivery",
+      "caption": "The SIGINT cycle ties collection and analysis to the mission. Direction finding and technical control support the wider process; report what was observed apart from what was assessed.",
+      "pages": [21, 22, 23],
+      "steps": [
+        { "label": "Mission and direction needs", "note": "Begin with the supported decision or requirement" },
+        { "label": "Collect", "note": "Operators collect relevant material" },
+        { "label": "Evaluate", "note": "Operators evaluate it; keep the observation distinct from the assessment" },
+        { "label": "Disseminate", "note": "Pass the resulting information to those who need it, the intended consumer", "highlight": true }
       ]
     }
   ],
@@ -211,7 +228,9 @@
       "title": "Zero Trust core components",
       "caption": "Trace a decision from the PE through the PA to the PEP. The PE and PA make up the Policy Decision Point.",
       "pages": [22],
-      "groups": [{ "from": 0, "to": 1, "label": "Policy Decision Point (PDP)" }],
+      "groups": [
+        { "from": 0, "to": 1, "label": "Policy Decision Point (PDP)" }
+      ],
       "steps": [
         { "n": "PE", "label": "Policy Engine — decides", "note": "Grant, deny or revoke access using policy and inputs" },
         { "n": "PA", "label": "Policy Administrator — carries out", "note": "Establishes or closes the path and configures enforcement" },
@@ -220,6 +239,20 @@
     }
   ],
   "cyberrisk": [
+    {
+      "topic": "From asset to mission risk",
+      "kind": "flow",
+      "title": "From asset to mission risk",
+      "caption": "Asset means value, threat means potential harm, and vulnerability means exploitable weakness. Likelihood and mission consequence complete the risk statement.",
+      "pages": [15, 16, 17],
+      "steps": [
+        { "label": "Asset", "note": "Name it and the confidentiality, integrity or availability it needs" },
+        { "label": "Threat", "note": "Something that could affect the asset" },
+        { "label": "Vulnerability", "note": "The weakness that lets the threat cause harm" },
+        { "label": "Likelihood", "note": "Explain how likely the harm is" },
+        { "label": "Mission consequence", "note": "Explain what the harm means for the mission", "highlight": true }
+      ]
+    },
     {
       "topic": "Six incident-response phases",
       "kind": "flow",
@@ -282,6 +315,38 @@
       "left": { "title": "Tighter control when…", "items": ["The team is inexperienced", "The activity requires precise synchronization", "The consequences of an error are severe"] },
       "right": { "title": "More judgment when…", "items": ["Subordinates are experienced", "The situation is fast-changing", "Competence and mutual trust have grown"] },
       "note": "Adjust oversight as trust, competence, risk, time, environment and complexity change."
+    }
+  ],
+  "signal": [
+    {
+      "topic": "Estimate, plan, protect and restore",
+      "kind": "flow",
+      "title": "From signal estimate to updated support",
+      "caption": "A shortfall drives the priority recommendation. Apply COMSEC and network protection to the paths chosen for both normal service and recovery.",
+      "pages": [15, 16, 17, 18, 19],
+      "steps": [
+        { "label": "Signal estimate", "note": "Assesses operational requirements and usable resources" },
+        { "label": "Priority recommendation", "note": "A shortfall in resources drives it" },
+        { "label": "Tentative plan", "note": "Coordinated with the operations staff and the units that will execute it" },
+        { "label": "Publication", "note": "Gives users a common arrangement" },
+        { "label": "Update", "note": "Preserves alignment as the mission changes; confirm users understand revised and alternate arrangements", "highlight": true }
+      ]
+    }
+  ],
+  "c4istarplanning": [
+    {
+      "topic": "Trace component roles",
+      "kind": "flow",
+      "title": "Following a report from source to display",
+      "caption": "Follow a report from source to display to locate a failed handoff; identify where an error first appears in the chain.",
+      "pages": [28, 29, 30, 31, 33, 34],
+      "steps": [
+        { "label": "Sensors and reconnaissance systems", "note": "Produce observations" },
+        { "label": "Networks", "note": "Carry the data" },
+        { "label": "Databases and computing resources", "note": "Support storage and processing" },
+        { "label": "Analytical tools", "note": "Help extract insights" },
+        { "label": "Command consoles and operations centers", "note": "Use information for coordination and decisions", "highlight": true }
+      ]
     }
   ]
 }

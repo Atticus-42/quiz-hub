@@ -18,6 +18,8 @@ for (const [key, list] of Object.entries(figures)) {
       const topic = html.slice(html.indexOf('id="topic-' + (at + 1) + '"'), html.indexOf('id="topic-' + (at + 2) + '"') >>> 0);
       const figure = topic.match(new RegExp('<figure class="review-diagram" id="fig-' + n + '">[\\s\\S]*?</figure>'));
       assert(figure, 'Fig. ' + n + ' sits in its topic');
+      assert(/(<\/p>|<\/figure>)<figure class="review-diagram" id="fig-/.test(topic.slice(topic.indexOf('id="fig-' + n + '"') - 70)) && topic.indexOf(figure[0]) < topic.indexOf('<ul>'), 'Fig. ' + n + ' sits directly after the explanation it summarises');
+      assert.equal(html.split('id="fig-' + n + '"').length, 2, 'Fig. ' + n + ' appears once');
       assert.match(figure[0], /<svg viewBox="0 0 340 \d+"[^>]*role="img" aria-labelledby="fig-\d+-t fig-\d+-d"/);
       assert.match(figure[0], /<title id="fig-\d+-t">[^<]+<\/title><desc id="fig-\d+-d">[^<]{20,}<\/desc>/);
       assert.match(figure[0], new RegExp('<span class="fig-num">Fig. ' + n + '</span> — '));
