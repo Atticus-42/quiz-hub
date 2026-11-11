@@ -40,6 +40,7 @@ export function renderOrganizations(root, render, e) {
   };
   const sourceLink = source => `<a href="../files/${e(source.file)}.pdf#page=${source.page}" target="_blank" rel="noopener">${e(source.label)} <span aria-hidden="true">↗</span><small>PDF page ${source.page}</small></a>`;
   const body = `<link rel="stylesheet" href="../../assets/unit-organizations.css?v=3">
+    <nav class="study-actions library-subtabs" aria-label="Library sections"><a href="../">Sources</a><a href="./" aria-current="page">Unit organization</a></nav>
     <div class="org-intro"><a href="../">← Study Library</a><p>Expand a branch to see its composition. Numbers followed by × count subunits. Personnel counts apply to one instance of the labelled element.</p></div>
     <nav class="org-index" aria-label="Choose a formation">${groups.map((g,i)=>`<a href="#${g.id}"><span>0${i+1} / ${e(g.branch)}</span><strong>${e(g.title)}</strong><b aria-hidden="true">↓</b></a>`).join('')}</nav>
     <aside class="org-reading"><strong>How to read this atlas</strong><p>These are source-edition teaching diagrams, not current unit rosters. Solid branches show the documented composition. Dashed branches identify attachments. A person shown inside a child element is already part of that element’s count.</p></aside>

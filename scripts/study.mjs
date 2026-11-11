@@ -91,7 +91,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
       BASE_CSS: baseCss(base, up + 'assets/'), STUDY_CSS: css, FONT_PRELOAD: fontPreloads(up + 'assets/'),
       CREST_HREF: up + 'assets/bandwidth-brothers-colored-400.webp', BRAND_HREF: up, HOME: up, REVIEWER_HREF: up + 'reviewer/', LIBRARY_HREF: up + 'library/',
       REVIEWER_CURRENT: section === 'reviewer' ? ' aria-current="page"' : '',
-      LIBRARY_CURRENT: section === 'library' ? ' aria-current="page"' : '',
+      LIBRARY_CURRENT: section === 'library' && !path.startsWith('library/unit-organization') ? ' aria-current="page"' : '', UNITORG_HREF: up + 'library/unit-organization/', UNITORG_CURRENT: path.startsWith('library/unit-organization') ? ' aria-current="page"' : '',
       CIPHER_HREF: up + 'codes-ciphers/', SCHEDULE_HREF: up + 'schedule/?v=day-picker-2', CLASS_HREF: up + 'class/',
       HOWTO_HREF: up + 'how-to/', APP_HREF: up + 'los-radios/',
       HOWTO_CURRENT: section === 'howto' ? ' aria-current="page"' : '', APP_CURRENT: section === 'app' ? ' aria-current="page"' : '',
@@ -117,7 +117,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
       '</span><span class="card-arrow" aria-hidden="true">→</span></a><p>' + e(study.reviewers[lesson.key].brief) + '</p><span class="card-foot">Learn · Apply · Test yourself<span aria-hidden="true">↗</span></span></li>').join('') +
     '</ul></section>').join('');
   const finder = '<div class="study-finder" hidden><label for="reviewer-search">Find a lesson</label><input id="reviewer-search" type="search" placeholder="Try Signal Estimate or Mission Command"><p id="reviewer-count" role="status"></p></div>';
-  render('reviewer/index.html', 1, 'reviewer', 'Reviewer 101', 'Know the essentials. Understand the why. Be ready for the question.',
+  render('reviewer/index.html', 1, 'reviewer', 'Reviewer', 'Know the essentials. Understand the why. Be ready for the question.',
     '<section class="study-return" id="study-return" hidden aria-label="Continue studying"></section><div class="study-layout reviewer-layout">' + finder + indexNav + '<div class="study-content">' + sections + '</div></div>', {
       eyebrow: 'The officers’ study journal / Vol. 01',
       meta: '<p class="hero-stats"><span><strong>' + study.byKey.size + '</strong> lesson guides</span><span><strong>' + groups.filter(group => group.id !== 'supplemental').length + '</strong> course modules</span></p>',
@@ -174,7 +174,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
       '<nav class="lesson-pager" aria-label="Other reviewers">' + pagerLink(order[at - 1], '← Previous reviewer') + pagerLink(order[at + 1], 'Next reviewer →') + '</nav></aside>';
     render('reviewer/' + key + '/index.html', 2, 'reviewer', lesson.name, groupName(group),
       actions + '<nav class="review-jump" aria-label="Choose how to review"><a href="#exam-focus">Key points first</a><a href="#question-styles">Try exam-style questions</a><a href="#detailed-review">Read the full explanation</a></nav><div class="study-layout">' + rail + '<article class="study-content lesson-reading">' + chapters + lessonNext + '</article></div>', {
-        eyebrow: 'Reviewer 101 · ' + (group.id === 'supplemental' ? 'Supporting lesson' : group.title),
+        eyebrow: 'Reviewer · ' + (group.id === 'supplemental' ? 'Supporting lesson' : group.title),
         art: '<figure class="reviewer-figure">' + lesson.heroSvg + '<figcaption>Lesson at a glance</figcaption></figure>',
         scripts: '<link rel="stylesheet" href="../../assets/reviewer-focus.css"><script src="../../assets/reviewer-focus.js" defer></script><script src="../../assets/study-session.js" defer></script>',
       });
@@ -192,7 +192,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     '<a class="document-back" href="./">← Back to library</a><h2 id="document-title"></h2><p id="document-meta"></p>' +
     '<p id="document-availability"></p>' +
     '<details><summary id="document-lesson-summary">Connected lessons</summary><ul id="document-lessons"></ul></details></section>' +
-    '<nav class="study-actions" aria-label="Library tools"><a href="unit-organization/">Explore Unit Organization →</a></nav>' +
+    '<nav class="study-actions library-subtabs" aria-label="Library sections"><a href="./" aria-current="page">Sources</a><a href="unit-organization/">Unit organization</a></nav>' +
     '<section class="library-catalogue" aria-labelledby="catalogue-title"><p class="study-eyebrow">Catalogue</p><h2 id="catalogue-title">Find a reference</h2>' +
     '<nav class="study-actions" aria-label="Library categories"><a data-type="all" href="./">All documents</a><a data-type="lesson" href="?type=lesson">Lessons</a><a data-type="manual" href="?type=manual">Manuals</a><a data-type="organization" href="?type=organization">Organization sources</a></nav>' +
     '<div class="library-controls"><label for="library-search">Search by title, manual number or lesson</label><input id="library-search" type="search" placeholder="Try PAM 6-0102 or Zero Trust"></div>' +

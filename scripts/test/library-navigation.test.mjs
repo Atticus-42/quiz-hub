@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 const html = readFileSync(new URL('../../library/index.html', import.meta.url), 'utf8');
 const docs = JSON.parse(html.match(/<script type="application\/json" id="library-data">([\s\S]*?)<\/script>/)[1]);
-test('original PDFs link to files; Reviewer 101 stays out of the library', () => {
+test('original PDFs link to files; Reviewer stays out of the library', () => {
   for (const doc of docs) {
     if (doc.file) {
       assert.ok(existsSync(new URL('../../library/files/' + doc.file + '.pdf', import.meta.url)));
@@ -11,7 +11,7 @@ test('original PDFs link to files; Reviewer 101 stays out of the library', () =>
     }
   }
   assert.equal(docs.filter(doc => doc.kind === 'reviewer' || doc.web).length, 0);
-  assert.doesNotMatch(html, /data-kind="reviewer"|data-type="reviewer"|REVIEWER 101|Web reviewers|href="\.\.\/reviewer\/[a-z]/);
+  assert.doesNotMatch(html.replace(/<nav class="site-index"[\s\S]*?<\/nav>/, ""), /data-kind="reviewer"|data-type="reviewer"|REVIEWER 101|Web reviewers|href="\.\.\/reviewer\/[a-z]/);
 });
 test('library no longer embeds a custom PDF viewer', () => {
   const code = readFileSync(new URL('../../assets/library.js', import.meta.url), 'utf8');
