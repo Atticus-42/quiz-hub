@@ -23,8 +23,12 @@
          correct     4px --color-correct bar, --color-correct-bg fill, filled cap,
                      "Correct answer" tag with check icon
          incorrect   4px --color-incorrect bar, --color-incorrect-bg fill,
-                     "Your answer" tag with cross icon
+                     "Your answer" tag with cross icon, answer text struck through
          dimmed      muted text (7.6:1), outlined cap
+         forced-colors: caps, ticks, bars and gauges redrawn in system colours
+       Phones (<= 760px): the question controls are a sticky bottom thumb bar
+       (52px targets, safe-area inset). Results open with "Review next": the
+       Reviewer 101 pages for the missed questions, most missed first.
        Difficulty is named in text and drawn as a three-step gauge (1, 2 or 3
        filled squares), never by colour alone.
        Lesson palettes (lessons/<key>/lesson.json "palette") only set
@@ -70,7 +74,9 @@
       transition: color var(--speed) var(--ease);
     }
     .hero-bar .reviewer-button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; padding: .85rem 1.15rem; min-height: 48px; background: #fff8e5; color: var(--color-text); border: 2px solid var(--color-text); font-size: .9rem; font-weight: 700; letter-spacing: .04em; text-decoration: none; box-shadow: 3px 3px 0 #c8ad65; }
-    .hero-bar .reviewer-button:hover, .hero-bar .reviewer-button:focus-visible { background: #f4e5b7; color: var(--color-text); outline: 2px solid #a44422; outline-offset: 3px; }
+    .hero-bar .reviewer-button:hover { background: #f4e5b7; color: var(--color-text); }
+    .hero-bar .reviewer-button:active { box-shadow: 1px 1px 0 #c8ad65; transform: translate(2px, 2px); }
+    .hero-bar .reviewer-button:focus-visible { background: #f4e5b7; color: var(--color-text); outline: 3px solid var(--color-focus); outline-offset: 3px; }
     @media(max-width: 540px) { .hero-bar .reviewer-button { order: 3; width: 100%; } }
     .hub-link:hover { color: var(--color-accent); text-decoration: underline; text-underline-offset: 0.3em; }
     .hub-arrow { font-size: 1rem; letter-spacing: 0; color: var(--color-signal-text); }
@@ -340,11 +346,16 @@
       font-weight: 600;
     }
     .option-body { flex: 1; min-width: 0; padding-top: 0.2rem; }
-    .option-text { display: block; font-size: var(--text-body); line-height: 1.45; }
+    .option-text { display: block; max-width: 62ch; font-size: var(--text-body); line-height: 1.45; text-wrap: pretty; }
     .option-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
     .option-tags:empty { display: none; }
-    .option:hover:not(.option-correct):not(.option-incorrect):not(.option-selected):not(.option-locked) { border-color: var(--color-hairline) var(--color-hairline) var(--color-hairline) var(--color-rule); background: rgba(233, 230, 214, 0.6); }
-    .option:hover:not(.option-correct):not(.option-incorrect):not(.option-selected):not(.option-locked) .option-letter { border-color: var(--color-text); }
+    /* Hover only where a pointer can hover: on touch screens a tapped row must not keep a stale hover tint. */
+    @media (hover: hover) {
+      .option:hover:not(.option-correct):not(.option-incorrect):not(.option-selected):not(.option-locked) { border-color: var(--color-hairline) var(--color-hairline) var(--color-hairline) var(--color-rule); background: rgba(233, 230, 214, 0.6); }
+      .option:hover:not(.option-correct):not(.option-incorrect):not(.option-selected):not(.option-locked) .option-letter { border-color: var(--color-text); }
+    }
+    /* Pressing a row sets its key cap down by its 2px base, like a key travelling. */
+    .option:active:not(.option-locked) .option-letter { border-bottom-width: 1px; transform: translateY(1px); }
     .option:focus-within { outline: 3px solid var(--color-focus); outline-offset: -1px; }
     .option:has(input:focus:not(:focus-visible)) { outline-color: transparent; }
     .option-selected { border-left-color: var(--color-accent); background: var(--color-selected); }
@@ -356,6 +367,14 @@
     .option-incorrect .option-letter { border-color: var(--color-incorrect); background: var(--color-incorrect); color: var(--color-paper); }
     .option-dimmed { color: var(--color-muted); }
     .option-dimmed .option-letter { border-color: var(--color-hairline); background: transparent; color: var(--color-muted); }
+    /* The wrong choice is also struck through in its own colour: a second, non-colour cue on top of the tag. */
+    .option-incorrect .option-text { text-decoration: line-through; text-decoration-color: var(--color-incorrect); text-decoration-thickness: 1px; }
+    /* Answer reveal (only the moment Check is pressed, not on revisits): the verdict caps set down and the tags
+       slide in. 180ms, transform and opacity only, so nothing reflows. */
+    @keyframes cap-set { from { transform: translateY(-2px) scale(1.12); } to { transform: none; } }
+    @keyframes tag-in { from { opacity: 0; transform: translateX(-0.375rem); } to { opacity: 1; transform: none; } }
+    .is-revealing .option-correct .option-letter, .is-revealing .option-incorrect .option-letter { animation: cap-set 180ms var(--ease) both; }
+    .is-revealing .option-tags .tag { animation: tag-in 160ms var(--ease) 60ms both; }
 
     .validation-message { display: flex; gap: var(--space-2); align-items: baseline; margin-top: var(--space-3); color: var(--color-incorrect); font-weight: 600; }
 
@@ -412,6 +431,8 @@
     .band-needs-review { --band-color: var(--color-incorrect); }
     .score-figure { display: flex; flex-direction: column; margin: 0; }
     .score-percent { font-family: var(--font-mono); font-size: var(--text-display); font-weight: 500; line-height: 0.85; letter-spacing: -0.05em; font-variant-numeric: tabular-nums; }
+    /* The unit is set smaller and hung from the cap height, as a figure is labelled in a table, so the number reads first. */
+    .score-unit { margin-left: 0.06em; font-size: 0.42em; font-weight: 500; letter-spacing: 0; vertical-align: 0.95em; color: var(--band-color, var(--color-muted)); }
     .score-count { margin-top: var(--space-3); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
     .score-meta { display: grid; grid-template-columns: repeat(2, minmax(0, auto)) minmax(0, 1fr); align-items: end; gap: var(--space-3) var(--space-6); min-width: 0; }
     .score-meta p { margin: 0; }
@@ -425,7 +446,10 @@
       color: var(--band-color, var(--color-accent));
       font-family: var(--font-mono); font-size: var(--text-h4); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase;
       transform: rotate(-2deg);
+      animation: band-stamp 200ms var(--ease) 120ms both;
     }
+    /* The band is stamped once: it lands slightly oversized and settles at its -2deg angle. */
+    @keyframes band-stamp { from { opacity: 0; transform: rotate(-2deg) scale(1.18); } to { opacity: 1; transform: rotate(-2deg); } }
     .band-description { grid-column: 1 / -1; max-width: 40rem; font-size: var(--text-body); }
 
     .history-save { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-3); margin-top: var(--space-4); padding: var(--space-2) 0; border-bottom: 1px solid var(--color-hairline); font-size: var(--text-meta); }
@@ -460,6 +484,21 @@
     .review-item .answer-line { max-width: 46rem; }
     .review-item .explanation { max-width: 52rem; }
 
+    /* Review next: the after-action "improve" list. One row per Reviewer 101 page, most missed first. */
+    .results-next { display: grid; grid-template-columns: var(--rail) var(--body); column-gap: var(--col-gap); padding-top: var(--space-6); }
+    .results-next > * { grid-column: 2; min-width: 0; }
+    .results-next > h3 { grid-column: 1; grid-row: 1 / span 2; margin: 0; font-size: var(--text-h4); }
+    .next-intro { max-width: 40rem; color: var(--color-muted); font-size: var(--text-meta); }
+    .next-list { margin: 0; padding: 0; list-style: none; counter-reset: next; border-top: 1px solid var(--color-text); }
+    .next-item { counter-increment: next; display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; column-gap: var(--space-4); align-items: baseline; padding: var(--space-4) 0; border-bottom: 1px solid var(--color-hairline); }
+    .next-item::before { content: counter(next, decimal-leading-zero); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; color: var(--color-signal-text); }
+    .next-link { display: inline-flex; flex-direction: column; gap: var(--space-1); min-height: 44px; justify-content: center; color: var(--color-text); text-decoration: none; }
+    .next-kicker { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent); }
+    .next-title { font-size: var(--text-h4); font-weight: 600; line-height: 1.2; text-decoration: underline; text-decoration-color: var(--color-rule); text-decoration-thickness: 1px; text-underline-offset: 0.2em; transition: text-decoration-color var(--speed) var(--ease); }
+    .next-link:hover .next-title { text-decoration-color: var(--color-text); text-decoration-thickness: 2px; }
+    .next-topics { grid-column: 2; margin: var(--space-1) 0 0; font-size: var(--text-meta); color: var(--color-muted); }
+    .next-count { grid-column: 3; grid-row: 1; font-family: var(--font-mono); font-size: var(--text-meta); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--color-incorrect); white-space: nowrap; }
+
     /* Class score history */
     .history-panel { border-top: 1px solid var(--color-text); }
     .history-panel .sect-head .compact { margin-top: var(--space-4); }
@@ -471,6 +510,12 @@
     .history-status { display: flex; gap: var(--space-2); align-items: baseline; margin: 0; padding: var(--space-3) 0; border-top: 1px solid var(--color-hairline); font-size: var(--text-meta); }
     .status-error { color: var(--color-incorrect); font-weight: 600; }
     .status-not-configured { color: var(--color-muted); }
+    /* Empty and failed states are set as a field note (dashed: nothing to show), never a blank table. */
+    .status-empty, .status-error, .status-not-configured { max-width: 40rem; padding: var(--space-4); border: 1px dashed var(--color-rule); background: var(--color-sunken); line-height: 1.5; }
+    .status-error { border: 1px solid var(--color-incorrect); border-left-width: 4px; background: var(--color-incorrect-bg); }
+    /* Loading: a slow signal blink on the dot that stops by itself after 5s (WCAG 2.2.2), stilled under reduced motion. */
+    @keyframes signal-blink { 50% { opacity: 0.25; } }
+    .status-loading .icon { color: var(--color-signal); animation: signal-blink 1s step-end 5; }
     .status-ready { padding: 0; border: 0; color: var(--color-muted); }
     .history-table td { font-family: var(--font-mono); font-size: 0.875rem; }
     .history-row-self td { background: var(--color-selected); }
@@ -524,8 +569,26 @@
       .option { gap: var(--space-3); padding: var(--space-3) var(--space-2) var(--space-3) var(--space-2); }
       .explanation { grid-template-columns: 1fr; row-gap: var(--space-2); }
       .explanation > *, .explanation > .section-label { grid-column: 1; grid-row: auto; }
-      .quiz-actions, .results-actions { flex-direction: column; }
-      .quiz-actions button, .results-actions button { width: 100%; }
+      .results-actions { flex-direction: column; }
+      .results-actions button { width: 100%; }
+      /* Thumb bar: the question controls stay pinned in the bottom reach zone while the question and its
+         explanation scroll; 52px targets, the primary action takes the width, and it clears the home indicator. */
+      .quiz-actions {
+        position: sticky; bottom: 0; z-index: 3;
+        flex-direction: row; flex-wrap: wrap; gap: var(--space-2);
+        margin: var(--space-5) calc(-1 * var(--gutter)) 0;
+        padding: var(--space-3) var(--gutter) max(var(--space-3), env(safe-area-inset-bottom));
+        border-top: 1px solid var(--color-text);
+        background: var(--color-paper) var(--grain);
+      }
+      .quiz-actions button { flex: 1 1 0; min-height: 52px; padding-inline: var(--space-4); }
+      .quiz-actions #btn-prev { flex: 0 1 auto; }
+      /* Keep scripted focus and scrolled-to content clear of the bar. */
+      html { scroll-padding-bottom: 6.5rem; }
+      .results-next { grid-template-columns: 1fr; }
+      .results-next > *, .results-next > h3 { grid-column: 1; grid-row: auto; }
+      .results-next > h3 { margin-bottom: var(--space-3); }
+      .next-item { grid-template-columns: 2rem minmax(0, 1fr) auto; column-gap: var(--space-3); }
       .score-meta { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: var(--space-5); }
       .score-meta > .meta-label, .band-badge { grid-column: 1 / -1; grid-row: auto; }
       th, td { padding-right: var(--space-2); }
@@ -548,10 +611,33 @@
 
     /* Reduced motion: stop every animation and transition (the artwork's own rest states are in its hero.css). */
     @media (prefers-reduced-motion: reduce) {
-      .view, .feedback, button, .option, .text-input, .hub-link {
+      .view, .feedback, button, .option, .text-input, .hub-link, .band-badge, .next-title, .status-loading .icon,
+      .is-revealing .option-correct .option-letter, .is-revealing .option-incorrect .option-letter, .is-revealing .option-tags .tag {
         animation: none !important;
         transition: none !important;
       }
+    }
+
+    /* Forced colours (Windows High Contrast): fills drawn with background vanish, so every state that relies
+       on one (gauge squares, progress ticks, topic bars, filled key caps) is redrawn in system colours. */
+    @media (forced-colors: active) {
+      .gauge i, .tick, .bar, .bar-fill, .option-letter, .feedback-mark, .tag-correct, .tag-incorrect, .tag-you, .sound-state { forced-color-adjust: none; }
+      .gauge i { border-color: CanvasText; }
+      .theme-easy .quiz-rail .gauge i:nth-child(1), .mode-easy .gauge i:nth-child(1),
+      .theme-medium .quiz-rail .gauge i:nth-child(-n+2), .mode-medium .gauge i:nth-child(-n+2),
+      .theme-hard .quiz-rail .gauge i, .mode-hard .gauge i { background: CanvasText; }
+      .tick { background: GrayText; }
+      .tick-done { background: CanvasText; }
+      .tick-current { background: Highlight; }
+      .bar { background: GrayText; }
+      .bar::after { background: CanvasText; }
+      .bar-fill { background: CanvasText; }
+      .option-letter { border-color: CanvasText; background: Canvas; color: CanvasText; }
+      .option-selected .option-letter, .option-correct .option-letter, .option-incorrect .option-letter { border-color: Highlight; background: Highlight; color: HighlightText; }
+      .option-selected, .option-correct, .option-incorrect { border-left-color: Highlight; }
+      .option-dimmed .option-letter { border-color: GrayText; color: GrayText; }
+      .feedback-mark, .tag-correct, .tag-incorrect, .tag-you, .sound-state { border: 1px solid CanvasText; background: Canvas; color: CanvasText; }
+      .band-badge, .answer-line, .review-item, .study-warning { border-color: CanvasText; }
     }
 
     /* Print: a manual page. Ink on white, rules kept, chrome and photographs dropped. */
@@ -564,7 +650,12 @@
       .score-card, .results-topics, .results-review { break-inside: auto; }
       .review-item { break-inside: avoid; background: #ffffff; }
       .explanation { background: #ffffff; }
-      .band-badge { transform: none; }
+      .band-badge { transform: none; animation: none; }
+      /* Keep the debrief's graphics on paper: bars, filled tags and the band stamp print in their colours. */
+      .bar, .bar-fill, .tag, .band-badge, .review-item, .answer-line { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .results-next, .topic-table tr, .next-item { break-inside: avoid; }
+      .score-card { border-bottom-width: 2px; }
+      .next-title { text-decoration: none; }
     }
   </style>
 </head>
@@ -722,6 +813,11 @@
         <button type="button" id="btn-history" class="secondary">View class score history</button>
       </div>
       <p id="results-keyboard-hint" class="keyboard-hint"><span class="hint-label">Keyboard:</span> <span class="hint-item"><kbd>R</kbd> retake</span> · <span class="hint-item"><kbd>C</kbd> choose another difficulty</span><span id="hint-retry-missed" hidden> · <span class="hint-item"><kbd>M</kbd> retry missed</span></span> · <span class="hint-item"><kbd>?</kbd> help</span></p>
+      <section id="results-next" class="results-next" aria-labelledby="next-heading" hidden>
+        <h3 id="next-heading">Review next</h3>
+        <p class="next-intro">The Reviewer 101 pages that cover the questions you missed, most missed first.</p>
+        <ol id="results-next-list" class="next-list"></ol>
+      </section>
       <section class="results-topics" aria-labelledby="topics-heading">
         <h3 id="topics-heading">{{TOPICS_HEADING}}</h3>
         <div class="table-wrap">
@@ -1429,6 +1525,8 @@
       resultsStrengths: byId('results-strengths'),
       resultsGaps: byId('results-gaps'),
       resultsReview: byId('results-review'),
+      resultsNext: byId('results-next'),
+      resultsNextList: byId('results-next-list'),
       saveBox: byId('history-save'),
       saveMessage: byId('history-save-message'),
       btnSaveRetry: byId('btn-history-retry'),
@@ -1719,6 +1817,7 @@
         ui.options.push({ label: label, tags: tags });
         return input;
       });
+      ui.questionArea.className = 'question-area';
       setChildren(ui.questionArea, [fieldset]);
       applyOptionStates(question, response);
 
@@ -1920,6 +2019,8 @@
       // Practice retries update the device-local progress too.
       recordProgress(question, attempt.mode, response.selected === question.answer);
       renderQuestion();
+      // Marks this render as the reveal moment, so the verdict motion plays once and never on revisits.
+      ui.questionArea.className = 'question-area is-revealing';
       ui.feedback.focus();
       playCue(response.selected === question.answer ? 'correct' : 'incorrect');
       return true;
@@ -2134,7 +2235,9 @@
 
       var card = make('div', 'score-card ' + bandClass(results.band.name));
       var figure = make('p', 'score-figure results-score');
-      figure.append(make('span', 'score-percent', results.percentage + '%'), make('span', 'score-count', results.score + ' of ' + results.total + ' correct'));
+      var percent = make('span', 'score-percent', String(results.percentage));
+      percent.appendChild(make('span', 'score-unit', '%'));
+      figure.append(percent, make('span', 'score-count', results.score + ' of ' + results.total + ' correct'));
       var meta = make('div', 'score-meta');
       var student = make('p', 'results-student');
       student.append(make('span', 'meta-label', 'Student'), make('span', 'meta-value', results.studentName));
@@ -2151,6 +2254,7 @@
       ui.btnRetryMissed.textContent = missed === 1 ? 'Retry the 1 question I missed' : 'Retry the ' + missed + ' questions I missed';
       ui.btnRetryMissed.hidden = missed === 0;
       ui.hintRetryMissed.hidden = missed === 0;
+      renderReviewPlan(results);
 
       var rows = results.categories.map(function (entry) {
         var strength = entry.status === 'Strength';
@@ -2194,6 +2298,40 @@
         return item;
       });
       setChildren(ui.resultsReview, items);
+    }
+
+    // "Review next": the missed questions grouped by the Reviewer 101 page of their primary source,
+    // most missed first (ties keep the order the questions were asked). Links stay on this site.
+    function renderReviewPlan(results) {
+      var groups = [];
+      var byHref = new Map();
+      results.review.forEach(function (entry) {
+        if (entry.correct) return;
+        var source = STUDY_LINKS.sources[questionSourceKeys(entry.question)[0]];
+        var href = source ? source.studyDoc : STUDY_LINKS.reviewer;
+        var group = byHref.get(href);
+        if (!group) {
+          group = { href: href, title: source ? source.title : 'All lessons', missed: 0, topics: [], order: groups.length };
+          byHref.set(href, group);
+          groups.push(group);
+        }
+        group.missed += 1;
+        if (group.topics.indexOf(entry.question.category) === -1) group.topics.push(entry.question.category);
+      });
+      groups.sort(function (a, b) { return b.missed - a.missed || a.order - b.order; });
+      setChildren(ui.resultsNextList, groups.map(function (group) {
+        var item = make('li', 'next-item');
+        var link = make('a', 'next-link');
+        link.setAttribute('href', group.href);
+        link.append(make('span', 'next-kicker', 'Reviewer 101'), make('span', 'next-title', group.title));
+        item.append(
+          link,
+          make('span', 'next-count', group.missed === 1 ? '1 missed' : group.missed + ' missed'),
+          make('p', 'next-topics', (group.topics.length === 1 ? TEXT.topicNoun : TEXT.topicNoun + 's') + ': ' + group.topics.join(' · '))
+        );
+        return item;
+      }));
+      ui.resultsNext.hidden = groups.length === 0;
     }
 
     function renderTopicList(list, entries, emptyText) {

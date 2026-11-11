@@ -1118,7 +1118,9 @@ export async function engineSuite(lesson) {
     const stacks = selectorPattern => mobile.some(rule => rule.selectors.some(selector => selectorPattern.test(selector))
       && (/^1fr$/.test(rule.declarations.get('grid-template-columns') ?? '') || rule.declarations.get('flex-direction') === 'column'));
     assert.ok(stacks(/\.hero-inner\b/), 'the hero must stack into one column');
-    assert.ok(stacks(/\.quiz-actions\b/) && stacks(/\.results-actions\b/), 'action buttons must stack');
+    assert.ok(stacks(/\.results-actions\b/), 'results action buttons must stack');
+    assert.ok(mobile.some(rule => rule.selectors.includes('.quiz-actions') && rule.declarations.get('position') === 'sticky' && rule.declarations.get('bottom') === '0'),
+      'question controls form a sticky bottom thumb bar');
     const base = selector => rules.find(rule => !rule.media && rule.selectors.includes(selector));
     for (const selector of ['button', '.option', '.study-confirm', '.hub-link']) {
       assert.equal(base(selector)?.declarations.get('min-height'), '44px', `${selector} keeps a 44px minimum target`);
