@@ -152,8 +152,15 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     const actions = '<div class="lesson-actions"><a href="../#' + lesson.module + '">← All reviewers</a><a class="study-cta" href="../../' +
       lesson.slug + '/">Take the practice exam</a>' + '<a href="#briefing">Start reviewing</a>' + '</div>';
     const group = groups.find(item => item.id === lesson.module);
+    const order = [...study.byKey.keys()];
+    const at = order.indexOf(key);
+    const pagerLink = (other, label) => other ? '<a href="../' + other + '/"><small>' + label + '</small>' + e(study.byKey.get(other).name) + '</a>' : '';
+    const lessonNext = '<aside class="lesson-next" aria-labelledby="lesson-next-title"><div><p class="study-eyebrow">End of reviewer · ' + e(group.id === 'supplemental' ? 'Supporting lesson' : group.title) +
+      '</p><h2 id="lesson-next-title">Ready for the questions?</h2><p class="lesson-next-sub">Test what you just reviewed on the ' + e(lesson.name) + ' practice exam.</p></div>' +
+      '<a class="study-cta" href="../../' + lesson.slug + '/">Take this lesson’s exam <span aria-hidden="true">→</span></a>' +
+      '<nav class="lesson-pager" aria-label="Other reviewers">' + pagerLink(order[at - 1], '← Previous reviewer') + pagerLink(order[at + 1], 'Next reviewer →') + '</nav></aside>';
     render('reviewer/' + key + '/index.html', 2, 'reviewer', lesson.name, groupName(group),
-      actions + '<nav class="review-jump" aria-label="Choose how to review"><a href="#exam-focus">Key points first</a><a href="#question-styles">Try exam-style questions</a><a href="#detailed-review">Read the full explanation</a></nav><div class="study-layout">' + rail + '<article class="study-content lesson-reading">' + chapters + '</article></div>', {
+      actions + '<nav class="review-jump" aria-label="Choose how to review"><a href="#exam-focus">Key points first</a><a href="#question-styles">Try exam-style questions</a><a href="#detailed-review">Read the full explanation</a></nav><div class="study-layout">' + rail + '<article class="study-content lesson-reading">' + chapters + lessonNext + '</article></div>', {
         eyebrow: 'Reviewer 101 · ' + (group.id === 'supplemental' ? 'Supporting lesson' : group.title),
         art: '<figure class="reviewer-figure">' + lesson.heroSvg + '<figcaption>Lesson at a glance</figcaption></figure>',
         scripts: '<link rel="stylesheet" href="../../assets/reviewer-focus.css"><script src="../../assets/reviewer-focus.js" defer></script><script src="../../assets/study-session.js" defer></script>',
