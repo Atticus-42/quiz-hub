@@ -60,7 +60,7 @@ The catalogue covers 30 of 36 numbered lessons. The 13 new lesson quizzes each s
 | --- | --- | --- |
 | 1 · Leadership | 1.1–1.7, all seven lessons | New, 35 questions per difficulty, five per lesson |
 | 2 · Army Operating Concept | No additions | Pending 2.1 |
-| 3 · Battalion/Brigade Operations Planning | 3.1 TLP, based on the worked classroom exercise | Pending 3.2 |
+| 3 · Battalion/Brigade Operations Planning | 3.1 TLP, based on the worked classroom exercise; 3.2 MDMP, added 11 November 2026 from the 15-page SOAC 3.2 student handout (25 questions per difficulty; the handout's Parts V and VI were not in the supplied PDF) | Not yet created; both lesson quizzes now exist |
 | 4 · Signal Support Integration | Already complete | Existing, 30 questions per difficulty |
 | 5 · Advanced C2 Communications | 5.6 Signal Propagation, based on the worked coverage and link examples | Pending 5.1 and 5.2 |
 | 6 · Advanced Electronic Warfare Operations | All four lesson quizzes already present | New, 32 questions per difficulty, eight per lesson |
@@ -72,7 +72,6 @@ The Module 2 Combined Practice Exam and the Module 5 exam retain their labeled p
 | Missing lesson | Material needed |
 | --- | --- |
 | 2.1 Introduction to Infantry Operations | Infantry Operations lesson. The unit organization material and the general Army Operations deck cover narrower or different objectives. |
-| 3.2 MDMP | A lesson or worked MDMP exercise covering its steps, outputs and decision points. The signal doctrine references the process briefly. |
 | 5.1 CPA Programming | A CPA lesson or instructional walkthrough. The available project files contain configurations without teaching instructions. |
 | 5.2 C2 Applications (PA BMS / ATAK) | PA BMS / ATAK teaching materials covering the lesson objectives. The WinTAK/ATAK archive contains setup and import notes and a practical checklist. |
 | 8.3 Voice Communications Planning | Voice planning lesson, worked plan or instructor handout. |
