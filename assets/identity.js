@@ -191,6 +191,16 @@
       "text": "Small moves, Ellie. Small moves.",
       "speaker": "S. R. Hadden",
       "work": "Contact (1997 film)"
+    },
+    {
+      "text": "Humankind cannot gain anything without first giving something in return.",
+      "speaker": "Alphonse Elric",
+      "work": "Fullmetal Alchemist (2003 anime) · opening narration"
+    },
+    {
+      "text": "Someone who can’t sacrifice anything, can’t ever change anything.",
+      "speaker": "Armin Arlert",
+      "work": "Attack on Titan · English translation"
     }
   ];
   const nodes = document.querySelectorAll('[data-domain-quote]');
