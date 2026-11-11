@@ -19,3 +19,28 @@
   root.querySelector('[data-focus-reset]').addEventListener('click',()=>{marks={};save();});
   root.querySelector('[data-focus-tools]').hidden=false;root.querySelector('[data-focus-storage]').hidden=false;update();
 })();
+(() => {
+  // Answer tools: one button per practice section opens or closes every answer, and stays in sync
+  // when single answers are toggled. Progressive enhancement: without JS the details work as usual.
+  for (const id of ['question-styles', 'self-check', 'exam-practice']) {
+    const section = document.getElementById(id);
+    const items = section ? [...section.querySelectorAll('details')] : [];
+    if (items.length < 2) continue;
+    const bar = document.createElement('div');
+    bar.className = 'answer-tools';
+    const button = document.createElement('button');
+    button.type = 'button';
+    const note = document.createElement('small');
+    note.textContent = 'Try each one first, then check.';
+    const sync = () => {
+      const open = items.filter(d => d.open).length;
+      button.textContent = open === items.length ? 'Hide all answers' : 'Reveal all answers';
+      button.setAttribute('aria-label', (open === items.length ? 'Hide all ' : 'Reveal all ') + items.length + ' answers in this section');
+    };
+    button.addEventListener('click', () => { const openAll = items.some(d => !d.open); items.forEach(d => { d.open = openAll; }); sync(); });
+    items.forEach(d => d.addEventListener('toggle', sync));
+    bar.append(button, note);
+    section.querySelector('h2').after(bar);
+    sync();
+  }
+})();
