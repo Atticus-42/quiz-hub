@@ -1,0 +1,287 @@
+{
+  "$comment": "Reviewer diagrams (scripts/reviewer-figures.mjs). Each figure sits in the named examGuide topic and uses only labels already in that lesson's reviewer, focus or question-bank data. pages must be pages the lesson already cites.",
+  "mdmp": [
+    {
+      "topic": "Steps 1 and 2: Receipt of mission and mission analysis",
+      "kind": "flow",
+      "title": "The seven MDMP steps and their key outputs",
+      "caption": "The seven MDMP steps. The outputs of one step become the inputs of the next; warning orders go out after Steps 1, 2 and 6.",
+      "pages": [7, 8, 9, 10, 11, 12],
+      "steps": [
+        { "label": "Receipt of mission", "note": "Commander's initial guidance", "tag": "WARNORD 1" },
+        { "label": "Mission analysis", "note": "The most critical step: problem statement, mission statement, initial intent and planning guidance, initial CCIRs and EEFIs, COA evaluation criteria", "tag": "WARNORD", "highlight": true },
+        { "label": "COA development", "note": "Screen each COA: feasible, acceptable, suitable, distinguishable, complete. S3 prepares the COA statement and sketch" },
+        { "label": "COA analysis (war game)", "note": "Action, reaction, counteraction. Belt, avenue-in-depth or box method; no comparing COAs" },
+        { "label": "COA comparison", "note": "Weigh COAs against criteria fixed beforehand; lowest decision-matrix total is most desirable" },
+        { "label": "COA approval", "note": "Commander approves, modifies or rejects; final planning guidance", "tag": "WARNORD 3" },
+        { "label": "Orders production, dissemination and transition", "note": "COA statement becomes the concept of operations; S6 prepares Annex H (Signal)" }
+      ]
+    }
+  ],
+  "tlp": [
+    {
+      "topic": "Steps 1–2: Receive the mission, plan time, and issue a warning order",
+      "kind": "flow",
+      "title": "The eight troop leading procedure steps",
+      "caption": "The eight TLP steps. Reverse-plan from the ready time and leave about two-thirds of the available time for subordinates.",
+      "pages": [3, 5],
+      "steps": [
+        { "label": "Receive the mission", "note": "Work backward from the required ready time" },
+        { "label": "Issue a warning order", "note": "Enough known information for subordinates to start preparing" },
+        { "label": "Make a tentative plan", "note": "Analyze the mission; develop, war-game and compare courses of action" },
+        { "label": "Initiate movement", "note": "Authorized movement can start before the full order" },
+        { "label": "Conduct reconnaissance", "note": "Check information gaps that could alter the tentative plan" },
+        { "label": "Complete the plan", "note": "Integrate reconnaissance findings" },
+        { "label": "Issue the order", "note": "Situation, Mission, Execution, Sustainment, Command and Signal" },
+        { "label": "Supervise and refine", "note": "Backbriefs check plans; rehearsals check coordinated actions; inspections check readiness" }
+      ]
+    }
+  ],
+  "signalplanning": [
+    {
+      "topic": "Develop requirements alongside operational planning",
+      "kind": "flow",
+      "title": "The signal planning process",
+      "caption": "Signal planning runs alongside MDMP, or TLP at small-unit level: requirements, real capability, priorities, tentative plan, final checks, publication.",
+      "pages": [27, 28, 29, 30],
+      "steps": [
+        { "label": "Develop requirements", "note": "Commander's priorities, staff and unit coordination, SOPs, applicable CEOI and CESI" },
+        { "label": "Check real capability", "note": "Equipment readiness, actual personnel fill, training and funds" },
+        { "label": "Set priorities", "note": "When resources are short, rank by supportability and importance to the mission" },
+        { "label": "Prepare for disruptions", "note": "Redundant service, repair or replacement, technical support" },
+        { "label": "Prepare the tentative plan", "note": "Allocate resources; primary, alternate, contingency and emergency support" },
+        { "label": "Final checks, then publish", "note": "Coverage, responsibilities, resources, security, priorities; publish diagrams and instructions with the plans and orders", "highlight": true }
+      ]
+    }
+  ],
+  "signalestimate": [
+    {
+      "topic": "METAL organizes the facts",
+      "kind": "flow",
+      "title": "Structure of the signal estimate",
+      "caption": "METAL organizes the facts; the Annex A estimate then moves from situation to analysis, comparison and recommendation. Revise it when key facts change.",
+      "pages": [27, 44],
+      "groups": [{ "from": 0, "to": 4, "label": "METAL — organize the facts", "list": true }],
+      "steps": [
+        { "n": "M", "label": "Mission", "note": "Defines what must be supported" },
+        { "n": "E", "label": "Enemy signal capabilities", "note": "Opposing capability" },
+        { "n": "T", "label": "Troops available", "note": "Personnel" },
+        { "n": "A", "label": "Area of Operations", "note": "Operating conditions" },
+        { "n": "L", "label": "Logistical requirements", "note": "Sustainment" },
+        { "n": "1", "label": "Situation", "note": "Terrain, weather, existing communications, opposing and friendly conditions, proposed COAs" },
+        { "n": "2", "label": "Analysis", "note": "What opposing capabilities and limitations mean for friendly support" },
+        { "n": "3", "label": "Comparison", "note": "Options against the same mission requirements" },
+        { "n": "4", "label": "Decision and recommendations", "note": "Personnel, C4S and sustainment; means of communications, command post locations, task list", "highlight": true }
+      ]
+    }
+  ],
+  "eccm": [
+    {
+      "topic": "Electronic protection and three risks",
+      "kind": "matrix",
+      "title": "The enemy's three questions and the EP answer to each",
+      "caption": "Found, disrupted, read: each enemy question targets a different risk, so each needs its own protective answer.",
+      "pages": [8],
+      "columns": ["Enemy asks", "Risk", "EP answer"],
+      "widths": [1.05, 0.9, 1.75],
+      "rows": [
+        ["Can I FIND you?", "Exposure (direction finding locates the transmitter)", "Emission control, low power, short transmissions"],
+        ["Can I JAM you?", "Availability", "Frequency hopping, directional antennas, PACE alternate means"],
+        ["Can I READ you?", "Content (intercept exploits what you say)", "Encryption in secure mode, brevity codes, saying less, less often"]
+      ]
+    },
+    {
+      "topic": "EMCON and the need to communicate",
+      "kind": "ladder",
+      "title": "EMCON levels 1 to 5",
+      "caption": "Emission control levels, from GREEN to the most restrictive BLACK. EMCON 3 AMBER is the field baseline.",
+      "pages": [12],
+      "top": "LESS RESTRICTIVE",
+      "bottom": "Most restrictive at the bottom. Rehearse moving between levels.",
+      "rungs": [
+        { "tag": "EMCON 1", "name": "GREEN", "condition": "No hostile activity", "measures": "Normal operations, encryption on" },
+        { "tag": "EMCON 2", "name": "YELLOW", "condition": "Risk of attack", "measures": "Limit transmissions, watch power levels" },
+        { "tag": "EMCON 3", "name": "AMBER", "condition": "Risk identified", "measures": "Encryption, hopping and directional antennas; unencrypted systems off", "highlight": "Field baseline" },
+        { "tag": "EMCON 4", "name": "RED", "condition": "An attack has occurred", "measures": "Non-essential emitters off, use alternates" },
+        { "tag": "EMCON 5", "name": "BLACK", "condition": "Attacks under way", "measures": "Isolate compromised systems" }
+      ]
+    },
+    {
+      "topic": "Encryption, availability and continuity",
+      "kind": "ladder",
+      "title": "The example PACE plan",
+      "caption": "The lesson's example PACE plan. Know the trigger and rehearse the switch; the alternate follows the primary.",
+      "pages": [18],
+      "top": "PRIMARY FIRST",
+      "rungs": [
+        { "tag": "P", "name": "Primary", "measures": "Tactical radio in hop and secure mode" },
+        { "tag": "A", "name": "Alternate", "measures": "HF radio, or another frequency or net" },
+        { "tag": "C", "name": "Contingency", "measures": "Field wire or messenger vehicle" },
+        { "tag": "E", "name": "Emergency", "measures": "Runner, or visual and pyrotechnic signals" }
+      ]
+    }
+  ],
+  "elint": [
+    {
+      "topic": "Non-communications intelligence and electronic support",
+      "kind": "matrix",
+      "title": "Electronic Support compared with ELINT",
+      "caption": "ES and ELINT can begin with a similar observation; they differ in purpose, user and time horizon.",
+      "pages": [6, 7, 8, 9],
+      "columns": ["", "Electronic Support (ES)", "ELINT"],
+      "widths": [0.8, 1.4, 1.4],
+      "rows": [
+        ["Serves", "A tactical commander's immediate awareness needs", "Building or updating emitter knowledge, including the Adversary EOB"],
+        ["Produces", "Perishable information", "Assessed technical intelligence"],
+        ["Time horizon", "Immediate warning", "Longer-term characterization"]
+      ]
+    },
+    {
+      "topic": "Read a fingerprint without overclaiming intent",
+      "kind": "pulse",
+      "title": "Radar signature parameters on a pulse train",
+      "caption": "Pulse width is duration; the pulse repetition interval is spacing. Several features together give more context than one number.",
+      "pages": [12, 13, 14, 15],
+      "axis": "time",
+      "width": { "label": "Pulse width", "symbol": "PW", "note": "Duration of a pulse" },
+      "interval": { "label": "Pulse repetition interval", "symbol": "PRI", "note": "Spacing between pulses" },
+      "notes": [
+        { "label": "Pulse repetition frequency", "symbol": "PRF", "note": "How often pulses repeat; PRF is the reciprocal of PRI in seconds" },
+        { "label": "Carrier frequency", "symbol": "Carrier frequency", "note": "Where the signal sits in the spectrum" },
+        { "label": "Scan behavior", "symbol": "Scan", "note": "Rotating or sector sweep is consistent with search; a focused pattern with faster repetition can suggest tracking" }
+      ]
+    }
+  ],
+  "sigint": [
+    {
+      "topic": "Distinguish COMINT and ELINT by source",
+      "kind": "tree",
+      "title": "COMINT and ELINT under SIGINT",
+      "caption": "SIGINT uses intercepted signals as its source. Classify by what the source emits.",
+      "pages": [13, 14, 15],
+      "cols": 2,
+      "root": { "label": "SIGINT", "note": "Intercepted signals as source" },
+      "children": [
+        { "label": "COMINT", "note": "Intercepted communications such as voice and messages; reveals information conveyed between people" },
+        { "label": "ELINT", "note": "Non-communication emissions, such as a radar; yields information about a system" }
+      ]
+    }
+  ],
+  "intcycle": [
+    {
+      "topic": "Intelligence as process and product",
+      "kind": "flow",
+      "cycle": true,
+      "title": "The intelligence cycle",
+      "caption": "The intelligence cycle is dynamic, iterative and continuous.",
+      "loopLabel": "A changed question or new report can prompt renewed collection or analysis.",
+      "pages": [11, 12, 13, 18, 19, 20],
+      "steps": [
+        { "label": "Planning and direction", "note": "Turn a mission objective into a specific requirement; set priorities" },
+        { "label": "Collection", "note": "HUMINT, SIGINT, IMINT, OSINT" },
+        { "label": "Processing and exploitation", "note": "Translation and data sorting make inputs usable" },
+        { "label": "Analysis and production", "note": "Correlation, pattern and trend analysis; reports with findings and implications" },
+        { "label": "Dissemination and integration", "note": "Deliver to decision-makers; integrate into plans and C2", "highlight": true }
+      ]
+    }
+  ],
+  "nist": [
+    {
+      "topic": "Six Functions in one mission",
+      "kind": "tree",
+      "title": "The six CSF Functions",
+      "caption": "The six Functions. Assign an activity by its immediate purpose; one service can need work in all six at once.",
+      "pages": [10, 11, 12],
+      "cols": 2,
+      "root": { "label": "CSF Core", "note": "Six Functions" },
+      "children": [
+        { "label": "Govern", "note": "Roles, policy and oversight" },
+        { "label": "Identify", "note": "Assets, dependencies and risks" },
+        { "label": "Protect", "note": "Applies safeguards" },
+        { "label": "Detect", "note": "Finds and analyzes adverse events" },
+        { "label": "Respond", "note": "Manages the incident" },
+        { "label": "Recover", "note": "Restores operations" }
+      ]
+    }
+  ],
+  "zerotrust": [
+    {
+      "topic": "Decide, carry out, enforce",
+      "kind": "flow",
+      "title": "Zero Trust core components",
+      "caption": "Trace a decision from the PE through the PA to the PEP. The PE and PA make up the Policy Decision Point.",
+      "pages": [22],
+      "groups": [{ "from": 0, "to": 1, "label": "Policy Decision Point (PDP)" }],
+      "steps": [
+        { "n": "PE", "label": "Policy Engine — decides", "note": "Grant, deny or revoke access using policy and inputs" },
+        { "n": "PA", "label": "Policy Administrator — carries out", "note": "Establishes or closes the path and configures enforcement" },
+        { "n": "PEP", "label": "Policy Enforcement Point — enforces", "note": "Enables, monitors or terminates the actual connection", "highlight": true }
+      ]
+    }
+  ],
+  "cyberrisk": [
+    {
+      "topic": "Six incident-response phases",
+      "kind": "flow",
+      "cycle": true,
+      "title": "The six incident-response phases",
+      "caption": "The six incident-response phases. Review records findings for improvement.",
+      "loopLabel": "Findings from assessment and review feed improvement.",
+      "pages": [18, 19, 20, 21, 22, 23, 24],
+      "steps": [
+        { "label": "Preparation", "note": "Readies people, tools and procedures" },
+        { "label": "Identification", "note": "Detects and recognizes incidents" },
+        { "label": "Containment", "note": "Limits spread; the cause can still be present" },
+        { "label": "Eradication", "note": "Removes incident components and validates the cleanup" },
+        { "label": "Recovery", "note": "Restores healthy service" },
+        { "label": "Assessment and review", "note": "Records findings for improvement" }
+      ]
+    }
+  ],
+  "ethicalleadership": [
+    {
+      "topic": "Six steps for an ethical decision",
+      "kind": "flow",
+      "title": "Six steps for an ethical decision",
+      "caption": "Define, know the rules, develop options, evaluate, decide and act, reflect. Compare alternatives explicitly before acting.",
+      "pages": [10, 12, 13],
+      "steps": [
+        { "label": "Define the dilemma", "note": "Identify the duties or values in tension" },
+        { "label": "Know the rules", "note": "Laws, orders, regulations and values that apply" },
+        { "label": "Develop options", "note": "Generate feasible courses of action" },
+        { "label": "Evaluate", "note": "Test each for legal, moral and mission implications" },
+        { "label": "Decide and act", "note": "Take responsibility for the action" },
+        { "label": "Reflect", "note": "Learn from the outcome and prevent recurrence" }
+      ]
+    }
+  ],
+  "weapons": [
+    {
+      "topic": "Information flow and decision authority",
+      "kind": "flow",
+      "cycle": true,
+      "title": "The D3A cycle",
+      "caption": "D3A presents Decide, Detect, Deliver and Assess as distinct functions in a cycle. Decision authority remains with the command function.",
+      "loopLabel": "Assess evaluates what happened after delivery, and the cycle continues.",
+      "pages": [25, 26, 27],
+      "steps": [
+        { "label": "Decide" },
+        { "label": "Detect" },
+        { "label": "Deliver" },
+        { "label": "Assess", "note": "Evaluates what happened after delivery" }
+      ]
+    }
+  ],
+  "missioncommand": [
+    {
+      "topic": "Choosing the degree of control",
+      "kind": "spectrum",
+      "title": "Choosing the degree of control",
+      "caption": "Control is a sliding choice, and it can vary by decision within a single task.",
+      "pages": [3, 4, 5],
+      "left": { "title": "Tighter control when…", "items": ["The team is inexperienced", "The activity requires precise synchronization", "The consequences of an error are severe"] },
+      "right": { "title": "More judgment when…", "items": ["Subordinates are experienced", "The situation is fast-changing", "Competence and mutual trust have grown"] },
+      "note": "Adjust oversight as trust, competence, risk, time, environment and complexity change."
+    }
+  ]
+}

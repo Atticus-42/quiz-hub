@@ -39,6 +39,10 @@ await test('[reviewers] every lesson has sourced key points and mixed exam-style
   const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/reviewer-focus.test.mjs')], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stdout + result.stderr);
 });
+await test('[reviewers] diagrams are sourced, accessible and placed in their topic', () => {
+  const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/reviewer-figures.test.mjs')], { encoding: 'utf8' });
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+});
 await test('[explanations] notes and source citations stay separate in feedback and results', () => {
   const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/reference-layout.test.mjs')], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stdout + result.stderr);

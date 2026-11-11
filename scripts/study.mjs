@@ -3,6 +3,7 @@ import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 import { renderResources } from './resources.mjs';
 import { loadReviewerFocus, renderReviewerFocus } from './reviewer-focus.mjs';
+import { loadReviewerFigures, renderFigure } from './reviewer-figures.mjs';
 
 const slug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const json = path => JSON.parse(readFileSync(path, 'utf8'));
@@ -80,6 +81,7 @@ export function studyQuizLinks(root, lesson, study) {
 
 export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e, scriptJson, fillTemplate, baseCss, fontPreloads, base }) {
   const focus = loadReviewerFocus(root);
+  const figures = loadReviewerFigures(root, study.reviewers);
   const template = readFileSync(join(root, 'src', 'study', 'template.html'), 'utf8').replace(/\r\n/g, '\n');
   const css = readFileSync(join(root, 'src', 'study', 'study.css'), 'utf8');
   const pages = {};
@@ -135,15 +137,22 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
       return '<section id="' + id + '" class="lesson-section"><h2><span aria-hidden="true">' + number + '</span>' + title + '</h2>' + body + '</section>';
     };
     const guide = item.examGuide;
-    const sourcePages = pages => {
+    const sourcePages = (pages, label = 'Lesson source') => {
       const body = (primaryDoc.file || primaryDoc.web) ? pages.map(n => docLink(primaryDoc, '../../', primaryDoc.file ? n : null, 'page ' + n)).join(' · ')
         : '<span class="file-missing">' + (primaryDoc.restricted ? 'Restricted · citation only' : 'PDF unavailable') + '</span> · ' + (pages.length === 1 ? 'page ' : 'pages ') + pages.map(n => '<a href="' + documentHref(primaryDoc, '../../', null) + '">' + e(String(n)) + '</a>').join(', ');
-      return '<p class="topic-source">Lesson source: ' + body + '</p>';
+      return '<p class="topic-source">' + label + ': ' + body + '</p>';
     };
-    const chapters = renderReviewerFocus(key, focus[key], panel, e, sourcePages) +
+    const lessonFigures = (figures[key] || []).map((fig, i) => ({ ...fig, number: i + 1, id: 'fig-' + (i + 1) }));
+    const topicFigures = topic => lessonFigures.filter(fig => fig.topic === topic.title).map(fig => renderFigure(fig, fig.number, fig.id, sourcePages(fig.pages, 'Figure source'))).join('');
+    const topicIndex = guide ? '<nav class="topic-index" aria-label="Topics in this explanation"><ol>' + guide.topics.map((topic, t) => '<li><a href="#topic-' + (t + 1) + '">' + e(topic.title) + '</a></li>').join('') + '</ol></nav>' : '';
+    // At a glance: memory cue, key terms (linked to their definitions) and the lesson's diagrams, all from existing data.
+    const glance = '<aside class="lesson-glance" aria-labelledby="glance-title"><h2 id="glance-title">At a glance</h2><div class="glance-grid"><div><p class="focus-label">Memory cue</p><p class="glance-cue">' + e(focus[key].memoryCue) + '</p></div><div><p class="focus-label">Key terms · ' + item.facts.length + '</p><ul class="glance-terms">' + item.facts.map((fact, i) => '<li><a href="#term-' + (i + 1) + '">' + e(fact.term) + '</a></li>').join('') + '</ul></div>' +
+      (lessonFigures.length ? '<div><p class="focus-label">Diagrams · ' + lessonFigures.length + '</p><ul class="glance-figures">' + lessonFigures.map(fig => '<li><a href="#' + fig.id + '">Fig. ' + fig.number + ' — ' + e(fig.title) + '</a></li>').join('') + '</ul></div>' : '') +
+      '</div><p class="glance-route"><span class="focus-label">Suggested route</span> Key points → full explanation' + (lessonFigures.length ? ' and diagrams' : '') + ' → practice questions → <a href="../../' + lesson.slug + '/">practice exam</a></p></aside>';
+    const chapters = glance + renderReviewerFocus(key, focus[key], panel, e, sourcePages) +
       panel('briefing', 'Quick briefing', '<p>' + e(item.brief) + '</p><p>Read with ' + docLink(primaryDoc, '../../', primaryDoc.file ? page : null) + '.</p>') +
-      panel('facts', 'Know the facts', '<dl class="fact-list">' + item.facts.map(fact => '<div><dt>' + e(fact.term) + '</dt><dd>' + e(fact.detail) + '</dd></div>').join('') + '</dl>') +
-      (guide ? panel('detailed-review', 'Build your understanding', guide.topics.map(topic => '<section class="review-topic"><h3>' + e(topic.title) + '</h3><p>' + e(topic.explanation) + '</p><ul>' + topic.remember.map(text => '<li>' + e(text) + '</li>').join('') + '</ul><p class="exam-trap"><strong>Watch out:</strong> ' + e(topic.trap) + '</p>' + sourcePages(topic.pages) + '</section>').join('')) : '') +
+      panel('facts', 'Know the facts', '<dl class="fact-list">' + item.facts.map((fact, i) => '<div id="term-' + (i + 1) + '"><dt>' + e(fact.term) + '</dt><dd>' + e(fact.detail) + '</dd></div>').join('') + '</dl>') +
+      (guide ? panel('detailed-review', 'Build your understanding', topicIndex + guide.topics.map((topic, t) => '<section class="review-topic" id="topic-' + (t + 1) + '" aria-labelledby="topic-' + (t + 1) + '-title"><p class="topic-count">Topic ' + (t + 1) + ' of ' + guide.topics.length + '</p><h3 id="topic-' + (t + 1) + '-title">' + e(topic.title) + '</h3><p>' + e(topic.explanation) + '</p>' + topicFigures(topic) + '<ul>' + topic.remember.map(text => '<li>' + e(text) + '</li>').join('') + '</ul><p class="exam-trap"><strong>Watch out:</strong> ' + e(topic.trap) + '</p>' + sourcePages(topic.pages) + '</section>').join('')) : '') +
       panel('reasoning', 'Understand the reasoning', '<ul>' + item.insights.map(insight => '<li>' + e(insight) + '</li>').join('') + '</ul>') +
       panel('scenario', 'Apply it', '<p class="study-eyebrow">Fictional Philippine Army classroom exercise</p><p>' + e(item.scenario.situation) +
         '</p><p><strong>' + e(item.scenario.question) + '</strong></p><details><summary>Show the decision and reasoning</summary><p>' + e(item.scenario.analysis) + '</p></details>') +
