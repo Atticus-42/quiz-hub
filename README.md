@@ -13,6 +13,7 @@ The whole site is published from this repository with GitHub Pages at https://at
   | Module 2 | Field Artillery Operations | `fieldartillery` | `/quiz-hub/field-artillery/` |
   | Module 2 | Armor Operations | `armor` | `/quiz-hub/armor/` |
   | Module 2 | ISR Operations | `isr` | `/quiz-hub/isr/` |
+  | Module 3 | Military Decision-Making Process (MDMP) | `mdmp` | `/quiz-hub/military-decision-making-process/` |
   | Module 4 | Module 4 Exam (30 questions, 10 per lesson) | `modulethree` | `/quiz-hub/module-3-exam/` |
   | Module 4 | Signal Support in Combined Arms Operations | `signal` | `/quiz-hub/signal-support/` |
   | Module 4 | Signal Support in Joint Operations | `signaljoint` | `/quiz-hub/joint-signal/` |

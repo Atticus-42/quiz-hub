@@ -47,7 +47,7 @@ test('standalone and combined limits are 20–35, with large source pools permit
 test('POI placement preserves legacy routes and history identities without unsupported cards',()=>{
   const {lessons,modules}=loadLessons();const byKey=new Map(lessons.map(l=>[l.key,l]));
   for(const [key,module,order,slug] of [
-    ['fieldartillery','module-2',2,'field-artillery'],['armor','module-2',3,'armor'],['isr','module-2',4,'isr'],
+    ['fieldartillery','module-2',2,'field-artillery'],['armor','module-2',3,'armor'],['isr','module-2',4,'isr'],['tlp','module-3',1,'troop-leading-procedure'],['mdmp','module-3',2,'military-decision-making-process'],
     ['signal','module-4',1,'signal-support'],['signaljoint','module-4',2,'joint-signal'],['coalition','module-4',3,'coalition-signal'],
     ['sigint','module-6',1,'signals-intelligence'],['elint','module-6',2,'electronic-intelligence'],['rdf','module-6',3,'radio-direction-finding'],['eccm','module-6',4,'electronic-counter-countermeasures'],
     ['armyops','supplemental',1,'army-operations'],['intcycle','supplemental',2,'intelligence-cycle']]){
@@ -56,7 +56,7 @@ test('POI placement preserves legacy routes and history identities without unsup
   assert.equal(byKey.get('modulethree').slug,'module-3-exam');assert.equal(byKey.get('modulethree').module,'module-4');
   for(const key of ['combined','modulethree']){assert.equal(byKey.get(key).pool.count,30);assert.ok(byKey.get(key).banks.easy.length>35);}
   assert.deepEqual(modules.map(m=>m.id),['module-1','module-2','module-3','module-4','module-5','module-6','module-7','module-8','supplemental']);
-  for(const key of ['cpa','bms','infantry','mdmp','voiceplanning','dataplanning'])assert.ok(!byKey.has(key));
+  for(const key of ['cpa','bms','infantry','voiceplanning','dataplanning'])assert.ok(!byKey.has(key));
   const fullPools = [
     ['moduleone', 35, ['leadershipattributes','leadershipcompetencies','companymanagement','missioncommand','ethicalleadership','ncoempowerment','effectivecommunication']],
     ['modulesix', 32, ['sigint','elint','rdf','eccm']]

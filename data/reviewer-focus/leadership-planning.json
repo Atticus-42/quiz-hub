@@ -260,5 +260,139 @@
     ],
     "memoryCue":"Receive, warn, plan, move, recon, complete, order, refine. Protect time; test assumptions; verify readiness.",
     "lastCheck":["Recite all eight steps and identify two activities that can overlap.","Build a nine-hour reverse timeline and distinguish specified, implied, and essential tasks.","Explain how a reconnaissance finding, a war-game gap, and a failed rehearsal each require plan refinement."]
+  },
+  "mdmp": {
+    "takeaway": "The MDMP turns a mission into an approved order through seven steps, each handing its outputs to the next, with the commander driving, the Ex-O managing, and the staff contributing through running estimates.",
+    "keyPoints": [
+      {
+        "label": "Seven steps and warning orders",
+        "answer": "Receipt of mission; mission analysis; COA development; COA analysis (war game); COA comparison; COA approval; orders production, dissemination and transition. WARNORDs follow Steps 1, 2 and 6.",
+        "why": "Each step's outputs become the next step's inputs, and warning orders let subordinates plan in parallel.",
+        "pages": [
+          3,
+          4
+        ]
+      },
+      {
+        "label": "Time and the full or modified MDMP",
+        "answer": "Commanders keep one-third of available time and give at least two-thirds to subordinates. The full MDMP examines two or more COAs; a time-constrained staff modifies it, and a unit must master the full MDMP first.",
+        "why": "Time determines how much detail the plan can have.",
+        "pages": [
+          4,
+          7,
+          12
+        ]
+      },
+      {
+        "label": "Mission analysis",
+        "answer": "The most critical step. Sort specified, implied and essential tasks, constraints, facts and assumptions; set CCIRs (PIR and FFIR) and EEFIs; write the mission statement and the COA evaluation criteria.",
+        "why": "If the problem is not understood well, no good plan can address it.",
+        "pages": [
+          7,
+          8,
+          9
+        ]
+      },
+      {
+        "label": "COA development and war game",
+        "answer": "Screen COAs as feasible, acceptable, suitable, distinguishable and complete. War-game by belt, avenue-in-depth or box method, without comparing COAs.",
+        "why": "The war game tests and refines each COA before the comparison in Step 5.",
+        "pages": [
+          9,
+          10,
+          11
+        ]
+      },
+      {
+        "label": "Comparison, approval and orders",
+        "answer": "In the decision matrix the lowest total is most desirable. The commander approves, modifies or rejects; the order is reconciled with its annexes, crosswalked with higher and adjacent orders, and handed to current operations.",
+        "why": "The matrix informs the commander's judgment and does not replace it.",
+        "pages": [
+          11,
+          12
+        ]
+      },
+      {
+        "label": "Signal officer's contribution",
+        "answer": "Through the C4S running estimate: assess network operations, spectrum management, network defense and information protection for each COA, put command posts and critical communications nodes on sketches, plan PACE, recommend EEFIs and prepare Annex H.",
+        "why": "C4S requirements are best added while they can still shape the COA.",
+        "pages": [
+          13,
+          14
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "Specified task",
+        "b": "Implied task",
+        "difference": "A specified task is assigned by higher headquarters; an implied task is not stated but must be done to accomplish a specified task. An essential task is either kind that must be executed to accomplish the mission.",
+        "pages": [
+          8
+        ]
+      },
+      {
+        "a": "PIR / FFIR",
+        "b": "EEFI",
+        "difference": "PIRs (enemy and environment) and FFIRs (friendly forces) are the two kinds of CCIR, which are information to collect. An EEFI is information to protect and is not a CCIR.",
+        "pages": [
+          8,
+          9
+        ]
+      },
+      {
+        "a": "Plans and orders reconciliation",
+        "b": "Plans and orders crosswalk",
+        "difference": "Reconciliation is internal: the base order and annexes agree. The crosswalk is external: the order is compared with higher and adjacent orders for unity of effort.",
+        "pages": [
+          12
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "Time-division style: An order arrives with 60 hours before execution. How is the time divided?",
+        "answer": "About 40 hours for subordinates and about 20 for the battalion.",
+        "reasoning": "Subordinates receive at least two-thirds of available time.",
+        "pages": [
+          7
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "Product-matching style: Which staff officer prepares Annex H, and which prepares Annex B?",
+        "answer": "The S6 prepares Annex H (Signal) and the S2 prepares Annex B (Intelligence).",
+        "reasoning": "Each annex belongs to the staff officer for that function.",
+        "pages": [
+          5,
+          6
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "Classification style: Higher headquarters sets a no-fire area over a village the battalion must clear. How is it recorded?",
+        "answer": "As a constraint, because it is a restriction placed by higher headquarters.",
+        "reasoning": "A constraint is a requirement to act or not to act, unlike an assumption or an implied task.",
+        "pages": [
+          8
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "Process style: The decision matrix favors COA 2, but the staff doubts its subjective ranks. What follows?",
+        "answer": "Treat the matrix as a tool and compare the COAs criterion by criterion before briefing the commander.",
+        "reasoning": "The matrix rests on subjective judgments; the commander decides.",
+        "pages": [
+          11
+        ]
+      }
+    ],
+    "memoryCue": "Receive, analyze, develop, war-game, compare, approve, order. Two-thirds to subordinates; warn after 1, 2 and 6; lowest matrix total wins; S6 writes Annex H.",
+    "lastCheck": [
+      "Recite the seven steps, the three warning orders and the main output of each step.",
+      "Match S1, S2, S3, S4, S6 and S7 to the annexes they prepare.",
+      "Explain what the S6 assesses in the war game and what the S6 adds to sketches, EEFIs and Annex H."
+    ]
   }
 }

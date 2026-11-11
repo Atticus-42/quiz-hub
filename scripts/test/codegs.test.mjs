@@ -17,6 +17,7 @@ const TABS = {
   effectivecommunication: 'Effective Communication 2 History',
   moduleone: 'Module 1 Exam History',
   tlp: 'Troop Leading Procedure History',
+  mdmp: 'MDMP History',
   propagation: 'Signal Propagation History',
   modulesix: 'Module 6 Exam History',
   ceoicesi: 'CEOI CESI Management History',

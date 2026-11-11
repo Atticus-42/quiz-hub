@@ -2383,5 +2383,224 @@
         "Show how a reconnaissance finding, a war-game result, and a failed readiness check would each change the plan."
       ]
     }
+  },
+  "mdmp": {
+    "brief": "Work through the seven steps of the Military Decision-Making Process using the 15-page SOAC 3.2 student handout. Explain what each step needs, what it produces, who leads it, and where the Signal officer adds C4S requirements while they can still shape the plan.",
+    "facts": [
+      {
+        "term": "Seven steps",
+        "detail": "Receipt of mission, mission analysis, COA development, COA analysis (war game), COA comparison, COA approval, and orders production, dissemination and transition. The outputs of one step become the inputs of the next."
+      },
+      {
+        "term": "Warning orders",
+        "detail": "WARNORDs go out after Steps 1, 2 and 6 so subordinates can plan in parallel. Commanders allocate at least two-thirds of available time to subordinates and keep one-third."
+      },
+      {
+        "term": "Mission analysis",
+        "detail": "The most critical step. It produces the problem statement, mission statement, initial intent and planning guidance, initial CCIRs and EEFIs, updated IPB and running estimates, assumptions and COA evaluation criteria."
+      },
+      {
+        "term": "COA screening",
+        "detail": "Test each COA as feasible, acceptable, suitable, distinguishable and complete. War-game it without comparing COAs, then compare against criteria fixed beforehand."
+      },
+      {
+        "term": "Signal officer's role",
+        "detail": "Contribute through the C4S running estimate: assess supportability in the war game, put command posts and critical communications nodes on sketches, plan PACE means, recommend EEFIs and write Annex H (Signal)."
+      }
+    ],
+    "insights": [
+      "Time drives detail. The one-third / two-thirds rule and early warning orders protect subordinate planning time while the headquarters is still analyzing.",
+      "Criteria are set before COAs are compared, and war-gaming never compares COAs. This keeps the choice from being biased by the COA a planner developed or by what the commander is thought to want.",
+      "A decision matrix informs the commander's judgment. The lowest total is the most desirable COA, but the matrix rests on subjective ranks and criterion-by-criterion comparison is often more useful."
+    ],
+    "scenario": {
+      "situation": "A Philippine Army battalion staff in a classroom exercise has just received a brigade order with 48 hours before execution. The S3 has finished the first draft of the problem statement, and the S6 has found that the only route for a relay site is covered by a no-fire area set by the brigade.",
+      "question": "How should the S6 and the staff handle the no-fire area, and how much of the 48 hours should subordinate units get?",
+      "analysis": "Record the no-fire area as a constraint, because it is a restriction placed by higher headquarters. The S6 should report the resulting C4S shortfall in the mission analysis briefing, add the relay site and critical communications nodes to each COA sketch, and recommend protecting relay locations as an EEFI. Under the one-third / two-thirds rule the battalion keeps about 16 hours and gives subordinates about 32 hours, supported by an early warning order."
+    },
+    "steps": [
+      "Begin at receipt of mission: gather the order and products, update running estimates, assess time and issue the initial guidance and WARNORD 1.",
+      "In mission analysis, analyze the higher order, perform initial IPB, sort tasks, constraints, facts and assumptions, and produce the mission statement, intent, planning guidance and evaluation criteria.",
+      "Develop several COAs that pass the screening criteria and give each a statement and sketch showing the main effort and critical communications nodes.",
+      "War-game each COA, record results on the synchronization matrix, and let each staff officer test the COA from his or her function without comparing COAs.",
+      "Compare the COAs against the agreed criteria with a decision matrix, then brief the commander so he or she can approve, modify or reject.",
+      "Turn the approved COA into the order, reconcile it with its annexes, crosswalk it with higher and adjacent orders, and hand it over to current operations."
+    ],
+    "checks": [
+      {
+        "question": "Which steps are followed by a warning order?",
+        "answer": "Step 1 (receipt of mission), Step 2 (mission analysis) and Step 6 (COA approval)."
+      },
+      {
+        "question": "What do the S3, S2 and Ex-O do in the war game?",
+        "answer": "The S3 plays the friendly maneuver commander, the S2 plays the enemy commander and other threat groups, and the Ex-O is the unbiased controller."
+      },
+      {
+        "question": "Which annex does the S6 prepare, and to what does the S6 give input?",
+        "answer": "Annex H (Signal); input goes to Annex C and Appendix 12 (Cyberspace Electromagnetic Activities)."
+      }
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Foundations: definition, characteristics, and time",
+          "explanation": "The MDMP is an iterative planning methodology to understand the situation and mission, develop a course of action, and produce an operation plan or order. It is one of three Army planning methodologies with Army design methodology and troop leading procedures. Its characteristics are collaborative, assessment starting in planning, driving preparation, working with Army design methodology, and iterative. The full MDMP examines two or more COAs; under time pressure the commander decides how to shorten it, and a unit must master the full process first.",
+          "remember": [
+            "WARNORDs follow Steps 1, 2 and 6, and at least two-thirds of available time goes to subordinates.",
+            "Time-saving techniques include more commander involvement, fewer COAs, parallel planning, collaboration and trusted liaison officers."
+          ],
+          "trap": "Treating the MDMP as a one-way checklist or assuming shortening it needs no practice with the full process.",
+          "pages": [
+            2,
+            3,
+            4,
+            7,
+            12
+          ]
+        },
+        {
+          "title": "Staff roles, relationships, and products",
+          "explanation": "The staff supports the commander, who remains the decision-maker and is responsible for everything the staff does or fails to do. The Ex-O is the principal assistant and staff integrator at battalion and brigade, and directs the staff planning timeline and quality control. Each section keeps a running estimate. S3 prepares Annexes A, C and M, S2 Annex B, S4 Annex F, S6 Annex H, S7 Annex I, and the engineer or chief of protection Annexes E and G.",
+          "remember": [
+            "Once the commander decides, staff officers support the decision even when it differs from their recommendation.",
+            "The S6 is the integrator for the mission command cell."
+          ],
+          "trap": "Matching an annex to the wrong staff officer, especially Annex B (S2), Annex F (S4) and Annex H (S6).",
+          "pages": [
+            5,
+            6,
+            13
+          ]
+        },
+        {
+          "title": "Steps 1 and 2: Receipt of mission and mission analysis",
+          "explanation": "Receipt of a mission, or its anticipation, triggers the MDMP and ends with the commander's initial guidance and WARNORD 1. Mission analysis is the most critical step. It analyzes the higher order, performs IPB, and separates specified, implied and essential tasks, constraints, facts and assumptions. CCIRs are PIRs and FFIRs, while EEFIs are information to protect. The mission statement answers who, what, when, where and why, and criteria for comparing COAs are set before the comparison.",
+          "remember": [
+            "A fact is true at a stated time; an assumption cannot be validated but is necessary for planning.",
+            "Essential tasks always appear in the mission statement."
+          ],
+          "trap": "Treating an EEFI as a CCIR or setting evaluation criteria after seeing the COAs.",
+          "pages": [
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "title": "Step 3: Develop courses of action",
+          "explanation": "A COA is a broad potential solution to an identified problem. Each COA is screened as feasible, acceptable, suitable, distinguishable and complete. The staff assesses relative combat power, generates options starting with the decisive operation, arrays forces, develops a broad concept, assigns headquarters, and prepares a statement and sketch. The sketch shows boundaries, control measures, the main effort and the locations of command posts and critical communications nodes.",
+          "remember": [
+            "Historical minimum planning ratios include 3:1 for attacking a prepared or fortified position and 1:3 for defending one.",
+            "The S3 prepares the COA statement and sketch for each COA."
+          ],
+          "trap": "Offering COAs that differ only in name, which fail the distinguishable test.",
+          "pages": [
+            9,
+            10
+          ]
+        },
+        {
+          "title": "Steps 4 and 5: War game and compare",
+          "explanation": "War-gaming visualizes the flow of the operation through the action, reaction and counteraction cycle using the belt, avenue-in-depth or box method. Its rules require objectivity and forbid defending a COA because you developed it or comparing COAs. The Ex-O controls, the S3 plays the friendly commander and the S2 plays the enemy. COA comparison weighs COAs against the agreed criteria, and in a decision matrix the lowest total is the most desirable COA. If the staff cannot agree, the Ex-O decides which COA to recommend.",
+          "remember": [
+            "The matrix is a tool, not the decision, and rests on subjective judgments.",
+            "The belt method is the commander's usual preference when terrain has clear cross-compartments."
+          ],
+          "trap": "Comparing COAs during the war game or choosing the highest matrix total.",
+          "pages": [
+            10,
+            11
+          ]
+        },
+        {
+          "title": "Steps 6 and 7 and the Signal officer's contribution",
+          "explanation": "At COA approval the commander approves, modifies or rejects the COAs and issues final planning guidance, and the staff sends WARNORD 3. A modified or new COA is war-gamed before it is recommended. At orders production the COA statement becomes the concept of operations, the order is reconciled internally, crosswalked externally, approved, and handed to current operations. The Signal officer contributes through the C4S running estimate, assesses network operations, spectrum management, network defense and information protection, plans PACE means, recommends EEFIs and prepares Annex H.",
+          "remember": [
+            "Annexes are reviewed before the base order is signed.",
+            "The S6 plans communications for reports from collection assets to command posts."
+          ],
+          "trap": "Confusing reconciliation (internal agreement of the order and annexes) with the crosswalk (external check with higher and adjacent orders).",
+          "pages": [
+            11,
+            12,
+            13,
+            14
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "An order arrives 72 hours before execution. How is time divided under the one-third / two-thirds rule?",
+          "answer": "About 24 hours for the battalion and about 48 hours for subordinate companies.",
+          "reasoning": "Commanders keep one-third for their own headquarters and give at least two-thirds to subordinates for planning and preparation.",
+          "pages": [
+            7
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "Name the five COA screening criteria.",
+          "answer": "Feasible, acceptable, suitable, distinguishable and complete.",
+          "reasoning": "Each COA is tested against these criteria before it continues to analysis.",
+          "pages": [
+            9
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "In a decision matrix, which total indicates the most desirable COA?",
+          "answer": "The lowest total.",
+          "reasoning": "Each COA is ranked against each criterion with 1 as best, multiplied by the weight and added across.",
+          "pages": [
+            11
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "What does PACE stand for in signal planning?",
+          "answer": "Primary, alternate, contingency and emergency means of communication.",
+          "reasoning": "The S6 plans these means for each requirement and shows how each COA changes them.",
+          "pages": [
+            2,
+            14
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "During a war game, an officer wants to settle which COA is best right now. What should the controller do?",
+          "answer": "Hold the comparison for Step 5 and keep recording advantages and disadvantages.",
+          "reasoning": "War-gaming rules forbid comparing COAs during the war game, and the comparison uses criteria agreed in advance.",
+          "pages": [
+            10,
+            11
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A COA sketch shows boundaries and the main effort but no command post or communications node. What should the S6 do?",
+          "answer": "Make sure command posts and critical communications nodes are added and node movement times are set in the war game.",
+          "reasoning": "The sketch is where supportability of communications is first visible, and the S6 should raise gaps while they can still shape the COA.",
+          "pages": [
+            9,
+            14
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "The commander modifies a COA at approval. What must happen before the staff recommends it?",
+          "answer": "War-game the modified COA, then issue final planning guidance and WARNORD 3.",
+          "reasoning": "A modified or new COA is war-gamed before the staff recommends it.",
+          "pages": [
+            11
+          ]
+        }
+      ],
+      "checklist": [
+        "List the seven steps in order and the three steps that end in a warning order.",
+        "Sort a set of tasks into specified, implied and essential, and place constraints, facts and assumptions.",
+        "Explain who plays which role in the war game and what the S6 assesses for each COA."
+      ]
+    }
   }
 }
