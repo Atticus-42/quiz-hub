@@ -155,6 +155,7 @@
       </div>
       <p id="pool-note" class="section-intro" hidden></p>
       <button type="button" id="refresh" class="secondary">Refresh</button>
+      <button type="button" id="retry" class="secondary" hidden>Retry</button>
       <noscript><p class="status">JavaScript is needed to load the question analysis.</p></noscript>
       <p id="status" class="status" role="status" aria-live="polite">Loading the question analysis…</p>
       </div>
@@ -195,7 +196,6 @@
 
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
 
-  <script type="application/json" id="item-data">{{ITEM_DATA}}</script>
   <script>
   (function () {
     'use strict';
@@ -216,14 +216,14 @@
 
     function byId(id) { return document.getElementById(id); }
 
-    var DATA = (function () {
-      try { return JSON.parse(byId('item-data').textContent); } catch (error) { return { modules: [], questions: {} }; }
-    }());
+    // The question text lives in items.json beside this page; it is fetched before the first full render.
+    var DATA_URL = 'items.json';
+    var DATA = { modules: [], questions: {} };
     var lessonNames = {};
-    DATA.modules.forEach(function (module) { module.lessons.forEach(function (lesson) { lessonNames[lesson.key] = lesson.name; }); });
 
     var state = {
-      module: DATA.modules.length ? DATA.modules[0].id : null,
+      module: null,
+      data: 'loading',
       lesson: 'all',
       mode: 'all',
       sort: { key: 'rate', dir: 'desc' },
@@ -459,7 +459,7 @@
     function render() {
       renderChips();
       var status = byId('status');
-      var ready = state.status === 'ready';
+      var ready = state.data === 'ready' && state.status === 'ready';
       var entries = ready ? sortEntries(buildEntries(state.stats), state.sort) : [];
       var copy = {
         idle: '',
@@ -468,15 +468,18 @@
         unavailable: 'Question analysis is not available yet. The class history script must first be updated to version 7 (apps-script/Code.gs; see apps-script/SETUP.md). Attempts finished after that update are counted per question.',
         error: 'Could not load the question analysis. Check your connection, then select Refresh.'
       };
-      if (ready) {
+      if (state.data !== 'ready') {
+        status.textContent = state.data === 'error' ? 'Could not load the question list. Check your connection, then select Retry.' : 'Loading the questions…';
+      } else if (ready) {
         var asked = entries.reduce(function (sum, entry) { return sum + entry.asked; }, 0);
         var flagged = entries.filter(function (entry) { return entry.review; }).length;
         status.textContent = 'Showing ' + entries.length + ' question' + (entries.length === 1 ? '' : 's') + ' (' + asked + ' answers counted). ' + flagged + ' flagged for review.';
       } else {
         status.textContent = copy[state.status];
       }
-      status.className = 'status status-' + state.status;
-      byId('refresh').disabled = state.status === 'loading' || !ENDPOINT;
+      status.className = 'status status-' + (state.data === 'ready' ? state.status : state.data === 'error' ? 'error' : 'loading');
+      byId('retry').hidden = state.data !== 'error';
+      byId('refresh').disabled = state.data !== 'ready' || state.status === 'loading' || !ENDPOINT;
       byId('items-card').hidden = !ready;
       byId('most-missed-card').hidden = !ready;
       setChildren(byId('items-body'), entries.map(rowNode));
@@ -503,7 +506,42 @@
       return ENDPOINT + (ENDPOINT.indexOf('?') === -1 ? '?' : '&') + 'action=items&lesson=all';
     }
 
+    // The one network call site: a credential-free GET of a JSON document.
+    function getJson(url, cache) {
+      var fetchFn = typeof window.fetch === 'function' ? window.fetch : null;
+      if (!fetchFn) return Promise.reject(new Error('no fetch'));
+      return Promise.resolve().then(function () {
+        return fetchFn(url, { method: 'GET', cache: cache, credentials: 'omit' });
+      }).then(function (response) {
+        if (!response || !response.ok) throw new Error('HTTP error');
+        return response.json();
+      });
+    }
+
+    function setData(body) {
+      if (!body || typeof body !== 'object' || !Array.isArray(body.modules) || !body.questions || typeof body.questions !== 'object') throw new Error('bad data');
+      DATA = body;
+      lessonNames = {};
+      DATA.modules.forEach(function (module) { module.lessons.forEach(function (lesson) { lessonNames[lesson.key] = lesson.name; }); });
+      state.module = DATA.modules.length ? DATA.modules[0].id : null;
+    }
+
+    function loadItems() {
+      state.data = 'loading';
+      render();
+      return track(getJson(DATA_URL, 'default').then(setData).then(function () {
+        state.data = 'ready';
+        render();
+        return true;
+      }, function () {
+        state.data = 'error';
+        render();
+        return false;
+      }));
+    }
+
     function load() {
+      if (state.data !== 'ready') return loadItems().then(function (ok) { return ok ? load() : false; });
       if (!ENDPOINT) {
         state.status = 'not-configured';
         render();
@@ -512,13 +550,7 @@
       var request = ++state.request;
       state.status = 'loading';
       render();
-      var fetchFn = typeof window.fetch === 'function' ? window.fetch : null;
-      var promise = !fetchFn ? Promise.reject(new Error('no fetch')) : Promise.resolve().then(function () {
-        return fetchFn(itemsUrl(), { method: 'GET', cache: 'no-store', credentials: 'omit' });
-      }).then(function (response) {
-        if (!response || !response.ok) throw new Error('HTTP error');
-        return response.json();
-      });
+      var promise = getJson(itemsUrl(), 'no-store');
       return track(promise.then(function (body) {
         if (request !== state.request) return false;
         var parsed = parseItemsResponse(body);
@@ -572,6 +604,7 @@
       ['all'].concat(MODES).forEach(function (mode) { byId('mode-' + mode).addEventListener('click', function () { setMode(mode); }); });
       ['question', 'lesson', 'topic', 'asked', 'missed', 'rate'].forEach(function (key) { byId('sort-' + key).addEventListener('click', function () { setSort(key); }); });
       byId('refresh').addEventListener('click', function () { load(); });
+      byId('retry').addEventListener('click', function () { load(); });
       render();
       return load();
     }

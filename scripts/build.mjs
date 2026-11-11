@@ -722,7 +722,6 @@ export function renderInstructor(template, contours, modules, lessons, { endpoin
     BASE_CSS: baseCss(base, '../assets/'),
     FONT_PRELOAD: fontPreloads('../assets/'),
     CONTOURS: contours.trim(),
-    ITEM_DATA: scriptJson(instructorData(modules, lessons)),
     HISTORY_ENDPOINT: endpoint,
   });
 }
@@ -1094,6 +1093,8 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
     html = html.replace('</body>', '<aside class="domain-seal" aria-label="Site signature"><img class="domain-sigil" src="' + up + 'assets/domain-void-hand-320.webp" width="160" height="221" alt="" loading="lazy" decoding="async"><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>“You see, but you do not observe.”</em><cite data-domain-attribution>— Sherlock Holmes · A Scandal in Bohemia · Arthur Conan Doyle</cite></span></aside>\n</body>');
     pages[path] = html.replace('</body>', '<script src="' + up + 'assets/identity.js" defer></script>\n</body>');
   }
+  // The instructor page fetches its question text from this sibling file (kept out of the 1 MB page).
+  pages['instructor/items.json'] = JSON.stringify(instructorData(modules, lessons)) + '\n';
   if (write) {
     for (const [path, html] of Object.entries(pages)) {
       mkdirSync(dirname(join(out, path)), { recursive: true });

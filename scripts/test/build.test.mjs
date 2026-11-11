@@ -98,13 +98,14 @@ export async function buildSuite({ lessons, modules }) {
       '2026-12-07', '2026-12-14', '2026-12-21', '2026-12-28', '2027-01-04'];
     const expectedPages = ['index.html', 'class/index.html', 'schedule/index.html',
       ...scheduleWeeks.map(start => `schedule-${start}/index.html`),
-      'instructor/index.html', 'codes-ciphers/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
+      'instructor/index.html', 'instructor/items.json', 'codes-ciphers/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
     const howtoPages = JSON.parse(readFileSync(join(ROOT, 'data/howto.json'), 'utf8')).map(guide => `how-to/${guide.id}/index.html`);
     const studyPages = [...howtoPages, 'how-to/index.html', 'los-radios/index.html', 'library/index.html', 'library/unit-organization/index.html', 'reviewer/index.html', ...lessons.filter(lesson => !lesson.pool && !(lesson.prominent && lesson.order === 0)).map(lesson => `reviewer/${lesson.key}/index.html`)];
     assert.deepEqual(Object.keys(pages).sort(), [...expectedPages, ...studyPages].sort());
     for (const slug of ['isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal', 'coalition-signal', 'combined']) assert.ok(expectedPages.includes(`${slug}/index.html`), slug);
     for (const [path, html] of Object.entries(pages)) {
       assert.equal(readFileSync(join(ROOT, path), 'utf8'), html, `${path} is stale: run node scripts/build.mjs`);
+      if (path.endsWith('.json')) continue;
       if (studyPages.includes(path) || ['class/index.html', 'codes-ciphers/index.html'].includes(path) || /^schedule(?:-\d{4}-\d{2}-\d{2})?\//.test(path)) assert.ok(!html.includes('HISTORY_ENDPOINT') && !html.includes('script.google.com'), `${path} never contacts the history endpoint`);
       else assert.equal(html.split(`var HISTORY_ENDPOINT = '${HISTORY_ENDPOINT}';`).length - 1, 1, `${path} declares the endpoint once`);
       assert.doesNotMatch(html, /\{\{[A-Z_]+\}\}/, `${path} has no unfilled placeholder`);
@@ -192,7 +193,7 @@ export async function buildSuite({ lessons, modules }) {
       assert.ok(panel.indexOf('id="card-signal"') < panel.indexOf('id="card-signaljoint"'), 'second Module 4 lesson after Signal Support');
       assert.match(panel, /<a class="start-link" href="joint-signal\/">/);
       assert.match(hub, /3 lessons \+ Module 4 Exam<\/span>/);
-      assert.match(readFileSync(join(fixture, 'instructor', 'index.html'), 'utf8'), /signaljoint:hard:signaljoint-h-04/);
+      assert.match(readFileSync(join(fixture, 'instructor', 'items.json'), 'utf8'), /signaljoint:hard:signaljoint-h-04/);
       assert.match(readFileSync(join(ROOT, 'apps-script', 'Code.gs'), 'utf8'), /signaljoint: 'Signal Joint Operations History'/, 'the sheet already knows the lesson');
     } finally {
       rmSync(fixture, { recursive: true, force: true });

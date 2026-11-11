@@ -11,10 +11,14 @@ export async function instructorSuite({ lessons }) {
   const builtHtml = readFileSync(join(ROOT, 'instructor', 'index.html'), 'utf8');
   const configured = withEndpoint(builtHtml, TEST_ENDPOINT);
   const armor = lessons.find(lesson => lesson.key === 'armor');
+  const itemData = JSON.parse(readFileSync(join(ROOT, 'instructor', 'items.json'), 'utf8'));
   const id = (lesson, mode, question) => `${lesson.key}:${mode}:${question.qid}`;
 
   function load(body, { html = configured, fail = false, status = 200 } = {}) {
-    const fetch = fakeFetch(() => { if (fail) throw new Error('offline'); return { status, body }; });
+    const fetch = fakeFetch(call => {
+      if (call.url === 'items.json') return { body: itemData };   // the page's own question file, fetched by relative URL
+      if (fail) throw new Error('offline'); return { status, body };
+    });
     const page = runPage(html, { fetch });
     const api = page.window.__instructor;
     assert.ok(api, 'the page exposes globalThis.__instructor');
@@ -47,10 +51,10 @@ export async function instructorSuite({ lessons }) {
       { qid: 'armor:easy:armor-e-99', lesson: 'armor', mode: 'easy', asked: 2, missed: 2 },
     ]));
     await page.api.whenSettled();
-    assert.equal(page.fetch.calls.length, 1);
-    assert.equal(page.fetch.calls[0].url, `${TEST_ENDPOINT}?action=items&lesson=all`);
-    assert.equal(page.fetch.calls[0].method, 'GET');
-    assert.equal(page.fetch.calls[0].init.credentials, 'omit');
+    assert.equal(page.fetch.calls.length, 2);
+    assert.equal(page.fetch.calls[0].url, 'items.json');
+    assert.equal(page.fetch.calls[1].url, `${TEST_ENDPOINT}?action=items&lesson=all`);
+    for (const call of page.fetch.calls) { assert.equal(call.method, 'GET'); assert.equal(call.init.credentials, 'omit'); }
     const state = page.api.getState();
     assert.equal(state.status, 'ready');
     assert.equal(state.module, 'module-1');
@@ -149,7 +153,7 @@ export async function instructorSuite({ lessons }) {
     assert.equal(http.api.getState().status, 'error');
     const none = load(itemsBody([]), { html: withEndpoint(builtHtml, '') });
     await none.api.whenSettled();
-    assert.equal(none.fetch.calls.length, 0, 'no request without an endpoint');
+    assert.deepEqual(none.fetch.calls.map(call => call.url), ['items.json'], 'no request without an endpoint except the own question file');
     assert.equal(none.api.getState().status, 'not-configured');
     assert.equal(none.byId('refresh').disabled, true);
   });
@@ -162,7 +166,7 @@ export async function instructorSuite({ lessons }) {
       const missed = asked.slice(0, 3 + (round % 2));
       assert.deepEqual(gs.post({ lesson: 'armor', name: 'Cadet One', mode: 'medium', score: asked.length - missed.length, total: asked.length, band: 'Proficient', asked, missed }), { ok: true });
     }
-    const fetch = fakeFetch(call => ({ body: gs.get(Object.fromEntries(new URL(call.url).searchParams)) }));
+    const fetch = fakeFetch(call => call.url === 'items.json' ? { body: itemData } : ({ body: gs.get(Object.fromEntries(new URL(call.url).searchParams)) }));
     const page = runPage(configured, { fetch });
     await page.window.__instructor.whenSettled();
     page.window.__instructor.setModule('module-2');
@@ -180,7 +184,10 @@ export async function instructorSuite({ lessons }) {
     assert.deepEqual([...withoutFontPreloads(builtHtml).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../assets/identity.css', '../', '../']);
     const urls = [...builtHtml.matchAll(/https?:\/\/[^\s"'<>)]+/g)].map(m => m[0]);
     assert.ok(urls.every(url => url.startsWith('https://script.google.com/')), urls.join(' '));
-    const data = JSON.parse(builtHtml.match(/<script type="application\/json" id="item-data">([\s\S]*?)<\/script>/)[1]);
+    assert.doesNotMatch(builtHtml, /id="item-data"/, 'the question text is no longer embedded');
+    assert.ok(builtHtml.length < 150000, `the page stays small (${builtHtml.length} bytes)`);
+    assert.match(builtHtml, /var DATA_URL = 'items\.json';/, 'a relative URL, no scheme or host');
+    const data = itemData;
     const count = lessons.filter(lesson => !lesson.pool).reduce((sum, lesson) => sum + MODES.reduce((s, mode) => s + lesson.banks[mode].length, 0), 0);
     assert.equal(Object.keys(data.questions).length, count);
     assert.ok(Object.keys(data.questions).every(key => /^[a-z][a-z0-9]{1,23}:(easy|medium|hard):[a-z][a-z0-9]{1,23}-[emh]-[0-9]{2,4}$/.test(key)));
