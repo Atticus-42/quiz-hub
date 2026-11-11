@@ -324,7 +324,7 @@
       grid-template-columns: var(--rail) minmax(0, 6fr) minmax(0, 3fr);
       column-gap: var(--col-gap);
       align-items: start;
-      padding-block: var(--space-7) var(--space-7);
+      padding-block: var(--space-6) var(--space-6);
     }
     .hero-rail { min-width: 0; padding-top: 0.5rem; }
     .hero-rail p { margin: 0 0 var(--space-1); }
@@ -332,8 +332,8 @@
     .rail-ed { color: var(--color-muted); }
     .hero-copy { min-width: 0; }
     .eyebrow { margin: 0 0 var(--space-3); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
-    h1 { margin: 0 0 var(--space-5); font-size: var(--text-h1); line-height: 0.98; letter-spacing: -0.022em; }
-    .hero-lede { max-width: 40rem; margin: 0; font-size: var(--text-body); line-height: 1.55; }
+    h1 { margin: 0 0 var(--space-4); max-width: 14ch; font-size: clamp(2.44rem, 1.6rem + 3vw, 4.2rem); line-height: 0.98; letter-spacing: -0.024em; }
+    .hero-lede { max-width: 38rem; margin: 0; font-size: var(--text-body); line-height: 1.55; text-wrap: pretty; }
     .hero-meta { display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-7); margin: var(--space-5) 0 0; padding-top: var(--space-3); border-top: 1px solid var(--color-text); }
     .hero-meta dt { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
     .hero-meta dd { margin: var(--space-1) 0 0; font-family: var(--font-mono); font-size: 0.9375rem; font-weight: 500; font-variant-numeric: tabular-nums; }
@@ -359,7 +359,7 @@
     .crest-bars i:nth-child(2) { height: 9px; }
     .crest-bars i:nth-child(3) { height: 14px; }
     .crest-mount { position: relative; display: grid; place-items: center; padding: 1.25rem .75rem; }
-    .crest-mount img { position: relative; display: block; width: 100%; max-width: 18rem; height: auto; aspect-ratio: 1; object-fit: contain; filter: drop-shadow(0 6px 5px #1e211b26); }
+    .crest-mount img { position: relative; display: block; width: 100%; max-width: 14rem; height: auto; aspect-ratio: 1; object-fit: contain; filter: drop-shadow(0 6px 5px #1e211b26); }
     .crest-caption { position: relative; text-align: center; border-top: 1px solid var(--color-rule); padding-top: .8rem; }
     .crest-name { display: block; font-size: clamp(1.2rem, 1rem + .6vw, 1.6rem); font-weight: 600; line-height: 1.1; }
     .crest-motto { display: block; margin-top: .5rem; color: var(--color-muted); font-family: var(--font-mono); font-size: .625rem; letter-spacing: .09em; text-transform: uppercase; line-height: 1.7; }
@@ -372,44 +372,138 @@
     /* "Step 1": the manual's section number, set in the rail. */
     .step-num { display: block; margin-bottom: var(--space-2); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-signal-text); }
     .heading-module { display: block; margin-top: var(--space-1); color: var(--color-muted); font-weight: 500; }
+    .heading-subject { display: block; margin-top: var(--space-1); color: var(--color-text); font-size: var(--text-ui); font-weight: 500; }
     .exam-panel, .history-panel { display: grid; grid-template-columns: var(--rail) var(--body); column-gap: var(--col-gap); padding-block: var(--space-7); border-top: 1px solid var(--color-text); }
     .exam-panel[hidden], .history-panel[hidden] { display: none; }
 
-    /* Step 1: the module volumes (links to #module-N, so they also work without JavaScript). */
-    .module-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--col-gap); margin: 0; padding: 0; list-style: none; }
-    .module-grid > li { display: flex; min-width: 0; }
+    /* Step 1: the module index. A ruled 3-up grid of index tabs (links to #module-N, so they also work without
+       JavaScript): a Mono numeral, the subject, the lesson count, the lesson list (two lines), class attempts,
+       and a 3px device-progress rule on the bottom edge. Hairlines divide the cells; nothing is boxed. */
+    .module-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--color-text); }
+    .module-grid > li { display: flex; min-width: 0; border-bottom: 1px solid var(--color-hairline); }
+    .module-grid > li:not(:nth-child(3n + 1)) { border-left: 1px solid var(--color-hairline); }
     .module-card {
+      --module-colour: var(--color-olive-dark);
       position: relative;
-      display: flex; flex-direction: column; gap: var(--space-2); width: 100%;
-      min-height: 44px;
-      padding: var(--space-4) var(--space-5) var(--space-5) var(--space-6);
+      display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto auto 1fr auto; column-gap: var(--space-4); align-content: start;
+      width: 100%; min-height: 44px;
+      padding: var(--space-4) var(--space-4) var(--space-4) var(--space-5);
       background: var(--color-surface); color: var(--color-text); text-decoration: none;
-      border: 1px solid var(--color-text);
       transition: background-color var(--speed) var(--ease), color var(--speed) var(--ease);
     }
-    /* The spine. */
-    .module-card::before { content: ""; position: absolute; top: -1px; bottom: -1px; left: -1px; width: 0.75rem; background: var(--color-olive-dark); transition: background-color var(--speed) var(--ease); }
+    /* The spine: the module's filing colour (a graphic, >= 3:1 on paper), orange on hover and when chosen. */
+    .module-card::before { content: ""; position: absolute; top: var(--space-4); bottom: var(--space-4); left: 0; width: 3px; background: var(--module-colour); transition: background-color var(--speed) var(--ease), top var(--speed) var(--ease), bottom var(--speed) var(--ease); }
     .module-card:hover { background: var(--color-sunken); color: var(--color-text); }
-    .module-card:hover::before { background: var(--color-signal); }
-    .vol-head { display: flex; justify-content: space-between; gap: var(--space-3); padding-bottom: var(--space-2); border-bottom: 1px solid currentColor; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
-    .vol-num { margin: var(--space-5) 0 var(--space-2); font-family: var(--font-mono); font-size: clamp(4.5rem, 3rem + 5vw, 8rem); font-weight: 500; line-height: 0.82; letter-spacing: -0.06em; }
-    .module-card .card-kicker { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-signal-text); }
-    .module-title { font-size: var(--text-h2); font-weight: 600; line-height: 1.05; letter-spacing: -0.015em; }
-    .module-card .card-desc { max-width: 34rem; font-size: var(--text-ui); line-height: 1.5; color: var(--color-muted); }
-    .module-note { align-self: flex-start; max-width: 100%; white-space: normal; color: var(--color-muted); }
-    .module-overview { min-height: 1.5em; font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
+    .module-card:hover::before { top: 0; bottom: 0; background: var(--color-signal); }
+    .module-card:active { background: var(--color-selected); }
+    .vol-num { grid-row: 1 / span 2; align-self: start; font-family: var(--font-mono); font-size: 2.75rem; font-weight: 500; line-height: 0.86; letter-spacing: -0.05em; color: var(--module-colour); font-variant-numeric: tabular-nums; min-width: 2ch; }
+    .module-title { display: flex; flex-direction: column; gap: 0.125rem; min-width: 0; }
+    .module-label { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    .module-subject { font-size: var(--text-h4); font-weight: 600; line-height: 1.12; letter-spacing: -0.01em; text-wrap: balance; }
+    .module-card .card-kicker { margin: var(--space-1) 0 0; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-signal-text); }
+    .module-card .card-desc {
+      grid-column: 1 / -1; margin: var(--space-3) 0 0; max-width: none;
+      font-size: var(--text-meta); line-height: 1.45; color: var(--color-muted);
+      display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; overflow: hidden;
+    }
+    .module-foot { grid-column: 1 / -1; display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-3); padding-top: var(--space-2); border-top: 1px dotted var(--color-rule); }
+    .module-overview { min-width: 0; min-height: 1.4em; font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-muted); }
     .module-overview.stat-error { color: var(--color-muted); }
-    .module-cta { display: flex; align-items: center; justify-content: space-between; gap: var(--space-2); margin-top: auto; padding-top: var(--space-3); border-top: 1px solid currentColor; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
-    .module-cta .arrow::before { content: "\2192"; font-size: 1rem; letter-spacing: 0; }
+    .module-cta { flex: none; display: inline-flex; align-items: baseline; gap: var(--space-2); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    .module-cta .arrow::before { content: "\2192"; font-size: 1rem; letter-spacing: 0; display: inline-block; transition: transform var(--speed) var(--ease); }
+    .module-card:hover .module-cta .arrow::before { transform: translateX(3px); }
     .module-cta .cta-selected { display: none; }
+    /* Device progress: share of the module's questions seen in this browser (set by the enhancement script). */
+    .module-progress { position: absolute; left: 0; right: 0; bottom: -1px; height: 3px; pointer-events: none; }
+    .module-progress span { display: block; width: var(--seen, 0%); height: 100%; background: var(--color-signal); }
     .module-card[aria-current="true"] { background: var(--color-olive-dark); color: var(--color-paper); }
-    .module-card[aria-current="true"]::before { background: var(--color-signal); }
-    .module-card[aria-current="true"] .card-desc, .module-card[aria-current="true"] .module-overview, .module-card[aria-current="true"] .module-note { color: var(--color-khaki); }
+    .module-card[aria-current="true"]::before { top: 0; bottom: 0; background: var(--color-signal); }
+    .module-card[aria-current="true"] .vol-num { color: var(--color-paper); }
+    .module-card[aria-current="true"] .card-desc, .module-card[aria-current="true"] .module-overview, .module-card[aria-current="true"] .module-label { color: var(--color-khaki); }
     .module-card[aria-current="true"] .card-kicker { color: var(--color-signal-light); }
+    .module-card[aria-current="true"] .module-foot { border-top-color: var(--color-khaki); }
     .module-card[aria-current="true"] .cta-choose { display: none; }
-    .module-card[aria-current="true"] .cta-selected { display: inline; }
+    .module-card[aria-current="true"] .cta-selected { display: inline; color: var(--color-signal-light); }
     .module-card[aria-current="true"] .cta-selected::before { content: ""; display: inline-block; width: 0.5rem; height: 0.5rem; margin-right: 0.5rem; background: var(--color-signal-light); }
+    .module-card[aria-current="true"] .arrow { display: none; }
     .module-card[aria-current="true"]:focus-visible { outline-color: var(--color-signal); }
+    .module-card:focus-visible { z-index: 1; outline-offset: -3px; }
+
+    /* Quick finder: type a topic ("radar") to list matching exams across every module. Hidden without JavaScript. */
+    .finder { margin: 0 0 var(--space-5); }
+    .finder-label { display: block; margin-bottom: var(--space-2); color: var(--color-muted); }
+    .finder-field { position: relative; display: flex; align-items: center; max-width: 36rem; }
+    .finder-field::before { content: "\2315"; position: absolute; left: var(--space-3); top: 50%; transform: translateY(-52%); font-family: var(--font-mono); font-size: 1.125rem; color: var(--color-muted); pointer-events: none; }
+    .finder input {
+      width: 100%; min-height: 48px; padding: var(--space-2) 3rem var(--space-2) 2.5rem;
+      border: 1px solid var(--color-rule); border-radius: var(--radius); background: var(--color-paper); color: var(--color-text);
+      font: inherit; font-size: var(--text-ui);
+      transition: border-color var(--speed) var(--ease), box-shadow var(--speed) var(--ease);
+      -webkit-appearance: none; appearance: none;
+    }
+    .finder input::placeholder { color: var(--color-muted); opacity: 1; }
+    .finder input:hover { border-color: var(--color-text); }
+    .finder input:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 0; border-color: var(--color-text); }
+    .finder input::-webkit-search-cancel-button { -webkit-appearance: none; }
+    .finder-field kbd { position: absolute; right: var(--space-3); pointer-events: none; color: var(--color-muted); }
+    .finder-field:focus-within kbd { visibility: hidden; }
+    .finder-results { margin: var(--space-3) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--color-text); max-width: 48rem; }
+    .finder-results li { border-bottom: 1px solid var(--color-hairline); }
+    .finder-results a {
+      display: grid; grid-template-columns: 2.5rem minmax(0, 1fr) auto; column-gap: var(--space-3); align-items: baseline;
+      min-height: 48px; padding: var(--space-2) var(--space-2) var(--space-2) 0;
+      color: var(--color-text); text-decoration: none;
+    }
+    .finder-results a:hover, .finder-results a:focus-visible { background: var(--color-sunken); }
+    .finder-results a:focus-visible { outline-offset: -3px; }
+    .finder-mod { font-family: var(--font-mono); font-size: var(--text-meta); font-weight: 500; color: var(--color-signal-text); text-align: right; }
+    .finder-title { font-weight: 600; }
+    .finder-why { grid-column: 2; display: block; font-size: var(--text-meta); color: var(--color-muted); }
+    .finder-go { grid-row: 1; grid-column: 3; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; white-space: nowrap; }
+    .finder-go::after { content: "\00a0\2192"; }
+    .finder mark { background: transparent; color: inherit; text-decoration: underline; text-decoration-color: var(--color-signal); text-decoration-thickness: 2px; text-underline-offset: 0.18em; }
+    .finder-empty { margin: var(--space-3) 0 0; color: var(--color-muted); font-size: var(--text-meta); }
+
+    /* Briefing band: today on the schedule (from data/schedule.json at build time, Manila date in the browser)
+       and the lessons this browser has started (read-only from the quiz's own device progress). */
+    .brief { display: grid; grid-template-columns: var(--rail) var(--body); column-gap: var(--col-gap); padding-block: var(--space-5) var(--space-6); border-top: 1px solid var(--color-text); }
+    .brief-head { min-width: 0; }
+    .brief-head .step-num { margin-bottom: var(--space-1); }
+    .brief-date { display: block; font-size: var(--text-h4); font-weight: 600; line-height: 1.15; }
+    .brief-body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--col-gap); row-gap: var(--space-5); min-width: 0; }
+    .brief-body.single { grid-template-columns: minmax(0, 1fr); }
+    .brief-col { min-width: 0; }
+    .brief-col > .label { margin: 0 0 var(--space-2); color: var(--color-muted); }
+    .brief-list { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--color-hairline); }
+    .brief-list li { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr) auto; column-gap: var(--space-3); align-items: baseline; padding: var(--space-2) 0; border-bottom: 1px solid var(--color-hairline); }
+    .brief-time { font-family: var(--font-mono); font-size: var(--text-meta); font-weight: 500; font-variant-numeric: tabular-nums; color: var(--color-muted); }
+    .brief-what { min-width: 0; font-weight: 500; line-height: 1.3; }
+    .brief-what .tag { margin-left: var(--space-2); color: var(--color-signal-text); vertical-align: 0.1em; }
+    .brief-act { display: inline-flex; align-items: center; min-height: 44px; margin-block: calc(-1 * var(--space-2)); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-accent); white-space: nowrap; }
+    .brief-act::after { content: "\00a0\2192"; }
+    .brief-quiet { margin: 0; padding: var(--space-2) 0; color: var(--color-muted); border-bottom: 1px solid var(--color-hairline); }
+    .brief-more { display: inline-flex; align-items: center; min-height: 44px; margin-top: var(--space-1); color: var(--color-text); font-weight: 600; text-underline-offset: 0.3em; }
+    .brief-more::after { content: "\00a0\2192"; font-family: var(--font-mono); color: var(--color-signal-text); }
+    .brief-more:hover { color: var(--color-accent); }
+    .continue-list li { grid-template-columns: minmax(0, 1fr) 6.5rem auto; }
+    .continue-meter { display: block; height: 3px; margin-top: var(--space-1); background: var(--color-hairline); }
+    .continue-meter span { display: block; height: 100%; width: var(--seen, 0%); background: var(--color-signal); }
+    .continue-count { font-family: var(--font-mono); font-size: var(--text-meta); font-variant-numeric: tabular-nums; color: var(--color-muted); text-align: right; }
+    .brief-note { margin: var(--space-2) 0 0; font-size: var(--text-meta); color: var(--color-muted); }
+    .tag-progress { color: var(--color-accent) !important; border-color: currentColor !important; }
+    .tag-progress.is-done { color: var(--color-correct) !important; }
+
+    /* Module jump row in the masthead: the fastest path to a module (also plain fragment links). */
+    .module-jump { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-1); margin: var(--space-5) 0 0; padding: 0; list-style: none; }
+    .module-jump .label { margin-right: var(--space-2); color: var(--color-muted); }
+    .module-jump a {
+      display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 var(--space-2);
+      border: 1px solid var(--color-rule); border-radius: var(--radius); color: var(--color-text); background: var(--color-paper);
+      font-family: var(--font-mono); font-size: var(--text-meta); font-weight: 600; font-variant-numeric: tabular-nums; text-decoration: none;
+      transition: background-color var(--speed) var(--ease), border-color var(--speed) var(--ease), color var(--speed) var(--ease);
+    }
+    .module-jump a:hover { border-color: var(--color-text); background: var(--color-sunken); color: var(--color-text); }
+    .module-jump a[aria-current="true"] { background: var(--color-olive-dark); border-color: var(--color-olive-dark); color: var(--color-paper); }
 
     /* Step 2: one exam panel per module, set as a table of contents. */
     .change-module {
@@ -497,19 +591,44 @@
     @media (max-width: 1023px) {
       .hero-inner { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
       .hero-rail { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 0 var(--space-5); margin-bottom: var(--space-4); padding-top: 0; }
+    }
+    @media (max-width: 1180px) {
       .toc-head, .exam-card { grid-template-columns: 3.5rem minmax(0, 1fr) 10rem; }
       .toc-head > :nth-child(3) { display: none; }
       .card-stats { grid-column: 2; grid-row: 2; margin-top: var(--space-3); }
       .start-link { grid-column: 3; grid-row: 1; }
     }
+    @media (max-width: 1180px) {
+      .module-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .module-grid > li:not(:nth-child(3n + 1)) { border-left: 0; }
+      .module-grid > li:nth-child(2n) { border-left: 1px solid var(--color-hairline); }
+    }
     @media (max-width: 900px) {
-      .exam-panel, .history-panel { grid-template-columns: 1fr; row-gap: var(--space-4); padding-block: var(--space-6); }
+      .exam-panel, .history-panel, .brief { grid-template-columns: 1fr; row-gap: var(--space-4); padding-block: var(--space-6); }
+      .brief { padding-block: var(--space-5); }
     }
     @media (max-width: 760px) {
       .hero-inner { grid-template-columns: 1fr; padding-block: var(--space-5); }
-      .hero-art { width: 100%; max-width: 17rem; margin: var(--space-5) auto 0; }
-      .module-grid { grid-template-columns: 1fr; }
-      .module-card { padding: var(--space-3) var(--space-4) var(--space-4) var(--space-5); }
+      .hero-art { width: 100%; max-width: 15rem; margin: var(--space-5) auto 0; }
+      .brief-body { grid-template-columns: minmax(0, 1fr); }
+    }
+    /* Phones: the index becomes a list of tall-enough rows (numeral, subject, count); the lesson list folds away. */
+    @media (max-width: 600px) {
+      .module-grid { grid-template-columns: minmax(0, 1fr); }
+      .module-grid > li:nth-child(2n) { border-left: 0; }
+      .module-card { grid-template-rows: auto auto auto; padding: var(--space-3) var(--space-2) var(--space-3) var(--space-4); column-gap: var(--space-3); }
+      .module-card::before { top: var(--space-3); bottom: var(--space-3); }
+      .vol-num { font-size: 2rem; }
+      .module-card .card-desc { display: none; }
+      .module-foot { margin-top: var(--space-2); padding-top: var(--space-1); border-top: 0; grid-column: 2; }
+      .brief-list li { grid-template-columns: 4.5rem minmax(0, 1fr); }
+      .brief-list .brief-act { grid-column: 2; justify-self: start; }
+      .continue-list li { grid-template-columns: minmax(0, 1fr) auto; }
+      .continue-list .continue-count { grid-column: 2; grid-row: 1; }
+      .finder-results a { grid-template-columns: 2.25rem minmax(0, 1fr); }
+      .finder-go { display: none; }
+    }
+    @media (max-width: 760px) {
       .toc-head { display: none; }
       .exam-grid { border-top: 1px solid var(--color-text); }
       .exam-card { grid-template-columns: 2.75rem minmax(0, 1fr); row-gap: var(--space-3); padding-inline: 0; }
@@ -540,7 +659,8 @@
       @page { margin: 16mm 14mm; }
       html, body { background: #ffffff; }
       .topo, .banner, .class-photo, .change-module, .module-cta, .site-footer { display: none !important; }
-      .strip, .hero-art, .skip-link, .history-filters, #history-refresh, noscript { display: none !important; }
+      .strip, .hero-art, .skip-link, .history-filters, #history-refresh, noscript, .brief, .finder, .module-jump, .module-progress { display: none !important; }
+      .module-card .card-desc { display: block; -webkit-line-clamp: unset; line-clamp: none; }
       .module-card, .exam-card, .history-card { background: #ffffff; break-inside: avoid; }
       .module-card[aria-current="true"] { background: #ffffff; color: #000000; border-width: 2px; }
       .start-link { border: 0; padding: 0; }
@@ -606,6 +726,7 @@
             <div><dt>Questions</dt><dd>2,502</dd></div>
             <div><dt>Modes</dt><dd>Easy · Medium · Hard</dd></div>
         </dl>
+        <nav aria-label="Jump to a module"><ul class="module-jump"><li class="label" aria-hidden="true">Module</li><li><a href="#module-1" aria-label="Module 1: Leadership">01</a></li><li><a href="#module-2" aria-label="Module 2: Army Operating Concept">02</a></li><li><a href="#module-3" aria-label="Module 3: Battalion/Brigade Operations Planning">03</a></li><li><a href="#module-4" aria-label="Module 4: Signal Support Integration">04</a></li><li><a href="#module-5" aria-label="Module 5: Advanced C2 Communications">05</a></li><li><a href="#module-6" aria-label="Module 6: Advanced Electronic Warfare Operations">06</a></li><li><a href="#module-7" aria-label="Module 7: Advanced Cyberspace Operations">07</a></li><li><a href="#module-8" aria-label="Module 8: Signal Planning">08</a></li><li><a href="#supplemental" aria-label="Supporting Lessons: Supporting study material; not separately numbered POI lessons">S</a></li></ul></nav>
         <p class="hero-nav"><a class="hero-link" id="schedule-link" href="schedule/?v=day-picker-2">This week's schedule</a><a class="hero-link" id="class-link" href="class/">Our class: Bandwidth Brothers</a></p>
       </div>
       <figure class="hero-art" id="class-crest">
@@ -619,133 +740,383 @@
   </header>
 
   <main id="main" class="wrap">
+    <section class="brief" id="brief" aria-labelledby="brief-heading">
+      <div class="brief-head">
+        <h2 id="brief-heading" class="brief-date"><span class="step-num">Today</span> <span id="today-date">This week</span></h2>
+      </div>
+      <div class="brief-body single" id="brief-body">
+        <div class="brief-col" id="brief-today">
+          <p class="label" id="today-label">On the schedule</p>
+          <div id="today-items"><p class="brief-quiet">Lectures, exams and activities for each day are in the weekly schedule.</p></div>
+          <a class="brief-more" id="today-link" href="schedule/?v=day-picker-2">This week's schedule</a>
+        </div>
+        <div class="brief-col" id="brief-continue" hidden>
+          <p class="label">Continue on this device</p>
+          <ol class="brief-list continue-list" id="continue-list"></ol>
+          <p class="brief-note">Progress is read from this browser only; nothing is sent or shared.</p>
+        </div>
+      </div>
+    </section>
+
     <section id="choose-module" class="sect" aria-labelledby="modules-heading">
       <div class="sect-head section-head">
         <h2 id="modules-heading" tabindex="-1"><span class="step-num">Step 1</span> Choose your module</h2>
       </div>
       <div class="sect-body">
       <p class="section-intro">Pick the module you are studying. Its exams and class history appear below.</p>
+      <div class="finder" id="finder" role="search" hidden>
+        <label class="finder-label label" for="exam-search">Or find an exam by topic</label>
+        <div class="finder-field"><input id="exam-search" type="search" autocomplete="off" spellcheck="false" placeholder="Try “radar”, “zero trust” or “TLP”" aria-describedby="finder-status" aria-controls="finder-results"><kbd aria-hidden="true">/</kbd></div>
+        <p id="finder-status" class="sr-only" role="status" aria-live="polite"></p>
+        <ol class="finder-results" id="finder-results" hidden></ol>
+        <p class="finder-empty" id="finder-empty" hidden></p>
+      </div>
       <ul class="module-grid">
-        <li>
-          <a class="module-card" id="pick-module-1" href="#module-1" aria-labelledby="pick-title-module-1" aria-describedby="pick-meta-module-1 pick-desc-module-1 pick-note-module-1 overview-module-1">
-            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 01</span></span>
+        <li data-module="module-1">
+          <a class="module-card" id="pick-module-1" href="#module-1" aria-labelledby="pick-title-module-1" aria-describedby="pick-meta-module-1 pick-desc-module-1 overview-module-1">
             <span class="vol-num" aria-hidden="true">01</span>
+            <span class="module-title" id="pick-title-module-1"><span class="module-label">Module 1</span> <span class="module-subject" id="pick-note-module-1">Leadership</span></span>
             <span class="card-kicker" id="pick-meta-module-1">7 lessons + Module 1 Exam</span>
-            <span class="module-title" id="pick-title-module-1">Module 1</span>
             <span class="card-desc" id="pick-desc-module-1">Military Leadership Attributes, Military Leadership Competencies, Company Management, Mission Command, Ethical and Transformational Leadership, NCO Empowerment, Effective Communication 2 and the Module 1 Exam</span>
-            <span class="tag module-note" id="pick-note-module-1">Leadership</span>
-            <span class="module-overview" id="overview-module-1"></span>
-            <span class="module-cta"><span class="cta-choose">Choose Module 1</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
+            <span class="module-foot"><span class="module-overview" id="overview-module-1"></span><span class="module-cta" aria-hidden="true"><span class="cta-choose">8 exams</span><span class="cta-selected">Selected</span><span class="arrow"></span></span></span>
+            <span class="module-progress" data-progress-module="module-1" aria-hidden="true"><span></span></span>
           </a>
         </li>
-        <li>
-          <a class="module-card" id="pick-module-2" href="#module-2" aria-labelledby="pick-title-module-2" aria-describedby="pick-meta-module-2 pick-desc-module-2 pick-note-module-2 overview-module-2">
-            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 02</span></span>
+        <li data-module="module-2">
+          <a class="module-card" id="pick-module-2" href="#module-2" aria-labelledby="pick-title-module-2" aria-describedby="pick-meta-module-2 pick-desc-module-2 overview-module-2">
             <span class="vol-num" aria-hidden="true">02</span>
+            <span class="module-title" id="pick-title-module-2"><span class="module-label">Module 2</span> <span class="module-subject" id="pick-note-module-2">Army Operating Concept</span></span>
             <span class="card-kicker" id="pick-meta-module-2">3 lessons + Combined Practice Exam</span>
-            <span class="module-title" id="pick-title-module-2">Module 2</span>
             <span class="card-desc" id="pick-desc-module-2">Field Artillery Operations, Armor Operations, ISR Operations and the Combined Practice Exam</span>
-            <span class="tag module-note" id="pick-note-module-2">Army Operating Concept</span>
-            <span class="module-overview" id="overview-module-2"></span>
-            <span class="module-cta"><span class="cta-choose">Choose Module 2</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
+            <span class="module-foot"><span class="module-overview" id="overview-module-2"></span><span class="module-cta" aria-hidden="true"><span class="cta-choose">4 exams</span><span class="cta-selected">Selected</span><span class="arrow"></span></span></span>
+            <span class="module-progress" data-progress-module="module-2" aria-hidden="true"><span></span></span>
           </a>
         </li>
-        <li>
-          <a class="module-card" id="pick-module-3" href="#module-3" aria-labelledby="pick-title-module-3" aria-describedby="pick-meta-module-3 pick-desc-module-3 pick-note-module-3 overview-module-3">
-            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 03</span></span>
+        <li data-module="module-3">
+          <a class="module-card" id="pick-module-3" href="#module-3" aria-labelledby="pick-title-module-3" aria-describedby="pick-meta-module-3 pick-desc-module-3 overview-module-3">
             <span class="vol-num" aria-hidden="true">03</span>
+            <span class="module-title" id="pick-title-module-3"><span class="module-label">Module 3</span> <span class="module-subject" id="pick-note-module-3">Battalion/Brigade Operations Planning</span></span>
             <span class="card-kicker" id="pick-meta-module-3">1 lesson</span>
-            <span class="module-title" id="pick-title-module-3">Module 3</span>
             <span class="card-desc" id="pick-desc-module-3">Troop Leading Procedure (TLP)</span>
-            <span class="tag module-note" id="pick-note-module-3">Battalion/Brigade Operations Planning</span>
-            <span class="module-overview" id="overview-module-3"></span>
-            <span class="module-cta"><span class="cta-choose">Choose Module 3</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
+            <span class="module-foot"><span class="module-overview" id="overview-module-3"></span><span class="module-cta" aria-hidden="true"><span class="cta-choose">1 exam</span><span class="cta-selected">Selected</span><span class="arrow"></span></span></span>
+            <span class="module-progress" data-progress-module="module-3" aria-hidden="true"><span></span></span>
           </a>
         </li>
-        <li>
-          <a class="module-card" id="pick-module-4" href="#module-4" aria-labelledby="pick-title-module-4" aria-describedby="pick-meta-module-4 pick-desc-module-4 pick-note-module-4 overview-module-4">
-            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 04</span></span>
+        <li data-module="module-4">
+          <a class="module-card" id="pick-module-4" href="#module-4" aria-labelledby="pick-title-module-4" aria-describedby="pick-meta-module-4 pick-desc-module-4 overview-module-4">
             <span class="vol-num" aria-hidden="true">04</span>
+            <span class="module-title" id="pick-title-module-4"><span class="module-label">Module 4</span> <span class="module-subject" id="pick-note-module-4">Signal Support Integration</span></span>
             <span class="card-kicker" id="pick-meta-module-4">3 lessons + Module 4 Exam</span>
-            <span class="module-title" id="pick-title-module-4">Module 4</span>
             <span class="card-desc" id="pick-desc-module-4">Signal Support in Combined Arms Operations, Signal Support in Joint Operations, Signal Support in Coalition Operations and the Module 4 Exam</span>
-            <span class="tag module-note" id="pick-note-module-4">Signal Support Integration</span>
-            <span class="module-overview" id="overview-module-4"></span>
-            <span class="module-cta"><span class="cta-choose">Choose Module 4</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
+            <span class="module-foot"><span class="module-overview" id="overview-module-4"></span><span class="module-cta" aria-hidden="true"><span class="cta-choose">4 exams</span><span class="cta-selected">Selected</span><span class="arrow"></span></span></span>
+            <span class="module-progress" data-progress-module="module-4" aria-hidden="true"><span></span></span>
           </a>
         </li>
-        <li>
-          <a class="module-card" id="pick-module-5" href="#module-5" aria-labelledby="pick-title-module-5" aria-describedby="pick-meta-module-5 pick-desc-module-5 pick-note-module-5 overview-module-5">
-            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 05</span></span>
+        <li data-module="module-5">
+          <a class="module-card" id="pick-module-5" href="#module-5" aria-labelledby="pick-title-module-5" aria-describedby="pick-meta-module-5 pick-desc-module-5 overview-module-5">
             <span class="vol-num" aria-hidden="true">05</span>
+            <span class="module-title" id="pick-title-module-5"><span class="module-label">Module 5</span> <span class="module-subject" id="pick-note-module-5">Advanced C2 Communications</span></span>
             <span class="card-kicker" id="pick-meta-module-5">5 lessons</span>
-            <span class="module-title" id="pick-title-module-5">Module 5</span>
             <span class="card-desc" id="pick-desc-module-5">Module 5 Exam, MANET C4ISTAR Planning, C4ISTAR Sensors Integration, C4ISTAR Weapon System Integration and Signal Propagation (Mobile Apps/RF Clouds)</span>
-            <span class="tag module-note" id="pick-note-module-5">Advanced C2 Communications</span>
-            <span class="module-overview" id="overview-module-5"></span>
-            <span class="module-cta"><span class="cta-choose">Choose Module 5</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
+            <span class="module-foot"><span class="module-overview" id="overview-module-5"></span><span class="module-cta" aria-hidden="true"><span class="cta-choose">5 exams</span><span class="cta-selected">Selected</span><span class="arrow"></span></span></span>
+            <span class="module-progress" data-progress-module="module-5" aria-hidden="true"><span></span></span>
           </a>
         </li>
-        <li>
-          <a class="module-card" id="pick-module-6" href="#module-6" aria-labelledby="pick-title-module-6" aria-describedby="pick-meta-module-6 pick-desc-module-6 pick-note-module-6 overview-module-6">
-            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 06</span></span>
+        <li data-module="module-6">
+          <a class="module-card" id="pick-module-6" href="#module-6" aria-labelledby="pick-title-module-6" aria-describedby="pick-meta-module-6 pick-desc-module-6 overview-module-6">
             <span class="vol-num" aria-hidden="true">06</span>
+            <span class="module-title" id="pick-title-module-6"><span class="module-label">Module 6</span> <span class="module-subject" id="pick-note-module-6">Advanced Electronic Warfare Operations</span></span>
             <span class="card-kicker" id="pick-meta-module-6">4 lessons + Module 6 Exam</span>
-            <span class="module-title" id="pick-title-module-6">Module 6</span>
             <span class="card-desc" id="pick-desc-module-6">Signals Intelligence (SIGINT), Electronic Intelligence (ELINT), Radio Direction Finding, Electronic Counter-Countermeasures (ECCM) and the Module 6 Exam</span>
-            <span class="tag module-note" id="pick-note-module-6">Advanced Electronic Warfare Operations</span>
-            <span class="module-overview" id="overview-module-6"></span>
-            <span class="module-cta"><span class="cta-choose">Choose Module 6</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
+            <span class="module-foot"><span class="module-overview" id="overview-module-6"></span><span class="module-cta" aria-hidden="true"><span class="cta-choose">5 exams</span><span class="cta-selected">Selected</span><span class="arrow"></span></span></span>
+            <span class="module-progress" data-progress-module="module-6" aria-hidden="true"><span></span></span>
           </a>
         </li>
-        <li>
-          <a class="module-card" id="pick-module-7" href="#module-7" aria-labelledby="pick-title-module-7" aria-describedby="pick-meta-module-7 pick-desc-module-7 pick-note-module-7 overview-module-7">
-            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 07</span></span>
+        <li data-module="module-7">
+          <a class="module-card" id="pick-module-7" href="#module-7" aria-labelledby="pick-title-module-7" aria-describedby="pick-meta-module-7 pick-desc-module-7 overview-module-7">
             <span class="vol-num" aria-hidden="true">07</span>
+            <span class="module-title" id="pick-title-module-7"><span class="module-label">Module 7</span> <span class="module-subject" id="pick-note-module-7">Advanced Cyberspace Operations</span></span>
             <span class="card-kicker" id="pick-meta-module-7">5 lessons</span>
-            <span class="module-title" id="pick-title-module-7">Module 7</span>
             <span class="card-desc" id="pick-desc-module-7">Module 7 Exam, NIST Framework, Zero Trust, LOE3 GSOMIA Compliance and Cyber Risk Assessment</span>
-            <span class="tag module-note" id="pick-note-module-7">Advanced Cyberspace Operations</span>
-            <span class="module-overview" id="overview-module-7"></span>
-            <span class="module-cta"><span class="cta-choose">Choose Module 7</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
+            <span class="module-foot"><span class="module-overview" id="overview-module-7"></span><span class="module-cta" aria-hidden="true"><span class="cta-choose">5 exams</span><span class="cta-selected">Selected</span><span class="arrow"></span></span></span>
+            <span class="module-progress" data-progress-module="module-7" aria-hidden="true"><span></span></span>
           </a>
         </li>
-        <li>
-          <a class="module-card" id="pick-module-8" href="#module-8" aria-labelledby="pick-title-module-8" aria-describedby="pick-meta-module-8 pick-desc-module-8 pick-note-module-8 overview-module-8">
-            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 08</span></span>
+        <li data-module="module-8">
+          <a class="module-card" id="pick-module-8" href="#module-8" aria-labelledby="pick-title-module-8" aria-describedby="pick-meta-module-8 pick-desc-module-8 overview-module-8">
             <span class="vol-num" aria-hidden="true">08</span>
+            <span class="module-title" id="pick-title-module-8"><span class="module-label">Module 8</span> <span class="module-subject" id="pick-note-module-8">Signal Planning</span></span>
             <span class="card-kicker" id="pick-meta-module-8">4 lessons</span>
-            <span class="module-title" id="pick-title-module-8">Module 8</span>
             <span class="card-desc" id="pick-desc-module-8">CEOI / CESI Management, Signal Estimate, C4ISTAR Communications Planning and Signal Planning Process</span>
-            <span class="tag module-note" id="pick-note-module-8">Signal Planning</span>
-            <span class="module-overview" id="overview-module-8"></span>
-            <span class="module-cta"><span class="cta-choose">Choose Module 8</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
+            <span class="module-foot"><span class="module-overview" id="overview-module-8"></span><span class="module-cta" aria-hidden="true"><span class="cta-choose">4 exams</span><span class="cta-selected">Selected</span><span class="arrow"></span></span></span>
+            <span class="module-progress" data-progress-module="module-8" aria-hidden="true"><span></span></span>
           </a>
         </li>
-        <li>
-          <a class="module-card" id="pick-supplemental" href="#supplemental" aria-labelledby="pick-title-supplemental" aria-describedby="pick-meta-supplemental pick-desc-supplemental pick-note-supplemental overview-supplemental">
-            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. 00</span></span>
-            <span class="vol-num" aria-hidden="true">00</span>
+        <li data-module="supplemental">
+          <a class="module-card" id="pick-supplemental" href="#supplemental" aria-labelledby="pick-title-supplemental" aria-describedby="pick-meta-supplemental pick-desc-supplemental overview-supplemental">
+            <span class="vol-num" aria-hidden="true">S</span>
+            <span class="module-title" id="pick-title-supplemental"><span class="module-label">Supporting Lessons</span> <span class="module-subject" id="pick-note-supplemental">Supporting study material; not separately numbered POI lessons</span></span>
             <span class="card-kicker" id="pick-meta-supplemental">2 lessons</span>
-            <span class="module-title" id="pick-title-supplemental">Supporting Lessons</span>
             <span class="card-desc" id="pick-desc-supplemental">Army Operations and Intelligence Cycle</span>
-            <span class="tag module-note" id="pick-note-supplemental">Supporting study material; not separately numbered POI lessons</span>
-            <span class="module-overview" id="overview-supplemental"></span>
-            <span class="module-cta"><span class="cta-choose">Choose Supporting Lessons</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>
+            <span class="module-foot"><span class="module-overview" id="overview-supplemental"></span><span class="module-cta" aria-hidden="true"><span class="cta-choose">2 exams</span><span class="cta-selected">Selected</span><span class="arrow"></span></span></span>
+            <span class="module-progress" data-progress-module="supplemental" aria-hidden="true"><span></span></span>
           </a>
         </li>
       </ul>
       <p id="route-announcer" class="sr-only" role="status" aria-live="polite"></p>
       </div>
     </section>
+    <script type="application/json" id="hub-data">{"modules":[{"id":"module-1","n":"01","t":"Module 1","s":"Leadership"},{"id":"module-2","n":"02","t":"Module 2","s":"Army Operating Concept"},{"id":"module-3","n":"03","t":"Module 3","s":"Battalion/Brigade Operations Planning"},{"id":"module-4","n":"04","t":"Module 4","s":"Signal Support Integration"},{"id":"module-5","n":"05","t":"Module 5","s":"Advanced C2 Communications"},{"id":"module-6","n":"06","t":"Module 6","s":"Advanced Electronic Warfare Operations"},{"id":"module-7","n":"07","t":"Module 7","s":"Advanced Cyberspace Operations"},{"id":"module-8","n":"08","t":"Module 8","s":"Signal Planning"},{"id":"supplemental","n":"S","t":"Supporting Lessons","s":"Supporting study material; not separately numbered POI lessons"}],"exams":[{"k":"moduleone","m":"module-1","t":"Module 1 Exam","u":"module-1-exam/","d":"35 questions per attempt, with 5 from each of the 7 POI lessons.","c":"","pool":["leadershipattributes","leadershipcompetencies","companymanagement","missioncommand","ethicalleadership","ncoempowerment","effectivecommunication"]},{"k":"leadershipattributes","m":"module-1","t":"Military Leadership Attributes","u":"military-leadership-attributes/","d":"Practice military leadership attributes with source-referenced questions.","c":"Character · Presence · Intellect","b":[20,20,20]},{"k":"leadershipcompetencies","m":"module-1","t":"Military Leadership Competencies","u":"military-leadership-competencies/","d":"Practice military leadership competencies with source-referenced questions.","c":"Competency Model · Leading · Developing · Achieving","b":[20,20,20]},{"k":"companymanagement","m":"module-1","t":"Company Management","u":"company-management/","d":"Practice company management with source-referenced questions.","c":"Command Foundations · Commander Responsibilities · Functional Areas · Commandership Practices","b":[20,20,20]},{"k":"missioncommand","m":"module-1","t":"Mission Command","u":"mission-command/","d":"Decide how to balance control and initiative when a plan changes or contact is disrupted.","c":"Foundations and Control · Intent, Orders and Initiative · Principles of Mission Command · Signal Leadership and Adaptation","b":[20,20,20]},{"k":"ethicalleadership","m":"module-1","t":"Ethical and Transformational Leadership","u":"ethical-transformational-leadership/","d":"Apply the ethical decision process and connect the Four I’s to everyday leadership decisions.","c":"Ethics and Operational Legitimacy · Ethical Decisions and Lenses · Leadership Integrity · Transactional and Transformational Models · The Four I’s and Unit Leadership","b":[20,20,20]},{"k":"ncoempowerment","m":"module-1","t":"NCO Empowerment","u":"nco-empowerment/","d":"Distinguish duties and authority, select corrective actions, and use the NCO support channel.","c":"Taking Charge and NCO Roles · Duties, Responsibilities and Authority · Inspections and Corrections · NCO Support Channel","b":[20,20,20]},{"k":"effectivecommunication","m":"module-1","t":"Effective Communication 2","u":"effective-communication-2/","d":"Select communication methods, diagnose barriers, and use feedback to verify understanding.","c":"Methods and Organizational Direction · Communication Process and Purpose · Barriers to Understanding · Tools and Communication Techniques","b":[20,20,20]},{"k":"combined","m":"module-2","t":"Combined Practice Exam","u":"combined/","d":"30 questions from ISR, Armor, Field Artillery and the supporting Army Operations lesson. Not a complete POI Module 2 assessment.","c":"","pool":["isr","armor","fieldartillery","armyops"]},{"k":"fieldartillery","m":"module-2","t":"Field Artillery Operations","u":"field-artillery/","d":"Field Artillery Operations lesson.","c":"Mission and Functions · Tactical Roles · Capabilities and Limitations · Weapon Classification · Philippine Operational Environment · Four Basic Tasks · FA System Elements and Responsibilities · Employment Tactics and Integrated Decisions · Effects of Fires","b":[35,35,35]},{"k":"armor","m":"module-2","t":"Armor Operations","u":"armor/","d":"Fundamentals of Armor Operations.","c":"Armor Fundamentals and Mission · Characteristics of Armor · Mechanized Infantry: Mission and Organization · Mechanized Infantry Capabilities and Limitations · Mounting and Dismounting SOPs · Cavalry Operations · Tank Operations · Planning Considerations · Major Equipment of the Armor Division","b":[35,35,35]},{"k":"isr","m":"module-2","t":"ISR Operations","u":"isr/","d":"Introduction to ISR Operations.","c":"ISR Fundamentals and Components · Roles and Importance of ISR · Airborne ISR Systems · Ground-Based ISR Systems · Maritime ISR Platforms · Space-Based ISR Systems · Timeliness, Accuracy, and Fusion · Coverage, Persistence, and Flexibility · Security, Interoperability, and Ethics","b":[35,35,35]},{"k":"tlp","m":"module-3","t":"Troop Leading Procedure (TLP)","u":"troop-leading-procedure/","d":"Practice company-level planning through an annotated defensive exercise.","c":"Time and Warning Orders · Mission Analysis and COA · Movement and Reconnaissance · Orders and Communications · Supervision and Refinement","b":[20,20,20]},{"k":"modulethree","m":"module-4","t":"Module 4 Exam","u":"module-3-exam/","d":"30 questions: 10 each from Combined Arms, Joint and Coalition Operations.","c":"","pool":["signal","signaljoint","coalition"]},{"k":"signal","m":"module-4","t":"Signal Support in Combined Arms Operations","u":"signal-support/","d":"Signal Support in Combined Arms Operations lesson.","c":"Signal Support Concepts · Operational Environment · Roles of Signal Support · Systems and Technologies · Principles of Signal Support · Tactical Considerations · Signal Estimate and Requirements · Priorities, Continuity and Coordination · Security Measures and Protocols","b":[35,35,35]},{"k":"signaljoint","m":"module-4","t":"Signal Support in Joint Operations","u":"joint-signal/","d":"Signal Support in Joint Operations lesson.","c":"Joint Operations Fundamentals · Operational Environment · Roles of Signal Support · Systems and Technologies · Principles of Signal Support · Tactical Considerations · Planning and Coordination · Security Measures and Protocols","b":[35,35,35]},{"k":"coalition","m":"module-4","t":"Signal Support in Coalition Operations","u":"coalition-signal/","d":"Signal Support in Coalition Operations lesson.","c":"Coalition Fundamentals · Key Components of Signal Support · Roles and Importance · Challenges in Signal Support · Systems and Technologies · Principles of Signal Support · Tactical Considerations · Planning and Coordination · Security Measures and Protocols","b":[35,35,35]},{"k":"modulefive","m":"module-5","t":"Module 5 Exam","u":"module-5-exam/","d":"30 questions per difficulty across the three available lessons: MANET C4ISTAR Planning, C4ISTAR Sensors Integration, C4ISTAR Weapon System Integration. Selected foundations and new integrated scenarios.","c":"MANET C4ISTAR Planning · C4ISTAR Sensors Integration · C4ISTAR Weapon System Integration","b":[30,30,30]},{"k":"manet","m":"module-5","t":"MANET C4ISTAR Planning","u":"manet-c4istar-planning/","d":"Practice manet c4istar planning with source-referenced questions.","c":"Network Concepts · Capabilities and Security · Equipment and Maintenance · Diagnostics and Configuration · Integration and Assurance","b":[20,20,20]},{"k":"sensors","m":"module-5","t":"C4ISTAR Sensors Integration","u":"c4istar-sensors-integration/","d":"Practice c4istar sensors integration with source-referenced questions.","c":"Concept and Information Quality · Sensor Types and Roles · Interoperability and Requirements · Context and Constraints · Integration Responsibilities and Testing","b":[20,20,20]},{"k":"weapons","m":"module-5","t":"C4ISTAR Weapon System Integration","u":"c4istar-weapon-system-integration/","d":"Practice c4istar weapon system integration with source-referenced questions.","c":"System Components · Information and Authority · Interoperability Principles · Architecture and Security · Configuration Concepts and Evolution","b":[20,20,20]},{"k":"propagation","m":"module-5","t":"Signal Propagation (Mobile Apps/RF Clouds)","u":"signal-propagation/","d":"Read RF predictions, compare modeled coverage and validate a relay recommendation.","c":"Model Inputs and Coverage · Link Profiles and Margins · Cellular Modeling · Dead Spots and Relays · Validation and Decisions","b":[20,20,20]},{"k":"modulesix","m":"module-6","t":"Module 6 Exam","u":"module-6-exam/","d":"32 questions per attempt, with 8 from each of the 4 POI lessons.","c":"","pool":["sigint","elint","rdf","eccm"]},{"k":"sigint","m":"module-6","t":"Signals Intelligence (SIGINT)","u":"signals-intelligence/","d":"Assess SIGINT concepts, reporting quality, corroboration and responsible dissemination.","c":"Intelligence and SIGINT Foundations · COMINT and ELINT · RDF Roles and Components · Accuracy Timeliness and Relevance · Corroboration and Source Limitations · Security and Deception · SIGINT Cycle and Dissemination","b":[25,25,25]},{"k":"elint","m":"module-6","t":"Electronic Intelligence (ELINT)","u":"electronic-intelligence/","d":"Read radar fingerprints, separate ELINT from COMINT and ES, and trace an intercept to the EOB.","c":"ELINT Foundations and Doctrine · ELINT, COMINT and ES · Electronic Order of Battle · Radar Principles and the One-Way Advantage · Radar Parameters and Bands · Scan, Intent and Ground Emitters · Process, Signature Library and Effect","b":[20,20,20]},{"k":"rdf","m":"module-6","t":"Radio Direction Finding","u":"radio-direction-finding/","d":"Reason about RF sources, measurement principles and the limits of a bearing.","c":"Roles and Applications · RF Source Categories · Direction of Arrival and Bearings · Measurement Method Concepts · Interpretation and Limitations · C2 Integration and Responsible Use","b":[25,25,25]},{"k":"eccm","m":"module-6","t":"Electronic Counter-Countermeasures (ECCM)","u":"electronic-counter-countermeasures/","d":"Apply electronic protection: radio discipline, masking, EMCON, jamming response, reporting and PACE.","c":"EP Purpose and the ECM Duel · Enemy Questions and Radio Discipline · Masking, Blending and Emission Risk · EMCON Levels · Hopping, Encryption and Anti-Jam · Recognize, React and Report · PACE and GPS Protection · Hardening, Compatibility and Sensor ECCM","b":[22,22,22]},{"k":"moduleseven","m":"module-7","t":"Module 7 Exam","u":"module-7-exam/","d":"32 questions per difficulty across all four lessons: NIST Framework, Zero Trust, LOE3 GSOMIA Compliance, Cyber Risk Assessment. Selected foundations and new integrated scenarios.","c":"NIST Framework · Zero Trust · LOE3 GSOMIA Compliance · Cyber Risk Assessment","b":[32,32,32]},{"k":"nist","m":"module-7","t":"NIST Framework","u":"nist-framework/","d":"Practice nist framework with source-referenced questions.","c":"Framework Purpose and Scope · Six CSF Functions · Core Profiles and Tiers · NICTEF Elements and Vision · Application and Alignment","b":[25,25,25]},{"k":"zerotrust","m":"module-7","t":"Zero Trust","u":"zero-trust/","d":"Practice zero trust with source-referenced questions.","c":"Concept and Seven Tenets · Policy Components · Deployment Approaches · Threats and Limitations · Migration and Application","b":[25,25,25]},{"k":"gsomia","m":"module-7","t":"LOE3 GSOMIA Compliance","u":"gsomia-compliance/","d":"Practice loe3 gsomia compliance with source-referenced questions.","c":"Agreement and Governance · Classification and Handling · Access and Sharing · Incident Response and Assurance","b":[20,20,20]},{"k":"cyberrisk","m":"module-7","t":"Cyber Risk Assessment","u":"cyber-risk-assessment/","d":"Practice cyber risk assessment with source-referenced questions.","c":"Risk Concepts and CIA · Incident Response Lifecycle · Defensive Control Coverage · People Process Technology and Scoring","b":[20,20,20]},{"k":"ceoicesi","m":"module-8","t":"CEOI / CESI Management","u":"ceoi-cesi-management/","d":"Practice ceoi / cesi management with source-referenced questions.","c":"Publication Roles · Edition and Copy Control · Compromise and Authentication · Structure and Validation","b":[20,20,20]},{"k":"signalestimate","m":"module-8","t":"Signal Estimate","u":"signal-estimate/","d":"Use METAL and the Annex A format to assess factors, compare courses of action and support decisions.","c":"Estimate Fundamentals · METAL Factors · Situation and Opposing COA · COA Comparison · Decision and Recommendations","b":[20,20,20]},{"k":"c4istarplanning","m":"module-8","t":"C4ISTAR Communications Planning","u":"c4istar-communications-planning/","d":"Practice c4istar communications planning with source-referenced questions.","c":"Planning Requirements · Communications Technologies · Component Roles · Interoperability","b":[20,20,20]},{"k":"signalplanning","m":"module-8","t":"Signal Planning Process","u":"signal-planning-process/","d":"Develop support requirements, allocate resources and check plans before publishing orders.","c":"Develop Requirements · Resources and Priorities · Recovery Procedures · Tentative Plan · Final Checks and Publication","b":[20,20,20]},{"k":"armyops","m":"supplemental","t":"Army Operations","u":"army-operations/","d":"Introduction to Army Operations.","c":"Constitutional Mandate and Platforms · Full Spectrum Operations · Offensive and Defensive Tasks · Support to Civil Governance · Tenets of Army Operations · Army Power and Warfighting Functions · Principles of Army Operations","b":[35,35,35]},{"k":"intcycle","m":"supplemental","t":"Intelligence Cycle","u":"intelligence-cycle/","d":"Evaluate information, distinguish the five stages, and report responsibly.","c":"Information and Intelligence · Planning and Direction · Collection Disciplines · Processing and Exploitation · Analysis and Production · Dissemination and C2 Integration · OPSEC and Ethical Handling","b":[25,25,25]}],"today":{"days":{"2026-10-26":{"p":"schedule-2026-10-26/","b":[["0830-1100","GPE WINTAK/Signal Propagation",0,"signal-propagation/"],["1330-1500","GPE WINTAK/Signal Propagation",0,"signal-propagation/"]]},"2026-10-27":{"p":"schedule-2026-10-26/","b":[["0830-1100","Info drive PMC",0,""],["1300-1500","Info drive PMC",0,""]]},"2026-10-28":{"p":"schedule-2026-10-26/","b":[["0800-0830","MODULE 5 ASSESSMENT",1,""],["0830-1100","Data Communications Planning/ Assessment",0,""],["1300-1500","Voice Communications Planning/ Assessment",0,""]]},"2026-10-29":{"p":"schedule-2026-10-26/","b":[["0800-1130","C4ISTAR Communications Planning/ Assessment",0,"c4istar-communications-planning/"],["1300-1500","Signal Estimate",0,"signal-estimate/"]]},"2026-10-30":{"p":"schedule-2026-10-26/","b":[["0800-0830","MODULE 7 ASSESSMENT",1,""],["0800-1130","Cont'n Signal Estimate",0,"signal-estimate/"],["1300-1500","Cont'n Signal Estimate",0,"signal-estimate/"]]},"2026-10-31":{"p":"schedule-2026-10-26/","b":[]},"2026-11-01":{"p":"schedule-2026-10-26/","b":[]},"2026-11-02":{"p":"schedule-2026-11-02/","b":[]},"2026-11-03":{"p":"schedule-2026-11-02/","b":[["0830-1100","Electronic Intelligence",0,"electronic-intelligence/"],["1330-1500","Electronic Counter -Counter Measure",0,""]]},"2026-11-04":{"p":"schedule-2026-11-02/","b":[["0800-0830","Topic exam on Electronic Intelligence",1,"electronic-intelligence/"],["0830-1130","TLP",0,""],["1300-1500","Cont’n TLP",0,""]]},"2026-11-05":{"p":"schedule-2026-11-02/","b":[["0800-0830","Topic exam on Electronic Counter-Counter Measure",1,""],["0830-1130","Cont’n TLP",0,""],["1300-1500","Cont’n TLP",0,""]]},"2026-11-06":{"p":"schedule-2026-11-02/","b":[["0800-0900","MODULE 6 ASSESSMENT",1,""],["0900-1130","MDMP",0,""],["1300-1400","Cont’n MDMP",0,""]]},"2026-11-07":{"p":"schedule-2026-11-02/","b":[]},"2026-11-08":{"p":"schedule-2026-11-02/","b":[]},"2026-11-09":{"p":"schedule-2026-11-09/","b":[["0830-1100","Cont’n MDMP",0,""],["1330-1500","Cont’n MDMP",0,""]]},"2026-11-10":{"p":"schedule-2026-11-09/","b":[["0830-1100","Signal Planning Process",0,"signal-planning-process/"],["1330-1500","Cont’n Signal Planning Process",0,"signal-planning-process/"]]},"2026-11-11":{"p":"schedule-2026-11-09/","b":[["0800-1130","Cont’n Signal Planning Process",0,"signal-planning-process/"],["1300-1500","Cont’n Signal Planning Process",0,"signal-planning-process/"]]},"2026-11-12":{"p":"schedule-2026-11-09/","b":[["0800-0900","MODULE 8 ASSESSMENT",1,""],["0900-1130","Cont’n Signal Planning Process",0,"signal-planning-process/"],["1300-1500","Cont’n Signal Planning Process",0,"signal-planning-process/"]]},"2026-11-13":{"p":"schedule-2026-11-09/","b":[["0800-1130","Cont’n Signal Planning Process",0,"signal-planning-process/"],["1300-1400","Cont’n Signal Planning Process",0,"signal-planning-process/"]]},"2026-11-14":{"p":"schedule-2026-11-09/","b":[]},"2026-11-15":{"p":"schedule-2026-11-09/","b":[]},"2026-11-16":{"p":"schedule-2026-11-16/","b":[]},"2026-11-17":{"p":"schedule-2026-11-16/","b":[]},"2026-11-18":{"p":"schedule-2026-11-16/","b":[]},"2026-11-19":{"p":"schedule-2026-11-16/","b":[]},"2026-11-20":{"p":"schedule-2026-11-16/","b":[]},"2026-11-21":{"p":"schedule-2026-11-16/","b":[]},"2026-11-22":{"p":"schedule-2026-11-16/","b":[]},"2026-11-23":{"p":"schedule-2026-11-23/","b":[]},"2026-11-24":{"p":"schedule-2026-11-23/","b":[]},"2026-11-25":{"p":"schedule-2026-11-23/","b":[]},"2026-11-26":{"p":"schedule-2026-11-23/","b":[]},"2026-11-27":{"p":"schedule-2026-11-23/","b":[]},"2026-11-28":{"p":"schedule-2026-11-23/","b":[]},"2026-11-29":{"p":"schedule-2026-11-23/","b":[]},"2026-11-30":{"p":"schedule-2026-11-30/","b":[]},"2026-12-01":{"p":"schedule-2026-11-30/","b":[]},"2026-12-02":{"p":"schedule-2026-11-30/","b":[]},"2026-12-03":{"p":"schedule-2026-11-30/","b":[]},"2026-12-04":{"p":"schedule-2026-11-30/","b":[]},"2026-12-05":{"p":"schedule-2026-11-30/","b":[]},"2026-12-06":{"p":"schedule-2026-11-30/","b":[]},"2026-12-07":{"p":"schedule-2026-12-07/","b":[]},"2026-12-08":{"p":"schedule-2026-12-07/","b":[]},"2026-12-09":{"p":"schedule-2026-12-07/","b":[]},"2026-12-10":{"p":"schedule-2026-12-07/","b":[]},"2026-12-11":{"p":"schedule-2026-12-07/","b":[]},"2026-12-12":{"p":"schedule-2026-12-07/","b":[]},"2026-12-13":{"p":"schedule-2026-12-07/","b":[]},"2026-12-14":{"p":"schedule-2026-12-14/","b":[]},"2026-12-15":{"p":"schedule-2026-12-14/","b":[]},"2026-12-16":{"p":"schedule-2026-12-14/","b":[]},"2026-12-17":{"p":"schedule-2026-12-14/","b":[]},"2026-12-18":{"p":"schedule-2026-12-14/","b":[]},"2026-12-19":{"p":"schedule-2026-12-14/","b":[]},"2026-12-20":{"p":"schedule-2026-12-14/","b":[]},"2026-12-21":{"p":"schedule-2026-12-21/","b":[]},"2026-12-22":{"p":"schedule-2026-12-21/","b":[]},"2026-12-23":{"p":"schedule-2026-12-21/","b":[]},"2026-12-24":{"p":"schedule-2026-12-21/","b":[]},"2026-12-25":{"p":"schedule-2026-12-21/","b":[]},"2026-12-26":{"p":"schedule-2026-12-21/","b":[]},"2026-12-27":{"p":"schedule-2026-12-21/","b":[]},"2026-12-28":{"p":"schedule-2026-12-28/","b":[]},"2026-12-29":{"p":"schedule-2026-12-28/","b":[]},"2026-12-30":{"p":"schedule-2026-12-28/","b":[]},"2026-12-31":{"p":"schedule-2026-12-28/","b":[]},"2027-01-01":{"p":"schedule-2026-12-28/","b":[]},"2027-01-02":{"p":"schedule-2026-12-28/","b":[]},"2027-01-03":{"p":"schedule-2026-12-28/","b":[]},"2027-01-04":{"p":"schedule-2027-01-04/","b":[]},"2027-01-05":{"p":"schedule-2027-01-04/","b":[]},"2027-01-06":{"p":"schedule-2027-01-04/","b":[]},"2027-01-07":{"p":"schedule-2027-01-04/","b":[]},"2027-01-08":{"p":"schedule-2027-01-04/","b":[]},"2027-01-09":{"p":"schedule-2027-01-04/","b":[]},"2027-01-10":{"p":"schedule-2027-01-04/","b":[]}},"events":[["2026-11-11","2026-11-13","In-House Training","11–13 Nov 2026"],["2026-11-16","2026-11-16","Issuance of Unified Plan to BCC","16 Nov 2026 · 0800–1700"],["2026-11-16","2026-11-26","BCC JOPP","16–26 Nov 2026"],["2026-11-16","2026-11-20","Integrated Signal Operation Exercise (ISOPEX)","16–20 Nov 2026"],["2026-11-24","2026-11-29","HIKWS BP 2","24–29 Nov 2026"],["2026-11-25","2026-11-25","Hauling of Sustainment Students","25 Nov 2026 · 0800–1700"],["2026-11-26","2026-11-26","Issuance of JTF/Div Plan to SOC","26 Nov 2026 · 0800"],["2026-11-28","2026-11-28","DMA Brief","28 Nov 2026 · 0900–1200"],["2026-11-29","2026-11-29","Hauling of Students from Other WFS / Orientation / Task Organization","29 Nov 2026 · 0800–1700"],["2026-11-29","2026-11-29","COA Development Brief","29 Nov 2026 · 1300–1600"],["2026-11-30","2026-12-02","Pre-CAPEX","30 Nov – 02 Dec 2026"],["2026-11-30","2026-11-30","COA Analysis and Wargaming","30 Nov 2026 · 1300–1600"],["2026-12-01","2026-12-01","COA Comparison and Decision Brief","01 Dec 2026 · 1500–1700"],["2026-12-02","2026-12-02","OPORD Brief","02 Dec 2026 · 1300"],["2026-12-02","2026-12-02","Submission of Bde OPORD to ECG","02 Dec 2026 · 1700"],["2026-12-03","2026-12-03","Issuance of Bde OPORD from SOC","03 Dec 2026 · 0800"],["2026-12-03","2026-12-03","Issuance of FRAG O from IS","03 Dec 2026 · 0800"],["2026-12-04","2026-12-10","Parallel Planning Bde to Pltn","04–10 Dec 2026"],["2026-12-04","2026-12-10","Parallel Planning Bn to Pltn","04–10 Dec 2026"],["2026-12-11","2026-12-11","Assault Time Bivouacs (Vic Borreo)","11 Dec 2026"],["2026-12-11","2026-12-11","Decentralized ROC","11 Dec 2026"],["2026-12-12","2026-12-12","Victory March AAR","12 Dec 2026"],["2026-12-12","2026-12-12","Closing Ceremony CAPEX / Impression","12 Dec 2026 · 1000"],["2026-12-13","2026-12-15","Student Out-processing / School Recognition","13–15 Dec 2026"],["2026-12-16","2026-12-16","Closing Ceremony of 3TP CY 2026","16 Dec 2026 · 0900 · Tentative"],["2026-12-16","2027-01-03","Breakthrough!","Immediately after graduation through 3 Jan 2027"],["2027-01-04","2027-01-04","Return To Unit","4 Jan 2027"],[null,null,"Signal School Christmas Party 2026","TBAL"]]}}</script>
+    <script data-hub="device">
+    // Progressive enhancements, run while the page is parsed so nothing shifts later: the Today card, device
+    // progress on the module index (read-only: the quiz pages own the mastery-quiz:progress:<lesson>:<mode>
+    // entries; this script never writes storage), "continue" suggestions and the quick finder. Text nodes only.
+    (function () {
+      var data;
+      try { data = JSON.parse(document.getElementById('hub-data').textContent); } catch (e) { return; }
+      var byId = function (id) { return document.getElementById(id); };
+      var make = function (tag, cls, text) { var n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = String(text); return n; };
+      var MODES = ['easy', 'medium', 'hard'];
+      var QID = /^[a-z][a-z0-9]{1,23}-[emh]-[0-9]{2,4}$/;
+      var modules = {};
+      data.modules.forEach(function (m) { modules[m.id] = m; });
+
+      // ---- Device progress (anonymous, this browser only). ----
+      function storage() { try { var s = window.localStorage; return s && typeof s.getItem === 'function' ? s : null; } catch (e) { return null; } }
+      var store = storage();
+      function progressOf(exam) {
+        var seen = 0, missed = 0, total = 0;
+        MODES.forEach(function (mode, i) {
+          var size = exam.b ? exam.b[i] : 0, s = 0, m = 0;
+          total += size;
+          if (!store) return;
+          try {
+            var entry = JSON.parse(store.getItem('mastery-quiz:progress:' + exam.k + ':' + mode) || '{}');
+            if (entry && typeof entry === 'object' && !Array.isArray(entry)) Object.keys(entry).forEach(function (q) {
+              if (!QID.test(q)) return;
+              if (entry[q] === 's') s++; else if (entry[q] === 'm') m++;
+            });
+          } catch (e) { /* unreadable entry: treat as not started */ }
+          var used = Math.min(size, s + m);
+          seen += used; missed += Math.min(m, used);
+        });
+        return { seen: seen, missed: missed, total: total };
+      }
+      var progress = {};
+      data.exams.forEach(function (exam) { if (exam.b) progress[exam.k] = progressOf(exam); });
+      var pct = function (p) { return p.total ? Math.round(p.seen / p.total * 100) : 0; };
+
+      data.modules.forEach(function (m) {
+        var seen = 0, total = 0;
+        data.exams.forEach(function (e) { if (e.m === m.id && progress[e.k]) { seen += progress[e.k].seen; total += progress[e.k].total; } });
+        var bar = document.querySelector('[data-progress-module="' + m.id + '"]');
+        if (bar && total && seen) bar.style.setProperty('--seen', Math.max(2, Math.round(seen / total * 100)) + '%');
+      });
+
+      // ---- Continue: started but unfinished lessons first (most advanced), then finished ones with misses. ----
+      var started = data.exams.filter(function (e) { var p = progress[e.k]; return p && p.seen && (p.seen < p.total || p.missed); });
+      started.sort(function (a, b) {
+        var pa = progress[a.k], pb = progress[b.k];
+        var da = pa.seen >= pa.total ? 1 : 0, db = pb.seen >= pb.total ? 1 : 0;
+        return da - db || pct(pb) - pct(pa) || pb.missed - pa.missed;
+      });
+      if (started.length) {
+        var list = byId('continue-list');
+        started.slice(0, 3).forEach(function (exam) {
+          var p = progress[exam.k];
+          var li = make('li');
+          var what = make('span', 'brief-what', exam.t);
+          var meter = make('span', 'continue-meter');
+          var fill = make('span');
+          fill.style.setProperty('--seen', pct(p) + '%');
+          meter.appendChild(fill);
+          what.appendChild(meter);
+          li.appendChild(what);
+          li.appendChild(make('span', 'continue-count', p.seen + '/' + p.total + (p.missed ? ' · ' + p.missed + ' missed' : '')));
+          var go = make('a', 'brief-act', p.seen < p.total ? 'Resume' : 'Review');
+          go.href = exam.u;
+          go.setAttribute('aria-label', (p.seen < p.total ? 'Resume ' : 'Review ') + exam.t + ': ' + p.seen + ' of ' + p.total + ' questions seen' + (p.missed ? ', ' + p.missed + ' last answered wrong' : ''));
+          li.appendChild(go);
+          list.appendChild(li);
+        });
+        byId('brief-continue').hidden = false;
+        byId('brief-body').className = 'brief-body';
+      }
+
+      // ---- Today: Manila date, that day's lectures and exams, any activity that spans it. ----
+      var now = typeof window.__HUB_NOW === 'string' ? window.__HUB_NOW : '';
+      if (!now) { try { now = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Manila', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date()); } catch (e) { now = ''; } }
+      now = String(now).slice(0, 10);
+      var DAYS = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+      function parts(date) { var d = new Date(date + 'T00:00:00Z'); return isNaN(d) ? null : d; }
+      function label(date) { var d = parts(date); return d ? DAYS[d.getUTCDay()] + ' ' + d.getUTCDate() + ' ' + MONTHS[d.getUTCMonth()] : date; }
+      function addDays(date, n) { var d = parts(date); d.setUTCDate(d.getUTCDate() + n); return d.toISOString().slice(0, 10); }
+      function eventsOn(date) { return (data.today.events || []).filter(function (e) { return e[0] <= date && date <= e[1]; }); }
+      function busy(date) { var day = data.today.days[date]; return (day && day.b.length) || eventsOn(date).length; }
+      function fillDay(date, intro) {
+        var box = byId('today-items');
+        while (box.firstChild) box.removeChild(box.firstChild);
+        var day = data.today.days[date];
+        var ol = make('ol', 'brief-list');
+        (day ? day.b : []).forEach(function (block) {
+          var li = make('li');
+          li.appendChild(make('span', 'brief-time', String(block[0]).replace('-', '–')));
+          var what = make('span', 'brief-what', block[1]);
+          if (block[2]) what.appendChild(make('span', 'tag', 'Exam'));
+          li.appendChild(what);
+          if (block[3]) {
+            var a = make('a', 'brief-act', 'Practice');
+            a.href = block[3];
+            a.setAttribute('aria-label', 'Practice quiz: ' + block[1]);
+            li.appendChild(a);
+          } else li.appendChild(make('span'));
+          ol.appendChild(li);
+        });
+        eventsOn(date).forEach(function (e) {
+          var li = make('li');
+          li.appendChild(make('span', 'brief-time', e[0] === e[1] ? 'All day' : 'Ongoing'));
+          li.appendChild(make('span', 'brief-what', e[2] + ' · ' + e[3]));
+          li.appendChild(make('span'));
+          ol.appendChild(li);
+        });
+        if (intro) box.appendChild(make('p', 'brief-quiet', intro));
+        if (ol.firstChild) box.appendChild(ol);
+      }
+      if (now && parts(now)) {
+        byId('today-date').textContent = label(now);
+        var today = data.today.days[now];
+        var link = byId('today-link');
+        if (busy(now)) {
+          byId('today-label').textContent = 'On the schedule';
+          fillDay(now, '');
+        } else {
+          var next = '';
+          for (var i = 1; i <= 14 && !next; i++) if (busy(addDays(now, i))) next = addDays(now, i);
+          byId('today-label').textContent = next ? 'Next on the schedule · ' + label(next) : 'On the schedule';
+          if (next) fillDay(next, 'Nothing listed for today.');
+          else fillDay(now, today ? 'Nothing listed for today.' : 'No timetable is published for this date yet.');
+          if (next) today = data.today.days[next], now = next;
+        }
+        if (today) { link.href = today.p + '#day-' + now; link.textContent = 'Open ' + label(now) + ' in the schedule'; }
+      }
+
+      // ---- Quick finder: every exam, matched on title, description, module subject and question topics. ----
+      var finder = byId('finder');
+      var input = byId('exam-search');
+      var results = byId('finder-results');
+      var empty = byId('finder-empty');
+      var status = byId('finder-status');
+      var index = data.exams.map(function (e) {
+        var m = modules[e.m] || { n: '', t: '', s: '' };
+        return { exam: e, mod: m, title: e.t.toLowerCase(), hay: [e.t, e.d, m.t, m.s, e.c].join(' · ').toLowerCase() };
+      });
+      function tokens(q) { return q.toLowerCase().replace(/[^a-z0-9/ -]+/g, ' ').split(/\s+/).filter(Boolean); }
+      function snippet(text, words) {
+        // The first question topic (or description) that mentions a search word: "why this matched".
+        var parts = text.split(' · ');
+        for (var i = 0; i < parts.length; i++) for (var j = 0; j < words.length; j++) if (parts[i].toLowerCase().indexOf(words[j]) !== -1) return parts[i];
+        return '';
+      }
+      function marked(text, words) {
+        var frag = document.createDocumentFragment(), lower = text.toLowerCase(), pos = 0;
+        while (pos < text.length) {
+          var best = -1, len = 0;
+          words.forEach(function (w) { var at = lower.indexOf(w, pos); if (at !== -1 && (best === -1 || at < best)) { best = at; len = w.length; } });
+          if (best === -1) { frag.appendChild(document.createTextNode(text.slice(pos))); break; }
+          if (best > pos) frag.appendChild(document.createTextNode(text.slice(pos, best)));
+          frag.appendChild(make('mark', null, text.slice(best, best + len)));
+          pos = best + len;
+        }
+        return frag;
+      }
+      function search() {
+        var words = tokens(input.value);
+        while (results.firstChild) results.removeChild(results.firstChild);
+        if (!words.length) { results.hidden = true; empty.hidden = true; status.textContent = ''; return; }
+        var hits = index.filter(function (x) { return words.every(function (w) { return x.hay.indexOf(w) !== -1; }); });
+        hits.forEach(function (x) { x.score = words.reduce(function (s, w) { return s + (x.title.indexOf(w) !== -1 ? 3 : 0) + (x.title.indexOf(w) === 0 ? 1 : 0); }, 0) + (x.exam.pool ? 0 : 0.5); });
+        hits.sort(function (a, b) { return b.score - a.score; });
+        hits.slice(0, 8).forEach(function (x) {
+          var li = make('li'), a = make('a');
+          a.href = x.exam.u;
+          a.appendChild(make('span', 'finder-mod', x.mod.n));
+          var title = make('span', 'finder-title');
+          title.appendChild(marked(x.exam.t, words));
+          a.appendChild(title);
+          a.appendChild(make('span', 'finder-go', 'Start'));
+          var why = x.title.indexOf(words[0]) !== -1 ? x.mod.t + (x.mod.s ? ' · ' + x.mod.s : '') : snippet([x.exam.c, x.exam.d, x.mod.s].join(' · '), words) || x.mod.t;
+          var whyNode = make('span', 'finder-why');
+          whyNode.appendChild(marked(why, words));
+          a.appendChild(whyNode);
+          li.appendChild(a);
+          results.appendChild(li);
+        });
+        results.hidden = !hits.length;
+        empty.hidden = !!hits.length;
+        empty.textContent = hits.length ? '' : 'No exam mentions “' + input.value.trim() + '”. Try a shorter word, or choose a module below.';
+        status.textContent = hits.length ? (hits.length === 1 ? '1 exam matches.' : Math.min(hits.length, 8) + ' of ' + hits.length + ' exams shown.') + ' Press Down to move through them.' : 'No exam matches.';
+      }
+      if (finder && input && results) {
+        finder.hidden = false;
+        input.addEventListener('input', search);
+        input.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') { input.value = ''; search(); }
+          else if (e.key === 'ArrowDown' && results.firstChild) { e.preventDefault(); results.firstChild.firstChild.focus(); }
+          else if (e.key === 'Enter' && results.firstChild) { e.preventDefault(); results.firstChild.firstChild.click(); }
+        });
+        results.addEventListener('keydown', function (e) {
+          var li = e.target && e.target.parentNode;
+          if (!li || li.parentNode !== results) return;
+          if (e.key === 'ArrowDown' && li.nextSibling) { e.preventDefault(); li.nextSibling.firstChild.focus(); }
+          else if (e.key === 'ArrowUp') { e.preventDefault(); (li.previousSibling ? li.previousSibling.firstChild : input).focus(); }
+          else if (e.key === 'Escape') { e.preventDefault(); input.focus(); }
+        });
+        // "/" from anywhere (outside a text field) jumps to the finder, as on most documentation sites.
+        document.addEventListener('keydown', function (e) {
+          if (e.key !== '/' || e.ctrlKey || e.metaKey || e.altKey) return;
+          var t = e.target, tag = t && t.tagName;
+          if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT' || (t && t.isContentEditable)) return;
+          e.preventDefault();
+          input.focus();
+        });
+      }
+
+      // ---- Exam rows (called once the panels are parsed) and the masthead jump row's current module. ----
+      window.__hubDevice = {
+        rows: function () {
+          data.exams.forEach(function (exam) {
+            var p = progress[exam.k], tag = document.querySelector('[data-progress-exam="' + exam.k + '"]');
+            if (!tag || !p || !p.seen) return;
+            var done = p.seen >= p.total;
+            tag.textContent = done ? 'All ' + p.total + ' seen' + (p.missed ? ' · ' + p.missed + ' missed' : '') : 'Seen ' + p.seen + '/' + p.total + (p.missed ? ' · ' + p.missed + ' missed' : '');
+            tag.className = 'tag tag-progress' + (done && !p.missed ? ' is-done' : '');
+            tag.title = 'On this device';
+            tag.hidden = false;
+          });
+        }
+      };
+      function syncJump() {
+        var hash = (location.hash || '').slice(1).toLowerCase();
+        Array.prototype.forEach.call(document.querySelectorAll('.module-jump a'), function (a) {
+          if (a.getAttribute('href') === '#' + hash) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+        });
+      }
+      syncJump();
+      window.addEventListener('hashchange', syncJump);
+      window.addEventListener('popstate', syncJump);
+      // The chooser changes the URL with pushState (no event), so re-read it after any click.
+      document.addEventListener('click', function () { setTimeout(syncJump, 0); });
+    })();
+    </script>
 
     <section class="exam-panel" id="module-1" aria-labelledby="exams-heading-module-1">
       <div class="sect-head section-head">
-        <h2 id="exams-heading-module-1" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 1</span></h2>
+        <h2 id="exams-heading-module-1" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 1 <span class="heading-subject">Leadership</span></span></h2>
         <a class="change-module" id="change-module-1" href="#choose-module">Change module</a>
       </div>
       <div class="sect-body">
-      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Module 1 Exam has 35 questions. Leadership.</p>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Module 1 Exam has 35 questions.</p>
       <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
       <ul class="exam-grid" id="exam-grid-module-1">
         <li class="is-prominent" id="card-moduleone" data-key="moduleone">
@@ -775,6 +1146,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="leadershipattributes" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-leadershipattributes" aria-live="polite"></div>
@@ -791,6 +1163,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="leadershipcompetencies" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-leadershipcompetencies" aria-live="polite"></div>
@@ -807,6 +1180,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="companymanagement" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-companymanagement" aria-live="polite"></div>
@@ -823,6 +1197,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="missioncommand" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-missioncommand" aria-live="polite"></div>
@@ -839,6 +1214,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="ethicalleadership" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-ethicalleadership" aria-live="polite"></div>
@@ -855,6 +1231,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="ncoempowerment" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-ncoempowerment" aria-live="polite"></div>
@@ -871,6 +1248,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="effectivecommunication" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-effectivecommunication" aria-live="polite"></div>
@@ -883,11 +1261,11 @@
 
     <section class="exam-panel" id="module-2" aria-labelledby="exams-heading-module-2">
       <div class="sect-head section-head">
-        <h2 id="exams-heading-module-2" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 2</span></h2>
+        <h2 id="exams-heading-module-2" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 2 <span class="heading-subject">Army Operating Concept</span></span></h2>
         <a class="change-module" id="change-module-2" href="#choose-module">Change module</a>
       </div>
       <div class="sect-body">
-      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Combined Practice Exam has 30 questions. Army Operating Concept.</p>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Combined Practice Exam has 30 questions.</p>
       <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
       <ul class="exam-grid" id="exam-grid-module-2">
         <li class="is-prominent" id="card-combined" data-key="combined">
@@ -917,6 +1295,7 @@
               <ul class="card-meta">
                 <li class="tag">35 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="fieldartillery" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-fieldartillery" aria-live="polite"></div>
@@ -933,6 +1312,7 @@
               <ul class="card-meta">
                 <li class="tag">35 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="armor" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-armor" aria-live="polite"></div>
@@ -949,6 +1329,7 @@
               <ul class="card-meta">
                 <li class="tag">35 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="isr" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-isr" aria-live="polite"></div>
@@ -961,11 +1342,11 @@
 
     <section class="exam-panel" id="module-3" aria-labelledby="exams-heading-module-3">
       <div class="sect-head section-head">
-        <h2 id="exams-heading-module-3" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 3</span></h2>
+        <h2 id="exams-heading-module-3" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 3 <span class="heading-subject">Battalion/Brigade Operations Planning</span></span></h2>
         <a class="change-module" id="change-module-3" href="#choose-module">Change module</a>
       </div>
       <div class="sect-body">
-      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes. Battalion/Brigade Operations Planning.</p>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes.</p>
       <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
       <ul class="exam-grid" id="exam-grid-module-3">
         <li id="card-tlp" data-key="tlp">
@@ -978,6 +1359,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="tlp" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-tlp" aria-live="polite"></div>
@@ -990,11 +1372,11 @@
 
     <section class="exam-panel" id="module-4" aria-labelledby="exams-heading-module-4">
       <div class="sect-head section-head">
-        <h2 id="exams-heading-module-4" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 4</span></h2>
+        <h2 id="exams-heading-module-4" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 4 <span class="heading-subject">Signal Support Integration</span></span></h2>
         <a class="change-module" id="change-module-4" href="#choose-module">Change module</a>
       </div>
       <div class="sect-body">
-      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Module 4 Exam has 30 questions. Signal Support Integration.</p>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Module 4 Exam has 30 questions.</p>
       <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
       <ul class="exam-grid" id="exam-grid-module-4">
         <li class="is-prominent" id="card-modulethree" data-key="modulethree">
@@ -1024,6 +1406,7 @@
               <ul class="card-meta">
                 <li class="tag">35 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="signal" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-signal" aria-live="polite"></div>
@@ -1040,6 +1423,7 @@
               <ul class="card-meta">
                 <li class="tag">35 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="signaljoint" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-signaljoint" aria-live="polite"></div>
@@ -1056,6 +1440,7 @@
               <ul class="card-meta">
                 <li class="tag">35 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="coalition" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-coalition" aria-live="polite"></div>
@@ -1068,11 +1453,11 @@
 
     <section class="exam-panel" id="module-5" aria-labelledby="exams-heading-module-5">
       <div class="sect-head section-head">
-        <h2 id="exams-heading-module-5" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 5</span></h2>
+        <h2 id="exams-heading-module-5" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 5 <span class="heading-subject">Advanced C2 Communications</span></span></h2>
         <a class="change-module" id="change-module-5" href="#choose-module">Change module</a>
       </div>
       <div class="sect-body">
-      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Module 5 Exam has a fixed number of questions. Advanced C2 Communications.</p>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Module 5 Exam has a fixed number of questions.</p>
       <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
       <ul class="exam-grid" id="exam-grid-module-5">
         <li class="is-prominent" id="card-modulefive" data-key="modulefive">
@@ -1086,6 +1471,7 @@
                 <li class="tag">30 questions per attempt</li>
                 <li class="tag">Hybrid examination</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="modulefive" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-modulefive" aria-live="polite"></div>
@@ -1102,6 +1488,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="manet" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-manet" aria-live="polite"></div>
@@ -1118,6 +1505,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="sensors" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-sensors" aria-live="polite"></div>
@@ -1134,6 +1522,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="weapons" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-weapons" aria-live="polite"></div>
@@ -1150,6 +1539,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="propagation" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-propagation" aria-live="polite"></div>
@@ -1162,11 +1552,11 @@
 
     <section class="exam-panel" id="module-6" aria-labelledby="exams-heading-module-6">
       <div class="sect-head section-head">
-        <h2 id="exams-heading-module-6" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 6</span></h2>
+        <h2 id="exams-heading-module-6" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 6 <span class="heading-subject">Advanced Electronic Warfare Operations</span></span></h2>
         <a class="change-module" id="change-module-6" href="#choose-module">Change module</a>
       </div>
       <div class="sect-body">
-      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Module 6 Exam has 32 questions. Advanced Electronic Warfare Operations.</p>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Module 6 Exam has 32 questions.</p>
       <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
       <ul class="exam-grid" id="exam-grid-module-6">
         <li class="is-prominent" id="card-modulesix" data-key="modulesix">
@@ -1196,6 +1586,7 @@
               <ul class="card-meta">
                 <li class="tag">25 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="sigint" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-sigint" aria-live="polite"></div>
@@ -1212,6 +1603,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="elint" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-elint" aria-live="polite"></div>
@@ -1228,6 +1620,7 @@
               <ul class="card-meta">
                 <li class="tag">25 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="rdf" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-rdf" aria-live="polite"></div>
@@ -1244,6 +1637,7 @@
               <ul class="card-meta">
                 <li class="tag">22 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="eccm" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-eccm" aria-live="polite"></div>
@@ -1256,11 +1650,11 @@
 
     <section class="exam-panel" id="module-7" aria-labelledby="exams-heading-module-7">
       <div class="sect-head section-head">
-        <h2 id="exams-heading-module-7" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 7</span></h2>
+        <h2 id="exams-heading-module-7" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 7 <span class="heading-subject">Advanced Cyberspace Operations</span></span></h2>
         <a class="change-module" id="change-module-7" href="#choose-module">Change module</a>
       </div>
       <div class="sect-body">
-      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Module 7 Exam has a fixed number of questions. Advanced Cyberspace Operations.</p>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes; the Module 7 Exam has a fixed number of questions.</p>
       <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
       <ul class="exam-grid" id="exam-grid-module-7">
         <li class="is-prominent" id="card-moduleseven" data-key="moduleseven">
@@ -1274,6 +1668,7 @@
                 <li class="tag">32 questions per attempt</li>
                 <li class="tag">Hybrid examination</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="moduleseven" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-moduleseven" aria-live="polite"></div>
@@ -1290,6 +1685,7 @@
               <ul class="card-meta">
                 <li class="tag">25 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="nist" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-nist" aria-live="polite"></div>
@@ -1306,6 +1702,7 @@
               <ul class="card-meta">
                 <li class="tag">25 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="zerotrust" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-zerotrust" aria-live="polite"></div>
@@ -1322,6 +1719,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="gsomia" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-gsomia" aria-live="polite"></div>
@@ -1338,6 +1736,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="cyberrisk" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-cyberrisk" aria-live="polite"></div>
@@ -1350,11 +1749,11 @@
 
     <section class="exam-panel" id="module-8" aria-labelledby="exams-heading-module-8">
       <div class="sect-head section-head">
-        <h2 id="exams-heading-module-8" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 8</span></h2>
+        <h2 id="exams-heading-module-8" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Module 8 <span class="heading-subject">Signal Planning</span></span></h2>
         <a class="change-module" id="change-module-8" href="#choose-module">Change module</a>
       </div>
       <div class="sect-body">
-      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes. Signal Planning.</p>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes.</p>
       <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
       <ul class="exam-grid" id="exam-grid-module-8">
         <li id="card-ceoicesi" data-key="ceoicesi">
@@ -1367,6 +1766,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="ceoicesi" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-ceoicesi" aria-live="polite"></div>
@@ -1383,6 +1783,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="signalestimate" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-signalestimate" aria-live="polite"></div>
@@ -1399,6 +1800,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="c4istarplanning" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-c4istarplanning" aria-live="polite"></div>
@@ -1415,6 +1817,7 @@
               <ul class="card-meta">
                 <li class="tag">20 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="signalplanning" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-signalplanning" aria-live="polite"></div>
@@ -1427,11 +1830,11 @@
 
     <section class="exam-panel" id="supplemental" aria-labelledby="exams-heading-supplemental">
       <div class="sect-head section-head">
-        <h2 id="exams-heading-supplemental" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Supporting Lessons</span></h2>
+        <h2 id="exams-heading-supplemental" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· Supporting Lessons <span class="heading-subject">Supporting study material; not separately numbered POI lessons</span></span></h2>
         <a class="change-module" id="change-supplemental" href="#choose-module">Change module</a>
       </div>
       <div class="sect-body">
-      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes. Supporting study material; not separately numbered POI lessons.</p>
+      <p class="section-intro">Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes.</p>
       <p class="toc-head" aria-hidden="true"><span>No.</span><span class="toc-head-main"><span>Exam</span><span>Questions · Easy / Medium / Hard</span></span><span>Class record</span></p>
       <ul class="exam-grid" id="exam-grid-supplemental">
         <li id="card-armyops" data-key="armyops">
@@ -1444,6 +1847,7 @@
               <ul class="card-meta">
                 <li class="tag">35 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="armyops" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-armyops" aria-live="polite"></div>
@@ -1460,6 +1864,7 @@
               <ul class="card-meta">
                 <li class="tag">25 questions per attempt</li>
                 <li class="tag">Easy · Medium · Hard</li>
+                <li class="tag tag-progress" data-progress-exam="intcycle" hidden></li>
               </ul>
             </div>
             <div class="card-stats" id="stats-intcycle" aria-live="polite"></div>
@@ -1469,6 +1874,7 @@
       </ul>
       </div>
     </section>
+    <script data-hub="rows">if (window.__hubDevice) window.__hubDevice.rows();</script>
 
     <section class="history-panel" id="history-section" aria-labelledby="history-heading">
       <div class="section-head">
@@ -1533,803 +1939,7 @@
     // ---- Configuration: one entry per module, one per exam. Generated by scripts/build.mjs from
     // lessons/modules.json and lessons/*/lesson.json (edit those, then rebuild). Lesson keys match the
     // shared history script (apps-script/Code.gs). ----
-    var MODULES = [
-      {
-        "id": "module-1",
-        "title": "Module 1",
-        "meta": "7 lessons + Module 1 Exam",
-        "description": "Military Leadership Attributes, Military Leadership Competencies, Company Management, Mission Command, Ethical and Transformational Leadership, NCO Empowerment, Effective Communication 2 and the Module 1 Exam",
-        "exams": [
-          {
-            "key": "moduleone",
-            "lesson": "moduleone",
-            "title": "Module 1 Exam",
-            "description": "35 questions per attempt, with 5 from each of the 7 POI lessons.",
-            "url": "module-1-exam/",
-            "kicker": "Module examination",
-            "tags": [
-              {
-                "text": "All 7 lessons",
-                "comprehensive": true
-              },
-              {
-                "text": "35 questions",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ],
-            "prominent": true
-          },
-          {
-            "key": "leadershipattributes",
-            "lesson": "leadershipattributes",
-            "title": "Military Leadership Attributes",
-            "description": "Practice military leadership attributes with source-referenced questions.",
-            "url": "military-leadership-attributes/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "leadershipcompetencies",
-            "lesson": "leadershipcompetencies",
-            "title": "Military Leadership Competencies",
-            "description": "Practice military leadership competencies with source-referenced questions.",
-            "url": "military-leadership-competencies/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "companymanagement",
-            "lesson": "companymanagement",
-            "title": "Company Management",
-            "description": "Practice company management with source-referenced questions.",
-            "url": "company-management/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "missioncommand",
-            "lesson": "missioncommand",
-            "title": "Mission Command",
-            "description": "Decide how to balance control and initiative when a plan changes or contact is disrupted.",
-            "url": "mission-command/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "ethicalleadership",
-            "lesson": "ethicalleadership",
-            "title": "Ethical and Transformational Leadership",
-            "description": "Apply the ethical decision process and connect the Four I’s to everyday leadership decisions.",
-            "url": "ethical-transformational-leadership/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "ncoempowerment",
-            "lesson": "ncoempowerment",
-            "title": "NCO Empowerment",
-            "description": "Distinguish duties and authority, select corrective actions, and use the NCO support channel.",
-            "url": "nco-empowerment/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "effectivecommunication",
-            "lesson": "effectivecommunication",
-            "title": "Effective Communication 2",
-            "description": "Select communication methods, diagnose barriers, and use feedback to verify understanding.",
-            "url": "effective-communication-2/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          }
-        ],
-        "note": "Leadership"
-      },
-      {
-        "id": "module-2",
-        "title": "Module 2",
-        "meta": "3 lessons + Combined Practice Exam",
-        "description": "Field Artillery Operations, Armor Operations, ISR Operations and the Combined Practice Exam",
-        "exams": [
-          {
-            "key": "combined",
-            "lesson": "combined",
-            "title": "Combined Practice Exam",
-            "description": "30 questions from ISR, Armor, Field Artillery and the supporting Army Operations lesson. Not a complete POI Module 2 assessment.",
-            "url": "combined/",
-            "kicker": "Cross-lesson practice",
-            "tags": [
-              {
-                "text": "All four lessons",
-                "comprehensive": true
-              },
-              {
-                "text": "30 questions",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ],
-            "prominent": true
-          },
-          {
-            "key": "fieldartillery",
-            "lesson": "fieldartillery",
-            "title": "Field Artillery Operations",
-            "description": "Field Artillery Operations lesson.",
-            "url": "field-artillery/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "35 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "armor",
-            "lesson": "armor",
-            "title": "Armor Operations",
-            "description": "Fundamentals of Armor Operations.",
-            "url": "armor/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "35 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "isr",
-            "lesson": "isr",
-            "title": "ISR Operations",
-            "description": "Introduction to ISR Operations.",
-            "url": "isr/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "35 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          }
-        ],
-        "note": "Army Operating Concept"
-      },
-      {
-        "id": "module-3",
-        "title": "Module 3",
-        "meta": "1 lesson",
-        "description": "Troop Leading Procedure (TLP)",
-        "exams": [
-          {
-            "key": "tlp",
-            "lesson": "tlp",
-            "title": "Troop Leading Procedure (TLP)",
-            "description": "Practice company-level planning through an annotated defensive exercise.",
-            "url": "troop-leading-procedure/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          }
-        ],
-        "note": "Battalion/Brigade Operations Planning"
-      },
-      {
-        "id": "module-4",
-        "title": "Module 4",
-        "meta": "3 lessons + Module 4 Exam",
-        "description": "Signal Support in Combined Arms Operations, Signal Support in Joint Operations, Signal Support in Coalition Operations and the Module 4 Exam",
-        "exams": [
-          {
-            "key": "modulethree",
-            "lesson": "modulethree",
-            "title": "Module 4 Exam",
-            "description": "30 questions: 10 each from Combined Arms, Joint and Coalition Operations.",
-            "url": "module-3-exam/",
-            "kicker": "Module examination",
-            "tags": [
-              {
-                "text": "All three lessons",
-                "comprehensive": true
-              },
-              {
-                "text": "30 questions",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ],
-            "prominent": true
-          },
-          {
-            "key": "signal",
-            "lesson": "signal",
-            "title": "Signal Support in Combined Arms Operations",
-            "description": "Signal Support in Combined Arms Operations lesson.",
-            "url": "signal-support/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "35 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "signaljoint",
-            "lesson": "signaljoint",
-            "title": "Signal Support in Joint Operations",
-            "description": "Signal Support in Joint Operations lesson.",
-            "url": "joint-signal/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "35 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "coalition",
-            "lesson": "coalition",
-            "title": "Signal Support in Coalition Operations",
-            "description": "Signal Support in Coalition Operations lesson.",
-            "url": "coalition-signal/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "35 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          }
-        ],
-        "note": "Signal Support Integration"
-      },
-      {
-        "id": "module-5",
-        "title": "Module 5",
-        "meta": "5 lessons",
-        "description": "Module 5 Exam, MANET C4ISTAR Planning, C4ISTAR Sensors Integration, C4ISTAR Weapon System Integration and Signal Propagation (Mobile Apps/RF Clouds)",
-        "exams": [
-          {
-            "key": "modulefive",
-            "lesson": "modulefive",
-            "title": "Module 5 Exam",
-            "description": "30 questions per difficulty across the three available lessons: MANET C4ISTAR Planning, C4ISTAR Sensors Integration, C4ISTAR Weapon System Integration. Selected foundations and new integrated scenarios.",
-            "url": "module-5-exam/",
-            "kicker": "Module examination",
-            "tags": [
-              {
-                "text": "30 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Hybrid examination",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ],
-            "prominent": true
-          },
-          {
-            "key": "manet",
-            "lesson": "manet",
-            "title": "MANET C4ISTAR Planning",
-            "description": "Practice manet c4istar planning with source-referenced questions.",
-            "url": "manet-c4istar-planning/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "sensors",
-            "lesson": "sensors",
-            "title": "C4ISTAR Sensors Integration",
-            "description": "Practice c4istar sensors integration with source-referenced questions.",
-            "url": "c4istar-sensors-integration/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "weapons",
-            "lesson": "weapons",
-            "title": "C4ISTAR Weapon System Integration",
-            "description": "Practice c4istar weapon system integration with source-referenced questions.",
-            "url": "c4istar-weapon-system-integration/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "propagation",
-            "lesson": "propagation",
-            "title": "Signal Propagation (Mobile Apps/RF Clouds)",
-            "description": "Read RF predictions, compare modeled coverage and validate a relay recommendation.",
-            "url": "signal-propagation/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          }
-        ],
-        "note": "Advanced C2 Communications"
-      },
-      {
-        "id": "module-6",
-        "title": "Module 6",
-        "meta": "4 lessons + Module 6 Exam",
-        "description": "Signals Intelligence (SIGINT), Electronic Intelligence (ELINT), Radio Direction Finding, Electronic Counter-Countermeasures (ECCM) and the Module 6 Exam",
-        "exams": [
-          {
-            "key": "modulesix",
-            "lesson": "modulesix",
-            "title": "Module 6 Exam",
-            "description": "32 questions per attempt, with 8 from each of the 4 POI lessons.",
-            "url": "module-6-exam/",
-            "kicker": "Module examination",
-            "tags": [
-              {
-                "text": "All 4 lessons",
-                "comprehensive": true
-              },
-              {
-                "text": "32 questions",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ],
-            "prominent": true
-          },
-          {
-            "key": "sigint",
-            "lesson": "sigint",
-            "title": "Signals Intelligence (SIGINT)",
-            "description": "Assess SIGINT concepts, reporting quality, corroboration and responsible dissemination.",
-            "url": "signals-intelligence/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "25 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "elint",
-            "lesson": "elint",
-            "title": "Electronic Intelligence (ELINT)",
-            "description": "Read radar fingerprints, separate ELINT from COMINT and ES, and trace an intercept to the EOB.",
-            "url": "electronic-intelligence/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "rdf",
-            "lesson": "rdf",
-            "title": "Radio Direction Finding",
-            "description": "Reason about RF sources, measurement principles and the limits of a bearing.",
-            "url": "radio-direction-finding/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "25 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "eccm",
-            "lesson": "eccm",
-            "title": "Electronic Counter-Countermeasures (ECCM)",
-            "description": "Apply electronic protection: radio discipline, masking, EMCON, jamming response, reporting and PACE.",
-            "url": "electronic-counter-countermeasures/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "22 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          }
-        ],
-        "note": "Advanced Electronic Warfare Operations"
-      },
-      {
-        "id": "module-7",
-        "title": "Module 7",
-        "meta": "5 lessons",
-        "description": "Module 7 Exam, NIST Framework, Zero Trust, LOE3 GSOMIA Compliance and Cyber Risk Assessment",
-        "exams": [
-          {
-            "key": "moduleseven",
-            "lesson": "moduleseven",
-            "title": "Module 7 Exam",
-            "description": "32 questions per difficulty across all four lessons: NIST Framework, Zero Trust, LOE3 GSOMIA Compliance, Cyber Risk Assessment. Selected foundations and new integrated scenarios.",
-            "url": "module-7-exam/",
-            "kicker": "Module examination",
-            "tags": [
-              {
-                "text": "32 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Hybrid examination",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ],
-            "prominent": true
-          },
-          {
-            "key": "nist",
-            "lesson": "nist",
-            "title": "NIST Framework",
-            "description": "Practice nist framework with source-referenced questions.",
-            "url": "nist-framework/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "25 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "zerotrust",
-            "lesson": "zerotrust",
-            "title": "Zero Trust",
-            "description": "Practice zero trust with source-referenced questions.",
-            "url": "zero-trust/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "25 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "gsomia",
-            "lesson": "gsomia",
-            "title": "LOE3 GSOMIA Compliance",
-            "description": "Practice loe3 gsomia compliance with source-referenced questions.",
-            "url": "gsomia-compliance/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "cyberrisk",
-            "lesson": "cyberrisk",
-            "title": "Cyber Risk Assessment",
-            "description": "Practice cyber risk assessment with source-referenced questions.",
-            "url": "cyber-risk-assessment/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          }
-        ],
-        "note": "Advanced Cyberspace Operations"
-      },
-      {
-        "id": "module-8",
-        "title": "Module 8",
-        "meta": "4 lessons",
-        "description": "CEOI / CESI Management, Signal Estimate, C4ISTAR Communications Planning and Signal Planning Process",
-        "exams": [
-          {
-            "key": "ceoicesi",
-            "lesson": "ceoicesi",
-            "title": "CEOI / CESI Management",
-            "description": "Practice ceoi / cesi management with source-referenced questions.",
-            "url": "ceoi-cesi-management/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "signalestimate",
-            "lesson": "signalestimate",
-            "title": "Signal Estimate",
-            "description": "Use METAL and the Annex A format to assess factors, compare courses of action and support decisions.",
-            "url": "signal-estimate/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "c4istarplanning",
-            "lesson": "c4istarplanning",
-            "title": "C4ISTAR Communications Planning",
-            "description": "Practice c4istar communications planning with source-referenced questions.",
-            "url": "c4istar-communications-planning/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "signalplanning",
-            "lesson": "signalplanning",
-            "title": "Signal Planning Process",
-            "description": "Develop support requirements, allocate resources and check plans before publishing orders.",
-            "url": "signal-planning-process/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "20 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          }
-        ],
-        "note": "Signal Planning"
-      },
-      {
-        "id": "supplemental",
-        "title": "Supporting Lessons",
-        "meta": "2 lessons",
-        "description": "Army Operations and Intelligence Cycle",
-        "exams": [
-          {
-            "key": "armyops",
-            "lesson": "armyops",
-            "title": "Army Operations",
-            "description": "Introduction to Army Operations.",
-            "url": "army-operations/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "35 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          },
-          {
-            "key": "intcycle",
-            "lesson": "intcycle",
-            "title": "Intelligence Cycle",
-            "description": "Evaluate information, distinguish the five stages, and report responsibly.",
-            "url": "intelligence-cycle/",
-            "kicker": "Lesson quiz",
-            "tags": [
-              {
-                "text": "25 questions per attempt",
-                "comprehensive": false
-              },
-              {
-                "text": "Easy · Medium · Hard",
-                "comprehensive": false
-              }
-            ]
-          }
-        ],
-        "note": "Supporting study material; not separately numbered POI lessons"
-      }
-    ];
+    var MODULES = [{"id":"module-1","title":"Module 1","meta":"7 lessons + Module 1 Exam","description":"Military Leadership Attributes, Military Leadership Competencies, Company Management, Mission Command, Ethical and Transformational Leadership, NCO Empowerment, Effective Communication 2 and the Module 1 Exam","exams":[{"key":"moduleone","lesson":"moduleone","title":"Module 1 Exam","description":"35 questions per attempt, with 5 from each of the 7 POI lessons.","url":"module-1-exam/","kicker":"Module examination","tags":[{"text":"All 7 lessons","comprehensive":true},{"text":"35 questions","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}],"prominent":true},{"key":"leadershipattributes","lesson":"leadershipattributes","title":"Military Leadership Attributes","description":"Practice military leadership attributes with source-referenced questions.","url":"military-leadership-attributes/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"leadershipcompetencies","lesson":"leadershipcompetencies","title":"Military Leadership Competencies","description":"Practice military leadership competencies with source-referenced questions.","url":"military-leadership-competencies/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"companymanagement","lesson":"companymanagement","title":"Company Management","description":"Practice company management with source-referenced questions.","url":"company-management/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"missioncommand","lesson":"missioncommand","title":"Mission Command","description":"Decide how to balance control and initiative when a plan changes or contact is disrupted.","url":"mission-command/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"ethicalleadership","lesson":"ethicalleadership","title":"Ethical and Transformational Leadership","description":"Apply the ethical decision process and connect the Four I’s to everyday leadership decisions.","url":"ethical-transformational-leadership/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"ncoempowerment","lesson":"ncoempowerment","title":"NCO Empowerment","description":"Distinguish duties and authority, select corrective actions, and use the NCO support channel.","url":"nco-empowerment/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"effectivecommunication","lesson":"effectivecommunication","title":"Effective Communication 2","description":"Select communication methods, diagnose barriers, and use feedback to verify understanding.","url":"effective-communication-2/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]}],"note":"Leadership"},{"id":"module-2","title":"Module 2","meta":"3 lessons + Combined Practice Exam","description":"Field Artillery Operations, Armor Operations, ISR Operations and the Combined Practice Exam","exams":[{"key":"combined","lesson":"combined","title":"Combined Practice Exam","description":"30 questions from ISR, Armor, Field Artillery and the supporting Army Operations lesson. Not a complete POI Module 2 assessment.","url":"combined/","kicker":"Cross-lesson practice","tags":[{"text":"All four lessons","comprehensive":true},{"text":"30 questions","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}],"prominent":true},{"key":"fieldartillery","lesson":"fieldartillery","title":"Field Artillery Operations","description":"Field Artillery Operations lesson.","url":"field-artillery/","kicker":"Lesson quiz","tags":[{"text":"35 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"armor","lesson":"armor","title":"Armor Operations","description":"Fundamentals of Armor Operations.","url":"armor/","kicker":"Lesson quiz","tags":[{"text":"35 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"isr","lesson":"isr","title":"ISR Operations","description":"Introduction to ISR Operations.","url":"isr/","kicker":"Lesson quiz","tags":[{"text":"35 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]}],"note":"Army Operating Concept"},{"id":"module-3","title":"Module 3","meta":"1 lesson","description":"Troop Leading Procedure (TLP)","exams":[{"key":"tlp","lesson":"tlp","title":"Troop Leading Procedure (TLP)","description":"Practice company-level planning through an annotated defensive exercise.","url":"troop-leading-procedure/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]}],"note":"Battalion/Brigade Operations Planning"},{"id":"module-4","title":"Module 4","meta":"3 lessons + Module 4 Exam","description":"Signal Support in Combined Arms Operations, Signal Support in Joint Operations, Signal Support in Coalition Operations and the Module 4 Exam","exams":[{"key":"modulethree","lesson":"modulethree","title":"Module 4 Exam","description":"30 questions: 10 each from Combined Arms, Joint and Coalition Operations.","url":"module-3-exam/","kicker":"Module examination","tags":[{"text":"All three lessons","comprehensive":true},{"text":"30 questions","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}],"prominent":true},{"key":"signal","lesson":"signal","title":"Signal Support in Combined Arms Operations","description":"Signal Support in Combined Arms Operations lesson.","url":"signal-support/","kicker":"Lesson quiz","tags":[{"text":"35 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"signaljoint","lesson":"signaljoint","title":"Signal Support in Joint Operations","description":"Signal Support in Joint Operations lesson.","url":"joint-signal/","kicker":"Lesson quiz","tags":[{"text":"35 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"coalition","lesson":"coalition","title":"Signal Support in Coalition Operations","description":"Signal Support in Coalition Operations lesson.","url":"coalition-signal/","kicker":"Lesson quiz","tags":[{"text":"35 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]}],"note":"Signal Support Integration"},{"id":"module-5","title":"Module 5","meta":"5 lessons","description":"Module 5 Exam, MANET C4ISTAR Planning, C4ISTAR Sensors Integration, C4ISTAR Weapon System Integration and Signal Propagation (Mobile Apps/RF Clouds)","exams":[{"key":"modulefive","lesson":"modulefive","title":"Module 5 Exam","description":"30 questions per difficulty across the three available lessons: MANET C4ISTAR Planning, C4ISTAR Sensors Integration, C4ISTAR Weapon System Integration. Selected foundations and new integrated scenarios.","url":"module-5-exam/","kicker":"Module examination","tags":[{"text":"30 questions per attempt","comprehensive":false},{"text":"Hybrid examination","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}],"prominent":true},{"key":"manet","lesson":"manet","title":"MANET C4ISTAR Planning","description":"Practice manet c4istar planning with source-referenced questions.","url":"manet-c4istar-planning/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"sensors","lesson":"sensors","title":"C4ISTAR Sensors Integration","description":"Practice c4istar sensors integration with source-referenced questions.","url":"c4istar-sensors-integration/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"weapons","lesson":"weapons","title":"C4ISTAR Weapon System Integration","description":"Practice c4istar weapon system integration with source-referenced questions.","url":"c4istar-weapon-system-integration/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"propagation","lesson":"propagation","title":"Signal Propagation (Mobile Apps/RF Clouds)","description":"Read RF predictions, compare modeled coverage and validate a relay recommendation.","url":"signal-propagation/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]}],"note":"Advanced C2 Communications"},{"id":"module-6","title":"Module 6","meta":"4 lessons + Module 6 Exam","description":"Signals Intelligence (SIGINT), Electronic Intelligence (ELINT), Radio Direction Finding, Electronic Counter-Countermeasures (ECCM) and the Module 6 Exam","exams":[{"key":"modulesix","lesson":"modulesix","title":"Module 6 Exam","description":"32 questions per attempt, with 8 from each of the 4 POI lessons.","url":"module-6-exam/","kicker":"Module examination","tags":[{"text":"All 4 lessons","comprehensive":true},{"text":"32 questions","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}],"prominent":true},{"key":"sigint","lesson":"sigint","title":"Signals Intelligence (SIGINT)","description":"Assess SIGINT concepts, reporting quality, corroboration and responsible dissemination.","url":"signals-intelligence/","kicker":"Lesson quiz","tags":[{"text":"25 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"elint","lesson":"elint","title":"Electronic Intelligence (ELINT)","description":"Read radar fingerprints, separate ELINT from COMINT and ES, and trace an intercept to the EOB.","url":"electronic-intelligence/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"rdf","lesson":"rdf","title":"Radio Direction Finding","description":"Reason about RF sources, measurement principles and the limits of a bearing.","url":"radio-direction-finding/","kicker":"Lesson quiz","tags":[{"text":"25 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"eccm","lesson":"eccm","title":"Electronic Counter-Countermeasures (ECCM)","description":"Apply electronic protection: radio discipline, masking, EMCON, jamming response, reporting and PACE.","url":"electronic-counter-countermeasures/","kicker":"Lesson quiz","tags":[{"text":"22 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]}],"note":"Advanced Electronic Warfare Operations"},{"id":"module-7","title":"Module 7","meta":"5 lessons","description":"Module 7 Exam, NIST Framework, Zero Trust, LOE3 GSOMIA Compliance and Cyber Risk Assessment","exams":[{"key":"moduleseven","lesson":"moduleseven","title":"Module 7 Exam","description":"32 questions per difficulty across all four lessons: NIST Framework, Zero Trust, LOE3 GSOMIA Compliance, Cyber Risk Assessment. Selected foundations and new integrated scenarios.","url":"module-7-exam/","kicker":"Module examination","tags":[{"text":"32 questions per attempt","comprehensive":false},{"text":"Hybrid examination","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}],"prominent":true},{"key":"nist","lesson":"nist","title":"NIST Framework","description":"Practice nist framework with source-referenced questions.","url":"nist-framework/","kicker":"Lesson quiz","tags":[{"text":"25 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"zerotrust","lesson":"zerotrust","title":"Zero Trust","description":"Practice zero trust with source-referenced questions.","url":"zero-trust/","kicker":"Lesson quiz","tags":[{"text":"25 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"gsomia","lesson":"gsomia","title":"LOE3 GSOMIA Compliance","description":"Practice loe3 gsomia compliance with source-referenced questions.","url":"gsomia-compliance/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"cyberrisk","lesson":"cyberrisk","title":"Cyber Risk Assessment","description":"Practice cyber risk assessment with source-referenced questions.","url":"cyber-risk-assessment/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]}],"note":"Advanced Cyberspace Operations"},{"id":"module-8","title":"Module 8","meta":"4 lessons","description":"CEOI / CESI Management, Signal Estimate, C4ISTAR Communications Planning and Signal Planning Process","exams":[{"key":"ceoicesi","lesson":"ceoicesi","title":"CEOI / CESI Management","description":"Practice ceoi / cesi management with source-referenced questions.","url":"ceoi-cesi-management/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"signalestimate","lesson":"signalestimate","title":"Signal Estimate","description":"Use METAL and the Annex A format to assess factors, compare courses of action and support decisions.","url":"signal-estimate/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"c4istarplanning","lesson":"c4istarplanning","title":"C4ISTAR Communications Planning","description":"Practice c4istar communications planning with source-referenced questions.","url":"c4istar-communications-planning/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"signalplanning","lesson":"signalplanning","title":"Signal Planning Process","description":"Develop support requirements, allocate resources and check plans before publishing orders.","url":"signal-planning-process/","kicker":"Lesson quiz","tags":[{"text":"20 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]}],"note":"Signal Planning"},{"id":"supplemental","title":"Supporting Lessons","meta":"2 lessons","description":"Army Operations and Intelligence Cycle","exams":[{"key":"armyops","lesson":"armyops","title":"Army Operations","description":"Introduction to Army Operations.","url":"army-operations/","kicker":"Lesson quiz","tags":[{"text":"35 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]},{"key":"intcycle","lesson":"intcycle","title":"Intelligence Cycle","description":"Evaluate information, distinguish the five stages, and report responsibly.","url":"intelligence-cycle/","kicker":"Lesson quiz","tags":[{"text":"25 questions per attempt","comprehensive":false},{"text":"Easy · Medium · Hard","comprehensive":false}]}],"note":"Supporting study material; not separately numbered POI lessons"}];
     // Flat list of every exam; each exam remembers its module id.
     var EXAMS = [];
     MODULES.forEach(function (m) { m.exams.forEach(function (e) { e.module = m.id; EXAMS.push(e); }); });
