@@ -460,5 +460,190 @@
     "sourceSlides": [
       30
     ]
+  },
+  {
+    "id": 21,
+    "qid": "signalplanning-m-21",
+    "difficulty": "medium",
+    "category": "Develop Requirements",
+    "tags": [
+      "signalplanning",
+      "develop requirements",
+      "application"
+    ],
+    "prompt": "The staff is developing COAs. What should the S6 produce at this MDMP step?",
+    "options": [
+      "A final net diagram, CEOI extract and Annex H, with all of its appendices and tabs",
+      "A signal estimate of the approved COA only",
+      "A communication concept for each COA, with CPs and critical nodes on each sketch",
+      "A resource status chart for the platoon"
+    ],
+    "answer": 2,
+    "explanation": "Handout p. 4: COA development drafts a communication concept for each COA and places CPs and critical communications nodes on each sketch.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "signalplanning-m-22",
+    "difficulty": "medium",
+    "category": "Develop Requirements",
+    "tags": [
+      "signalplanning",
+      "develop requirements",
+      "application"
+    ],
+    "prompt": "The staff is war-gaming COAs. Which signal planning step does this MDMP step feed, according to the handout?",
+    "options": [
+      "Develop recovery procedures",
+      "Develop requirements",
+      "Prepare a tentative plan for each COA",
+      "Finalize the plan"
+    ],
+    "answer": 0,
+    "explanation": "Handout p. 4: COA analysis compares C4S needs with assets, tests against EW, cyber, terrain and equipment loss, and feeds the develop-recovery-procedures step.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "signalplanning-m-23",
+    "difficulty": "medium",
+    "category": "Resources and Priorities",
+    "tags": [
+      "signalplanning",
+      "resources and priorities",
+      "application"
+    ],
+    "prompt": "A Signal platoon leader has just issued the warning order. What does the handout have operators start?",
+    "options": [
+      "The final net diagram",
+      "Site survey, line of sight and propagation checks",
+      "Communication checks and rehearsals",
+      "Battery charging, equipment checks and loading"
+    ],
+    "answer": 3,
+    "explanation": "Handout p. 4: TLP Step 2 alerts operators and starts battery charging, equipment checks and loading.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "signalplanning-m-24",
+    "difficulty": "medium",
+    "category": "Final Checks and Publication",
+    "tags": [
+      "signalplanning",
+      "final checks and publication",
+      "application"
+    ],
+    "prompt": "A Signal platoon leader walks a relay site to check line of sight, propagation and coverage gaps. Which TLP step is this?",
+    "options": [
+      "Make a tentative plan",
+      "Conduct reconnaissance",
+      "Initiate movement",
+      "Complete the plan"
+    ],
+    "answer": 1,
+    "explanation": "Handout p. 5: TLP Step 5, conduct reconnaissance, covers site survey, line of sight, propagation, coverage and gaps.",
+    "sourceSlides": [
+      27,
+      30
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "signalplanning-m-25",
+    "difficulty": "medium",
+    "category": "Tentative Plan",
+    "tags": [
+      "signalplanning",
+      "tentative plan",
+      "application"
+    ],
+    "prompt": "A planner assigns a second VHF FM set on the same net as the alternate for a VHF FM primary. What is wrong, according to the handout?",
+    "options": [
+      "The alternate must be a different, independent means so the loss of one does not take down the next",
+      "The alternate must be slower and less capable than the primary, so users switch only in an emergency",
+      "The alternate must be a messenger",
+      "The alternate must use the same frequency as the primary"
+    ],
+    "answer": 0,
+    "explanation": "Handout p. 9: each PACE means should be different and independent of the others; the example alternate for VHF FM is HF manpack.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 26,
+    "qid": "signalplanning-m-26",
+    "difficulty": "medium",
+    "category": "Tentative Plan",
+    "tags": [
+      "signalplanning",
+      "tentative plan",
+      "objective"
+    ],
+    "prompt": "In the handout's battalion command net example, which pair gives the contingency and emergency means?",
+    "options": [
+      "HF manpack, and VHF FM combat net radio",
+      "Messenger, and satellite phone",
+      "Satellite or cellular phone under COMSEC policy, and messenger or liaison officer",
+      "VHF FM combat net radio, and HF manpack"
+    ],
+    "answer": 2,
+    "explanation": "Handout p. 9: contingency is special purpose communication under COMSEC policy; emergency is a messenger, liaison officer or pre-arranged visual signals.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "signalplanning-m-27",
+    "difficulty": "medium",
+    "category": "Final Checks and Publication",
+    "tags": [
+      "signalplanning",
+      "final checks and publication",
+      "objective"
+    ],
+    "prompt": "In the handout's suggested Annex H outline, which paragraph holds the communication concept (PACE)?",
+    "options": [
+      "Paragraph 1, Situation",
+      "Paragraph 3, Execution",
+      "Paragraph 4, Sustainment",
+      "Paragraph 5, Command and Signal"
+    ],
+    "answer": 1,
+    "explanation": "Handout p. 11: paragraph 3 holds the communication concept (PACE), tasks, site locations and coordinating instructions.",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "signalplanning-m-28",
+    "difficulty": "medium",
+    "category": "Recovery Procedures",
+    "tags": [
+      "signalplanning",
+      "recovery procedures",
+      "objective"
+    ],
+    "prompt": "In the handout's suggested Annex H outline, which paragraph holds recovery procedures and reporting?",
+    "options": [
+      "Paragraph 1, Situation",
+      "Paragraph 3, Execution",
+      "Paragraph 4, Sustainment",
+      "Paragraph 5, Command and Signal"
+    ],
+    "answer": 3,
+    "explanation": "Handout p. 11: paragraph 5 gives signal staff and CP locations, recovery procedures and reporting.",
+    "sourceSlides": [
+      30
+    ]
   }
 ]

@@ -469,5 +469,192 @@
       27,
       44
     ]
+  },
+  {
+    "id": 21,
+    "qid": "signalestimate-h-21",
+    "difficulty": "hard",
+    "category": "Estimate Fundamentals",
+    "tags": [
+      "signalestimate",
+      "estimate fundamentals",
+      "application"
+    ],
+    "prompt": "A proposed signal solution depends on commercial phones that breach COMSEC policy. Which screening criterion does it fail?",
+    "options": [
+      "Feasible",
+      "Acceptable",
+      "Suitable",
+      "Complete"
+    ],
+    "answer": 2,
+    "explanation": "Handout p. 5: Suitable asks whether the solution solves the problem and is legal (NTC, COMSEC policy) and ethical.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "signalestimate-h-22",
+    "difficulty": "hard",
+    "category": "Estimate Fundamentals",
+    "tags": [
+      "signalestimate",
+      "estimate fundamentals",
+      "application"
+    ],
+    "prompt": "A solution can be done with the radios, operators, power and funds on hand, but the cost and risk are not worth it. Which screening criterion does it fail?",
+    "options": [
+      "Acceptable",
+      "Suitable",
+      "Feasible",
+      "Distinguishable"
+    ],
+    "answer": 0,
+    "explanation": "Handout p. 5: Feasible concerns whether it can be done with the assets available; Acceptable asks whether the costs and risks are worth it.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "signalestimate-h-23",
+    "difficulty": "hard",
+    "category": "METAL Factors",
+    "tags": [
+      "signalestimate",
+      "metal factors",
+      "application"
+    ],
+    "prompt": "The S6 asks how long it will take to move, install, test and rehearse the sites. Which METT-TC variable is this, and which METAL factor is it related to?",
+    "options": [
+      "Time available, related to Logistical",
+      "Time available, related to Mission",
+      "Troops and support, related to Troops",
+      "Terrain and weather, related to Area of operations"
+    ],
+    "answer": 1,
+    "explanation": "Handout p. 4: time is paired with mission in the 'Related METT-TC' column of the METAL table.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "signalestimate-h-24",
+    "difficulty": "hard",
+    "category": "METAL Factors",
+    "tags": [
+      "signalestimate",
+      "metal factors",
+      "application"
+    ],
+    "prompt": "Analyzing a COA, the S6 asks whether it uses signal units effectively and whether there is time to move and install. Which METAL factor is being applied?",
+    "options": [
+      "Mission",
+      "Area of operations",
+      "Logistical",
+      "Troops"
+    ],
+    "answer": 3,
+    "explanation": "Handout p. 6: the Troops questions are whether signal units are used effectively, whether they meet the requirements and whether there is time to move and install.",
+    "sourceSlides": [
+      27,
+      44
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "signalestimate-h-25",
+    "difficulty": "hard",
+    "category": "Situation and Opposing COA",
+    "tags": [
+      "signalestimate",
+      "situation and opposing coa",
+      "application"
+    ],
+    "prompt": "Which statement about the evaluation criteria listed in paragraph 3 of the signal estimate matches the handout?",
+    "options": [
+      "All staff sections use the same criteria",
+      "The S6 sets separate criteria after the war game",
+      "Each COA is judged on its own criteria",
+      "The commander applies criteria only to the recommendation"
+    ],
+    "answer": 0,
+    "explanation": "Handout p. 6: paragraph 3c lists evaluation criteria, and all staff use the same criteria.",
+    "sourceSlides": [
+      44
+    ]
+  },
+  {
+    "id": 26,
+    "qid": "signalestimate-h-26",
+    "difficulty": "hard",
+    "category": "COA Comparison",
+    "tags": [
+      "signalestimate",
+      "coa comparison",
+      "application"
+    ],
+    "prompt": "A matrix uses weights 3, 1 and 1 for three criteria. COA A ranks 1, 2 and 2; COA B ranks 2, 1 and 1. Using the handout method, which COA is preferred?",
+    "options": [
+      "COA B, because its higher total of 8 is preferred",
+      "COA B, because its unweighted ranks add to 4 against 5",
+      "COA A, with a weighted total of 7 against 8",
+      "COA A, because its weighted total of 6 is below 7"
+    ],
+    "answer": 2,
+    "explanation": "Handout p. 7: rank times weight, summed, lowest total preferred. A = 3+2+2 = 7; B = 6+1+1 = 8.",
+    "sourceSlides": [
+      27,
+      44
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "signalestimate-h-27",
+    "difficulty": "hard",
+    "category": "COA Comparison",
+    "tags": [
+      "signalestimate",
+      "coa comparison",
+      "application"
+    ],
+    "prompt": "COA X economizes personnel and uses redundant, independent means. COA Y commits all personnel early and is highly vulnerable to EW in a critical phase. Both meet the tactical requirement. How does the comparison read?",
+    "options": [
+      "X shows the usual disadvantages and Y the usual advantages",
+      "X shows the usual advantages and Y the usual disadvantages",
+      "Both are equal because both meet the tactical requirement",
+      "Y is preferred because committing assets early reduces risk"
+    ],
+    "answer": 1,
+    "explanation": "Handout p. 7: economy of personnel and redundant means (PACE) are usual advantages; early commitment of all assets and EW vulnerability are usual disadvantages.",
+    "sourceSlides": [
+      27,
+      44
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "signalestimate-h-28",
+    "difficulty": "hard",
+    "category": "Decision and Recommendations",
+    "tags": [
+      "signalestimate",
+      "decision and recommendations",
+      "application"
+    ],
+    "prompt": "A signal estimate ends with a ranked matrix, and the commander asks what the last paragraph must still add. What does the handout require?",
+    "options": [
+      "The matrix totals alone",
+      "A restatement of the signal mission",
+      "A list of all COAs treated as equally supportable",
+      "The most supportable COA plus prioritized issues, deficiencies and risks with mitigations"
+    ],
+    "answer": 3,
+    "explanation": "Handout p. 6: paragraph 6 gives the most supportable COA from the C4S view and prioritized issues, deficiencies and risks with recommendations to mitigate them.",
+    "sourceSlides": [
+      44
+    ]
   }
 ]

@@ -460,5 +460,191 @@
     "sourceSlides": [
       30
     ]
+  },
+  {
+    "id": 21,
+    "qid": "signalplanning-e-21",
+    "difficulty": "easy",
+    "category": "Develop Requirements",
+    "tags": [
+      "signalplanning",
+      "develop requirements",
+      "objective"
+    ],
+    "prompt": "How many steps does PAM 6-0102 give for the signal planning process, as the handout lists them?",
+    "options": [
+      "Seven",
+      "Five",
+      "Six",
+      "Eight"
+    ],
+    "answer": 0,
+    "explanation": "Handout p. 7: PAM 6-0102 paras 0305-0314 describe seven steps, from developing requirements to publishing the plans and orders. Five is the estimate; eight is TLP.",
+    "sourceSlides": [
+      27,
+      28
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "signalplanning-e-22",
+    "difficulty": "easy",
+    "category": "Develop Requirements",
+    "tags": [
+      "signalplanning",
+      "develop requirements",
+      "objective"
+    ],
+    "prompt": "Which planning procedure does a Signal platoon leader use for the platoon's part of the battalion signal plan?",
+    "options": [
+      "The MDMP, run by the platoon leader for the whole battalion",
+      "The signal estimate alone",
+      "Troop leading procedures, in eight steps",
+      "The CEOI, followed step by step"
+    ],
+    "answer": 2,
+    "explanation": "Handout p. 4: the battalion staff uses the MDMP, while the Signal platoon or section leader uses TLP (PAM 6-0102, para 0304; PAM 3-0201, para 0812).",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "signalplanning-e-23",
+    "difficulty": "easy",
+    "category": "Tentative Plan",
+    "tags": [
+      "signalplanning",
+      "tentative plan",
+      "objective"
+    ],
+    "prompt": "Which planning step does the handout call the most complex?",
+    "options": [
+      "Develop signal and C4S requirements",
+      "Prepare a tentative plan",
+      "Determine available resources",
+      "Publish the plans and orders"
+    ],
+    "answer": 1,
+    "explanation": "Handout p. 7: Step 5 is the most complex, covering the general concept with PACE, allocation, siting, security and interconnections.",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "signalplanning-e-24",
+    "difficulty": "easy",
+    "category": "Recovery Procedures",
+    "tags": [
+      "signalplanning",
+      "recovery procedures",
+      "objective"
+    ],
+    "prompt": "Which four threats must the recovery procedures cover?",
+    "options": [
+      "Interrupted connectivity, funding shortfalls, cyberattacks and personnel shortages",
+      "Electronic warfare, weather delays, cyberattacks and late orders",
+      "Compromised frequencies, supply delays, site access and interrupted power",
+      "Interrupted connectivity, electronic warfare, cyberattacks and compromised frequencies"
+    ],
+    "answer": 3,
+    "explanation": "Handout p. 7: Step 4 recovery procedures address interrupted connectivity, EW, cyberattacks and compromised frequencies (para 0311).",
+    "sourceSlides": [
+      29
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "signalplanning-e-25",
+    "difficulty": "easy",
+    "category": "Final Checks and Publication",
+    "tags": [
+      "signalplanning",
+      "final checks and publication",
+      "objective"
+    ],
+    "prompt": "Which step comes immediately after 'Prepare a tentative plan'?",
+    "options": [
+      "Finalize the plan",
+      "Develop priorities",
+      "Develop recovery procedures",
+      "Publish the plans and orders"
+    ],
+    "answer": 0,
+    "explanation": "Handout p. 7: the sequence ends prepare a tentative plan, finalize the plan, publish the plans and orders.",
+    "sourceSlides": [
+      29,
+      30
+    ]
+  },
+  {
+    "id": 26,
+    "qid": "signalplanning-e-26",
+    "difficulty": "easy",
+    "category": "Final Checks and Publication",
+    "tags": [
+      "signalplanning",
+      "final checks and publication",
+      "objective"
+    ],
+    "prompt": "What is the C4S annex that the S6 prepares in Step 7 called?",
+    "options": [
+      "Annex C (Operations), prepared by the S6 without the S3 and S2",
+      "Appendix 12 alone, without an annex",
+      "Annex H (Signal), with its appendices and tabs",
+      "Paragraph 3 of the base order"
+    ],
+    "answer": 2,
+    "explanation": "Handout p. 7 and p. 2: the S6 prepares Annex H (Signal) with appendices and tabs (PAM 6-0102, para 0314; PAM 3-0201, para 0229e).",
+    "sourceSlides": [
+      30
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "signalplanning-e-27",
+    "difficulty": "easy",
+    "category": "Develop Requirements",
+    "tags": [
+      "signalplanning",
+      "develop requirements",
+      "application"
+    ],
+    "prompt": "The battalion receives its mission. What does the S6 do at the first MDMP step, according to the handout?",
+    "options": [
+      "Prepare Annex H and the CEOI extract",
+      "Update the C4S running estimate and gather the higher OPORD and Annex H, CEOI/CESI and SOPs",
+      "Rank the COAs for signal supportability",
+      "Complete the site survey and propagation check"
+    ],
+    "answer": 1,
+    "explanation": "Handout p. 4: receipt of mission updates the C4S estimate and gathers tools; the other actions belong to later MDMP steps.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "signalplanning-e-28",
+    "difficulty": "easy",
+    "category": "Final Checks and Publication",
+    "tags": [
+      "signalplanning",
+      "final checks and publication",
+      "application"
+    ],
+    "prompt": "The S6 is writing paragraph 5 (Command and Signal) of the base order. Which item does the handout say to state?",
+    "options": [
+      "The serial number of each radio",
+      "The battery stock count by section",
+      "The full site survey results for every site",
+      "The CEOI index and edition in effect"
+    ],
+    "answer": 3,
+    "explanation": "Handout p. 11: paragraph 5 states command post locations, primary and alternate means, the CEOI index and edition, restrictions, EEFIs and COMSEC, and loss-of-communications reporting.",
+    "sourceSlides": [
+      30
+    ]
   }
 ]

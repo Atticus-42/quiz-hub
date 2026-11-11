@@ -465,5 +465,191 @@
     "sourceSlides": [
       44
     ]
+  },
+  {
+    "id": 21,
+    "qid": "signalestimate-m-21",
+    "difficulty": "medium",
+    "category": "Estimate Fundamentals",
+    "tags": [
+      "signalestimate",
+      "estimate fundamentals",
+      "application"
+    ],
+    "prompt": "A draft estimate keeps an assumption that is likely true but would not change any signal solution whether it holds or not. What does the handout direct?",
+    "options": [
+      "Keep it, and record it as a verified fact so that it carries weight in the analysis",
+      "Drop it, because only assumptions that affect the solution are kept",
+      "Hold it until the commander has approved it",
+      "Move it to the recommendation as a risk"
+    ],
+    "answer": 1,
+    "explanation": "Handout p. 5: replace assumptions with facts as information arrives, and drop any assumption that does not affect the solution.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "signalestimate-m-22",
+    "difficulty": "medium",
+    "category": "Estimate Fundamentals",
+    "tags": [
+      "signalestimate",
+      "estimate fundamentals",
+      "application"
+    ],
+    "prompt": "The S6 determines the signal means or concepts that could support each unit COA and screens them. Which of the five estimate steps is this?",
+    "options": [
+      "Step 1, know the problem",
+      "Step 3, analyze the advantages and disadvantages of each solution",
+      "Step 2, gather data and determine possible solutions",
+      "Step 4, compare the solutions"
+    ],
+    "answer": 2,
+    "explanation": "Handout p. 5: Step 2 assembles facts and assumptions, determines the signal means or concepts for each COA and screens them.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "signalestimate-m-23",
+    "difficulty": "medium",
+    "category": "METAL Factors",
+    "tags": [
+      "signalestimate",
+      "metal factors",
+      "application"
+    ],
+    "prompt": "During mission analysis the S6 asks whether the enemy can intercept, jam, direction-find or attack cell sites. Which METT-TC variable and METAL factor are being applied?",
+    "options": [
+      "Enemy, and E for enemy signal capabilities",
+      "Terrain and weather, and A for area of operations",
+      "Troops and support, and T for troops available",
+      "Civil considerations, and A for area of operations"
+    ],
+    "answer": 0,
+    "explanation": "Handout p. 4: the enemy variable asks about interception, jamming, direction finding, attacks on sites, cyber and drones, which are the E factor.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "signalestimate-m-24",
+    "difficulty": "medium",
+    "category": "METAL Factors",
+    "tags": [
+      "signalestimate",
+      "metal factors",
+      "application"
+    ],
+    "prompt": "The S6 checks the NTC frequency rules and coordination with the PNP and the LGU. Which METT-TC variable is this?",
+    "options": [
+      "Time available",
+      "Troops and support",
+      "Mission",
+      "Civil considerations"
+    ],
+    "answer": 3,
+    "explanation": "Handout p. 4: civil considerations cover commercial networks, power, the NTC rules, PNP and LGU coordination and crowded events.",
+    "sourceSlides": [
+      27
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "signalestimate-m-25",
+    "difficulty": "medium",
+    "category": "Situation and Opposing COA",
+    "tags": [
+      "signalestimate",
+      "situation and opposing coa",
+      "application"
+    ],
+    "prompt": "The S6 has findings on congested parts of the spectrum and the enemy's EW units. Where do they go in the handout's estimate sequence?",
+    "options": [
+      "Paragraph 2, Mission",
+      "Paragraph 1b, characteristics of the area of operations",
+      "Paragraph 3a, the friendly COAs being war-gamed with signal means",
+      "Paragraph 5, Comparison"
+    ],
+    "answer": 1,
+    "explanation": "Handout p. 6: enemy EW units, congested spectrum and C4S weaknesses are listed under paragraph 1b of Situation and considerations.",
+    "sourceSlides": [
+      44
+    ]
+  },
+  {
+    "id": 26,
+    "qid": "signalestimate-m-26",
+    "difficulty": "medium",
+    "category": "COA Comparison",
+    "tags": [
+      "signalestimate",
+      "coa comparison",
+      "application"
+    ],
+    "prompt": "One COA fails to meet the tactical requirement but saves the most signal personnel. What does the handout say about it?",
+    "options": [
+      "Prefer it, because economy of personnel is an advantage",
+      "Keep it as the main COA and add redundant, independent means to cover the gap in the plan",
+      "Compare it only after the others are approved",
+      "Reject it, because failing the tactical requirement is a disadvantage that rules it out"
+    ],
+    "answer": 3,
+    "explanation": "Handout p. 7: failure to meet the tactical requirement is listed among the usual disadvantages, and such a COA is rejected.",
+    "sourceSlides": [
+      27,
+      44
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "signalestimate-m-27",
+    "difficulty": "medium",
+    "category": "COA Comparison",
+    "tags": [
+      "signalestimate",
+      "coa comparison",
+      "application"
+    ],
+    "prompt": "The weighted totals of two COAs tie. What does the handout direct the S6 to do next?",
+    "options": [
+      "Compare criterion by criterion and explain the trade-off to the commander",
+      "Choose the COA listed first",
+      "Drop the criterion with the lowest weight and recompute the totals until one leads",
+      "Let the matrix select one automatically"
+    ],
+    "answer": 0,
+    "explanation": "Handout p. 7: when totals tie, compare criterion by criterion; the matrix supports the recommendation but does not make it.",
+    "sourceSlides": [
+      27,
+      44
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "signalestimate-m-28",
+    "difficulty": "medium",
+    "category": "Decision and Recommendations",
+    "tags": [
+      "signalestimate",
+      "decision and recommendations",
+      "application"
+    ],
+    "prompt": "A draft names the most supportable COA but not what the signal elements will do. What should be added?",
+    "options": [
+      "A restatement of the unit mission",
+      "The weights used in the decision matrix",
+      "Who, what, when, where, how and why of the signal support",
+      "A list of the enemy's EW units"
+    ],
+    "answer": 2,
+    "explanation": "Handout p. 7: the recommendation states which COA is most supportable and what the signal elements will do to support it: who, what, when, where, how and why.",
+    "sourceSlides": [
+      44
+    ]
   }
 ]
