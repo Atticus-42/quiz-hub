@@ -534,21 +534,25 @@ export function hubModules(modules, lessons) {
   });
 }
 
+// The numeral on a module's index tab: "01"…"08", "S" for the supporting lessons.
+function hubModuleNumeral(id) {
+  return /^module-\d+$/.test(id) ? moduleNumber(id) : 'S';
+}
+
+// Step 1: one compact index tab per module. The subject (modules.json note) is the visible name; the
+// accessible name stays "Module N <subject>", the lesson list and class attempts describe it.
 function hubModuleCard(module) {
   const id = module.id;
-  const describedBy = [`pick-meta-${id}`, `pick-desc-${id}`, ...(module.note ? [`pick-note-${id}`] : []), `overview-${id}`].join(' ');
-  const number = moduleNumber(id);
+  const describedBy = [`pick-meta-${id}`, `pick-desc-${id}`, `overview-${id}`].join(' ');
   return [
-    '        <li>',
+    `        <li data-module="${id}">`,
     `          <a class="module-card" id="pick-${id}" href="#${id}" aria-labelledby="pick-title-${id}" aria-describedby="${describedBy}">`,
-    `            <span class="vol-head" aria-hidden="true"><span>Philippine Army</span><span>Vol. ${number}</span></span>`,
-    `            <span class="vol-num" aria-hidden="true">${number}</span>`,
+    `            <span class="vol-num" aria-hidden="true">${hubModuleNumeral(id)}</span>`,
+    `            <span class="module-title" id="pick-title-${id}"><span class="module-label">${escapeHtml(module.title)}</span>${module.note ? ` <span class="module-subject" id="pick-note-${id}">${escapeHtml(module.note)}</span>` : ''}</span>`,
     `            <span class="card-kicker" id="pick-meta-${id}">${escapeHtml(module.meta)}</span>`,
-    `            <span class="module-title" id="pick-title-${id}">${escapeHtml(module.title)}</span>`,
     `            <span class="card-desc" id="pick-desc-${id}">${escapeHtml(module.description)}</span>`,
-    ...(module.note ? [`            <span class="tag module-note" id="pick-note-${id}">${escapeHtml(module.note)}</span>`] : []),
-    `            <span class="module-overview" id="overview-${id}"></span>`,
-    `            <span class="module-cta"><span class="cta-choose">Choose ${escapeHtml(module.title)}</span><span class="cta-selected">Selected</span> <span class="arrow" aria-hidden="true"></span></span>`,
+    `            <span class="module-foot"><span class="module-overview" id="overview-${id}"></span><span class="module-cta" aria-hidden="true"><span class="cta-choose">${module.exams.length} exam${module.exams.length === 1 ? '' : 's'}</span><span class="cta-selected">Selected</span><span class="arrow"></span></span></span>`,
+    `            <span class="module-progress" data-progress-module="${id}" aria-hidden="true"><span></span></span>`,
     '          </a>',
     '        </li>',
   ].join('\n');
@@ -568,6 +572,7 @@ function hubExamCard(exam, source, moduleId) {
     `              <p class="card-desc">${escapeHtml(exam.description)}</p>`,
     '              <ul class="card-meta">',
     ...exam.tags.map(tag => `                <li class="tag${tag.comprehensive ? ' tag-comprehensive' : ''}">${escapeHtml(tag.text)}</li>`),
+    ...(source && !source.pool ? [`                <li class="tag tag-progress" data-progress-exam="${exam.key}" hidden></li>`] : []),
     '              </ul>',
     '            </div>',
     `            <div class="card-stats" id="stats-${exam.key}" aria-live="polite"></div>`,
@@ -580,11 +585,11 @@ function hubExamCard(exam, source, moduleId) {
 function hubPanel(module, byKey) {
   const id = module.id;
   const pools = module.exams.filter(exam => exam.prominent);
-  const intro = `Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes${pools.length ? `; the ${pools.map(exam => `${exam.title} has ${exam.tags.find(tag => /questions$/.test(tag.text))?.text ?? 'a fixed number of questions'}`).join('; the ')}` : ''}.${module.note ? ` ${module.note.replace(/^More lessons coming$/, `More ${module.title} lessons are coming`)}.` : ''}`;
+  const intro = `Each exam opens in this tab. Lesson quizzes have Easy, Medium and Hard modes${pools.length ? `; the ${pools.map(exam => `${exam.title} has ${exam.tags.find(tag => /questions$/.test(tag.text))?.text ?? 'a fixed number of questions'}`).join('; the ')}` : ''}.`;
   return [
     `    <section class="exam-panel" id="${id}" aria-labelledby="exams-heading-${id}">`,
     '      <div class="sect-head section-head">',
-    `        <h2 id="exams-heading-${id}" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· ${escapeHtml(module.title)}</span></h2>`,
+    `        <h2 id="exams-heading-${id}" tabindex="-1"><span class="step-num">Step 2</span> Choose your exam <span class="heading-module">· ${escapeHtml(module.title)}${module.note ? ` <span class="heading-subject">${escapeHtml(module.note)}</span>` : ''}</span></h2>`,
     `        <a class="change-module" id="change-${id}" href="#choose-module">Change module</a>`,
     '      </div>',
     '      <div class="sect-body">',
@@ -598,7 +603,70 @@ function hubPanel(module, byKey) {
   ].join('\n');
 }
 
-export function renderHub(template, contours, modules, lessons, { endpoint = HISTORY_ENDPOINT, base = '' } = {}) {
+// The hub's "Today" card: every published date -> its schedule page and the lecture/exam blocks of that day
+// (routine blocks left out), plus the activities that span it. Mirrors the week pages build() writes. A
+// missing or invalid schedule leaves the card on its plain "this week's schedule" link.
+export function hubToday(root, lessons) {
+  try {
+    const active = loadSchedule(root, join(root, 'data', 'schedule.json'), { allDays: true });
+    const dir = join(root, 'data', 'schedules');
+    const upcoming = (existsSync(dir) ? readdirSync(dir) : []).filter(name => /^\d{4}-\d{2}-\d{2}_\d{4}-\d{2}-\d{2}\.json$/.test(name) && name.slice(0, 10) > active.week.start)
+      .map(name => loadSchedule(root, join(dir, name), { allDays: true })).sort((a, b) => a.week.start.localeCompare(b.week.start));
+    const activitiesPath = join(root, 'data', 'schedule-activities.json');
+    const activities = existsSync(activitiesPath) ? readJson(activitiesPath) : [];
+    const plainName = name => name.replace(/\s*\([^)]*\)\s*/g, ' ').trim().toLowerCase();
+    const quizFor = activity => {
+      const text = activity.toLowerCase();
+      const hit = lessons.filter(lesson => !lesson.pool).find(lesson => (SCHEDULE_QUIZ_MATCH[lesson.key]?.test(activity)) || text.includes(plainName(lesson.name)));
+      return hit ? hit.slug + '/' : '';
+    };
+    const days = {};
+    // Each timetable's page shows its first seven days (as build() renders it); [time, activity, exam?, quiz folder].
+    for (const table of [active, ...upcoming]) {
+      for (const day of table.days.slice(0, 7)) {
+        days[day.date] = { p: `schedule-${table.week.start}/`, b: day.blocks.filter(block => block.kind !== 'routine').map(block => [block.time, block.activity, block.kind === 'exam' ? 1 : 0, quizFor(block.activity)]) };
+      }
+    }
+    // After the last timetable, build() writes activity-only week pages (Monday to Sunday) up to the last activity.
+    const last = addDays(upcoming.length ? upcoming.at(-1).week.start : active.week.start, 6);
+    const lastActivity = activities.reduce((latest, entry) => ((entry.end ?? entry.start) > latest ? (entry.end ?? entry.start) : latest), last);
+    const lastPage = addDays(mondayOf(lastActivity), 6);
+    for (let date = addDays(last, 1); date <= lastPage; date = addDays(date, 1)) days[date] = { p: `schedule-${mondayOf(date)}/`, b: [] };
+    const events = activities.map(entry => [entry.start, entry.end ?? entry.start, entry.title, entry.when]);
+    return { days, events };
+  } catch {
+    return { days: {}, events: [] };
+  }
+}
+function addDays(date, n) {
+  const d = new Date(`${date}T00:00:00Z`);
+  d.setUTCDate(d.getUTCDate() + n);
+  return d.toISOString().slice(0, 10);
+}
+function mondayOf(date) {
+  const d = new Date(`${date}T00:00:00Z`);
+  return addDays(date, -((d.getUTCDay() + 6) % 7));
+}
+
+// Client data for the hub's progressive enhancements: device progress (bank sizes per mode), quick search.
+export function hubClientData(config, modules, lessons, today) {
+  const byKey = new Map(lessons.map(lesson => [lesson.key, lesson]));
+  const subject = new Map(modules.map(module => [module.id, module.note || '']));
+  return {
+    modules: config.map(module => ({ id: module.id, n: hubModuleNumeral(module.id), t: module.title, s: subject.get(module.id) || '' })),
+    exams: config.flatMap(module => module.exams.map(exam => {
+      const lesson = byKey.get(exam.key);
+      const terms = lesson && !lesson.pool ? [...new Set(MODES.flatMap(mode => lesson.banks[mode].map(question => question.category)))].join(' · ') : '';
+      return {
+        k: exam.key, m: module.id, t: exam.title, u: exam.url, d: exam.description, c: terms,
+        ...(lesson && lesson.pool ? { pool: lesson.pool.lessons } : { b: MODES.map(mode => lesson ? lesson.banks[mode].length : 0) }),
+      };
+    })),
+    today,
+  };
+}
+
+export function renderHub(template, contours, modules, lessons, { endpoint = HISTORY_ENDPOINT, base = '', root = ROOT } = {}) {
   const config = hubModules(modules, lessons);
   const quizzes = lessons.filter(lesson => !lesson.pool);
   return fillTemplate(template, {
@@ -612,8 +680,10 @@ export function renderHub(template, contours, modules, lessons, { endpoint = HIS
     ].map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('\n            '),
     CONTOURS: contours.trim(),
     MODULE_CARDS: config.map(hubModuleCard).join('\n'),
+    MODULE_JUMP: config.map(module => `<li><a href="#${module.id}" aria-label="${escapeHtml(module.title + (module.note ? `: ${module.note}` : ''))}">${hubModuleNumeral(module.id)}</a></li>`).join(''),
     EXAM_PANELS: config.map(module => hubPanel(module, new Map(lessons.map(lesson => [lesson.key, lesson])))).join('\n\n'),
-    MODULES: JSON.stringify(config, null, 2).replaceAll('<', '\\u003c').split('\n').join('\n    '),
+    MODULES: JSON.stringify(config).replaceAll('<', '\\u003c'),
+    HUB_DATA: scriptJson(hubClientData(config, modules, lessons, hubToday(root, lessons))),
     HISTORY_ENDPOINT: endpoint,
   });
 }
@@ -973,7 +1043,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   const study = loadStudy(root, lessons);
   const pages = {};
   for (const lesson of lessons) pages[`${lesson.slug}/index.html`] = renderQuizPage(engine, contours, lesson, { endpoint, base, study: studyQuizLinks(root, lesson, study) });
-  pages['index.html'] = renderHub(readFileSync(join(root, 'src', 'hub', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base });
+  pages['index.html'] = renderHub(readFileSync(join(root, 'src', 'hub', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base, root });
   pages['class/index.html'] = renderClass(readFileSync(join(root, 'src', 'class', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadClass(root), { base });
   const scheduleTemplate = readFileSync(join(root, 'src', 'schedule', 'template.html'), 'utf8').replace(/\r\n/g, '\n');
   const activities = readJson(join(root, 'data', 'schedule-activities.json'));
