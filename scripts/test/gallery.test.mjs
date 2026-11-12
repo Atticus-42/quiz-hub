@@ -85,3 +85,23 @@ test('no stray originals: gallery assets are only processed jpg pairs, mp4 video
   const files = readdirSync(join(root, 'assets', 'gallery'));
   assert.ok(files.every(name => /-(800|1600)\.jpg$|-poster\.jpg$|\.mp4$/.test(name)), files.join(', '));
 });
+
+test('every gallery item has a valid focus point and the grid crops around it to a 4:5 or 4:3 tile', () => {
+  const valid = /^(\d{1,3}(?:\.\d)?)% (\d{1,3}(?:\.\d)?)%$/;
+  for (const item of data.photos) {
+    const m = valid.exec(item.focus || '');
+    assert.ok(m && Number(m[1]) <= 100 && Number(m[2]) <= 100, `${item.id}: focus "${item.focus}" must be "X% Y%" within 0-100`);
+  }
+  const photos = data.photos.filter(item => item.type !== 'video');
+  const imgs = [...html.matchAll(/<a class="gallery-open" href="[^"]+"[^>]*>\s*<img ([^>]+)>/g)];
+  assert.equal(imgs.length, photos.length);
+  imgs.forEach(([, attrs], index) => {
+    const photo = photos[index];
+    assert.ok(attrs.includes(`object-position: ${photo.focus}`), `${photo.id}: img renders object-position ${photo.focus}`);
+    assert.ok(attrs.includes(`--tile: ${photo.height > photo.width ? '4 / 5' : '4 / 3'}`), `${photo.id}: tile aspect follows orientation`);
+  });
+  for (const video of data.photos.filter(item => item.type === 'video')) {
+    assert.ok(html.includes(`object-position: ${video.focus}`), `${video.id}: video renders object-position`);
+  }
+  assert.match(html, /\.gallery-open img \{[^}]*aspect-ratio: var\(--tile, 4 \/ 3\)[^}]*object-fit: cover/);
+});

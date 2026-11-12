@@ -934,6 +934,11 @@ export function renderClass(template, contours, data, { base = '' } = {}) {
 // Gallery page (data/gallery.json: add a photo by adding an entry, newest first)
 // ---------------------------------------------------------------------------
 
+export function galleryFocus(value) {
+  const match = typeof value === 'string' && /^(\d{1,3}(?:\.\d)?)% (\d{1,3}(?:\.\d)?)%$/.exec(value);
+  return match && Number(match[1]) <= 100 && Number(match[2]) <= 100 ? value : null;
+}
+
 export function loadGallery(root = ROOT) {
   const path = join(root, 'data', 'gallery.json');
   const data = readJson(path);
@@ -946,7 +951,7 @@ export function loadGallery(root = ROOT) {
   data.photos.forEach((photo, index) => {
     const where = `photo ${index + 1}`;
     const video = photo && photo.type === 'video';
-    if (!photo || !allowed(photo, video ? ['id', 'type', 'src', 'poster', 'width', 'height', 'alt', 'caption', 'muted', 'loop'] : ['id', 'src800', 'src1600', 'width', 'height', 'alt', 'caption'])) fail(`${where}: photos allow id, src800, src1600, width, height, alt, caption; videos (type "video") allow id, src, poster, width, height, alt, caption, muted, loop`);
+    if (!photo || !allowed(photo, video ? ['id', 'type', 'src', 'poster', 'width', 'height', 'alt', 'caption', 'focus', 'muted', 'loop'] : ['id', 'src800', 'src1600', 'width', 'height', 'alt', 'caption', 'focus'])) fail(`${where}: photos allow id, src800, src1600, width, height, alt, caption, focus; videos (type "video") allow id, src, poster, width, height, alt, caption, focus, muted, loop`);
     if (!text(photo.id) || !/^[a-z0-9-]+$/.test(photo.id) || ids.has(photo.id)) fail(`${where}: id must be a unique lowercase slug`);
     ids.add(photo.id);
     if (video) {
@@ -959,6 +964,8 @@ export function loadGallery(root = ROOT) {
     }
     if (!Number.isInteger(photo.width) || !Number.isInteger(photo.height) || photo.width < 1 || photo.height < 1) fail(`${where}: width and height must be positive integers`);
     if (!text(photo.alt) || !text(photo.caption)) fail(`${where}: alt and caption must be text`);
+    // focus: the point the grid thumbnail keeps in view when it crops (object-position), placed on the faces.
+    if (!galleryFocus(photo.focus)) fail(`${where}: focus must be "X% Y%" with both between 0 and 100`);
   });
   return data;
 }
@@ -966,13 +973,13 @@ export function loadGallery(root = ROOT) {
 export function renderGallery(template, contours, data, { base = '' } = {}) {
   const items = data.photos.map(photo => {
     const media = photo.type === 'video'
-      ? `          <video class="gallery-video" controls${photo.muted ? ' muted' : ''}${photo.loop ? ' loop' : ''} preload="none" playsinline poster="../${escapeHtml(photo.poster)}" width="${photo.width}" height="${photo.height}" style="--ratio: ${photo.width} / ${photo.height}" aria-label="${escapeHtml(photo.alt)}">
+      ? `          <video class="gallery-video" controls${photo.muted ? ' muted' : ''}${photo.loop ? ' loop' : ''} preload="none" playsinline poster="../${escapeHtml(photo.poster)}" width="${photo.width}" height="${photo.height}" style="--ratio: ${photo.width} / ${photo.height}; object-position: ${photo.focus}" aria-label="${escapeHtml(photo.alt)}">
             <source src="../${escapeHtml(photo.src)}" type="video/mp4">
             <a href="../${escapeHtml(photo.src)}">Download the video</a>
           </video>`
       : [
         `          <a class="gallery-open" href="../${escapeHtml(photo.src1600)}" data-caption="${escapeHtml(photo.caption)}">`,
-        `            <img src="../${escapeHtml(photo.src800)}" srcset="../${escapeHtml(photo.src800)} 800w, ../${escapeHtml(photo.src1600)} 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="${photo.width}" height="${photo.height}" style="--ratio: ${photo.width} / ${photo.height}" loading="lazy" decoding="async" alt="${escapeHtml(photo.alt)}">`,
+        `            <img src="../${escapeHtml(photo.src800)}" srcset="../${escapeHtml(photo.src800)} 800w, ../${escapeHtml(photo.src1600)} 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="${photo.width}" height="${photo.height}" style="--ratio: ${photo.width} / ${photo.height}; --tile: ${photo.height > photo.width ? '4 / 5' : '4 / 3'}; object-position: ${photo.focus}" loading="lazy" decoding="async" alt="${escapeHtml(photo.alt)}">`,
         '          </a>',
       ].join('\n');
     return [

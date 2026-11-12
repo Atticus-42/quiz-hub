@@ -30,6 +30,13 @@ export function loadOrganizations(root) {
       if (!node.title) throw new Error('Unnamed organization node');
       for (const key of ['personnel', 'officers', 'ep', 'civilians', 'quantity']) if (node[key] !== undefined && (!Number.isInteger(node[key]) || node[key] < 0)) throw new Error('Invalid count');
       if (node.officers !== undefined && node.ep !== undefined && node.personnel !== node.officers + node.ep) throw new Error('Inconsistent personnel split');
+      // Dual-designated figures (positions printed in parentheses): integers, or null when the table cannot be read, never 0 for unknown. They cite a sheet and are never added to totals.
+      const dualKeys = ['dualPersonnel', 'dualOfficers', 'dualEp', 'dualCivilians'];
+      if (dualKeys.some(key => node[key] !== undefined)) {
+        for (const key of dualKeys) if (node[key] !== undefined && node[key] !== null && (!Number.isInteger(node[key]) || node[key] < 0)) throw new Error('Invalid dual-designated count: ' + node.title);
+        if (node.dualPersonnel === undefined || node.dualOfficers === undefined || node.dualEp === undefined || typeof node.dualSource !== 'string' || !node.dualSource.trim()) throw new Error('Dual-designated figures need personnel, officers, EP and a source: ' + node.title);
+        if (node.dualPersonnel !== null && node.dualOfficers !== null && node.dualEp !== null && node.dualPersonnel !== node.dualOfficers + node.dualEp + (node.dualCivilians || 0)) throw new Error('Inconsistent dual-designated split: ' + node.title);
+      }
       (node.children || []).forEach(check);
     };
     check(group.tree);
@@ -39,17 +46,20 @@ export function loadOrganizations(root) {
 
 const num = value => Number(value).toLocaleString('en-US');
 const noun = (value, one, many) => `${num(value)} ${value === 1 ? one : many}`;
+const paren = value => value === null || value === undefined ? '(—)' : `(${num(value)})`;
+const dualNoun = (value, one, many) => `${paren(value)} ${value === 1 ? one : many}`;
 
 export function renderOrganizations(root, render, e) {
   const groups = loadOrganizations(root);
   const node = (item, depth = 0, estimate = '') => {
-    const count = item.personnel !== undefined ? `<span class="org-count">${num(item.personnel)}<small> personnel${item.quantity > 1 ? ' each' : ''}</small></span>` : '';
+    const dual = item.dualPersonnel !== undefined;
+    const count = dual ? `<span class="org-count is-dual">${paren(item.dualPersonnel)}<small> personnel${item.quantity > 1 ? ' each' : ''} · dual-designated</small></span>` : item.personnel !== undefined ? `<span class="org-count">${num(item.personnel)}<small> personnel${item.quantity > 1 ? ' each' : ''}</small></span>` : '';
     const head = `<span class="org-node-name">${item.quantity > 1 ? `<span class="org-multiple">${item.quantity} ×</span> ` : ''}${e(item.title)}${item.relation ? `<small class="org-attachment">${e(item.relation)}</small>` : ''}</span>${item.dualDesignation ? '<span class="org-dual">(1)<small>Dual duty?</small></span>' : count}`;
-    const detail = `${item.officers !== undefined && item.ep !== undefined ? `<p class="org-split">${noun(item.officers, 'officer', 'officers')} · ${num(item.ep)} EP${item.civilians ? ` · ${noun(item.civilians, 'civilian', 'civilians')}` : ''} · ${estimate === 'toe' ? 'TO 2019 required' : 'provisional'}</p>` : ''}${item.role ? `<p>${e(item.role)}</p>` : ''}${item.countBasis ? `<p class="org-basis">${e(item.countBasis)}</p>` : ''}`;
+    const detail = `${dual ? `<p class="org-split is-dual">${dualNoun(item.dualOfficers, 'officer', 'officers')} · ${paren(item.dualEp)} EP${item.dualCivilians ? ` · ${dualNoun(item.dualCivilians, 'civilian', 'civilians')}` : ''} · dual-designated, not added to totals · ${e(item.dualSource)}</p>` : item.officers !== undefined && item.ep !== undefined ? `<p class="org-split">${noun(item.officers, 'officer', 'officers')} · ${num(item.ep)} EP${item.civilians ? ` · ${noun(item.civilians, 'civilian', 'civilians')}` : ''} · ${estimate === 'toe' ? 'TO 2019 required' : 'provisional'}</p>` : ''}${item.role ? `<p>${e(item.role)}</p>` : ''}${item.countBasis ? `<p class="org-basis">${e(item.countBasis)}</p>` : ''}`;
     return `<li${item.relation ? ' class="org-attached"' : ''}>${item.children?.length ? `<details${depth < 2 ? ' open' : ''}><summary>${head}</summary>${detail}<ul>${item.children.map(child => node(child, depth + 1, estimate)).join('')}</ul></details>` : `<div class="org-leaf"><div class="org-leaf-heading">${head}</div>${detail}</div>`}</li>`;
   };
   const sourceLink = source => source.toe ? `<p class="org-source-ref"><span>${e(source.label)}</span><small>${e(source.edition)} · ${e(source.locator)}</small></p>` : `<a href="../files/${e(source.file)}.pdf#page=${source.page}" target="_blank" rel="noopener">${e(source.label)} <span aria-hidden="true">↗</span><small>PDF page ${source.page}</small></a>`;
-  const body = `<link rel="stylesheet" href="../../assets/unit-organizations.css?v=4">
+  const body = `<link rel="stylesheet" href="../../assets/unit-organizations.css?v=5">
     <nav class="study-actions library-subtabs" aria-label="Library sections"><a href="../">Sources</a><a href="./" aria-current="page">Unit organization</a></nav>
     <div class="org-intro"><a href="../">← Study Library</a><p>Expand a branch to see its composition. Numbers followed by × count subunits. Personnel counts apply to one instance of the labelled element.</p></div>
     <nav class="org-index" aria-label="Choose a formation">${groups.map((g,i)=>`<a href="#${g.id}"><span>${String(i+1).padStart(2,'0')} / ${e(g.branch)}</span><strong>${e(g.title)}</strong><b aria-hidden="true">↓</b></a>`).join('')}</nav>

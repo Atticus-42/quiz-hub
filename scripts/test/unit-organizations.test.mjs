@@ -103,3 +103,49 @@ test('TOE citations are text-only, carry no URL and no equipment quantities',()=
  assert.match(output[5],/class="org-source-ref"/);
  assert.doesNotMatch(output[5],/href="[^"]*TOE/i);
 });
+
+test('dual-designated elements show their parenthesized figures, cite a sheet and never add to totals',async()=>{
+ const {renderOrganizationCharts}=await import('../organization-charts.mjs');
+ const data=loadOrganizations(root);
+ const walk=n=>[n,...(n.children||[]).flatMap(walk)];
+ const esc=x=>String(x).replaceAll('&','&amp;').replaceAll('<','&lt;');
+ let dualCount=0;
+ for(const g of data){
+  const dual=walk(g.tree).filter(n=>n.dualPersonnel!==undefined);
+  dualCount+=dual.length;
+  for(const n of dual){
+   assert.equal(n.personnel,0,'added strength stays 0: '+n.title);
+   assert.ok(n.dualPersonnel===null||Number.isInteger(n.dualPersonnel),n.title);
+   assert.match(n.dualSource,/sheet “[^”]+” · rows \d+–\d+/,'dual figures cite a sheet and rows: '+n.title);
+  }
+  const html=renderOrganizationCharts(g,esc);
+  if(dual.length){
+   assert.match(html,/dual-designated/);assert.match(html,/\(n\) · dual-designated, not added to totals/);assert.match(html,/org-chart-card is-dual/);
+   assert.doesNotMatch(html,/\b0 personnel/,g.id+': no "0 personnel" for dual-designated elements');
+   assert.doesNotMatch(html,/\b0 officers \/ 0 EP/,g.id);
+  }
+ }
+ assert.equal(dualCount,17);
+ const rear=walk(data.find(g=>g.id==='signal-battalion').tree).find(n=>n.title==='Message Center Team'&&n.dualPersonnel!==undefined);
+ assert.deepEqual([rear.dualPersonnel,rear.dualOfficers,rear.dualEp],[6,0,6]);
+ const html=renderOrganizationCharts(data.find(g=>g.id==='signal-battalion'),esc);
+ assert.match(html,/\(6\) personnel · \(0\) officers \/ \(6\) EP · dual-designated/);
+});
+
+test('unreadable dual figures render as (—), never 0, and every chart emblem has a label',async()=>{
+ const {renderOrganizationCharts}=await import('../organization-charts.mjs');
+ const group={id:'x',title:'X',tag:'t',estimate:'toe',tree:{title:'X',children:[{title:'Message Center Team',personnel:0,officers:0,ep:0,dualPersonnel:null,dualOfficers:null,dualEp:null,dualSource:'sheet “S” · rows 1–2'}]}};
+ const html=renderOrganizationCharts(group,x=>x);
+ assert.match(html,/\(—\) personnel · \(—\) officers \/ \(—\) EP · dual-designated/);
+ assert.match(html,/>MSG</);
+ for(const g of loadOrganizations(root)){
+  const out=renderOrganizationCharts(g,x=>String(x));
+  assert.doesNotMatch(out,/org-chart-emblem[^>]*aria-hidden="true"><\/span>/,g.id+': empty emblem');
+ }
+});
+
+test('organization charts scroll inside their frame on small screens instead of clipping',()=>{
+ const css=readFileSync(root+'assets/unit-organizations.css','utf8');
+ assert.match(css,/\.org-chart-viewport\{[^}]*overflow-x:auto/);
+ assert.match(css,/\.org-chart-branches\{justify-content:safe center\}/);
+});

@@ -11,3 +11,15 @@
 @media print{.org-chart-viewport{overflow:visible}.org-chart-board{width:100%;min-width:0}.org-chart-branches{flex-wrap:wrap}.org-chart-branch{flex:1 1 150px;min-width:0}.org-chart{break-inside:avoid}.org-chart-hint{display:none}}
 .org-source-ref{margin:0;padding:.8rem;border:1px dashed #8d8878;background:#f8f5eb;font-size:.95rem;line-height:1.4}.org-source-ref small{display:block;color:#4f5042;font:11px/1.6 monospace;overflow-wrap:anywhere}
 .org-signal-battalion,.org-command-signal-battalion,.org-network-enterprise-technology-battalion,.org-signal-installation-maintenance-battalion{--branch:#28677a}.org-infantry-division,.org-infantry-brigade-hq,.org-infantry-battalion{--branch:#74662f}.org-cavalry-battalion,.org-armor-division{--branch:#79517d}
+
+/* Dual-designated elements: positions printed in parentheses add no strength. Dashed outline, "(n)" figures. */
+.org-chart-card.is-dual{border-style:dashed;border-color:#8a8470;background:#f4f1e6}
+.org-chart-parent.is-dual .org-chart-emblem{border-style:dashed}
+.org-chart-strength.is-dual{color:#63532c}
+.org-count.is-dual,.org-split.is-dual{font-style:italic}
+/* Wide charts scroll sideways inside their frame; "safe center" keeps the left edge reachable instead of clipping both sides. */
+.org-chart-branches{justify-content:safe center}
+.org-chart-viewport{border-bottom:1px solid #bcb9a8;scrollbar-gutter:stable}
+.org-chart-viewport::-webkit-scrollbar{height:12px}
+.org-chart-viewport::-webkit-scrollbar-track{background:#e8e3d6}
+.org-chart-viewport::-webkit-scrollbar-thumb{background:var(--branch,#343b31);border:2px solid #e8e3d6;border-radius:6px}

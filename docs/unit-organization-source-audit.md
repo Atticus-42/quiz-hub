@@ -56,3 +56,7 @@ Conflicts and corrections against the earlier sources:
 - The Weapons Company (Infantry Battalion) was only provisionally approved in the memorandum.
 
 Not extracted or not shown: individual billets for most signal units (sections only), the Mechanized Infantry Brigade HHC and battalion detail, Military Intelligence, CMO, support and hospital unit internals, the 155 mm battalion, and detail for dashed boxes without printed figures (Signal Battalion and combat engineer battalion in division charts, mobile training teams). Grade-by-grade officer splits were not published.
+
+## Dual-designated figures (parenthesized positions)
+
+Elements whose TO 2019 positions are all printed in parentheses (17 elements: Rear Signal Support Platoon and its four teams/squads; the Command IT Company, SIM Battalion Electronics and IT company EW platoons and their squads) now show the parenthesized figures as "(n)" with a dashed outline, labelled "dual-designated" and never added to any total. Figures were read from the unit manning sheets (required column, grade by grade: O = officers, E = EP, SG = civilians) and are stored as dualOfficers, dualEp, dualCivilians, dualPersonnel and dualSource (workbook, sheet and rows). Parent platoons include their headquarters rows and all squads. For the IT company EW platoon the sheet lists each squad type once for two squads (x2); the figure is shown per squad. A figure that cannot be read is stored as null and rendered "(—)", never 0. The TOE files were read in place and not copied.
