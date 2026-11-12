@@ -3,7 +3,7 @@
 :focus-visible { outline:3px solid #247d88; outline-offset:4px; }
 .file-missing { display:inline-block; padding:.2rem .5rem; color:#992923; border:1px solid #d8a8a2; background:#fff0ed; font-size:.8rem; font-weight:600; }
 /* Site sections: three labelled clusters (Study · Reference · Class), one row on desktop,
-   one row per cluster at mid widths, a scrollable pill row on phones. Base-token colours only:
+   one row per cluster at mid widths, compact chip rows on phones (no scrolling). Base-token colours only:
    text #1e211b on paper/selected >= 12.8:1, muted labels 7.62:1, paper on olive-dark 11.28:1. */
 .study-nav, .site-tabs { position:relative; display:flex; flex-wrap:nowrap; align-items:stretch; justify-content:center; gap:0; min-width:0; margin-block:0; padding:.4rem 0; background:transparent; border:0; border-block:1px solid var(--color-hairline); border-radius:0; box-sizing:border-box; }
 .study-nav { width:100%; margin:0; }
@@ -25,16 +25,14 @@
   .study-nav a, .site-tabs a, .site-tabs .cipher-tab { padding-inline:.4rem; white-space:normal; }
 }
 @media (max-width:640px) {
-  .study-nav, .site-tabs { flex-direction:row; justify-content:flex-start; overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x proximity; scrollbar-width:none; -webkit-overflow-scrolling:touch; padding:.55rem 0; }
-  .study-nav::-webkit-scrollbar, .site-tabs::-webkit-scrollbar { display:none; }
-  .nav-group { display:flex; flex:0 0 auto; gap:.4rem; padding:0 .5rem; }
-  .nav-group:first-child { padding-left:0; }
-  .nav-group:last-child { padding-right:0; }
-  .nav-group + .nav-group { border-top:0; border-left:1px solid var(--color-hairline); }
+  /* Phones: every tab visible at once, no scrolling. One row per cluster (4 / 4 / 3) of compact chips. */
+  .study-nav, .site-tabs { gap:.3rem; padding:.5rem 0; }
+  .nav-group { grid-template-columns:none; gap:.3rem; padding:0; }
+  .nav-group + .nav-group { border-top:0; }
   .nav-group::before { content:none; }
-  .study-nav a, .site-tabs a, .site-tabs .cipher-tab { flex:0 0 auto; min-height:44px; padding:.5rem .95rem; border:1px solid var(--color-rule); border-radius:999px; white-space:nowrap; scroll-snap-align:start; }
+  .study-nav a, .site-tabs a, .site-tabs .cipher-tab { min-height:44px; padding:.3rem .15rem; border:1px solid var(--color-rule); border-radius:6px; font-size:.8125rem; line-height:1.1; letter-spacing:0; overflow-wrap:normal; word-break:normal; text-wrap:balance; }
   .study-nav a::after, .site-tabs a::after { content:none; }
-  .study-nav a[aria-current], .site-tabs a[aria-current] { background:var(--color-olive-dark); border:1px solid var(--color-olive-dark); color:var(--color-paper); }
+  .study-nav a[aria-current], .site-tabs a[aria-current] { background:var(--color-olive-dark); border-color:var(--color-olive-dark); color:var(--color-paper); }
 }
 @media (prefers-reduced-motion:reduce) { .study-nav a, .site-tabs a { transition:none; } }
 
