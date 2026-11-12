@@ -532,13 +532,13 @@ export function renderQuizPage(template, contours, lesson, { endpoint = HISTORY_
     ACTUAL_SECTION: actualSection(lesson.actual),
     DIFFICULTY_HEADING: 'Choose a difficulty',
     MODE_LIST_HIDDEN: '',
-    PRIVACY_NOTE: escapeHtml(PRIVACY_NOTE + (lesson.actual ? ' Actual Exam attempts are never sent to the class history.' : '')),
+    PRIVACY_NOTE: escapeHtml(PRIVACY_NOTE + (lesson.actual ? ' Actual Exam attempts are sent to the class history the same way, labelled Actual Exam.' : '')),
     HISTORY_ENDPOINT: endpoint,
   });
 }
 
 const PRIVACY_NOTE = "No login and no tracking. Your answers stay in this browser tab and are cleared when you refresh or close it. When your instructor has set up the class history, finishing an attempt sends your name, difficulty, score, percentage, mastery band and finish time to the class history sheet, together with the reference codes of the questions you were asked and of those you missed (for the instructor's question analysis). The answers you chose are never sent, and practice retries of missed questions are not sent at all. To put questions you have not seen yet first, then those you missed, this browser remembers which questions it has shown you and which were missed (question codes only, no name); that record never leaves this device.";
-const ACTUAL_PRIVACY_NOTE = 'No login and no tracking. Your answers stay in this browser tab and are cleared when you refresh or close it. This reviewer has no class history: nothing about an attempt is ever sent anywhere. To put questions you have not seen yet first, then those you missed, this browser remembers which questions it has shown you and which were missed (question codes only, no name); that record never leaves this device.';
+const ACTUAL_PRIVACY_NOTE = 'No login and no tracking. Your answers stay in this browser tab and are cleared when you refresh or close it. When your instructor has set up the class history, finishing an attempt sends your name, score, percentage, mastery band and finish time to the class history sheet, together with the reference codes of the questions you were asked and of those you missed (for the instructor’s question analysis). The answers you chose are never sent, and practice retries of missed questions are not sent at all. To put questions you have not seen yet first, then those you missed, this browser remembers which questions it has shown you and which were missed (question codes only, no name); that record never leaves this device.';
 
 // The Actual Exam category on a quiz page: set apart from Easy, Medium and Hard, with the graded exams it draws on.
 // `all` (the reviewer's mixed set) adds a second button for the full set.
@@ -557,7 +557,7 @@ export function actualSection(actual, { all = false } = {}) {
   return [
     '          <section id="actual-block" class="actual-block" aria-labelledby="actual-heading">',
     `            <h3 id="actual-heading" class="actual-heading"><span class="actual-badge">${escapeHtml(ACTUAL_LABEL)}</span> <span>${escapeHtml(ACTUAL_NOTE)}</span></h3>`,
-    `            <p id="actual-note" class="actual-note">${escapeHtml(`A separate category from Easy, Medium and Hard: ${actual.count} questions from ${from}. Each keeps the exam's question and answer key; the other choices are answer keys of other graded-exam questions. Unseen questions come first. Never saved to the class history.`)}</p>`,
+    `            <p id="actual-note" class="actual-note">${escapeHtml(`A separate category from Easy, Medium and Hard: ${actual.count} questions from ${from}. Each keeps the exam's question and answer key; the other choices are answer keys of other graded-exam questions. Unseen questions come first. Saved to the class history as Actual Exam attempts.`)}</p>`,
     '            <div class="mode-list actual-list" role="group" aria-labelledby="actual-heading">',
     ...button('mode-actual', all ? 'Mixed set' : ACTUAL_LABEL, `${per}.${all ? ' Questions from all graded exams, unseen first.' : ''}`),
     ...(all && actual.full ? button('mode-actual-all', 'Full set', `All ${actual.full} questions from every graded exam in one sitting.`) : []),
@@ -567,8 +567,8 @@ export function actualSection(actual, { all = false } = {}) {
 }
 
 // One Comprehensive Exam Reviewer quiz page (comprehensive-reviewer/<slug>/): the quiz engine with only the Actual
-// Exam category, no difficulty banks and no class history (the endpoint is left empty, so it never makes a request).
-export function renderActualPage(template, contours, page, { base = '' } = {}) {
+// Exam category and no difficulty banks. Attempts post to the shared class history under the page key (mode 'actual').
+export function renderActualPage(template, contours, page, { base = '', endpoint = HISTORY_ENDPOINT } = {}) {
   const { key, title, eyebrow, lede, actual, categoryOrder, warning, meta, ref, all = false } = page;
   const config = {
     key, module: 'module-1', title, categoryOrder, sourceRef: null, sourceAlt: null, pool: null,
@@ -608,7 +608,7 @@ export function renderActualPage(template, contours, page, { base = '' } = {}) {
     DIFFICULTY_HEADING: 'Choose an attempt',
     MODE_LIST_HIDDEN: ' hidden',
     PRIVACY_NOTE: escapeHtml(ACTUAL_PRIVACY_NOTE),
-    HISTORY_ENDPOINT: '',
+    HISTORY_ENDPOINT: endpoint,
   });
   // These pages sit one folder deeper than a lesson quiz.
   return html.replace(/\.\.\/(assets|library|reviewer)\//g, '../../$1/').replace(/\.\.\/#/g, '../../#')
@@ -1173,7 +1173,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   const actual = actualExamData(root, lessons);
   for (const lesson of lessons) lesson.actual = actual.pages.get(lesson.key) ?? null;
   const pages = {};
-  Object.assign(pages, renderActualPages(root, engine, contours, actual, lessons, { base }));
+  Object.assign(pages, renderActualPages(root, engine, contours, actual, lessons, { base, endpoint }));
   for (const lesson of lessons) pages[`${lesson.slug}/index.html`] = renderQuizPage(engine, contours, lesson, { endpoint, base, study: studyQuizLinks(root, lesson, study) });
   pages['index.html'] = renderHub(readFileSync(join(root, 'src', 'hub', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base, root });
   pages['class/index.html'] = renderClass(readFileSync(join(root, 'src', 'class', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadClass(root), { base });
@@ -1247,7 +1247,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
 }
 
 // The Comprehensive Exam Reviewer's quiz pages: one per graded exam and the mixed set.
-function renderActualPages(root, engine, contours, actual, lessons, { base }) {
+function renderActualPages(root, engine, contours, actual, lessons, { base, endpoint }) {
   const heroSvg = readFileSync(join(root, 'src', 'actual', 'hero.svg'), 'utf8').replace(/\r\n/g, '\n').trimEnd();
   const byKey = new Map(lessons.map(lesson => [lesson.key, lesson]));
   const pages = {};
@@ -1263,7 +1263,7 @@ function renderActualPages(root, engine, contours, actual, lessons, { base }) {
       actual: { bank, count, attempt, exams }, categoryOrder: [exam.title],
       ref: `${REVIEWER_TITLE} · Exam ${number}`,
       meta: { source: `Ref. ${examCitation(exam)}`, rows: [['Questions', `${count} per attempt`], ['Exam date', displayDate(exam.date)], ['Source', 'Graded exam (stem and key)']] },
-    }, { base });
+    }, { base, endpoint });
   });
   const all = actual.all;
   pages[`${REVIEWER_SLUG}/all/index.html`] = renderActualPage(engine, contours, {
@@ -1273,7 +1273,7 @@ function renderActualPages(root, engine, contours, actual, lessons, { base }) {
     actual: all, categoryOrder: actual.exams.map(exam => exam.title),
     ref: `${REVIEWER_TITLE} · Mixed set`,
     meta: { source: 'Ref. SOAC 52-2026 graded exams', rows: [['Questions', `${all.attempt} per attempt · full set ${all.full}`], ['Exams', String(actual.exams.length)], ['Source', 'Graded exams (stem and key)']] },
-  }, { base });
+  }, { base, endpoint });
   return pages;
 }
 
@@ -1297,7 +1297,7 @@ function renderReviewerIndex(render, actual, lessons) {
     '<section class="reviewer-module graded-notes" aria-labelledby="notes-heading"><h2 id="notes-heading">How these questions were prepared</h2><ul>' +
     '<li>The exam portal’s review screen showed each question and its answer key, but not the answer choices. Here every item is multiple choice: the key plus three other answer keys from the same exam where possible (similar type and length), otherwise from the same module. True/false items keep two choices.</li>' +
     '<li>Questions and keys are as recorded, except quote marks and apostrophes the export had garbled, which are restored. No student answers, names or scores are kept.</li>' +
-    '<li>Each question cites its graded exam, not a lesson page. Actual Exam attempts are never saved to the class history.</li>' +
+    '<li>Each question cites its graded exam, not a lesson page. Actual Exam attempts are saved to the class history as Actual Exam.</li>' +
     '<li>Left out (' + skipped.length + '): ' + skipped.map(item => e(item.exam.title + ', question ' + item.n + ': ' + item.reason)).join(' ') + '</li>' +
     '</ul></section></div>';
   render(REVIEWER_SLUG + '/index.html', 1, 'exam-reviewer', REVIEWER_TITLE, 'Practise with the questions from our real, graded exams before the Comprehensive Exam.', body, {

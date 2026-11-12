@@ -2,15 +2,15 @@
 
 One Google Sheet serves every quiz on this site. Each finished attempt adds a row to its lesson's tab: name, difficulty, score, total, percentage, mastery band, finish time and the codes of the questions missed. The 'Item Analysis' tab counts how often each question was asked and missed, and the instructor page (`/quiz-hub/instructor/`) reads those counts. The answers students chose are never sent, and practice retries send nothing.
 
-`Code.gs` in this folder is the one copy of the script (version 7). The live web app is already deployed. Its URL is `HISTORY_ENDPOINT` in `scripts/build.mjs`.
+`Code.gs` in this folder is the one copy of the script (version 8). The live web app is already deployed. Its URL is `HISTORY_ENDPOINT` in `scripts/build.mjs`.
 
-## Updating the deployed script (after Code.gs changes, for example to version 7)
+## Updating the deployed script (after Code.gs changes, for example to version 8)
 
 1. Open the class history spreadsheet and choose **Extensions > Apps Script**.
 2. Replace the whole contents of `Code.gs` with this folder's `Code.gs`, then save (Ctrl+S).
 3. Choose **Deploy > Manage deployments**, click the pencil icon on the existing web-app deployment, set **Version** to **New version**, and click **Deploy**.
    Editing the existing deployment keeps the same `/exec` URL. A *new* deployment would get a new URL, and then every page would need rebuilding with that URL.
-4. Quick check: open `<exec URL>?action=items&lesson=all` in a browser. It should show `{"ok":true,"kind":"items","version":7,"rows":[]}` (the rows fill as attempts arrive).
+4. Quick check: open `<exec URL>?action=items&lesson=all` in a browser. It should show `{"ok":true,"kind":"items","version":8,"rows":[]}` (the rows fill as attempts arrive).
 
 Version 7 is backward compatible:
 - pages that send no `asked`/`missed` (or no `total`) are stored as before;

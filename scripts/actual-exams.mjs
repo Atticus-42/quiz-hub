@@ -10,7 +10,7 @@
 // used as distractors. Questions cite their graded exam (source type "graded-exam"), never a lesson page.
 //
 // qids: "<examKey>-a-<NN>", NN being the question's number on the graded exam. Permanent; never renumbered.
-// Actual-exam attempts are never posted to the class history (apps-script/Code.gs accepts only easy|medium|hard).
+// Actual-exam attempts post to the class history like the other modes: mode "actual", qids <examKey>-a-NN (apps-script/Code.gs v8).
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 

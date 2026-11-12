@@ -485,11 +485,6 @@
     .brief-more { display: inline-flex; align-items: center; min-height: 44px; margin-top: var(--space-1); color: var(--color-text); font-weight: 600; text-underline-offset: 0.3em; }
     .brief-more::after { content: "\00a0\2192"; font-family: var(--font-mono); color: var(--color-signal-text); }
     .brief-more:hover { color: var(--color-accent); }
-    .continue-list li { grid-template-columns: minmax(0, 1fr) 6.5rem auto; }
-    .continue-meter { display: block; height: 3px; margin-top: var(--space-1); background: var(--color-hairline); }
-    .continue-meter span { display: block; height: 100%; width: var(--seen, 0%); background: var(--color-signal); }
-    .continue-count { font-family: var(--font-mono); font-size: var(--text-meta); font-variant-numeric: tabular-nums; color: var(--color-muted); text-align: right; }
-    .brief-note { margin: var(--space-2) 0 0; font-size: var(--text-meta); color: var(--color-muted); }
     .tag-progress { color: var(--color-accent) !important; border-color: currentColor !important; }
     .card-meta .tag-actual { color: var(--color-signal-text); border-color: currentColor; font-weight: 600; }
     .tag-progress.is-done { color: var(--color-correct) !important; }
@@ -624,9 +619,7 @@
       .module-foot { margin-top: var(--space-2); padding-top: var(--space-1); border-top: 0; grid-column: 2; }
       .brief-list li { grid-template-columns: 4.5rem minmax(0, 1fr); }
       .brief-list .brief-act { grid-column: 2; justify-self: start; }
-      .continue-list li { grid-template-columns: minmax(0, 1fr) auto; }
-      .continue-list .continue-count { grid-column: 2; grid-row: 1; }
-      .finder-results a { grid-template-columns: 2.25rem minmax(0, 1fr); }
+          .finder-results a { grid-template-columns: 2.25rem minmax(0, 1fr); }
       .finder-go { display: none; }
     }
     @media (max-width: 760px) {
@@ -754,11 +747,6 @@
           <div id="today-items"><p class="brief-quiet">Lectures, exams and activities for each day are in the weekly schedule.</p></div>
           <a class="brief-more" id="today-link" href="schedule/?v=day-picker-2">This week's schedule</a>
         </div>
-        <div class="brief-col" id="brief-continue" hidden>
-          <p class="label">Continue on this device</p>
-          <ol class="brief-list continue-list" id="continue-list"></ol>
-          <p class="brief-note">Progress is read from this browser only; nothing is sent or shared.</p>
-        </div>
       </div>
     </section>
 
@@ -874,7 +862,7 @@
     <script data-hub="device">
     // Progressive enhancements, run while the page is parsed so nothing shifts later: the Today card, device
     // progress on the module index (read-only: the quiz pages own the mastery-quiz:progress:<lesson>:<mode>
-    // entries; this script never writes storage), "continue" suggestions and the quick finder. Text nodes only.
+    // entries; this script never writes storage), and the quick finder. Text nodes only.
     (function () {
       var data;
       try { data = JSON.parse(document.getElementById('hub-data').textContent); } catch (e) { return; }
@@ -908,44 +896,13 @@
       }
       var progress = {};
       data.exams.forEach(function (exam) { if (exam.b) progress[exam.k] = progressOf(exam); });
-      var pct = function (p) { return p.total ? Math.round(p.seen / p.total * 100) : 0; };
-
+      
       data.modules.forEach(function (m) {
         var seen = 0, total = 0;
         data.exams.forEach(function (e) { if (e.m === m.id && progress[e.k]) { seen += progress[e.k].seen; total += progress[e.k].total; } });
         var bar = document.querySelector('[data-progress-module="' + m.id + '"]');
         if (bar && total && seen) bar.style.setProperty('--seen', Math.max(2, Math.round(seen / total * 100)) + '%');
       });
-
-      // ---- Continue: started but unfinished lessons first (most advanced), then finished ones with misses. ----
-      var started = data.exams.filter(function (e) { var p = progress[e.k]; return p && p.seen && (p.seen < p.total || p.missed); });
-      started.sort(function (a, b) {
-        var pa = progress[a.k], pb = progress[b.k];
-        var da = pa.seen >= pa.total ? 1 : 0, db = pb.seen >= pb.total ? 1 : 0;
-        return da - db || pct(pb) - pct(pa) || pb.missed - pa.missed;
-      });
-      if (started.length) {
-        var list = byId('continue-list');
-        started.slice(0, 3).forEach(function (exam) {
-          var p = progress[exam.k];
-          var li = make('li');
-          var what = make('span', 'brief-what', exam.t);
-          var meter = make('span', 'continue-meter');
-          var fill = make('span');
-          fill.style.setProperty('--seen', pct(p) + '%');
-          meter.appendChild(fill);
-          what.appendChild(meter);
-          li.appendChild(what);
-          li.appendChild(make('span', 'continue-count', p.seen + '/' + p.total + (p.missed ? ' · ' + p.missed + ' missed' : '')));
-          var go = make('a', 'brief-act', p.seen < p.total ? 'Resume' : 'Review');
-          go.href = exam.u;
-          go.setAttribute('aria-label', (p.seen < p.total ? 'Resume ' : 'Review ') + exam.t + ': ' + p.seen + ' of ' + p.total + ' questions seen' + (p.missed ? ', ' + p.missed + ' last answered wrong' : ''));
-          li.appendChild(go);
-          list.appendChild(li);
-        });
-        byId('brief-continue').hidden = false;
-        byId('brief-body').className = 'brief-body';
-      }
 
       // ---- Today: Manila date, that day's lectures and exams, any activity that spans it. ----
       var now = typeof window.__HUB_NOW === 'string' ? window.__HUB_NOW : '';

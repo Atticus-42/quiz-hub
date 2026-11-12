@@ -1250,6 +1250,7 @@
           <button type="button" id="history-filter-easy" class="filter-button" aria-pressed="false">Easy</button>
           <button type="button" id="history-filter-medium" class="filter-button" aria-pressed="false">Medium</button>
           <button type="button" id="history-filter-hard" class="filter-button" aria-pressed="false">Hard</button>
+          <button type="button" id="history-filter-actual" class="filter-button" aria-pressed="false" hidden>Actual Exam</button>
         </div>
         <p id="history-status" class="history-status" role="status" aria-live="polite"></p>
         <div id="history-table-wrap" class="table-wrap" hidden>
@@ -1778,6 +1779,8 @@
     // Stable question id for the instructor's item analysis: <lessonKey>:<mode>:<qid>. A pool exam
     // reports the source lesson's id, so a question counts the same wherever it was asked.
     function itemId(question, mode) {
+      // Actual Exam questions are owned by their graded exam: <examKey>:actual:<examKey>-a-NN.
+      if (mode === ACTUAL && question.examKey) return question.examKey + ':' + mode + ':' + question.qid;
       return (POOL ? question.lessonKey : HISTORY_LESSON) + ':' + mode + ':' + question.qid;
     }
 
@@ -1913,7 +1916,8 @@
 
     // ----- State and DOM -----
 
-    var HISTORY_FILTERS = ['all', 'easy', 'medium', 'hard'];
+    // Reviewer pages keep only Actual Exam attempts; lesson pages with graded exams add Actual Exam to the filters.
+    var HISTORY_FILTERS = ACTUAL_ONLY ? ['all', 'actual'] : ACTUAL_CONFIG ? ['all', 'easy', 'medium', 'hard', 'actual'] : ['all', 'easy', 'medium', 'hard'];
     var ENDPOINT = String(HISTORY_ENDPOINT || '').trim();
     var PRACTICE_NOTE = 'Practice: retrying missed questions. Practice attempts are not saved to the class history.';
 
@@ -2000,7 +2004,8 @@
         all: byId('history-filter-all'),
         easy: byId('history-filter-easy'),
         medium: byId('history-filter-medium'),
-        hard: byId('history-filter-hard')
+        hard: byId('history-filter-hard'),
+        actual: byId('history-filter-actual')
       },
       historyStatus: byId('history-status'),
       historyTableWrap: byId('history-table-wrap'),
@@ -2542,10 +2547,6 @@
         // Practice retries never reach the class history or the item analysis.
         state.submission = { payload: null, status: 'practice' };
         renderSaveStatus();
-      } else if (attempt.mode === ACTUAL) {
-        // Nor do Actual Exam attempts: the class history sheet accepts only easy, medium and hard.
-        state.submission = { payload: null, status: 'actual' };
-        renderSaveStatus();
       } else {
         submitAttempt(buildSubmission(state.results));
       }
@@ -2576,7 +2577,7 @@
       showView('landing');
       setStudyConfirmed(state.studyConfirmed);
       ui.difficultyHeading.focus();
-      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
+      if (ENDPOINT) loadHistory(state.history.filter);
       return true;
     }
 
@@ -2906,8 +2907,7 @@
         saved: ['check', 'Saved to the class history.'],
         failed: ['alert', 'Could not save to class history. Your results below are unaffected.'],
         'not-configured': ['dot', 'Class history is not set up, so this score was not saved to a class list.'],
-        practice: ['dot', 'Practice attempts are not saved to the class history.'],
-        actual: ['dot', 'Actual Exam attempts are not saved to the class history.']
+        practice: ['dot', 'Practice attempts are not saved to the class history.']
       }[status];
       ui.saveBox.className = 'history-save save-' + status;
       setChildren(ui.saveMessage, copy ? [iconNode(copy[0]), make('span', null, copy[1])] : []);
@@ -2929,7 +2929,7 @@
     function cleanHistoryRow(row) {
       if (!row || typeof row !== 'object') return null;
       var mode = String(row.mode === null || row.mode === undefined ? '' : row.mode).trim().toLowerCase();
-      if (MODES.indexOf(mode) === -1) return null;
+      if (MODES.indexOf(mode) === -1 && mode !== ACTUAL) return null;
       var name = Array.from(normalizeName(row.name)).slice(0, 60).join('');
       if (!name) return null;
       var finishedAt = String(row.finishedAt === null || row.finishedAt === undefined ? '' : row.finishedAt);
@@ -3055,7 +3055,7 @@
     function showHistory() {
       if (ui.historyPanel.hidden) return false;
       ui.historyHeading.focus();
-      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
+      if (ENDPOINT) loadHistory(state.history.filter);
       return true;
     }
 
@@ -3125,6 +3125,9 @@
       ui.btnHistory.addEventListener('click', showHistory);
       ui.btnSaveRetry.addEventListener('click', retrySubmission);
       ui.historyRefresh.addEventListener('click', function () { loadHistory(state.history.filter); });
+      Object.keys(ui.historyFilters).forEach(function (filter) {
+        ui.historyFilters[filter].hidden = HISTORY_FILTERS.indexOf(filter) === -1;
+      });
       HISTORY_FILTERS.forEach(function (filter) {
         ui.historyFilters[filter].addEventListener('click', function () { loadHistory(filter); });
       });
@@ -3134,9 +3137,7 @@
       setStudentName(ui.nameInput.value, false);
       setStudyConfirmed(false);
       renderSaveStatus();
-      // The Comprehensive Exam Reviewer pages have no class history: no request is ever made from them.
-      ui.btnHistory.hidden = ACTUAL_ONLY;
-      if (!ACTUAL_ONLY) loadHistory('all');
+      loadHistory('all');
     }
 
     function getState() {
