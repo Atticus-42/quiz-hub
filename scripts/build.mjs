@@ -3,6 +3,7 @@
 //   <slug>/index.html          one quiz page per lesson or pool exam (src/engine/template.html)
 //   instructor/index.html      the instructor's question analysis (src/instructor/template.html)
 //   class/index.html           the class page (src/class/template.html, data/class.json)
+//   gallery/index.html         the photo gallery (src/gallery/template.html, data/gallery.json)
 //   schedule/index.html        this week's training schedule (src/schedule/template.html, data/schedule.json)
 //
 //   node scripts/build.mjs                         build into the repository (what GitHub Pages serves)
@@ -31,7 +32,7 @@ export const POOL_MIN_ATTEMPT = 20;
 export const POOL_MAX_ATTEMPT = 35;
 export const LESSON_KEY_PATTERN = /^[a-z][a-z0-9]{1,23}$/;
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const RESERVED_SLUGS = new Set(['assets', 'src', 'lessons', 'scripts', 'apps-script', 'instructor', 'class', 'data', 'schedule', 'codes-ciphers', 'comprehensive-reviewer']);
+const RESERVED_SLUGS = new Set(['assets', 'src', 'lessons', 'scripts', 'apps-script', 'instructor', 'class', 'data', 'schedule', 'codes-ciphers', 'comprehensive-reviewer', 'gallery']);
 // Art expectations checked by the tests when a lesson.json gives none (a lesson may also ship no hero.css).
 const DEFAULT_ART = { groups: [], nested: {}, labels: [], classes: [], stilled: [], staticPattern: '\\.hero-art' };
 
@@ -930,6 +931,54 @@ export function renderClass(template, contours, data, { base = '' } = {}) {
 }
 
 // ---------------------------------------------------------------------------
+// Gallery page (data/gallery.json: add a photo by adding an entry, newest first)
+// ---------------------------------------------------------------------------
+
+export function loadGallery(root = ROOT) {
+  const path = join(root, 'data', 'gallery.json');
+  const data = readJson(path);
+  const fail = message => { throw new Error(`${path}: ${message}`); };
+  const text = value => typeof value === 'string' && value.trim() !== '';
+  const allowed = (object, keys) => Object.keys(object).every(key => keys.includes(key));
+  if (!data || typeof data !== 'object' || !allowed(data, ['title', 'intro', 'photos']) || !text(data.title) || !text(data.intro)) fail('only title, intro and photos are allowed; title and intro must be text');
+  if (!Array.isArray(data.photos) || !data.photos.length) fail('photos must list at least one photo');
+  const ids = new Set();
+  data.photos.forEach((photo, index) => {
+    const where = `photo ${index + 1}`;
+    if (!photo || !allowed(photo, ['id', 'src800', 'src1600', 'width', 'height', 'alt', 'caption'])) fail(`${where}: only id, src800, src1600, width, height, alt and caption are allowed`);
+    if (!text(photo.id) || !/^[a-z0-9-]+$/.test(photo.id) || ids.has(photo.id)) fail(`${where}: id must be a unique lowercase slug`);
+    ids.add(photo.id);
+    for (const key of ['src800', 'src1600']) {
+      if (!text(photo[key]) || !/^assets\/[\w./-]+\.jpg(\?v=\w+)?$/.test(photo[key])) fail(`${where}: ${key} must be an assets/ jpg path (scripts/test/gallery.test.mjs checks the file exists)`);
+    }
+    if (!Number.isInteger(photo.width) || !Number.isInteger(photo.height) || photo.width < 1 || photo.height < 1) fail(`${where}: width and height must be positive integers`);
+    if (!text(photo.alt) || !text(photo.caption)) fail(`${where}: alt and caption must be text`);
+  });
+  return data;
+}
+
+export function renderGallery(template, contours, data, { base = '' } = {}) {
+  const items = data.photos.map(photo => [
+    '      <li class="gallery-item">',
+    `        <figure class="gallery-figure" id="photo-${photo.id}">`,
+    `          <a class="gallery-open" href="../${escapeHtml(photo.src1600)}" data-caption="${escapeHtml(photo.caption)}">`,
+    `            <img src="../${escapeHtml(photo.src800)}" srcset="../${escapeHtml(photo.src800)} 800w, ../${escapeHtml(photo.src1600)} 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="${photo.width}" height="${photo.height}" style="--ratio: ${photo.width} / ${photo.height}" loading="lazy" decoding="async" alt="${escapeHtml(photo.alt)}">`,
+    '          </a>',
+    `          <figcaption>${escapeHtml(photo.caption)}</figcaption>`,
+    '        </figure>',
+    '      </li>',
+  ].join('\n')).join('\n');
+  return fillTemplate(template, {
+    BASE_CSS: baseCss(base, '../assets/'),
+    FONT_PRELOAD: fontPreloads('../assets/'),
+    CONTOURS: contours.trim(),
+    GALLERY_INTRO: escapeHtml(data.intro),
+    GALLERY_COUNT: String(data.photos.length),
+    GALLERY_ITEMS: items,
+  });
+}
+
+// ---------------------------------------------------------------------------
 // Weekly training schedule (data/schedule.json, this week's copy of the schedule; archived in data/schedules/)
 // ---------------------------------------------------------------------------
 
@@ -1177,6 +1226,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   for (const lesson of lessons) pages[`${lesson.slug}/index.html`] = renderQuizPage(engine, contours, lesson, { endpoint, base, study: studyQuizLinks(root, lesson, study) });
   pages['index.html'] = renderHub(readFileSync(join(root, 'src', 'hub', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base, root });
   pages['class/index.html'] = renderClass(readFileSync(join(root, 'src', 'class', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadClass(root), { base });
+  pages['gallery/index.html'] = renderGallery(readFileSync(join(root, 'src', 'gallery', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadGallery(root), { base });
   const scheduleTemplate = readFileSync(join(root, 'src', 'schedule', 'template.html'), 'utf8').replace(/\r\n/g, '\n');
   const activities = readJson(join(root, 'data', 'schedule-activities.json'));
   const activeSchedule = loadSchedule(root);
@@ -1220,7 +1270,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   // Give every generated section the same per-visit crest selection.
   for (const [path, source] of Object.entries(pages)) {
     const up = '../'.repeat(path.split('/').length - 1);
-    const favicon = ({reviewer:'anime',library:'bronze','how-to':'jungle','los-radios':'neon','codes-ciphers':'red',schedule:'philippines',class:'comic',instructor:'realistic'})[path.split('/')[0]] || 'colored';
+    const favicon = ({reviewer:'anime',library:'bronze','how-to':'jungle','los-radios':'neon','codes-ciphers':'red',schedule:'philippines',class:'comic',gallery:'comic',instructor:'realistic'})[path.split('/')[0]] || 'colored';
     let html = source.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/identity.css">\n</head>');
     html = html.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/ui-polish.css">\n</head>');
     html = html.replace('</head>', '<link rel="icon" type="image/png" href="' + up + 'assets/favicons/crest-' + favicon + '.png">\n</head>');

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Bandwidth Brothers, SOAC 52 - 2026: class photo gallery.">
+  <meta name="referrer" content="no-referrer">
+  <title>Gallery · Bandwidth Brothers · SOAC 52 - 2026</title>
+  {{FONT_PRELOAD}}
+  <style>
+{{BASE_CSS}}
+
+    /* =====================================================================
+       GALLERY PAGE. Masthead, then the photos as captioned plates in a
+       responsive grid (one column on phones, two on wide screens). Each
+       plate links to the full-size image; scripts/build.mjs fills the
+       grid from data/gallery.json. Tokens: src/shared/base.css above.
+       ===================================================================== */
+    .hero, main { position: relative; z-index: 1; }
+    .hero { color: var(--color-text); }
+    .hero-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-2) var(--space-4); padding-block: var(--space-2); border-bottom: 1px solid var(--color-text); }
+    .hero-bar .fig-line { margin: 0; color: var(--color-muted); }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); margin: 0; }
+    .hub-link {
+      display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px;
+      color: var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; text-decoration: none;
+    }
+    .hub-link span { font-size: 1rem; letter-spacing: 0; color: var(--color-signal-text); }
+    .hub-link:hover { text-decoration: underline; text-underline-offset: 0.3em; }
+    .hero-inner { display: grid; grid-template-columns: var(--rail) minmax(0, 6fr) minmax(0, 3fr); column-gap: var(--col-gap); align-items: end; padding-block: var(--space-7) var(--space-6); }
+    .hero-rail { align-self: start; padding-top: 0.5rem; }
+    .hero-rail p { margin: 0 0 var(--space-1); }
+    .rail-ref { color: var(--color-signal-text); }
+    .eyebrow { margin: 0 0 var(--space-3); color: var(--color-muted); }
+    h1 { margin: 0; font-size: var(--text-h1); line-height: 0.95; letter-spacing: -0.025em; }
+    .hero-subtitle { margin: var(--space-2) 0 var(--space-4); font-family: var(--font-mono); font-size: clamp(1.125rem, 0.9rem + 1vw, 1.75rem); font-weight: 500; letter-spacing: 0.04em; color: var(--color-signal-text); }
+    .hero-lede { max-width: 40rem; margin: 0; font-size: var(--text-body); line-height: 1.55; }
+    .hero-meta { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-3) var(--space-5); margin: 0; padding-top: var(--space-3); border-top: 1px solid var(--color-text); }
+    .hero-meta dt { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
+    .hero-meta dd { margin: var(--space-1) 0 0; font-family: var(--font-mono); font-size: 1.5rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+
+    .gallery-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--space-6) var(--space-5); margin: 0; padding: 0; list-style: none; }
+    .gallery-item { margin: 0; padding: 0; break-inside: avoid; page-break-inside: avoid; }
+    .gallery-figure { margin: 0; padding: 0; }
+    .gallery-open { display: block; padding: 0; border: 0; background: none; color: inherit; text-decoration: none; cursor: zoom-in; }
+    .gallery-open img { display: block; width: 100%; height: auto; aspect-ratio: var(--ratio, 4 / 3); object-fit: cover; max-height: 36rem; filter: none; border-radius: 0; }
+    .gallery-open:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+    .gallery-figure figcaption { margin: 0; padding: var(--space-2) 0; border-top: 1px solid var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text); }
+    .gallery-more { margin: var(--space-6) 0 0; text-align: center; }
+    .gallery-more button { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-5); border: 1px solid var(--color-text); background: var(--color-paper); color: var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; }
+    .gallery-more button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+    @media (min-width: 760px) { .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } }
+
+    .lightbox { width: min(96vw, 1600px); max-width: none; max-height: 96vh; margin: auto; padding: var(--space-3); border: 1px solid var(--color-text); background: var(--color-paper); color: var(--color-text); }
+    .lightbox::backdrop { background: rgba(0, 0, 0, 0.82); }
+    .lightbox img { display: block; width: 100%; height: auto; max-height: calc(96vh - 9rem); object-fit: contain; filter: none; border-radius: 0; }
+    .lightbox p { margin: var(--space-2) 0 0; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+    .lightbox-close { display: inline-flex; align-items: center; min-height: 44px; margin-top: var(--space-2); padding: 0 var(--space-4); border: 1px solid var(--color-text); background: var(--color-paper); color: var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; }
+    .lightbox-close:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; row-gap: var(--space-4); padding-block: var(--space-5); }
+      .hero-rail { display: flex; flex-wrap: wrap; gap: 0 var(--space-5); }
+      .hero-bar .fig-line { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+  <style media="print">
+    html, body { background: #ffffff; }
+    .topo, .banner, .hub-link, .strip, .hero-bar { display: none !important; }
+    .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  </style>
+</head>
+<body>
+  <div class="topo" aria-hidden="true">
+    {{CONTOURS}}
+  </div>
+  <div class="strip" role="region" aria-label="Page context">
+    <div class="wrap strip-inner">
+      <p>For training purposes<span class="sep" aria-hidden="true">·</span>SOAC 52 - 2026<span class="sep" aria-hidden="true">·</span>Bandwidth Brothers</p>
+      <p class="strip-ref">Gallery</p>
+    </div>
+  </div>
+  <div class="banner">
+    <picture>
+      <source media="(max-width: 800px)" srcset="../assets/banner-800.jpg 1x, ../assets/banner-1600.jpg 2x">
+      <img src="../assets/banner-1600.jpg" srcset="../assets/banner-1600.jpg 1x" width="1600" height="900" fetchpriority="high" alt="Bandwidth Brothers banner">
+    </picture>
+  </div>
+  <header class="hero">
+    <div class="wrap hero-bar">
+      <p class="hero-links">
+        <a class="hub-link" href="../"><span aria-hidden="true">&#8592;</span> All quizzes</a>
+        <a class="hub-link" href="../class/">Our class <span aria-hidden="true">&#8594;</span></a>
+      </p>
+      <p class="fig-line label" aria-hidden="true">Bandwidth Brothers, SOAC 52 - 2026</p>
+    </div>
+    <div class="wrap hero-inner">
+      <div class="hero-rail">
+        <p class="rail-ref label">Annex C · Gallery</p>
+        <p class="label">Philippine Army</p>
+      </div>
+      <div class="hero-copy">
+        <p class="eyebrow label">Philippine Army · Mastery Quizzes · Gallery</p>
+        <h1 id="gallery-title">Gallery</h1>
+        <p class="hero-subtitle">Bandwidth Brothers, SOAC 52 - 2026</p>
+        <p class="hero-lede">{{GALLERY_INTRO}}</p>
+      </div>
+      <dl class="hero-meta">
+        <div><dt>Photos</dt><dd>{{GALLERY_COUNT}}</dd></div>
+      </dl>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <ul class="gallery-grid" id="gallery-grid">
+{{GALLERY_ITEMS}}
+    </ul>
+    <p class="gallery-more" id="gallery-more" hidden><button type="button" id="gallery-more-button">Show more photos</button></p>
+  </main>
+
+  <dialog class="lightbox" id="lightbox" aria-label="Photo, full size">
+    <img id="lightbox-img" src="" alt="">
+    <p id="lightbox-caption"></p>
+    <button type="button" class="lightbox-close" id="lightbox-close">Close</button>
+  </dialog>
+
+  <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
+
+  <script>
+  (function () {
+    'use strict';
+    // Show the first 12 photos; the rest wait behind a button (all are visible without scripts).
+    var PAGE = 12;
+    var items = document.querySelectorAll('.gallery-item');
+    var more = document.getElementById('gallery-more');
+    var shown = Math.min(PAGE, items.length);
+    function sync() {
+      for (var j = 0; j < items.length; j++) items[j].hidden = j >= shown;
+      more.hidden = shown >= items.length;
+    }
+    if (items.length > PAGE) {
+      sync();
+      document.getElementById('gallery-more-button').addEventListener('click', function () {
+        var first = shown;
+        shown = Math.min(shown + PAGE, items.length);
+        sync();
+        var link = items[first].querySelector('.gallery-open');
+        if (link) link.focus();
+      });
+    }
+    // Progressive enhancement: without scripts (or <dialog>) each photo is a plain link to the full-size image.
+    var box = document.getElementById('lightbox');
+    if (!box || typeof box.showModal !== 'function') return;
+    var img = document.getElementById('lightbox-img');
+    var caption = document.getElementById('lightbox-caption');
+    var opener = null;
+    var links = document.querySelectorAll('.gallery-open');
+    for (var i = 0; i < links.length; i++) {
+      links[i].addEventListener('click', function (event) {
+        event.preventDefault();
+        opener = this;
+        var photo = this.querySelector('img');
+        img.setAttribute('src', this.getAttribute('href'));
+        img.setAttribute('alt', photo.getAttribute('alt'));
+        caption.textContent = this.getAttribute('data-caption');
+        box.showModal();
+        document.getElementById('lightbox-close').focus();
+      });
+    }
+    document.getElementById('lightbox-close').addEventListener('click', function () { box.close(); });
+    box.addEventListener('click', function (event) { if (event.target === box) box.close(); });
+    box.addEventListener('close', function () { img.removeAttribute('src'); if (opener) opener.focus(); });
+  })();
+  </script>
+</body>
+</html>

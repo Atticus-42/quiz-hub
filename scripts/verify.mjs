@@ -31,6 +31,10 @@ await test('[organization] source-backed trees and personnel counts', () => {
   const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/unit-organizations.test.mjs')], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stdout + result.stderr);
 });
+await test('[gallery] every photo has files, alt, size, srcset, caption; nav links and class page link', () => {
+  const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/gallery.test.mjs')], { encoding: 'utf8' });
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+});
 await test('[navigation] section icons keep accessible labels and current-page state', () => {
   const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/site-navigation.test.mjs')], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stdout + result.stderr);

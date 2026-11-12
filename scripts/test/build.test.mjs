@@ -96,7 +96,7 @@ export async function buildSuite({ lessons, modules }) {
     const pages = build({ write: false });
     const scheduleWeeks = ['2026-10-26', '2026-11-02', '2026-11-09', '2026-11-16', '2026-11-23', '2026-11-30',
       '2026-12-07', '2026-12-14', '2026-12-21', '2026-12-28', '2027-01-04'];
-    const expectedPages = ['index.html', 'class/index.html', 'schedule/index.html',
+    const expectedPages = ['index.html', 'class/index.html', 'gallery/index.html', 'schedule/index.html',
       ...scheduleWeeks.map(start => `schedule-${start}/index.html`),
       'instructor/index.html', 'instructor/items.json', 'codes-ciphers/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
     const howtoPages = JSON.parse(readFileSync(join(ROOT, 'data/howto.json'), 'utf8')).map(guide => `how-to/${guide.id}/index.html`);
@@ -107,7 +107,7 @@ export async function buildSuite({ lessons, modules }) {
     for (const [path, html] of Object.entries(pages)) {
       assert.equal(readFileSync(join(ROOT, path), 'utf8'), html, `${path} is stale: run node scripts/build.mjs`);
       if (path.endsWith('.json')) continue;
-      if (!actualPages.includes(path) && (studyPages.includes(path) || ['class/index.html', 'codes-ciphers/index.html'].includes(path) || /^schedule(?:-\d{4}-\d{2}-\d{2})?\//.test(path))) assert.ok(!html.includes('HISTORY_ENDPOINT') && !html.includes('script.google.com'), `${path} never contacts the history endpoint`);
+      if (!actualPages.includes(path) && (studyPages.includes(path) || ['class/index.html', 'gallery/index.html', 'codes-ciphers/index.html'].includes(path) || /^schedule(?:-\d{4}-\d{2}-\d{2})?\//.test(path))) assert.ok(!html.includes('HISTORY_ENDPOINT') && !html.includes('script.google.com'), `${path} never contacts the history endpoint`);
       else assert.equal(html.split(`var HISTORY_ENDPOINT = '${HISTORY_ENDPOINT}';`).length - 1, 1, `${path} declares the endpoint once`);
       assert.doesNotMatch(html, /\{\{[A-Z_]+\}\}/, `${path} has no unfilled placeholder`);
     }

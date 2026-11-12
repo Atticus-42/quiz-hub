@@ -32,7 +32,7 @@ export function buildSiteIndex({ modules, lessons, study, pages }) {
     parts.push(col('Radio and codes', '<ul>' + li(a('los-radios/', 'LOS Radios', 'main')) + li(a('codes-ciphers/', 'Codes & Ciphers', 'main')) + '</ul>'));
     parts.push(col('Schedule, class, instructor', '<ul>' + li(a('schedule/?v=day-picker-2', 'Weekly schedule (current week)', 'main')) +
       weeks.filter(path => path !== active).map(path => li(a(path.replace(/index\.html$/, ''), 'Week of ' + range(path), 'main'))).join('') +
-      li(a('class/', 'Our class', 'main')) + li(a('instructor/', 'Instructor view', 'main')) + '</ul>'));
+      li(a('class/', 'Our class', 'main')) + li(a('gallery/', 'Gallery', 'main')) + li(a('instructor/', 'Instructor view', 'main')) + '</ul>'));
     return '<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid">' + parts.join('') + '</div></details></nav>';
   };
 }
@@ -54,6 +54,7 @@ export function siteSearchPages({ lessons, study, pages }) {
   out.push({ t: 'Codes & Ciphers', d: 'Cipher desk: encode, decode and practise handout ciphers', k: 'Tool', u: 'codes-ciphers/' });
   out.push({ t: 'Weekly schedule', d: 'Training timetable, venues, uniforms and menus by week', k: 'Class', u: 'schedule/?v=day-picker-2' });
   out.push({ t: 'Our class', d: 'Class organization and roster', k: 'Class', u: 'class/' });
+  out.push({ t: 'Gallery', d: 'Class photos: Krav Maga training, PT at the Signal School and the class group photo', k: 'Class', u: 'gallery/' });
   out.push({ t: 'Instructor view', d: 'Question analysis for instructors', k: 'Class', u: 'instructor/' });
   return out;
 }

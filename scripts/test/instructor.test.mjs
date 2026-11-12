@@ -422,7 +422,7 @@ export async function classSuite() {
     assert.match(html, /grid-template-columns: repeat\(auto-fill, minmax\(min\(100%, 14rem\), 1fr\)\)/, 'cards reflow to one column on phones');
     assert.match(html, /\.table-wrap \{ max-width: 100%; overflow-x: auto; \}/);
     assert.match(html, /body \{[^}]*overflow-wrap: anywhere;/);
-      assert.deepEqual([...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../assets/identity.css', '../', '../', '../schedule/?v=day-picker-2']);
+      assert.deepEqual([...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../assets/identity.css', '../', '../', '../schedule/?v=day-picker-2', '../gallery/']);
       assert.match(html, /<a class="hub-link" id="schedule-link" href="\.\.\/schedule\/\?v=day-picker-2">This week's schedule /);
     assert.doesNotMatch(withoutShareMeta(html), /https?:\/\//);
   });

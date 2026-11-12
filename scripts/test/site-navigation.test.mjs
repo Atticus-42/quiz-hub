@@ -20,7 +20,7 @@ for (const path of pages) {
   });
 }
 
-for (const [section,icon] of Object.entries({'':'colored',reviewer:'anime',library:'bronze','how-to':'jungle','los-radios':'neon','codes-ciphers':'red',schedule:'philippines',class:'comic',instructor:'realistic'})) {
+for (const [section,icon] of Object.entries({'':'colored',reviewer:'anime',library:'bronze','how-to':'jungle','los-radios':'neon','codes-ciphers':'red',schedule:'philippines',class:'comic',gallery:'comic',instructor:'realistic'})) {
  test(`browser favicon: ${section || 'home'}`,()=>{
   const html=readFileSync(new URL('../../'+(section ? section+'/' : '')+'index.html',import.meta.url),'utf8');
   assert.ok(html.includes('assets/favicons/crest-'+icon+'.png'));
