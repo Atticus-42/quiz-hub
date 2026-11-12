@@ -123,8 +123,15 @@ export function loadActualExams(root, lessonsByKey) {
       numbers.add(item.n);
     }
     for (const q of exam.questions) {
-      if (Object.keys(q).sort().join() !== 'key,n,stem') fail(`${where} Q${q.n}: a question holds only n, stem and key`);
+      const fields = Object.keys(q).sort().join();
+      if (fields !== 'key,n,stem' && fields !== 'distractors,key,n,stem') fail(`${where} Q${q.n}: a question holds only n, stem, key and optional distractors`);
       if (typeof q.stem !== 'string' || !q.stem.trim() || typeof q.key !== 'string' || !q.key.trim()) fail(`${where} Q${q.n}: stem and key must be nonempty`);
+      if (q.distractors !== undefined) {
+        const list = q.distractors;
+        if (!Array.isArray(list) || list.length !== 3 || list.some(d => typeof d !== 'string' || !d.trim())) fail(`${where} Q${q.n}: distractors must be three nonempty strings`);
+        const all = [q.key, ...list].map(d => d.trim().toLowerCase());
+        if (new Set(all).size !== 4 || list.some(d => nearDuplicate(d, q.key))) fail(`${where} Q${q.n}: distractors must differ from each other and from the key`);
+      }
       for (const pattern of FORBIDDEN_TEXT) if (pattern.test(q.stem + ' ' + q.key)) fail(`${where} Q${q.n}: contains forbidden text ${pattern}`);
     }
     for (const s of exam.skipped) if (typeof s.reason !== 'string' || !s.reason.trim()) fail(`${where} Q${s.n}: a skipped item needs a reason`);
@@ -154,6 +161,11 @@ export function buildActualQuestions(exams) {
       if (item.cls === 'tf') {
         options = ['True', 'False'];
         answer = /^true$/i.test(key.trim()) ? 0 : 1;
+      } else if (item.q.distractors) {
+        // Hand-written distractors for keys the pool cannot match well (numbers and values).
+        answer = positions[index];
+        options = shuffle(item.q.distractors.slice(), random);
+        options.splice(answer, 0, key);
       } else {
         const keyLength = key.length;
         const candidates = [];
@@ -192,7 +204,9 @@ export function buildActualQuestions(exams) {
         prompt: item.q.stem,
         options,
         answer,
-        explanation: `This is the answer key recorded for question ${item.q.n} of the graded exam. The exam portal showed only the question and its key; the other choices are answer keys from other questions in the class’s graded exams, added so the item can be practised as multiple choice.`,
+        explanation: item.q.distractors
+          ? `This is the answer key recorded for question ${item.q.n} of the graded exam. The exam portal showed only the question and its key; the other choices are plausible values of the same kind, written so the item can be practised as multiple choice.`
+          : `This is the answer key recorded for question ${item.q.n} of the graded exam. The exam portal showed only the question and its key; the other choices are answer keys from other questions in the class’s graded exams, added so the item can be practised as multiple choice.`,
         source: { type: 'graded-exam', exam: exam.key, title: exam.title, date: exam.date, number: item.q.n },
       });
     });

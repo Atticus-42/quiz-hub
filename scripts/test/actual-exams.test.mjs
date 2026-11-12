@@ -46,7 +46,9 @@ test('data: 14 graded exams, no student answers or scores, essays and the garble
   assert.equal(source.exams.length, 14);
   assert.doesNotMatch(raw, /studentAnswer|PASSED|DID NOT PASS|score \d/i);
   for (const exam of source.exams) for (const q of exam.questions) {
-    assert.deepEqual(Object.keys(q).sort(), ['key', 'n', 'stem']);
+    const fields = Object.keys(q).sort().join();
+    assert.ok(fields === 'key,n,stem' || fields === 'distractors,key,n,stem', `${exam.key} Q${q.n} fields ${fields}`);
+    if (q.distractors) assert.ok(!q.distractors.includes(q.key) && q.distractors.length === 3, `${exam.key} Q${q.n} distractors`);
     for (const pattern of FORBIDDEN_TEXT) assert.doesNotMatch(q.stem + q.key, pattern, `${exam.key} Q${q.n}`);
   }
   const diag = source.exams.find(exam => exam.key === 'gradeddiag');
