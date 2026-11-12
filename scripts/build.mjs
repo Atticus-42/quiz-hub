@@ -108,6 +108,30 @@ function qidPrefix(owner, mode) {
   return `${LESSON_KEY_PATTERN.test(owner) ? owner : '<lesson>'}-${MODE_LETTERS[mode]}-`;
 }
 
+// A lesson's secondary references (lesson.json sourceAlt): one declaration, or an array of them when the lesson
+// cites more than one Library document besides its primary reference (for example a handout and the lesson slides).
+export function altList(alt) {
+  return alt == null ? [] : Array.isArray(alt) ? alt : [alt];
+}
+
+// The citation noun for a secondary reference: "page"/"pages" unless the declaration names another (e.g. "slide").
+export function altNoun(declaration, count) {
+  return count === 1 ? declaration.noun ?? 'page' : declaration.plural ?? 'pages';
+}
+
+export function altCitationError(shape, alts) {
+  const message = alts.length === 1
+    ? `sourceAlt must be { ref: "${alts[0].ref}", pages: [integers from ${alts[0].min} to ${alts[0].max}] }`
+    : `sourceAlt must be ${alts.map(alt => `{ ref: "${alt.ref}", pages: [integers from ${alt.min} to ${alt.max}] }`).join(' or ')}, or an array of them with distinct refs`;
+  const items = alts.length > 1 && Array.isArray(shape) ? shape : [shape];
+  if (!items.length || new Set(items.map(item => item?.ref)).size !== items.length) return message;
+  for (const item of items) {
+    const alt = item !== null && typeof item === 'object' && !Array.isArray(item) ? alts.find(entry => entry.ref === item.ref) : null;
+    if (!alt || !Array.isArray(item.pages) || item.pages.length === 0 || item.pages.some(page => !Number.isInteger(page) || page < alt.min || page > alt.max)) return message;
+  }
+  return null;
+}
+
 export function validateQuestion(question, expectedDifficulty, expectedId, rules) {
   if (question === null || typeof question !== 'object' || Array.isArray(question)) {
     return ['question must be an object'];
@@ -147,20 +171,19 @@ export function validateQuestion(question, expectedDifficulty, expectedId, rules
     errors.push('answer must be an integer from 0 to 3');
   }
   const hasAlt = question.sourceAlt !== undefined;
+  const alts = altList(rules.alt);
   if (hasAlt) {
-    const alt = rules.alt;
-    const shape = question.sourceAlt;
-    if (!rules.ref || !alt) {
+    if (!rules.ref || !alts.length) {
       errors.push('sourceAlt is not enabled for this lesson (declare sourceAlt in lesson.json)');
-    } else if (shape === null || typeof shape !== 'object' || Array.isArray(shape) || shape.ref !== alt.ref
-      || !Array.isArray(shape.pages) || shape.pages.length === 0 || shape.pages.some(page => !Number.isInteger(page) || page < alt.min || page > alt.max)) {
-      errors.push(`sourceAlt must be { ref: "${alt.ref}", pages: [integers from ${alt.min} to ${alt.max}] }`);
+    } else {
+      const error = altCitationError(question.sourceAlt, alts);
+      if (error) errors.push(error);
     }
   }
   if (rules.ref) {
     // A question needs at least one of sourceSlides (the lesson's primary reference) or sourceAlt (a secondary one).
     // With sourceAlt, sourceSlides may be omitted or empty when the primary reference does not hold the content.
-    const altOnly = hasAlt && rules.alt && (question.sourceSlides === undefined || (Array.isArray(question.sourceSlides) && question.sourceSlides.length === 0));
+    const altOnly = hasAlt && alts.length > 0 && (question.sourceSlides === undefined || (Array.isArray(question.sourceSlides) && question.sourceSlides.length === 0));
     if (!altOnly && (rules.ref.required || question.sourceSlides !== undefined)) {
       if (!Array.isArray(question.sourceSlides) || question.sourceSlides.length === 0 || question.sourceSlides.some(slide => !Number.isInteger(slide) || slide < rules.ref.min || slide > rules.ref.max)) {
         errors.push(`sourceSlides${rules.ref.required ? '' : ', when present,'} must contain integers from ${rules.ref.min} to ${rules.ref.max}`);
@@ -238,8 +261,10 @@ export function checkLessonConfig(config, dir) {
       fail('sourceRef must be { label, plural, min, max, required }');
     }
     const alt = config.sourceAlt;
-    if (alt !== undefined && (alt === null || typeof alt !== 'object' || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(alt.ref ?? '') || typeof alt.label !== 'string' || !alt.label.trim() || !Number.isInteger(alt.min) || !Number.isInteger(alt.max) || alt.min < 1 || alt.min > alt.max)) {
-      fail('sourceAlt must be { ref: <library document id>, label, min, max } (page numbers start at 1)');
+    const badAlt = item => item === null || typeof item !== 'object' || Array.isArray(item) || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(item.ref ?? '') || typeof item.label !== 'string' || !item.label.trim() || !Number.isInteger(item.min) || !Number.isInteger(item.max) || item.min < 1 || item.min > item.max
+      || (item.noun !== undefined && (typeof item.noun !== 'string' || !item.noun.trim() || typeof item.plural !== 'string' || !item.plural.trim()));
+    if (alt !== undefined && (Array.isArray(alt) ? !alt.length || alt.some(badAlt) || new Set(alt.map(item => item.ref)).size !== alt.length : badAlt(alt))) {
+      fail('sourceAlt must be { ref: <library document id>, label, min, max, noun?, plural? } or an array of them with distinct refs (page numbers start at 1)');
     }
   }
   for (const [name, value] of Object.entries(config.palette ?? {})) {
@@ -257,13 +282,18 @@ function lessonRules(config, lessonsByKey) {
       pool: { count: config.pool.count, lessons: config.pool.lessons.map(key => ({ key, name: lessonsByKey.get(key).name })) },
     };
   }
-  return { key: config.key, categoryOrder: config.categoryOrder, ref: { ...config.sourceRef }, alt: config.sourceAlt ? { ...config.sourceAlt } : null, pool: null };
+  const alt = config.sourceAlt ? (Array.isArray(config.sourceAlt) ? config.sourceAlt.map(item => ({ ...item })) : { ...config.sourceAlt }) : null;
+  return { key: config.key, categoryOrder: config.categoryOrder, ref: { ...config.sourceRef }, alt, pool: null };
 }
 
 function reference(source, slides, alt) {
   const parts = [];
   if (Array.isArray(slides) && slides.length) parts.push(`${slides.length === 1 ? source.sourceRef.label : source.sourceRef.plural} ${slides.join(', ')}`);
-  if (alt && source.sourceAlt) parts.push(`${source.sourceAlt.label} · ${alt.pages.length === 1 ? 'page' : 'pages'} ${alt.pages.join(', ')}`);
+  const alts = altList(source.sourceAlt);
+  for (const item of alt === undefined ? [] : Array.isArray(alt) ? alt : [alt]) {
+    const declaration = alts.find(entry => entry.ref === item.ref);
+    if (declaration) parts.push(`${declaration.label} · ${altNoun(declaration, item.pages.length)} ${item.pages.join(', ')}`);
+  }
   return parts.length ? ` (${source.name}, ${parts.join('; ')})` : '';
 }
 
@@ -364,7 +394,7 @@ export function loadLessons(root = ROOT) {
   const allQids = new Map();
   for (const lesson of ordered) {
     lesson.rules = lessonRules(lesson, byKey);
-    if (lesson.rules.alt) lesson.rules.alt = resolveAlt(root, lesson, lesson.rules.alt);
+    if (lesson.rules.alt) lesson.rules.alt = Array.isArray(lesson.rules.alt) ? lesson.rules.alt.map(alt => resolveAlt(root, lesson, alt)) : resolveAlt(root, lesson, lesson.rules.alt);
     if (lesson.pool) {
       lesson.banks = {};
       for (const mode of MODES) lesson.banks[mode] = buildPoolBank(lesson, byKey, mode);
@@ -430,6 +460,8 @@ export function lessonText(lesson) {
   return { ...text, lede: fill(lesson.lede ?? DEFAULT_LEDE, values) };
 }
 
+const altConfig = alt => ({ ref: alt.ref, label: alt.label, min: alt.min, max: alt.max, title: alt.title, href: alt.href, ...(alt.noun ? { noun: alt.noun, plural: alt.plural } : {}) });
+
 // The runtime configuration the engine reads from <script id="quiz-config">.
 export function quizConfig(lesson) {
   const text = lessonText(lesson);
@@ -439,7 +471,7 @@ export function quizConfig(lesson) {
     title: lesson.title,
     categoryOrder: lesson.rules.categoryOrder,
     sourceRef: lesson.rules.ref ? { label: lesson.rules.ref.label, min: lesson.rules.ref.min, max: lesson.rules.ref.max, required: lesson.rules.ref.required } : null,
-    sourceAlt: lesson.rules.alt ? { ref: lesson.rules.alt.ref, label: lesson.rules.alt.label, min: lesson.rules.alt.min, max: lesson.rules.alt.max, title: lesson.rules.alt.title, href: lesson.rules.alt.href } : null,
+    sourceAlt: lesson.rules.alt ? (Array.isArray(lesson.rules.alt) ? lesson.rules.alt.map(altConfig) : altConfig(lesson.rules.alt)) : null,
     pool: lesson.rules.pool,
     actual: lesson.actual ? { count: lesson.actual.count, attempt: lesson.actual.attempt, ...(lesson.actual.full ? { full: lesson.actual.full } : {}) } : null,
     ...(lesson.actualOnly ? { actualOnly: true } : {}),

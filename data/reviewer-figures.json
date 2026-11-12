@@ -1,5 +1,5 @@
 {
-  "$comment": "Reviewer diagrams (scripts/reviewer-figures.mjs). Each figure sits in the named examGuide topic and uses only labels already in that lesson's reviewer, focus or question-bank data. pages must be pages the lesson already cites.",
+  "$comment": "Reviewer diagrams (scripts/reviewer-figures.mjs). Each figure sits in the named examGuide topic and uses only labels already in that lesson's reviewer, focus or question-bank data. pages must be pages the lesson already cites. Optional alt ([{ ref, pages }]) cites a lesson sourceAlt document (e.g. the lesson slides); those pages must be cited by a topic or practice item alt.",
   "mdmp": [
     {
       "topic": "Foundations: definition, characteristics, and time",
@@ -56,11 +56,14 @@
   ],
   "signalestimate": [
     {
-      "topic": "METAL organizes the facts",
+      "topic": "Five steps, five paragraphs",
       "kind": "flow",
       "title": "Structure of the signal estimate",
-      "caption": "METAL organizes the facts; the Annex A estimate then moves from situation to analysis, comparison and recommendation. Revise it when key facts change.",
+      "caption": "METAL organizes the facts; the five Annex A paragraphs then carry out the five steps in order, from the signal mission to the decision or recommendation. Revise the estimate when key facts change.",
       "pages": [27, 44],
+      "alt": [
+        { "ref": "signal-estimate-slides", "pages": [10, 11, 12, 19] }
+      ],
       "groups": [
         { "from": 0, "to": 4, "label": "METAL — organize the facts", "list": true }
       ],
@@ -70,10 +73,32 @@
         { "n": "T", "label": "Troops available", "note": "Personnel" },
         { "n": "A", "label": "Area of Operations", "note": "Operating conditions" },
         { "n": "L", "label": "Logistical requirements", "note": "Sustainment" },
-        { "n": "1", "label": "Situation", "note": "Terrain, weather, existing communications, opposing and friendly conditions, proposed COAs" },
-        { "n": "2", "label": "Analysis", "note": "What opposing capabilities and limitations mean for friendly support" },
-        { "n": "3", "label": "Comparison", "note": "Options against the same mission requirements" },
-        { "n": "4", "label": "Decision and recommendations", "note": "Personnel, C4S and sustainment; means of communications, command post locations, task list", "highlight": true }
+        { "n": "I", "label": "Mission", "note": "Based on the unit’s mission and concept of operation", "tag": "Know the problem" },
+        { "n": "II", "label": "Situation and courses of action", "note": "Area of operation, enemy situation, own situation, proposed COAs", "tag": "Gather data, possible solutions" },
+        { "n": "III", "label": "Analysis of opposing COA", "note": "What opposing capabilities and limitations mean for friendly support", "tag": "Analyze the solutions" },
+        { "n": "IV", "label": "Comparison of own COA", "note": "Advantages and disadvantages against the same mission", "tag": "Compare the solutions" },
+        { "n": "V", "label": "Decision and recommendations", "note": "Personnel, C4S and sustainment; means of communication (PACE), TCP and MCP locations, task list", "tag": "Decide / recommend", "highlight": true }
+      ]
+    },
+    {
+      "topic": "Compare courses of action",
+      "kind": "matrix",
+      "title": "COA comparison in the lesson slides’ example",
+      "caption": "Each COA is weighed by its own trade-off. The commander’s task list then combines the repeaters, timed radio silence and the equipment requests.",
+      "pages": [44],
+      "alt": [
+        { "ref": "signal-estimate-slides", "pages": [45, 46, 47, 48, 49, 50, 51] }
+      ],
+      "columns": ["COA", "Advantage", "Disadvantage"],
+      "widths": [1.25, 1, 1.2],
+      "rows": [
+        ["1–2 Repeaters at the cell site or SO Tabag-Hak", "Covers dead spots in the AO", "Needs added security; COA 1 has no contact in low-lying areas"],
+        ["3 Equipment off in bad weather; cellular phones", "Equipment kept serviceable", "Phone emissions open to lightning and interception"],
+        ["3a Same, with messengers", "Equipment kept serviceable", "Compromise or capture of the messenger"],
+        ["4 Limited EW against enemy C3", "Controls the spectrum; impedes enemy assaults", "Lack of trained personnel"],
+        ["5 Total radio silence", "Deceives enemy information gathering", "No C2 established"],
+        ["6 Harris radios and SMVRS from G6", "Fills the lack of CE equipment", "Very long transport time; security impediments"],
+        ["7 Commercial radios from G6", "Fills the lack of radios", "Limited range; needs base or repeater; COMSEC risk"]
       ]
     }
   ],

@@ -24,12 +24,22 @@
     "max": 44,
     "required": true
   },
-  "sourceAlt": {
-    "ref": "signal-estimate-handout",
-    "label": "Student handout",
-    "min": 1,
-    "max": 8
-  },
+  "sourceAlt": [
+    {
+      "ref": "signal-estimate-handout",
+      "label": "Student handout",
+      "min": 1,
+      "max": 8
+    },
+    {
+      "ref": "signal-estimate-slides",
+      "label": "Lesson slides",
+      "noun": "slide",
+      "plural": "slides",
+      "min": 1,
+      "max": 58
+    }
+  ],
   "palette": {
     "--lesson-accent": "#544979"
   },

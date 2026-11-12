@@ -310,12 +310,28 @@ test('sourceAlt is a secondary per-question reference validated against the less
   assert.deepEqual(validateQuestion({ ...question, sourceAlt: alt }, 'easy', 1, { ...rules, alt: null }), ['sourceAlt is not enabled for this lesson (declare sourceAlt in lesson.json)']);
 });
 
+test('a lesson may declare several sourceAlt references; a question cites one or an array with distinct refs', () => {
+  const alts = [{ ref: 'armor-handout', label: 'Student handout', min: 1, max: 8 }, { ref: 'armor-slides', label: 'Lesson slides', noun: 'slide', plural: 'slides', min: 1, max: 58 }];
+  const rules = { key: 'armor', categoryOrder: ['Fire support'], ref: { label: 'page', plural: 'pages', min: 13, max: 83, required: true }, alt: alts, pool: null };
+  const { sourceSlides, ...question } = { id: 1, qid: 'armor-e-01', difficulty: 'easy', category: 'Fire support', prompt: 'Which?', options: ['a', 'b', 'c', 'd'], answer: 2, explanation: 'Because.', tags: ['t'], sourceSlides: [13] };
+  for (const ok of [{ ref: 'armor-slides', pages: [58] }, { ref: 'armor-handout', pages: [8] }, [{ ref: 'armor-handout', pages: [6] }, { ref: 'armor-slides', pages: [19] }]]) {
+    assert.deepEqual(validateQuestion({ ...question, sourceAlt: ok }, 'easy', 1, rules), [], JSON.stringify(ok));
+  }
+  const message = ['sourceAlt must be { ref: "armor-handout", pages: [integers from 1 to 8] } or { ref: "armor-slides", pages: [integers from 1 to 58] }, or an array of them with distinct refs'];
+  for (const bad of [{ ref: 'armor-handout', pages: [9] }, { ref: 'armor-slides', pages: [59] }, [], [{ ref: 'armor-slides', pages: [1] }, { ref: 'armor-slides', pages: [2] }], [{ ref: 'other', pages: [1] }], null]) {
+    assert.deepEqual(validateQuestion({ ...question, sourceAlt: bad }, 'easy', 1, rules), message, JSON.stringify(bad));
+  }
+});
+
 test('checkLessonConfig validates a lesson sourceAlt declaration', () => {
   const dir = join(ROOT, 'lessons', 'signalestimate');
   const config = JSON.parse(readFileSync(join(dir, 'lesson.json'), 'utf8'));
   assert.ok(config.sourceAlt, 'signalestimate declares sourceAlt');
   assert.doesNotThrow(() => checkLessonConfig(config, dir));
-  for (const bad of [null, { ...config.sourceAlt, ref: 'Not A Slug' }, { ...config.sourceAlt, label: '' }, { ...config.sourceAlt, min: 0 }, { ...config.sourceAlt, min: 9, max: 8 }, { ...config.sourceAlt, max: 1.5 }]) {
+  assert.ok(Array.isArray(config.sourceAlt) && config.sourceAlt.length === 2, 'signalestimate declares the handout and the lesson slides');
+  const [handout, slides] = config.sourceAlt;
+  assert.doesNotThrow(() => checkLessonConfig({ ...config, sourceAlt: handout }, dir), 'a single declaration is still accepted');
+  for (const bad of [null, { ...handout, ref: 'Not A Slug' }, { ...handout, label: '' }, { ...handout, min: 0 }, { ...handout, min: 9, max: 8 }, { ...handout, max: 1.5 }, { ...slides, plural: undefined }, [], [handout, handout], [handout, { ...slides, max: 0 }]]) {
     assert.throws(() => checkLessonConfig({ ...config, sourceAlt: bad }, dir), /sourceAlt must be/);
   }
 });

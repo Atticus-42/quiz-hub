@@ -838,6 +838,7 @@
     "brief": "A signal estimate organizes known and assumed factors, compares courses of action and recommends how to meet signal support requirements.",
     "facts": [
       {"term": "METAL", "detail": "Mission, Enemy signal capabilities, Troops available, Area of Operations and Logistical requirements."},
+      {"term": "Steps in making the estimate", "detail": "Know the problem, gather data and determine possible solutions, analyze the solutions, compare them, then decide or recommend. The written estimate follows the same order: Mission, Situation and COA, Analysis of opposing COA, Comparison of own COA, Decision or recommendation."},
       {"term": "Known facts and assumptions", "detail": "Record both where relevant and revise the estimate when the situation changes or new facts emerge."},
       {"term": "Situation and courses of action", "detail": "Annex A covers terrain, weather, existing communications, opposing and friendly situations, and the proposed courses of action."},
       {"term": "Analysis and comparison", "detail": "Examine what the opposing and friendly capabilities and limitations mean for support, then compare the courses of action under the same mission conditions."},
@@ -853,7 +854,7 @@
       "analysis": "Recommend the staffed option if it meets the priority desks’ minimum requirements. Document reduced service to the other desks and set confirmation of the extra operator as a point to reconsider the broader option. This keeps the commander’s decision tied to the actual personnel assumption."
     },
     "steps": [
-      "State the support mission and the decision the estimate must inform.",
+      "Know the problem: base the signal mission on the unit’s mission and concept of operation, and state the decision the estimate must inform.",
       "Use METAL to organize known facts, assumptions and information gaps.",
       "Describe each course of action and examine how exercise conditions and capabilities affect support.",
       "Compare options on the same mission requirements and identify the assumptions that could change the result.",
@@ -867,13 +868,52 @@
       "topics": [
         {
           "title": "An estimate is a revisable assessment",
-          "explanation": "PAM 6-0102 describes the signal estimate, or C4S estimate, as a logical examination of known and assumed factors affecting support. A planner may use one estimate for all means or separate estimates for services and capabilities. Revisit the assessment when a changed condition affects support or turns an assumption into a confirmed fact.",
+          "explanation": "PAM 6-0102 describes the signal estimate, or C4S estimate, as a logical examination of known and assumed factors affecting support. A planner may use one estimate for all means or separate estimates for services and capabilities. Revisit the assessment when a changed condition affects support or turns an assumption into a confirmed fact. The lesson slides add that the estimate sets the stage for signal support operations and is as dynamic as the operation itself.",
           "remember": [
             "State the decision the estimate will support and date important assumptions."
           ],
           "trap": "A completed form can still contain an assumption that no longer holds.",
           "pages": [
             27
+          ],
+          "alt": [
+            {
+              "ref": "signal-estimate-slides",
+              "pages": [
+                8,
+                9,
+                10
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Five steps, five paragraphs",
+          "explanation": "The lesson slides teach making the estimate in five steps: know the problem; gather data and determine possible solutions; analyze the solutions; compare the solutions; decide or recommend. The written estimate follows the same order in the five paragraphs of Annex A: I Mission, II Situation and Courses of Action, III Analysis of Opposing COA, IV Comparison of Own COA and V Decision/Recommendation. The signal mission in Para I must be based on the unit’s mission and concept of operation.",
+          "remember": [
+            "Para I states the signal mission; Para V turns the comparison into a recommendation, or a decision when the commander makes the estimate."
+          ],
+          "trap": "The student handout’s six-paragraph running estimate opens with Situation and considerations. Do not mix its paragraph numbers with the five Annex A paragraphs.",
+          "pages": [
+            44
+          ],
+          "alt": [
+            {
+              "ref": "signal-estimate-handout",
+              "pages": [
+                5,
+                6
+              ]
+            },
+            {
+              "ref": "signal-estimate-slides",
+              "pages": [
+                11,
+                12,
+                13,
+                19
+              ]
+            }
           ]
         },
         {
@@ -890,18 +930,30 @@
         },
         {
           "title": "Build the situation and examine its implications",
-          "explanation": "Annex A’s situation section records terrain, weather, existing communications, opposing and friendly conditions, and the proposed courses of action. The analysis section asks what opposing capabilities and limitations mean for friendly support, including propagation, friendly limitations and countermeasures.",
+          "explanation": "Annex A’s situation section records terrain, weather, existing communications, opposing and friendly conditions, and the proposed courses of action. The analysis section asks what opposing capabilities and limitations mean for friendly support, including propagation, friendly limitations and countermeasures. The lesson slides group Para II into four subparagraphs: characteristics of the area of operation, enemy situation, own situation and courses of action. In their Mindoro example, mountain ranges create VHF dead spots, so relay or repeater stations go on key terrain and HF radios serve beneath the mountains; early-evening thunderstorms limit VHF, and daytime heat affects HF through the ionosphere.",
           "remember": [
             "Use the situation section to establish inputs and the analysis section to explain effects."
           ],
           "trap": "Copying observations into the analysis leaves their implications unstated.",
           "pages": [
             44
+          ],
+          "alt": [
+            {
+              "ref": "signal-estimate-slides",
+              "pages": [
+                14,
+                21,
+                23,
+                24,
+                26
+              ]
+            }
           ]
         },
         {
           "title": "Compare courses of action",
-          "explanation": "Compare how the proposed options meet the same mission under the conditions recorded in the estimate. Consider their supportability under actual or assumed staffing, communications assets, conditions and sustainment. Explain what would change the recommendation if a key assumption fails.",
+          "explanation": "Compare how the proposed options meet the same mission under the conditions recorded in the estimate. Consider their supportability under actual or assumed staffing, communications assets, conditions and sustainment. Explain what would change the recommendation if a key assumption fails. The slides’ example tabulates each COA’s advantages and disadvantages under the factor it answers. Total radio silence deceives enemy information gathering but leaves no C2; commercial radios fill an equipment gap at the cost of range and COMSEC.",
           "remember": [
             "Use comparable mission requirements for each option."
           ],
@@ -909,17 +961,44 @@
           "pages": [
             27,
             44
+          ],
+          "alt": [
+            {
+              "ref": "signal-estimate-slides",
+              "pages": [
+                45,
+                46,
+                47,
+                48,
+                49,
+                50,
+                51
+              ]
+            }
           ]
         },
         {
           "title": "Prepare decision and recommendations",
-          "explanation": "Annex A carries the comparison into personnel, C4S and sustainment recommendations, means of communications, command post locations and a task list. Make the recommendation and its dependencies clear so the commander can decide how to provide support.",
+          "explanation": "Annex A carries the comparison into personnel, C4S and sustainment recommendations, means of communications, command post locations and a task list. Make the recommendation and its dependencies clear so the commander can decide how to provide support. On the slides, each recommendation is specific (required skills, radios, generator sets), the means of communication is laid out as PACE, and the task list of implied and specific tasks is the commander’s decision.",
           "remember": [
             "Specify which tasks and support requirements follow from the preferred option."
           ],
           "trap": "A comparison with no actionable recommendation leaves the decision-maker to infer the required support.",
           "pages": [
             44
+          ],
+          "alt": [
+            {
+              "ref": "signal-estimate-slides",
+              "pages": [
+                52,
+                53,
+                54,
+                55,
+                56,
+                58
+              ]
+            }
           ]
         }
       ],
@@ -970,10 +1049,29 @@
           "pages": [
             44
           ]
+        },
+        {
+          "type": "analytical",
+          "question": "In the slides’ comparison, total radio listening silence best denies the enemy information but leaves no C2. How does the commander’s task list still use it?",
+          "answer": "Radio silence is kept only at set times (0600H, 1200H and 1800H) in bad weather and as the fallback when no electronic warfare specialist is available.",
+          "reasoning": "Para V combines the strengths of compared COAs while avoiding the disadvantage that ruled out the pure option.",
+          "pages": [
+            44
+          ],
+          "alt": [
+            {
+              "ref": "signal-estimate-slides",
+              "pages": [
+                49,
+                58
+              ]
+            }
+          ]
         }
       ],
       "checklist": [
         "Explain the purpose of an estimate and expand METAL.",
+        "Name the five Annex A paragraphs and the step each one carries out.",
         "Separate situation inputs, analysis and comparison.",
         "State a supported recommendation and what evidence would change it."
       ]

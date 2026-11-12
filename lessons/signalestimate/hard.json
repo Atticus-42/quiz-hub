@@ -684,5 +684,123 @@
         6
       ]
     }
+  },
+  {
+    "id": 29,
+    "qid": "signalestimate-h-29",
+    "difficulty": "hard",
+    "category": "COA Comparison",
+    "tags": [
+      "signalestimate",
+      "coa comparison",
+      "application"
+    ],
+    "prompt": "In the lesson slides' comparison, COA 3 (turn off equipment in bad weather and use cellular phones) and COA 3a (use messengers) both keep the equipment serviceable. What separates their recorded disadvantages?",
+    "options": [
+      "Both need additional security at a repeater site, and COA 3a also needs a base radio",
+      "COA 3 establishes no C2; COA 3a lacks trained electronic warfare personnel",
+      "Phones: open to lightning and interception; messengers: compromise or capture",
+      "Phones need a very long transport time; messengers are limited in range"
+    ],
+    "answer": 2,
+    "explanation": "Lesson slides, slides 46 and 47: both keep communications equipment serviceable, but the electromagnetic radiation of cellular phones is susceptible to lightning and interception, while a messenger risks security compromise or capture. No C2 is COA 5's disadvantage, lack of trained personnel COA 4's and a long transport time COA 6's.",
+    "sourceAlt": {
+      "ref": "signal-estimate-slides",
+      "pages": [
+        46,
+        47
+      ]
+    }
+  },
+  {
+    "id": 30,
+    "qid": "signalestimate-h-30",
+    "difficulty": "hard",
+    "category": "COA Comparison",
+    "tags": [
+      "signalestimate",
+      "coa comparison",
+      "application"
+    ],
+    "prompt": "COA 6 (request Harris HF/VHF radios and an SMVRS from G6, 7ID) and COA 7 (request more commercial radios) both fill the equipment shortfall in the lesson slides. Which reading of their disadvantages is correct?",
+    "options": [
+      "COA 6: very long transport time; COA 7: limited range, needs a base or repeater, COMSEC risk",
+      "COA 6 leaves no C2 during the move; COA 7 makes cellular emissions open to lightning and interception",
+      "COA 6 needs trained EW personnel; COA 7 requires additional security at the co-located cell site",
+      "Neither has a disadvantage, because both COAs fill the lack of available CE equipment in the AO"
+    ],
+    "answer": 0,
+    "explanation": "Lesson slides, slides 50 and 51: both fill up the lack of available equipment, but COA 6 means a very long time for transport with security impediments, and COA 7's commercial radios have limited range, require a base radio or repeater and risk a communications security compromise.",
+    "sourceAlt": {
+      "ref": "signal-estimate-slides",
+      "pages": [
+        50,
+        51
+      ]
+    }
+  },
+  {
+    "id": 31,
+    "qid": "signalestimate-h-31",
+    "difficulty": "hard",
+    "category": "Decision and Recommendations",
+    "tags": [
+      "signalestimate",
+      "decision and recommendations",
+      "application"
+    ],
+    "prompt": "The lesson slides record that COA 5, total radio listening silence, leaves no C2. How does the commander's task list still use radio silence?",
+    "options": [
+      "It orders total radio silence for the whole operation to deceive the enemy",
+      "At set times (0600H, 1200H, 1800H) and as a fallback without EW specialists",
+      "It drops radio silence and makes cellular phones the primary means in bad weather",
+      "It moves radio silence to Para III as an enemy countermeasure only"
+    ],
+    "answer": 1,
+    "explanation": "Lesson slides, slides 49 and 58: total silence would leave no C2, so the task list keeps radio silence at 0600H, 1200H and 1800H in bad weather and, when no electronic warfare specialist is available, as the way to keep the enemy from detecting transmissions.",
+    "sourceAlt": {
+      "ref": "signal-estimate-slides",
+      "pages": [
+        49,
+        58
+      ]
+    }
+  },
+  {
+    "id": 32,
+    "qid": "signalestimate-h-32",
+    "difficulty": "hard",
+    "category": "Situation and Opposing COA",
+    "tags": [
+      "signalestimate",
+      "situation and opposing coa",
+      "application"
+    ],
+    "prompt": "The lesson slides teach a five-paragraph format that opens with Mission; the handout's running estimate opens with Situation and considerations. Where does the slides' Para II, Situation and Courses of Action, fall in the running estimate?",
+    "options": [
+      "Paragraph 2, Mission, because both formats state the mission early",
+      "Paragraph 4, Analysis, because it already weighs each friendly course of action",
+      "Paragraph 6, Recommendations and conclusions, with the selected COA",
+      "Paragraphs 1 and 3: Situation and considerations, and Courses of action"
+    ],
+    "answer": 3,
+    "explanation": "Handout p. 6: the traditional C-E estimate's Situation and courses of action maps to running-estimate paragraphs 1 (Situation and considerations) and 3 (Courses of action). Lesson slides, slide 19, show the traditional five-paragraph format as Annex A.",
+    "sourceSlides": [
+      44
+    ],
+    "sourceAlt": [
+      {
+        "ref": "signal-estimate-handout",
+        "pages": [
+          6
+        ]
+      },
+      {
+        "ref": "signal-estimate-slides",
+        "pages": [
+          19
+        ]
+      }
+    ]
   }
 ]

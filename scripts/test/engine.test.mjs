@@ -3,7 +3,7 @@
 import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
-import { MODES, ROOT, validateBank, quizTotal, lessonText } from '../build.mjs';
+import { MODES, ROOT, validateBank, quizTotal, lessonText, altList, altNoun } from '../build.mjs';
 import {
   withoutShareMeta,
   test, plain, seededRandom, normalize, findAll, isShown, hasClass, parseHtml, appScripts, runPage,
@@ -28,7 +28,9 @@ export async function engineSuite(lesson) {
   const banks = lesson.banks;
   const pool = lesson.rules.pool;
   const ref = lesson.rules.ref;
-  const alt = lesson.rules.alt;
+  // A lesson may declare several secondary references; the mutation checks below use the first.
+  const alts = altList(lesson.rules.alt);
+  const alt = alts[0] ?? null;
   const text = lessonText(lesson);
   // Questions per attempt (a lesson serves its whole bank, at most 35; a pool exam's fixed count).
   const count = mode => lesson.attempts[mode];
@@ -357,7 +359,7 @@ export async function engineSuite(lesson) {
     assert.ok(feedbackText.includes(`Your answer: ${LETTERS[wrong]}. ${first.options[wrong]}`), feedbackText);
     assertExplanationPresent(feedback, first);
     const refs = findAll(feedback, node => hasClass(node, 'source-ref')).map(node => node.textContent);
-    const altRef = alt && first.sourceAlt ? [`${alt.label} · ${first.sourceAlt.pages.length === 1 ? 'page' : 'pages'} ${first.sourceAlt.pages.join(', ')}`] : [];
+    const altRef = altList(first.sourceAlt).map(item => { const declaration = alts.find(entry => entry.ref === item.ref); return `${declaration.label} · ${altNoun(declaration, item.pages.length)} ${item.pages.join(', ')}`; });
     const slideRef = ref && Array.isArray(first.sourceSlides) && first.sourceSlides.length ? [`Lesson reference: ${ref.label} ${first.sourceSlides.join(', ')}`] : [];
     if (slideRef.length || altRef.length) assert.deepEqual(refs, [...slideRef, ...altRef]);
     else if (/\breferences?:/i.test(first.explanation) || (pool && first.explanation.includes(' (' + first.lesson + ', '))) assert.ok(refs.length > 0, 'authored citations have separate references');
@@ -379,8 +381,10 @@ export async function engineSuite(lesson) {
     const { api } = loadApp();
     assert.deepEqual(plain(api.validateBanks(banks)), { valid: true, errors: [] });
     const easy = banks.easy;
-    const base = easy[0];
     const without = (object, key) => Object.fromEntries(Object.entries(object).filter(([name]) => name !== key));
+    // The mutations assume the first question cites only its primary reference (a sourceAlt would satisfy the
+    // reference requirement on its own), so any secondary citation is removed from the base question.
+    const base = without(easy[0], 'sourceAlt');
     const mutations = [
       { ...base, id: 1.5 },
       { ...base, difficulty: 'hard' },
@@ -420,6 +424,17 @@ export async function engineSuite(lesson) {
       // sourceAlt may stand in for the primary reference: sourceSlides omitted or empty is then accepted.
       for (const accepted of [{ ...base, sourceAlt: ok }, { ...without(base, 'sourceSlides'), sourceAlt: ok }, { ...base, sourceSlides: [], sourceAlt: ok }]) {
         assert.deepEqual(plain(api.validateBanks({ ...banks, easy: [accepted, ...easy.slice(1)] })), { valid: true, errors: [] }, 'sourceAlt can replace sourceSlides');
+      }
+      if (alts.length > 1) {
+        // Several declared references: a question may cite one of them, or an array of them with distinct refs.
+        const both = alts.map(entry => ({ ref: entry.ref, pages: [entry.max] }));
+        assert.deepEqual(plain(api.validateBanks({ ...banks, easy: [{ ...base, sourceAlt: both }, ...easy.slice(1)] })), { valid: true, errors: [] }, 'an array of distinct references');
+        for (const bad of [[ok, ok], [...both, { ref: 'other-doc', pages: [1] }], [{ ref: alts[1].ref, pages: [alts[1].max + 1] }]]) {
+          const bank = [{ ...base, sourceAlt: bad }, ...easy.slice(1)];
+          const result = plain(api.validateBanks({ ...banks, easy: bank }));
+          assert.equal(result.valid, false, `sourceAlt ${JSON.stringify(bad)} must be rejected`);
+          assert.deepEqual(result.errors, validateBank(bank, 'easy', lesson.rules).map(error => `easy ${error}`));
+        }
       }
     } else if (!pool) {
       const stray = [{ ...base, sourceAlt: { ref: 'any-doc', pages: [1] } }, ...easy.slice(1)];

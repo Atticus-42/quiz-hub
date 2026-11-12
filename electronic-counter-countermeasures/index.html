@@ -1349,7 +1349,8 @@
       if (config.sourceRef !== null && (!config.sourceRef || !Number.isInteger(config.sourceRef.min) || !Number.isInteger(config.sourceRef.max) || typeof config.sourceRef.label !== 'string')) return null;
       if (config.actual != null && (typeof config.actual !== 'object' || !Number.isInteger(config.actual.attempt) || config.actual.attempt < 1 || !Number.isInteger(config.actual.count) || config.actual.attempt > config.actual.count)) return null;
       if (config.actualOnly && !config.actual) return null;
-      if (config.sourceAlt != null && (typeof config.sourceAlt !== 'object' || !Number.isInteger(config.sourceAlt.min) || !Number.isInteger(config.sourceAlt.max) || typeof config.sourceAlt.label !== 'string' || typeof config.sourceAlt.ref !== 'string' || typeof config.sourceAlt.href !== 'string' || typeof config.sourceAlt.title !== 'string')) return null;
+      var badAlt = function (alt) { return !alt || typeof alt !== 'object' || Array.isArray(alt) || !Number.isInteger(alt.min) || !Number.isInteger(alt.max) || typeof alt.label !== 'string' || typeof alt.ref !== 'string' || typeof alt.href !== 'string' || typeof alt.title !== 'string'; };
+      if (config.sourceAlt != null && (Array.isArray(config.sourceAlt) ? !config.sourceAlt.length || config.sourceAlt.some(badAlt) : badAlt(config.sourceAlt))) return null;
       return config;
     }
 
@@ -1364,7 +1365,36 @@
     // Optional per-question lesson reference ("Lesson reference: page 31"); null for pool exams.
     var SOURCE_REF = CONFIG ? CONFIG.sourceRef : null;
     // Optional secondary reference (for example a student handout in the Library), cited per question as sourceAlt.
+    // A lesson may declare one secondary reference or several (an array), each cited by its ref.
     var SOURCE_ALT = CONFIG && CONFIG.sourceAlt ? CONFIG.sourceAlt : null;
+    var SOURCE_ALTS = SOURCE_ALT ? (Array.isArray(SOURCE_ALT) ? SOURCE_ALT : [SOURCE_ALT]) : [];
+    function altDeclaration(ref) {
+      for (var i = 0; i < SOURCE_ALTS.length; i++) if (SOURCE_ALTS[i].ref === ref) return SOURCE_ALTS[i];
+      return null;
+    }
+    function altNoun(declaration, count) {
+      return count === 1 ? declaration.noun || 'page' : declaration.plural || 'pages';
+    }
+    // The question's secondary citations as a list of { ref, pages } (empty when it has none or the lesson declares none).
+    function altCitations(question) {
+      if (!SOURCE_ALTS.length || !question.sourceAlt || typeof question.sourceAlt !== 'object') return [];
+      var items = Array.isArray(question.sourceAlt) ? question.sourceAlt : [question.sourceAlt];
+      return items.filter(function (item) { return item && altDeclaration(item.ref) && Array.isArray(item.pages) && item.pages.length; });
+    }
+    function altCitationError(shape) {
+      var message = SOURCE_ALTS.length === 1
+        ? 'sourceAlt must be { ref: "' + SOURCE_ALTS[0].ref + '", pages: [integers from ' + SOURCE_ALTS[0].min + ' to ' + SOURCE_ALTS[0].max + '] }'
+        : 'sourceAlt must be ' + SOURCE_ALTS.map(function (alt) { return '{ ref: "' + alt.ref + '", pages: [integers from ' + alt.min + ' to ' + alt.max + '] }'; }).join(' or ') + ', or an array of them with distinct refs';
+      var items = SOURCE_ALTS.length > 1 && Array.isArray(shape) ? shape : [shape];
+      var refs = items.map(function (item) { return item ? item.ref : undefined; });
+      if (!items.length || refs.some(function (ref, index) { return refs.indexOf(ref) !== index; })) return message;
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        var alt = item !== null && typeof item === 'object' && !Array.isArray(item) ? altDeclaration(item.ref) : null;
+        if (!alt || !Array.isArray(item.pages) || item.pages.length === 0 || item.pages.some(function (page) { return !Number.isInteger(page) || page < alt.min || page > alt.max; })) return message;
+      }
+      return null;
+    }
     var STUDY_LINKS = JSON.parse(document.getElementById('study-links').textContent);
     // Actual Exam settings ({ count, attempt, full? }) or null; actualOnly pages (the Comprehensive Exam Reviewer)
     // have no difficulty banks and no class history.
@@ -1436,15 +1466,15 @@
       }
       var hasAlt = question.sourceAlt !== undefined;
       if (hasAlt) {
-        var shape = question.sourceAlt;
-        if (!SOURCE_REF || !SOURCE_ALT) {
+        if (!SOURCE_REF || !SOURCE_ALTS.length) {
           errors.push('sourceAlt is not enabled for this lesson (declare sourceAlt in lesson.json)');
-        } else if (shape === null || typeof shape !== 'object' || Array.isArray(shape) || shape.ref !== SOURCE_ALT.ref || !Array.isArray(shape.pages) || shape.pages.length === 0 || shape.pages.some(function (page) { return !Number.isInteger(page) || page < SOURCE_ALT.min || page > SOURCE_ALT.max; })) {
-          errors.push('sourceAlt must be { ref: "' + SOURCE_ALT.ref + '", pages: [integers from ' + SOURCE_ALT.min + ' to ' + SOURCE_ALT.max + '] }');
+        } else {
+          var altError = altCitationError(question.sourceAlt);
+          if (altError) errors.push(altError);
         }
       }
       if (SOURCE_REF) {
-        var altOnly = hasAlt && SOURCE_ALT && (question.sourceSlides === undefined || (Array.isArray(question.sourceSlides) && question.sourceSlides.length === 0));
+        var altOnly = hasAlt && SOURCE_ALTS.length > 0 && (question.sourceSlides === undefined || (Array.isArray(question.sourceSlides) && question.sourceSlides.length === 0));
         if (!altOnly && (SOURCE_REF.required || question.sourceSlides !== undefined)) {
           if (!Array.isArray(question.sourceSlides) || question.sourceSlides.length === 0 || question.sourceSlides.some(function (slide) { return !Number.isInteger(slide) || slide < SOURCE_REF.min || slide > SOURCE_REF.max; })) {
             errors.push('sourceSlides' + (SOURCE_REF.required ? '' : ', when present,') + ' must contain integers from ' + SOURCE_REF.min + ' to ' + SOURCE_REF.max);
@@ -2379,7 +2409,8 @@
       function add(href, title, unavailable) {
         if (!links.has(href)) links.set(href, { title: title, unavailable: unavailable });
       }
-      var altPages = SOURCE_ALT && question.sourceAlt && Array.isArray(question.sourceAlt.pages) ? question.sourceAlt.pages : [];
+      var altCited = altCitations(question);
+      var altPages = [].concat.apply([], altCited.map(function (item) { return item.pages; }));
       questionSourceKeys(question).forEach(function (key) {
         var source = STUDY_LINKS.sources[key];
         if (!source) return;
@@ -2399,7 +2430,10 @@
           add(href, manual.title + locator, !manual.available);
         });
       });
-      altPages.forEach(function (page) { add(SOURCE_ALT.href + '#page=' + page, SOURCE_ALT.title + ' · PDF page ' + page); });
+      altCited.forEach(function (item) {
+        var alt = altDeclaration(item.ref);
+        item.pages.forEach(function (page) { add(alt.href + '#page=' + page, alt.title + ' · PDF page ' + page); });
+      });
       return links;
     }
 
@@ -2434,9 +2468,10 @@
       if (SOURCE_REF && Array.isArray(question.sourceSlides) && question.sourceSlides.length) {
         references.push('Lesson reference: ' + SOURCE_REF.label + ' ' + question.sourceSlides.join(', '));
       }
-      if (SOURCE_ALT && question.sourceAlt && Array.isArray(question.sourceAlt.pages) && question.sourceAlt.pages.length) {
-        references.push(SOURCE_ALT.label + ' · ' + (question.sourceAlt.pages.length === 1 ? 'page ' : 'pages ') + question.sourceAlt.pages.join(', '));
-      }
+      altCitations(question).forEach(function (item) {
+        var alt = altDeclaration(item.ref);
+        references.push(alt.label + ' · ' + altNoun(alt, item.pages.length) + ' ' + item.pages.join(', '));
+      });
       var graded = question.source && question.source.type === 'graded-exam';
       if (graded) references.push('SOAC 52-2026 graded exam: ' + question.source.title + ', ' + displayDate(question.source.date) + ' · question ' + question.source.number);
       if (references.length) {

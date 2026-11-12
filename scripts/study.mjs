@@ -4,6 +4,7 @@ import { join } from 'node:path';
 import { renderResources } from './resources.mjs';
 import { loadReviewerFocus, renderReviewerFocus } from './reviewer-focus.mjs';
 import { loadReviewerFigures, renderFigure } from './reviewer-figures.mjs';
+const altList = alt => (alt == null ? [] : Array.isArray(alt) ? alt : [alt]);
 
 const slug = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const json = path => JSON.parse(readFileSync(path, 'utf8'));
@@ -138,13 +139,23 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
       return '<section id="' + id + '" class="lesson-section"><h2><span aria-hidden="true">' + number + '</span>' + title + '</h2>' + body + '</section>';
     };
     const guide = item.examGuide;
-    const sourcePages = (pages, label = 'Lesson source') => {
+    // Optional secondary citations ({ ref, pages }[]) name one of the lesson's sourceAlt documents, e.g. the lesson slides.
+    const alts = altList(lesson.rules?.alt);
+    const altSource = (alt = []) => alt.map(item => {
+      const declaration = alts.find(entry => entry.ref === item.ref);
+      const doc = docs.find(entry => entry.id === item.ref);
+      if (!declaration || !doc?.file || !Array.isArray(item.pages) || !item.pages.length || item.pages.some(n => !Number.isInteger(n) || n < declaration.min || n > declaration.max)) {
+        throw new Error('Reviewer ' + key + ' cites a secondary source that is not a declared sourceAlt page range: ' + JSON.stringify(item));
+      }
+      return ' · ' + e(declaration.label) + ': ' + item.pages.map(n => docLink(doc, '../../', n, (declaration.noun || 'page') + ' ' + n)).join(' · ');
+    }).join('');
+    const sourcePages = (pages, label = 'Lesson source', alt) => {
       const body = (primaryDoc.file || primaryDoc.web) ? pages.map(n => docLink(primaryDoc, '../../', primaryDoc.file ? n : null, 'page ' + n)).join(' · ')
         : '<span class="file-missing">' + (primaryDoc.restricted ? 'Restricted · citation only' : 'PDF unavailable') + '</span> · ' + (pages.length === 1 ? 'page ' : 'pages ') + pages.map(n => '<a href="' + documentHref(primaryDoc, '../../', null) + '">' + e(String(n)) + '</a>').join(', ');
-      return '<p class="topic-source">' + label + ': ' + body + '</p>';
+      return '<p class="topic-source">' + label + ': ' + body + altSource(alt) + '</p>';
     };
     const lessonFigures = (figures[key] || []).map((fig, i) => ({ ...fig, number: i + 1, id: 'fig-' + (i + 1) }));
-    const topicFigures = topic => lessonFigures.filter(fig => fig.topic === topic.title).map(fig => renderFigure(fig, fig.number, fig.id, sourcePages(fig.pages, 'Figure source'))).join('');
+    const topicFigures = topic => lessonFigures.filter(fig => fig.topic === topic.title).map(fig => renderFigure(fig, fig.number, fig.id, sourcePages(fig.pages, 'Figure source', fig.alt))).join('');
     const topicIndex = guide ? '<nav class="topic-index" aria-label="Topics in this explanation"><ol>' + guide.topics.map((topic, t) => '<li><a href="#topic-' + (t + 1) + '">' + e(topic.title) + '</a></li>').join('') + '</ol></nav>' : '';
     // At a glance: memory cue, key terms (linked to their definitions) and the lesson's diagrams, all from existing data.
     const glance = '<aside class="lesson-glance" aria-labelledby="glance-title"><h2 id="glance-title">At a glance</h2><div class="glance-grid"><div><p class="focus-label">Memory cue</p><p class="glance-cue">' + e(focus[key].memoryCue) + '</p></div><div><p class="focus-label">Key terms · ' + item.facts.length + '</p><ul class="glance-terms">' + item.facts.map((fact, i) => '<li><a href="#term-' + (i + 1) + '">' + e(fact.term) + '</a></li>').join('') + '</ul></div>' +
@@ -153,13 +164,13 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
     const chapters = glance + renderReviewerFocus(key, focus[key], panel, e, sourcePages) +
       panel('briefing', 'Quick briefing', '<p>' + e(item.brief) + '</p><p>Read with ' + docLink(primaryDoc, '../../', primaryDoc.file ? page : null) + '.</p>') +
       panel('facts', 'Know the facts', '<dl class="fact-list">' + item.facts.map((fact, i) => '<div id="term-' + (i + 1) + '"><dt>' + e(fact.term) + '</dt><dd>' + e(fact.detail) + '</dd></div>').join('') + '</dl>') +
-      (guide ? panel('detailed-review', 'Build your understanding', topicIndex + guide.topics.map((topic, t) => '<section class="review-topic" id="topic-' + (t + 1) + '" aria-labelledby="topic-' + (t + 1) + '-title"><p class="topic-count">Topic ' + (t + 1) + ' of ' + guide.topics.length + '</p><h3 id="topic-' + (t + 1) + '-title">' + e(topic.title) + '</h3><p>' + e(topic.explanation) + '</p>' + topicFigures(topic) + '<ul>' + topic.remember.map(text => '<li>' + e(text) + '</li>').join('') + '</ul><p class="exam-trap"><strong>Watch out:</strong> ' + e(topic.trap) + '</p>' + sourcePages(topic.pages) + '</section>').join('')) : '') +
+      (guide ? panel('detailed-review', 'Build your understanding', topicIndex + guide.topics.map((topic, t) => '<section class="review-topic" id="topic-' + (t + 1) + '" aria-labelledby="topic-' + (t + 1) + '-title"><p class="topic-count">Topic ' + (t + 1) + ' of ' + guide.topics.length + '</p><h3 id="topic-' + (t + 1) + '-title">' + e(topic.title) + '</h3><p>' + e(topic.explanation) + '</p>' + topicFigures(topic) + '<ul>' + topic.remember.map(text => '<li>' + e(text) + '</li>').join('') + '</ul><p class="exam-trap"><strong>Watch out:</strong> ' + e(topic.trap) + '</p>' + sourcePages(topic.pages, undefined, topic.alt) + '</section>').join('')) : '') +
       panel('reasoning', 'Understand the reasoning', '<ul>' + item.insights.map(insight => '<li>' + e(insight) + '</li>').join('') + '</ul>') +
       panel('scenario', 'Apply it', '<p class="study-eyebrow">Fictional Philippine Army classroom exercise</p><p>' + e(item.scenario.situation) +
         '</p><p><strong>' + e(item.scenario.question) + '</strong></p><details><summary>Show the decision and reasoning</summary><p>' + e(item.scenario.analysis) + '</p></details>') +
       (item.steps.length ? panel('practice', 'How to practice', '<ol>' + item.steps.map(step => '<li>' + e(step) + '</li>').join('') + '</ol><p>Review the steps with ' + docLink(primaryDoc, '../../', primaryDoc.file ? page : null) + '.</p>') : '') +
       panel('self-check', 'Check yourself', item.checks.map(check => '<details><summary>' + e(check.question) + '</summary><p>' + e(check.answer) + '</p></details>').join('')) +
-      (guide ? panel('exam-practice', 'Objective & analytical practice', '<p>Answer first, then reveal the explanation. Situations are fictional classroom exercises applying the lesson.</p>' + guide.practice.map(question => '<details class="exam-practice"><summary><span class="study-eyebrow">' + e(question.type) + '</span>' + e(question.question) + '</summary><p><strong>Answer:</strong> ' + e(question.answer) + '</p><p>' + e(question.reasoning) + '</p>' + sourcePages(question.pages) + '</details>').join('')) + panel('exam-checklist', 'Before the exam', '<ul>' + guide.checklist.map(text => '<li>' + e(text) + '</li>').join('') + '</ul>') : '') +
+      (guide ? panel('exam-practice', 'Objective & analytical practice', '<p>Answer first, then reveal the explanation. Situations are fictional classroom exercises applying the lesson.</p>' + guide.practice.map(question => '<details class="exam-practice"><summary><span class="study-eyebrow">' + e(question.type) + '</span>' + e(question.question) + '</summary><p><strong>Answer:</strong> ' + e(question.answer) + '</p><p>' + e(question.reasoning) + '</p>' + sourcePages(question.pages, undefined, question.alt) + '</details>').join('')) + panel('exam-checklist', 'Before the exam', '<ul>' + guide.checklist.map(text => '<li>' + e(text) + '</li>').join('') + '</ul>') : '') +
       panel('references', 'References', '<p>Study the assigned lesson first. Supplementary manuals provide context; they do not add examinable material unless assigned as a lesson.</p>' + '<ul>' + docs.filter(doc => doc !== studyDoc).sort((a,b) => (a === primaryDoc ? 0 : a.cited.includes(key) ? 1 : 2) - (b === primaryDoc ? 0 : b.cited.includes(key) ? 1 : 2)).map(doc => '<li>' + docLink(doc, '../../', doc === primaryDoc && doc.file ? page : doc.citationPage) +
         ' <span class="study-muted">· ' + (doc === primaryDoc ? 'Primary course source' : doc.cited.includes(key) ? 'Cited by the course' : 'Supplementary reading') + '</span></li>').join('') + '</ul>');
     const rail = '<nav class="study-rail" aria-label="Lesson sections"><p class="study-eyebrow">In this lesson</p><ul>' + chapterLinks.join('') + '</ul></nav>';

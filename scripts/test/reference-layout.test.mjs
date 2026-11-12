@@ -151,3 +151,13 @@ test('a question citing only sourceAlt shows the handout page and no primary pag
     assert.ok(!links.some(href=>href.includes('pam-6-0102.pdf#page=')),'no PAM page is claimed: '+links.join(' '));
   }
 });
+test('a lesson with two secondary references shows each on its own line with its own noun and PDF',()=>{
+  const alt=[{ref:'signal-estimate-handout',pages:[6]},{ref:'signal-estimate-slides',pages:[45,46]}];
+  const app=exercise('signal-estimate',q=>({...q,explanation:'A standalone study note.',sourceSlides:[44],sourceAlt:alt}));
+  for(const group of [app.feedback,app.finish()]){
+    assertSeparated(group,'A standalone study note.',['Lesson reference: PAM 6-0102 PDF page 44','Student handout · page 6','Lesson slides · slides 45, 46']);
+    const links=findAll(group,n=>hasClass(n,'library-reference')).map(n=>n.getAttribute('href'));
+    for(const href of ['../library/files/signal-estimate-handout.pdf#page=6','../library/files/lesson-signal-estimate.pdf#page=45','../library/files/lesson-signal-estimate.pdf#page=46'])assert.ok(links.includes(href),href+' in '+links.join(' '));
+    assert.ok(links.some(href=>href.includes('pam-6-0102.pdf#page=44')),'the primary page stays linked');
+  }
+});

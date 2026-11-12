@@ -212,6 +212,9 @@ export function loadReviewerFigures(root, reviewers) {
       if (!KINDS[fig.kind]) throw Error(`Unknown figure kind ${fig.kind} in ${key}`);
       if (!item.examGuide.topics.some(t => t.title === fig.topic)) throw Error(`Figure topic not found in ${key}: ${fig.topic}`);
       if (!fig.caption || !fig.title || !fig.pages?.length || !fig.pages.every(p => cited.has(p))) throw Error(`Figure in ${key} needs a title, caption and pages cited by the lesson: ${fig.title}`);
+      // Secondary citations (fig.alt) must also be pages the lesson's topics or practice already cite from that document.
+      const altCited = (ref, page) => [...item.examGuide.topics, ...item.examGuide.practice].some(t => (t.alt || []).some(a => a.ref === ref && a.pages.includes(page)));
+      if (fig.alt && (!Array.isArray(fig.alt) || !fig.alt.every(a => a?.pages?.length && a.pages.every(p => altCited(a.ref, p))))) throw Error(`Figure in ${key} cites secondary pages the lesson does not: ${fig.title}`);
     }
   }
   delete figures.$comment;

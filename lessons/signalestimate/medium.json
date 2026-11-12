@@ -679,5 +679,115 @@
         7
       ]
     }
+  },
+  {
+    "id": 29,
+    "qid": "signalestimate-m-29",
+    "difficulty": "medium",
+    "category": "Situation and Opposing COA",
+    "tags": [
+      "signalestimate",
+      "situation and opposing coa",
+      "application"
+    ],
+    "prompt": "In the lesson slides' Mindoro example, mountain ranges create dead spots for VHF tactical radios. What does the terrain analysis propose?",
+    "options": [
+      "Keep units on the coastal lowlands and rely on their VHF handhelds alone",
+      "Relay or repeater stations on key terrain, with HF radios under the mountains",
+      "Replace the tactical radios with commercial cellular phones across the AO",
+      "Record the dead spots and leave every response to the commander's later task list"
+    ],
+    "answer": 1,
+    "explanation": "Lesson slides, slides 23 and 24: the mountains reduce VHF range and create dead spots, but Mount Iglit and Mount Halcon become key terrain that extends the system if relay or repeater stations are set up there, and HF radios matter most for operations beneath the mountains.",
+    "sourceAlt": {
+      "ref": "signal-estimate-slides",
+      "pages": [
+        23,
+        24
+      ]
+    }
+  },
+  {
+    "id": 30,
+    "qid": "signalestimate-m-30",
+    "difficulty": "medium",
+    "category": "Situation and Opposing COA",
+    "tags": [
+      "signalestimate",
+      "situation and opposing coa",
+      "application"
+    ],
+    "prompt": "The lesson slides' weather analysis notes early-evening thunderstorms and high daytime temperatures. Which effects does it record?",
+    "options": [
+      "Thunderstorms disturb the ionosphere for HF, and heat limits VHF radios",
+      "Both conditions matter only for the commercial cellular sites across the island",
+      "Thunderstorms limit VHF radios, and daytime heat affects the ionosphere for HF",
+      "Neither matters, because the province stays dry for the whole year"
+    ],
+    "answer": 2,
+    "explanation": "Lesson slides, slide 26: thunderstorms and rain showers in the early evening limit the VHF tactical radios; high daytime temperature affects the ionosphere and so the HF signal. Slide 25 gives the dry season as November to April.",
+    "sourceAlt": {
+      "ref": "signal-estimate-slides",
+      "pages": [
+        25,
+        26
+      ]
+    }
+  },
+  {
+    "id": 31,
+    "qid": "signalestimate-m-31",
+    "difficulty": "medium",
+    "category": "COA Comparison",
+    "tags": [
+      "signalestimate",
+      "coa comparison",
+      "application"
+    ],
+    "prompt": "In the lesson slides' comparison, COA 5 imposes total radio listening silence to deceive enemy information gathering. Which disadvantage is recorded?",
+    "options": [
+      "Requires additional security at the repeater site",
+      "Cellular phones are susceptible to lightning and interception",
+      "Lack of trained personnel to carry it out",
+      "No C2 will be established"
+    ],
+    "answer": 3,
+    "explanation": "Lesson slides, slide 49: total radio silence deceives enemy information gathering, but no C2 will be established. The other options are disadvantages recorded for the repeater COAs (slide 45), COA 3 (slide 46) and COA 4 (slide 48).",
+    "sourceAlt": {
+      "ref": "signal-estimate-slides",
+      "pages": [
+        49
+      ]
+    }
+  },
+  {
+    "id": 32,
+    "qid": "signalestimate-m-32",
+    "difficulty": "medium",
+    "category": "Decision and Recommendations",
+    "tags": [
+      "signalestimate",
+      "decision and recommendations",
+      "application"
+    ],
+    "prompt": "Para V on the lesson slides ends with a task list marked as the commander's decision. Which entry belongs there?",
+    "options": [
+      "Install an SMVRS and a co-located UHF repeater, to be done by the signal platoon",
+      "The enemy is believed to be 70% filled up in personnel and 40% in armored vehicles",
+      "COA 7 has limited range, needs a base radio or repeater, and risks COMSEC",
+      "The low-lying alluvial plain increases the range of the radio equipment"
+    ],
+    "answer": 0,
+    "explanation": "Lesson slides, slides 52 and 58: F. Task List (implied and specific) is the commander's decision and assigns actions, such as the signal platoon installing the two repeaters. Enemy fill-up belongs to Para II (slide 30), COA disadvantages to Para IV (slide 51) and terrain effects to Para II (slide 23).",
+    "sourceSlides": [
+      44
+    ],
+    "sourceAlt": {
+      "ref": "signal-estimate-slides",
+      "pages": [
+        52,
+        58
+      ]
+    }
   }
 ]
