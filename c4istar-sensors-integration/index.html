@@ -548,6 +548,16 @@
     .mode-button:disabled .mode-name .gauge { color: var(--color-rule); }
     .mode-desc { font-size: var(--text-ui); font-weight: 400; line-height: 1.45; }
     .mode-go { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent); }
+    /* Actual Exam: a fourth category, set apart from the difficulty ladder by a rule, a label and a stamp. */
+    .actual-block { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 3px double var(--color-text); }
+    .actual-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-3); margin: 0; font-size: var(--text-h4); }
+    .actual-badge { display: inline-block; padding: 0.15rem 0.5rem; border: 2px solid var(--color-signal-text); color: var(--color-signal-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+    .actual-note { max-width: 46rem; margin: var(--space-2) 0 0; color: var(--color-muted); font-size: var(--text-meta); line-height: 1.55; }
+    .actual-list { margin-top: var(--space-3); }
+    .mode-actual .actual-mark { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border: 2px solid currentColor; color: var(--color-signal-text); font-size: 0.95rem; line-height: 1; }
+    .mode-actual:disabled .actual-mark { color: var(--color-rule); }
+    .mode-actual:hover:not(:disabled) { border-left-color: var(--color-signal); }
+    .theme-actual .quiz-rail .gauge { display: none; }
     .privacy-note { max-width: 46rem; font-size: var(--text-meta); line-height: 1.6; color: var(--color-muted); }
     .question-category, .results-reminder { color: var(--color-muted); }
     .device-progress { margin: 0; font-size: var(--text-meta); color: var(--color-muted); }
@@ -1107,6 +1117,7 @@
               <span class="mode-go" aria-hidden="true">Begin →</span>
             </button>
           </div>
+
         </div>
       </div>
 
@@ -1258,11 +1269,12 @@
 
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
 
-  <script type="application/json" id="quiz-config">{"key":"sensors","module":"module-5","title":"C4ISTAR Sensors Integration Mastery Quiz","categoryOrder":["Concept and Information Quality","Sensor Types and Roles","Interoperability and Requirements","Context and Constraints","Integration Responsibilities and Testing"],"sourceRef":{"label":"page","min":1,"max":35,"required":true},"sourceAlt":null,"pool":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
+  <script type="application/json" id="quiz-config">{"key":"sensors","module":"module-5","title":"C4ISTAR Sensors Integration Mastery Quiz","categoryOrder":["Concept and Information Quality","Sensor Types and Roles","Interoperability and Requirements","Context and Constraints","Integration Responsibilities and Testing"],"sourceRef":{"label":"page","min":1,"max":35,"required":true},"sourceAlt":null,"pool":null,"actual":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
   <script type="application/json" id="study-links">{"reviewer":"../reviewer/sensors/","sources":{"sensors":{"title":"C4ISTAR Sensors Integration","citationName":"C4ISTAR Sensors Integration","available":true,"doc":"source-sensors","href":"../library/files/lesson-c4istar-sensors-integration.pdf","exactPages":true,"studyDoc":"../reviewer/sensors/","manuals":[{"title":"PAM 6-0102 · Signal Operations","available":true,"id":"pam-6-0102","href":"../library/files/pam-6-0102.pdf"},{"title":"PAM 6-0001 · Command and Control, Communications, Computer, Intelligence, Surveillance, Target Acquisition, and Reconnaissance","available":false,"id":"pam-6-0001","href":"../library/?doc=pam-6-0001#document"}]}},"byQuestion":{}}</script>
   <script type="application/json" id="questions-easy">[{"id":1,"qid":"sensors-e-01","difficulty":"easy","category":"Concept and Information Quality","tags":["concept and information quality"],"prompt":"How does the lesson characterize C4ISTAR?","options":["An inventory of unrelated devices","A replacement for every commander","A system of systems","A single stand-alone sensor"],"answer":2,"explanation":"C4ISTAR combines several capabilities into a connected system supporting situational understanding.","sourceSlides":[6]},{"id":2,"qid":"sensors-e-02","difficulty":"easy","category":"Concept and Information Quality","tags":["concept and information quality"],"prompt":"What is the sensor's primary role in the conceptual loop?","options":["Detect and collect information","Perform every downstream action","Replace all information analysis","Authorize every command decision"],"answer":0,"explanation":"The sensor collects observations; decision-makers interpret information and decide what to do.","sourceSlides":[7]},{"id":3,"qid":"sensors-e-03","difficulty":"easy","category":"Concept and Information Quality","tags":["concept and information quality"],"prompt":"What does COP stand for?","options":["Central Optical Processor","Combined Office Protocol","Common Operational Picture","Controlled Output Peripheral"],"answer":2,"explanation":"The Common Operational Picture supports shared situational awareness through integrated information.","sourceSlides":[9]},{"id":4,"qid":"sensors-e-04","difficulty":"easy","category":"Concept and Information Quality","tags":["concept and information quality"],"prompt":"What makes integration useful beyond simply owning sensors?","options":["Keeping each sensor's observations permanently isolated","Connecting their information to the people and systems needing it","Removing every need for trained operators","Increasing the number of devices regardless of data use"],"answer":1,"explanation":"Integration makes sensor information available and useful downstream, rather than merely collecting it.","sourceSlides":[7,9]},{"id":5,"qid":"sensors-e-05","difficulty":"easy","category":"Sensor Types and Roles","tags":["sensor types and roles"],"prompt":"Which listed sensor locates the source of sniper fire?","options":["Sniper Fire Location Detector","Thermal Imager","Interface Control Document","PANET router"],"answer":0,"explanation":"The lesson assigns source-of-fire detection to the Sniper Fire Location Detector.","sourceSlides":[10]},{"id":6,"qid":"sensors-e-06","difficulty":"easy","category":"Sensor Types and Roles","tags":["sensor types and roles"],"prompt":"Which listed device supports portable long-range optical observation?","options":["Network switch","Telephone exchange","Radio direction finder","Thermal Imager"],"answer":3,"explanation":"The lesson describes the thermal imager as a portable, battery-powered observation device.","sourceSlides":[10]},{"id":7,"qid":"sensors-e-07","difficulty":"easy","category":"Sensor Types and Roles","tags":["sensor types and roles"],"prompt":"What does a radio direction-finding observation establish directly?","options":["An automatically exact geographic position","The identity of every person using the transmitter","The complete contents of every transmission","A direction toward a radio source"],"answer":3,"explanation":"RDF provides a bearing; locating a source requires additional information and measurements.","sourceSlides":[10]},{"id":8,"qid":"sensors-e-08","difficulty":"easy","category":"Sensor Types and Roles","tags":["sensor types and roles"],"prompt":"Which distinction between UAS and SUGV is correct?","options":["Fixed cable versus satellite orbit","Telephone exchange versus network router","Software profile versus paper interface record","Airborne platform versus ground platform"],"answer":3,"explanation":"Both can carry payloads, but UAS are aerial platforms and SUGVs operate on the ground.","sourceSlides":[10]},{"id":9,"qid":"sensors-e-09","difficulty":"easy","category":"Interoperability and Requirements","tags":["interoperability and requirements"],"prompt":"What is an Interface Control Document used for?","options":["Defining interfaces and communication rules","Allocating responsibilities for overall mission information requirements","Selecting communication media for a particular operating environment","Specifying the operational testing schedule for integrated sensors"],"answer":0,"explanation":"An ICD describes how systems connect and exchange information so compatibility can be assessed.","sourceSlides":[16]},{"id":10,"qid":"sensors-e-10","difficulty":"easy","category":"Interoperability and Requirements","tags":["interoperability and requirements"],"prompt":"What does the Interoperability Points concept standardize?","options":["Every internal technology in every nation","Connection points between networks","Only the color of equipment cases","Only the rank of network operators"],"answer":1,"explanation":"The IOP concept permits internal differences while standardizing the interfaces between networks.","sourceSlides":[16]},{"id":11,"qid":"sensors-e-11","difficulty":"easy","category":"Interoperability and Requirements","tags":["interoperability and requirements"],"prompt":"What advantage does open architecture offer?","options":["Adding capabilities without replacing the whole system","Automatic compatibility without interface work","Unlimited access to every protected information source","Elimination of all maintenance requirements"],"answer":0,"explanation":"Open architecture supports extensions through defined interfaces and standards, not uncontrolled access.","sourceSlides":[16]},{"id":12,"qid":"sensors-e-12","difficulty":"easy","category":"Interoperability and Requirements","tags":["interoperability and requirements"],"prompt":"How does the lesson classify PANET and BONTEX?","options":["Sensor payloads","Fixed communications","Target classification methods","Optical observation systems"],"answer":1,"explanation":"The lesson identifies PANET and BONTEX as part of the fixed communications backbone.","sourceSlides":[17]},{"id":13,"qid":"sensors-e-13","difficulty":"easy","category":"Context and Constraints","tags":["context and constraints"],"prompt":"What is data overload?","options":["Too few equipment labels on a storage shelf","The absence of any sensor observation","More information than operators can effectively process","A guarantee that more data always improves understanding"],"answer":2,"explanation":"Sensor volume can exceed processing capacity; data management and analysis remain necessary.","sourceSlides":[18]},{"id":14,"qid":"sensors-e-14","difficulty":"easy","category":"Context and Constraints","tags":["context and constraints"],"prompt":"Which group consists of environmental or electromagnetic conditions affecting sensor performance?","options":["Staffing levels, training and operator familiarity","Funding, procurement lead times and supplier arrangements","Terrain, temperature and electromagnetic interference","Message formats, interface profiles and implementation options"],"answer":2,"explanation":"The source includes environmental and electromagnetic conditions among integration constraints.","sourceSlides":[18]},{"id":15,"qid":"sensors-e-15","difficulty":"easy","category":"Context and Constraints","tags":["context and constraints"],"prompt":"Which context involves partner-nation interoperability?","options":["A single internal office inventory","A local document-formatting exercise","An individual device cleaning task","Coalition operations"],"answer":3,"explanation":"Coalition integration must account for different national systems and standards.","sourceSlides":[19]},{"id":16,"qid":"sensors-e-16","difficulty":"easy","category":"Context and Constraints","tags":["context and constraints"],"prompt":"What is a key feature of the joint context described?","options":["Removing the need for every service's information","Using only one sensor regardless of requirements","Treating all partner nations as one domestic service","Sharing the picture across Major Services"],"answer":3,"explanation":"The joint context links contributions across Major Services into shared situational awareness.","sourceSlides":[19]},{"id":17,"qid":"sensors-e-17","difficulty":"easy","category":"Integration Responsibilities and Testing","tags":["integration responsibilities and testing"],"prompt":"Which organization is assigned core C4 IOM in the lesson?","options":["Army Intelligence Regiment alone","The unit's clerical section exclusively","Army Signal Regiment","Every commercial equipment vendor exclusively"],"answer":2,"explanation":"The lesson assigns core C4 installation, operation and maintenance responsibility to ASR.","sourceSlides":[27]},{"id":18,"qid":"sensors-e-18","difficulty":"easy","category":"Integration Responsibilities and Testing","tags":["integration responsibilities and testing"],"prompt":"Which organization is assigned ISTAR core-system IOM?","options":["The public telephone provider","Army Intelligence Regiment","The building maintenance contractor","The library administration office"],"answer":1,"explanation":"AIR is assigned the sensor/ISTAR core-system role, coordinating with ASR on integration.","sourceSlides":[27]},{"id":19,"qid":"sensors-e-19","difficulty":"easy","category":"Integration Responsibilities and Testing","tags":["integration responsibilities and testing"],"prompt":"What does redundancy aim to prevent?","options":["One failure compromising the entire system","All need for operator training","Any requirement to test replacement components","Every possible failure under all conditions"],"answer":0,"explanation":"Redundancy reduces dependence on a single component; it is not an absolute guarantee.","sourceSlides":[29]},{"id":20,"qid":"sensors-e-20","difficulty":"easy","category":"Integration Responsibilities and Testing","tags":["integration responsibilities and testing"],"prompt":"Why use modular design?","options":["Avoid defining interfaces between components","Replace or upgrade components while preserving compatibility","Make every upgrade require a whole-system replacement","Eliminate all need for operational validation"],"answer":1,"explanation":"Modular design supports manageable upgrades, but compatibility and testing remain requirements.","sourceSlides":[29]}]</script>
   <script type="application/json" id="questions-medium">[{"id":1,"qid":"sensors-m-01","difficulty":"medium","category":"Concept and Information Quality","tags":["concept and information quality"],"prompt":"Sensors collect useful observations, but no decision-maker receives them. What is the central shortfall?","options":["The organization needs fewer information users","The information path is not effectively integrated","The sensors necessarily failed to detect anything","The presence of sensors already satisfies the requirement"],"answer":1,"explanation":"Collection alone does not deliver usable situational awareness; information must reach its intended users.","sourceSlides":[7,9]},{"id":2,"qid":"sensors-m-02","difficulty":"medium","category":"Concept and Information Quality","tags":["concept and information quality"],"prompt":"Several displays show incompatible versions of the same situation. What should integration support?","options":["A rule that the newest screen is always correct","More separate displays without reconciling their meaning","A coherent shared picture based on usable information","Replacement of every human decision with raw readings"],"answer":2,"explanation":"The COP objective requires useful shared understanding, not merely simultaneous display of inconsistent data.","sourceSlides":[6,9]},{"id":3,"qid":"sensors-m-03","difficulty":"medium","category":"Concept and Information Quality","tags":["concept and information quality"],"prompt":"An automated observation is treated as a command decision. Which distinction was lost?","options":["Collecting a reading automatically approves every action","Detection differs from interpretation and decision authority","Every sensor has the same authority as a commander","Observation removes all need for judgment"],"answer":1,"explanation":"The conceptual loop distinguishes what sensors observe from the decisions made using that information.","sourceSlides":[7]},{"id":4,"qid":"sensors-m-04","difficulty":"medium","category":"Concept and Information Quality","tags":["concept and information quality"],"prompt":"A team adds more feeds but users understand less. What should be improved?","options":["The number of unrelated devices in the equipment list","The count of feeds without examining their relevance","The assumption that all raw data must be equally prominent","Data management and presentation for the users' needs"],"answer":3,"explanation":"More collection can create overload; effective integration supports understanding rather than raw volume alone.","sourceSlides":[9,18]},{"id":5,"qid":"sensors-m-05","difficulty":"medium","category":"Sensor Types and Roles","tags":["sensor types and roles"],"prompt":"A disaster-response exercise needs remote aerial mapping. Which listed platform fits that role?","options":["Fixed network router","UAS","SUGV","Telephone exchange"],"answer":1,"explanation":"UAS can carry sensors for remote sensing and mapping; the role stated is aerial.","sourceSlides":[10]},{"id":6,"qid":"sensors-m-06","difficulty":"medium","category":"Sensor Types and Roles","tags":["sensor types and roles"],"prompt":"A training task needs a modular ground platform to reduce personnel exposure to hazards. Which fits?","options":["Thermal imager alone","BONTEX","UAS exclusively","SUGV"],"answer":3,"explanation":"The source describes SUGV as a modular ground platform carrying payloads while reducing exposure.","sourceSlides":[10]},{"id":7,"qid":"sensors-m-07","difficulty":"medium","category":"Sensor Types and Roles","tags":["sensor types and roles"],"prompt":"A trainee treats one RDF bearing as an exact location. What should be corrected?","options":["RDF directly reveals every transmitter operator's identity","One bearing always supplies an exact position","A bearing has no directional information at all","A direction alone does not resolve a unique position"],"answer":3,"explanation":"A single line of direction is not a unique location; additional observations and uncertainty matter.","sourceSlides":[10]},{"id":8,"qid":"sensors-m-08","difficulty":"medium","category":"Sensor Types and Roles","tags":["sensor types and roles"],"prompt":"A plan confuses a sensor payload with the platform carrying it. What is the useful distinction?","options":["The platform transports capabilities; the payload performs sensing","A payload name alone defines all network interfaces","Every air vehicle has identical sensors by definition","A ground platform can never carry more than one payload"],"answer":0,"explanation":"The lesson separates mobile platforms from specific sensing capabilities they may carry.","sourceSlides":[10,15]},{"id":9,"qid":"sensors-m-09","difficulty":"medium","category":"Interoperability and Requirements","tags":["interoperability and requirements"],"prompt":"Different vendors use incompatible message formats. What should be consulted and agreed?","options":["Only the delivery dates on purchase invoices","Only a common color scheme for the equipment","Interface rules and common interoperability standards","A requirement that the devices share the same nickname"],"answer":2,"explanation":"Interfaces and standards address how information is exchanged and interpreted across heterogeneous systems.","sourceSlides":[16]},{"id":10,"qid":"sensors-m-10","difficulty":"medium","category":"Interoperability and Requirements","tags":["interoperability and requirements"],"prompt":"A partner keeps its internal technology but uses the agreed external interface. Which principle does this illustrate?","options":["Removal of technical standards","Mandatory identical internal systems","Interoperability Points","Unrestricted information release"],"answer":2,"explanation":"IOPs standardize inter-network connections without necessarily standardizing all internal technology.","sourceSlides":[16]},{"id":11,"qid":"sensors-m-11","difficulty":"medium","category":"Interoperability and Requirements","tags":["interoperability and requirements"],"prompt":"A team proposes commercial phones for protected information. Which requirement governs whether that proposed use is permitted?","options":["Approved encryption and device inventory","Vendor assurance and procurement approval","Service contracts and staff training","Applicable COMSEC and authorized-use requirements"],"answer":3,"explanation":"Special-purpose commercial communications are governed by policy; convenience is not sufficient authorization.","sourceSlides":[17]},{"id":12,"qid":"sensors-m-12","difficulty":"medium","category":"Interoperability and Requirements","tags":["interoperability and requirements"],"prompt":"Sensor observations reach the command post but not higher information systems. Which part needs review?","options":["The onward communications and integration path","Whether local delivery proves end-to-end delivery","Only the sensor's optical lens","Only the user's preferred display language"],"answer":0,"explanation":"The lesson distinguishes local RF connectivity from onward network connectivity; each segment must work.","sourceSlides":[15,17]},{"id":13,"qid":"sensors-m-13","difficulty":"medium","category":"Context and Constraints","tags":["context and constraints"],"prompt":"A new sensor fails to work with an older receiving system. Which constraint is illustrated?","options":["Public advertising reach","Legacy compatibility","Document classification alone","Personnel seniority"],"answer":1,"explanation":"Legacy integration requires compatibility work rather than assuming newer and older equipment will interoperate.","sourceSlides":[18]},{"id":14,"qid":"sensors-m-14","difficulty":"medium","category":"Context and Constraints","tags":["context and constraints"],"prompt":"Automation is installed, but untrained users repeatedly misinterpret outputs. What remains essential?","options":["Increasing feed volume without changing instruction","Removing every person from responsibility","Operator competence and human-factor controls","Assuming automated output cannot be misunderstood"],"answer":2,"explanation":"The source emphasizes training and human error even when automation is present.","sourceSlides":[18]},{"id":15,"qid":"sensors-m-15","difficulty":"medium","category":"Context and Constraints","tags":["context and constraints"],"prompt":"The lesson's case study describes a license expiring during use. What should readiness checks include?","options":["Software entitlement and sustainment dependencies","Only the appearance of the application icon","Only whether the equipment was once demonstrated","An assumption that a working demo never expires"],"answer":0,"explanation":"A demonstration is not sustainable readiness; licenses and other continuing dependencies must be checked.","sourceSlides":[20]},{"id":16,"qid":"sensors-m-16","difficulty":"medium","category":"Context and Constraints","tags":["context and constraints"],"prompt":"A service-to-service exercise and a multinational exercise have different interfaces. What should planning avoid?","options":["Assuming the same interoperability arrangements fit both","Checking agreed standards before integration","Identifying each exercise's information requirements","Testing the required information exchange"],"answer":0,"explanation":"Joint and coalition contexts may impose different arrangements; reuse requires verification, not assumption.","sourceSlides":[19]},{"id":17,"qid":"sensors-m-17","difficulty":"medium","category":"Integration Responsibilities and Testing","tags":["integration responsibilities and testing"],"prompt":"The using unit assumes ASR performs every routine equipment check. What does the lesson retain with users?","options":["Responsibility for all depot-level technology validation","End-user operation and preventive maintenance","Sole ownership of all core C4 systems","Authority to alter every partner interface unilaterally"],"answer":1,"explanation":"The source distinguishes technical integration responsibilities from the using unit's routine operation and care.","sourceSlides":[27]},{"id":18,"qid":"sensors-m-18","difficulty":"medium","category":"Integration Responsibilities and Testing","tags":["integration responsibilities and testing"],"prompt":"Two systems are physically connected but cannot interpret each other's messages. What is missing?","options":["A common equipment purchase year","Only an extra physical cable regardless of format","Usable information interoperability","Proof that physical connection always suffices"],"answer":2,"explanation":"Connectivity is not the same as exchanging information that the receiving system can understand and use.","sourceSlides":[28]},{"id":19,"qid":"sensors-m-19","difficulty":"medium","category":"Integration Responsibilities and Testing","tags":["integration responsibilities and testing"],"prompt":"A prototype works on a desk but has not faced representative conditions. What should follow?","options":["Assurance that environmental testing is unnecessary","Acceptance based solely on its successful power-on","A claim of universal resilience from one demonstration","Relevant operational testing before relying on it"],"answer":3,"explanation":"Operational testing is intended to expose malfunctions and vulnerabilities before reliance in the field.","sourceSlides":[29]},{"id":20,"qid":"sensors-m-20","difficulty":"medium","category":"Integration Responsibilities and Testing","tags":["integration responsibilities and testing"],"prompt":"An upgrade replaces one module. What should be rechecked?","options":["Compatibility and relevant end-to-end behavior","Only whether the old module can still be photographed","Only the replacement's packaging color","Whether modular design removes every test requirement"],"answer":0,"explanation":"Modularity eases replacement; it does not prove that the changed system still meets its requirements.","sourceSlides":[29]}]</script>
   <script type="application/json" id="questions-hard">[{"id":1,"qid":"sensors-h-01","difficulty":"hard","category":"Concept and Information Quality","tags":["concept and information quality"],"prompt":"A project measures success only by the number of installed sensors. Which evidence better addresses its purpose?","options":["The average length of equipment model names","The total number of identical shipping cartons","The number of feeds regardless of interpretation","Useful information reaching its intended users"],"answer":3,"explanation":"The system-of-systems objective concerns information supporting understanding, not an equipment count alone.","sourceSlides":[6,7,9]},{"id":2,"qid":"sensors-h-02","difficulty":"hard","category":"Concept and Information Quality","tags":["concept and information quality"],"prompt":"A faster feed contains contradictory observations. What is the sound conclusion?","options":["Contradiction disappears when more displays are installed","A sensor reading automatically overrides every other source","Fast delivery does not establish accuracy","Lower latency guarantees every observation is accurate"],"answer":2,"explanation":"Timeliness is valuable, but useful situational understanding still depends on data quality and interpretation.","sourceSlides":[7,18]},{"id":3,"qid":"sensors-h-03","difficulty":"hard","category":"Concept and Information Quality","tags":["concept and information quality"],"prompt":"An interface displays every raw observation equally, obscuring what users need. What is the strongest criticism?","options":["It proves every sensor is physically defective","It eliminates all human-factor concerns by showing everything","Available data is not necessarily usable insight","It is necessarily superior because it contains more records"],"answer":2,"explanation":"Information management must support relevant understanding; indiscriminate volume can hinder it.","sourceSlides":[9,18]},{"id":4,"qid":"sensors-h-04","difficulty":"hard","category":"Concept and Information Quality","tags":["concept and information quality"],"prompt":"An integration team proposes removing human responsibility because data flows automatically. What remains?","options":["No responsibility after the network connection succeeds","Decision authority and assigned responsibilities","Automatic authority for any sensor-generated instruction","Only the manufacturer's marketing responsibility"],"answer":1,"explanation":"Automation does not remove the distinct roles and responsibilities described by the lesson.","sourceSlides":[7,27]},{"id":5,"qid":"sensors-h-05","difficulty":"hard","category":"Sensor Types and Roles","tags":["sensor types and roles"],"prompt":"A sensor name matches the task, but its environmental limits are unknown. What is justified?","options":["Treat all sensors within the category as interchangeable","Assume the category name guarantees all required performance","Choose solely by the device's popularity","Assess suitability under the expected conditions"],"answer":3,"explanation":"A general capability description is not proof of performance under particular conditions.","sourceSlides":[10,18]},{"id":6,"qid":"sensors-h-06","difficulty":"hard","category":"Sensor Types and Roles","tags":["sensor types and roles"],"prompt":"Two RDF observations are available, but neither has an uncertainty estimate. What should not be claimed?","options":["That measurement quality matters to interpretation","That the observations provide directional information","That further validation may improve confidence","A guaranteed exact location from the bearings alone"],"answer":3,"explanation":"Multiple bearings help estimate position but do not justify an uncertainty-free claim.","sourceSlides":[10]},{"id":7,"qid":"sensors-h-07","difficulty":"hard","category":"Sensor Types and Roles","tags":["sensor types and roles"],"prompt":"Two platforms carry similar sensors but use different output interfaces. Which inference is invalid?","options":["Similar sensing roles guarantee plug-and-play integration","The receiving application may require adaptation","Interface documentation is relevant to compatibility","Payload capability and data compatibility are distinct"],"answer":0,"explanation":"Functional similarity of sensors does not establish compatibility of their outputs or interfaces.","sourceSlides":[10,16]},{"id":8,"qid":"sensors-h-08","difficulty":"hard","category":"Sensor Types and Roles","tags":["sensor types and roles"],"prompt":"A remote platform reduces exposure but adds operator training and maintenance needs. How should it be assessed?","options":["Compare acquisition cost with the existing platform's purchase cost","Rate exposure reduction using the platform's demonstrated technical performance","Use the current staffing plan to set the acceptance threshold","Consider the benefit alongside new support requirements"],"answer":3,"explanation":"Capabilities have benefits and constraints; the lesson includes complexity, cost and human factors.","sourceSlides":[10,18]},{"id":9,"qid":"sensors-h-09","difficulty":"hard","category":"Interoperability and Requirements","tags":["interoperability and requirements"],"prompt":"Systems comply with the same network protocol but interpret fields differently. What remains unresolved?","options":["Whether their cases have matching dimensions","Information meaning and interface compatibility","Whether the protocol names are spelled identically","Whether both systems use electricity"],"answer":1,"explanation":"Transport compatibility does not guarantee that exchanged information has the same meaning to both systems.","sourceSlides":[16,28]},{"id":10,"qid":"sensors-h-10","difficulty":"hard","category":"Interoperability and Requirements","tags":["interoperability and requirements"],"prompt":"An open-architecture proposal omits access control because interfaces are 'open.' What is wrong?","options":["Access control applies only to closed proprietary systems","Open interfaces do not authorize unrestricted access","Open architecture requires publishing every protected record","Standards automatically provide all needed authorization"],"answer":1,"explanation":"Architectural openness supports integration; security and authorized access remain separate requirements.","sourceSlides":[16,18]},{"id":11,"qid":"sensors-h-11","difficulty":"hard","category":"Interoperability and Requirements","tags":["interoperability and requirements"],"prompt":"A supplier provides a complete ICD but no test results. What can acceptance reasonably conclude?","options":["An ICD makes environmental testing irrelevant","Documentation proves every implementation matches the interface","A written standard guarantees no implementation defects","Documented requirements, not verified behavior"],"answer":3,"explanation":"An ICD defines expected behavior; tests supply evidence that implementations satisfy it.","sourceSlides":[16,29]},{"id":12,"qid":"sensors-h-12","difficulty":"hard","category":"Interoperability and Requirements","tags":["interoperability and requirements"],"prompt":"Local delivery succeeds while higher-level users receive unusable data. Which acceptance boundary is needed?","options":["Only the supplier's internal production test","Only the first radio hop's connection indicator","End-to-end delivery and interpretation","Only a successful sensor power-on test"],"answer":2,"explanation":"Acceptance should follow the information to its intended users, not stop at an intermediate connection.","sourceSlides":[15,17,28]},{"id":13,"qid":"sensors-h-13","difficulty":"hard","category":"Context and Constraints","tags":["context and constraints"],"prompt":"A demonstration passes, but its license and support expire before planned use. Which risk is underestimated?","options":["Sustainment across the intended service period","The ability to photograph the prototype","The number of icons on the display","The existence of a technical demonstration"],"answer":0,"explanation":"Readiness must last through intended use; a temporary demonstration can hide continuing dependencies.","sourceSlides":[18,20]},{"id":14,"qid":"sensors-h-14","difficulty":"hard","category":"Context and Constraints","tags":["context and constraints"],"prompt":"A design works domestically but is proposed unchanged for a coalition exercise. What must be revisited?","options":["Partner standards, authorization and exchange requirements","Whether every internal network must be discarded","Whether a domestic test proves every partner interface","Only the spelling of participating nations' names"],"answer":0,"explanation":"Different partners and contexts require verification of their particular integration arrangements.","sourceSlides":[18,19]},{"id":15,"qid":"sensors-h-15","difficulty":"hard","category":"Context and Constraints","tags":["context and constraints"],"prompt":"More redundancy is proposed, but it increases cost and operator complexity. What is the best review approach?","options":["Ignore personnel and budget because only hardware matters","Balance resilience and support constraints","Assume more components always improve overall reliability","Reject redundancy in every resource-constrained system"],"answer":1,"explanation":"The lesson treats cost, complexity and human factors alongside reliability, requiring balanced assessment.","sourceSlides":[18]},{"id":16,"qid":"sensors-h-16","difficulty":"hard","category":"Context and Constraints","tags":["context and constraints"],"prompt":"A shielded device works in one test. Which claim exceeds the evidence?","options":["Further representative testing can strengthen confidence","It performed adequately under the tested conditions","It is immune to every electromagnetic disturbance","Shielding is one part of the protective design"],"answer":2,"explanation":"Protection and testing reduce risk; one result does not demonstrate immunity to all conditions.","sourceSlides":[18,29]},{"id":17,"qid":"sensors-h-17","difficulty":"hard","category":"Integration Responsibilities and Testing","tags":["integration responsibilities and testing"],"prompt":"A fault spans sensor hardware, communications and user procedures. Which response fits the responsibilities described?","options":["Coordinate AIR, ASR and users according to their roles","Assume shared responsibility means nobody owns any action","Assign everything to the user and exclude technical support","Assign everything to a vendor without institutional coordination"],"answer":0,"explanation":"The lesson specifies complementary responsibilities; a cross-system fault requires coordination rather than a gap in ownership.","sourceSlides":[27]},{"id":18,"qid":"sensors-h-18","difficulty":"hard","category":"Integration Responsibilities and Testing","tags":["integration responsibilities and testing"],"prompt":"An integration is declared interoperable solely because cables are connected. What evidence is missing?","options":["Correct usable information exchange under relevant conditions","Conformance of the physical connections to approved installation drawings","Matching data-rate specifications and the selected communication protocol family","Separate functional acceptance records for the connected hardware components"],"answer":0,"explanation":"Interoperability concerns usable exchange between different systems; physical connection alone is insufficient evidence.","sourceSlides":[28,29]},{"id":19,"qid":"sensors-h-19","difficulty":"hard","category":"Integration Responsibilities and Testing","tags":["integration responsibilities and testing"],"prompt":"Two redundant components depend on the same untested support service. What should the review question?","options":["Whether redundancy removes all system-level dependencies","Whether the shared dependency defeats the resilience objective","Whether identical labels guarantee independent operation","Whether component count alone proves availability"],"answer":1,"explanation":"Redundancy should prevent a single failure compromising the system; shared dependencies need evaluation.","sourceSlides":[29]},{"id":20,"qid":"sensors-h-20","difficulty":"hard","category":"Integration Responsibilities and Testing","tags":["integration responsibilities and testing"],"prompt":"Tests expose a malfunction, but no team tracks correction or retesting. What is incomplete?","options":["The initial requirements-definition and scoping work","The baseline inventory and configuration-description record","The validation and responsibility loop","The acquisition and installation-acceptance process"],"answer":2,"explanation":"Testing must lead to assigned correction and verification; discovering a problem alone does not establish readiness.","sourceSlides":[27,29]}]</script>
+  <script type="application/json" id="questions-actual">[]</script>
   <script>
   (function () {
     'use strict';
@@ -1284,8 +1296,13 @@
     var HISTORY_LIMIT = 100;
 
     var MODES = ['easy', 'medium', 'hard'];
-    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
+    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard', actual: 'Actual Exam' };
     var MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h' };
+    // The Actual Exam category: questions from the class's graded exams (scripts/actual-exams.mjs). It is not a
+    // difficulty: its bank has its own rules (2 to 4 choices, an exam citation) and it is never sent to the class
+    // history, whose sheet accepts only easy, medium and hard.
+    var ACTUAL = 'actual';
+    var SOURCE_TYPES = ['graded-exam'];
     var LETTERS = ['A', 'B', 'C', 'D'];
     // A lesson bank holds MIN_BANK_SIZE to MAX_BANK_SIZE (20–35) questions per difficulty and an attempt serves the
     // whole bank, unseen-first and shuffled. Only a pool exam draws a coverage set of each lesson (selectCoverage).
@@ -1319,6 +1336,8 @@
         return null;
       }
       if (config.sourceRef !== null && (!config.sourceRef || !Number.isInteger(config.sourceRef.min) || !Number.isInteger(config.sourceRef.max) || typeof config.sourceRef.label !== 'string')) return null;
+      if (config.actual != null && (typeof config.actual !== 'object' || !Number.isInteger(config.actual.attempt) || config.actual.attempt < 1 || !Number.isInteger(config.actual.count) || config.actual.attempt > config.actual.count)) return null;
+      if (config.actualOnly && !config.actual) return null;
       if (config.sourceAlt != null && (typeof config.sourceAlt !== 'object' || !Number.isInteger(config.sourceAlt.min) || !Number.isInteger(config.sourceAlt.max) || typeof config.sourceAlt.label !== 'string' || typeof config.sourceAlt.ref !== 'string' || typeof config.sourceAlt.href !== 'string' || typeof config.sourceAlt.title !== 'string')) return null;
       return config;
     }
@@ -1336,6 +1355,10 @@
     // Optional secondary reference (for example a student handout in the Library), cited per question as sourceAlt.
     var SOURCE_ALT = CONFIG && CONFIG.sourceAlt ? CONFIG.sourceAlt : null;
     var STUDY_LINKS = JSON.parse(document.getElementById('study-links').textContent);
+    // Actual Exam settings ({ count, attempt, full? }) or null; actualOnly pages (the Comprehensive Exam Reviewer)
+    // have no difficulty banks and no class history.
+    var ACTUAL_CONFIG = CONFIG && CONFIG.actual ? CONFIG.actual : null;
+    var ACTUAL_ONLY = Boolean(CONFIG && CONFIG.actualOnly);
     var CATEGORY_ORDER = !CONFIG ? [] : POOL ? POOL.lessons.map(function (lesson) { return lesson.name; }) : CONFIG.categoryOrder.slice();
     // A primary topic counts as a strength at or above this percentage, otherwise a gap.
     var STRENGTH_THRESHOLD = 75;
@@ -1449,16 +1472,52 @@
       return errors;
     }
 
+    // Mirrors validateActualBank in scripts/actual-exams.mjs: each question cites its graded exam (source type
+    // "graded-exam") and has two to four distinct choices.
+    function validateActualBank(bank) {
+      if (!Array.isArray(bank)) return ['bank must be an array of questions'];
+      var errors = [];
+      if ((ACTUAL_CONFIG ? ACTUAL_CONFIG.count : 0) !== bank.length) errors.push('bank must contain ' + (ACTUAL_CONFIG ? ACTUAL_CONFIG.count : 0) + ' questions');
+      var seen = {};
+      bank.forEach(function (question, index) {
+        var at = 'question ' + (index + 1) + ': ';
+        if (question === null || typeof question !== 'object') { errors.push(at + 'question must be an object'); return; }
+        if (question.id !== index + 1) errors.push(at + 'id must be integer ' + (index + 1));
+        if (!LESSON_KEY_PATTERN.test(question.examKey || '')) errors.push(at + 'examKey must name a graded exam');
+        if (typeof question.qid !== 'string' || !new RegExp('^' + question.examKey + '-a-[0-9]{2,4}$').test(question.qid)) errors.push(at + 'qid must be "<examKey>-a-" followed by 2 to 4 digits');
+        if (Object.prototype.hasOwnProperty.call(seen, question.qid)) errors.push(at + 'qid ' + question.qid + ' is used more than once');
+        seen[question.qid] = true;
+        if (question.difficulty !== ACTUAL) errors.push(at + 'difficulty must be actual');
+        ['category', 'prompt', 'explanation'].forEach(function (field) {
+          if (typeof question[field] !== 'string' || !question[field].trim()) errors.push(at + field + ' must be a nonempty string');
+        });
+        var options = question.options;
+        if (!Array.isArray(options) || options.length < 2 || options.length > 4 || options.some(function (option) { return typeof option !== 'string' || !option.trim(); })) errors.push(at + 'options must contain two to four nonempty strings');
+        if (!Number.isInteger(question.answer) || !Array.isArray(options) || question.answer < 0 || question.answer >= options.length) errors.push(at + 'answer must index one of the options');
+        var source = question.source;
+        if (!source || SOURCE_TYPES.indexOf(source.type) === -1 || source.exam !== question.examKey || typeof source.title !== 'string' || typeof source.date !== 'string' || !Number.isInteger(source.number)) errors.push(at + 'source must be { type: "graded-exam", exam, title, date, number }');
+      });
+      return errors;
+    }
+
     function validateBanks(banks) {
       if (banks === null || typeof banks !== 'object') {
         return { valid: false, errors: ['question banks must be an object'] };
       }
       var errors = [];
-      MODES.forEach(function (mode) {
-        validateBank(banks[mode], mode).forEach(function (error) {
-          errors.push(mode + ' ' + error);
+      if (!ACTUAL_ONLY) {
+        MODES.forEach(function (mode) {
+          validateBank(banks[mode], mode).forEach(function (error) {
+            errors.push(mode + ' ' + error);
+          });
         });
-      });
+      }
+      // A caller checking only the difficulty banks may leave the Actual Exam bank out; the page always has one.
+      if (banks.actual !== undefined) {
+        validateActualBank(banks.actual).forEach(function (error) {
+          errors.push('actual ' + error);
+        });
+      }
       return { valid: errors.length === 0, errors: errors };
     }
 
@@ -1516,7 +1575,7 @@
     }
 
     function priorityClass(question, progress) {
-      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var lessonKey = progressOwner(question);
       var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
       var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
       return flag === 'm' ? 1 : flag === 's' ? 2 : 0;
@@ -1582,7 +1641,22 @@
     // last answered correctly) or 'm' (last answered wrongly). No name, score or answer is stored and nothing is
     // ever sent. Every storage access is wrapped in try/catch; without storage the quiz uses a plain shuffle.
     var PROGRESS_PREFIX = 'mastery-quiz:progress:';
-    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emh]-[0-9]{2,4}$/;
+    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emha]-[0-9]{2,4}$/;
+
+    // Whose device record a question belongs to: its graded exam (shared by every page that asks it), the pool
+    // exam's source lesson, or this lesson.
+    function progressOwner(question) {
+      return question && question.examKey ? question.examKey : POOL ? question.lessonKey : HISTORY_LESSON;
+    }
+
+    // The graded exams behind this page's Actual Exam bank.
+    function actualOwners() {
+      var owners = [];
+      (state && state.banks && state.banks.actual ? state.banks.actual : []).forEach(function (question) {
+        if (owners.indexOf(question.examKey) === -1) owners.push(question.examKey);
+      });
+      return owners;
+    }
 
     function deviceStorage() {
       try {
@@ -1621,14 +1695,14 @@
 
     function loadProgress(mode) {
       var progress = {};
-      progressLessons().forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
+      (mode === ACTUAL ? actualOwners() : progressLessons()).forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
       return progress;
     }
 
     function recordProgress(question, mode, correct) {
       var storage = deviceStorage();
       if (!storage) return false;
-      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var lessonKey = progressOwner(question);
       var progress = readProgress(lessonKey, mode);
       progress[question.qid] = correct ? 's' : 'm';
       try {
@@ -1644,9 +1718,12 @@
       var storage = deviceStorage();
       if (!storage) return false;
       try {
+        var keys = [];
         progressLessons().forEach(function (lessonKey) {
-          MODES.forEach(function (mode) { storage.removeItem(progressKey(lessonKey, mode)); });
+          MODES.forEach(function (mode) { keys.push(progressKey(lessonKey, mode)); });
         });
+        actualOwners().forEach(function (examKey) { keys.push(progressKey(examKey, ACTUAL)); });
+        keys.forEach(function (key) { storage.removeItem(key); });
         return true;
       } catch (error) {
         return false;
@@ -1658,7 +1735,7 @@
     function prioritize(questions, progress, random) {
       var groups = [[], [], []];
       Array.prototype.forEach.call(questions, function (question) {
-        var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+        var lessonKey = progressOwner(question);
         var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
         var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
         groups[flag === 'm' ? 1 : flag === 's' ? 2 : 0].push(question);
@@ -1671,15 +1748,26 @@
     }
 
     // `progress` (optional) is the device-local record from loadProgress(mode).
-    function createAttempt(mode, banks, random, progress) {
+    function createAttempt(mode, banks, random, progress, size) {
+      if (mode === ACTUAL) return createActualAttempt(banks, random, progress, size);
       if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
       var questions = sampleQuestions(banks[mode], random, progress);
       return { mode: mode, practice: false, questions: questions, current: 0, responses: blankResponses(questions) };
     }
 
+    // An Actual Exam attempt: unseen questions first, then missed, then the rest, each group shuffled, cut to `size`
+    // (the page's attempt length by default; the mixed reviewer set also offers its full length).
+    function createActualAttempt(banks, random, progress, size) {
+      var bank = banks && Array.isArray(banks.actual) ? banks.actual : [];
+      if (!ACTUAL_CONFIG || !bank.length) throw new Error('Unknown difficulty: ' + ACTUAL);
+      var length = Number.isInteger(size) && size > 0 ? Math.min(size, bank.length) : ACTUAL_CONFIG.attempt;
+      var questions = prioritize(bank, progress, random).slice(0, length);
+      return { mode: ACTUAL, practice: false, size: length, questions: questions, current: 0, responses: blankResponses(questions) };
+    }
+
     // A practice attempt asks only the given questions (reshuffled; answer choices keep their order).
     function createPracticeAttempt(mode, questions, random) {
-      if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
+      if (MODES.indexOf(mode) === -1 && !(mode === ACTUAL && ACTUAL_CONFIG)) throw new Error('Unknown difficulty: ' + mode);
       var shuffled = shuffleQuestions(questions, random);
       return { mode: mode, practice: true, questions: shuffled, current: 0, responses: blankResponses(shuffled) };
     }
@@ -1863,6 +1951,7 @@
         medium: byId('mode-medium'),
         hard: byId('mode-hard')
       },
+      actualButtons: [byId('mode-actual'), byId('mode-actual-all')].filter(Boolean),
       soundToggle: byId('btn-sound'),
       soundState: byId('sound-state'),
       reviewerLink: byId('reviewer-link'),
@@ -1950,6 +2039,12 @@
       children.forEach(function (child) { node.appendChild(child); });
     }
 
+    // "Topic: ...", or for a graded-exam question the exam and its question number.
+    function questionTopic(question) {
+      if (question.source && question.source.type === 'graded-exam') return 'Actual Exam · ' + question.source.title + ' · question ' + question.source.number;
+      return TEXT.topicNoun + ': ' + question.category;
+    }
+
     function optionText(question, index) {
       return LETTERS[index] + '. ' + question.options[index];
     }
@@ -1984,7 +2079,7 @@
 
     // Difficulty accent for the page: theme-easy, theme-medium or theme-hard; null clears it.
     function setTheme(mode) {
-      MODES.forEach(function (key) {
+      MODES.concat([ACTUAL]).forEach(function (key) {
         document.body.classList.toggle('theme-' + key, key === mode);
       });
     }
@@ -2049,15 +2144,18 @@
     function updateGate() {
       var open = gateOpen();
       MODES.forEach(function (mode) {
-        ui.modeButtons[mode].disabled = !open;
+        ui.modeButtons[mode].disabled = !open || ACTUAL_ONLY;
       });
+      ui.actualButtons.forEach(function (button) { button.disabled = !open; });
       if (state.available) {
         var missing = [];
         if (!state.nameValid) missing.push('enter your name');
         if (!state.studyConfirmed) missing.push('check the study confirmation');
-        ui.modeHint.textContent = open
-          ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.'
-          : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
+        ui.modeHint.textContent = ACTUAL_ONLY
+          ? (open ? 'Buttons enabled. Choose an attempt to begin.' : 'To enable the buttons, ' + missing.join(' and ') + ' above.')
+          : open
+            ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.' + (ACTUAL_CONFIG ? ' The Actual Exam category is below them.' : '')
+            : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
       }
       return open;
     }
@@ -2109,8 +2207,13 @@
       return true;
     }
 
-    function startQuiz(mode) {
-      if (!gateOpen() || MODES.indexOf(mode) === -1) return false;
+    function startQuiz(mode, size) {
+      if (!gateOpen()) return false;
+      if (mode === ACTUAL) {
+        if (!ACTUAL_CONFIG || !state.banks.actual.length) return false;
+        return beginAttempt(createActualAttempt(state.banks, state.random, loadProgress(ACTUAL), size));
+      }
+      if (MODES.indexOf(mode) === -1 || ACTUAL_ONLY) return false;
       return beginAttempt(createAttempt(mode, state.banks, state.random, loadProgress(mode)));
     }
 
@@ -2140,7 +2243,7 @@
       ui.reviewerLink.setAttribute('href', primary ? primary.studyDoc : STUDY_LINKS.reviewer);
       ui.quizHeading.textContent = attempt.practice
         ? 'Practice: retrying missed questions (' + MODE_LABELS[attempt.mode] + ')'
-        : MODE_LABELS[attempt.mode] + ' examination';
+        : attempt.mode === ACTUAL ? 'Actual Exam review' : MODE_LABELS[attempt.mode] + ' examination';
       setPracticeNote(ui.quizPracticeNote, attempt.practice);
       var student = make('strong', null, attempt.studentName);
       setChildren(ui.quizStudent, [textNode('Student: '), student]);
@@ -2152,7 +2255,7 @@
       if (ui.qIndexNum) ui.qIndexNum.textContent = pad(index + 1);
       if (ui.qIndexTotal) ui.qIndexTotal.textContent = 'of ' + pad(total);
       renderTicks(attempt);
-      ui.questionCategory.textContent = TEXT.topicNoun + ': ' + question.category;
+      ui.questionCategory.textContent = questionTopic(question);
 
       var fieldset = make('fieldset', 'question-fieldset');
       fieldset.id = 'question-fieldset';
@@ -2285,6 +2388,12 @@
       return links;
     }
 
+    var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    function displayDate(date) {
+      var parts = String(date).split('-').map(Number);
+      return parts.length === 3 && parts[1] >= 1 && parts[1] <= 12 ? parts[2] + ' ' + MONTH_NAMES[parts[1] - 1] + ' ' + parts[0] : String(date);
+    }
+
     function explanationBlock(question, className) {
       var block = make('div', 'explanation-group ' + className);
       var note = question.explanation;
@@ -2313,11 +2422,14 @@
       if (SOURCE_ALT && question.sourceAlt && Array.isArray(question.sourceAlt.pages) && question.sourceAlt.pages.length) {
         references.push(SOURCE_ALT.label + ' · ' + (question.sourceAlt.pages.length === 1 ? 'page ' : 'pages ') + question.sourceAlt.pages.join(', '));
       }
+      var graded = question.source && question.source.type === 'graded-exam';
+      if (graded) references.push('SOAC 52-2026 graded exam: ' + question.source.title + ', ' + displayDate(question.source.date) + ' · question ' + question.source.number);
       if (references.length) {
         var referenceBlock = make('div', 'explanation explanation-references');
         referenceBlock.appendChild(make('p', 'section-label', 'References'));
         references.forEach(function (reference) { referenceBlock.appendChild(make('p', 'source-ref', reference)); });
-        studyReferenceLinks(question, references).forEach(function (reference, destination) {
+        // A graded exam is not a Library document, so its citation stays plain text.
+        (graded ? new Map() : studyReferenceLinks(question, references)).forEach(function (reference, destination) {
           var line = make('p', 'library-source');
           var link = reference.unavailable
             ? make('a', 'library-reference reference-unavailable', reference.title + ' · PDF unavailable')
@@ -2427,6 +2539,10 @@
         // Practice retries never reach the class history or the item analysis.
         state.submission = { payload: null, status: 'practice' };
         renderSaveStatus();
+      } else if (attempt.mode === ACTUAL) {
+        // Nor do Actual Exam attempts: the class history sheet accepts only easy, medium and hard.
+        state.submission = { payload: null, status: 'actual' };
+        renderSaveStatus();
       } else {
         submitAttempt(buildSubmission(state.results));
       }
@@ -2436,7 +2552,7 @@
     function retakeQuiz() {
       var mode = state.attempt ? state.attempt.mode : null;
       if (!mode) return false;
-      return startQuiz(mode);
+      return startQuiz(mode, state.attempt.size);
     }
 
     // The landing view's "Reset my progress on this device" link.
@@ -2457,7 +2573,7 @@
       showView('landing');
       setStudyConfirmed(state.studyConfirmed);
       ui.difficultyHeading.focus();
-      if (ENDPOINT) loadHistory(state.history.filter);
+      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
       return true;
     }
 
@@ -2602,7 +2718,7 @@
     function renderResults(results) {
       ui.resultsHeading.textContent = results.practice
         ? 'Practice results (' + MODE_LABELS[results.mode] + ')'
-        : MODE_LABELS[results.mode] + ' examination results';
+        : results.mode === ACTUAL ? 'Actual Exam results' : MODE_LABELS[results.mode] + ' examination results';
       setPracticeNote(ui.resultsPracticeNote, results.practice);
 
       var card = make('div', 'score-card ' + bandClass(results.band.name));
@@ -2614,7 +2730,7 @@
       var student = make('p', 'results-student');
       student.append(make('span', 'meta-label', 'Student'), make('span', 'meta-value', results.studentName));
       var mode = make('p', 'results-mode');
-      mode.append(make('span', 'meta-label', 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode] + (results.practice ? ' · practice retry' : '')));
+      mode.append(make('span', 'meta-label', results.mode === ACTUAL ? 'Category' : 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode] + (results.practice ? ' · practice retry' : '')));
       var bandLabel = make('p', 'meta-label', 'Mastery band');
       var band = make('p', 'band-badge results-band');
       band.append(iconNode(results.percentage >= STRENGTH_THRESHOLD ? 'check' : 'alert'), make('span', null, results.band.name));
@@ -2661,7 +2777,7 @@
         );
         item.append(
           head,
-          make('p', 'review-topic', TEXT.topicNoun + ': ' + question.category),
+          make('p', 'review-topic', questionTopic(question)),
           make('p', 'review-prompt', question.prompt),
           answerLine(entry.correct ? 'correct' : 'incorrect', 'Your answer:', question, entry.selected),
           answerLine('correct', 'Correct answer:', question, question.answer),
@@ -2787,7 +2903,8 @@
         saved: ['check', 'Saved to the class history.'],
         failed: ['alert', 'Could not save to class history. Your results below are unaffected.'],
         'not-configured': ['dot', 'Class history is not set up, so this score was not saved to a class list.'],
-        practice: ['dot', 'Practice attempts are not saved to the class history.']
+        practice: ['dot', 'Practice attempts are not saved to the class history.'],
+        actual: ['dot', 'Actual Exam attempts are not saved to the class history.']
       }[status];
       ui.saveBox.className = 'history-save save-' + status;
       setChildren(ui.saveMessage, copy ? [iconNode(copy[0]), make('span', null, copy[1])] : []);
@@ -2935,7 +3052,7 @@
     function showHistory() {
       if (ui.historyPanel.hidden) return false;
       ui.historyHeading.focus();
-      if (ENDPOINT) loadHistory(state.history.filter);
+      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
       return true;
     }
 
@@ -2944,7 +3061,7 @@
     function readBanks() {
       var banks = {};
       var errors = [];
-      MODES.forEach(function (mode) {
+      MODES.concat([ACTUAL]).forEach(function (mode) {
         var element = byId('questions-' + mode);
         if (!element) {
           errors.push(mode + ' bank data is missing');
@@ -2974,6 +3091,7 @@
         ui.studyConfirm.disabled = true;
         ui.nameInput.disabled = true;
         MODES.forEach(function (mode) { ui.modeButtons[mode].disabled = true; });
+        ui.actualButtons.forEach(function (button) { button.disabled = true; });
         showView('unavailable');
         ui.unavailableHeading.focus();
         console.error(QUIZ_TITLE + ' is unavailable: ' + state.errors.join('; '));
@@ -2987,6 +3105,9 @@
       ui.studyConfirm.addEventListener('change', function () { setStudyConfirmed(ui.studyConfirm.checked); });
       MODES.forEach(function (mode) {
         ui.modeButtons[mode].addEventListener('click', function () { startQuiz(mode); });
+      });
+      ui.actualButtons.forEach(function (button) {
+        button.addEventListener('click', function () { startQuiz(ACTUAL, button.id === 'mode-actual-all' && ACTUAL_CONFIG.full ? ACTUAL_CONFIG.full : ACTUAL_CONFIG.attempt); });
       });
       ui.btnCheck.addEventListener('click', checkAnswer);
       ui.btnPrev.addEventListener('click', function () { if (state.attempt) goToQuestion(state.attempt.current - 1); });
@@ -3010,7 +3131,9 @@
       setStudentName(ui.nameInput.value, false);
       setStudyConfirmed(false);
       renderSaveStatus();
-      loadHistory('all');
+      // The Comprehensive Exam Reviewer pages have no class history: no request is ever made from them.
+      ui.btnHistory.hidden = ACTUAL_ONLY;
+      if (!ACTUAL_ONLY) loadHistory('all');
     }
 
     function getState() {
@@ -3035,6 +3158,8 @@
     globalThis.__quiz = Object.freeze({
       lessonKey: HISTORY_LESSON,
       validateBanks: validateBanks,
+      validateActualBank: validateActualBank,
+      actualConfig: ACTUAL_CONFIG,
       shuffleQuestions: shuffleQuestions,
       sampleQuestions: sampleQuestions,
       selectCoverage: selectCoverage,
@@ -3069,12 +3194,14 @@
       // Replaces the Web Audio player (tests inject a recorder); null restores the default player.
       setSoundPlayer: function (player) { state.soundPlayer = typeof player === 'function' ? player : defaultSoundPlayer; },
       getState: getState,
-      getBanks: function () { return state.banks; },
+      // The difficulty banks; the Actual Exam bank is separate (getActualBank).
+      getBanks: function () { return state.banks ? { easy: state.banks.easy, medium: state.banks.medium, hard: state.banks.hard } : state.banks; },
+      getActualBank: function () { return state.banks ? state.banks.actual : null; },
       setRandom: function (random) { state.random = typeof random === 'function' ? random : Math.random; }
     });
   })();
   </script>
-<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid"><div><h2>Practice exams</h2><ul><li><a class="main" href="../">Exam hub (all modules)</a></li><li><a class="main" href="../module-1-exam/">Module 1 Exam</a></li><li><a class="main" href="../module-3-exam/">Module 4 Exam</a></li><li><a class="main" href="../module-5-exam/">Module 5 Exam</a></li><li><a class="main" href="../module-6-exam/">Module 6 Exam</a></li><li><a class="main" href="../module-7-exam/">Module 7 Exam</a></li><li><a class="main" href="../module-8-exam/">Module 8 Exam</a></li></ul></div><div><h2>Reviewer</h2><ul><li><a class="main" href="../reviewer/">All Reviewer lessons</a></li></ul><p class="mod">Module 1 · Leadership</p><ul><li><a class="main" href="../military-leadership-attributes/">Military Leadership Attributes quiz</a><a href="../reviewer/leadershipattributes/">Reviewer</a></li><li><a class="main" href="../military-leadership-competencies/">Military Leadership Competencies quiz</a><a href="../reviewer/leadershipcompetencies/">Reviewer</a></li><li><a class="main" href="../company-management/">Company Management quiz</a><a href="../reviewer/companymanagement/">Reviewer</a></li><li><a class="main" href="../mission-command/">Mission Command quiz</a><a href="../reviewer/missioncommand/">Reviewer</a></li><li><a class="main" href="../ethical-transformational-leadership/">Ethical and Transformational Leadership quiz</a><a href="../reviewer/ethicalleadership/">Reviewer</a></li><li><a class="main" href="../nco-empowerment/">NCO Empowerment quiz</a><a href="../reviewer/ncoempowerment/">Reviewer</a></li><li><a class="main" href="../effective-communication-2/">Effective Communication 2 quiz</a><a href="../reviewer/effectivecommunication/">Reviewer</a></li></ul><p class="mod">Module 2 · Army Operating Concept</p><ul><li><a class="main" href="../combined/">Combined Practice Exam quiz</a></li><li><a class="main" href="../field-artillery/">Field Artillery Operations quiz</a><a href="../reviewer/fieldartillery/">Reviewer</a></li><li><a class="main" href="../armor/">Armor Operations quiz</a><a href="../reviewer/armor/">Reviewer</a></li><li><a class="main" href="../isr/">ISR Operations quiz</a><a href="../reviewer/isr/">Reviewer</a></li></ul><p class="mod">Module 3 · Battalion/Brigade Operations Planning</p><ul><li><a class="main" href="../module-3-planning-exam/">Module 3 Planning Exam quiz</a></li><li><a class="main" href="../troop-leading-procedure/">Troop Leading Procedure (TLP) quiz</a><a href="../reviewer/tlp/">Reviewer</a></li><li><a class="main" href="../military-decision-making-process/">Military Decision-Making Process (MDMP) quiz</a><a href="../reviewer/mdmp/">Reviewer</a></li></ul><p class="mod">Module 4 · Signal Support Integration</p><ul><li><a class="main" href="../signal-support/">Signal Support in Combined Arms Operations quiz</a><a href="../reviewer/signal/">Reviewer</a></li><li><a class="main" href="../joint-signal/">Signal Support in Joint Operations quiz</a><a href="../reviewer/signaljoint/">Reviewer</a></li><li><a class="main" href="../coalition-signal/">Signal Support in Coalition Operations quiz</a><a href="../reviewer/coalition/">Reviewer</a></li></ul><p class="mod">Module 5 · Advanced C2 Communications</p><ul><li><a class="main" href="../manet-c4istar-planning/">MANET C4ISTAR Planning quiz</a><a href="../reviewer/manet/">Reviewer</a></li><li><a class="main" href="../c4istar-sensors-integration/">C4ISTAR Sensors Integration quiz</a><a href="../reviewer/sensors/">Reviewer</a></li><li><a class="main" href="../c4istar-weapon-system-integration/">C4ISTAR Weapon System Integration quiz</a><a href="../reviewer/weapons/">Reviewer</a></li><li><a class="main" href="../signal-propagation/">Signal Propagation (Mobile Apps/RF Clouds) quiz</a><a href="../reviewer/propagation/">Reviewer</a></li></ul><p class="mod">Module 6 · Advanced Electronic Warfare Operations</p><ul><li><a class="main" href="../signals-intelligence/">Signals Intelligence (SIGINT) quiz</a><a href="../reviewer/sigint/">Reviewer</a></li><li><a class="main" href="../electronic-intelligence/">Electronic Intelligence (ELINT) quiz</a><a href="../reviewer/elint/">Reviewer</a></li><li><a class="main" href="../radio-direction-finding/">Radio Direction Finding quiz</a><a href="../reviewer/rdf/">Reviewer</a></li><li><a class="main" href="../electronic-counter-countermeasures/">Electronic Counter-Countermeasures (ECCM) quiz</a><a href="../reviewer/eccm/">Reviewer</a></li></ul><p class="mod">Module 7 · Advanced Cyberspace Operations</p><ul><li><a class="main" href="../nist-framework/">NIST Framework quiz</a><a href="../reviewer/nist/">Reviewer</a></li><li><a class="main" href="../zero-trust/">Zero Trust quiz</a><a href="../reviewer/zerotrust/">Reviewer</a></li><li><a class="main" href="../gsomia-compliance/">LOE3 GSOMIA Compliance quiz</a><a href="../reviewer/gsomia/">Reviewer</a></li><li><a class="main" href="../cyber-risk-assessment/">Cyber Risk Assessment quiz</a><a href="../reviewer/cyberrisk/">Reviewer</a></li></ul><p class="mod">Module 8 · Signal Planning</p><ul><li><a class="main" href="../ceoi-cesi-management/">CEOI / CESI Management quiz</a><a href="../reviewer/ceoicesi/">Reviewer</a></li><li><a class="main" href="../signal-estimate/">Signal Estimate quiz</a><a href="../reviewer/signalestimate/">Reviewer</a></li><li><a class="main" href="../c4istar-communications-planning/">C4ISTAR Communications Planning quiz</a><a href="../reviewer/c4istarplanning/">Reviewer</a></li><li><a class="main" href="../signal-planning-process/">Signal Planning Process quiz</a><a href="../reviewer/signalplanning/">Reviewer</a></li></ul><p class="mod">Supporting Lessons · Supporting study material; not separately numbered POI lessons</p><ul><li><a class="main" href="../army-operations/">Army Operations quiz</a><a href="../reviewer/armyops/">Reviewer</a></li><li><a class="main" href="../intelligence-cycle/">Intelligence Cycle quiz</a><a href="../reviewer/intcycle/">Reviewer</a></li></ul></div><div><h2>Library</h2><ul><li><a class="main" href="../library/">Library: lessons, manuals, sources</a></li><li><a class="main" href="../library/unit-organization/">Unit Organization</a></li></ul></div><div><h2>How To guides</h2><ul><li><a class="main" href="../how-to/">All How To guides</a></li><li><a class="main" href="../how-to/how-to-check-repeater-channel-pair/">Check a repeater channel pair</a></li><li><a class="main" href="../how-to/how-to-conduct-radio-check/">Conduct a two-station radio check</a></li><li><a class="main" href="../how-to/how-to-configure-rf5800v-scan/">Configure an RF-5800V scan list</a></li><li><a class="main" href="../how-to/how-to-connect-windows-radio-rndis/">Connect a Windows PC to a radio over USB</a></li><li><a class="main" href="../how-to/how-to-plot-radio-link-profile/">Plot a radio link in Radio Mobile</a></li><li><a class="main" href="../how-to/how-to-program-fixed-frequency-preset/">Program a fixed-frequency radio channel</a></li><li><a class="main" href="../how-to/how-to-program-rf5800v-net/">Program an RF-5800V voice net</a></li><li><a class="main" href="../how-to/how-to-set-up-two-radio-retransmit/">Set up a two-radio repeater</a></li><li><a class="main" href="../how-to/how-to-size-a-half-wave-dipole/">Size a half-wave dipole</a></li><li><a class="main" href="../how-to/how-to-test-tactical-chat-link/">Send a test message over a radio data link</a></li><li><a class="main" href="../how-to/how-to-transfer-cpa-radio-plan/">Transfer a CPA plan to an RF-7800V</a></li></ul></div><div><h2>Radio and codes</h2><ul><li><a class="main" href="../los-radios/">LOS Radios</a></li><li><a class="main" href="../codes-ciphers/">Codes &amp; Ciphers</a></li></ul></div><div><h2>Schedule, class, instructor</h2><ul><li><a class="main" href="../schedule/?v=day-picker-2">Weekly schedule (current week)</a></li><li><a class="main" href="../schedule-2026-11-02/">Week of 02–08 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-09/">Week of 09–15 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-16/">Week of 16–22 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-23/">Week of 23–29 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-30/">Week of 30 Nov – 06 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-07/">Week of 07–13 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-14/">Week of 14–20 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-21/">Week of 21–27 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-28/">Week of 28 Dec 2026 – 03 Jan 2027</a></li><li><a class="main" href="../schedule-2027-01-04/">Week of 04–10 Jan 2027</a></li><li><a class="main" href="../class/">Our class</a></li><li><a class="main" href="../instructor/">Instructor view</a></li></ul></div></div></details></nav>
+<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid"><div><h2>Practice exams</h2><ul><li><a class="main" href="../">Exam hub (all modules)</a></li><li><a class="main" href="../module-1-exam/">Module 1 Exam</a></li><li><a class="main" href="../module-3-exam/">Module 4 Exam</a></li><li><a class="main" href="../module-5-exam/">Module 5 Exam</a></li><li><a class="main" href="../module-6-exam/">Module 6 Exam</a></li><li><a class="main" href="../module-7-exam/">Module 7 Exam</a></li><li><a class="main" href="../module-8-exam/">Module 8 Exam</a></li></ul></div><div><h2>Comprehensive Exam Reviewer</h2><ul><li><a class="main" href="../comprehensive-reviewer/">Actual Exam: all graded exams</a></li><li><a class="main" href="../comprehensive-reviewer/all/">All graded exams, mixed</a></li></ul></div><div><h2>Reviewer</h2><ul><li><a class="main" href="../reviewer/">All Reviewer lessons</a></li></ul><p class="mod">Module 1 · Leadership</p><ul><li><a class="main" href="../military-leadership-attributes/">Military Leadership Attributes quiz</a><a href="../reviewer/leadershipattributes/">Reviewer</a></li><li><a class="main" href="../military-leadership-competencies/">Military Leadership Competencies quiz</a><a href="../reviewer/leadershipcompetencies/">Reviewer</a></li><li><a class="main" href="../company-management/">Company Management quiz</a><a href="../reviewer/companymanagement/">Reviewer</a></li><li><a class="main" href="../mission-command/">Mission Command quiz</a><a href="../reviewer/missioncommand/">Reviewer</a></li><li><a class="main" href="../ethical-transformational-leadership/">Ethical and Transformational Leadership quiz</a><a href="../reviewer/ethicalleadership/">Reviewer</a></li><li><a class="main" href="../nco-empowerment/">NCO Empowerment quiz</a><a href="../reviewer/ncoempowerment/">Reviewer</a></li><li><a class="main" href="../effective-communication-2/">Effective Communication 2 quiz</a><a href="../reviewer/effectivecommunication/">Reviewer</a></li></ul><p class="mod">Module 2 · Army Operating Concept</p><ul><li><a class="main" href="../combined/">Combined Practice Exam quiz</a></li><li><a class="main" href="../field-artillery/">Field Artillery Operations quiz</a><a href="../reviewer/fieldartillery/">Reviewer</a></li><li><a class="main" href="../armor/">Armor Operations quiz</a><a href="../reviewer/armor/">Reviewer</a></li><li><a class="main" href="../isr/">ISR Operations quiz</a><a href="../reviewer/isr/">Reviewer</a></li></ul><p class="mod">Module 3 · Battalion/Brigade Operations Planning</p><ul><li><a class="main" href="../module-3-planning-exam/">Module 3 Planning Exam quiz</a></li><li><a class="main" href="../troop-leading-procedure/">Troop Leading Procedure (TLP) quiz</a><a href="../reviewer/tlp/">Reviewer</a></li><li><a class="main" href="../military-decision-making-process/">Military Decision-Making Process (MDMP) quiz</a><a href="../reviewer/mdmp/">Reviewer</a></li></ul><p class="mod">Module 4 · Signal Support Integration</p><ul><li><a class="main" href="../signal-support/">Signal Support in Combined Arms Operations quiz</a><a href="../reviewer/signal/">Reviewer</a></li><li><a class="main" href="../joint-signal/">Signal Support in Joint Operations quiz</a><a href="../reviewer/signaljoint/">Reviewer</a></li><li><a class="main" href="../coalition-signal/">Signal Support in Coalition Operations quiz</a><a href="../reviewer/coalition/">Reviewer</a></li></ul><p class="mod">Module 5 · Advanced C2 Communications</p><ul><li><a class="main" href="../manet-c4istar-planning/">MANET C4ISTAR Planning quiz</a><a href="../reviewer/manet/">Reviewer</a></li><li><a class="main" href="../c4istar-sensors-integration/">C4ISTAR Sensors Integration quiz</a><a href="../reviewer/sensors/">Reviewer</a></li><li><a class="main" href="../c4istar-weapon-system-integration/">C4ISTAR Weapon System Integration quiz</a><a href="../reviewer/weapons/">Reviewer</a></li><li><a class="main" href="../signal-propagation/">Signal Propagation (Mobile Apps/RF Clouds) quiz</a><a href="../reviewer/propagation/">Reviewer</a></li></ul><p class="mod">Module 6 · Advanced Electronic Warfare Operations</p><ul><li><a class="main" href="../signals-intelligence/">Signals Intelligence (SIGINT) quiz</a><a href="../reviewer/sigint/">Reviewer</a></li><li><a class="main" href="../electronic-intelligence/">Electronic Intelligence (ELINT) quiz</a><a href="../reviewer/elint/">Reviewer</a></li><li><a class="main" href="../radio-direction-finding/">Radio Direction Finding quiz</a><a href="../reviewer/rdf/">Reviewer</a></li><li><a class="main" href="../electronic-counter-countermeasures/">Electronic Counter-Countermeasures (ECCM) quiz</a><a href="../reviewer/eccm/">Reviewer</a></li></ul><p class="mod">Module 7 · Advanced Cyberspace Operations</p><ul><li><a class="main" href="../nist-framework/">NIST Framework quiz</a><a href="../reviewer/nist/">Reviewer</a></li><li><a class="main" href="../zero-trust/">Zero Trust quiz</a><a href="../reviewer/zerotrust/">Reviewer</a></li><li><a class="main" href="../gsomia-compliance/">LOE3 GSOMIA Compliance quiz</a><a href="../reviewer/gsomia/">Reviewer</a></li><li><a class="main" href="../cyber-risk-assessment/">Cyber Risk Assessment quiz</a><a href="../reviewer/cyberrisk/">Reviewer</a></li></ul><p class="mod">Module 8 · Signal Planning</p><ul><li><a class="main" href="../ceoi-cesi-management/">CEOI / CESI Management quiz</a><a href="../reviewer/ceoicesi/">Reviewer</a></li><li><a class="main" href="../signal-estimate/">Signal Estimate quiz</a><a href="../reviewer/signalestimate/">Reviewer</a></li><li><a class="main" href="../c4istar-communications-planning/">C4ISTAR Communications Planning quiz</a><a href="../reviewer/c4istarplanning/">Reviewer</a></li><li><a class="main" href="../signal-planning-process/">Signal Planning Process quiz</a><a href="../reviewer/signalplanning/">Reviewer</a></li></ul><p class="mod">Supporting Lessons · Supporting study material; not separately numbered POI lessons</p><ul><li><a class="main" href="../army-operations/">Army Operations quiz</a><a href="../reviewer/armyops/">Reviewer</a></li><li><a class="main" href="../intelligence-cycle/">Intelligence Cycle quiz</a><a href="../reviewer/intcycle/">Reviewer</a></li></ul></div><div><h2>Library</h2><ul><li><a class="main" href="../library/">Library: lessons, manuals, sources</a></li><li><a class="main" href="../library/unit-organization/">Unit Organization</a></li></ul></div><div><h2>How To guides</h2><ul><li><a class="main" href="../how-to/">All How To guides</a></li><li><a class="main" href="../how-to/how-to-check-repeater-channel-pair/">Check a repeater channel pair</a></li><li><a class="main" href="../how-to/how-to-conduct-radio-check/">Conduct a two-station radio check</a></li><li><a class="main" href="../how-to/how-to-configure-rf5800v-scan/">Configure an RF-5800V scan list</a></li><li><a class="main" href="../how-to/how-to-connect-windows-radio-rndis/">Connect a Windows PC to a radio over USB</a></li><li><a class="main" href="../how-to/how-to-plot-radio-link-profile/">Plot a radio link in Radio Mobile</a></li><li><a class="main" href="../how-to/how-to-program-fixed-frequency-preset/">Program a fixed-frequency radio channel</a></li><li><a class="main" href="../how-to/how-to-program-rf5800v-net/">Program an RF-5800V voice net</a></li><li><a class="main" href="../how-to/how-to-set-up-two-radio-retransmit/">Set up a two-radio repeater</a></li><li><a class="main" href="../how-to/how-to-size-a-half-wave-dipole/">Size a half-wave dipole</a></li><li><a class="main" href="../how-to/how-to-test-tactical-chat-link/">Send a test message over a radio data link</a></li><li><a class="main" href="../how-to/how-to-transfer-cpa-radio-plan/">Transfer a CPA plan to an RF-7800V</a></li></ul></div><div><h2>Radio and codes</h2><ul><li><a class="main" href="../los-radios/">LOS Radios</a></li><li><a class="main" href="../codes-ciphers/">Codes &amp; Ciphers</a></li></ul></div><div><h2>Schedule, class, instructor</h2><ul><li><a class="main" href="../schedule/?v=day-picker-2">Weekly schedule (current week)</a></li><li><a class="main" href="../schedule-2026-11-02/">Week of 02–08 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-09/">Week of 09–15 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-16/">Week of 16–22 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-23/">Week of 23–29 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-30/">Week of 30 Nov – 06 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-07/">Week of 07–13 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-14/">Week of 14–20 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-21/">Week of 21–27 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-28/">Week of 28 Dec 2026 – 03 Jan 2027</a></li><li><a class="main" href="../schedule-2027-01-04/">Week of 04–10 Jan 2027</a></li><li><a class="main" href="../class/">Our class</a></li><li><a class="main" href="../instructor/">Instructor view</a></li></ul></div></div></details></nav>
 <aside class="domain-seal" aria-label="Site signature"><img class="domain-sigil" src="../assets/domain-void-hand-320.webp" width="160" height="221" alt="" loading="lazy" decoding="async"><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>“You see, but you do not observe.”</em><cite data-domain-attribution>— Sherlock Holmes · A Scandal in Bohemia · Arthur Conan Doyle</cite></span></aside>
 <script src="../assets/identity.js" defer></script>
 </body>

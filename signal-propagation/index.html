@@ -548,6 +548,16 @@
     .mode-button:disabled .mode-name .gauge { color: var(--color-rule); }
     .mode-desc { font-size: var(--text-ui); font-weight: 400; line-height: 1.45; }
     .mode-go { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent); }
+    /* Actual Exam: a fourth category, set apart from the difficulty ladder by a rule, a label and a stamp. */
+    .actual-block { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 3px double var(--color-text); }
+    .actual-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-3); margin: 0; font-size: var(--text-h4); }
+    .actual-badge { display: inline-block; padding: 0.15rem 0.5rem; border: 2px solid var(--color-signal-text); color: var(--color-signal-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+    .actual-note { max-width: 46rem; margin: var(--space-2) 0 0; color: var(--color-muted); font-size: var(--text-meta); line-height: 1.55; }
+    .actual-list { margin-top: var(--space-3); }
+    .mode-actual .actual-mark { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border: 2px solid currentColor; color: var(--color-signal-text); font-size: 0.95rem; line-height: 1; }
+    .mode-actual:disabled .actual-mark { color: var(--color-rule); }
+    .mode-actual:hover:not(:disabled) { border-left-color: var(--color-signal); }
+    .theme-actual .quiz-rail .gauge { display: none; }
     .privacy-note { max-width: 46rem; font-size: var(--text-meta); line-height: 1.6; color: var(--color-muted); }
     .question-category, .results-reminder { color: var(--color-muted); }
     .device-progress { margin: 0; font-size: var(--text-meta); color: var(--color-muted); }
@@ -1091,6 +1101,7 @@
               <span class="mode-go" aria-hidden="true">Begin →</span>
             </button>
           </div>
+
         </div>
       </div>
 
@@ -1242,11 +1253,12 @@
 
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
 
-  <script type="application/json" id="quiz-config">{"key":"propagation","module":"module-5","title":"Signal Propagation Practice Exam","categoryOrder":["Model Inputs and Coverage","Link Profiles and Margins","Cellular Modeling","Dead Spots and Relays","Validation and Decisions"],"sourceRef":{"label":"v6 propagation study slide","min":15,"max":53,"required":true},"sourceAlt":null,"pool":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
+  <script type="application/json" id="quiz-config">{"key":"propagation","module":"module-5","title":"Signal Propagation Practice Exam","categoryOrder":["Model Inputs and Coverage","Link Profiles and Margins","Cellular Modeling","Dead Spots and Relays","Validation and Decisions"],"sourceRef":{"label":"v6 propagation study slide","min":15,"max":53,"required":true},"sourceAlt":null,"pool":null,"actual":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
   <script type="application/json" id="study-links">{"reviewer":"../reviewer/propagation/","sources":{"propagation":{"title":"Signal Propagation · Worked Coverage Study (v6)","citationName":"Signal Propagation (Mobile Apps/RF Clouds)","available":true,"doc":"source-propagation","href":"../library/files/lesson-signal-propagation.pdf","exactPages":true,"studyDoc":"../reviewer/propagation/","manuals":[]}},"byQuestion":{}}</script>
   <script type="application/json" id="questions-easy">[{"id":1,"qid":"propagation-e-01","difficulty":"easy","category":"Model Inputs and Coverage","tags":["propagation","model inputs and coverage","objective"],"prompt":"Which modeled setting accounts for energy lost between the radio and antenna?","options":["Receiver sensitivity","Antenna height","Feed-line loss","Plot radius"],"answer":2,"explanation":"Feed-line loss is modeled separately from antenna gain and terrain.","sourceSlides":[15,16]},{"id":2,"qid":"propagation-e-02","difficulty":"easy","category":"Model Inputs and Coverage","tags":["propagation","model inputs and coverage","objective"],"prompt":"What does antenna height above ground describe?","options":["Vertical distance above local ground","The terrain's elevation above sea level","The station's height above the receiver","The distance to the edge of the plot"],"answer":0,"explanation":"A mast height measures the antenna relative to local ground. Terrain elevation is a separate quantity.","sourceSlides":[15,16]},{"id":3,"qid":"propagation-e-03","difficulty":"easy","category":"Model Inputs and Coverage","tags":["propagation","model inputs and coverage","objective"],"prompt":"What does a composite radio coverage plot combine?","options":["The equipment inventories for all stations","Point-to-point margins into one average","All measured receiver readings from a field survey","Predicted footprints from several stations"],"answer":3,"explanation":"The composite draws from individual station predictions to show their collective footprint.","sourceSlides":[17,19]},{"id":4,"qid":"propagation-e-04","difficulty":"easy","category":"Model Inputs and Coverage","tags":["propagation","model inputs and coverage","objective"],"prompt":"Which setting limits the area a single-station footprint evaluates?","options":["Receiver threshold","Plot radius","Antenna gain","Feed-line loss"],"answer":1,"explanation":"The radius bounds the modeled footprint around the transmitter.","sourceSlides":[15,19]},{"id":5,"qid":"propagation-e-05","difficulty":"easy","category":"Link Profiles and Margins","tags":["propagation","link profiles and margins","objective"],"prompt":"What does fade margin compare in the Radio Mobile outputs?","options":["Transmit power and the antenna height","Plot radius and path distance","Ground elevation and receiver gain","Receive level and receiver threshold"],"answer":3,"explanation":"The margin expresses how far predicted receive power is above the threshold.","sourceSlides":[23,35]},{"id":6,"qid":"propagation-e-06","difficulty":"easy","category":"Link Profiles and Margins","tags":["propagation","link profiles and margins","objective"],"prompt":"Which item is evidence of an optically obstructed path in the examples?","options":["The received signal has a negative dBm value","The receiver falls within the plot radius","Terrain crosses the direct path","The antenna heights differ"],"answer":2,"explanation":"The profile can show terrain intersecting the straight path even when the model predicts a working radio link.","sourceSlides":[23,27]},{"id":7,"qid":"propagation-e-07","difficulty":"easy","category":"Link Profiles and Margins","tags":["propagation","link profiles and margins","objective"],"prompt":"What can explain a modeled link closing despite terrain in the direct path?","options":["A larger plotting window","Diffraction over the obstruction","A change in the display legend","A different map projection"],"answer":1,"explanation":"Diffraction can permit modeled signal propagation despite loss from the obstruction.","sourceSlides":[23,35]},{"id":8,"qid":"propagation-e-08","difficulty":"easy","category":"Link Profiles and Margins","tags":["propagation","link profiles and margins","objective"],"prompt":"What distinction do the optical LOS and Fresnel observations illustrate?","options":["A clear centerline can coexist with limited clearance around it","An optical path automatically has full Fresnel clearance","Fresnel clearance and receive level report the same quantity","Fresnel clearance establishes which transmitter is active"],"answer":0,"explanation":"Fresnel clearance considers space around the centerline, so the two observations are distinct.","sourceSlides":[27,35]},{"id":9,"qid":"propagation-e-09","difficulty":"easy","category":"Cellular Modeling","tags":["propagation","cellular modeling","objective"],"prompt":"What role does CellMapper play in the example cellular workflow?","options":["Identify candidate cellular tower locations","Compute all coverage predictions","Measure the actual phone reception at every site","Validate the final radio network"],"answer":0,"explanation":"CellMapper provides candidate locations. CloudRF uses selected towers and assumptions to produce estimates.","sourceSlides":[37]},{"id":10,"qid":"propagation-e-10","difficulty":"easy","category":"Cellular Modeling","tags":["propagation","cellular modeling","objective"],"prompt":"What is CloudRF used to produce in the example?","options":["Confirmed commercial service records","Field logs of completed calls","A point-to-point VHF network inventory","Modeled cellular footprints"],"answer":3,"explanation":"CloudRF predicts coverage using model inputs supplied for selected towers.","sourceSlides":[37,38]},{"id":11,"qid":"propagation-e-11","difficulty":"easy","category":"Cellular Modeling","tags":["propagation","cellular modeling","objective"],"prompt":"How should the values in a saved cellular model be described?","options":["Verified specifications for the carrier network","Inputs used for that model run","Measured receive levels at every map pixel","Confirmed values for all towers in the area"],"answer":1,"explanation":"The deck identifies the recorded settings as model inputs and distinguishes them from operator-verified equipment or service.","sourceSlides":[38]},{"id":12,"qid":"propagation-e-12","difficulty":"easy","category":"Cellular Modeling","tags":["propagation","cellular modeling","objective"],"prompt":"What does a common map extent improve when comparing carrier outputs?","options":["Knowledge of which carrier has verified service","Coverage completeness beyond all modeled sites","Visual comparison across the same geographic area","Certainty that every carrier uses identical equipment"],"answer":2,"explanation":"A common viewing area supports like-area comparison of the selected model results.","sourceSlides":[42]},{"id":13,"qid":"propagation-e-13","difficulty":"easy","category":"Dead Spots and Relays","tags":["propagation","dead spots and relays","objective"],"prompt":"What does the dead-spot hatch represent in the example?","options":["Every point with a failed field radio check","No plotted signal or the weakest predicted classes within the study corridor","Every area outside the study corridor","All places below average tower height"],"answer":1,"explanation":"The hatch is defined from the model output and a specified corridor.","sourceSlides":[44]},{"id":14,"qid":"propagation-e-14","difficulty":"easy","category":"Dead Spots and Relays","tags":["propagation","dead spots and relays","objective"],"prompt":"What should a candidate relay be able to reach to bridge a gap between networks?","options":["Required stations on both sides","Only the closest user","Only the control station","Any station inside its modeled area"],"answer":0,"explanation":"A relay must connect the relevant endpoints on both sides of the gap.","sourceSlides":[46,48]},{"id":15,"qid":"propagation-e-15","difficulty":"easy","category":"Dead Spots and Relays","tags":["propagation","dead spots and relays","objective"],"prompt":"Which practical relay consideration is checked separately from predicted link strength?","options":["Receiver sensitivity","Fresnel clearance","Site access","Predicted margin"],"answer":2,"explanation":"The site review considers whether crews can reach the candidate location.","sourceSlides":[47]},{"id":16,"qid":"propagation-e-16","difficulty":"easy","category":"Dead Spots and Relays","tags":["propagation","dead spots and relays","objective"],"prompt":"What does a before-and-after map comparison show about a proposed relay?","options":["Which field checks have already succeeded","Which carrier owns the highest tower","How much time the relay crew spent traveling","How modeled usable coverage changes with the relay included"],"answer":3,"explanation":"The two maps help compare the modeled footprint with and without the relay.","sourceSlides":[49]},{"id":17,"qid":"propagation-e-17","difficulty":"easy","category":"Validation and Decisions","tags":["propagation","validation and decisions","objective"],"prompt":"What turns a modeled link prediction into field evidence?","options":["Exporting the same map twice","Using a higher-resolution display","Increasing the legend's contrast","Radio checks on the planned link"],"answer":3,"explanation":"A field radio check verifies behavior under actual operating conditions.","sourceSlides":[53]},{"id":18,"qid":"propagation-e-18","difficulty":"easy","category":"Validation and Decisions","tags":["propagation","validation and decisions","objective"],"prompt":"What should planners check before proposing a taller mast?","options":["Whether the existing tower looks small on the map","Whether the modeled link or coverage meaningfully improves","Whether the plot legend shows a weak color somewhere","Whether other sites use the same antenna model"],"answer":1,"explanation":"Height changes should be assessed against their effect on the intended path or coverage objective.","sourceSlides":[51]},{"id":19,"qid":"propagation-e-19","difficulty":"easy","category":"Validation and Decisions","tags":["propagation","validation and decisions","objective"],"prompt":"What purpose does PACE serve in the recommendations?","options":["Provide ordered communications alternatives if the preferred means fails","Compute a revised receiver threshold","Extend the plot radius of the primary station","Verify the carrier's equipment inputs"],"answer":0,"explanation":"PACE organizes primary, alternate, contingency and emergency communications means.","sourceSlides":[52]},{"id":20,"qid":"propagation-e-20","difficulty":"easy","category":"Validation and Decisions","tags":["propagation","validation and decisions","objective"],"prompt":"What should happen to the prediction after field checks expose a difference?","options":["Discard the field results because the model came first","Hide the affected layer and keep the recommendation","Update the plots and assumptions with field findings","Increase the legend's usable area without reanalysis"],"answer":2,"explanation":"The study recommends testing the links and updating the plots.","sourceSlides":[53]}]</script>
   <script type="application/json" id="questions-medium">[{"id":1,"qid":"propagation-m-01","difficulty":"medium","category":"Model Inputs and Coverage","tags":["propagation","model inputs and coverage","application"],"prompt":"Two exported runs used different feed-line losses. What is needed to isolate the effect of mast height?","options":["Average the two receive-level results","Use the result with the higher antenna gain","Apply the same overlay color to both exports","Re-run with common settings except for mast height"],"answer":3,"explanation":"A controlled comparison changes only the input being tested.","sourceSlides":[15,16]},{"id":2,"qid":"propagation-m-02","difficulty":"medium","category":"Model Inputs and Coverage","tags":["propagation","model inputs and coverage","application"],"prompt":"A team has nine individual coverage maps and wants to show the union of usable areas. What should it prepare?","options":["A mean of the station-to-station distances","A composite using a common usability rule","A table of tower elevations","An export of the largest single footprint"],"answer":1,"explanation":"The composite combines individual footprints under consistent signal-class criteria.","sourceSlides":[17,19]},{"id":3,"qid":"propagation-m-03","difficulty":"medium","category":"Model Inputs and Coverage","tags":["propagation","model inputs and coverage","application"],"prompt":"A location just beyond the configured plot radius is blank. How should the team interpret it?","options":["It has no result in that plot and may require a larger run","It is a measured dead spot","It is necessarily below receiver threshold","It is covered by whichever station is closest"],"answer":0,"explanation":"The plot radius limits the analysis, so an unplotted point needs further evaluation.","sourceSlides":[15,19]},{"id":4,"qid":"propagation-m-04","difficulty":"medium","category":"Model Inputs and Coverage","tags":["propagation","model inputs and coverage","application"],"prompt":"A rerun changes receiver threshold and predicted usable area expands. What changed in the comparison?","options":["The antenna height above ground","The actual terrain profile","The cutoff for classifying usable signal","The locations recorded for modeled transmitters"],"answer":2,"explanation":"A changed threshold can reclassify a predicted level without changing the physical path.","sourceSlides":[15,16]},{"id":5,"qid":"propagation-m-05","difficulty":"medium","category":"Link Profiles and Margins","tags":["propagation","link profiles and margins","application"],"prompt":"A hypothetical prediction is −92 dBm with a threshold of −103 dBm. What is the predicted margin?","options":["11 dB","10 dB","21 dB","−195 dB"],"answer":0,"explanation":"Subtract the threshold from the receive level. −92 minus −103 gives 11 dB.","sourceSlides":[23,35]},{"id":6,"qid":"propagation-m-06","difficulty":"medium","category":"Link Profiles and Margins","tags":["propagation","link profiles and margins","application"],"prompt":"A ridge crosses the direct path, but the link result has positive fade margin. What conclusion fits both readings?","options":["The profile must be wrong because the link closes","The positive margin proves unobstructed optical LOS","The ridge has no effect on predicted signal loss","The model predicts a viable obstructed path under those inputs"],"answer":3,"explanation":"The worked study distinguishes link closure from optical clearance and reports links that close by diffraction.","sourceSlides":[23,35]},{"id":7,"qid":"propagation-m-07","difficulty":"medium","category":"Link Profiles and Margins","tags":["propagation","link profiles and margins","application"],"prompt":"An optical path has a clear centerline but some nearby terrain intrudes into the Fresnel zone. How should it be recorded?","options":["No optical LOS and full Fresnel clearance","An unplotted path with no centerline result","Optical LOS with partial Fresnel clearance","An optical path with guaranteed link closure"],"answer":2,"explanation":"The straight line and the surrounding Fresnel zone have different clearance conditions.","sourceSlides":[27,35]},{"id":8,"qid":"propagation-m-08","difficulty":"medium","category":"Link Profiles and Margins","tags":["propagation","link profiles and margins","application"],"prompt":"Two candidate links pass the threshold, but one has substantially less predicted headroom. Which deserves earlier validation if both are equally important?","options":["The higher-margin path","The lower-margin path","Whichever result appears first in the deck","The shorter path regardless of margin"],"answer":1,"explanation":"Lower margin offers less headroom if actual conditions differ from the assumptions.","sourceSlides":[28,29]},{"id":9,"qid":"propagation-m-09","difficulty":"medium","category":"Cellular Modeling","tags":["propagation","cellular modeling","application"],"prompt":"A team wants to compare cellular operators using model exports. Which approach supports comparison?","options":["Treat every mapped tower as though it was modeled","Use a common study extent and document inputs and towers included","Select a different zoom level for each carrier","Assume the best footprint verifies the best actual service"],"answer":1,"explanation":"Documented assumptions, selected sites and a common viewing area make the comparison interpretable.","sourceSlides":[37,38]},{"id":10,"qid":"propagation-m-10","difficulty":"medium","category":"Cellular Modeling","tags":["propagation","cellular modeling","application"],"prompt":"A tower pin has no matching coverage layer. What should the map reviewer check first?","options":["Whether the tower was included in a model run","Whether the carrier has changed its network name","Whether the image has full opacity","Whether the tower has optical LOS to every other tower"],"answer":0,"explanation":"The exercise distinguishes mapped candidate towers from those with computed predictions.","sourceSlides":[37,42]},{"id":11,"qid":"propagation-m-11","difficulty":"medium","category":"Cellular Modeling","tags":["propagation","cellular modeling","application"],"prompt":"A reviewer wants the verified antenna height of an operator's tower. What can the model's antenna height establish?","options":["The tower's confirmed installation height","The antenna height of every nearby station","The height assumed by the run","The minimum receiver height for service"],"answer":2,"explanation":"The saved model records an input assumption. Operator records or measurement would be separate evidence.","sourceSlides":[38]},{"id":12,"qid":"propagation-m-12","difficulty":"medium","category":"Cellular Modeling","tags":["propagation","cellular modeling","application"],"prompt":"An apparent gap appears in a modeled carrier overlay. Which statement is supported without field evidence?","options":["The carrier has no active subscribers there","Every phone will fail to connect there","The nearest plotted tower is offline","The modeled runs show no usable service"],"answer":3,"explanation":"A gap is specific to the selected model results and does not establish actual service conditions.","sourceSlides":[37,42]},{"id":13,"qid":"propagation-m-13","difficulty":"medium","category":"Dead Spots and Relays","tags":["propagation","dead spots and relays","application"],"prompt":"A candidate relay increases the composite usable area but a small red patch remains. What is the proper description?","options":["The relay fully removes the original gap","The model failed because it still shows any gap","Usable coverage improves, but a dead spot remains","The red area confirms hardware failure in the relay"],"answer":2,"explanation":"The before-and-after comparison can show improvement and remaining gaps together.","sourceSlides":[44,49]},{"id":14,"qid":"propagation-m-14","difficulty":"medium","category":"Dead Spots and Relays","tags":["propagation","dead spots and relays","application"],"prompt":"A high candidate site reaches several outlying users but misses the required upstream connection. What should the planner conclude?","options":["The relay succeeds because it is on high ground","The site alone cannot bridge the two sides","The upstream link can be assumed from the downstream links","Only the downstream coverage area matters"],"answer":1,"explanation":"End-to-end usefulness depends on all required relay legs.","sourceSlides":[46,47]},{"id":15,"qid":"propagation-m-15","difficulty":"medium","category":"Dead Spots and Relays","tags":["propagation","dead spots and relays","application"],"prompt":"A map shows two similar relay sites. One appears accessible and the other has uncertain access. What should be done before committing?","options":["Choose the uncertain site solely because its contour is slightly larger","Compare only their elevations","Choose whichever appears nearer the center of the map","Verify access along with the link results"],"answer":3,"explanation":"A useful relay needs a workable site and acceptable communications links.","sourceSlides":[46,47]},{"id":16,"qid":"propagation-m-16","difficulty":"medium","category":"Dead Spots and Relays","tags":["propagation","dead spots and relays","application"],"prompt":"What comparison isolates the coverage improvement from adding a relay?","options":["Compare with and without the relay at one extent and cutoff","Change the signal classes and plot boundary for the second run","Show only the relay footprint in both maps","Use a path-profile screenshot in place of the baseline"],"answer":0,"explanation":"The study's before-and-after comparison uses a shared corridor and classification rule.","sourceSlides":[44,49]},{"id":17,"qid":"propagation-m-17","difficulty":"medium","category":"Validation and Decisions","tags":["propagation","validation and decisions","application"],"prompt":"A taller mast offers only a small improvement, and the current setup exceeds the planning margin. What is the reasonable next step?","options":["Keep the practical configuration provisionally and verify it in the field","Adopt the tallest mast solely because it scored higher","Treat height as immaterial to all future paths","Replace the model's measured terrain with a flat profile"],"answer":0,"explanation":"Choose configuration based on the benefit to the required link and validate the resulting setup.","sourceSlides":[51,53]},{"id":18,"qid":"propagation-m-18","difficulty":"medium","category":"Validation and Decisions","tags":["propagation","validation and decisions","application"],"prompt":"A revised map leaves a residual gap on an assigned route. What should the recommendation include?","options":["Treat any coverage improvement as complete resolution","Remove the gap from the map extent","Flag the gap and provide a fallback and field check","Raise the acceptable outage threshold without informing users"],"answer":2,"explanation":"A remaining gap calls for a fallback and verification.","sourceSlides":[49,53]},{"id":19,"qid":"propagation-m-19","difficulty":"medium","category":"Validation and Decisions","tags":["propagation","validation and decisions","application"],"prompt":"The cellular model is promising in one area but uncertain outside it. How should the case-study plan treat cellular service?","options":["Replace all planned radio links with cellular","Use it as a contingency where suitable, with other means available","Assume availability throughout the operating area","Use tower count alone to choose the communications plan"],"answer":1,"explanation":"The example limits cellular to a contingency because modeled availability is incomplete.","sourceSlides":[37,52]},{"id":20,"qid":"propagation-m-20","difficulty":"medium","category":"Validation and Decisions","tags":["propagation","validation and decisions","application"],"prompt":"Field checks show a weaker link than expected. Which record supports a useful model revision?","options":["Only a screenshot of the revised legend","The measured ground elevation without the test location","Only a note that the test occurred","Observed signal, field conditions, and modeled path"],"answer":3,"explanation":"Comparing field conditions with model assumptions gives planners a basis for updating the prediction.","sourceSlides":[53]}]</script>
   <script type="application/json" id="questions-hard">[{"id":1,"qid":"propagation-h-01","difficulty":"hard","category":"Model Inputs and Coverage","tags":["propagation","model inputs and coverage","application"],"prompt":"A planning map has blank areas at plot edges and weak signal classes elsewhere. How should a reviewer classify them before estimating the usable area?","options":["Separate missing and weak results by corridor rule","Count both as field-confirmed outages","Exclude the blanks by silently changing the corridor","Treat both as strong because the nearby links close"],"answer":0,"explanation":"The corridor and plot bounds govern interpretation. A weak result and absence of a result have different evidence.","sourceSlides":[15,19,44]},{"id":2,"qid":"propagation-h-02","difficulty":"hard","category":"Model Inputs and Coverage","tags":["propagation","model inputs and coverage","application"],"prompt":"An updated composite improves after both a relay addition and a threshold change. How should the team measure the relay's contribution?","options":["Subtract the two area percentages and attribute all gains to the relay","Compare the new threshold only with the old antenna gain","Compare otherwise identical runs with and without the relay","Average the individual link margins without checking the corridor"],"answer":2,"explanation":"A controlled before-and-after comparison holds the classification threshold constant.","sourceSlides":[15,16,49]},{"id":3,"qid":"propagation-h-03","difficulty":"hard","category":"Model Inputs and Coverage","tags":["propagation","model inputs and coverage","application"],"prompt":"Two runs claim different mast-height benefits. One also changes receiver height and antenna gain. Which test can settle the height question?","options":["Use the larger benefit because it is more conservative","Hold all settings constant except the tested mast height","Drop the receiver threshold from both reports","Move each transmitter to whichever point has the highest elevation"],"answer":1,"explanation":"A height sensitivity test requires comparable model inputs.","sourceSlides":[15,16,51]},{"id":4,"qid":"propagation-h-04","difficulty":"hard","category":"Model Inputs and Coverage","tags":["propagation","model inputs and coverage","application"],"prompt":"Every planned endpoint link closes, but a corridor map still shows an unusable segment. How can both results be true?","options":["The corridor map proves every endpoint check is wrong","The links certify every point in the corridor regardless of coverage","A dead spot can exist only if no station has any working link","Link checks cover endpoints. Maps also cover the areas between them"],"answer":3,"explanation":"Path results and area predictions answer distinct questions.","sourceSlides":[19,35,44]},{"id":5,"qid":"propagation-h-05","difficulty":"hard","category":"Link Profiles and Margins","tags":["propagation","link profiles and margins","application"],"prompt":"A hypothetical path predicts −96 dBm into a receiver threshold of −109 dBm. A comparable path has 17 dB margin. A planning criterion is 15 dB. Which path falls short?","options":["The second, because 17 dB falls below 15 dB","The first, because it has 13 dB margin","Both, because a receive level below zero indicates failure","Neither, because each exceeds the receiver threshold"],"answer":1,"explanation":"The first has 13 dB of modeled headroom. Clearing the receiver threshold still leaves it below the separate planning criterion.","sourceSlides":[28,29,35]},{"id":6,"qid":"propagation-h-06","difficulty":"hard","category":"Link Profiles and Margins","tags":["propagation","link profiles and margins","application"],"prompt":"An obstructed link has a higher margin than a link with optical LOS. What inference fits the study?","options":["Clearance is one factor and the modeled margin reflects the full path and equipment assumptions","The higher-margin path must have clear optical LOS","The optical path must have used a larger plot radius","The obstructed link result implies the Fresnel zone is fully clear"],"answer":0,"explanation":"The deck reports optical clearance and predicted margin separately, and some obstructed paths close by diffraction.","sourceSlides":[23,27,35]},{"id":7,"qid":"propagation-h-07","difficulty":"hard","category":"Link Profiles and Margins","tags":["propagation","link profiles and margins","application"],"prompt":"A model shows closure through an obstruction and the link is essential. What evidence is strongest for deciding whether to rely on it?","options":["A map screenshot showing the line between endpoints","A visual check that the terrain model labels the ridge","A larger area plot that still includes both sites","A targeted field check of that path under the intended configuration"],"answer":3,"explanation":"The profile and margin indicate a prediction. An intended-configuration check tests the result in the field.","sourceSlides":[23,35,53]},{"id":8,"qid":"propagation-h-08","difficulty":"hard","category":"Link Profiles and Margins","tags":["propagation","link profiles and margins","application"],"prompt":"A planner applies a clearance rule from a different band to reject every working link in the study. What should the review check?","options":["Whether the map labels use the same abbreviations","Whether the path distances are rounded consistently","Whether the clearance assumption fits the modeled band and whether predicted margin meets the actual criterion","Whether every station has the same antenna height"],"answer":2,"explanation":"The study shows viable modeled links even with limited Fresnel clearance, so band, model and margin criterion matter.","sourceSlides":[27,35]},{"id":9,"qid":"propagation-h-09","difficulty":"hard","category":"Cellular Modeling","tags":["propagation","cellular modeling","application"],"prompt":"A comparison ranks one carrier first, but the others had fewer modeled towers. What should accompany the ranking?","options":["A statement that fewer runs prove the other networks have fewer towers","A claim that the first carrier has best actual service everywhere","The tower inputs and assumptions limiting the ranking","An adjustment based solely on the number of map pins"],"answer":2,"explanation":"Different site samples can affect a modeled footprint and limit what a ranking means.","sourceSlides":[37,38,42]},{"id":10,"qid":"propagation-h-10","difficulty":"hard","category":"Cellular Modeling","tags":["propagation","cellular modeling","application"],"prompt":"A screenshot legend lists one receiver threshold while the saved run settings list another. Which value should accompany a reconstruction of that run?","options":["The value in the legend because it appears on the map","Use the saved run value and document the mismatch","The arithmetic mean of both values","A third value chosen to match measured service"],"answer":1,"explanation":"Reconstruction depends on recorded run settings. The presentation distinguishes saved inputs from map presentation.","sourceSlides":[37,38]},{"id":11,"qid":"propagation-h-11","difficulty":"hard","category":"Cellular Modeling","tags":["propagation","cellular modeling","application"],"prompt":"A planned fallback relies on cellular service in a gap shown outside the compared tower runs. What action produces evidence for that fallback?","options":["Assume the nearest carrier pin proves reception","Infer service from the total number of operators shown","Treat the gap as final proof that all cellular options fail","Test local service and keep an alternative until verified"],"answer":3,"explanation":"A sampled cellular model is not a complete inventory or a field service test.","sourceSlides":[37,42,53]},{"id":12,"qid":"propagation-h-12","difficulty":"hard","category":"Cellular Modeling","tags":["propagation","cellular modeling","application"],"prompt":"A reviewer compares a wide-area composite for one carrier with a clipped overlay for another. What must change before drawing an area comparison?","options":["Match study boundaries and document differences in sites","Use a different legend for each carrier without stating its scale","Measure the visible number of icons instead of area","Increase the opacity of the clipped overlay alone"],"answer":0,"explanation":"Shared extent and disclosure of the modeled samples are needed to compare like areas.","sourceSlides":[37,42]},{"id":13,"qid":"propagation-h-13","difficulty":"hard","category":"Dead Spots and Relays","tags":["propagation","dead spots and relays","application"],"prompt":"Candidate A increases corridor coverage but misses one required link. Candidate B meets all required links and yields a smaller area gain. Which finding should lead a recommendation if the required links are decisive?","options":["Candidate A wins because area gain always outweighs a failed required link","The options tie because neither achieves both maxima","Use whichever site gives the highest individual margin","B meets the required links despite the smaller area gain"],"answer":3,"explanation":"The study evaluates both required links and area coverage. The stated link requirement governs this choice.","sourceSlides":[46,48,49]},{"id":14,"qid":"propagation-h-14","difficulty":"hard","category":"Dead Spots and Relays","tags":["propagation","dead spots and relays","application"],"prompt":"A relay improves communication between endpoints, yet one corridor section stays shaded. What should be reported?","options":["The endpoint results make the remaining shading irrelevant","The remaining shading proves the relay connects neither side","The relay addresses connectivity and leaves an area gap that still needs a plan","The changed corridor percent proves every mobile can connect"],"answer":2,"explanation":"End-to-end connectivity and continuous area coverage are separate outcomes.","sourceSlides":[44,46,49]},{"id":15,"qid":"propagation-h-15","difficulty":"hard","category":"Dead Spots and Relays","tags":["propagation","dead spots and relays","application"],"prompt":"The best modeled relay site cannot be reached during validation. How should a replacement be assessed?","options":["Check access, rerun link and area analyses, then verify on site","Transfer the original result to the nearest accessible location","Pick a lower location without recomputing the required paths","Report the original site as field verified because the model passed"],"answer":0,"explanation":"A change of location changes terrain and geometry. The replacement needs its own analysis and validation.","sourceSlides":[46,47,53]},{"id":16,"qid":"propagation-h-16","difficulty":"hard","category":"Dead Spots and Relays","tags":["propagation","dead spots and relays","application"],"prompt":"A map with the relay shows fewer dead spots, but the second map also omits a weak segment from the corridor. What comparison repairs the evidence?","options":["Use the larger coverage figure because it is more recent","Compare the same corridor using the same usability rule","Compare only the map colors and omit area figures","Count the omitted segment as fully covered in both runs"],"answer":1,"explanation":"Changing the denominator can create an apparent gain. Use matched extents and classes.","sourceSlides":[44,49]},{"id":17,"qid":"propagation-h-17","difficulty":"hard","category":"Validation and Decisions","tags":["propagation","validation and decisions","application"],"prompt":"A mast increase barely helps one strong path, while an area gap affects mobile users. What should the team evaluate next?","options":["Use that strong path's margin to certify mobile coverage","Test changes against the mobile coverage gap and verify field performance","Adopt the taller mast everywhere based on the one path","Exclude mobile use from the area analysis"],"answer":1,"explanation":"A sensitivity result for one base link does not answer whether mobile coverage improves.","sourceSlides":[49,51,53]},{"id":18,"qid":"propagation-h-18","difficulty":"hard","category":"Validation and Decisions","tags":["propagation","validation and decisions","application"],"prompt":"A validation visit finds cellular fallback unavailable in a modeled usable area. What recommendation should change?","options":["Leave the plan as written because a prediction exists","Remove all noncellular means from the plan to simplify it","Increase predicted coverage by including more towers without further checks","Revise the local fallback and log conditions for a rerun"],"answer":3,"explanation":"Field evidence should change local fallback guidance and inform a revised prediction.","sourceSlides":[37,52,53]},{"id":19,"qid":"propagation-h-19","difficulty":"hard","category":"Validation and Decisions","tags":["propagation","validation and decisions","application"],"prompt":"A team has time to verify only a subset of links first. Several high-margin links are convenient, while a marginal link supports an important relay path. Which should it prioritize?","options":["The convenient link with the largest margin","The path appearing first in the slides","The marginal path needed by an important relay","The shortest available path regardless of role"],"answer":2,"explanation":"Priority should reflect uncertainty and the consequence if the required link underperforms.","sourceSlides":[35,49,53]},{"id":20,"qid":"propagation-h-20","difficulty":"hard","category":"Validation and Decisions","tags":["propagation","validation and decisions","application"],"prompt":"Checks confirm relay connectivity at planned endpoints, but nobody tested the area where the prediction shows a remaining gap. What statement is supported?","options":["The checked endpoint links worked under test conditions and the residual area remains unverified","The checks validated every point in the corridor","The residual gap can be removed because the endpoints worked","All future relay paths using the same model are verified"],"answer":0,"explanation":"Field observations support the tested configurations and locations. The area prediction still needs separate validation.","sourceSlides":[48,49,53]}]</script>
+  <script type="application/json" id="questions-actual">[]</script>
   <script>
   (function () {
     'use strict';
@@ -1268,8 +1280,13 @@
     var HISTORY_LIMIT = 100;
 
     var MODES = ['easy', 'medium', 'hard'];
-    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
+    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard', actual: 'Actual Exam' };
     var MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h' };
+    // The Actual Exam category: questions from the class's graded exams (scripts/actual-exams.mjs). It is not a
+    // difficulty: its bank has its own rules (2 to 4 choices, an exam citation) and it is never sent to the class
+    // history, whose sheet accepts only easy, medium and hard.
+    var ACTUAL = 'actual';
+    var SOURCE_TYPES = ['graded-exam'];
     var LETTERS = ['A', 'B', 'C', 'D'];
     // A lesson bank holds MIN_BANK_SIZE to MAX_BANK_SIZE (20–35) questions per difficulty and an attempt serves the
     // whole bank, unseen-first and shuffled. Only a pool exam draws a coverage set of each lesson (selectCoverage).
@@ -1303,6 +1320,8 @@
         return null;
       }
       if (config.sourceRef !== null && (!config.sourceRef || !Number.isInteger(config.sourceRef.min) || !Number.isInteger(config.sourceRef.max) || typeof config.sourceRef.label !== 'string')) return null;
+      if (config.actual != null && (typeof config.actual !== 'object' || !Number.isInteger(config.actual.attempt) || config.actual.attempt < 1 || !Number.isInteger(config.actual.count) || config.actual.attempt > config.actual.count)) return null;
+      if (config.actualOnly && !config.actual) return null;
       if (config.sourceAlt != null && (typeof config.sourceAlt !== 'object' || !Number.isInteger(config.sourceAlt.min) || !Number.isInteger(config.sourceAlt.max) || typeof config.sourceAlt.label !== 'string' || typeof config.sourceAlt.ref !== 'string' || typeof config.sourceAlt.href !== 'string' || typeof config.sourceAlt.title !== 'string')) return null;
       return config;
     }
@@ -1320,6 +1339,10 @@
     // Optional secondary reference (for example a student handout in the Library), cited per question as sourceAlt.
     var SOURCE_ALT = CONFIG && CONFIG.sourceAlt ? CONFIG.sourceAlt : null;
     var STUDY_LINKS = JSON.parse(document.getElementById('study-links').textContent);
+    // Actual Exam settings ({ count, attempt, full? }) or null; actualOnly pages (the Comprehensive Exam Reviewer)
+    // have no difficulty banks and no class history.
+    var ACTUAL_CONFIG = CONFIG && CONFIG.actual ? CONFIG.actual : null;
+    var ACTUAL_ONLY = Boolean(CONFIG && CONFIG.actualOnly);
     var CATEGORY_ORDER = !CONFIG ? [] : POOL ? POOL.lessons.map(function (lesson) { return lesson.name; }) : CONFIG.categoryOrder.slice();
     // A primary topic counts as a strength at or above this percentage, otherwise a gap.
     var STRENGTH_THRESHOLD = 75;
@@ -1433,16 +1456,52 @@
       return errors;
     }
 
+    // Mirrors validateActualBank in scripts/actual-exams.mjs: each question cites its graded exam (source type
+    // "graded-exam") and has two to four distinct choices.
+    function validateActualBank(bank) {
+      if (!Array.isArray(bank)) return ['bank must be an array of questions'];
+      var errors = [];
+      if ((ACTUAL_CONFIG ? ACTUAL_CONFIG.count : 0) !== bank.length) errors.push('bank must contain ' + (ACTUAL_CONFIG ? ACTUAL_CONFIG.count : 0) + ' questions');
+      var seen = {};
+      bank.forEach(function (question, index) {
+        var at = 'question ' + (index + 1) + ': ';
+        if (question === null || typeof question !== 'object') { errors.push(at + 'question must be an object'); return; }
+        if (question.id !== index + 1) errors.push(at + 'id must be integer ' + (index + 1));
+        if (!LESSON_KEY_PATTERN.test(question.examKey || '')) errors.push(at + 'examKey must name a graded exam');
+        if (typeof question.qid !== 'string' || !new RegExp('^' + question.examKey + '-a-[0-9]{2,4}$').test(question.qid)) errors.push(at + 'qid must be "<examKey>-a-" followed by 2 to 4 digits');
+        if (Object.prototype.hasOwnProperty.call(seen, question.qid)) errors.push(at + 'qid ' + question.qid + ' is used more than once');
+        seen[question.qid] = true;
+        if (question.difficulty !== ACTUAL) errors.push(at + 'difficulty must be actual');
+        ['category', 'prompt', 'explanation'].forEach(function (field) {
+          if (typeof question[field] !== 'string' || !question[field].trim()) errors.push(at + field + ' must be a nonempty string');
+        });
+        var options = question.options;
+        if (!Array.isArray(options) || options.length < 2 || options.length > 4 || options.some(function (option) { return typeof option !== 'string' || !option.trim(); })) errors.push(at + 'options must contain two to four nonempty strings');
+        if (!Number.isInteger(question.answer) || !Array.isArray(options) || question.answer < 0 || question.answer >= options.length) errors.push(at + 'answer must index one of the options');
+        var source = question.source;
+        if (!source || SOURCE_TYPES.indexOf(source.type) === -1 || source.exam !== question.examKey || typeof source.title !== 'string' || typeof source.date !== 'string' || !Number.isInteger(source.number)) errors.push(at + 'source must be { type: "graded-exam", exam, title, date, number }');
+      });
+      return errors;
+    }
+
     function validateBanks(banks) {
       if (banks === null || typeof banks !== 'object') {
         return { valid: false, errors: ['question banks must be an object'] };
       }
       var errors = [];
-      MODES.forEach(function (mode) {
-        validateBank(banks[mode], mode).forEach(function (error) {
-          errors.push(mode + ' ' + error);
+      if (!ACTUAL_ONLY) {
+        MODES.forEach(function (mode) {
+          validateBank(banks[mode], mode).forEach(function (error) {
+            errors.push(mode + ' ' + error);
+          });
         });
-      });
+      }
+      // A caller checking only the difficulty banks may leave the Actual Exam bank out; the page always has one.
+      if (banks.actual !== undefined) {
+        validateActualBank(banks.actual).forEach(function (error) {
+          errors.push('actual ' + error);
+        });
+      }
       return { valid: errors.length === 0, errors: errors };
     }
 
@@ -1500,7 +1559,7 @@
     }
 
     function priorityClass(question, progress) {
-      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var lessonKey = progressOwner(question);
       var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
       var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
       return flag === 'm' ? 1 : flag === 's' ? 2 : 0;
@@ -1566,7 +1625,22 @@
     // last answered correctly) or 'm' (last answered wrongly). No name, score or answer is stored and nothing is
     // ever sent. Every storage access is wrapped in try/catch; without storage the quiz uses a plain shuffle.
     var PROGRESS_PREFIX = 'mastery-quiz:progress:';
-    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emh]-[0-9]{2,4}$/;
+    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emha]-[0-9]{2,4}$/;
+
+    // Whose device record a question belongs to: its graded exam (shared by every page that asks it), the pool
+    // exam's source lesson, or this lesson.
+    function progressOwner(question) {
+      return question && question.examKey ? question.examKey : POOL ? question.lessonKey : HISTORY_LESSON;
+    }
+
+    // The graded exams behind this page's Actual Exam bank.
+    function actualOwners() {
+      var owners = [];
+      (state && state.banks && state.banks.actual ? state.banks.actual : []).forEach(function (question) {
+        if (owners.indexOf(question.examKey) === -1) owners.push(question.examKey);
+      });
+      return owners;
+    }
 
     function deviceStorage() {
       try {
@@ -1605,14 +1679,14 @@
 
     function loadProgress(mode) {
       var progress = {};
-      progressLessons().forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
+      (mode === ACTUAL ? actualOwners() : progressLessons()).forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
       return progress;
     }
 
     function recordProgress(question, mode, correct) {
       var storage = deviceStorage();
       if (!storage) return false;
-      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var lessonKey = progressOwner(question);
       var progress = readProgress(lessonKey, mode);
       progress[question.qid] = correct ? 's' : 'm';
       try {
@@ -1628,9 +1702,12 @@
       var storage = deviceStorage();
       if (!storage) return false;
       try {
+        var keys = [];
         progressLessons().forEach(function (lessonKey) {
-          MODES.forEach(function (mode) { storage.removeItem(progressKey(lessonKey, mode)); });
+          MODES.forEach(function (mode) { keys.push(progressKey(lessonKey, mode)); });
         });
+        actualOwners().forEach(function (examKey) { keys.push(progressKey(examKey, ACTUAL)); });
+        keys.forEach(function (key) { storage.removeItem(key); });
         return true;
       } catch (error) {
         return false;
@@ -1642,7 +1719,7 @@
     function prioritize(questions, progress, random) {
       var groups = [[], [], []];
       Array.prototype.forEach.call(questions, function (question) {
-        var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+        var lessonKey = progressOwner(question);
         var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
         var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
         groups[flag === 'm' ? 1 : flag === 's' ? 2 : 0].push(question);
@@ -1655,15 +1732,26 @@
     }
 
     // `progress` (optional) is the device-local record from loadProgress(mode).
-    function createAttempt(mode, banks, random, progress) {
+    function createAttempt(mode, banks, random, progress, size) {
+      if (mode === ACTUAL) return createActualAttempt(banks, random, progress, size);
       if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
       var questions = sampleQuestions(banks[mode], random, progress);
       return { mode: mode, practice: false, questions: questions, current: 0, responses: blankResponses(questions) };
     }
 
+    // An Actual Exam attempt: unseen questions first, then missed, then the rest, each group shuffled, cut to `size`
+    // (the page's attempt length by default; the mixed reviewer set also offers its full length).
+    function createActualAttempt(banks, random, progress, size) {
+      var bank = banks && Array.isArray(banks.actual) ? banks.actual : [];
+      if (!ACTUAL_CONFIG || !bank.length) throw new Error('Unknown difficulty: ' + ACTUAL);
+      var length = Number.isInteger(size) && size > 0 ? Math.min(size, bank.length) : ACTUAL_CONFIG.attempt;
+      var questions = prioritize(bank, progress, random).slice(0, length);
+      return { mode: ACTUAL, practice: false, size: length, questions: questions, current: 0, responses: blankResponses(questions) };
+    }
+
     // A practice attempt asks only the given questions (reshuffled; answer choices keep their order).
     function createPracticeAttempt(mode, questions, random) {
-      if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
+      if (MODES.indexOf(mode) === -1 && !(mode === ACTUAL && ACTUAL_CONFIG)) throw new Error('Unknown difficulty: ' + mode);
       var shuffled = shuffleQuestions(questions, random);
       return { mode: mode, practice: true, questions: shuffled, current: 0, responses: blankResponses(shuffled) };
     }
@@ -1847,6 +1935,7 @@
         medium: byId('mode-medium'),
         hard: byId('mode-hard')
       },
+      actualButtons: [byId('mode-actual'), byId('mode-actual-all')].filter(Boolean),
       soundToggle: byId('btn-sound'),
       soundState: byId('sound-state'),
       reviewerLink: byId('reviewer-link'),
@@ -1934,6 +2023,12 @@
       children.forEach(function (child) { node.appendChild(child); });
     }
 
+    // "Topic: ...", or for a graded-exam question the exam and its question number.
+    function questionTopic(question) {
+      if (question.source && question.source.type === 'graded-exam') return 'Actual Exam · ' + question.source.title + ' · question ' + question.source.number;
+      return TEXT.topicNoun + ': ' + question.category;
+    }
+
     function optionText(question, index) {
       return LETTERS[index] + '. ' + question.options[index];
     }
@@ -1968,7 +2063,7 @@
 
     // Difficulty accent for the page: theme-easy, theme-medium or theme-hard; null clears it.
     function setTheme(mode) {
-      MODES.forEach(function (key) {
+      MODES.concat([ACTUAL]).forEach(function (key) {
         document.body.classList.toggle('theme-' + key, key === mode);
       });
     }
@@ -2033,15 +2128,18 @@
     function updateGate() {
       var open = gateOpen();
       MODES.forEach(function (mode) {
-        ui.modeButtons[mode].disabled = !open;
+        ui.modeButtons[mode].disabled = !open || ACTUAL_ONLY;
       });
+      ui.actualButtons.forEach(function (button) { button.disabled = !open; });
       if (state.available) {
         var missing = [];
         if (!state.nameValid) missing.push('enter your name');
         if (!state.studyConfirmed) missing.push('check the study confirmation');
-        ui.modeHint.textContent = open
-          ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.'
-          : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
+        ui.modeHint.textContent = ACTUAL_ONLY
+          ? (open ? 'Buttons enabled. Choose an attempt to begin.' : 'To enable the buttons, ' + missing.join(' and ') + ' above.')
+          : open
+            ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.' + (ACTUAL_CONFIG ? ' The Actual Exam category is below them.' : '')
+            : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
       }
       return open;
     }
@@ -2093,8 +2191,13 @@
       return true;
     }
 
-    function startQuiz(mode) {
-      if (!gateOpen() || MODES.indexOf(mode) === -1) return false;
+    function startQuiz(mode, size) {
+      if (!gateOpen()) return false;
+      if (mode === ACTUAL) {
+        if (!ACTUAL_CONFIG || !state.banks.actual.length) return false;
+        return beginAttempt(createActualAttempt(state.banks, state.random, loadProgress(ACTUAL), size));
+      }
+      if (MODES.indexOf(mode) === -1 || ACTUAL_ONLY) return false;
       return beginAttempt(createAttempt(mode, state.banks, state.random, loadProgress(mode)));
     }
 
@@ -2124,7 +2227,7 @@
       ui.reviewerLink.setAttribute('href', primary ? primary.studyDoc : STUDY_LINKS.reviewer);
       ui.quizHeading.textContent = attempt.practice
         ? 'Practice: retrying missed questions (' + MODE_LABELS[attempt.mode] + ')'
-        : MODE_LABELS[attempt.mode] + ' examination';
+        : attempt.mode === ACTUAL ? 'Actual Exam review' : MODE_LABELS[attempt.mode] + ' examination';
       setPracticeNote(ui.quizPracticeNote, attempt.practice);
       var student = make('strong', null, attempt.studentName);
       setChildren(ui.quizStudent, [textNode('Student: '), student]);
@@ -2136,7 +2239,7 @@
       if (ui.qIndexNum) ui.qIndexNum.textContent = pad(index + 1);
       if (ui.qIndexTotal) ui.qIndexTotal.textContent = 'of ' + pad(total);
       renderTicks(attempt);
-      ui.questionCategory.textContent = TEXT.topicNoun + ': ' + question.category;
+      ui.questionCategory.textContent = questionTopic(question);
 
       var fieldset = make('fieldset', 'question-fieldset');
       fieldset.id = 'question-fieldset';
@@ -2269,6 +2372,12 @@
       return links;
     }
 
+    var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    function displayDate(date) {
+      var parts = String(date).split('-').map(Number);
+      return parts.length === 3 && parts[1] >= 1 && parts[1] <= 12 ? parts[2] + ' ' + MONTH_NAMES[parts[1] - 1] + ' ' + parts[0] : String(date);
+    }
+
     function explanationBlock(question, className) {
       var block = make('div', 'explanation-group ' + className);
       var note = question.explanation;
@@ -2297,11 +2406,14 @@
       if (SOURCE_ALT && question.sourceAlt && Array.isArray(question.sourceAlt.pages) && question.sourceAlt.pages.length) {
         references.push(SOURCE_ALT.label + ' · ' + (question.sourceAlt.pages.length === 1 ? 'page ' : 'pages ') + question.sourceAlt.pages.join(', '));
       }
+      var graded = question.source && question.source.type === 'graded-exam';
+      if (graded) references.push('SOAC 52-2026 graded exam: ' + question.source.title + ', ' + displayDate(question.source.date) + ' · question ' + question.source.number);
       if (references.length) {
         var referenceBlock = make('div', 'explanation explanation-references');
         referenceBlock.appendChild(make('p', 'section-label', 'References'));
         references.forEach(function (reference) { referenceBlock.appendChild(make('p', 'source-ref', reference)); });
-        studyReferenceLinks(question, references).forEach(function (reference, destination) {
+        // A graded exam is not a Library document, so its citation stays plain text.
+        (graded ? new Map() : studyReferenceLinks(question, references)).forEach(function (reference, destination) {
           var line = make('p', 'library-source');
           var link = reference.unavailable
             ? make('a', 'library-reference reference-unavailable', reference.title + ' · PDF unavailable')
@@ -2411,6 +2523,10 @@
         // Practice retries never reach the class history or the item analysis.
         state.submission = { payload: null, status: 'practice' };
         renderSaveStatus();
+      } else if (attempt.mode === ACTUAL) {
+        // Nor do Actual Exam attempts: the class history sheet accepts only easy, medium and hard.
+        state.submission = { payload: null, status: 'actual' };
+        renderSaveStatus();
       } else {
         submitAttempt(buildSubmission(state.results));
       }
@@ -2420,7 +2536,7 @@
     function retakeQuiz() {
       var mode = state.attempt ? state.attempt.mode : null;
       if (!mode) return false;
-      return startQuiz(mode);
+      return startQuiz(mode, state.attempt.size);
     }
 
     // The landing view's "Reset my progress on this device" link.
@@ -2441,7 +2557,7 @@
       showView('landing');
       setStudyConfirmed(state.studyConfirmed);
       ui.difficultyHeading.focus();
-      if (ENDPOINT) loadHistory(state.history.filter);
+      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
       return true;
     }
 
@@ -2586,7 +2702,7 @@
     function renderResults(results) {
       ui.resultsHeading.textContent = results.practice
         ? 'Practice results (' + MODE_LABELS[results.mode] + ')'
-        : MODE_LABELS[results.mode] + ' examination results';
+        : results.mode === ACTUAL ? 'Actual Exam results' : MODE_LABELS[results.mode] + ' examination results';
       setPracticeNote(ui.resultsPracticeNote, results.practice);
 
       var card = make('div', 'score-card ' + bandClass(results.band.name));
@@ -2598,7 +2714,7 @@
       var student = make('p', 'results-student');
       student.append(make('span', 'meta-label', 'Student'), make('span', 'meta-value', results.studentName));
       var mode = make('p', 'results-mode');
-      mode.append(make('span', 'meta-label', 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode] + (results.practice ? ' · practice retry' : '')));
+      mode.append(make('span', 'meta-label', results.mode === ACTUAL ? 'Category' : 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode] + (results.practice ? ' · practice retry' : '')));
       var bandLabel = make('p', 'meta-label', 'Mastery band');
       var band = make('p', 'band-badge results-band');
       band.append(iconNode(results.percentage >= STRENGTH_THRESHOLD ? 'check' : 'alert'), make('span', null, results.band.name));
@@ -2645,7 +2761,7 @@
         );
         item.append(
           head,
-          make('p', 'review-topic', TEXT.topicNoun + ': ' + question.category),
+          make('p', 'review-topic', questionTopic(question)),
           make('p', 'review-prompt', question.prompt),
           answerLine(entry.correct ? 'correct' : 'incorrect', 'Your answer:', question, entry.selected),
           answerLine('correct', 'Correct answer:', question, question.answer),
@@ -2771,7 +2887,8 @@
         saved: ['check', 'Saved to the class history.'],
         failed: ['alert', 'Could not save to class history. Your results below are unaffected.'],
         'not-configured': ['dot', 'Class history is not set up, so this score was not saved to a class list.'],
-        practice: ['dot', 'Practice attempts are not saved to the class history.']
+        practice: ['dot', 'Practice attempts are not saved to the class history.'],
+        actual: ['dot', 'Actual Exam attempts are not saved to the class history.']
       }[status];
       ui.saveBox.className = 'history-save save-' + status;
       setChildren(ui.saveMessage, copy ? [iconNode(copy[0]), make('span', null, copy[1])] : []);
@@ -2919,7 +3036,7 @@
     function showHistory() {
       if (ui.historyPanel.hidden) return false;
       ui.historyHeading.focus();
-      if (ENDPOINT) loadHistory(state.history.filter);
+      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
       return true;
     }
 
@@ -2928,7 +3045,7 @@
     function readBanks() {
       var banks = {};
       var errors = [];
-      MODES.forEach(function (mode) {
+      MODES.concat([ACTUAL]).forEach(function (mode) {
         var element = byId('questions-' + mode);
         if (!element) {
           errors.push(mode + ' bank data is missing');
@@ -2958,6 +3075,7 @@
         ui.studyConfirm.disabled = true;
         ui.nameInput.disabled = true;
         MODES.forEach(function (mode) { ui.modeButtons[mode].disabled = true; });
+        ui.actualButtons.forEach(function (button) { button.disabled = true; });
         showView('unavailable');
         ui.unavailableHeading.focus();
         console.error(QUIZ_TITLE + ' is unavailable: ' + state.errors.join('; '));
@@ -2971,6 +3089,9 @@
       ui.studyConfirm.addEventListener('change', function () { setStudyConfirmed(ui.studyConfirm.checked); });
       MODES.forEach(function (mode) {
         ui.modeButtons[mode].addEventListener('click', function () { startQuiz(mode); });
+      });
+      ui.actualButtons.forEach(function (button) {
+        button.addEventListener('click', function () { startQuiz(ACTUAL, button.id === 'mode-actual-all' && ACTUAL_CONFIG.full ? ACTUAL_CONFIG.full : ACTUAL_CONFIG.attempt); });
       });
       ui.btnCheck.addEventListener('click', checkAnswer);
       ui.btnPrev.addEventListener('click', function () { if (state.attempt) goToQuestion(state.attempt.current - 1); });
@@ -2994,7 +3115,9 @@
       setStudentName(ui.nameInput.value, false);
       setStudyConfirmed(false);
       renderSaveStatus();
-      loadHistory('all');
+      // The Comprehensive Exam Reviewer pages have no class history: no request is ever made from them.
+      ui.btnHistory.hidden = ACTUAL_ONLY;
+      if (!ACTUAL_ONLY) loadHistory('all');
     }
 
     function getState() {
@@ -3019,6 +3142,8 @@
     globalThis.__quiz = Object.freeze({
       lessonKey: HISTORY_LESSON,
       validateBanks: validateBanks,
+      validateActualBank: validateActualBank,
+      actualConfig: ACTUAL_CONFIG,
       shuffleQuestions: shuffleQuestions,
       sampleQuestions: sampleQuestions,
       selectCoverage: selectCoverage,
@@ -3053,12 +3178,14 @@
       // Replaces the Web Audio player (tests inject a recorder); null restores the default player.
       setSoundPlayer: function (player) { state.soundPlayer = typeof player === 'function' ? player : defaultSoundPlayer; },
       getState: getState,
-      getBanks: function () { return state.banks; },
+      // The difficulty banks; the Actual Exam bank is separate (getActualBank).
+      getBanks: function () { return state.banks ? { easy: state.banks.easy, medium: state.banks.medium, hard: state.banks.hard } : state.banks; },
+      getActualBank: function () { return state.banks ? state.banks.actual : null; },
       setRandom: function (random) { state.random = typeof random === 'function' ? random : Math.random; }
     });
   })();
   </script>
-<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid"><div><h2>Practice exams</h2><ul><li><a class="main" href="../">Exam hub (all modules)</a></li><li><a class="main" href="../module-1-exam/">Module 1 Exam</a></li><li><a class="main" href="../module-3-exam/">Module 4 Exam</a></li><li><a class="main" href="../module-5-exam/">Module 5 Exam</a></li><li><a class="main" href="../module-6-exam/">Module 6 Exam</a></li><li><a class="main" href="../module-7-exam/">Module 7 Exam</a></li><li><a class="main" href="../module-8-exam/">Module 8 Exam</a></li></ul></div><div><h2>Reviewer</h2><ul><li><a class="main" href="../reviewer/">All Reviewer lessons</a></li></ul><p class="mod">Module 1 · Leadership</p><ul><li><a class="main" href="../military-leadership-attributes/">Military Leadership Attributes quiz</a><a href="../reviewer/leadershipattributes/">Reviewer</a></li><li><a class="main" href="../military-leadership-competencies/">Military Leadership Competencies quiz</a><a href="../reviewer/leadershipcompetencies/">Reviewer</a></li><li><a class="main" href="../company-management/">Company Management quiz</a><a href="../reviewer/companymanagement/">Reviewer</a></li><li><a class="main" href="../mission-command/">Mission Command quiz</a><a href="../reviewer/missioncommand/">Reviewer</a></li><li><a class="main" href="../ethical-transformational-leadership/">Ethical and Transformational Leadership quiz</a><a href="../reviewer/ethicalleadership/">Reviewer</a></li><li><a class="main" href="../nco-empowerment/">NCO Empowerment quiz</a><a href="../reviewer/ncoempowerment/">Reviewer</a></li><li><a class="main" href="../effective-communication-2/">Effective Communication 2 quiz</a><a href="../reviewer/effectivecommunication/">Reviewer</a></li></ul><p class="mod">Module 2 · Army Operating Concept</p><ul><li><a class="main" href="../combined/">Combined Practice Exam quiz</a></li><li><a class="main" href="../field-artillery/">Field Artillery Operations quiz</a><a href="../reviewer/fieldartillery/">Reviewer</a></li><li><a class="main" href="../armor/">Armor Operations quiz</a><a href="../reviewer/armor/">Reviewer</a></li><li><a class="main" href="../isr/">ISR Operations quiz</a><a href="../reviewer/isr/">Reviewer</a></li></ul><p class="mod">Module 3 · Battalion/Brigade Operations Planning</p><ul><li><a class="main" href="../module-3-planning-exam/">Module 3 Planning Exam quiz</a></li><li><a class="main" href="../troop-leading-procedure/">Troop Leading Procedure (TLP) quiz</a><a href="../reviewer/tlp/">Reviewer</a></li><li><a class="main" href="../military-decision-making-process/">Military Decision-Making Process (MDMP) quiz</a><a href="../reviewer/mdmp/">Reviewer</a></li></ul><p class="mod">Module 4 · Signal Support Integration</p><ul><li><a class="main" href="../signal-support/">Signal Support in Combined Arms Operations quiz</a><a href="../reviewer/signal/">Reviewer</a></li><li><a class="main" href="../joint-signal/">Signal Support in Joint Operations quiz</a><a href="../reviewer/signaljoint/">Reviewer</a></li><li><a class="main" href="../coalition-signal/">Signal Support in Coalition Operations quiz</a><a href="../reviewer/coalition/">Reviewer</a></li></ul><p class="mod">Module 5 · Advanced C2 Communications</p><ul><li><a class="main" href="../manet-c4istar-planning/">MANET C4ISTAR Planning quiz</a><a href="../reviewer/manet/">Reviewer</a></li><li><a class="main" href="../c4istar-sensors-integration/">C4ISTAR Sensors Integration quiz</a><a href="../reviewer/sensors/">Reviewer</a></li><li><a class="main" href="../c4istar-weapon-system-integration/">C4ISTAR Weapon System Integration quiz</a><a href="../reviewer/weapons/">Reviewer</a></li><li><a class="main" href="../signal-propagation/">Signal Propagation (Mobile Apps/RF Clouds) quiz</a><a href="../reviewer/propagation/">Reviewer</a></li></ul><p class="mod">Module 6 · Advanced Electronic Warfare Operations</p><ul><li><a class="main" href="../signals-intelligence/">Signals Intelligence (SIGINT) quiz</a><a href="../reviewer/sigint/">Reviewer</a></li><li><a class="main" href="../electronic-intelligence/">Electronic Intelligence (ELINT) quiz</a><a href="../reviewer/elint/">Reviewer</a></li><li><a class="main" href="../radio-direction-finding/">Radio Direction Finding quiz</a><a href="../reviewer/rdf/">Reviewer</a></li><li><a class="main" href="../electronic-counter-countermeasures/">Electronic Counter-Countermeasures (ECCM) quiz</a><a href="../reviewer/eccm/">Reviewer</a></li></ul><p class="mod">Module 7 · Advanced Cyberspace Operations</p><ul><li><a class="main" href="../nist-framework/">NIST Framework quiz</a><a href="../reviewer/nist/">Reviewer</a></li><li><a class="main" href="../zero-trust/">Zero Trust quiz</a><a href="../reviewer/zerotrust/">Reviewer</a></li><li><a class="main" href="../gsomia-compliance/">LOE3 GSOMIA Compliance quiz</a><a href="../reviewer/gsomia/">Reviewer</a></li><li><a class="main" href="../cyber-risk-assessment/">Cyber Risk Assessment quiz</a><a href="../reviewer/cyberrisk/">Reviewer</a></li></ul><p class="mod">Module 8 · Signal Planning</p><ul><li><a class="main" href="../ceoi-cesi-management/">CEOI / CESI Management quiz</a><a href="../reviewer/ceoicesi/">Reviewer</a></li><li><a class="main" href="../signal-estimate/">Signal Estimate quiz</a><a href="../reviewer/signalestimate/">Reviewer</a></li><li><a class="main" href="../c4istar-communications-planning/">C4ISTAR Communications Planning quiz</a><a href="../reviewer/c4istarplanning/">Reviewer</a></li><li><a class="main" href="../signal-planning-process/">Signal Planning Process quiz</a><a href="../reviewer/signalplanning/">Reviewer</a></li></ul><p class="mod">Supporting Lessons · Supporting study material; not separately numbered POI lessons</p><ul><li><a class="main" href="../army-operations/">Army Operations quiz</a><a href="../reviewer/armyops/">Reviewer</a></li><li><a class="main" href="../intelligence-cycle/">Intelligence Cycle quiz</a><a href="../reviewer/intcycle/">Reviewer</a></li></ul></div><div><h2>Library</h2><ul><li><a class="main" href="../library/">Library: lessons, manuals, sources</a></li><li><a class="main" href="../library/unit-organization/">Unit Organization</a></li></ul></div><div><h2>How To guides</h2><ul><li><a class="main" href="../how-to/">All How To guides</a></li><li><a class="main" href="../how-to/how-to-check-repeater-channel-pair/">Check a repeater channel pair</a></li><li><a class="main" href="../how-to/how-to-conduct-radio-check/">Conduct a two-station radio check</a></li><li><a class="main" href="../how-to/how-to-configure-rf5800v-scan/">Configure an RF-5800V scan list</a></li><li><a class="main" href="../how-to/how-to-connect-windows-radio-rndis/">Connect a Windows PC to a radio over USB</a></li><li><a class="main" href="../how-to/how-to-plot-radio-link-profile/">Plot a radio link in Radio Mobile</a></li><li><a class="main" href="../how-to/how-to-program-fixed-frequency-preset/">Program a fixed-frequency radio channel</a></li><li><a class="main" href="../how-to/how-to-program-rf5800v-net/">Program an RF-5800V voice net</a></li><li><a class="main" href="../how-to/how-to-set-up-two-radio-retransmit/">Set up a two-radio repeater</a></li><li><a class="main" href="../how-to/how-to-size-a-half-wave-dipole/">Size a half-wave dipole</a></li><li><a class="main" href="../how-to/how-to-test-tactical-chat-link/">Send a test message over a radio data link</a></li><li><a class="main" href="../how-to/how-to-transfer-cpa-radio-plan/">Transfer a CPA plan to an RF-7800V</a></li></ul></div><div><h2>Radio and codes</h2><ul><li><a class="main" href="../los-radios/">LOS Radios</a></li><li><a class="main" href="../codes-ciphers/">Codes &amp; Ciphers</a></li></ul></div><div><h2>Schedule, class, instructor</h2><ul><li><a class="main" href="../schedule/?v=day-picker-2">Weekly schedule (current week)</a></li><li><a class="main" href="../schedule-2026-11-02/">Week of 02–08 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-09/">Week of 09–15 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-16/">Week of 16–22 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-23/">Week of 23–29 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-30/">Week of 30 Nov – 06 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-07/">Week of 07–13 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-14/">Week of 14–20 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-21/">Week of 21–27 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-28/">Week of 28 Dec 2026 – 03 Jan 2027</a></li><li><a class="main" href="../schedule-2027-01-04/">Week of 04–10 Jan 2027</a></li><li><a class="main" href="../class/">Our class</a></li><li><a class="main" href="../instructor/">Instructor view</a></li></ul></div></div></details></nav>
+<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid"><div><h2>Practice exams</h2><ul><li><a class="main" href="../">Exam hub (all modules)</a></li><li><a class="main" href="../module-1-exam/">Module 1 Exam</a></li><li><a class="main" href="../module-3-exam/">Module 4 Exam</a></li><li><a class="main" href="../module-5-exam/">Module 5 Exam</a></li><li><a class="main" href="../module-6-exam/">Module 6 Exam</a></li><li><a class="main" href="../module-7-exam/">Module 7 Exam</a></li><li><a class="main" href="../module-8-exam/">Module 8 Exam</a></li></ul></div><div><h2>Comprehensive Exam Reviewer</h2><ul><li><a class="main" href="../comprehensive-reviewer/">Actual Exam: all graded exams</a></li><li><a class="main" href="../comprehensive-reviewer/all/">All graded exams, mixed</a></li></ul></div><div><h2>Reviewer</h2><ul><li><a class="main" href="../reviewer/">All Reviewer lessons</a></li></ul><p class="mod">Module 1 · Leadership</p><ul><li><a class="main" href="../military-leadership-attributes/">Military Leadership Attributes quiz</a><a href="../reviewer/leadershipattributes/">Reviewer</a></li><li><a class="main" href="../military-leadership-competencies/">Military Leadership Competencies quiz</a><a href="../reviewer/leadershipcompetencies/">Reviewer</a></li><li><a class="main" href="../company-management/">Company Management quiz</a><a href="../reviewer/companymanagement/">Reviewer</a></li><li><a class="main" href="../mission-command/">Mission Command quiz</a><a href="../reviewer/missioncommand/">Reviewer</a></li><li><a class="main" href="../ethical-transformational-leadership/">Ethical and Transformational Leadership quiz</a><a href="../reviewer/ethicalleadership/">Reviewer</a></li><li><a class="main" href="../nco-empowerment/">NCO Empowerment quiz</a><a href="../reviewer/ncoempowerment/">Reviewer</a></li><li><a class="main" href="../effective-communication-2/">Effective Communication 2 quiz</a><a href="../reviewer/effectivecommunication/">Reviewer</a></li></ul><p class="mod">Module 2 · Army Operating Concept</p><ul><li><a class="main" href="../combined/">Combined Practice Exam quiz</a></li><li><a class="main" href="../field-artillery/">Field Artillery Operations quiz</a><a href="../reviewer/fieldartillery/">Reviewer</a></li><li><a class="main" href="../armor/">Armor Operations quiz</a><a href="../reviewer/armor/">Reviewer</a></li><li><a class="main" href="../isr/">ISR Operations quiz</a><a href="../reviewer/isr/">Reviewer</a></li></ul><p class="mod">Module 3 · Battalion/Brigade Operations Planning</p><ul><li><a class="main" href="../module-3-planning-exam/">Module 3 Planning Exam quiz</a></li><li><a class="main" href="../troop-leading-procedure/">Troop Leading Procedure (TLP) quiz</a><a href="../reviewer/tlp/">Reviewer</a></li><li><a class="main" href="../military-decision-making-process/">Military Decision-Making Process (MDMP) quiz</a><a href="../reviewer/mdmp/">Reviewer</a></li></ul><p class="mod">Module 4 · Signal Support Integration</p><ul><li><a class="main" href="../signal-support/">Signal Support in Combined Arms Operations quiz</a><a href="../reviewer/signal/">Reviewer</a></li><li><a class="main" href="../joint-signal/">Signal Support in Joint Operations quiz</a><a href="../reviewer/signaljoint/">Reviewer</a></li><li><a class="main" href="../coalition-signal/">Signal Support in Coalition Operations quiz</a><a href="../reviewer/coalition/">Reviewer</a></li></ul><p class="mod">Module 5 · Advanced C2 Communications</p><ul><li><a class="main" href="../manet-c4istar-planning/">MANET C4ISTAR Planning quiz</a><a href="../reviewer/manet/">Reviewer</a></li><li><a class="main" href="../c4istar-sensors-integration/">C4ISTAR Sensors Integration quiz</a><a href="../reviewer/sensors/">Reviewer</a></li><li><a class="main" href="../c4istar-weapon-system-integration/">C4ISTAR Weapon System Integration quiz</a><a href="../reviewer/weapons/">Reviewer</a></li><li><a class="main" href="../signal-propagation/">Signal Propagation (Mobile Apps/RF Clouds) quiz</a><a href="../reviewer/propagation/">Reviewer</a></li></ul><p class="mod">Module 6 · Advanced Electronic Warfare Operations</p><ul><li><a class="main" href="../signals-intelligence/">Signals Intelligence (SIGINT) quiz</a><a href="../reviewer/sigint/">Reviewer</a></li><li><a class="main" href="../electronic-intelligence/">Electronic Intelligence (ELINT) quiz</a><a href="../reviewer/elint/">Reviewer</a></li><li><a class="main" href="../radio-direction-finding/">Radio Direction Finding quiz</a><a href="../reviewer/rdf/">Reviewer</a></li><li><a class="main" href="../electronic-counter-countermeasures/">Electronic Counter-Countermeasures (ECCM) quiz</a><a href="../reviewer/eccm/">Reviewer</a></li></ul><p class="mod">Module 7 · Advanced Cyberspace Operations</p><ul><li><a class="main" href="../nist-framework/">NIST Framework quiz</a><a href="../reviewer/nist/">Reviewer</a></li><li><a class="main" href="../zero-trust/">Zero Trust quiz</a><a href="../reviewer/zerotrust/">Reviewer</a></li><li><a class="main" href="../gsomia-compliance/">LOE3 GSOMIA Compliance quiz</a><a href="../reviewer/gsomia/">Reviewer</a></li><li><a class="main" href="../cyber-risk-assessment/">Cyber Risk Assessment quiz</a><a href="../reviewer/cyberrisk/">Reviewer</a></li></ul><p class="mod">Module 8 · Signal Planning</p><ul><li><a class="main" href="../ceoi-cesi-management/">CEOI / CESI Management quiz</a><a href="../reviewer/ceoicesi/">Reviewer</a></li><li><a class="main" href="../signal-estimate/">Signal Estimate quiz</a><a href="../reviewer/signalestimate/">Reviewer</a></li><li><a class="main" href="../c4istar-communications-planning/">C4ISTAR Communications Planning quiz</a><a href="../reviewer/c4istarplanning/">Reviewer</a></li><li><a class="main" href="../signal-planning-process/">Signal Planning Process quiz</a><a href="../reviewer/signalplanning/">Reviewer</a></li></ul><p class="mod">Supporting Lessons · Supporting study material; not separately numbered POI lessons</p><ul><li><a class="main" href="../army-operations/">Army Operations quiz</a><a href="../reviewer/armyops/">Reviewer</a></li><li><a class="main" href="../intelligence-cycle/">Intelligence Cycle quiz</a><a href="../reviewer/intcycle/">Reviewer</a></li></ul></div><div><h2>Library</h2><ul><li><a class="main" href="../library/">Library: lessons, manuals, sources</a></li><li><a class="main" href="../library/unit-organization/">Unit Organization</a></li></ul></div><div><h2>How To guides</h2><ul><li><a class="main" href="../how-to/">All How To guides</a></li><li><a class="main" href="../how-to/how-to-check-repeater-channel-pair/">Check a repeater channel pair</a></li><li><a class="main" href="../how-to/how-to-conduct-radio-check/">Conduct a two-station radio check</a></li><li><a class="main" href="../how-to/how-to-configure-rf5800v-scan/">Configure an RF-5800V scan list</a></li><li><a class="main" href="../how-to/how-to-connect-windows-radio-rndis/">Connect a Windows PC to a radio over USB</a></li><li><a class="main" href="../how-to/how-to-plot-radio-link-profile/">Plot a radio link in Radio Mobile</a></li><li><a class="main" href="../how-to/how-to-program-fixed-frequency-preset/">Program a fixed-frequency radio channel</a></li><li><a class="main" href="../how-to/how-to-program-rf5800v-net/">Program an RF-5800V voice net</a></li><li><a class="main" href="../how-to/how-to-set-up-two-radio-retransmit/">Set up a two-radio repeater</a></li><li><a class="main" href="../how-to/how-to-size-a-half-wave-dipole/">Size a half-wave dipole</a></li><li><a class="main" href="../how-to/how-to-test-tactical-chat-link/">Send a test message over a radio data link</a></li><li><a class="main" href="../how-to/how-to-transfer-cpa-radio-plan/">Transfer a CPA plan to an RF-7800V</a></li></ul></div><div><h2>Radio and codes</h2><ul><li><a class="main" href="../los-radios/">LOS Radios</a></li><li><a class="main" href="../codes-ciphers/">Codes &amp; Ciphers</a></li></ul></div><div><h2>Schedule, class, instructor</h2><ul><li><a class="main" href="../schedule/?v=day-picker-2">Weekly schedule (current week)</a></li><li><a class="main" href="../schedule-2026-11-02/">Week of 02–08 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-09/">Week of 09–15 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-16/">Week of 16–22 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-23/">Week of 23–29 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-30/">Week of 30 Nov – 06 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-07/">Week of 07–13 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-14/">Week of 14–20 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-21/">Week of 21–27 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-28/">Week of 28 Dec 2026 – 03 Jan 2027</a></li><li><a class="main" href="../schedule-2027-01-04/">Week of 04–10 Jan 2027</a></li><li><a class="main" href="../class/">Our class</a></li><li><a class="main" href="../instructor/">Instructor view</a></li></ul></div></div></details></nav>
 <aside class="domain-seal" aria-label="Site signature"><img class="domain-sigil" src="../assets/domain-void-hand-320.webp" width="160" height="221" alt="" loading="lazy" decoding="async"><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>“You see, but you do not observe.”</em><cite data-domain-attribution>— Sherlock Holmes · A Scandal in Bohemia · Arthur Conan Doyle</cite></span></aside>
 <script src="../assets/identity.js" defer></script>
 </body>

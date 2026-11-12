@@ -258,3 +258,23 @@ html .lesson-next :focus-visible { outline-color:var(--color-signal-light); }
   a { color:#000; text-decoration:none; }
   .topic-source { font-size:8pt; color:#333; }
 }
+
+/* Comprehensive Exam Reviewer (comprehensive-reviewer/): the graded exams as quizzes. */
+.graded-layout { display:grid; gap:0; max-width:64rem; }
+.graded-mixed { margin-top:1.6rem; padding:1.3rem; border:1px solid var(--study-line); border-left:5px solid var(--color-signal); background:#faf8f0; }
+.graded-mixed h2 { margin:.5rem 0 .4rem; color:var(--study-dark); font-size:clamp(1.4rem, 3vw, 1.9rem); line-height:1.15; }
+.graded-mixed p { max-width:44rem; margin:0 0 1rem; color:var(--color-muted); line-height:1.5; }
+.actual-badge { display:inline-block; width:fit-content; margin:0; padding:.15rem .5rem; border:2px solid var(--color-signal-text); color:var(--color-signal-text); font:600 .72rem/1.3 var(--font-mono); letter-spacing:.14em; text-transform:uppercase; }
+.graded-list { display:grid; gap:.8rem; margin:0; padding:0; list-style:none; }
+.graded-card { display:grid; grid-template-columns:3rem minmax(0,1fr); gap:.4rem 1rem; padding:1.1rem 1.2rem; border:1px solid var(--study-line); background:#faf8f0; }
+.graded-num { margin:0; color:var(--color-signal-text); font:600 1.1rem/1.4 var(--font-mono); }
+.graded-main h3 { margin:0; color:var(--study-dark); font-size:1.2rem; line-height:1.25; }
+.graded-meta { display:flex; flex-wrap:wrap; gap:.3rem 1rem; margin:.35rem 0; color:var(--color-muted); font:.8rem/1.4 var(--font-mono); }
+.graded-also { margin:.2rem 0 .8rem; color:var(--color-muted); line-height:1.5; }
+.graded-also a { color:var(--color-accent); }
+.graded-start { display:inline-flex; align-items:center; gap:.4rem; min-height:2.75rem; padding:.45rem .95rem; border:1px solid var(--color-accent); border-radius:var(--radius); color:var(--color-accent); font-weight:700; text-decoration:none; }
+.graded-start:hover { color:var(--color-paper); background:var(--color-accent); }
+.graded-notes ul { max-width:46rem; margin:0; padding-left:1.2rem; color:var(--color-muted); line-height:1.55; }
+.graded-notes li + li { margin-top:.5rem; }
+.graded-notes h2 { margin:0 0 .8rem; color:var(--study-dark); }
+@media (max-width:520px) { .graded-card { grid-template-columns:minmax(0,1fr); } .graded-num { font-size:.9rem; } .graded-start { width:100%; justify-content:center; } }

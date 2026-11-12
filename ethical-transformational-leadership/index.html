@@ -548,6 +548,16 @@
     .mode-button:disabled .mode-name .gauge { color: var(--color-rule); }
     .mode-desc { font-size: var(--text-ui); font-weight: 400; line-height: 1.45; }
     .mode-go { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent); }
+    /* Actual Exam: a fourth category, set apart from the difficulty ladder by a rule, a label and a stamp. */
+    .actual-block { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 3px double var(--color-text); }
+    .actual-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-3); margin: 0; font-size: var(--text-h4); }
+    .actual-badge { display: inline-block; padding: 0.15rem 0.5rem; border: 2px solid var(--color-signal-text); color: var(--color-signal-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+    .actual-note { max-width: 46rem; margin: var(--space-2) 0 0; color: var(--color-muted); font-size: var(--text-meta); line-height: 1.55; }
+    .actual-list { margin-top: var(--space-3); }
+    .mode-actual .actual-mark { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border: 2px solid currentColor; color: var(--color-signal-text); font-size: 0.95rem; line-height: 1; }
+    .mode-actual:disabled .actual-mark { color: var(--color-rule); }
+    .mode-actual:hover:not(:disabled) { border-left-color: var(--color-signal); }
+    .theme-actual .quiz-rail .gauge { display: none; }
     .privacy-note { max-width: 46rem; font-size: var(--text-meta); line-height: 1.6; color: var(--color-muted); }
     .question-category, .results-reminder { color: var(--color-muted); }
     .device-progress { margin: 0; font-size: var(--text-meta); color: var(--color-muted); }
@@ -1100,6 +1110,7 @@
               <span class="mode-go" aria-hidden="true">Begin →</span>
             </button>
           </div>
+
         </div>
       </div>
 
@@ -1251,11 +1262,12 @@
 
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
 
-  <script type="application/json" id="quiz-config">{"key":"ethicalleadership","module":"module-1","title":"Ethical and Transformational Leadership Mastery Quiz","categoryOrder":["Ethics and Operational Legitimacy","Ethical Decisions and Lenses","Leadership Integrity","Transactional and Transformational Models","The Four I’s and Unit Leadership"],"sourceRef":{"label":"slide","min":1,"max":31,"required":true},"sourceAlt":null,"pool":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
+  <script type="application/json" id="quiz-config">{"key":"ethicalleadership","module":"module-1","title":"Ethical and Transformational Leadership Mastery Quiz","categoryOrder":["Ethics and Operational Legitimacy","Ethical Decisions and Lenses","Leadership Integrity","Transactional and Transformational Models","The Four I’s and Unit Leadership"],"sourceRef":{"label":"slide","min":1,"max":31,"required":true},"sourceAlt":null,"pool":null,"actual":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
   <script type="application/json" id="study-links">{"reviewer":"../reviewer/ethicalleadership/","sources":{"ethicalleadership":{"title":"Ethical and Transformational Leadership","citationName":"Ethical and Transformational Leadership","available":true,"doc":"source-ethicalleadership","href":"../library/files/ethical-transformational-leadership.pdf","exactPages":true,"studyDoc":"../reviewer/ethicalleadership/","manuals":[{"title":"FM 6-22 (FM 22-100) · Army Leadership: Competent, Confident, and Agile","available":true,"id":"fm-6-22","href":"../library/files/fm-6-22.pdf"},{"title":"ADP 6-22 · Army Leadership and the Profession","available":true,"id":"adp-6-22","href":"../library/files/adp-6-22.pdf"},{"title":"FC 1-012 · AFP Code of Ethics","available":false,"id":"fc-1-012","href":"../library/?doc=fc-1-012#document"}]}},"byQuestion":{}}</script>
   <script type="application/json" id="questions-easy">[{"id":1,"qid":"ethicalleadership-e-01","difficulty":"easy","category":"Ethics and Operational Legitimacy","tags":["ethics and operational legitimacy","recognition"],"prompt":"What anchors ethical leadership in this lesson?","options":["Army Ethic and Army Values","Personal preference and seniority","Recognition and evaluation ratings","Unit reputation and convenience"],"answer":0,"explanation":"The lesson grounds ethical leadership in the Army Ethic and Values, particularly under pressure.","sourceSlides":[6]},{"id":2,"qid":"ethicalleadership-e-02","difficulty":"easy","category":"Ethics and Operational Legitimacy","tags":["ethics and operational legitimacy","recognition"],"prompt":"Which set lists the Army Values highlighted by the deck?","options":["Competence, Trust, Initiative","Honor, Patriotism, Duty","Purpose, Direction, Motivation","Authority, Responsibility, Discipline"],"answer":1,"explanation":"The lesson lists Honor, Patriotism, and Duty as moral foundations.","sourceSlides":[6]},{"id":3,"qid":"ethicalleadership-e-03","difficulty":"easy","category":"Ethics and Operational Legitimacy","tags":["ethics and operational legitimacy","recognition"],"prompt":"How does operating within ethical and legal bounds support mission legitimacy?","options":["It increases discretion to disregard mandatory standards","It ensures every decision is popular","It preserves the Army's moral authority to act","It makes accurate readiness reporting less important"],"answer":2,"explanation":"The deck directly links lawful and ethical conduct with mission legitimacy.","sourceSlides":[7]},{"id":4,"qid":"ethicalleadership-e-04","difficulty":"easy","category":"Ethics and Operational Legitimacy","tags":["ethics and operational legitimacy","recognition"],"prompt":"Why do falsified readiness reports threaten long-term readiness?","options":["They improve trust in supervision","They conceal weaknesses that may surface when capability is needed","They reduce the importance of maintenance","They make actual readiness easier to verify"],"answer":1,"explanation":"A false report masks real problems and can cause later decisions to rely on nonexistent capacity.","sourceSlides":[7]},{"id":5,"qid":"ethicalleadership-e-05","difficulty":"easy","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","recognition"],"prompt":"What is the first step in the ethical decision-making process?","options":["Decide and act","Reflect on the outcome","Define the problem","Evaluate each course of action"],"answer":2,"explanation":"The process begins by identifying the dilemma and the duties or values in tension.","sourceSlides":[10]},{"id":6,"qid":"ethicalleadership-e-06","difficulty":"easy","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","recognition"],"prompt":"After identifying applicable rules, what step comes before evaluating options?","options":["Document the final decision","Develop feasible options","Choose and implement an option","Reflect on the outcome"],"answer":1,"explanation":"Developing feasible options gives the leader alternatives to evaluate.","sourceSlides":[10]},{"id":7,"qid":"ethicalleadership-e-07","difficulty":"easy","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","recognition"],"prompt":"Which lens asks whether an action complies with orders and regulations?","options":["Virtue-based","Transactional","Rules-based","Outcomes-based"],"answer":2,"explanation":"The rules-based lens tests lawfulness and compliance with applicable orders and regulations.","sourceSlides":[11]},{"id":8,"qid":"ethicalleadership-e-08","difficulty":"easy","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","recognition"],"prompt":"Which lens weighs consequences for personnel and mission accomplishment?","options":["Virtue-based","Outcomes-based","Transactional","Rules-based"],"answer":1,"explanation":"The outcomes-based lens considers likely effects on mission, people, and unit.","sourceSlides":[11]},{"id":9,"qid":"ethicalleadership-e-09","difficulty":"easy","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","recognition"],"prompt":"Which lens asks what a leader of strong character would do?","options":["Outcomes-based","Transactional","Virtue-based","Rules-based"],"answer":2,"explanation":"The virtue-based lens draws on character and Army Values.","sourceSlides":[11]},{"id":10,"qid":"ethicalleadership-e-10","difficulty":"easy","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","recognition"],"prompt":"What is the purpose of reflection after acting on an ethical decision?","options":["Identify legal requirements for the first time","Reassign ownership of the original decision","Develop the first feasible option","Assess results and inform future decisions"],"answer":3,"explanation":"Reflection uses the outcome to improve judgment in future cases.","sourceSlides":[10]},{"id":11,"qid":"ethicalleadership-e-11","difficulty":"easy","category":"Leadership Integrity","tags":["leadership integrity","recognition"],"prompt":"Which phrase best captures leadership integrity?","options":["Consistency of supervision and task allocation","Authority to set unit priorities","Consistency of values, words, and actions","Commitment to rewards for standards"],"answer":2,"explanation":"Integrity aligns what leaders value and say with what they do.","sourceSlides":[15]},{"id":12,"qid":"ethicalleadership-e-12","difficulty":"easy","category":"Leadership Integrity","tags":["leadership integrity","recognition"],"prompt":"What is a direct effect of repeated integrity failures?","options":["Unit cohesion strengthens around stated values","Hidden risks become easier to identify","Subordinates gain confidence in readiness figures","Subordinates lose trust in their leaders"],"answer":3,"explanation":"The deck describes eroded trust and hidden risk as consequences of integrity failures.","sourceSlides":[17]},{"id":13,"qid":"ethicalleadership-e-13","difficulty":"easy","category":"Leadership Integrity","tags":["leadership integrity","recognition"],"prompt":"When does the lesson say leaders build integrity?","options":["In everyday decisions before major tests arise","Primarily during formal evaluations","Only when the unit has no competing demands","Only after difficult decisions become public"],"answer":0,"explanation":"Small choices establish habits and credibility long before high-stakes decisions.","sourceSlides":[15]},{"id":14,"qid":"ethicalleadership-e-14","difficulty":"easy","category":"Transactional and Transformational Models","tags":["transactional and transformational models","recognition"],"prompt":"Which model frames leadership mainly as an exchange for performance?","options":["Transformational leadership","Individualized consideration","Virtue-based leadership","Transactional leadership"],"answer":3,"explanation":"Transactional leadership relies on expectations, contingent rewards, and corrective action.","sourceSlides":[19]},{"id":15,"qid":"ethicalleadership-e-15","difficulty":"easy","category":"Transactional and Transformational Models","tags":["transactional and transformational models","recognition"],"prompt":"What does active management by exception involve?","options":["Connecting a task to a compelling purpose","Monitoring performance and correcting deviations","Inviting subordinates to challenge assumptions","Intervening only after a problem occurs"],"answer":1,"explanation":"The active approach monitors for deviations and acts to correct them.","sourceSlides":[19]},{"id":16,"qid":"ethicalleadership-e-16","difficulty":"easy","category":"Transactional and Transformational Models","tags":["transactional and transformational models","recognition"],"prompt":"What defines passive management by exception?","options":["Intervention after problems occur","Proactive coaching tailored to development needs","Regular monitoring for deviations","Recognition for meeting agreed expectations"],"answer":0,"explanation":"The passive approach waits for problems to appear before intervening.","sourceSlides":[19]},{"id":17,"qid":"ethicalleadership-e-17","difficulty":"easy","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","recognition"],"prompt":"Which of the Four I's means leading by example?","options":["Idealized influence","Individualized consideration","Intellectual stimulation","Inspirational motivation"],"answer":0,"explanation":"Idealized influence earns followership through the leader's example.","sourceSlides":[20]},{"id":18,"qid":"ethicalleadership-e-18","difficulty":"easy","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","recognition"],"prompt":"Which of the Four I's centers on a compelling vision and purpose?","options":["Individualized consideration","Intellectual stimulation","Idealized influence","Inspirational motivation"],"answer":3,"explanation":"Inspirational motivation gives people a meaningful shared purpose.","sourceSlides":[20]},{"id":19,"qid":"ethicalleadership-e-19","difficulty":"easy","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","recognition"],"prompt":"Which of the Four I's encourages teams to challenge assumptions?","options":["Intellectual stimulation","Individualized consideration","Idealized influence","Inspirational motivation"],"answer":0,"explanation":"Intellectual stimulation invites people to question existing assumptions and develop solutions.","sourceSlides":[20]},{"id":20,"qid":"ethicalleadership-e-20","difficulty":"easy","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","recognition"],"prompt":"Which of the Four I's involves coaching suited to one person's needs and potential?","options":["Idealized influence","Inspirational motivation","Intellectual stimulation","Individualized consideration"],"answer":3,"explanation":"Individualized consideration tailors development to the person.","sourceSlides":[20]}]</script>
   <script type="application/json" id="questions-medium">[{"id":1,"qid":"ethicalleadership-m-01","difficulty":"medium","category":"Ethics and Operational Legitimacy","tags":["ethics and operational legitimacy","application"],"prompt":"A training unit faces an inconvenient mandatory safeguard and is behind schedule. What best demonstrates ethical leadership?","options":["Report on-time completion and complete the safeguard later","Retain the safeguard but omit the delay from the status report","Retain the safeguard and report the schedule impact accurately","Ask the team to omit the safeguard without documenting the change"],"answer":2,"explanation":"Ethical leadership under pressure requires adherence to the safeguard and truthful reporting.","sourceSlides":[6,8]},{"id":2,"qid":"ethicalleadership-m-02","difficulty":"medium","category":"Ethics and Operational Legitimacy","tags":["ethics and operational legitimacy","application"],"prompt":"A team discovers a readiness figure is overstated before another group relies on it. Which action best protects long-term readiness?","options":["Publish the figure with the shortfall left as an internal note","Correct the figure and disclose the verified shortfall to those relying on it","Wait to correct the record until the next review cycle","Preserve the figure and ask the other group to check later"],"answer":1,"explanation":"Accurate readiness information allows others to plan around real limitations.","sourceSlides":[7]},{"id":3,"qid":"ethicalleadership-m-03","difficulty":"medium","category":"Ethics and Operational Legitimacy","tags":["ethics and operational legitimacy","application"],"prompt":"A leader wants to reinforce ethical conduct during low-visibility tasks. Which behavior fits?","options":["Track only whether work was delivered on time","Increase standards only when supervisors are likely to visit","Apply the same standards during private work and observed evaluations","Leave decisions entirely to the team's preferences"],"answer":2,"explanation":"Consistency under limited oversight establishes trust and supports mission legitimacy.","sourceSlides":[6,7]},{"id":4,"qid":"ethicalleadership-m-04","difficulty":"medium","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","application"],"prompt":"A team discusses solutions before agreeing on what duties conflict. Which step should the leader revisit?","options":["Decide and act","Reflect on outcomes","Evaluate selected options","Define the problem"],"answer":3,"explanation":"Clarifying the conflict first gives the group a sound basis for identifying requirements and alternatives.","sourceSlides":[10]},{"id":5,"qid":"ethicalleadership-m-05","difficulty":"medium","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","application"],"prompt":"A leader has defined a dilemma but starts comparing convenience and workload without checking mandatory requirements. What should happen next?","options":["Identify the applicable rules before evaluating courses of action","Ask the team to vote on which option seems fair","Choose the least disruptive option and revisit rules during reflection","Try the current favorite temporarily and evaluate later"],"answer":0,"explanation":"The process identifies applicable laws, regulations, orders, and values before evaluating choices.","sourceSlides":[10]},{"id":6,"qid":"ethicalleadership-m-06","difficulty":"medium","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","application"],"prompt":"Two lawful alternatives are available. The leader compares their effects on safety and the training objective. Which lens is being used?","options":["Virtue-based","Outcomes-based","Idealized influence","Rules-based"],"answer":1,"explanation":"Comparing consequences for the mission and people applies the outcomes-based lens.","sourceSlides":[10,11]},{"id":7,"qid":"ethicalleadership-m-07","difficulty":"medium","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","application"],"prompt":"An incorrect compliance statement was sent upstream and the underlying issue has been fixed. What should the leader do?","options":["Correct the upstream report and confirm the remediation","Keep the report as issued because the team later corrected the issue","Ask the original author to omit the incident from future reports","Record the fix internally and wait for the next routine update"],"answer":0,"explanation":"Fixing the underlying issue and correcting the record are separate responsibilities.","sourceSlides":[10,12]},{"id":8,"qid":"ethicalleadership-m-08","difficulty":"medium","category":"Leadership Integrity","tags":["leadership integrity","application"],"prompt":"An NCO finds a discrepancy and expects scrutiny during an evaluation. Which response demonstrates integrity?","options":["Report the verified discrepancy and start corrective action","Make the record match the desired evaluation result","Quietly replace the missing item and leave the original record untouched","Leave the discrepancy unresolved until the evaluation closes"],"answer":0,"explanation":"Integrity requires truthful reporting and corrective action even when reporting has a cost.","sourceSlides":[15,16]},{"id":9,"qid":"ethicalleadership-m-09","difficulty":"medium","category":"Leadership Integrity","tags":["leadership integrity","application"],"prompt":"A leader publicly promotes accurate reporting and privately rewards teams for hiding small faults. What is the likely effect?","options":["People learn that stated standards are unreliable","People gain confidence that leaders mean what they say","The reporting culture improves through discretion","The unit becomes better at surfacing risks early"],"answer":0,"explanation":"Subordinates judge actual behavior, and contradictory rewards normalize concealment.","sourceSlides":[15,17]},{"id":10,"qid":"ethicalleadership-m-10","difficulty":"medium","category":"Leadership Integrity","tags":["leadership integrity","application"],"prompt":"An instructor wants an early indicator of integrity before a difficult evaluation. Which behavior is best evidence?","options":["A leader corrects routine errors in records even when nobody is checking","A leader received good marks for a presentation on values","A leader can recite the definition of integrity","A leader promises accurate reports during a public briefing"],"answer":0,"explanation":"Everyday conduct under low visibility provides better evidence of consistency than statements alone.","sourceSlides":[15,17]},{"id":11,"qid":"ethicalleadership-m-11","difficulty":"medium","category":"Transactional and Transformational Models","tags":["transactional and transformational models","application"],"prompt":"A supervisor promises recognition for meeting a clear accuracy target. What model is illustrated?","options":["Transformational leadership through inspirational motivation","Transformational leadership through individualized consideration","Transactional leadership through contingent reward","Transactional leadership through passive management by exception"],"answer":2,"explanation":"The recognition depends on meeting a specified performance standard.","sourceSlides":[19,21]},{"id":12,"qid":"ethicalleadership-m-12","difficulty":"medium","category":"Transactional and Transformational Models","tags":["transactional and transformational models","application"],"prompt":"A section leader reviews work each day and intervenes when checks are missed. What model is illustrated?","options":["Individualized consideration","Passive management by exception","Inspirational motivation","Active management by exception"],"answer":3,"explanation":"Regular monitoring and correction of deviations indicate active management by exception.","sourceSlides":[19]},{"id":13,"qid":"ethicalleadership-m-13","difficulty":"medium","category":"Transactional and Transformational Models","tags":["transactional and transformational models","application"],"prompt":"A supervisor does not review routine performance and intervenes after complaints accumulate. Which behavior is illustrated?","options":["Intellectual stimulation","Contingent reward","Active management by exception","Passive management by exception"],"answer":3,"explanation":"The supervisor acts only after problems appear.","sourceSlides":[19]},{"id":14,"qid":"ethicalleadership-m-14","difficulty":"medium","category":"Transactional and Transformational Models","tags":["transactional and transformational models","application"],"prompt":"A team already meets maintenance standards. What action adds transformational leadership?","options":["Tie every completed check to a point award","Explain the larger purpose and invite the team to propose improvements","Increase monitoring and keep the rationale unchanged","Raise the penalty for each late check"],"answer":1,"explanation":"Purpose and participation can build initiative and internal commitment beyond compliance.","sourceSlides":[21,22]},{"id":15,"qid":"ethicalleadership-m-15","difficulty":"medium","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","application"],"prompt":"A leader follows the same inconvenient standard expected of everyone else when supervision is absent. Which behavior is most evident?","options":["Inspirational motivation","Idealized influence","Intellectual stimulation","Individualized consideration"],"answer":1,"explanation":"The leader models the conduct expected of followers.","sourceSlides":[20,24]},{"id":16,"qid":"ethicalleadership-m-16","difficulty":"medium","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","application"],"prompt":"A supervisor frames a tedious task around how it helps participants get reliable support. Which behavior is illustrated?","options":["Individualized consideration","Intellectual stimulation","Idealized influence","Inspirational motivation"],"answer":3,"explanation":"Connecting work to a meaningful shared purpose is inspirational motivation.","sourceSlides":[20,24]},{"id":17,"qid":"ethicalleadership-m-17","difficulty":"medium","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","application"],"prompt":"A coordinator asks teams to identify why an existing reporting process fails and test alternatives. Which behavior is illustrated?","options":["Individualized consideration","Idealized influence","Intellectual stimulation","Inspirational motivation"],"answer":2,"explanation":"The coordinator encourages teams to question assumptions and innovate.","sourceSlides":[20,24]},{"id":18,"qid":"ethicalleadership-m-18","difficulty":"medium","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","application"],"prompt":"A supervisor tailors coaching to a junior leader who needs more practice building confidence. Which behavior is illustrated?","options":["Idealized influence","Intellectual stimulation","Inspirational motivation","Individualized consideration"],"answer":3,"explanation":"The coaching is tailored to individual development.","sourceSlides":[20,25]},{"id":19,"qid":"ethicalleadership-m-19","difficulty":"medium","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","application"],"prompt":"Different teams are exhausted and concentrating on unit boundaries. What action best uses inspirational motivation?","options":["Assign each team a more detailed internal reporting routine","Frame the joint effort around the people who depend on it","Tighten each team's separate completion metric","Offer one team a prize for outperforming the others"],"answer":1,"explanation":"A shared purpose gives disparate teams a reason to cooperate beyond unit interests.","sourceSlides":[26]},{"id":20,"qid":"ethicalleadership-m-20","difficulty":"medium","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","application"],"prompt":"A team has a compelling vision but maintenance standards are inconsistent. Which action applies the augmentation effect?","options":["Keep only standards until the team stops proposing improvements","Use rewards to replace shared purpose","Keep the vision and restore clear standards and accountability","Remove standards to protect internal motivation"],"answer":2,"explanation":"The deck presents transactional structure and transformational inspiration as complementary.","sourceSlides":[27]}]</script>
   <script type="application/json" id="questions-hard">[{"id":1,"qid":"ethicalleadership-h-01","difficulty":"hard","category":"Ethics and Operational Legitimacy","tags":["ethics and operational legitimacy","analysis"],"prompt":"Reported completion improved after ratings were tied to perfect scores, but staff now find unreported faults. Which explanation best fits the evidence?","options":["The ratings establish that actual readiness improved despite the newly discovered faults","The issue is resolved once future scores stop rising","The faults show why accurate reporting should be limited to high-priority cases","The incentive may have rewarded concealing problems, making apparent readiness rise while real risk stayed hidden"],"answer":3,"explanation":"The deck connects false reports to hidden vulnerability, and a perfect-score incentive can distort reporting.","sourceSlides":[6,7,17]},{"id":2,"qid":"ethicalleadership-h-02","difficulty":"hard","category":"Ethics and Operational Legitimacy","tags":["ethics and operational legitimacy","analysis"],"prompt":"Two leads keep the same safeguard. One does so only under inspection, while the other also follows it unobserved. What distinguishes their influence on ethical climate?","options":["Both provide identical evidence about private behavior","The second relies on formal recognition to model the standard","The second shows that standards apply without oversight","The first shows stronger cohesion because inspection behavior is visible"],"answer":2,"explanation":"Observed compliance alone says less about a leader's values than consistent conduct when oversight is absent.","sourceSlides":[6,7]},{"id":3,"qid":"ethicalleadership-h-03","difficulty":"hard","category":"Ethics and Operational Legitimacy","tags":["ethics and operational legitimacy","analysis"],"prompt":"A commander can protect a favorable public appearance by delaying an accurate discrepancy report. Another unit needs the report for planning today. What judgment best supports legitimacy and readiness?","options":["Transmit only the parts that do not affect the evaluation","Delay because protecting appearances preserves operational legitimacy","Fix the issue later and leave the existing report as the official record","Report the discrepancy in time for planning and correction"],"answer":3,"explanation":"Legitimacy relies on ethical conduct, and readiness depends on accurate information reaching decision makers.","sourceSlides":[7,15]},{"id":4,"qid":"ethicalleadership-h-04","difficulty":"hard","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","analysis"],"prompt":"A proposed option offers the best schedule outcome but violates an explicit mandatory requirement. Which analysis best uses the lenses?","options":["Reject the violation and weigh the permissible options","Set aside the rule to meet the schedule","Select the option and assess character only after results appear","Classify the requirement as discretionary because the outcome is attractive"],"answer":0,"explanation":"The process considers legal, moral, and mission factors together when evaluating alternatives.","sourceSlides":[10,11]},{"id":5,"qid":"ethicalleadership-h-05","difficulty":"hard","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","analysis"],"prompt":"Two options comply with rules and have similar near-term effects. One makes the leader's own contribution to a failure transparent. Which reasoning adds a virtue-based test?","options":["Ask which option reflects honesty and responsibility even when disclosure has personal cost","Ask which option generates fewer follow-up meetings","Ask which option is supported by the largest group","Ask which option has the quickest administrative turnaround"],"answer":0,"explanation":"A virtue-based test examines what strong character and Army Values require when options differ in accountability.","sourceSlides":[10,11]},{"id":6,"qid":"ethicalleadership-h-06","difficulty":"hard","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","analysis"],"prompt":"A decision briefing lists rules and the preferred action. No alternatives are presented, and no reasoning compares risks. What change most improves the process?","options":["Add signatures confirming that the preferred action was discussed","Compare feasible options on legal, moral, and mission grounds","Expand the rules section but retain the single untested action","Move directly to reflection before the decision has been implemented"],"answer":1,"explanation":"The decision process calls for developing and evaluating options before choosing and acting.","sourceSlides":[10,12]},{"id":7,"qid":"ethicalleadership-h-07","difficulty":"hard","category":"Ethical Decisions and Lenses","tags":["ethical decisions and lenses","analysis"],"prompt":"An instructor reports their own coordination error in a practice event and accepts review. What would complete the reflection step?","options":["Compare alternative report wording without reviewing the cause","Wait for another incident before assessing corrective needs","Trace the cause and apply the lesson to future decisions","Conclude the process when the report is received"],"answer":2,"explanation":"Reflection converts the outcome and review into lessons for future judgment and practices.","sourceSlides":[10,13]},{"id":8,"qid":"ethicalleadership-h-08","difficulty":"hard","category":"Leadership Integrity","tags":["leadership integrity","analysis"],"prompt":"A supervisor orders others to report every error but excuses their own unreported error as minor. Which diagnosis best explains why trust fell?","options":["The supervisor broke the standard they set","The reporting rule was too uniform","The supervisor relied too much on individualized coaching","The unit has too much evidence about readiness"],"answer":0,"explanation":"Integrity depends on alignment of word and deed, especially when the leader faces the same standard.","sourceSlides":[15,17]},{"id":9,"qid":"ethicalleadership-h-09","difficulty":"hard","category":"Leadership Integrity","tags":["leadership integrity","analysis"],"prompt":"After a falsification incident, which indicator best distinguishes sustained restoration of integrity from a brief compliance response?","options":["Supervisors collect more signed acknowledgments","Verified reporting of faults continues outside inspections","Everyone attends a single briefing on values","Reported problems decrease immediately after a new directive"],"answer":1,"explanation":"Reliable truthfulness in inconvenient, low-visibility situations is stronger evidence than paperwork or a short-lived metric.","sourceSlides":[15,17]},{"id":10,"qid":"ethicalleadership-h-10","difficulty":"hard","category":"Leadership Integrity","tags":["leadership integrity","analysis"],"prompt":"A manager adjusts one readiness figure upward and says the team can absorb the problem internally. What is the strongest objection beyond the original deficiency?","options":["A revised score may change the dates on other reports","The manager will need to hold another routine meeting","Others may plan with a false capability assumption, and concealment may become accepted practice","The team may spend more time on the underlying repair"],"answer":2,"explanation":"False reports create hidden mission risk and can normalize dishonest behavior.","sourceSlides":[7,17]},{"id":11,"qid":"ethicalleadership-h-11","difficulty":"hard","category":"Transactional and Transformational Models","tags":["transactional and transformational models","analysis"],"prompt":"Recognition improves compliance, but initiative stops when the reward ends. What analysis best fits the lesson?","options":["The unit already shows strong transformational commitment","The result demonstrates the failure of all clear standards","The leader relied primarily on passive management by exception","Rewards secured compliance, but commitment needs development"],"answer":3,"explanation":"Contingent reward can maintain standards without building the shared purpose needed for sustained initiative.","sourceSlides":[19,21]},{"id":12,"qid":"ethicalleadership-h-12","difficulty":"hard","category":"Transactional and Transformational Models","tags":["transactional and transformational models","analysis"],"prompt":"One leader corrects deviations before they accumulate. Another lets recurring faults become complaints before acting. What is the key distinction?","options":["One monitors for deviations. The other reacts to complaints","The first is transformational because any early correction inspires purpose","Both practice individualized consideration because correction addresses a person","The second uses contingent reward because complaints carry consequences"],"answer":0,"explanation":"Timing and monitoring distinguish active and passive management by exception.","sourceSlides":[19,21]},{"id":13,"qid":"ethicalleadership-h-13","difficulty":"hard","category":"Transactional and Transformational Models","tags":["transactional and transformational models","analysis"],"prompt":"A leader removes all maintenance checks to make room for innovation. Teams propose improvements but basic completion declines. What adjustment fits the evidence?","options":["Cancel proposals and manage only through penalties","Return to the old checks but avoid explaining their purpose","Restore checks and keep inviting improvements","Keep the new approach and remove the remaining checks"],"answer":2,"explanation":"Clear standards protect reliable performance, and transformational behaviors can build on them.","sourceSlides":[21,22,27]},{"id":14,"qid":"ethicalleadership-h-14","difficulty":"hard","category":"Transactional and Transformational Models","tags":["transactional and transformational models","analysis"],"prompt":"A team reaches the same target under two approaches. Which evidence most strongly favors the transformational explanation?","options":["Members sustain improvements and propose new solutions after incentives are withdrawn","The team met its target on the scheduled evaluation day","Members can identify which reward depends on which result","The supervisor recorded and corrected each missed requirement"],"answer":0,"explanation":"Sustained initiative and commitment distinguish the transformational mechanism from compliance alone.","sourceSlides":[21,22]},{"id":15,"qid":"ethicalleadership-h-15","difficulty":"hard","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","analysis"],"prompt":"A junior leader receives tailored coaching and then leads a group in questioning a flawed routine. How do the two behaviors differ?","options":["Both behaviors are contingent reward","The coaching is idealized influence, and questioning the routine is inspirational motivation","Both behaviors are idealized influence","The coaching is individualized consideration, and questioning the routine is intellectual stimulation"],"answer":3,"explanation":"Tailored development addresses an individual's needs, while challenging assumptions stimulates problem solving.","sourceSlides":[20,25]},{"id":16,"qid":"ethicalleadership-h-16","difficulty":"hard","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","analysis"],"prompt":"A joint leader repeatedly connects work to a shared community outcome and personally demonstrates the effort expected. Which pair explains these actions?","options":["Idealized influence and passive management by exception","Contingent reward and active management by exception","Inspirational motivation and idealized influence","Intellectual stimulation and individualized consideration"],"answer":2,"explanation":"The shared outcome provides purpose, and the visible example earns followership.","sourceSlides":[20,26]},{"id":17,"qid":"ethicalleadership-h-17","difficulty":"hard","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","analysis"],"prompt":"A supervisor explains the purpose of a rule effectively, but employees see the supervisor disregard it. Which Four I is undermined most directly?","options":["Intellectual stimulation","Idealized influence","Inspirational motivation","Individualized consideration"],"answer":1,"explanation":"The explanation may convey purpose, while contrary personal conduct damages role-model credibility.","sourceSlides":[20,24]},{"id":18,"qid":"ethicalleadership-h-18","difficulty":"hard","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","analysis"],"prompt":"An improvement project produces a new workflow, but the junior lead follows the supervisor's exact script throughout. What change would strengthen intellectual stimulation?","options":["Set a larger reward for completing the original steps","Have the junior lead test their own ideas","Require more frequent proof of script compliance","Replace the junior lead with a faster script user"],"answer":1,"explanation":"Intellectual stimulation develops independent problem solving by giving people room to challenge assumptions.","sourceSlides":[20,25]},{"id":19,"qid":"ethicalleadership-h-19","difficulty":"hard","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","analysis"],"prompt":"A mentor gives every junior leader the same general speech. One needs practice handling feedback and another needs experience running reviews. What is missing?","options":["A reward linked to identical performance","A clearer shared vision for the organization","A supervisor who can visibly model compliance","Coaching tailored to each person"],"answer":3,"explanation":"Individualized consideration responds to distinct development needs rather than delivering uniform encouragement.","sourceSlides":[20,24]},{"id":20,"qid":"ethicalleadership-h-20","difficulty":"hard","category":"The Four I’s and Unit Leadership","tags":["the four i’s and unit leadership","analysis"],"prompt":"After a misleading report, a commander corrects the record and wants lasting improvement. Which package best integrates ethical and transformational leadership?","options":["Ask staff to propose improvements while leaving the inaccurate record in place","Model accurate reporting, preserve reporting standards, and involve staff in improving how issues surface","Use a shared-purpose speech and leave the reporting standard informal","Add penalties for late reports and postpone discussion of accuracy"],"answer":1,"explanation":"Correction restores accountability, role modeling and participation build commitment, and clear standards anchor both.","sourceSlides":[20,27,29]}]</script>
+  <script type="application/json" id="questions-actual">[]</script>
   <script>
   (function () {
     'use strict';
@@ -1277,8 +1289,13 @@
     var HISTORY_LIMIT = 100;
 
     var MODES = ['easy', 'medium', 'hard'];
-    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
+    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard', actual: 'Actual Exam' };
     var MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h' };
+    // The Actual Exam category: questions from the class's graded exams (scripts/actual-exams.mjs). It is not a
+    // difficulty: its bank has its own rules (2 to 4 choices, an exam citation) and it is never sent to the class
+    // history, whose sheet accepts only easy, medium and hard.
+    var ACTUAL = 'actual';
+    var SOURCE_TYPES = ['graded-exam'];
     var LETTERS = ['A', 'B', 'C', 'D'];
     // A lesson bank holds MIN_BANK_SIZE to MAX_BANK_SIZE (20–35) questions per difficulty and an attempt serves the
     // whole bank, unseen-first and shuffled. Only a pool exam draws a coverage set of each lesson (selectCoverage).
@@ -1312,6 +1329,8 @@
         return null;
       }
       if (config.sourceRef !== null && (!config.sourceRef || !Number.isInteger(config.sourceRef.min) || !Number.isInteger(config.sourceRef.max) || typeof config.sourceRef.label !== 'string')) return null;
+      if (config.actual != null && (typeof config.actual !== 'object' || !Number.isInteger(config.actual.attempt) || config.actual.attempt < 1 || !Number.isInteger(config.actual.count) || config.actual.attempt > config.actual.count)) return null;
+      if (config.actualOnly && !config.actual) return null;
       if (config.sourceAlt != null && (typeof config.sourceAlt !== 'object' || !Number.isInteger(config.sourceAlt.min) || !Number.isInteger(config.sourceAlt.max) || typeof config.sourceAlt.label !== 'string' || typeof config.sourceAlt.ref !== 'string' || typeof config.sourceAlt.href !== 'string' || typeof config.sourceAlt.title !== 'string')) return null;
       return config;
     }
@@ -1329,6 +1348,10 @@
     // Optional secondary reference (for example a student handout in the Library), cited per question as sourceAlt.
     var SOURCE_ALT = CONFIG && CONFIG.sourceAlt ? CONFIG.sourceAlt : null;
     var STUDY_LINKS = JSON.parse(document.getElementById('study-links').textContent);
+    // Actual Exam settings ({ count, attempt, full? }) or null; actualOnly pages (the Comprehensive Exam Reviewer)
+    // have no difficulty banks and no class history.
+    var ACTUAL_CONFIG = CONFIG && CONFIG.actual ? CONFIG.actual : null;
+    var ACTUAL_ONLY = Boolean(CONFIG && CONFIG.actualOnly);
     var CATEGORY_ORDER = !CONFIG ? [] : POOL ? POOL.lessons.map(function (lesson) { return lesson.name; }) : CONFIG.categoryOrder.slice();
     // A primary topic counts as a strength at or above this percentage, otherwise a gap.
     var STRENGTH_THRESHOLD = 75;
@@ -1442,16 +1465,52 @@
       return errors;
     }
 
+    // Mirrors validateActualBank in scripts/actual-exams.mjs: each question cites its graded exam (source type
+    // "graded-exam") and has two to four distinct choices.
+    function validateActualBank(bank) {
+      if (!Array.isArray(bank)) return ['bank must be an array of questions'];
+      var errors = [];
+      if ((ACTUAL_CONFIG ? ACTUAL_CONFIG.count : 0) !== bank.length) errors.push('bank must contain ' + (ACTUAL_CONFIG ? ACTUAL_CONFIG.count : 0) + ' questions');
+      var seen = {};
+      bank.forEach(function (question, index) {
+        var at = 'question ' + (index + 1) + ': ';
+        if (question === null || typeof question !== 'object') { errors.push(at + 'question must be an object'); return; }
+        if (question.id !== index + 1) errors.push(at + 'id must be integer ' + (index + 1));
+        if (!LESSON_KEY_PATTERN.test(question.examKey || '')) errors.push(at + 'examKey must name a graded exam');
+        if (typeof question.qid !== 'string' || !new RegExp('^' + question.examKey + '-a-[0-9]{2,4}$').test(question.qid)) errors.push(at + 'qid must be "<examKey>-a-" followed by 2 to 4 digits');
+        if (Object.prototype.hasOwnProperty.call(seen, question.qid)) errors.push(at + 'qid ' + question.qid + ' is used more than once');
+        seen[question.qid] = true;
+        if (question.difficulty !== ACTUAL) errors.push(at + 'difficulty must be actual');
+        ['category', 'prompt', 'explanation'].forEach(function (field) {
+          if (typeof question[field] !== 'string' || !question[field].trim()) errors.push(at + field + ' must be a nonempty string');
+        });
+        var options = question.options;
+        if (!Array.isArray(options) || options.length < 2 || options.length > 4 || options.some(function (option) { return typeof option !== 'string' || !option.trim(); })) errors.push(at + 'options must contain two to four nonempty strings');
+        if (!Number.isInteger(question.answer) || !Array.isArray(options) || question.answer < 0 || question.answer >= options.length) errors.push(at + 'answer must index one of the options');
+        var source = question.source;
+        if (!source || SOURCE_TYPES.indexOf(source.type) === -1 || source.exam !== question.examKey || typeof source.title !== 'string' || typeof source.date !== 'string' || !Number.isInteger(source.number)) errors.push(at + 'source must be { type: "graded-exam", exam, title, date, number }');
+      });
+      return errors;
+    }
+
     function validateBanks(banks) {
       if (banks === null || typeof banks !== 'object') {
         return { valid: false, errors: ['question banks must be an object'] };
       }
       var errors = [];
-      MODES.forEach(function (mode) {
-        validateBank(banks[mode], mode).forEach(function (error) {
-          errors.push(mode + ' ' + error);
+      if (!ACTUAL_ONLY) {
+        MODES.forEach(function (mode) {
+          validateBank(banks[mode], mode).forEach(function (error) {
+            errors.push(mode + ' ' + error);
+          });
         });
-      });
+      }
+      // A caller checking only the difficulty banks may leave the Actual Exam bank out; the page always has one.
+      if (banks.actual !== undefined) {
+        validateActualBank(banks.actual).forEach(function (error) {
+          errors.push('actual ' + error);
+        });
+      }
       return { valid: errors.length === 0, errors: errors };
     }
 
@@ -1509,7 +1568,7 @@
     }
 
     function priorityClass(question, progress) {
-      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var lessonKey = progressOwner(question);
       var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
       var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
       return flag === 'm' ? 1 : flag === 's' ? 2 : 0;
@@ -1575,7 +1634,22 @@
     // last answered correctly) or 'm' (last answered wrongly). No name, score or answer is stored and nothing is
     // ever sent. Every storage access is wrapped in try/catch; without storage the quiz uses a plain shuffle.
     var PROGRESS_PREFIX = 'mastery-quiz:progress:';
-    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emh]-[0-9]{2,4}$/;
+    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emha]-[0-9]{2,4}$/;
+
+    // Whose device record a question belongs to: its graded exam (shared by every page that asks it), the pool
+    // exam's source lesson, or this lesson.
+    function progressOwner(question) {
+      return question && question.examKey ? question.examKey : POOL ? question.lessonKey : HISTORY_LESSON;
+    }
+
+    // The graded exams behind this page's Actual Exam bank.
+    function actualOwners() {
+      var owners = [];
+      (state && state.banks && state.banks.actual ? state.banks.actual : []).forEach(function (question) {
+        if (owners.indexOf(question.examKey) === -1) owners.push(question.examKey);
+      });
+      return owners;
+    }
 
     function deviceStorage() {
       try {
@@ -1614,14 +1688,14 @@
 
     function loadProgress(mode) {
       var progress = {};
-      progressLessons().forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
+      (mode === ACTUAL ? actualOwners() : progressLessons()).forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
       return progress;
     }
 
     function recordProgress(question, mode, correct) {
       var storage = deviceStorage();
       if (!storage) return false;
-      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var lessonKey = progressOwner(question);
       var progress = readProgress(lessonKey, mode);
       progress[question.qid] = correct ? 's' : 'm';
       try {
@@ -1637,9 +1711,12 @@
       var storage = deviceStorage();
       if (!storage) return false;
       try {
+        var keys = [];
         progressLessons().forEach(function (lessonKey) {
-          MODES.forEach(function (mode) { storage.removeItem(progressKey(lessonKey, mode)); });
+          MODES.forEach(function (mode) { keys.push(progressKey(lessonKey, mode)); });
         });
+        actualOwners().forEach(function (examKey) { keys.push(progressKey(examKey, ACTUAL)); });
+        keys.forEach(function (key) { storage.removeItem(key); });
         return true;
       } catch (error) {
         return false;
@@ -1651,7 +1728,7 @@
     function prioritize(questions, progress, random) {
       var groups = [[], [], []];
       Array.prototype.forEach.call(questions, function (question) {
-        var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+        var lessonKey = progressOwner(question);
         var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
         var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
         groups[flag === 'm' ? 1 : flag === 's' ? 2 : 0].push(question);
@@ -1664,15 +1741,26 @@
     }
 
     // `progress` (optional) is the device-local record from loadProgress(mode).
-    function createAttempt(mode, banks, random, progress) {
+    function createAttempt(mode, banks, random, progress, size) {
+      if (mode === ACTUAL) return createActualAttempt(banks, random, progress, size);
       if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
       var questions = sampleQuestions(banks[mode], random, progress);
       return { mode: mode, practice: false, questions: questions, current: 0, responses: blankResponses(questions) };
     }
 
+    // An Actual Exam attempt: unseen questions first, then missed, then the rest, each group shuffled, cut to `size`
+    // (the page's attempt length by default; the mixed reviewer set also offers its full length).
+    function createActualAttempt(banks, random, progress, size) {
+      var bank = banks && Array.isArray(banks.actual) ? banks.actual : [];
+      if (!ACTUAL_CONFIG || !bank.length) throw new Error('Unknown difficulty: ' + ACTUAL);
+      var length = Number.isInteger(size) && size > 0 ? Math.min(size, bank.length) : ACTUAL_CONFIG.attempt;
+      var questions = prioritize(bank, progress, random).slice(0, length);
+      return { mode: ACTUAL, practice: false, size: length, questions: questions, current: 0, responses: blankResponses(questions) };
+    }
+
     // A practice attempt asks only the given questions (reshuffled; answer choices keep their order).
     function createPracticeAttempt(mode, questions, random) {
-      if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
+      if (MODES.indexOf(mode) === -1 && !(mode === ACTUAL && ACTUAL_CONFIG)) throw new Error('Unknown difficulty: ' + mode);
       var shuffled = shuffleQuestions(questions, random);
       return { mode: mode, practice: true, questions: shuffled, current: 0, responses: blankResponses(shuffled) };
     }
@@ -1856,6 +1944,7 @@
         medium: byId('mode-medium'),
         hard: byId('mode-hard')
       },
+      actualButtons: [byId('mode-actual'), byId('mode-actual-all')].filter(Boolean),
       soundToggle: byId('btn-sound'),
       soundState: byId('sound-state'),
       reviewerLink: byId('reviewer-link'),
@@ -1943,6 +2032,12 @@
       children.forEach(function (child) { node.appendChild(child); });
     }
 
+    // "Topic: ...", or for a graded-exam question the exam and its question number.
+    function questionTopic(question) {
+      if (question.source && question.source.type === 'graded-exam') return 'Actual Exam · ' + question.source.title + ' · question ' + question.source.number;
+      return TEXT.topicNoun + ': ' + question.category;
+    }
+
     function optionText(question, index) {
       return LETTERS[index] + '. ' + question.options[index];
     }
@@ -1977,7 +2072,7 @@
 
     // Difficulty accent for the page: theme-easy, theme-medium or theme-hard; null clears it.
     function setTheme(mode) {
-      MODES.forEach(function (key) {
+      MODES.concat([ACTUAL]).forEach(function (key) {
         document.body.classList.toggle('theme-' + key, key === mode);
       });
     }
@@ -2042,15 +2137,18 @@
     function updateGate() {
       var open = gateOpen();
       MODES.forEach(function (mode) {
-        ui.modeButtons[mode].disabled = !open;
+        ui.modeButtons[mode].disabled = !open || ACTUAL_ONLY;
       });
+      ui.actualButtons.forEach(function (button) { button.disabled = !open; });
       if (state.available) {
         var missing = [];
         if (!state.nameValid) missing.push('enter your name');
         if (!state.studyConfirmed) missing.push('check the study confirmation');
-        ui.modeHint.textContent = open
-          ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.'
-          : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
+        ui.modeHint.textContent = ACTUAL_ONLY
+          ? (open ? 'Buttons enabled. Choose an attempt to begin.' : 'To enable the buttons, ' + missing.join(' and ') + ' above.')
+          : open
+            ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.' + (ACTUAL_CONFIG ? ' The Actual Exam category is below them.' : '')
+            : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
       }
       return open;
     }
@@ -2102,8 +2200,13 @@
       return true;
     }
 
-    function startQuiz(mode) {
-      if (!gateOpen() || MODES.indexOf(mode) === -1) return false;
+    function startQuiz(mode, size) {
+      if (!gateOpen()) return false;
+      if (mode === ACTUAL) {
+        if (!ACTUAL_CONFIG || !state.banks.actual.length) return false;
+        return beginAttempt(createActualAttempt(state.banks, state.random, loadProgress(ACTUAL), size));
+      }
+      if (MODES.indexOf(mode) === -1 || ACTUAL_ONLY) return false;
       return beginAttempt(createAttempt(mode, state.banks, state.random, loadProgress(mode)));
     }
 
@@ -2133,7 +2236,7 @@
       ui.reviewerLink.setAttribute('href', primary ? primary.studyDoc : STUDY_LINKS.reviewer);
       ui.quizHeading.textContent = attempt.practice
         ? 'Practice: retrying missed questions (' + MODE_LABELS[attempt.mode] + ')'
-        : MODE_LABELS[attempt.mode] + ' examination';
+        : attempt.mode === ACTUAL ? 'Actual Exam review' : MODE_LABELS[attempt.mode] + ' examination';
       setPracticeNote(ui.quizPracticeNote, attempt.practice);
       var student = make('strong', null, attempt.studentName);
       setChildren(ui.quizStudent, [textNode('Student: '), student]);
@@ -2145,7 +2248,7 @@
       if (ui.qIndexNum) ui.qIndexNum.textContent = pad(index + 1);
       if (ui.qIndexTotal) ui.qIndexTotal.textContent = 'of ' + pad(total);
       renderTicks(attempt);
-      ui.questionCategory.textContent = TEXT.topicNoun + ': ' + question.category;
+      ui.questionCategory.textContent = questionTopic(question);
 
       var fieldset = make('fieldset', 'question-fieldset');
       fieldset.id = 'question-fieldset';
@@ -2278,6 +2381,12 @@
       return links;
     }
 
+    var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    function displayDate(date) {
+      var parts = String(date).split('-').map(Number);
+      return parts.length === 3 && parts[1] >= 1 && parts[1] <= 12 ? parts[2] + ' ' + MONTH_NAMES[parts[1] - 1] + ' ' + parts[0] : String(date);
+    }
+
     function explanationBlock(question, className) {
       var block = make('div', 'explanation-group ' + className);
       var note = question.explanation;
@@ -2306,11 +2415,14 @@
       if (SOURCE_ALT && question.sourceAlt && Array.isArray(question.sourceAlt.pages) && question.sourceAlt.pages.length) {
         references.push(SOURCE_ALT.label + ' · ' + (question.sourceAlt.pages.length === 1 ? 'page ' : 'pages ') + question.sourceAlt.pages.join(', '));
       }
+      var graded = question.source && question.source.type === 'graded-exam';
+      if (graded) references.push('SOAC 52-2026 graded exam: ' + question.source.title + ', ' + displayDate(question.source.date) + ' · question ' + question.source.number);
       if (references.length) {
         var referenceBlock = make('div', 'explanation explanation-references');
         referenceBlock.appendChild(make('p', 'section-label', 'References'));
         references.forEach(function (reference) { referenceBlock.appendChild(make('p', 'source-ref', reference)); });
-        studyReferenceLinks(question, references).forEach(function (reference, destination) {
+        // A graded exam is not a Library document, so its citation stays plain text.
+        (graded ? new Map() : studyReferenceLinks(question, references)).forEach(function (reference, destination) {
           var line = make('p', 'library-source');
           var link = reference.unavailable
             ? make('a', 'library-reference reference-unavailable', reference.title + ' · PDF unavailable')
@@ -2420,6 +2532,10 @@
         // Practice retries never reach the class history or the item analysis.
         state.submission = { payload: null, status: 'practice' };
         renderSaveStatus();
+      } else if (attempt.mode === ACTUAL) {
+        // Nor do Actual Exam attempts: the class history sheet accepts only easy, medium and hard.
+        state.submission = { payload: null, status: 'actual' };
+        renderSaveStatus();
       } else {
         submitAttempt(buildSubmission(state.results));
       }
@@ -2429,7 +2545,7 @@
     function retakeQuiz() {
       var mode = state.attempt ? state.attempt.mode : null;
       if (!mode) return false;
-      return startQuiz(mode);
+      return startQuiz(mode, state.attempt.size);
     }
 
     // The landing view's "Reset my progress on this device" link.
@@ -2450,7 +2566,7 @@
       showView('landing');
       setStudyConfirmed(state.studyConfirmed);
       ui.difficultyHeading.focus();
-      if (ENDPOINT) loadHistory(state.history.filter);
+      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
       return true;
     }
 
@@ -2595,7 +2711,7 @@
     function renderResults(results) {
       ui.resultsHeading.textContent = results.practice
         ? 'Practice results (' + MODE_LABELS[results.mode] + ')'
-        : MODE_LABELS[results.mode] + ' examination results';
+        : results.mode === ACTUAL ? 'Actual Exam results' : MODE_LABELS[results.mode] + ' examination results';
       setPracticeNote(ui.resultsPracticeNote, results.practice);
 
       var card = make('div', 'score-card ' + bandClass(results.band.name));
@@ -2607,7 +2723,7 @@
       var student = make('p', 'results-student');
       student.append(make('span', 'meta-label', 'Student'), make('span', 'meta-value', results.studentName));
       var mode = make('p', 'results-mode');
-      mode.append(make('span', 'meta-label', 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode] + (results.practice ? ' · practice retry' : '')));
+      mode.append(make('span', 'meta-label', results.mode === ACTUAL ? 'Category' : 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode] + (results.practice ? ' · practice retry' : '')));
       var bandLabel = make('p', 'meta-label', 'Mastery band');
       var band = make('p', 'band-badge results-band');
       band.append(iconNode(results.percentage >= STRENGTH_THRESHOLD ? 'check' : 'alert'), make('span', null, results.band.name));
@@ -2654,7 +2770,7 @@
         );
         item.append(
           head,
-          make('p', 'review-topic', TEXT.topicNoun + ': ' + question.category),
+          make('p', 'review-topic', questionTopic(question)),
           make('p', 'review-prompt', question.prompt),
           answerLine(entry.correct ? 'correct' : 'incorrect', 'Your answer:', question, entry.selected),
           answerLine('correct', 'Correct answer:', question, question.answer),
@@ -2780,7 +2896,8 @@
         saved: ['check', 'Saved to the class history.'],
         failed: ['alert', 'Could not save to class history. Your results below are unaffected.'],
         'not-configured': ['dot', 'Class history is not set up, so this score was not saved to a class list.'],
-        practice: ['dot', 'Practice attempts are not saved to the class history.']
+        practice: ['dot', 'Practice attempts are not saved to the class history.'],
+        actual: ['dot', 'Actual Exam attempts are not saved to the class history.']
       }[status];
       ui.saveBox.className = 'history-save save-' + status;
       setChildren(ui.saveMessage, copy ? [iconNode(copy[0]), make('span', null, copy[1])] : []);
@@ -2928,7 +3045,7 @@
     function showHistory() {
       if (ui.historyPanel.hidden) return false;
       ui.historyHeading.focus();
-      if (ENDPOINT) loadHistory(state.history.filter);
+      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
       return true;
     }
 
@@ -2937,7 +3054,7 @@
     function readBanks() {
       var banks = {};
       var errors = [];
-      MODES.forEach(function (mode) {
+      MODES.concat([ACTUAL]).forEach(function (mode) {
         var element = byId('questions-' + mode);
         if (!element) {
           errors.push(mode + ' bank data is missing');
@@ -2967,6 +3084,7 @@
         ui.studyConfirm.disabled = true;
         ui.nameInput.disabled = true;
         MODES.forEach(function (mode) { ui.modeButtons[mode].disabled = true; });
+        ui.actualButtons.forEach(function (button) { button.disabled = true; });
         showView('unavailable');
         ui.unavailableHeading.focus();
         console.error(QUIZ_TITLE + ' is unavailable: ' + state.errors.join('; '));
@@ -2980,6 +3098,9 @@
       ui.studyConfirm.addEventListener('change', function () { setStudyConfirmed(ui.studyConfirm.checked); });
       MODES.forEach(function (mode) {
         ui.modeButtons[mode].addEventListener('click', function () { startQuiz(mode); });
+      });
+      ui.actualButtons.forEach(function (button) {
+        button.addEventListener('click', function () { startQuiz(ACTUAL, button.id === 'mode-actual-all' && ACTUAL_CONFIG.full ? ACTUAL_CONFIG.full : ACTUAL_CONFIG.attempt); });
       });
       ui.btnCheck.addEventListener('click', checkAnswer);
       ui.btnPrev.addEventListener('click', function () { if (state.attempt) goToQuestion(state.attempt.current - 1); });
@@ -3003,7 +3124,9 @@
       setStudentName(ui.nameInput.value, false);
       setStudyConfirmed(false);
       renderSaveStatus();
-      loadHistory('all');
+      // The Comprehensive Exam Reviewer pages have no class history: no request is ever made from them.
+      ui.btnHistory.hidden = ACTUAL_ONLY;
+      if (!ACTUAL_ONLY) loadHistory('all');
     }
 
     function getState() {
@@ -3028,6 +3151,8 @@
     globalThis.__quiz = Object.freeze({
       lessonKey: HISTORY_LESSON,
       validateBanks: validateBanks,
+      validateActualBank: validateActualBank,
+      actualConfig: ACTUAL_CONFIG,
       shuffleQuestions: shuffleQuestions,
       sampleQuestions: sampleQuestions,
       selectCoverage: selectCoverage,
@@ -3062,12 +3187,14 @@
       // Replaces the Web Audio player (tests inject a recorder); null restores the default player.
       setSoundPlayer: function (player) { state.soundPlayer = typeof player === 'function' ? player : defaultSoundPlayer; },
       getState: getState,
-      getBanks: function () { return state.banks; },
+      // The difficulty banks; the Actual Exam bank is separate (getActualBank).
+      getBanks: function () { return state.banks ? { easy: state.banks.easy, medium: state.banks.medium, hard: state.banks.hard } : state.banks; },
+      getActualBank: function () { return state.banks ? state.banks.actual : null; },
       setRandom: function (random) { state.random = typeof random === 'function' ? random : Math.random; }
     });
   })();
   </script>
-<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid"><div><h2>Practice exams</h2><ul><li><a class="main" href="../">Exam hub (all modules)</a></li><li><a class="main" href="../module-1-exam/">Module 1 Exam</a></li><li><a class="main" href="../module-3-exam/">Module 4 Exam</a></li><li><a class="main" href="../module-5-exam/">Module 5 Exam</a></li><li><a class="main" href="../module-6-exam/">Module 6 Exam</a></li><li><a class="main" href="../module-7-exam/">Module 7 Exam</a></li><li><a class="main" href="../module-8-exam/">Module 8 Exam</a></li></ul></div><div><h2>Reviewer</h2><ul><li><a class="main" href="../reviewer/">All Reviewer lessons</a></li></ul><p class="mod">Module 1 · Leadership</p><ul><li><a class="main" href="../military-leadership-attributes/">Military Leadership Attributes quiz</a><a href="../reviewer/leadershipattributes/">Reviewer</a></li><li><a class="main" href="../military-leadership-competencies/">Military Leadership Competencies quiz</a><a href="../reviewer/leadershipcompetencies/">Reviewer</a></li><li><a class="main" href="../company-management/">Company Management quiz</a><a href="../reviewer/companymanagement/">Reviewer</a></li><li><a class="main" href="../mission-command/">Mission Command quiz</a><a href="../reviewer/missioncommand/">Reviewer</a></li><li><a class="main" href="../ethical-transformational-leadership/">Ethical and Transformational Leadership quiz</a><a href="../reviewer/ethicalleadership/">Reviewer</a></li><li><a class="main" href="../nco-empowerment/">NCO Empowerment quiz</a><a href="../reviewer/ncoempowerment/">Reviewer</a></li><li><a class="main" href="../effective-communication-2/">Effective Communication 2 quiz</a><a href="../reviewer/effectivecommunication/">Reviewer</a></li></ul><p class="mod">Module 2 · Army Operating Concept</p><ul><li><a class="main" href="../combined/">Combined Practice Exam quiz</a></li><li><a class="main" href="../field-artillery/">Field Artillery Operations quiz</a><a href="../reviewer/fieldartillery/">Reviewer</a></li><li><a class="main" href="../armor/">Armor Operations quiz</a><a href="../reviewer/armor/">Reviewer</a></li><li><a class="main" href="../isr/">ISR Operations quiz</a><a href="../reviewer/isr/">Reviewer</a></li></ul><p class="mod">Module 3 · Battalion/Brigade Operations Planning</p><ul><li><a class="main" href="../module-3-planning-exam/">Module 3 Planning Exam quiz</a></li><li><a class="main" href="../troop-leading-procedure/">Troop Leading Procedure (TLP) quiz</a><a href="../reviewer/tlp/">Reviewer</a></li><li><a class="main" href="../military-decision-making-process/">Military Decision-Making Process (MDMP) quiz</a><a href="../reviewer/mdmp/">Reviewer</a></li></ul><p class="mod">Module 4 · Signal Support Integration</p><ul><li><a class="main" href="../signal-support/">Signal Support in Combined Arms Operations quiz</a><a href="../reviewer/signal/">Reviewer</a></li><li><a class="main" href="../joint-signal/">Signal Support in Joint Operations quiz</a><a href="../reviewer/signaljoint/">Reviewer</a></li><li><a class="main" href="../coalition-signal/">Signal Support in Coalition Operations quiz</a><a href="../reviewer/coalition/">Reviewer</a></li></ul><p class="mod">Module 5 · Advanced C2 Communications</p><ul><li><a class="main" href="../manet-c4istar-planning/">MANET C4ISTAR Planning quiz</a><a href="../reviewer/manet/">Reviewer</a></li><li><a class="main" href="../c4istar-sensors-integration/">C4ISTAR Sensors Integration quiz</a><a href="../reviewer/sensors/">Reviewer</a></li><li><a class="main" href="../c4istar-weapon-system-integration/">C4ISTAR Weapon System Integration quiz</a><a href="../reviewer/weapons/">Reviewer</a></li><li><a class="main" href="../signal-propagation/">Signal Propagation (Mobile Apps/RF Clouds) quiz</a><a href="../reviewer/propagation/">Reviewer</a></li></ul><p class="mod">Module 6 · Advanced Electronic Warfare Operations</p><ul><li><a class="main" href="../signals-intelligence/">Signals Intelligence (SIGINT) quiz</a><a href="../reviewer/sigint/">Reviewer</a></li><li><a class="main" href="../electronic-intelligence/">Electronic Intelligence (ELINT) quiz</a><a href="../reviewer/elint/">Reviewer</a></li><li><a class="main" href="../radio-direction-finding/">Radio Direction Finding quiz</a><a href="../reviewer/rdf/">Reviewer</a></li><li><a class="main" href="../electronic-counter-countermeasures/">Electronic Counter-Countermeasures (ECCM) quiz</a><a href="../reviewer/eccm/">Reviewer</a></li></ul><p class="mod">Module 7 · Advanced Cyberspace Operations</p><ul><li><a class="main" href="../nist-framework/">NIST Framework quiz</a><a href="../reviewer/nist/">Reviewer</a></li><li><a class="main" href="../zero-trust/">Zero Trust quiz</a><a href="../reviewer/zerotrust/">Reviewer</a></li><li><a class="main" href="../gsomia-compliance/">LOE3 GSOMIA Compliance quiz</a><a href="../reviewer/gsomia/">Reviewer</a></li><li><a class="main" href="../cyber-risk-assessment/">Cyber Risk Assessment quiz</a><a href="../reviewer/cyberrisk/">Reviewer</a></li></ul><p class="mod">Module 8 · Signal Planning</p><ul><li><a class="main" href="../ceoi-cesi-management/">CEOI / CESI Management quiz</a><a href="../reviewer/ceoicesi/">Reviewer</a></li><li><a class="main" href="../signal-estimate/">Signal Estimate quiz</a><a href="../reviewer/signalestimate/">Reviewer</a></li><li><a class="main" href="../c4istar-communications-planning/">C4ISTAR Communications Planning quiz</a><a href="../reviewer/c4istarplanning/">Reviewer</a></li><li><a class="main" href="../signal-planning-process/">Signal Planning Process quiz</a><a href="../reviewer/signalplanning/">Reviewer</a></li></ul><p class="mod">Supporting Lessons · Supporting study material; not separately numbered POI lessons</p><ul><li><a class="main" href="../army-operations/">Army Operations quiz</a><a href="../reviewer/armyops/">Reviewer</a></li><li><a class="main" href="../intelligence-cycle/">Intelligence Cycle quiz</a><a href="../reviewer/intcycle/">Reviewer</a></li></ul></div><div><h2>Library</h2><ul><li><a class="main" href="../library/">Library: lessons, manuals, sources</a></li><li><a class="main" href="../library/unit-organization/">Unit Organization</a></li></ul></div><div><h2>How To guides</h2><ul><li><a class="main" href="../how-to/">All How To guides</a></li><li><a class="main" href="../how-to/how-to-check-repeater-channel-pair/">Check a repeater channel pair</a></li><li><a class="main" href="../how-to/how-to-conduct-radio-check/">Conduct a two-station radio check</a></li><li><a class="main" href="../how-to/how-to-configure-rf5800v-scan/">Configure an RF-5800V scan list</a></li><li><a class="main" href="../how-to/how-to-connect-windows-radio-rndis/">Connect a Windows PC to a radio over USB</a></li><li><a class="main" href="../how-to/how-to-plot-radio-link-profile/">Plot a radio link in Radio Mobile</a></li><li><a class="main" href="../how-to/how-to-program-fixed-frequency-preset/">Program a fixed-frequency radio channel</a></li><li><a class="main" href="../how-to/how-to-program-rf5800v-net/">Program an RF-5800V voice net</a></li><li><a class="main" href="../how-to/how-to-set-up-two-radio-retransmit/">Set up a two-radio repeater</a></li><li><a class="main" href="../how-to/how-to-size-a-half-wave-dipole/">Size a half-wave dipole</a></li><li><a class="main" href="../how-to/how-to-test-tactical-chat-link/">Send a test message over a radio data link</a></li><li><a class="main" href="../how-to/how-to-transfer-cpa-radio-plan/">Transfer a CPA plan to an RF-7800V</a></li></ul></div><div><h2>Radio and codes</h2><ul><li><a class="main" href="../los-radios/">LOS Radios</a></li><li><a class="main" href="../codes-ciphers/">Codes &amp; Ciphers</a></li></ul></div><div><h2>Schedule, class, instructor</h2><ul><li><a class="main" href="../schedule/?v=day-picker-2">Weekly schedule (current week)</a></li><li><a class="main" href="../schedule-2026-11-02/">Week of 02–08 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-09/">Week of 09–15 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-16/">Week of 16–22 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-23/">Week of 23–29 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-30/">Week of 30 Nov – 06 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-07/">Week of 07–13 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-14/">Week of 14–20 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-21/">Week of 21–27 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-28/">Week of 28 Dec 2026 – 03 Jan 2027</a></li><li><a class="main" href="../schedule-2027-01-04/">Week of 04–10 Jan 2027</a></li><li><a class="main" href="../class/">Our class</a></li><li><a class="main" href="../instructor/">Instructor view</a></li></ul></div></div></details></nav>
+<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid"><div><h2>Practice exams</h2><ul><li><a class="main" href="../">Exam hub (all modules)</a></li><li><a class="main" href="../module-1-exam/">Module 1 Exam</a></li><li><a class="main" href="../module-3-exam/">Module 4 Exam</a></li><li><a class="main" href="../module-5-exam/">Module 5 Exam</a></li><li><a class="main" href="../module-6-exam/">Module 6 Exam</a></li><li><a class="main" href="../module-7-exam/">Module 7 Exam</a></li><li><a class="main" href="../module-8-exam/">Module 8 Exam</a></li></ul></div><div><h2>Comprehensive Exam Reviewer</h2><ul><li><a class="main" href="../comprehensive-reviewer/">Actual Exam: all graded exams</a></li><li><a class="main" href="../comprehensive-reviewer/all/">All graded exams, mixed</a></li></ul></div><div><h2>Reviewer</h2><ul><li><a class="main" href="../reviewer/">All Reviewer lessons</a></li></ul><p class="mod">Module 1 · Leadership</p><ul><li><a class="main" href="../military-leadership-attributes/">Military Leadership Attributes quiz</a><a href="../reviewer/leadershipattributes/">Reviewer</a></li><li><a class="main" href="../military-leadership-competencies/">Military Leadership Competencies quiz</a><a href="../reviewer/leadershipcompetencies/">Reviewer</a></li><li><a class="main" href="../company-management/">Company Management quiz</a><a href="../reviewer/companymanagement/">Reviewer</a></li><li><a class="main" href="../mission-command/">Mission Command quiz</a><a href="../reviewer/missioncommand/">Reviewer</a></li><li><a class="main" href="../ethical-transformational-leadership/">Ethical and Transformational Leadership quiz</a><a href="../reviewer/ethicalleadership/">Reviewer</a></li><li><a class="main" href="../nco-empowerment/">NCO Empowerment quiz</a><a href="../reviewer/ncoempowerment/">Reviewer</a></li><li><a class="main" href="../effective-communication-2/">Effective Communication 2 quiz</a><a href="../reviewer/effectivecommunication/">Reviewer</a></li></ul><p class="mod">Module 2 · Army Operating Concept</p><ul><li><a class="main" href="../combined/">Combined Practice Exam quiz</a></li><li><a class="main" href="../field-artillery/">Field Artillery Operations quiz</a><a href="../reviewer/fieldartillery/">Reviewer</a></li><li><a class="main" href="../armor/">Armor Operations quiz</a><a href="../reviewer/armor/">Reviewer</a></li><li><a class="main" href="../isr/">ISR Operations quiz</a><a href="../reviewer/isr/">Reviewer</a></li></ul><p class="mod">Module 3 · Battalion/Brigade Operations Planning</p><ul><li><a class="main" href="../module-3-planning-exam/">Module 3 Planning Exam quiz</a></li><li><a class="main" href="../troop-leading-procedure/">Troop Leading Procedure (TLP) quiz</a><a href="../reviewer/tlp/">Reviewer</a></li><li><a class="main" href="../military-decision-making-process/">Military Decision-Making Process (MDMP) quiz</a><a href="../reviewer/mdmp/">Reviewer</a></li></ul><p class="mod">Module 4 · Signal Support Integration</p><ul><li><a class="main" href="../signal-support/">Signal Support in Combined Arms Operations quiz</a><a href="../reviewer/signal/">Reviewer</a></li><li><a class="main" href="../joint-signal/">Signal Support in Joint Operations quiz</a><a href="../reviewer/signaljoint/">Reviewer</a></li><li><a class="main" href="../coalition-signal/">Signal Support in Coalition Operations quiz</a><a href="../reviewer/coalition/">Reviewer</a></li></ul><p class="mod">Module 5 · Advanced C2 Communications</p><ul><li><a class="main" href="../manet-c4istar-planning/">MANET C4ISTAR Planning quiz</a><a href="../reviewer/manet/">Reviewer</a></li><li><a class="main" href="../c4istar-sensors-integration/">C4ISTAR Sensors Integration quiz</a><a href="../reviewer/sensors/">Reviewer</a></li><li><a class="main" href="../c4istar-weapon-system-integration/">C4ISTAR Weapon System Integration quiz</a><a href="../reviewer/weapons/">Reviewer</a></li><li><a class="main" href="../signal-propagation/">Signal Propagation (Mobile Apps/RF Clouds) quiz</a><a href="../reviewer/propagation/">Reviewer</a></li></ul><p class="mod">Module 6 · Advanced Electronic Warfare Operations</p><ul><li><a class="main" href="../signals-intelligence/">Signals Intelligence (SIGINT) quiz</a><a href="../reviewer/sigint/">Reviewer</a></li><li><a class="main" href="../electronic-intelligence/">Electronic Intelligence (ELINT) quiz</a><a href="../reviewer/elint/">Reviewer</a></li><li><a class="main" href="../radio-direction-finding/">Radio Direction Finding quiz</a><a href="../reviewer/rdf/">Reviewer</a></li><li><a class="main" href="../electronic-counter-countermeasures/">Electronic Counter-Countermeasures (ECCM) quiz</a><a href="../reviewer/eccm/">Reviewer</a></li></ul><p class="mod">Module 7 · Advanced Cyberspace Operations</p><ul><li><a class="main" href="../nist-framework/">NIST Framework quiz</a><a href="../reviewer/nist/">Reviewer</a></li><li><a class="main" href="../zero-trust/">Zero Trust quiz</a><a href="../reviewer/zerotrust/">Reviewer</a></li><li><a class="main" href="../gsomia-compliance/">LOE3 GSOMIA Compliance quiz</a><a href="../reviewer/gsomia/">Reviewer</a></li><li><a class="main" href="../cyber-risk-assessment/">Cyber Risk Assessment quiz</a><a href="../reviewer/cyberrisk/">Reviewer</a></li></ul><p class="mod">Module 8 · Signal Planning</p><ul><li><a class="main" href="../ceoi-cesi-management/">CEOI / CESI Management quiz</a><a href="../reviewer/ceoicesi/">Reviewer</a></li><li><a class="main" href="../signal-estimate/">Signal Estimate quiz</a><a href="../reviewer/signalestimate/">Reviewer</a></li><li><a class="main" href="../c4istar-communications-planning/">C4ISTAR Communications Planning quiz</a><a href="../reviewer/c4istarplanning/">Reviewer</a></li><li><a class="main" href="../signal-planning-process/">Signal Planning Process quiz</a><a href="../reviewer/signalplanning/">Reviewer</a></li></ul><p class="mod">Supporting Lessons · Supporting study material; not separately numbered POI lessons</p><ul><li><a class="main" href="../army-operations/">Army Operations quiz</a><a href="../reviewer/armyops/">Reviewer</a></li><li><a class="main" href="../intelligence-cycle/">Intelligence Cycle quiz</a><a href="../reviewer/intcycle/">Reviewer</a></li></ul></div><div><h2>Library</h2><ul><li><a class="main" href="../library/">Library: lessons, manuals, sources</a></li><li><a class="main" href="../library/unit-organization/">Unit Organization</a></li></ul></div><div><h2>How To guides</h2><ul><li><a class="main" href="../how-to/">All How To guides</a></li><li><a class="main" href="../how-to/how-to-check-repeater-channel-pair/">Check a repeater channel pair</a></li><li><a class="main" href="../how-to/how-to-conduct-radio-check/">Conduct a two-station radio check</a></li><li><a class="main" href="../how-to/how-to-configure-rf5800v-scan/">Configure an RF-5800V scan list</a></li><li><a class="main" href="../how-to/how-to-connect-windows-radio-rndis/">Connect a Windows PC to a radio over USB</a></li><li><a class="main" href="../how-to/how-to-plot-radio-link-profile/">Plot a radio link in Radio Mobile</a></li><li><a class="main" href="../how-to/how-to-program-fixed-frequency-preset/">Program a fixed-frequency radio channel</a></li><li><a class="main" href="../how-to/how-to-program-rf5800v-net/">Program an RF-5800V voice net</a></li><li><a class="main" href="../how-to/how-to-set-up-two-radio-retransmit/">Set up a two-radio repeater</a></li><li><a class="main" href="../how-to/how-to-size-a-half-wave-dipole/">Size a half-wave dipole</a></li><li><a class="main" href="../how-to/how-to-test-tactical-chat-link/">Send a test message over a radio data link</a></li><li><a class="main" href="../how-to/how-to-transfer-cpa-radio-plan/">Transfer a CPA plan to an RF-7800V</a></li></ul></div><div><h2>Radio and codes</h2><ul><li><a class="main" href="../los-radios/">LOS Radios</a></li><li><a class="main" href="../codes-ciphers/">Codes &amp; Ciphers</a></li></ul></div><div><h2>Schedule, class, instructor</h2><ul><li><a class="main" href="../schedule/?v=day-picker-2">Weekly schedule (current week)</a></li><li><a class="main" href="../schedule-2026-11-02/">Week of 02–08 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-09/">Week of 09–15 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-16/">Week of 16–22 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-23/">Week of 23–29 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-30/">Week of 30 Nov – 06 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-07/">Week of 07–13 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-14/">Week of 14–20 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-21/">Week of 21–27 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-28/">Week of 28 Dec 2026 – 03 Jan 2027</a></li><li><a class="main" href="../schedule-2027-01-04/">Week of 04–10 Jan 2027</a></li><li><a class="main" href="../class/">Our class</a></li><li><a class="main" href="../instructor/">Instructor view</a></li></ul></div></div></details></nav>
 <aside class="domain-seal" aria-label="Site signature"><img class="domain-sigil" src="../assets/domain-void-hand-320.webp" width="160" height="221" alt="" loading="lazy" decoding="async"><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>“You see, but you do not observe.”</em><cite data-domain-attribution>— Sherlock Holmes · A Scandal in Bohemia · Arthur Conan Doyle</cite></span></aside>
 <script src="../assets/identity.js" defer></script>
 </body>

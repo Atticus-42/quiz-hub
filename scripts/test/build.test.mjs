@@ -100,13 +100,15 @@ export async function buildSuite({ lessons, modules }) {
       ...scheduleWeeks.map(start => `schedule-${start}/index.html`),
       'instructor/index.html', 'instructor/items.json', 'codes-ciphers/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
     const howtoPages = JSON.parse(readFileSync(join(ROOT, 'data/howto.json'), 'utf8')).map(guide => `how-to/${guide.id}/index.html`);
-    const studyPages = [...howtoPages, 'how-to/index.html', 'los-radios/index.html', 'library/index.html', 'library/unit-organization/index.html', 'reviewer/index.html', ...lessons.filter(lesson => !lesson.pool && !(lesson.prominent && lesson.order === 0)).map(lesson => `reviewer/${lesson.key}/index.html`)];
-    assert.deepEqual(Object.keys(pages).sort(), [...expectedPages, ...studyPages].sort());
+    const actualPages = ['comprehensive-reviewer/all/index.html', ...JSON.parse(readFileSync(join(ROOT, 'data/actual-exams.json'), 'utf8')).exams.map(exam => `comprehensive-reviewer/${exam.slug}/index.html`)];
+    const studyPages = ['comprehensive-reviewer/index.html', ...howtoPages, 'how-to/index.html', 'los-radios/index.html', 'library/index.html', 'library/unit-organization/index.html', 'reviewer/index.html', ...lessons.filter(lesson => !lesson.pool && !(lesson.prominent && lesson.order === 0)).map(lesson => `reviewer/${lesson.key}/index.html`)];
+    assert.deepEqual(Object.keys(pages).sort(), [...expectedPages, ...studyPages, ...actualPages].sort());
     for (const slug of ['isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal', 'coalition-signal', 'combined']) assert.ok(expectedPages.includes(`${slug}/index.html`), slug);
     for (const [path, html] of Object.entries(pages)) {
       assert.equal(readFileSync(join(ROOT, path), 'utf8'), html, `${path} is stale: run node scripts/build.mjs`);
       if (path.endsWith('.json')) continue;
-      if (studyPages.includes(path) || ['class/index.html', 'codes-ciphers/index.html'].includes(path) || /^schedule(?:-\d{4}-\d{2}-\d{2})?\//.test(path)) assert.ok(!html.includes('HISTORY_ENDPOINT') && !html.includes('script.google.com'), `${path} never contacts the history endpoint`);
+      if (actualPages.includes(path)) assert.ok(html.includes("var HISTORY_ENDPOINT = '';") && !html.includes('script.google.com'), `${path} (Comprehensive Exam Reviewer) never contacts the history endpoint`);
+      else if (studyPages.includes(path) || ['class/index.html', 'codes-ciphers/index.html'].includes(path) || /^schedule(?:-\d{4}-\d{2}-\d{2})?\//.test(path)) assert.ok(!html.includes('HISTORY_ENDPOINT') && !html.includes('script.google.com'), `${path} never contacts the history endpoint`);
       else assert.equal(html.split(`var HISTORY_ENDPOINT = '${HISTORY_ENDPOINT}';`).length - 1, 1, `${path} declares the endpoint once`);
       assert.doesNotMatch(html, /\{\{[A-Z_]+\}\}/, `${path} has no unfilled placeholder`);
     }

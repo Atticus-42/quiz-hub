@@ -23,6 +23,7 @@ export function buildSiteIndex({ modules, lessons, study, pages }) {
     const parts = [];
     parts.push(col('Practice exams', '<ul>' + li(a('', 'Exam hub (all modules)', 'main')) +
       exams.map(lesson => li(a(lesson.slug + '/', lesson.name, 'main'), study.byKey.has(lesson.key) ? a('reviewer/' + lesson.key + '/', 'Reviewer') : '')).join('') + '</ul>'));
+    parts.push(col('Comprehensive Exam Reviewer', '<ul>' + li(a('comprehensive-reviewer/', 'Actual Exam: all graded exams', 'main')) + li(a('comprehensive-reviewer/all/', 'All graded exams, mixed', 'main')) + '</ul>'));
     parts.push(col('Reviewer', '<ul>' + li(a('reviewer/', 'All Reviewer lessons', 'main')) + '</ul>' +
       byModule.map(({ module, items }) => '<p class="mod">' + esc(module.title + (module.note ? ' · ' + module.note : '')) + '</p><ul>' +
         items.map(lesson => li(a(lesson.slug + '/', lesson.name + ' quiz', 'main'), study.byKey.has(lesson.key) ? a('reviewer/' + lesson.key + '/', 'Reviewer') : '')).join('') + '</ul>').join('')));
@@ -44,6 +45,7 @@ export function siteSearchPages({ lessons, study, pages }) {
     if (!study.byKey.has(lesson.key)) continue;
     out.push({ t: lesson.name + ' Reviewer', d: study.reviewers[lesson.key].brief, k: 'Reviewer', u: 'reviewer/' + lesson.key + '/' });
   }
+  out.push({ t: 'Comprehensive Exam Reviewer', d: 'Actual Exam: questions from the class’s graded exams, each exam as a quiz plus a mixed set', k: 'Reviewer', u: 'comprehensive-reviewer/' });
   out.push({ t: 'Library: lessons, manuals and sources', d: 'Original lesson PDFs, field manuals, citations and reference documents', k: 'Library', u: 'library/' });
   out.push({ t: 'Unit Organization', d: 'Unit organization charts, formations, roles and personnel counts with sources', k: 'Library', u: 'library/unit-organization/' });
   for (const path of Object.keys(pages).filter(p => /^how-to\/[^/]+\/index\.html$/.test(p)).sort()) out.push({ t: titleOf(path), d: 'Step-by-step radio and field how-to guide', k: 'How To', u: path.replace(/index\.html$/, '') });

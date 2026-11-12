@@ -548,6 +548,16 @@
     .mode-button:disabled .mode-name .gauge { color: var(--color-rule); }
     .mode-desc { font-size: var(--text-ui); font-weight: 400; line-height: 1.45; }
     .mode-go { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent); }
+    /* Actual Exam: a fourth category, set apart from the difficulty ladder by a rule, a label and a stamp. */
+    .actual-block { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 3px double var(--color-text); }
+    .actual-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-3); margin: 0; font-size: var(--text-h4); }
+    .actual-badge { display: inline-block; padding: 0.15rem 0.5rem; border: 2px solid var(--color-signal-text); color: var(--color-signal-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+    .actual-note { max-width: 46rem; margin: var(--space-2) 0 0; color: var(--color-muted); font-size: var(--text-meta); line-height: 1.55; }
+    .actual-list { margin-top: var(--space-3); }
+    .mode-actual .actual-mark { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border: 2px solid currentColor; color: var(--color-signal-text); font-size: 0.95rem; line-height: 1; }
+    .mode-actual:disabled .actual-mark { color: var(--color-rule); }
+    .mode-actual:hover:not(:disabled) { border-left-color: var(--color-signal); }
+    .theme-actual .quiz-rail .gauge { display: none; }
     .privacy-note { max-width: 46rem; font-size: var(--text-meta); line-height: 1.6; color: var(--color-muted); }
     .question-category, .results-reminder { color: var(--color-muted); }
     .device-progress { margin: 0; font-size: var(--text-meta); color: var(--color-muted); }
@@ -1094,6 +1104,7 @@
               <span class="mode-go" aria-hidden="true">Begin →</span>
             </button>
           </div>
+
         </div>
       </div>
 
@@ -1245,11 +1256,12 @@
 
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
 
-  <script type="application/json" id="quiz-config">{"key":"c4istarplanning","module":"module-8","title":"C4ISTAR Communications Planning Mastery Quiz","categoryOrder":["Planning Requirements","Communications Technologies","Component Roles","Interoperability"],"sourceRef":{"label":"slide","min":1,"max":50,"required":true},"sourceAlt":null,"pool":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
+  <script type="application/json" id="quiz-config">{"key":"c4istarplanning","module":"module-8","title":"C4ISTAR Communications Planning Mastery Quiz","categoryOrder":["Planning Requirements","Communications Technologies","Component Roles","Interoperability"],"sourceRef":{"label":"slide","min":1,"max":50,"required":true},"sourceAlt":null,"pool":null,"actual":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
   <script type="application/json" id="study-links">{"reviewer":"../reviewer/c4istarplanning/","sources":{"c4istarplanning":{"title":"C4ISTAR Communications Planning","citationName":"C4ISTAR Communications Planning","available":true,"doc":"source-c4istarplanning","href":"../library/files/lesson-c4istar-communications-planning.pdf","exactPages":true,"studyDoc":"../reviewer/c4istarplanning/","manuals":[]}},"byQuestion":{}}</script>
   <script type="application/json" id="questions-easy">[{"id":1,"qid":"c4istarplanning-e-01","difficulty":"easy","category":"Planning Requirements","tags":["planning requirements"],"prompt":"What is the broad purpose of C4ISTAR communications planning in the lesson?","options":["Maximize the number of separate communications systems","Standardize acquisition without evaluating mission needs","Replace decision-making with automated processing","Make components work together securely and effectively toward mission goals"],"answer":3,"explanation":"The lesson connects efficient, secure component coordination to mission accomplishment.","sourceSlides":[14]},{"id":2,"qid":"c4istarplanning-e-02","difficulty":"easy","category":"Planning Requirements","tags":["planning requirements"],"prompt":"What complements personnel training when validating a communications plan?","options":["A single equipment purchase","A catalog of supported devices","Regular simulations and exercises","A list of established command appointments"],"answer":2,"explanation":"Simulations and exercises test plans and systems under representative conditions.","sourceSlides":[17]},{"id":3,"qid":"c4istarplanning-e-03","difficulty":"easy","category":"Planning Requirements","tags":["planning requirements"],"prompt":"What supports sustained availability after infrastructure has been established?","options":["A one-time acceptance inspection","A greater number of operational reports","A broader inventory of mission objectives","Regular maintenance and timely repairs"],"answer":3,"explanation":"The lesson couples infrastructure with continued maintenance and support.","sourceSlides":[18]},{"id":4,"qid":"c4istarplanning-e-04","difficulty":"easy","category":"Planning Requirements","tags":["planning requirements"],"prompt":"What planning requirement supports effective information flow and decision-making across organizations?","options":["Clear communication protocols and command structures","Separate standards for every participating team","More data collection without defined responsibilities","Higher processing capacity by itself"],"answer":0,"explanation":"Clear protocols and structures support information flow and coordination.","sourceSlides":[19]},{"id":5,"qid":"c4istarplanning-e-05","difficulty":"easy","category":"Planning Requirements","tags":["planning requirements"],"prompt":"What decision-making need does real-time information exchange address?","options":["Increasing the volume of archived records","Providing information in time for rapid decisions","Replacing the need for field reliability","Reducing the number of command appointments"],"answer":1,"explanation":"The purpose of timely exchange is to support prompt decisions.","sourceSlides":[20]},{"id":6,"qid":"c4istarplanning-e-06","difficulty":"easy","category":"Planning Requirements","tags":["planning requirements"],"prompt":"Which costs should the funding plan account for?","options":["Only recurring software licenses","Acquisition and first inspection only","Only replacement when the technology fails","Acquisition, maintenance, and upgrading"],"answer":3,"explanation":"The lesson includes acquisition, ongoing maintenance, and upgrades.","sourceSlides":[21]},{"id":7,"qid":"c4istarplanning-e-07","difficulty":"easy","category":"Planning Requirements","tags":["planning requirements"],"prompt":"Which requirement involves repeated assessment and adaptation as vulnerabilities change?","options":["Adaptation to emerging threats","Fixed edition management","Physical infrastructure development","Capacity building through initial orientation"],"answer":0,"explanation":"Threat assessment is continuous and informs adaptation.","sourceSlides":[22]},{"id":8,"qid":"c4istarplanning-e-08","difficulty":"easy","category":"Planning Requirements","tags":["planning requirements"],"prompt":"Which concerns are identified under legal and ethical compliance?","options":["Only operational speed and data volume","Only procurement schedules and replacement intervals","Applicable regulations, privacy, and human rights","Staff availability and geographic coverage"],"answer":2,"explanation":"The lesson includes regulatory compliance and respect for privacy and human rights.","sourceSlides":[24]},{"id":9,"qid":"c4istarplanning-e-09","difficulty":"easy","category":"Communications Technologies","tags":["communications technologies"],"prompt":"What capability distinguishes a software-defined radio in the lesson?","options":["Reconfiguration through software","Analysis of images from multiple sources","Cloud storage of large datasets","Visual overlay of geographic information"],"answer":0,"explanation":"Software reconfiguration gives the radio flexibility across modes and protocols.","sourceSlides":[25,36]},{"id":10,"qid":"c4istarplanning-e-10","difficulty":"easy","category":"Communications Technologies","tags":["communications technologies"],"prompt":"Which technology family includes both fixed ground stations and portable terminals?","options":["Simulation systems","Geospatial information systems","Integrated command consoles","Satellite communications"],"answer":3,"explanation":"The deck lists fixed and mobile forms of satellite communications.","sourceSlides":[26]},{"id":11,"qid":"c4istarplanning-e-11","difficulty":"easy","category":"Communications Technologies","tags":["communications technologies"],"prompt":"What broad role do IP-based networks play?","options":["Standalone terrain visualization","Flexible data transmission and integration","Hands-on practice through simulation","Physical protection for portable devices"],"answer":1,"explanation":"The lesson describes IP-based networking as a means of flexible data transmission and integration.","sourceSlides":[27]},{"id":12,"qid":"c4istarplanning-e-12","difficulty":"easy","category":"Communications Technologies","tags":["communications technologies"],"prompt":"What role is assigned to cloud-based solutions?","options":["Direct control of the physical operating environment","Ruggedization of mobile devices","Scalable storage and processing for data and collaboration","Manual validation of all command decisions"],"answer":2,"explanation":"The lesson presents cloud resources as flexible for processing, storage, and collaboration.","sourceSlides":[31]},{"id":13,"qid":"c4istarplanning-e-13","difficulty":"easy","category":"Communications Technologies","tags":["communications technologies"],"prompt":"What do intelligence analysis tools primarily produce from collected data?","options":["Physical connectivity between terminals","A standardized command structure","Actionable insights","Device identity credentials"],"answer":2,"explanation":"Analytical software processes intelligence data to support action.","sourceSlides":[34]},{"id":14,"qid":"c4istarplanning-e-14","difficulty":"easy","category":"Communications Technologies","tags":["communications technologies"],"prompt":"What does authentication help establish?","options":["Whether an exercise met its attendance target","Whether physical infrastructure is maintained","The identity of a user or device","Whether information is useful to a commander"],"answer":2,"explanation":"Authentication verifies identity as part of access control.","sourceSlides":[37]},{"id":15,"qid":"c4istarplanning-e-15","difficulty":"easy","category":"Communications Technologies","tags":["communications technologies"],"prompt":"What problem do ruggedized mobile devices primarily address?","options":["Detection of unauthorized access attempts","Suitability for field conditions","Long-term storage of large collaborative datasets","Standardization of information exchange between organizations"],"answer":1,"explanation":"The lesson identifies ruggedization as support for devices used in the field.","sourceSlides":[38]},{"id":16,"qid":"c4istarplanning-e-16","difficulty":"easy","category":"Component Roles","tags":["component roles"],"prompt":"Which component supports situational awareness, mission planning, and operational coordination?","options":["A ruggedized tablet enclosure","A standalone sensor platform","An emergency communications kit","A tactical command system"],"answer":3,"explanation":"The lesson places those functions under tactical command systems.","sourceSlides":[28]},{"id":17,"qid":"c4istarplanning-e-17","difficulty":"easy","category":"Component Roles","tags":["component roles"],"prompt":"What functions are brought together in an integrated tactical operations center?","options":["Procurement, finance, and personnel records","Command, communications, and intelligence","Authentication, encryption, and exercise evaluation","Transport, maintenance, and inventory"],"answer":1,"explanation":"The center consolidates command, communications, and intelligence functions.","sourceSlides":[29]},{"id":18,"qid":"c4istarplanning-e-18","difficulty":"easy","category":"Component Roles","tags":["component roles"],"prompt":"What distinguishes a geospatial information system in the lesson?","options":["Rapid repair of field equipment","Visualization and analysis of geographic data","Simulation of representative training conditions","Verification of user and device identity"],"answer":1,"explanation":"GIS provides geographic visualization and analysis.","sourceSlides":[39]},{"id":19,"qid":"c4istarplanning-e-19","difficulty":"easy","category":"Interoperability","tags":["interoperability"],"prompt":"What does communications interoperability allow different entities to do?","options":["Exchange usable information across systems","Increase local processing speed without integration","Acquire identical equipment independently","Maintain separate records without exchange"],"answer":0,"explanation":"Interoperability is effective information exchange among different systems or entities.","sourceSlides":[42]},{"id":20,"qid":"c4istarplanning-e-20","difficulty":"easy","category":"Interoperability","tags":["interoperability"],"prompt":"What does scalability mean in this lesson?","options":["Accommodating different sizes of operations and demands","Restricting all exchanges to the smallest team","Retaining the same capacity regardless of load","Requiring all participants to use a single device model"],"answer":0,"explanation":"Scalability lets systems support needs from smaller to larger missions.","sourceSlides":[44]}]</script>
   <script type="application/json" id="questions-medium">[{"id":1,"qid":"c4istarplanning-m-01","difficulty":"medium","category":"Planning Requirements","tags":["planning requirements"],"prompt":"A planning team can deliver detailed summaries, but each arrives after the decision it supports. Which requirement needs direct attention?","options":["Timeliness of information exchange","Ruggedness of display enclosures","Number of geographic display layers","Depth of stored historical data"],"answer":0,"explanation":"An otherwise useful product must reach the decision-maker within the required time.","sourceSlides":[14,20]},{"id":2,"qid":"c4istarplanning-m-02","difficulty":"medium","category":"Planning Requirements","tags":["planning requirements"],"prompt":"A team can transmit information quickly, but it has no established safeguards against unauthorized reading or alteration. Which requirement is deficient?","options":["Secure communications","Personnel assignment","Coverage of geographic displays","Infrastructure capacity"],"answer":0,"explanation":"The lesson calls for safeguards against interception and tampering.","sourceSlides":[16]},{"id":3,"qid":"c4istarplanning-m-03","difficulty":"medium","category":"Planning Requirements","tags":["planning requirements"],"prompt":"Personnel can explain their duties but have never performed them during a disruption. What activity best addresses the gap?","options":["Collect additional attendance records from earlier briefings","Replace exercise results with self-assessments","Exercise the plan under disruption and observe performance","Add a second classroom explanation of assigned duties"],"answer":2,"explanation":"Exercises test how the people and plan function under representative pressure.","sourceSlides":[17]},{"id":4,"qid":"c4istarplanning-m-04","difficulty":"medium","category":"Planning Requirements","tags":["planning requirements"],"prompt":"A proposal pays for new equipment but omits long-term support. What revision fits the planning requirements?","options":["Shift funding from maintenance into additional initial installations","Increase acquisition quantity and assume upkeep will be absorbed","Budget maintenance and upgrades alongside acquisition","Reduce the number of written requirements without revising the budget"],"answer":2,"explanation":"Communications planning includes the resources needed to support and upgrade systems over time.","sourceSlides":[18,21]},{"id":5,"qid":"c4istarplanning-m-05","difficulty":"medium","category":"Planning Requirements","tags":["planning requirements"],"prompt":"At a joint classroom event, teams can exchange messages but cannot agree who approves changes. What should the planner clarify first?","options":["The number of devices assigned to each team","Which historical records to archive","The technical speed of the message transfer","Command responsibilities and shared communication procedures"],"answer":3,"explanation":"Clear protocols and command structures support coordinated decisions.","sourceSlides":[19]},{"id":6,"qid":"c4istarplanning-m-06","difficulty":"medium","category":"Planning Requirements","tags":["planning requirements"],"prompt":"A review identifies a new vulnerability after the original plan was approved. What response fits the lesson?","options":["Add bandwidth before evaluating the vulnerability","Retain the original plan until its normal expiration","Record the finding and wait for an unrelated upgrade","Reassess the risk and adapt the plan to the emerging threat"],"answer":3,"explanation":"The lesson treats threat assessment and adaptation as continuous requirements.","sourceSlides":[22]},{"id":7,"qid":"c4istarplanning-m-07","difficulty":"medium","category":"Planning Requirements","tags":["planning requirements"],"prompt":"The same infrastructure likely to be disrupted by a disaster supports all routine communication. What requirement should planners test?","options":["Whether the normal reporting schedule remains unchanged","Whether emergency communications can remain usable in adverse conditions","Whether routine messages can hold additional attachments","Whether there are enough archived versions of the plan"],"answer":1,"explanation":"Emergency systems should remain operational when adverse conditions affect routine infrastructure.","sourceSlides":[23]},{"id":8,"qid":"c4istarplanning-m-08","difficulty":"medium","category":"Communications Technologies","tags":["communications technologies"],"prompt":"A classroom team receives data from several sources and needs a shared tool for mission planning and coordination. Which technology role best fits?","options":["Tactical command system","Device ruggedization","Identity verification service","Standalone sensor"],"answer":0,"explanation":"The tactical command system turns data into a coordinated planning and awareness environment.","sourceSlides":[28]},{"id":9,"qid":"c4istarplanning-m-09","difficulty":"medium","category":"Communications Technologies","tags":["communications technologies"],"prompt":"A project needs storage and processing that can expand as collaborators add large datasets. Which technology category best fits?","options":["Cloud-based resources","Wearable display enclosure","Standalone mapping layer","Fixed radio terminal"],"answer":0,"explanation":"Cloud-based resources provide scalable storage and processing for collaboration.","sourceSlides":[31]},{"id":10,"qid":"c4istarplanning-m-10","difficulty":"medium","category":"Communications Technologies","tags":["communications technologies"],"prompt":"The team has collected imagery and now needs to derive implications for its plan. Which technology role is needed next?","options":["Additional collection platforms by default","User authentication alone","Intelligence analysis tools","Ruggedized enclosures"],"answer":2,"explanation":"Intelligence analysis tools process collected material into actionable insights.","sourceSlides":[33,34]},{"id":11,"qid":"c4istarplanning-m-11","difficulty":"medium","category":"Communications Technologies","tags":["communications technologies"],"prompt":"Two classroom users can connect but the team cannot confirm that they are the people they claim to be. Which security function addresses that gap?","options":["Scalability","Encryption alone","Standardization of displays","Authentication"],"answer":3,"explanation":"Authentication verifies identity. Data protection alone does not establish who is requesting access.","sourceSlides":[37]},{"id":12,"qid":"c4istarplanning-m-12","difficulty":"medium","category":"Communications Technologies","tags":["communications technologies"],"prompt":"Field users can reach the training service, but fragile equipment repeatedly fails outside the classroom. Which choice targets that failure?","options":["An extra data analysis module","A new central analytics console","More storage for collaborative data","Ruggedized field devices"],"answer":3,"explanation":"The evidence points to devices unsuited to field conditions.","sourceSlides":[38]},{"id":13,"qid":"c4istarplanning-m-13","difficulty":"medium","category":"Communications Technologies","tags":["communications technologies"],"prompt":"A planner must compare movement constraints against geographic data. Which tool category fits the task?","options":["Ruggedized enclosure","Geospatial information system","Device authentication service","Cloud storage alone"],"answer":1,"explanation":"GIS is used to visualize and analyze geographic information.","sourceSlides":[39]},{"id":14,"qid":"c4istarplanning-m-14","difficulty":"medium","category":"Component Roles","tags":["component roles"],"prompt":"Two sections want to colocate command and intelligence staff with communications support. Which component role best fits the need?","options":["Individual field communications terminal","Dedicated collection sensor","Integrated tactical operations center","Standalone geospatial display"],"answer":2,"explanation":"The integrated center brings command, communications, and intelligence into one facility.","sourceSlides":[28,29]},{"id":15,"qid":"c4istarplanning-m-15","difficulty":"medium","category":"Component Roles","tags":["component roles"],"prompt":"The analysts provide an assessment, but planning staff lack a shared view to coordinate decisions. Which component role fills the gap?","options":["An infrastructure maintenance register","Tactical command system","Independent field devices only","Additional analytical software only"],"answer":1,"explanation":"The analysis product can feed a tactical command system used for planning and coordination.","sourceSlides":[28,34]},{"id":16,"qid":"c4istarplanning-m-16","difficulty":"medium","category":"Component Roles","tags":["component roles"],"prompt":"A classroom design transmits reports successfully, but users cannot retrieve older information. What capability is missing?","options":["Data management for storing and accessing operational information","More rugged receivers with the same storage arrangement","A faster transmission link by itself","More simulated exercises without redesign"],"answer":0,"explanation":"Transport moves the data. Data management enables continued storage and access.","sourceSlides":[27,30]},{"id":17,"qid":"c4istarplanning-m-17","difficulty":"medium","category":"Interoperability","tags":["interoperability"],"prompt":"Two systems exchange files, but the receiving system cannot interpret the fields. What aspect of interoperability needs work?","options":["Increasing only the size of the file transfer","Common standards for representing and processing information","Reducing the number of authorized users","Expanding the physical facility that hosts the systems"],"answer":1,"explanation":"Compatible standards let both systems interpret the exchanged information.","sourceSlides":[42]},{"id":18,"qid":"c4istarplanning-m-18","difficulty":"medium","category":"Interoperability","tags":["interoperability"],"prompt":"Two systems cannot be replaced, but their data must be usable together. What planning option does the lesson suggest?","options":["Keep each system separate and compare only attendance records","Increase each system's storage independently","Integrate them through an appropriate interface or intermediary","Require that every exchange be delayed until final reporting"],"answer":2,"explanation":"Integration can connect disparate systems through middleware or interface standards.","sourceSlides":[43]},{"id":19,"qid":"c4istarplanning-m-19","difficulty":"medium","category":"Interoperability","tags":["interoperability"],"prompt":"Compatible systems work during brief tests but frequently fail under adverse conditions. Which interoperability attribute needs attention?","options":["Standardization of formats alone","Use of more user roles","Scalability alone","Reliability"],"answer":3,"explanation":"Reliability concerns continued effective operation when conditions are difficult.","sourceSlides":[43]},{"id":20,"qid":"c4istarplanning-m-20","difficulty":"medium","category":"Interoperability","tags":["interoperability"],"prompt":"A successful classroom pilot must support several additional teams. Which attribute should be evaluated before expansion?","options":["The number of introductory training slides","Scalability","Whether the pilot's information can be archived in paper form","Whether the pilot user devices all look alike"],"answer":1,"explanation":"Scalability is the ability to support increased operating demands.","sourceSlides":[44]}]</script>
   <script type="application/json" id="questions-hard">[{"id":1,"qid":"c4istarplanning-h-01","difficulty":"hard","category":"Planning Requirements","tags":["planning requirements"],"prompt":"Two teams receive the same timely information and still make conflicting decisions because each assumes approval belongs to the other. Which revision directly addresses the failure?","options":["Clarify who decides and how teams coordinate","Increase delivery speed and leave authority implicit","Let each team establish independent decision rules","Collect more data before clarifying responsibilities"],"answer":0,"explanation":"Timely exchange is already working. Clear command responsibilities and coordination rules are missing.","sourceSlides":[14,19,20]},{"id":2,"qid":"c4istarplanning-h-02","difficulty":"hard","category":"Planning Requirements","tags":["planning requirements"],"prompt":"A plan includes written security rules, but personnel regularly bypass them under time pressure. Which change tests the relevant capability most directly?","options":["Run a realistic exercise and evaluate whether personnel can carry out required security practices under pressure","Increase technical capacity and infer that workarounds will disappear","Assess speed only and leave security performance to a separate survey","Rewrite the written rules and measure how many people open them"],"answer":0,"explanation":"The issue is whether security practices can be applied. Exercises test that in realistic conditions.","sourceSlides":[16,17]},{"id":3,"qid":"c4istarplanning-h-03","difficulty":"hard","category":"Planning Requirements","tags":["planning requirements"],"prompt":"Two proposals have similar initial costs. One lacks a credible repair and upgrade plan. Which criterion best differentiates them?","options":["Whether the equipment has a longer product description","Whether repair and upgrade funding supports availability","Whether both teams can order the same number of devices initially","Whether the purchase can be announced before the exercise"],"answer":1,"explanation":"The lesson ties reliable infrastructure to maintenance, support, and resourcing beyond acquisition.","sourceSlides":[18,21]},{"id":4,"qid":"c4istarplanning-h-04","difficulty":"hard","category":"Planning Requirements","tags":["planning requirements"],"prompt":"A plan meets real-time requirements under normal conditions and loses service during its first simulated disruption. How should the planner evaluate it?","options":["It meets emergency readiness because real-time performance was demonstrated once","It meets routine timeliness goals but fails the disruption test","It can pass based on its documented plan without repeat testing","It fails solely because participants should have sent more messages"],"answer":1,"explanation":"Normal data speed and continuity under adverse conditions are separate requirements.","sourceSlides":[20,23]},{"id":5,"qid":"c4istarplanning-h-05","difficulty":"hard","category":"Planning Requirements","tags":["planning requirements"],"prompt":"An emerging vulnerability requires a change that competes with other funded upgrades. Which planning response combines threat adaptation and resource management?","options":["Replace every affected component before determining the requirement","Choose the cheapest change without assessing the risk","Preserve all original priorities because funding has already been set","Assess the change against mission risk and allocate resources to the higher-priority need"],"answer":3,"explanation":"Continuous threat assessment informs how constrained resources should be prioritized.","sourceSlides":[21,22]},{"id":6,"qid":"c4istarplanning-h-06","difficulty":"hard","category":"Planning Requirements","tags":["planning requirements"],"prompt":"A design improves response speed by making sensitive records visible to every classroom participant. Which change best preserves both requirements?","options":["Preserve access for everyone but add a generic privacy statement","Use open access because timely exchange is the first demonstrated benefit","Limit access to appropriate roles and verify that authorized users still receive the information in time","Hide all records from the participants even where access is required"],"answer":2,"explanation":"The plan must balance timely decisions with protection of privacy and compliance.","sourceSlides":[20,24]},{"id":7,"qid":"c4istarplanning-h-07","difficulty":"hard","category":"Communications Technologies","tags":["communications technologies"],"prompt":"An exercise produces more observations, but commanders receive no clearer assessment. Why might buying additional collectors fail to solve the problem?","options":["More collection always produces an equivalent increase in useful analysis","The problem can only be caused by field device durability","Intelligence analysis is unnecessary if enough observations exist","The bottleneck is turning collection into actionable analysis"],"answer":3,"explanation":"Sensors collect observations. Analysis is needed to derive useful conclusions.","sourceSlides":[33,34]},{"id":8,"qid":"c4istarplanning-h-08","difficulty":"hard","category":"Communications Technologies","tags":["communications technologies"],"prompt":"A system verifies user identity but still exposes sensitive data to unauthorized viewing during exchange. What diagnosis best fits?","options":["The presence of sensitive data proves user identity was never checked","Authentication works, but data in transit still needs protection","Verified identity guarantees that data is protected at every stage","The exposure can be corrected by increasing storage capacity alone"],"answer":1,"explanation":"Identity verification and protection of data in transit address separate security needs.","sourceSlides":[30,37]},{"id":9,"qid":"c4istarplanning-h-09","difficulty":"hard","category":"Communications Technologies","tags":["communications technologies"],"prompt":"A radio can be reconfigured in software, yet another system still cannot process its messages. Which conclusion is strongest?","options":["Software reconfiguration establishes interoperability without testing","Software reconfiguration does not establish compatible exchange","The failed exchange proves the radio lacks any reconfiguration capability","The only issue is the ruggedness of the radio housing"],"answer":1,"explanation":"Flexibility helps support modes and protocols. Usable exchange still depends on actual compatibility.","sourceSlides":[25,36,42]},{"id":10,"qid":"c4istarplanning-h-10","difficulty":"hard","category":"Communications Technologies","tags":["communications technologies"],"prompt":"Equipment survives harsh handling, but service drops whenever the exercise places it under sustained demand. What is the best diagnosis?","options":["Device durability alone has not demonstrated system reliability under stress","The correct measure of service is how many devices survived the exercise","Service interruptions are primarily evidence that the devices need tougher cases","Surviving handling proves the communications system is resilient"],"answer":0,"explanation":"A rugged device tolerates its environment. Reliable communications must continue operating as a system.","sourceSlides":[38,43]},{"id":11,"qid":"c4istarplanning-h-11","difficulty":"hard","category":"Communications Technologies","tags":["communications technologies"],"prompt":"Storage and processing can expand as teams join, but the communications path becomes congested. Which conclusion is best?","options":["Check whether the communications path can scale with demand","The transport path should be evaluated independently of the required exchanges","Expandable storage proves the whole system meets scalability goals","Congestion shows that the data should be retained longer in storage"],"answer":0,"explanation":"End-to-end scalability requires sufficient capacity to exchange information as demand grows.","sourceSlides":[27,31,44]},{"id":12,"qid":"c4istarplanning-h-12","difficulty":"hard","category":"Component Roles","tags":["component roles"],"prompt":"A new sensor produces usable observations, but the command team sees isolated data with no decision context. Which design change fits the documented component roles?","options":["Send each raw observation to the command display and omit analysis","Use the collection sensor itself to make the command decision","Connect collection to analysis, then present the assessed results through the command coordination system","Move all observations into storage and leave them outside the decision workflow"],"answer":2,"explanation":"Collection, analysis, and coordination serve distinct roles that should connect to support decisions.","sourceSlides":[28,33,34]},{"id":13,"qid":"c4istarplanning-h-13","difficulty":"hard","category":"Component Roles","tags":["component roles"],"prompt":"A center brings staff and systems together, but participants still cannot exchange usable information. Which assessment is strongest?","options":["Failure to share data proves that staff cannot work in the same facility","Co-location still leaves the need for compatible data exchange","A common facility establishes interoperability without a working exchange","Adding personnel to the facility is sufficient to solve the compatibility gap"],"answer":1,"explanation":"An integrated center can bring functions together. Interoperability depends on whether systems exchange usable information.","sourceSlides":[28,29,42]},{"id":14,"qid":"c4istarplanning-h-14","difficulty":"hard","category":"Component Roles","tags":["component roles"],"prompt":"A classroom architecture needs flexible exchange, retrievable records, and verified access. Which mapping aligns the roles correctly?","options":["Authentication for exchange, network for retrieval, and data management for identity","Network for exchange, authentication for retrieval, and data management for identity","Network for exchange, data management for retrieval, and authentication for identity","Data management for exchange, authentication for retrieval, and network for identity"],"answer":2,"explanation":"The network moves information, data management supports storage and access, and authentication verifies identity.","sourceSlides":[27,30,37]},{"id":15,"qid":"c4istarplanning-h-15","difficulty":"hard","category":"Component Roles","tags":["component roles"],"prompt":"A planning team has a detailed map and a reliable stream of sensor observations but cannot determine what the observations imply. Which additional capability directly closes that gap?","options":["Another display layer that reproduces the raw observations","A second command center that receives the same isolated data","Greater map storage without analysis","Analytical processing that turns observations into assessments for the command team"],"answer":3,"explanation":"Geographic visualization and collection support awareness. Analytical processing generates usable implications.","sourceSlides":[28,34,39]},{"id":16,"qid":"c4istarplanning-h-16","difficulty":"hard","category":"Interoperability","tags":["interoperability"],"prompt":"Two systems use the same documented format, but an intermediary delivers only half the fields. What should the planner validate next?","options":["Whether the equipment enclosures use the same design","Whether each team can archive its own outgoing data","Whether the intermediary preserves required fields","The existence of a written common standard only"],"answer":2,"explanation":"Common standards are necessary, but integration must actually preserve the information required at the destination.","sourceSlides":[42,43]},{"id":17,"qid":"c4istarplanning-h-17","difficulty":"hard","category":"Interoperability","tags":["interoperability"],"prompt":"Systems exchange information accurately, but unauthorized users can also retrieve it. How should this result be recorded?","options":["The exchange worked but failed access control","The system failed solely on scalability","Compatible exchange must be discarded because access controls are separate","Interoperability was fully demonstrated because exchange worked"],"answer":0,"explanation":"The lesson treats protection from unauthorized access as a key part of interoperability.","sourceSlides":[42,44]},{"id":18,"qid":"c4istarplanning-h-18","difficulty":"hard","category":"Interoperability","tags":["interoperability"],"prompt":"A pilot supports one team reliably but breaks down as several more teams connect. Which test best isolates the newly exposed issue?","options":["Compare equipment purchase dates across teams","Repeat the single-team test and extrapolate the result","Increase test load and check exchange performance","Evaluate whether the new teams attended their briefings"],"answer":2,"explanation":"The failure appears with scale. Testing representative demand shows whether reliability is maintained as load rises.","sourceSlides":[43,44]},{"id":19,"qid":"c4istarplanning-h-19","difficulty":"hard","category":"Interoperability","tags":["interoperability"],"prompt":"Two systems have incompatible interfaces but dependable service when used alone. Which design and evaluation pair best addresses the mismatch?","options":["Increase the reliability of each system independently and assume compatibility follows","Keep separate interfaces and test only individual uptime","Select a newer system and test only whether it powers on","Introduce a compatible interface and test complete exchanges between the systems"],"answer":3,"explanation":"Interface integration addresses the mismatch. End-to-end tests show whether systems actually exchange useful information.","sourceSlides":[42,43]},{"id":20,"qid":"c4istarplanning-h-20","difficulty":"hard","category":"Interoperability","tags":["interoperability"],"prompt":"A demonstration shows successful exchanges under light load, using test accounts with broad privileges. What must be demonstrated before claiming readiness for a larger exercise?","options":["More archived data while continuing to use broad privileges","An inventory of systems without a representative exchange test","The same light-load success with additional observers","Reliable exchange under representative load and access controls"],"answer":3,"explanation":"Readiness requires interoperable exchange, reliability and scalability, and protection against unauthorized access.","sourceSlides":[42,43,44]}]</script>
+  <script type="application/json" id="questions-actual">[]</script>
   <script>
   (function () {
     'use strict';
@@ -1271,8 +1283,13 @@
     var HISTORY_LIMIT = 100;
 
     var MODES = ['easy', 'medium', 'hard'];
-    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
+    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard', actual: 'Actual Exam' };
     var MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h' };
+    // The Actual Exam category: questions from the class's graded exams (scripts/actual-exams.mjs). It is not a
+    // difficulty: its bank has its own rules (2 to 4 choices, an exam citation) and it is never sent to the class
+    // history, whose sheet accepts only easy, medium and hard.
+    var ACTUAL = 'actual';
+    var SOURCE_TYPES = ['graded-exam'];
     var LETTERS = ['A', 'B', 'C', 'D'];
     // A lesson bank holds MIN_BANK_SIZE to MAX_BANK_SIZE (20–35) questions per difficulty and an attempt serves the
     // whole bank, unseen-first and shuffled. Only a pool exam draws a coverage set of each lesson (selectCoverage).
@@ -1306,6 +1323,8 @@
         return null;
       }
       if (config.sourceRef !== null && (!config.sourceRef || !Number.isInteger(config.sourceRef.min) || !Number.isInteger(config.sourceRef.max) || typeof config.sourceRef.label !== 'string')) return null;
+      if (config.actual != null && (typeof config.actual !== 'object' || !Number.isInteger(config.actual.attempt) || config.actual.attempt < 1 || !Number.isInteger(config.actual.count) || config.actual.attempt > config.actual.count)) return null;
+      if (config.actualOnly && !config.actual) return null;
       if (config.sourceAlt != null && (typeof config.sourceAlt !== 'object' || !Number.isInteger(config.sourceAlt.min) || !Number.isInteger(config.sourceAlt.max) || typeof config.sourceAlt.label !== 'string' || typeof config.sourceAlt.ref !== 'string' || typeof config.sourceAlt.href !== 'string' || typeof config.sourceAlt.title !== 'string')) return null;
       return config;
     }
@@ -1323,6 +1342,10 @@
     // Optional secondary reference (for example a student handout in the Library), cited per question as sourceAlt.
     var SOURCE_ALT = CONFIG && CONFIG.sourceAlt ? CONFIG.sourceAlt : null;
     var STUDY_LINKS = JSON.parse(document.getElementById('study-links').textContent);
+    // Actual Exam settings ({ count, attempt, full? }) or null; actualOnly pages (the Comprehensive Exam Reviewer)
+    // have no difficulty banks and no class history.
+    var ACTUAL_CONFIG = CONFIG && CONFIG.actual ? CONFIG.actual : null;
+    var ACTUAL_ONLY = Boolean(CONFIG && CONFIG.actualOnly);
     var CATEGORY_ORDER = !CONFIG ? [] : POOL ? POOL.lessons.map(function (lesson) { return lesson.name; }) : CONFIG.categoryOrder.slice();
     // A primary topic counts as a strength at or above this percentage, otherwise a gap.
     var STRENGTH_THRESHOLD = 75;
@@ -1436,16 +1459,52 @@
       return errors;
     }
 
+    // Mirrors validateActualBank in scripts/actual-exams.mjs: each question cites its graded exam (source type
+    // "graded-exam") and has two to four distinct choices.
+    function validateActualBank(bank) {
+      if (!Array.isArray(bank)) return ['bank must be an array of questions'];
+      var errors = [];
+      if ((ACTUAL_CONFIG ? ACTUAL_CONFIG.count : 0) !== bank.length) errors.push('bank must contain ' + (ACTUAL_CONFIG ? ACTUAL_CONFIG.count : 0) + ' questions');
+      var seen = {};
+      bank.forEach(function (question, index) {
+        var at = 'question ' + (index + 1) + ': ';
+        if (question === null || typeof question !== 'object') { errors.push(at + 'question must be an object'); return; }
+        if (question.id !== index + 1) errors.push(at + 'id must be integer ' + (index + 1));
+        if (!LESSON_KEY_PATTERN.test(question.examKey || '')) errors.push(at + 'examKey must name a graded exam');
+        if (typeof question.qid !== 'string' || !new RegExp('^' + question.examKey + '-a-[0-9]{2,4}$').test(question.qid)) errors.push(at + 'qid must be "<examKey>-a-" followed by 2 to 4 digits');
+        if (Object.prototype.hasOwnProperty.call(seen, question.qid)) errors.push(at + 'qid ' + question.qid + ' is used more than once');
+        seen[question.qid] = true;
+        if (question.difficulty !== ACTUAL) errors.push(at + 'difficulty must be actual');
+        ['category', 'prompt', 'explanation'].forEach(function (field) {
+          if (typeof question[field] !== 'string' || !question[field].trim()) errors.push(at + field + ' must be a nonempty string');
+        });
+        var options = question.options;
+        if (!Array.isArray(options) || options.length < 2 || options.length > 4 || options.some(function (option) { return typeof option !== 'string' || !option.trim(); })) errors.push(at + 'options must contain two to four nonempty strings');
+        if (!Number.isInteger(question.answer) || !Array.isArray(options) || question.answer < 0 || question.answer >= options.length) errors.push(at + 'answer must index one of the options');
+        var source = question.source;
+        if (!source || SOURCE_TYPES.indexOf(source.type) === -1 || source.exam !== question.examKey || typeof source.title !== 'string' || typeof source.date !== 'string' || !Number.isInteger(source.number)) errors.push(at + 'source must be { type: "graded-exam", exam, title, date, number }');
+      });
+      return errors;
+    }
+
     function validateBanks(banks) {
       if (banks === null || typeof banks !== 'object') {
         return { valid: false, errors: ['question banks must be an object'] };
       }
       var errors = [];
-      MODES.forEach(function (mode) {
-        validateBank(banks[mode], mode).forEach(function (error) {
-          errors.push(mode + ' ' + error);
+      if (!ACTUAL_ONLY) {
+        MODES.forEach(function (mode) {
+          validateBank(banks[mode], mode).forEach(function (error) {
+            errors.push(mode + ' ' + error);
+          });
         });
-      });
+      }
+      // A caller checking only the difficulty banks may leave the Actual Exam bank out; the page always has one.
+      if (banks.actual !== undefined) {
+        validateActualBank(banks.actual).forEach(function (error) {
+          errors.push('actual ' + error);
+        });
+      }
       return { valid: errors.length === 0, errors: errors };
     }
 
@@ -1503,7 +1562,7 @@
     }
 
     function priorityClass(question, progress) {
-      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var lessonKey = progressOwner(question);
       var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
       var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
       return flag === 'm' ? 1 : flag === 's' ? 2 : 0;
@@ -1569,7 +1628,22 @@
     // last answered correctly) or 'm' (last answered wrongly). No name, score or answer is stored and nothing is
     // ever sent. Every storage access is wrapped in try/catch; without storage the quiz uses a plain shuffle.
     var PROGRESS_PREFIX = 'mastery-quiz:progress:';
-    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emh]-[0-9]{2,4}$/;
+    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emha]-[0-9]{2,4}$/;
+
+    // Whose device record a question belongs to: its graded exam (shared by every page that asks it), the pool
+    // exam's source lesson, or this lesson.
+    function progressOwner(question) {
+      return question && question.examKey ? question.examKey : POOL ? question.lessonKey : HISTORY_LESSON;
+    }
+
+    // The graded exams behind this page's Actual Exam bank.
+    function actualOwners() {
+      var owners = [];
+      (state && state.banks && state.banks.actual ? state.banks.actual : []).forEach(function (question) {
+        if (owners.indexOf(question.examKey) === -1) owners.push(question.examKey);
+      });
+      return owners;
+    }
 
     function deviceStorage() {
       try {
@@ -1608,14 +1682,14 @@
 
     function loadProgress(mode) {
       var progress = {};
-      progressLessons().forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
+      (mode === ACTUAL ? actualOwners() : progressLessons()).forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
       return progress;
     }
 
     function recordProgress(question, mode, correct) {
       var storage = deviceStorage();
       if (!storage) return false;
-      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var lessonKey = progressOwner(question);
       var progress = readProgress(lessonKey, mode);
       progress[question.qid] = correct ? 's' : 'm';
       try {
@@ -1631,9 +1705,12 @@
       var storage = deviceStorage();
       if (!storage) return false;
       try {
+        var keys = [];
         progressLessons().forEach(function (lessonKey) {
-          MODES.forEach(function (mode) { storage.removeItem(progressKey(lessonKey, mode)); });
+          MODES.forEach(function (mode) { keys.push(progressKey(lessonKey, mode)); });
         });
+        actualOwners().forEach(function (examKey) { keys.push(progressKey(examKey, ACTUAL)); });
+        keys.forEach(function (key) { storage.removeItem(key); });
         return true;
       } catch (error) {
         return false;
@@ -1645,7 +1722,7 @@
     function prioritize(questions, progress, random) {
       var groups = [[], [], []];
       Array.prototype.forEach.call(questions, function (question) {
-        var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+        var lessonKey = progressOwner(question);
         var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
         var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
         groups[flag === 'm' ? 1 : flag === 's' ? 2 : 0].push(question);
@@ -1658,15 +1735,26 @@
     }
 
     // `progress` (optional) is the device-local record from loadProgress(mode).
-    function createAttempt(mode, banks, random, progress) {
+    function createAttempt(mode, banks, random, progress, size) {
+      if (mode === ACTUAL) return createActualAttempt(banks, random, progress, size);
       if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
       var questions = sampleQuestions(banks[mode], random, progress);
       return { mode: mode, practice: false, questions: questions, current: 0, responses: blankResponses(questions) };
     }
 
+    // An Actual Exam attempt: unseen questions first, then missed, then the rest, each group shuffled, cut to `size`
+    // (the page's attempt length by default; the mixed reviewer set also offers its full length).
+    function createActualAttempt(banks, random, progress, size) {
+      var bank = banks && Array.isArray(banks.actual) ? banks.actual : [];
+      if (!ACTUAL_CONFIG || !bank.length) throw new Error('Unknown difficulty: ' + ACTUAL);
+      var length = Number.isInteger(size) && size > 0 ? Math.min(size, bank.length) : ACTUAL_CONFIG.attempt;
+      var questions = prioritize(bank, progress, random).slice(0, length);
+      return { mode: ACTUAL, practice: false, size: length, questions: questions, current: 0, responses: blankResponses(questions) };
+    }
+
     // A practice attempt asks only the given questions (reshuffled; answer choices keep their order).
     function createPracticeAttempt(mode, questions, random) {
-      if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
+      if (MODES.indexOf(mode) === -1 && !(mode === ACTUAL && ACTUAL_CONFIG)) throw new Error('Unknown difficulty: ' + mode);
       var shuffled = shuffleQuestions(questions, random);
       return { mode: mode, practice: true, questions: shuffled, current: 0, responses: blankResponses(shuffled) };
     }
@@ -1850,6 +1938,7 @@
         medium: byId('mode-medium'),
         hard: byId('mode-hard')
       },
+      actualButtons: [byId('mode-actual'), byId('mode-actual-all')].filter(Boolean),
       soundToggle: byId('btn-sound'),
       soundState: byId('sound-state'),
       reviewerLink: byId('reviewer-link'),
@@ -1937,6 +2026,12 @@
       children.forEach(function (child) { node.appendChild(child); });
     }
 
+    // "Topic: ...", or for a graded-exam question the exam and its question number.
+    function questionTopic(question) {
+      if (question.source && question.source.type === 'graded-exam') return 'Actual Exam · ' + question.source.title + ' · question ' + question.source.number;
+      return TEXT.topicNoun + ': ' + question.category;
+    }
+
     function optionText(question, index) {
       return LETTERS[index] + '. ' + question.options[index];
     }
@@ -1971,7 +2066,7 @@
 
     // Difficulty accent for the page: theme-easy, theme-medium or theme-hard; null clears it.
     function setTheme(mode) {
-      MODES.forEach(function (key) {
+      MODES.concat([ACTUAL]).forEach(function (key) {
         document.body.classList.toggle('theme-' + key, key === mode);
       });
     }
@@ -2036,15 +2131,18 @@
     function updateGate() {
       var open = gateOpen();
       MODES.forEach(function (mode) {
-        ui.modeButtons[mode].disabled = !open;
+        ui.modeButtons[mode].disabled = !open || ACTUAL_ONLY;
       });
+      ui.actualButtons.forEach(function (button) { button.disabled = !open; });
       if (state.available) {
         var missing = [];
         if (!state.nameValid) missing.push('enter your name');
         if (!state.studyConfirmed) missing.push('check the study confirmation');
-        ui.modeHint.textContent = open
-          ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.'
-          : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
+        ui.modeHint.textContent = ACTUAL_ONLY
+          ? (open ? 'Buttons enabled. Choose an attempt to begin.' : 'To enable the buttons, ' + missing.join(' and ') + ' above.')
+          : open
+            ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.' + (ACTUAL_CONFIG ? ' The Actual Exam category is below them.' : '')
+            : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
       }
       return open;
     }
@@ -2096,8 +2194,13 @@
       return true;
     }
 
-    function startQuiz(mode) {
-      if (!gateOpen() || MODES.indexOf(mode) === -1) return false;
+    function startQuiz(mode, size) {
+      if (!gateOpen()) return false;
+      if (mode === ACTUAL) {
+        if (!ACTUAL_CONFIG || !state.banks.actual.length) return false;
+        return beginAttempt(createActualAttempt(state.banks, state.random, loadProgress(ACTUAL), size));
+      }
+      if (MODES.indexOf(mode) === -1 || ACTUAL_ONLY) return false;
       return beginAttempt(createAttempt(mode, state.banks, state.random, loadProgress(mode)));
     }
 
@@ -2127,7 +2230,7 @@
       ui.reviewerLink.setAttribute('href', primary ? primary.studyDoc : STUDY_LINKS.reviewer);
       ui.quizHeading.textContent = attempt.practice
         ? 'Practice: retrying missed questions (' + MODE_LABELS[attempt.mode] + ')'
-        : MODE_LABELS[attempt.mode] + ' examination';
+        : attempt.mode === ACTUAL ? 'Actual Exam review' : MODE_LABELS[attempt.mode] + ' examination';
       setPracticeNote(ui.quizPracticeNote, attempt.practice);
       var student = make('strong', null, attempt.studentName);
       setChildren(ui.quizStudent, [textNode('Student: '), student]);
@@ -2139,7 +2242,7 @@
       if (ui.qIndexNum) ui.qIndexNum.textContent = pad(index + 1);
       if (ui.qIndexTotal) ui.qIndexTotal.textContent = 'of ' + pad(total);
       renderTicks(attempt);
-      ui.questionCategory.textContent = TEXT.topicNoun + ': ' + question.category;
+      ui.questionCategory.textContent = questionTopic(question);
 
       var fieldset = make('fieldset', 'question-fieldset');
       fieldset.id = 'question-fieldset';
@@ -2272,6 +2375,12 @@
       return links;
     }
 
+    var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    function displayDate(date) {
+      var parts = String(date).split('-').map(Number);
+      return parts.length === 3 && parts[1] >= 1 && parts[1] <= 12 ? parts[2] + ' ' + MONTH_NAMES[parts[1] - 1] + ' ' + parts[0] : String(date);
+    }
+
     function explanationBlock(question, className) {
       var block = make('div', 'explanation-group ' + className);
       var note = question.explanation;
@@ -2300,11 +2409,14 @@
       if (SOURCE_ALT && question.sourceAlt && Array.isArray(question.sourceAlt.pages) && question.sourceAlt.pages.length) {
         references.push(SOURCE_ALT.label + ' · ' + (question.sourceAlt.pages.length === 1 ? 'page ' : 'pages ') + question.sourceAlt.pages.join(', '));
       }
+      var graded = question.source && question.source.type === 'graded-exam';
+      if (graded) references.push('SOAC 52-2026 graded exam: ' + question.source.title + ', ' + displayDate(question.source.date) + ' · question ' + question.source.number);
       if (references.length) {
         var referenceBlock = make('div', 'explanation explanation-references');
         referenceBlock.appendChild(make('p', 'section-label', 'References'));
         references.forEach(function (reference) { referenceBlock.appendChild(make('p', 'source-ref', reference)); });
-        studyReferenceLinks(question, references).forEach(function (reference, destination) {
+        // A graded exam is not a Library document, so its citation stays plain text.
+        (graded ? new Map() : studyReferenceLinks(question, references)).forEach(function (reference, destination) {
           var line = make('p', 'library-source');
           var link = reference.unavailable
             ? make('a', 'library-reference reference-unavailable', reference.title + ' · PDF unavailable')
@@ -2414,6 +2526,10 @@
         // Practice retries never reach the class history or the item analysis.
         state.submission = { payload: null, status: 'practice' };
         renderSaveStatus();
+      } else if (attempt.mode === ACTUAL) {
+        // Nor do Actual Exam attempts: the class history sheet accepts only easy, medium and hard.
+        state.submission = { payload: null, status: 'actual' };
+        renderSaveStatus();
       } else {
         submitAttempt(buildSubmission(state.results));
       }
@@ -2423,7 +2539,7 @@
     function retakeQuiz() {
       var mode = state.attempt ? state.attempt.mode : null;
       if (!mode) return false;
-      return startQuiz(mode);
+      return startQuiz(mode, state.attempt.size);
     }
 
     // The landing view's "Reset my progress on this device" link.
@@ -2444,7 +2560,7 @@
       showView('landing');
       setStudyConfirmed(state.studyConfirmed);
       ui.difficultyHeading.focus();
-      if (ENDPOINT) loadHistory(state.history.filter);
+      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
       return true;
     }
 
@@ -2589,7 +2705,7 @@
     function renderResults(results) {
       ui.resultsHeading.textContent = results.practice
         ? 'Practice results (' + MODE_LABELS[results.mode] + ')'
-        : MODE_LABELS[results.mode] + ' examination results';
+        : results.mode === ACTUAL ? 'Actual Exam results' : MODE_LABELS[results.mode] + ' examination results';
       setPracticeNote(ui.resultsPracticeNote, results.practice);
 
       var card = make('div', 'score-card ' + bandClass(results.band.name));
@@ -2601,7 +2717,7 @@
       var student = make('p', 'results-student');
       student.append(make('span', 'meta-label', 'Student'), make('span', 'meta-value', results.studentName));
       var mode = make('p', 'results-mode');
-      mode.append(make('span', 'meta-label', 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode] + (results.practice ? ' · practice retry' : '')));
+      mode.append(make('span', 'meta-label', results.mode === ACTUAL ? 'Category' : 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode] + (results.practice ? ' · practice retry' : '')));
       var bandLabel = make('p', 'meta-label', 'Mastery band');
       var band = make('p', 'band-badge results-band');
       band.append(iconNode(results.percentage >= STRENGTH_THRESHOLD ? 'check' : 'alert'), make('span', null, results.band.name));
@@ -2648,7 +2764,7 @@
         );
         item.append(
           head,
-          make('p', 'review-topic', TEXT.topicNoun + ': ' + question.category),
+          make('p', 'review-topic', questionTopic(question)),
           make('p', 'review-prompt', question.prompt),
           answerLine(entry.correct ? 'correct' : 'incorrect', 'Your answer:', question, entry.selected),
           answerLine('correct', 'Correct answer:', question, question.answer),
@@ -2774,7 +2890,8 @@
         saved: ['check', 'Saved to the class history.'],
         failed: ['alert', 'Could not save to class history. Your results below are unaffected.'],
         'not-configured': ['dot', 'Class history is not set up, so this score was not saved to a class list.'],
-        practice: ['dot', 'Practice attempts are not saved to the class history.']
+        practice: ['dot', 'Practice attempts are not saved to the class history.'],
+        actual: ['dot', 'Actual Exam attempts are not saved to the class history.']
       }[status];
       ui.saveBox.className = 'history-save save-' + status;
       setChildren(ui.saveMessage, copy ? [iconNode(copy[0]), make('span', null, copy[1])] : []);
@@ -2922,7 +3039,7 @@
     function showHistory() {
       if (ui.historyPanel.hidden) return false;
       ui.historyHeading.focus();
-      if (ENDPOINT) loadHistory(state.history.filter);
+      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
       return true;
     }
 
@@ -2931,7 +3048,7 @@
     function readBanks() {
       var banks = {};
       var errors = [];
-      MODES.forEach(function (mode) {
+      MODES.concat([ACTUAL]).forEach(function (mode) {
         var element = byId('questions-' + mode);
         if (!element) {
           errors.push(mode + ' bank data is missing');
@@ -2961,6 +3078,7 @@
         ui.studyConfirm.disabled = true;
         ui.nameInput.disabled = true;
         MODES.forEach(function (mode) { ui.modeButtons[mode].disabled = true; });
+        ui.actualButtons.forEach(function (button) { button.disabled = true; });
         showView('unavailable');
         ui.unavailableHeading.focus();
         console.error(QUIZ_TITLE + ' is unavailable: ' + state.errors.join('; '));
@@ -2974,6 +3092,9 @@
       ui.studyConfirm.addEventListener('change', function () { setStudyConfirmed(ui.studyConfirm.checked); });
       MODES.forEach(function (mode) {
         ui.modeButtons[mode].addEventListener('click', function () { startQuiz(mode); });
+      });
+      ui.actualButtons.forEach(function (button) {
+        button.addEventListener('click', function () { startQuiz(ACTUAL, button.id === 'mode-actual-all' && ACTUAL_CONFIG.full ? ACTUAL_CONFIG.full : ACTUAL_CONFIG.attempt); });
       });
       ui.btnCheck.addEventListener('click', checkAnswer);
       ui.btnPrev.addEventListener('click', function () { if (state.attempt) goToQuestion(state.attempt.current - 1); });
@@ -2997,7 +3118,9 @@
       setStudentName(ui.nameInput.value, false);
       setStudyConfirmed(false);
       renderSaveStatus();
-      loadHistory('all');
+      // The Comprehensive Exam Reviewer pages have no class history: no request is ever made from them.
+      ui.btnHistory.hidden = ACTUAL_ONLY;
+      if (!ACTUAL_ONLY) loadHistory('all');
     }
 
     function getState() {
@@ -3022,6 +3145,8 @@
     globalThis.__quiz = Object.freeze({
       lessonKey: HISTORY_LESSON,
       validateBanks: validateBanks,
+      validateActualBank: validateActualBank,
+      actualConfig: ACTUAL_CONFIG,
       shuffleQuestions: shuffleQuestions,
       sampleQuestions: sampleQuestions,
       selectCoverage: selectCoverage,
@@ -3056,12 +3181,14 @@
       // Replaces the Web Audio player (tests inject a recorder); null restores the default player.
       setSoundPlayer: function (player) { state.soundPlayer = typeof player === 'function' ? player : defaultSoundPlayer; },
       getState: getState,
-      getBanks: function () { return state.banks; },
+      // The difficulty banks; the Actual Exam bank is separate (getActualBank).
+      getBanks: function () { return state.banks ? { easy: state.banks.easy, medium: state.banks.medium, hard: state.banks.hard } : state.banks; },
+      getActualBank: function () { return state.banks ? state.banks.actual : null; },
       setRandom: function (random) { state.random = typeof random === 'function' ? random : Math.random; }
     });
   })();
   </script>
-<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid"><div><h2>Practice exams</h2><ul><li><a class="main" href="../">Exam hub (all modules)</a></li><li><a class="main" href="../module-1-exam/">Module 1 Exam</a></li><li><a class="main" href="../module-3-exam/">Module 4 Exam</a></li><li><a class="main" href="../module-5-exam/">Module 5 Exam</a></li><li><a class="main" href="../module-6-exam/">Module 6 Exam</a></li><li><a class="main" href="../module-7-exam/">Module 7 Exam</a></li><li><a class="main" href="../module-8-exam/">Module 8 Exam</a></li></ul></div><div><h2>Reviewer</h2><ul><li><a class="main" href="../reviewer/">All Reviewer lessons</a></li></ul><p class="mod">Module 1 · Leadership</p><ul><li><a class="main" href="../military-leadership-attributes/">Military Leadership Attributes quiz</a><a href="../reviewer/leadershipattributes/">Reviewer</a></li><li><a class="main" href="../military-leadership-competencies/">Military Leadership Competencies quiz</a><a href="../reviewer/leadershipcompetencies/">Reviewer</a></li><li><a class="main" href="../company-management/">Company Management quiz</a><a href="../reviewer/companymanagement/">Reviewer</a></li><li><a class="main" href="../mission-command/">Mission Command quiz</a><a href="../reviewer/missioncommand/">Reviewer</a></li><li><a class="main" href="../ethical-transformational-leadership/">Ethical and Transformational Leadership quiz</a><a href="../reviewer/ethicalleadership/">Reviewer</a></li><li><a class="main" href="../nco-empowerment/">NCO Empowerment quiz</a><a href="../reviewer/ncoempowerment/">Reviewer</a></li><li><a class="main" href="../effective-communication-2/">Effective Communication 2 quiz</a><a href="../reviewer/effectivecommunication/">Reviewer</a></li></ul><p class="mod">Module 2 · Army Operating Concept</p><ul><li><a class="main" href="../combined/">Combined Practice Exam quiz</a></li><li><a class="main" href="../field-artillery/">Field Artillery Operations quiz</a><a href="../reviewer/fieldartillery/">Reviewer</a></li><li><a class="main" href="../armor/">Armor Operations quiz</a><a href="../reviewer/armor/">Reviewer</a></li><li><a class="main" href="../isr/">ISR Operations quiz</a><a href="../reviewer/isr/">Reviewer</a></li></ul><p class="mod">Module 3 · Battalion/Brigade Operations Planning</p><ul><li><a class="main" href="../module-3-planning-exam/">Module 3 Planning Exam quiz</a></li><li><a class="main" href="../troop-leading-procedure/">Troop Leading Procedure (TLP) quiz</a><a href="../reviewer/tlp/">Reviewer</a></li><li><a class="main" href="../military-decision-making-process/">Military Decision-Making Process (MDMP) quiz</a><a href="../reviewer/mdmp/">Reviewer</a></li></ul><p class="mod">Module 4 · Signal Support Integration</p><ul><li><a class="main" href="../signal-support/">Signal Support in Combined Arms Operations quiz</a><a href="../reviewer/signal/">Reviewer</a></li><li><a class="main" href="../joint-signal/">Signal Support in Joint Operations quiz</a><a href="../reviewer/signaljoint/">Reviewer</a></li><li><a class="main" href="../coalition-signal/">Signal Support in Coalition Operations quiz</a><a href="../reviewer/coalition/">Reviewer</a></li></ul><p class="mod">Module 5 · Advanced C2 Communications</p><ul><li><a class="main" href="../manet-c4istar-planning/">MANET C4ISTAR Planning quiz</a><a href="../reviewer/manet/">Reviewer</a></li><li><a class="main" href="../c4istar-sensors-integration/">C4ISTAR Sensors Integration quiz</a><a href="../reviewer/sensors/">Reviewer</a></li><li><a class="main" href="../c4istar-weapon-system-integration/">C4ISTAR Weapon System Integration quiz</a><a href="../reviewer/weapons/">Reviewer</a></li><li><a class="main" href="../signal-propagation/">Signal Propagation (Mobile Apps/RF Clouds) quiz</a><a href="../reviewer/propagation/">Reviewer</a></li></ul><p class="mod">Module 6 · Advanced Electronic Warfare Operations</p><ul><li><a class="main" href="../signals-intelligence/">Signals Intelligence (SIGINT) quiz</a><a href="../reviewer/sigint/">Reviewer</a></li><li><a class="main" href="../electronic-intelligence/">Electronic Intelligence (ELINT) quiz</a><a href="../reviewer/elint/">Reviewer</a></li><li><a class="main" href="../radio-direction-finding/">Radio Direction Finding quiz</a><a href="../reviewer/rdf/">Reviewer</a></li><li><a class="main" href="../electronic-counter-countermeasures/">Electronic Counter-Countermeasures (ECCM) quiz</a><a href="../reviewer/eccm/">Reviewer</a></li></ul><p class="mod">Module 7 · Advanced Cyberspace Operations</p><ul><li><a class="main" href="../nist-framework/">NIST Framework quiz</a><a href="../reviewer/nist/">Reviewer</a></li><li><a class="main" href="../zero-trust/">Zero Trust quiz</a><a href="../reviewer/zerotrust/">Reviewer</a></li><li><a class="main" href="../gsomia-compliance/">LOE3 GSOMIA Compliance quiz</a><a href="../reviewer/gsomia/">Reviewer</a></li><li><a class="main" href="../cyber-risk-assessment/">Cyber Risk Assessment quiz</a><a href="../reviewer/cyberrisk/">Reviewer</a></li></ul><p class="mod">Module 8 · Signal Planning</p><ul><li><a class="main" href="../ceoi-cesi-management/">CEOI / CESI Management quiz</a><a href="../reviewer/ceoicesi/">Reviewer</a></li><li><a class="main" href="../signal-estimate/">Signal Estimate quiz</a><a href="../reviewer/signalestimate/">Reviewer</a></li><li><a class="main" href="../c4istar-communications-planning/">C4ISTAR Communications Planning quiz</a><a href="../reviewer/c4istarplanning/">Reviewer</a></li><li><a class="main" href="../signal-planning-process/">Signal Planning Process quiz</a><a href="../reviewer/signalplanning/">Reviewer</a></li></ul><p class="mod">Supporting Lessons · Supporting study material; not separately numbered POI lessons</p><ul><li><a class="main" href="../army-operations/">Army Operations quiz</a><a href="../reviewer/armyops/">Reviewer</a></li><li><a class="main" href="../intelligence-cycle/">Intelligence Cycle quiz</a><a href="../reviewer/intcycle/">Reviewer</a></li></ul></div><div><h2>Library</h2><ul><li><a class="main" href="../library/">Library: lessons, manuals, sources</a></li><li><a class="main" href="../library/unit-organization/">Unit Organization</a></li></ul></div><div><h2>How To guides</h2><ul><li><a class="main" href="../how-to/">All How To guides</a></li><li><a class="main" href="../how-to/how-to-check-repeater-channel-pair/">Check a repeater channel pair</a></li><li><a class="main" href="../how-to/how-to-conduct-radio-check/">Conduct a two-station radio check</a></li><li><a class="main" href="../how-to/how-to-configure-rf5800v-scan/">Configure an RF-5800V scan list</a></li><li><a class="main" href="../how-to/how-to-connect-windows-radio-rndis/">Connect a Windows PC to a radio over USB</a></li><li><a class="main" href="../how-to/how-to-plot-radio-link-profile/">Plot a radio link in Radio Mobile</a></li><li><a class="main" href="../how-to/how-to-program-fixed-frequency-preset/">Program a fixed-frequency radio channel</a></li><li><a class="main" href="../how-to/how-to-program-rf5800v-net/">Program an RF-5800V voice net</a></li><li><a class="main" href="../how-to/how-to-set-up-two-radio-retransmit/">Set up a two-radio repeater</a></li><li><a class="main" href="../how-to/how-to-size-a-half-wave-dipole/">Size a half-wave dipole</a></li><li><a class="main" href="../how-to/how-to-test-tactical-chat-link/">Send a test message over a radio data link</a></li><li><a class="main" href="../how-to/how-to-transfer-cpa-radio-plan/">Transfer a CPA plan to an RF-7800V</a></li></ul></div><div><h2>Radio and codes</h2><ul><li><a class="main" href="../los-radios/">LOS Radios</a></li><li><a class="main" href="../codes-ciphers/">Codes &amp; Ciphers</a></li></ul></div><div><h2>Schedule, class, instructor</h2><ul><li><a class="main" href="../schedule/?v=day-picker-2">Weekly schedule (current week)</a></li><li><a class="main" href="../schedule-2026-11-02/">Week of 02–08 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-09/">Week of 09–15 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-16/">Week of 16–22 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-23/">Week of 23–29 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-30/">Week of 30 Nov – 06 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-07/">Week of 07–13 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-14/">Week of 14–20 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-21/">Week of 21–27 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-28/">Week of 28 Dec 2026 – 03 Jan 2027</a></li><li><a class="main" href="../schedule-2027-01-04/">Week of 04–10 Jan 2027</a></li><li><a class="main" href="../class/">Our class</a></li><li><a class="main" href="../instructor/">Instructor view</a></li></ul></div></div></details></nav>
+<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid"><div><h2>Practice exams</h2><ul><li><a class="main" href="../">Exam hub (all modules)</a></li><li><a class="main" href="../module-1-exam/">Module 1 Exam</a></li><li><a class="main" href="../module-3-exam/">Module 4 Exam</a></li><li><a class="main" href="../module-5-exam/">Module 5 Exam</a></li><li><a class="main" href="../module-6-exam/">Module 6 Exam</a></li><li><a class="main" href="../module-7-exam/">Module 7 Exam</a></li><li><a class="main" href="../module-8-exam/">Module 8 Exam</a></li></ul></div><div><h2>Comprehensive Exam Reviewer</h2><ul><li><a class="main" href="../comprehensive-reviewer/">Actual Exam: all graded exams</a></li><li><a class="main" href="../comprehensive-reviewer/all/">All graded exams, mixed</a></li></ul></div><div><h2>Reviewer</h2><ul><li><a class="main" href="../reviewer/">All Reviewer lessons</a></li></ul><p class="mod">Module 1 · Leadership</p><ul><li><a class="main" href="../military-leadership-attributes/">Military Leadership Attributes quiz</a><a href="../reviewer/leadershipattributes/">Reviewer</a></li><li><a class="main" href="../military-leadership-competencies/">Military Leadership Competencies quiz</a><a href="../reviewer/leadershipcompetencies/">Reviewer</a></li><li><a class="main" href="../company-management/">Company Management quiz</a><a href="../reviewer/companymanagement/">Reviewer</a></li><li><a class="main" href="../mission-command/">Mission Command quiz</a><a href="../reviewer/missioncommand/">Reviewer</a></li><li><a class="main" href="../ethical-transformational-leadership/">Ethical and Transformational Leadership quiz</a><a href="../reviewer/ethicalleadership/">Reviewer</a></li><li><a class="main" href="../nco-empowerment/">NCO Empowerment quiz</a><a href="../reviewer/ncoempowerment/">Reviewer</a></li><li><a class="main" href="../effective-communication-2/">Effective Communication 2 quiz</a><a href="../reviewer/effectivecommunication/">Reviewer</a></li></ul><p class="mod">Module 2 · Army Operating Concept</p><ul><li><a class="main" href="../combined/">Combined Practice Exam quiz</a></li><li><a class="main" href="../field-artillery/">Field Artillery Operations quiz</a><a href="../reviewer/fieldartillery/">Reviewer</a></li><li><a class="main" href="../armor/">Armor Operations quiz</a><a href="../reviewer/armor/">Reviewer</a></li><li><a class="main" href="../isr/">ISR Operations quiz</a><a href="../reviewer/isr/">Reviewer</a></li></ul><p class="mod">Module 3 · Battalion/Brigade Operations Planning</p><ul><li><a class="main" href="../module-3-planning-exam/">Module 3 Planning Exam quiz</a></li><li><a class="main" href="../troop-leading-procedure/">Troop Leading Procedure (TLP) quiz</a><a href="../reviewer/tlp/">Reviewer</a></li><li><a class="main" href="../military-decision-making-process/">Military Decision-Making Process (MDMP) quiz</a><a href="../reviewer/mdmp/">Reviewer</a></li></ul><p class="mod">Module 4 · Signal Support Integration</p><ul><li><a class="main" href="../signal-support/">Signal Support in Combined Arms Operations quiz</a><a href="../reviewer/signal/">Reviewer</a></li><li><a class="main" href="../joint-signal/">Signal Support in Joint Operations quiz</a><a href="../reviewer/signaljoint/">Reviewer</a></li><li><a class="main" href="../coalition-signal/">Signal Support in Coalition Operations quiz</a><a href="../reviewer/coalition/">Reviewer</a></li></ul><p class="mod">Module 5 · Advanced C2 Communications</p><ul><li><a class="main" href="../manet-c4istar-planning/">MANET C4ISTAR Planning quiz</a><a href="../reviewer/manet/">Reviewer</a></li><li><a class="main" href="../c4istar-sensors-integration/">C4ISTAR Sensors Integration quiz</a><a href="../reviewer/sensors/">Reviewer</a></li><li><a class="main" href="../c4istar-weapon-system-integration/">C4ISTAR Weapon System Integration quiz</a><a href="../reviewer/weapons/">Reviewer</a></li><li><a class="main" href="../signal-propagation/">Signal Propagation (Mobile Apps/RF Clouds) quiz</a><a href="../reviewer/propagation/">Reviewer</a></li></ul><p class="mod">Module 6 · Advanced Electronic Warfare Operations</p><ul><li><a class="main" href="../signals-intelligence/">Signals Intelligence (SIGINT) quiz</a><a href="../reviewer/sigint/">Reviewer</a></li><li><a class="main" href="../electronic-intelligence/">Electronic Intelligence (ELINT) quiz</a><a href="../reviewer/elint/">Reviewer</a></li><li><a class="main" href="../radio-direction-finding/">Radio Direction Finding quiz</a><a href="../reviewer/rdf/">Reviewer</a></li><li><a class="main" href="../electronic-counter-countermeasures/">Electronic Counter-Countermeasures (ECCM) quiz</a><a href="../reviewer/eccm/">Reviewer</a></li></ul><p class="mod">Module 7 · Advanced Cyberspace Operations</p><ul><li><a class="main" href="../nist-framework/">NIST Framework quiz</a><a href="../reviewer/nist/">Reviewer</a></li><li><a class="main" href="../zero-trust/">Zero Trust quiz</a><a href="../reviewer/zerotrust/">Reviewer</a></li><li><a class="main" href="../gsomia-compliance/">LOE3 GSOMIA Compliance quiz</a><a href="../reviewer/gsomia/">Reviewer</a></li><li><a class="main" href="../cyber-risk-assessment/">Cyber Risk Assessment quiz</a><a href="../reviewer/cyberrisk/">Reviewer</a></li></ul><p class="mod">Module 8 · Signal Planning</p><ul><li><a class="main" href="../ceoi-cesi-management/">CEOI / CESI Management quiz</a><a href="../reviewer/ceoicesi/">Reviewer</a></li><li><a class="main" href="../signal-estimate/">Signal Estimate quiz</a><a href="../reviewer/signalestimate/">Reviewer</a></li><li><a class="main" href="../c4istar-communications-planning/">C4ISTAR Communications Planning quiz</a><a href="../reviewer/c4istarplanning/">Reviewer</a></li><li><a class="main" href="../signal-planning-process/">Signal Planning Process quiz</a><a href="../reviewer/signalplanning/">Reviewer</a></li></ul><p class="mod">Supporting Lessons · Supporting study material; not separately numbered POI lessons</p><ul><li><a class="main" href="../army-operations/">Army Operations quiz</a><a href="../reviewer/armyops/">Reviewer</a></li><li><a class="main" href="../intelligence-cycle/">Intelligence Cycle quiz</a><a href="../reviewer/intcycle/">Reviewer</a></li></ul></div><div><h2>Library</h2><ul><li><a class="main" href="../library/">Library: lessons, manuals, sources</a></li><li><a class="main" href="../library/unit-organization/">Unit Organization</a></li></ul></div><div><h2>How To guides</h2><ul><li><a class="main" href="../how-to/">All How To guides</a></li><li><a class="main" href="../how-to/how-to-check-repeater-channel-pair/">Check a repeater channel pair</a></li><li><a class="main" href="../how-to/how-to-conduct-radio-check/">Conduct a two-station radio check</a></li><li><a class="main" href="../how-to/how-to-configure-rf5800v-scan/">Configure an RF-5800V scan list</a></li><li><a class="main" href="../how-to/how-to-connect-windows-radio-rndis/">Connect a Windows PC to a radio over USB</a></li><li><a class="main" href="../how-to/how-to-plot-radio-link-profile/">Plot a radio link in Radio Mobile</a></li><li><a class="main" href="../how-to/how-to-program-fixed-frequency-preset/">Program a fixed-frequency radio channel</a></li><li><a class="main" href="../how-to/how-to-program-rf5800v-net/">Program an RF-5800V voice net</a></li><li><a class="main" href="../how-to/how-to-set-up-two-radio-retransmit/">Set up a two-radio repeater</a></li><li><a class="main" href="../how-to/how-to-size-a-half-wave-dipole/">Size a half-wave dipole</a></li><li><a class="main" href="../how-to/how-to-test-tactical-chat-link/">Send a test message over a radio data link</a></li><li><a class="main" href="../how-to/how-to-transfer-cpa-radio-plan/">Transfer a CPA plan to an RF-7800V</a></li></ul></div><div><h2>Radio and codes</h2><ul><li><a class="main" href="../los-radios/">LOS Radios</a></li><li><a class="main" href="../codes-ciphers/">Codes &amp; Ciphers</a></li></ul></div><div><h2>Schedule, class, instructor</h2><ul><li><a class="main" href="../schedule/?v=day-picker-2">Weekly schedule (current week)</a></li><li><a class="main" href="../schedule-2026-11-02/">Week of 02–08 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-09/">Week of 09–15 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-16/">Week of 16–22 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-23/">Week of 23–29 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-30/">Week of 30 Nov – 06 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-07/">Week of 07–13 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-14/">Week of 14–20 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-21/">Week of 21–27 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-28/">Week of 28 Dec 2026 – 03 Jan 2027</a></li><li><a class="main" href="../schedule-2027-01-04/">Week of 04–10 Jan 2027</a></li><li><a class="main" href="../class/">Our class</a></li><li><a class="main" href="../instructor/">Instructor view</a></li></ul></div></div></details></nav>
 <aside class="domain-seal" aria-label="Site signature"><img class="domain-sigil" src="../assets/domain-void-hand-320.webp" width="160" height="221" alt="" loading="lazy" decoding="async"><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>“You see, but you do not observe.”</em><cite data-domain-attribution>— Sherlock Holmes · A Scandal in Bohemia · Arthur Conan Doyle</cite></span></aside>
 <script src="../assets/identity.js" defer></script>
 </body>

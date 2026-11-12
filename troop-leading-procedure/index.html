@@ -548,6 +548,16 @@
     .mode-button:disabled .mode-name .gauge { color: var(--color-rule); }
     .mode-desc { font-size: var(--text-ui); font-weight: 400; line-height: 1.45; }
     .mode-go { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent); }
+    /* Actual Exam: a fourth category, set apart from the difficulty ladder by a rule, a label and a stamp. */
+    .actual-block { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 3px double var(--color-text); }
+    .actual-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-3); margin: 0; font-size: var(--text-h4); }
+    .actual-badge { display: inline-block; padding: 0.15rem 0.5rem; border: 2px solid var(--color-signal-text); color: var(--color-signal-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+    .actual-note { max-width: 46rem; margin: var(--space-2) 0 0; color: var(--color-muted); font-size: var(--text-meta); line-height: 1.55; }
+    .actual-list { margin-top: var(--space-3); }
+    .mode-actual .actual-mark { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border: 2px solid currentColor; color: var(--color-signal-text); font-size: 0.95rem; line-height: 1; }
+    .mode-actual:disabled .actual-mark { color: var(--color-rule); }
+    .mode-actual:hover:not(:disabled) { border-left-color: var(--color-signal); }
+    .theme-actual .quiz-rail .gauge { display: none; }
     .privacy-note { max-width: 46rem; font-size: var(--text-meta); line-height: 1.6; color: var(--color-muted); }
     .question-category, .results-reminder { color: var(--color-muted); }
     .device-progress { margin: 0; font-size: var(--text-meta); color: var(--color-muted); }
@@ -1101,6 +1111,7 @@
               <span class="mode-go" aria-hidden="true">Begin →</span>
             </button>
           </div>
+
         </div>
       </div>
 
@@ -1252,11 +1263,12 @@
 
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
 
-  <script type="application/json" id="quiz-config">{"key":"tlp","module":"module-3","title":"Troop Leading Procedure Practice Exam","categoryOrder":["Time and Warning Orders","Mission Analysis and COA","Movement and Reconnaissance","Orders and Communications","Supervision and Refinement"],"sourceRef":{"label":"sample presentation page","min":2,"max":16,"required":true},"sourceAlt":null,"pool":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
+  <script type="application/json" id="quiz-config">{"key":"tlp","module":"module-3","title":"Troop Leading Procedure Practice Exam","categoryOrder":["Time and Warning Orders","Mission Analysis and COA","Movement and Reconnaissance","Orders and Communications","Supervision and Refinement"],"sourceRef":{"label":"sample presentation page","min":2,"max":16,"required":true},"sourceAlt":null,"pool":null,"actual":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
   <script type="application/json" id="study-links">{"reviewer":"../reviewer/tlp/","sources":{"tlp":{"title":"Troop Leading Procedure · Worked Classroom Exercise","citationName":"Troop Leading Procedure (TLP)","available":true,"doc":"source-tlp","href":"../library/files/lesson-troop-leading-procedure.pdf","exactPages":true,"studyDoc":"../reviewer/tlp/","manuals":[{"title":"PAM 3-0101-04 · Infantry Company Operations (Annex A cited in the TLP exercise)","available":true,"citationPage":253,"id":"pam-3-0101-04","href":"../library/files/pam-3-0101-04.pdf"}]}},"byQuestion":{}}</script>
   <script type="application/json" id="questions-easy">[{"id":1,"qid":"tlp-e-01","difficulty":"easy","category":"Time and Warning Orders","tags":["tlp","time and warning orders","objective"],"prompt":"What event anchors reverse planning in the defensive example?","options":["The first company warning order","The time materials are delivered","The time the defense must be prepared","The first subordinate backbrief"],"answer":2,"explanation":"Start with the required ready time and work backward to place earlier actions.","sourceSlides":[5]},{"id":2,"qid":"tlp-e-02","difficulty":"easy","category":"Time and Warning Orders","tags":["tlp","time and warning orders","objective"],"prompt":"What portion of available time does the planning guideline reserve for subordinates?","options":["About two-thirds","About one-third","About one-half","About one-quarter"],"answer":0,"explanation":"The leader budgets about one-third and preserves about two-thirds for subordinate planning and preparation.","sourceSlides":[5,16]},{"id":3,"qid":"tlp-e-03","difficulty":"easy","category":"Time and Warning Orders","tags":["tlp","time and warning orders","objective"],"prompt":"What lets participants find the company order briefing?","options":["The battalion's full order text","The final rehearsal results","The sustainment forecast","The time and place of the order"],"answer":3,"explanation":"The warning order names when and where the OPORD will be issued.","sourceSlides":[6]},{"id":4,"qid":"tlp-e-04","difficulty":"easy","category":"Time and Warning Orders","tags":["tlp","time and warning orders","objective"],"prompt":"What makes an initial company WARNO useful as soon as it arrives?","options":["It reproduces the entire higher order","It assigns initial tasks and sets timelines","It supplies results from the final rehearsal","It confirms every detail of the completed plan"],"answer":1,"explanation":"The warning order gets preparation underway while the full plan is still developing.","sourceSlides":[6]},{"id":5,"qid":"tlp-e-05","difficulty":"easy","category":"Mission Analysis and COA","tags":["tlp","mission analysis and coa","objective"],"prompt":"Which kind of task is expressly assigned in the higher order?","options":["Implied task","Routine SOP task","Optional task","Specified task"],"answer":3,"explanation":"A specified task is stated in the order. An implied task follows from the analysis.","sourceSlides":[7]},{"id":6,"qid":"tlp-e-06","difficulty":"easy","category":"Mission Analysis and COA","tags":["tlp","mission analysis and coa","objective"],"prompt":"What turns a restated task into a mission that nests with higher intent?","options":["A list of all known attachments","A separate map for every platoon","A purpose that explains what the task achieves for the higher mission","A transcript of the higher warning order"],"answer":2,"explanation":"The purpose explains why the company performs its task and connects it to the higher mission.","sourceSlides":[7]},{"id":7,"qid":"tlp-e-07","difficulty":"easy","category":"Mission Analysis and COA","tags":["tlp","mission analysis and coa","objective"],"prompt":"What does the METT-TC example do with facts about the situation?","options":["Catalogs facts by collection date","Draws consequences for the company plan","Substitutes facts for course-of-action development","Records only factors explicitly named by battalion"],"answer":1,"explanation":"The study notes ask for a practical consequence from each relevant fact.","sourceSlides":[8]},{"id":8,"qid":"tlp-e-08","difficulty":"easy","category":"Mission Analysis and COA","tags":["tlp","mission analysis and coa","objective"],"prompt":"Who decides which COA to use after the staff compares them?","options":["The commander","The matrix scorer","The platoon with the best position","The officer assigned to the war-game sketch"],"answer":0,"explanation":"Comparison informs the commander's decision.","sourceSlides":[10]},{"id":9,"qid":"tlp-e-09","difficulty":"easy","category":"Movement and Reconnaissance","tags":["tlp","movement and reconnaissance","objective"],"prompt":"What should each reconnaissance task resolve?","options":["An identified information gap","A final OPORD signature","An independent rehearsal grade","A routine inventory discrepancy"],"answer":0,"explanation":"Reconnaissance is assigned against specific things the team still needs to verify.","sourceSlides":[11]},{"id":10,"qid":"tlp-e-10","difficulty":"easy","category":"Movement and Reconnaissance","tags":["tlp","movement and reconnaissance","objective"],"prompt":"When can authorized movement begin during defensive preparation?","options":["Only once the final order is issued","Only after the final rehearsal","Only after every position has been inspected","Before the tentative plan is complete"],"answer":3,"explanation":"The worked example initiates movement before finishing the plan to gain preparation time.","sourceSlides":[3,11]},{"id":11,"qid":"tlp-e-11","difficulty":"easy","category":"Movement and Reconnaissance","tags":["tlp","movement and reconnaissance","objective"],"prompt":"Which perspective is emphasized when examining the defensive area during reconnaissance?","options":["The higher headquarters briefing audience's perspective","The likely approaching force's perspective","The sustainment staff's perspective alone","The perspective of personnel back at the assembly area"],"answer":1,"explanation":"Walking the area from the approach side can reveal terrain effects the defenders might otherwise miss.","sourceSlides":[11]},{"id":12,"qid":"tlp-e-12","difficulty":"easy","category":"Movement and Reconnaissance","tags":["tlp","movement and reconnaissance","objective"],"prompt":"What makes a reconnaissance assignment actionable?","options":["An overlay with no assigned verification","A request to bring back any observations","A question, method, leader, and deadline","A copy of the company warning order with no task"],"answer":2,"explanation":"The worked table pairs each gap with a method, person and time.","sourceSlides":[11]},{"id":13,"qid":"tlp-e-13","difficulty":"easy","category":"Orders and Communications","tags":["tlp","orders and communications","objective"],"prompt":"Which OPORD paragraph contains the company communications plan?","options":["Execution","Command and Signal","Situation","Sustainment"],"answer":1,"explanation":"The plan for command and signal appears in paragraph five.","sourceSlides":[12]},{"id":14,"qid":"tlp-e-14","difficulty":"easy","category":"Orders and Communications","tags":["tlp","orders and communications","objective"],"prompt":"Where do attachments and the expected opposing course of action appear in the example order?","options":["Situation","Mission","Sustainment","Command and Signal"],"answer":0,"explanation":"The first paragraph describes opposing and friendly forces and attachments.","sourceSlides":[12]},{"id":15,"qid":"tlp-e-15","difficulty":"easy","category":"Orders and Communications","tags":["tlp","orders and communications","objective"],"prompt":"Where does the sample order place casualty collection and resupply?","options":["Mission","Situation","Sustainment","Command and Signal"],"answer":2,"explanation":"The fourth paragraph covers logistical arrangements, including casualty collection and resupply.","sourceSlides":[12]},{"id":16,"qid":"tlp-e-16","difficulty":"easy","category":"Orders and Communications","tags":["tlp","orders and communications","objective"],"prompt":"What does a PACE plan arrange?","options":["Preparation, assessment, coordination and execution meetings","Personnel, attachments, capabilities and equipment","Positions, avenues, constraints and engagement areas","Primary, alternate, contingency and emergency communications"],"answer":3,"explanation":"PACE gives the company a sequence of communications means to use as conditions change.","sourceSlides":[12]},{"id":17,"qid":"tlp-e-17","difficulty":"easy","category":"Supervision and Refinement","tags":["tlp","supervision and refinement","objective"],"prompt":"What does a subordinate backbrief help check?","options":["Whether the original order was received by battalion","Whether barrier materials were purchased","Whether every map uses the same paper size","Whether subordinate plans fit together and cover assigned responsibilities"],"answer":3,"explanation":"Backbriefs with sector sketches let leaders check mutual support and gaps.","sourceSlides":[13]},{"id":18,"qid":"tlp-e-18","difficulty":"easy","category":"Supervision and Refinement","tags":["tlp","supervision and refinement","objective"],"prompt":"Why run wire and radio checks before execution?","options":["To establish the next battalion objective","To confirm the planned communications means work","To set the initial warning-order deadline","To calculate the amount of barrier material"],"answer":1,"explanation":"Communications checks verify that the planned PACE means can be used.","sourceSlides":[13]},{"id":19,"qid":"tlp-e-19","difficulty":"easy","category":"Supervision and Refinement","tags":["tlp","supervision and refinement","objective"],"prompt":"What distinguishes a useful rehearsal in the study notes?","options":["A named method and a focus on critical events","A list of attendees with no events","A slide with only the word rehearsal","A generic sequence independent of the plan"],"answer":0,"explanation":"The sample rehearsal covers specific transitions so participants can test coordination.","sourceSlides":[13]},{"id":20,"qid":"tlp-e-20","difficulty":"easy","category":"Supervision and Refinement","tags":["tlp","supervision and refinement","objective"],"prompt":"What remains part of Step 8 in the defensive example?","options":["Writing the first warning order","First receipt of the mission","Check positions and fields of fire","Selecting the initial planning roles"],"answer":2,"explanation":"Leaders supervise preparation through inspections, rehearsals and refinement.","sourceSlides":[3,13]}]</script>
   <script type="application/json" id="questions-medium">[{"id":1,"qid":"tlp-m-01","difficulty":"medium","category":"Time and Warning Orders","tags":["tlp","time and warning orders","application"],"prompt":"A leader receives a mission with 12 hours until the required ready time. Under the sample planning guideline, how much time should subordinates ideally retain?","options":["About four hours","About six hours","About ten hours","About eight hours"],"answer":3,"explanation":"The guideline leaves about two-thirds of the available time to subordinates, which is eight hours here.","sourceSlides":[5]},{"id":2,"qid":"tlp-m-02","difficulty":"medium","category":"Time and Warning Orders","tags":["tlp","time and warning orders","application"],"prompt":"A higher headquarters rehearsal falls inside the time set aside for company preparation. How should the company timeline treat it?","options":["Enter the rehearsal only after all company timings are fixed","Schedule the rehearsal and reverse-plan around it","Move the company ready time to preserve the original schedule","Treat the rehearsal as an optional item for the subordinates"],"answer":1,"explanation":"Reverse planning must include imposed deadlines and events that constrain available preparation time.","sourceSlides":[5]},{"id":3,"qid":"tlp-m-03","difficulty":"medium","category":"Time and Warning Orders","tags":["tlp","time and warning orders","application"],"prompt":"The higher order is pending, but participation and a preparation deadline are known. What should the company issue now?","options":["A warning order containing the confirmed details and initial tasks","A final order with the uncertain details filled in","A rehearsal directive covering a course of action already approved","A completed sustainment annex in place of a warning order"],"answer":0,"explanation":"An initial warning order passes what subordinates can act on while details are still developing.","sourceSlides":[6]},{"id":4,"qid":"tlp-m-04","difficulty":"medium","category":"Time and Warning Orders","tags":["tlp","time and warning orders","application"],"prompt":"Subordinates know the end deadline but have conflicting estimates of when they will get the company order. Which warning-order detail fixes the immediate problem?","options":["A full description of the likely opposing plan","A summary of the commander's decision matrix","A planned order briefing time and place","A list of all communications alternatives"],"answer":2,"explanation":"The warning order should say when and where the company will issue its order.","sourceSlides":[5,6]},{"id":5,"qid":"tlp-m-05","difficulty":"medium","category":"Mission Analysis and COA","tags":["tlp","mission analysis and coa","application"],"prompt":"Higher headquarters requires a crossing to stay open for evacuation. Where does that belong in mission analysis?","options":["Constraints","Implied tasks","Essential tasks","Friendly capabilities"],"answer":0,"explanation":"An imposed restriction on when the company can take an action is a constraint.","sourceSlides":[7]},{"id":6,"qid":"tlp-m-06","difficulty":"medium","category":"Mission Analysis and COA","tags":["tlp","mission analysis and coa","application"],"prompt":"The order names a required activity but omits an enabling task the company must perform to accomplish it. How should the company record the enabling task?","options":["As a specified task","As an imposed restriction","As a routine SOP item by default","As an implied task"],"answer":3,"explanation":"An implied task is necessary to accomplish the mission even when the higher order does not explicitly list it.","sourceSlides":[7]},{"id":7,"qid":"tlp-m-07","difficulty":"medium","category":"Mission Analysis and COA","tags":["tlp","mission analysis and coa","application"],"prompt":"A support element is available only after preparation starts. What is the strongest METT-TC deduction?","options":["List the support element without its timing","Count the element as present throughout preparation","Schedule dependent work around its actual availability","Move the fact into the opposing forces assessment"],"answer":2,"explanation":"A deduction explains what the availability timing changes in the plan.","sourceSlides":[8]},{"id":8,"qid":"tlp-m-08","difficulty":"medium","category":"Mission Analysis and COA","tags":["tlp","mission analysis and coa","application"],"prompt":"A supporting element's COA statement names its action but leaves out the reason. What should the team add?","options":["A second action for the same element","How the action supports the main effort","The higher headquarters' entire mission statement","An extra rating criterion for the matrix"],"answer":1,"explanation":"The sample uses task and purpose for each element so its contribution to the overall plan is clear.","sourceSlides":[9]},{"id":9,"qid":"tlp-m-09","difficulty":"medium","category":"Movement and Reconnaissance","tags":["tlp","movement and reconnaissance","application"],"prompt":"A sketch leaves uncertainty about what can be seen from a proposed position. Which task answers that gap?","options":["Ask the team to redraw the sketch at a larger scale","Visit the position and record visibility limits","Inspect radios in the assembly area","Have the sustainment lead review supply times"],"answer":1,"explanation":"Checking the position on the ground verifies the actual limits the sketch cannot establish.","sourceSlides":[11]},{"id":10,"qid":"tlp-m-10","difficulty":"medium","category":"Movement and Reconnaissance","tags":["tlp","movement and reconnaissance","application"],"prompt":"The parent order permits early movement, and the sector requires extensive preparation. What fits the example's sequence?","options":["Start authorized movement while planning continues","Keep everyone at the assembly area until after the order brief","Finish every rehearsal before moving into the sector","Wait for the completed plan before initiating any preparatory movement"],"answer":0,"explanation":"The example starts authorized movement early to use limited time on the ground.","sourceSlides":[3,11]},{"id":11,"qid":"tlp-m-11","difficulty":"medium","category":"Movement and Reconnaissance","tags":["tlp","movement and reconnaissance","application"],"prompt":"A tentative plan assumes a covered approach is observable. Who should the leader assign to verify that assumption?","options":["Anyone who happens to visit the area during preparations","The plan drafter working from the current sketch alone","A named team leader with a route to inspect and a reporting deadline","The team handling the next order brief without a field task"],"answer":2,"explanation":"A useful recon assignment identifies who confirms the specific gap, how and by when.","sourceSlides":[11]},{"id":12,"qid":"tlp-m-12","difficulty":"medium","category":"Movement and Reconnaissance","tags":["tlp","movement and reconnaissance","application"],"prompt":"The team's reconnaissance matrix says only “inspect terrain.” What revision makes the task measurable?","options":["Add another generic terrain category to the matrix","Replace the task with the initial mission statement","Copy the entire company timeline into the matrix","State the uncertainty, inspection method and completion time"],"answer":3,"explanation":"The example links each recon activity to an information need and a way to close it.","sourceSlides":[11]},{"id":13,"qid":"tlp-m-13","difficulty":"medium","category":"Orders and Communications","tags":["tlp","orders and communications","application"],"prompt":"A draft order gives the timeline for collecting supplies but places it in Situation. Where should it go?","options":["Mission","Command and Signal","Sustainment","Execution"],"answer":2,"explanation":"Sustainment is the example order's home for supply and casualty support details.","sourceSlides":[12]},{"id":14,"qid":"tlp-m-14","difficulty":"medium","category":"Orders and Communications","tags":["tlp","orders and communications","application"],"prompt":"The company uses the battalion communications reference, but platoon leaders cannot identify the company's fallback means. What should the company add?","options":["More battalion context in Situation","A company-specific PACE sequence in Command and Signal","The company's main task in Mission","A second rehearsal time in Sustainment"],"answer":1,"explanation":"Paragraph five translates higher guidance into communications instructions the company can use.","sourceSlides":[12]},{"id":15,"qid":"tlp-m-15","difficulty":"medium","category":"Orders and Communications","tags":["tlp","orders and communications","application"],"prompt":"Two subordinate actions have to occur in a defined sequence. Where should the company explain that sequence in its OPORD?","options":["Situation","Mission","Sustainment","Execution"],"answer":3,"explanation":"Execution carries the chosen plan, tasks and coordinating instructions.","sourceSlides":[12]},{"id":16,"qid":"tlp-m-16","difficulty":"medium","category":"Orders and Communications","tags":["tlp","orders and communications","application"],"prompt":"The Mission paragraph gives a task and a deadline but omits why. What belongs there?","options":["A purpose nested in higher intent","The detailed sequence of communications backups","The full list of allocated resources","The complete set of comparison ratings"],"answer":0,"explanation":"The mission states why the task matters, while execution and support details belong elsewhere.","sourceSlides":[7,12]},{"id":17,"qid":"tlp-m-17","difficulty":"medium","category":"Supervision and Refinement","tags":["tlp","supervision and refinement","application"],"prompt":"Two subordinate sketches leave a seam between responsibilities. What should the company use to surface and fix it before execution?","options":["Adjacent teams compare sketches in backbriefs","Another general read-through of the higher WARNO","A new list of planning roles","A repeat of the original timeline calculation"],"answer":0,"explanation":"The worked example uses backbriefs to identify coverage gaps and check how plans fit together.","sourceSlides":[13]},{"id":18,"qid":"tlp-m-18","difficulty":"medium","category":"Supervision and Refinement","tags":["tlp","supervision and refinement","application"],"prompt":"The rehearsal schedule lists a time but gives no content. What improves it?","options":["Add a backup time with the same lack of detail","Reorder the attendee list by seniority","Name the method and the coordination events to rehearse","Attach the complete mission analysis without instructions"],"answer":2,"explanation":"A rehearsal needs a method and a specific set of actions or transitions to check.","sourceSlides":[13]},{"id":19,"qid":"tlp-m-19","difficulty":"medium","category":"Supervision and Refinement","tags":["tlp","supervision and refinement","application"],"prompt":"A backup communications method was never tested. What Step 8 action addresses the issue?","options":["Repeat the message listing the method","Run a practical check of the backup with its intended users","Add it to the original mission analysis","Include it only in the next warning order"],"answer":1,"explanation":"Testing intended means during preparation verifies that the PACE arrangement is usable.","sourceSlides":[13]},{"id":20,"qid":"tlp-m-20","difficulty":"medium","category":"Supervision and Refinement","tags":["tlp","supervision and refinement","application"],"prompt":"A site looked suitable on paper, but the supervisor observes a preparation gap in person. What should happen during Step 8?","options":["Keep the original plan because the order was already issued","Record the observation for the next exercise only","Restart at receipt of mission before anyone can act","Adjust the plan or preparation and check the correction"],"answer":3,"explanation":"Step 8 supervision gives the leader an opportunity to correct findings before execution.","sourceSlides":[13]}]</script>
   <script type="application/json" id="questions-hard">[{"id":1,"qid":"tlp-h-01","difficulty":"hard","category":"Time and Warning Orders","tags":["tlp","time and warning orders","application"],"prompt":"Six hours remain until the required ready time. The company has enough information to issue its order within two hours, but a higher update on one detail will arrive after that. What schedule decision best preserves subordinate preparation?","options":["Issue the order within two hours and pass the update later","Wait for the update and use three hours for the full order","Issue the full order at the last possible moment to minimize revisions","Reserve all six hours for headquarters and extend the required ready time"],"answer":0,"explanation":"The one-third guideline and early warning principle protect subordinate time. Later information can refine guidance already issued.","sourceSlides":[5,6]},{"id":2,"qid":"tlp-h-02","difficulty":"hard","category":"Time and Warning Orders","tags":["tlp","time and warning orders","application"],"prompt":"A company timeline works backward from its own rehearsal and ends up missing the higher required ready time. What is the correct repair?","options":["Anchor it to material delivery so the schedule has one fixed dependency","Move the higher ready time to the end of the rehearsal","Anchor it to the higher ready time and reinsert the rehearsal and earlier deadlines","Start at receipt of mission and schedule each activity in sequence with no end check"],"answer":2,"explanation":"The imposed ready time anchors the reverse plan. Rehearsal is a dependency to fit before that deadline.","sourceSlides":[5]},{"id":3,"qid":"tlp-h-03","difficulty":"hard","category":"Time and Warning Orders","tags":["tlp","time and warning orders","application"],"prompt":"An updated higher warning order changes a known preparation deadline, while the company order remains an hour away. Which action avoids preventable delay?","options":["Hold all changes for the full company order","Pass the revised deadline and affected initial tasks promptly","Send only the updated higher warning order with no company instructions","Brief the original deadline and explain the change at the rehearsal"],"answer":1,"explanation":"An update gives subordinates usable company instructions as soon as the deadline changes.","sourceSlides":[5,6]},{"id":4,"qid":"tlp-h-04","difficulty":"hard","category":"Time and Warning Orders","tags":["tlp","time and warning orders","application"],"prompt":"The ready deadline is fixed. A delivery required for one task slips, but checks on unrelated tasks can start now. How should the timeline change?","options":["Shift every preparation action by the length of the delivery delay","Move the required ready time even though it is imposed","Leave the schedule untouched until the delivery arrives","Resequence independent work and recompute the delayed task's time window"],"answer":3,"explanation":"Reverse planning can preserve the fixed end time by using time on tasks unaffected by the delay.","sourceSlides":[5,13]},{"id":5,"qid":"tlp-h-05","difficulty":"hard","category":"Mission Analysis and COA","tags":["tlp","mission analysis and coa","application"],"prompt":"Higher intent emphasizes civilian protection, and a route needed by the company is reserved for evacuation until release. Which analysis best shapes the plan?","options":["Make route closure the essential task and leave its timing to the teams","Treat the release requirement as a constraint and adapt preparations around it","Treat civilian traffic as background and keep the original schedule","Record the route restriction only as a sustainment request"],"answer":1,"explanation":"A useful deduction turns the higher restriction into a concrete limit on company actions and timing.","sourceSlides":[7,8]},{"id":6,"qid":"tlp-h-06","difficulty":"hard","category":"Mission Analysis and COA","tags":["tlp","mission analysis and coa","application"],"prompt":"A COA wins a comparison matrix but the war-game exposes an unanswered event that could prevent its purpose. What should the commander do before selection?","options":["Refine the COA at the critical event, then compare again","Select the highest-scoring COA automatically","Discard the war-game because it conflicts with the matrix","Add comparison criteria until the initial ranking returns"],"answer":0,"explanation":"The war-game tests how a plan responds to events. The comparison supports the decision and cannot substitute for judgment.","sourceSlides":[9,10]},{"id":7,"qid":"tlp-h-07","difficulty":"hard","category":"Mission Analysis and COA","tags":["tlp","mission analysis and coa","application"],"prompt":"A draft gives supporting elements independent goals and the company mission merely repeats a task. What pair of revisions fixes the nesting problem?","options":["Add more terrain facts and rewrite all supporting tasks as specified tasks","Replace the main effort with equal effort and move intent to Sustainment","Summarize the decision matrix in the mission and give each element an unrelated success measure","State the company's purpose under higher intent and link supporting purposes to the main effort"],"answer":3,"explanation":"Purpose connects the company mission upward and subordinate contributions to the selected company plan.","sourceSlides":[7,9]},{"id":8,"qid":"tlp-h-08","difficulty":"hard","category":"Mission Analysis and COA","tags":["tlp","mission analysis and coa","application"],"prompt":"A team lists two plausible approaches but rehearses its COA against only one of them during analysis. Which revision most directly improves its war-game?","options":["Rank the approaches by map distance and remove the longer one from analysis","Replace the event sequence with a list of available resources","Trace critical events along both relevant approaches and check planned responses","Increase the number of comparison criteria without revisiting events"],"answer":2,"explanation":"The example's avenue-in-depth war-game ties critical events on relevant approaches to planned responses.","sourceSlides":[8,10]},{"id":9,"qid":"tlp-h-09","difficulty":"hard","category":"Movement and Reconnaissance","tags":["tlp","movement and reconnaissance","application"],"prompt":"A map suggests one route is screened. Early preparation is authorized, but the final choice depends on checking that route. What is the best immediate plan?","options":["Wait for route verification before taking any authorized preparation action","Use the map result as final and cancel reconnaissance","Start unaffected work and assign a team to check visibility","Send the entire company to test the route before starting any other work"],"answer":2,"explanation":"The example starts authorized work early and assigns focused reconnaissance where assumptions still need checking.","sourceSlides":[8,11]},{"id":10,"qid":"tlp-h-10","difficulty":"hard","category":"Movement and Reconnaissance","tags":["tlp","movement and reconnaissance","application"],"prompt":"Two reconnaissance reports conflict on visibility from the same position because teams checked it from different sides. What follow-up resolves the planning uncertainty?","options":["Use whichever report came from the senior observer","Recheck the position and approach under agreed conditions","Average the two reports without specifying locations","Keep the favorable result because it supports the tentative plan"],"answer":1,"explanation":"The reconnaissance should match the actual decision and verify the disputed terrain effect from the relevant perspective.","sourceSlides":[11]},{"id":11,"qid":"tlp-h-11","difficulty":"hard","category":"Movement and Reconnaissance","tags":["tlp","movement and reconnaissance","application"],"prompt":"Reconnaissance contradicts a critical assumption just before the order is issued. What should the company do?","options":["Issue the tentative plan unchanged to preserve briefing time","Move the conflicting information to the appendix and ignore its effects","Cancel authorized preparations without checking whether they depend on the assumption","Update the selected plan and brief the resulting changes in the order"],"answer":3,"explanation":"Reconnaissance informs completion of the plan, so consequential findings must carry into the order.","sourceSlides":[11,12]},{"id":12,"qid":"tlp-h-12","difficulty":"hard","category":"Movement and Reconnaissance","tags":["tlp","movement and reconnaissance","application"],"prompt":"A reconnaissance task confirmed a position, but a later inspection finds preparation blocked by a new condition. Which action fits TLP?","options":["Verify the new condition and refine the affected preparation or order","Treat the earlier reconnaissance as permanently conclusive","Delete the condition from the timeline because the site was already approved","Ask the original recon team to reissue its old findings unchanged"],"answer":0,"explanation":"Supervision and refinement continue after reconnaissance and order issue.","sourceSlides":[11,13]},{"id":13,"qid":"tlp-h-13","difficulty":"hard","category":"Orders and Communications","tags":["tlp","orders and communications","application"],"prompt":"The company expects intermittent failure of its preferred means. A draft lists four tools with no priorities or use conditions. What revision makes it usable?","options":["Send the list unchanged with the higher communications reference attached","Name the four tools again in the Situation paragraph","Use the fastest tool for every element and keep the rest off the plan","Set a company PACE sequence suited to the assessed threat and test the means"],"answer":3,"explanation":"Command and Signal should tell subordinates which means to use when the primary becomes unsuitable.","sourceSlides":[12]},{"id":14,"qid":"tlp-h-14","difficulty":"hard","category":"Orders and Communications","tags":["tlp","orders and communications","application"],"prompt":"An OPORD has detailed execution instructions, but a required higher restriction is absent and the mission purpose is vague. What should the leader correct?","options":["Move the complete execution plan into Mission and delete the restriction","Put the purpose in Sustainment and leave the restriction to informal briefings","State the nested purpose in Mission and carry the restriction into coordinating instructions","Add the restriction to the signal annex and leave the mission unchanged"],"answer":2,"explanation":"The order should show why the task matters and clearly convey restrictions that govern execution.","sourceSlides":[7,12]},{"id":15,"qid":"tlp-h-15","difficulty":"hard","category":"Orders and Communications","tags":["tlp","orders and communications","application"],"prompt":"The order defines a transition, but teams disagree on which signal initiates it. What will best resolve the discrepancy?","options":["Clarify the order's signal instructions and rehearse the transition with the affected teams","Reissue the first warning order and keep the rehearsal schedule unchanged","Put the transition time into Sustainment and leave the signal open","Assign each team a different local signal and compare them after execution"],"answer":0,"explanation":"Clear instructions plus rehearsal let the team verify a shared understanding of the critical transition.","sourceSlides":[12,13]},{"id":16,"qid":"tlp-h-16","difficulty":"hard","category":"Orders and Communications","tags":["tlp","orders and communications","application"],"prompt":"A briefing team pastes the higher communications reference into its order. It has radio and nonradio resources but has not decided who uses what. What belongs in the company order?","options":["The full higher reference moved unchanged into Situation","A company plan naming users, means, and fallback priorities","An expanded mission paragraph containing equipment inventories","A decision matrix of tools without any approved operating sequence"],"answer":1,"explanation":"The annotated example calls for a real company plan suited to the communications environment.","sourceSlides":[12]},{"id":17,"qid":"tlp-h-17","difficulty":"hard","category":"Supervision and Refinement","tags":["tlp","supervision and refinement","application"],"prompt":"Subordinate backbriefs show different assumptions about who covers an adjoining responsibility. What should the commander do next?","options":["Keep each subordinate interpretation because both plans are complete","Resolve assignments and verify coordination in rehearsal","Skip rehearsal to give teams more independent preparation time","Restate the higher mission without addressing the seam"],"answer":1,"explanation":"Backbriefs reveal misunderstandings. Refinement and rehearsal check that the correction works across teams.","sourceSlides":[13]},{"id":18,"qid":"tlp-h-18","difficulty":"hard","category":"Supervision and Refinement","tags":["tlp","supervision and refinement","application"],"prompt":"The order's fallback method fails its practical check. A viable substitute exists and teams are about to rehearse. What response best follows Step 8?","options":["Leave the fallback as written and count the substitute as available without a check","Make the substitute the sole method for all users and end testing","Wait until execution to report the failed check","Update the communications plan, notify users and verify the substitute in rehearsal"],"answer":3,"explanation":"Refinement incorporates the check result, and rehearsal verifies that the revised plan is understood and usable.","sourceSlides":[12,13]},{"id":19,"qid":"tlp-h-19","difficulty":"hard","category":"Supervision and Refinement","tags":["tlp","supervision and refinement","application"],"prompt":"A prior delay shortens rehearsal time. Which decision best preserves its purpose?","options":["Read every slide in order and omit all practical checks","Spend the session repeating the initial warning order","Rehearse the most consequential coordination events","Cancel coordination checks and reserve the time for brief formatting"],"answer":2,"explanation":"The worked example focuses rehearsals on critical events rather than requiring every activity to be rehearsed equally.","sourceSlides":[5,13]},{"id":20,"qid":"tlp-h-20","difficulty":"hard","category":"Supervision and Refinement","tags":["tlp","supervision and refinement","application"],"prompt":"The supervisor finds preparation has focused on one local task while assigned safety checks and communications checks are incomplete. What should change?","options":["Restore work priorities and verify the open checks by the deadline","Use the current work rate as the new definition of readiness","Ask each team to set unrelated priorities until the next review","Add the checks to the after-action discussion and leave the plan intact"],"answer":0,"explanation":"Supervision checks that work follows the planned priorities and that essential checks happen before execution.","sourceSlides":[13]}]</script>
+  <script type="application/json" id="questions-actual">[]</script>
   <script>
   (function () {
     'use strict';
@@ -1278,8 +1290,13 @@
     var HISTORY_LIMIT = 100;
 
     var MODES = ['easy', 'medium', 'hard'];
-    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
+    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard', actual: 'Actual Exam' };
     var MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h' };
+    // The Actual Exam category: questions from the class's graded exams (scripts/actual-exams.mjs). It is not a
+    // difficulty: its bank has its own rules (2 to 4 choices, an exam citation) and it is never sent to the class
+    // history, whose sheet accepts only easy, medium and hard.
+    var ACTUAL = 'actual';
+    var SOURCE_TYPES = ['graded-exam'];
     var LETTERS = ['A', 'B', 'C', 'D'];
     // A lesson bank holds MIN_BANK_SIZE to MAX_BANK_SIZE (20–35) questions per difficulty and an attempt serves the
     // whole bank, unseen-first and shuffled. Only a pool exam draws a coverage set of each lesson (selectCoverage).
@@ -1313,6 +1330,8 @@
         return null;
       }
       if (config.sourceRef !== null && (!config.sourceRef || !Number.isInteger(config.sourceRef.min) || !Number.isInteger(config.sourceRef.max) || typeof config.sourceRef.label !== 'string')) return null;
+      if (config.actual != null && (typeof config.actual !== 'object' || !Number.isInteger(config.actual.attempt) || config.actual.attempt < 1 || !Number.isInteger(config.actual.count) || config.actual.attempt > config.actual.count)) return null;
+      if (config.actualOnly && !config.actual) return null;
       if (config.sourceAlt != null && (typeof config.sourceAlt !== 'object' || !Number.isInteger(config.sourceAlt.min) || !Number.isInteger(config.sourceAlt.max) || typeof config.sourceAlt.label !== 'string' || typeof config.sourceAlt.ref !== 'string' || typeof config.sourceAlt.href !== 'string' || typeof config.sourceAlt.title !== 'string')) return null;
       return config;
     }
@@ -1330,6 +1349,10 @@
     // Optional secondary reference (for example a student handout in the Library), cited per question as sourceAlt.
     var SOURCE_ALT = CONFIG && CONFIG.sourceAlt ? CONFIG.sourceAlt : null;
     var STUDY_LINKS = JSON.parse(document.getElementById('study-links').textContent);
+    // Actual Exam settings ({ count, attempt, full? }) or null; actualOnly pages (the Comprehensive Exam Reviewer)
+    // have no difficulty banks and no class history.
+    var ACTUAL_CONFIG = CONFIG && CONFIG.actual ? CONFIG.actual : null;
+    var ACTUAL_ONLY = Boolean(CONFIG && CONFIG.actualOnly);
     var CATEGORY_ORDER = !CONFIG ? [] : POOL ? POOL.lessons.map(function (lesson) { return lesson.name; }) : CONFIG.categoryOrder.slice();
     // A primary topic counts as a strength at or above this percentage, otherwise a gap.
     var STRENGTH_THRESHOLD = 75;
@@ -1443,16 +1466,52 @@
       return errors;
     }
 
+    // Mirrors validateActualBank in scripts/actual-exams.mjs: each question cites its graded exam (source type
+    // "graded-exam") and has two to four distinct choices.
+    function validateActualBank(bank) {
+      if (!Array.isArray(bank)) return ['bank must be an array of questions'];
+      var errors = [];
+      if ((ACTUAL_CONFIG ? ACTUAL_CONFIG.count : 0) !== bank.length) errors.push('bank must contain ' + (ACTUAL_CONFIG ? ACTUAL_CONFIG.count : 0) + ' questions');
+      var seen = {};
+      bank.forEach(function (question, index) {
+        var at = 'question ' + (index + 1) + ': ';
+        if (question === null || typeof question !== 'object') { errors.push(at + 'question must be an object'); return; }
+        if (question.id !== index + 1) errors.push(at + 'id must be integer ' + (index + 1));
+        if (!LESSON_KEY_PATTERN.test(question.examKey || '')) errors.push(at + 'examKey must name a graded exam');
+        if (typeof question.qid !== 'string' || !new RegExp('^' + question.examKey + '-a-[0-9]{2,4}$').test(question.qid)) errors.push(at + 'qid must be "<examKey>-a-" followed by 2 to 4 digits');
+        if (Object.prototype.hasOwnProperty.call(seen, question.qid)) errors.push(at + 'qid ' + question.qid + ' is used more than once');
+        seen[question.qid] = true;
+        if (question.difficulty !== ACTUAL) errors.push(at + 'difficulty must be actual');
+        ['category', 'prompt', 'explanation'].forEach(function (field) {
+          if (typeof question[field] !== 'string' || !question[field].trim()) errors.push(at + field + ' must be a nonempty string');
+        });
+        var options = question.options;
+        if (!Array.isArray(options) || options.length < 2 || options.length > 4 || options.some(function (option) { return typeof option !== 'string' || !option.trim(); })) errors.push(at + 'options must contain two to four nonempty strings');
+        if (!Number.isInteger(question.answer) || !Array.isArray(options) || question.answer < 0 || question.answer >= options.length) errors.push(at + 'answer must index one of the options');
+        var source = question.source;
+        if (!source || SOURCE_TYPES.indexOf(source.type) === -1 || source.exam !== question.examKey || typeof source.title !== 'string' || typeof source.date !== 'string' || !Number.isInteger(source.number)) errors.push(at + 'source must be { type: "graded-exam", exam, title, date, number }');
+      });
+      return errors;
+    }
+
     function validateBanks(banks) {
       if (banks === null || typeof banks !== 'object') {
         return { valid: false, errors: ['question banks must be an object'] };
       }
       var errors = [];
-      MODES.forEach(function (mode) {
-        validateBank(banks[mode], mode).forEach(function (error) {
-          errors.push(mode + ' ' + error);
+      if (!ACTUAL_ONLY) {
+        MODES.forEach(function (mode) {
+          validateBank(banks[mode], mode).forEach(function (error) {
+            errors.push(mode + ' ' + error);
+          });
         });
-      });
+      }
+      // A caller checking only the difficulty banks may leave the Actual Exam bank out; the page always has one.
+      if (banks.actual !== undefined) {
+        validateActualBank(banks.actual).forEach(function (error) {
+          errors.push('actual ' + error);
+        });
+      }
       return { valid: errors.length === 0, errors: errors };
     }
 
@@ -1510,7 +1569,7 @@
     }
 
     function priorityClass(question, progress) {
-      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var lessonKey = progressOwner(question);
       var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
       var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
       return flag === 'm' ? 1 : flag === 's' ? 2 : 0;
@@ -1576,7 +1635,22 @@
     // last answered correctly) or 'm' (last answered wrongly). No name, score or answer is stored and nothing is
     // ever sent. Every storage access is wrapped in try/catch; without storage the quiz uses a plain shuffle.
     var PROGRESS_PREFIX = 'mastery-quiz:progress:';
-    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emh]-[0-9]{2,4}$/;
+    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emha]-[0-9]{2,4}$/;
+
+    // Whose device record a question belongs to: its graded exam (shared by every page that asks it), the pool
+    // exam's source lesson, or this lesson.
+    function progressOwner(question) {
+      return question && question.examKey ? question.examKey : POOL ? question.lessonKey : HISTORY_LESSON;
+    }
+
+    // The graded exams behind this page's Actual Exam bank.
+    function actualOwners() {
+      var owners = [];
+      (state && state.banks && state.banks.actual ? state.banks.actual : []).forEach(function (question) {
+        if (owners.indexOf(question.examKey) === -1) owners.push(question.examKey);
+      });
+      return owners;
+    }
 
     function deviceStorage() {
       try {
@@ -1615,14 +1689,14 @@
 
     function loadProgress(mode) {
       var progress = {};
-      progressLessons().forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
+      (mode === ACTUAL ? actualOwners() : progressLessons()).forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
       return progress;
     }
 
     function recordProgress(question, mode, correct) {
       var storage = deviceStorage();
       if (!storage) return false;
-      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var lessonKey = progressOwner(question);
       var progress = readProgress(lessonKey, mode);
       progress[question.qid] = correct ? 's' : 'm';
       try {
@@ -1638,9 +1712,12 @@
       var storage = deviceStorage();
       if (!storage) return false;
       try {
+        var keys = [];
         progressLessons().forEach(function (lessonKey) {
-          MODES.forEach(function (mode) { storage.removeItem(progressKey(lessonKey, mode)); });
+          MODES.forEach(function (mode) { keys.push(progressKey(lessonKey, mode)); });
         });
+        actualOwners().forEach(function (examKey) { keys.push(progressKey(examKey, ACTUAL)); });
+        keys.forEach(function (key) { storage.removeItem(key); });
         return true;
       } catch (error) {
         return false;
@@ -1652,7 +1729,7 @@
     function prioritize(questions, progress, random) {
       var groups = [[], [], []];
       Array.prototype.forEach.call(questions, function (question) {
-        var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+        var lessonKey = progressOwner(question);
         var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
         var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
         groups[flag === 'm' ? 1 : flag === 's' ? 2 : 0].push(question);
@@ -1665,15 +1742,26 @@
     }
 
     // `progress` (optional) is the device-local record from loadProgress(mode).
-    function createAttempt(mode, banks, random, progress) {
+    function createAttempt(mode, banks, random, progress, size) {
+      if (mode === ACTUAL) return createActualAttempt(banks, random, progress, size);
       if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
       var questions = sampleQuestions(banks[mode], random, progress);
       return { mode: mode, practice: false, questions: questions, current: 0, responses: blankResponses(questions) };
     }
 
+    // An Actual Exam attempt: unseen questions first, then missed, then the rest, each group shuffled, cut to `size`
+    // (the page's attempt length by default; the mixed reviewer set also offers its full length).
+    function createActualAttempt(banks, random, progress, size) {
+      var bank = banks && Array.isArray(banks.actual) ? banks.actual : [];
+      if (!ACTUAL_CONFIG || !bank.length) throw new Error('Unknown difficulty: ' + ACTUAL);
+      var length = Number.isInteger(size) && size > 0 ? Math.min(size, bank.length) : ACTUAL_CONFIG.attempt;
+      var questions = prioritize(bank, progress, random).slice(0, length);
+      return { mode: ACTUAL, practice: false, size: length, questions: questions, current: 0, responses: blankResponses(questions) };
+    }
+
     // A practice attempt asks only the given questions (reshuffled; answer choices keep their order).
     function createPracticeAttempt(mode, questions, random) {
-      if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
+      if (MODES.indexOf(mode) === -1 && !(mode === ACTUAL && ACTUAL_CONFIG)) throw new Error('Unknown difficulty: ' + mode);
       var shuffled = shuffleQuestions(questions, random);
       return { mode: mode, practice: true, questions: shuffled, current: 0, responses: blankResponses(shuffled) };
     }
@@ -1857,6 +1945,7 @@
         medium: byId('mode-medium'),
         hard: byId('mode-hard')
       },
+      actualButtons: [byId('mode-actual'), byId('mode-actual-all')].filter(Boolean),
       soundToggle: byId('btn-sound'),
       soundState: byId('sound-state'),
       reviewerLink: byId('reviewer-link'),
@@ -1944,6 +2033,12 @@
       children.forEach(function (child) { node.appendChild(child); });
     }
 
+    // "Topic: ...", or for a graded-exam question the exam and its question number.
+    function questionTopic(question) {
+      if (question.source && question.source.type === 'graded-exam') return 'Actual Exam · ' + question.source.title + ' · question ' + question.source.number;
+      return TEXT.topicNoun + ': ' + question.category;
+    }
+
     function optionText(question, index) {
       return LETTERS[index] + '. ' + question.options[index];
     }
@@ -1978,7 +2073,7 @@
 
     // Difficulty accent for the page: theme-easy, theme-medium or theme-hard; null clears it.
     function setTheme(mode) {
-      MODES.forEach(function (key) {
+      MODES.concat([ACTUAL]).forEach(function (key) {
         document.body.classList.toggle('theme-' + key, key === mode);
       });
     }
@@ -2043,15 +2138,18 @@
     function updateGate() {
       var open = gateOpen();
       MODES.forEach(function (mode) {
-        ui.modeButtons[mode].disabled = !open;
+        ui.modeButtons[mode].disabled = !open || ACTUAL_ONLY;
       });
+      ui.actualButtons.forEach(function (button) { button.disabled = !open; });
       if (state.available) {
         var missing = [];
         if (!state.nameValid) missing.push('enter your name');
         if (!state.studyConfirmed) missing.push('check the study confirmation');
-        ui.modeHint.textContent = open
-          ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.'
-          : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
+        ui.modeHint.textContent = ACTUAL_ONLY
+          ? (open ? 'Buttons enabled. Choose an attempt to begin.' : 'To enable the buttons, ' + missing.join(' and ') + ' above.')
+          : open
+            ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.' + (ACTUAL_CONFIG ? ' The Actual Exam category is below them.' : '')
+            : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
       }
       return open;
     }
@@ -2103,8 +2201,13 @@
       return true;
     }
 
-    function startQuiz(mode) {
-      if (!gateOpen() || MODES.indexOf(mode) === -1) return false;
+    function startQuiz(mode, size) {
+      if (!gateOpen()) return false;
+      if (mode === ACTUAL) {
+        if (!ACTUAL_CONFIG || !state.banks.actual.length) return false;
+        return beginAttempt(createActualAttempt(state.banks, state.random, loadProgress(ACTUAL), size));
+      }
+      if (MODES.indexOf(mode) === -1 || ACTUAL_ONLY) return false;
       return beginAttempt(createAttempt(mode, state.banks, state.random, loadProgress(mode)));
     }
 
@@ -2134,7 +2237,7 @@
       ui.reviewerLink.setAttribute('href', primary ? primary.studyDoc : STUDY_LINKS.reviewer);
       ui.quizHeading.textContent = attempt.practice
         ? 'Practice: retrying missed questions (' + MODE_LABELS[attempt.mode] + ')'
-        : MODE_LABELS[attempt.mode] + ' examination';
+        : attempt.mode === ACTUAL ? 'Actual Exam review' : MODE_LABELS[attempt.mode] + ' examination';
       setPracticeNote(ui.quizPracticeNote, attempt.practice);
       var student = make('strong', null, attempt.studentName);
       setChildren(ui.quizStudent, [textNode('Student: '), student]);
@@ -2146,7 +2249,7 @@
       if (ui.qIndexNum) ui.qIndexNum.textContent = pad(index + 1);
       if (ui.qIndexTotal) ui.qIndexTotal.textContent = 'of ' + pad(total);
       renderTicks(attempt);
-      ui.questionCategory.textContent = TEXT.topicNoun + ': ' + question.category;
+      ui.questionCategory.textContent = questionTopic(question);
 
       var fieldset = make('fieldset', 'question-fieldset');
       fieldset.id = 'question-fieldset';
@@ -2279,6 +2382,12 @@
       return links;
     }
 
+    var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    function displayDate(date) {
+      var parts = String(date).split('-').map(Number);
+      return parts.length === 3 && parts[1] >= 1 && parts[1] <= 12 ? parts[2] + ' ' + MONTH_NAMES[parts[1] - 1] + ' ' + parts[0] : String(date);
+    }
+
     function explanationBlock(question, className) {
       var block = make('div', 'explanation-group ' + className);
       var note = question.explanation;
@@ -2307,11 +2416,14 @@
       if (SOURCE_ALT && question.sourceAlt && Array.isArray(question.sourceAlt.pages) && question.sourceAlt.pages.length) {
         references.push(SOURCE_ALT.label + ' · ' + (question.sourceAlt.pages.length === 1 ? 'page ' : 'pages ') + question.sourceAlt.pages.join(', '));
       }
+      var graded = question.source && question.source.type === 'graded-exam';
+      if (graded) references.push('SOAC 52-2026 graded exam: ' + question.source.title + ', ' + displayDate(question.source.date) + ' · question ' + question.source.number);
       if (references.length) {
         var referenceBlock = make('div', 'explanation explanation-references');
         referenceBlock.appendChild(make('p', 'section-label', 'References'));
         references.forEach(function (reference) { referenceBlock.appendChild(make('p', 'source-ref', reference)); });
-        studyReferenceLinks(question, references).forEach(function (reference, destination) {
+        // A graded exam is not a Library document, so its citation stays plain text.
+        (graded ? new Map() : studyReferenceLinks(question, references)).forEach(function (reference, destination) {
           var line = make('p', 'library-source');
           var link = reference.unavailable
             ? make('a', 'library-reference reference-unavailable', reference.title + ' · PDF unavailable')
@@ -2421,6 +2533,10 @@
         // Practice retries never reach the class history or the item analysis.
         state.submission = { payload: null, status: 'practice' };
         renderSaveStatus();
+      } else if (attempt.mode === ACTUAL) {
+        // Nor do Actual Exam attempts: the class history sheet accepts only easy, medium and hard.
+        state.submission = { payload: null, status: 'actual' };
+        renderSaveStatus();
       } else {
         submitAttempt(buildSubmission(state.results));
       }
@@ -2430,7 +2546,7 @@
     function retakeQuiz() {
       var mode = state.attempt ? state.attempt.mode : null;
       if (!mode) return false;
-      return startQuiz(mode);
+      return startQuiz(mode, state.attempt.size);
     }
 
     // The landing view's "Reset my progress on this device" link.
@@ -2451,7 +2567,7 @@
       showView('landing');
       setStudyConfirmed(state.studyConfirmed);
       ui.difficultyHeading.focus();
-      if (ENDPOINT) loadHistory(state.history.filter);
+      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
       return true;
     }
 
@@ -2596,7 +2712,7 @@
     function renderResults(results) {
       ui.resultsHeading.textContent = results.practice
         ? 'Practice results (' + MODE_LABELS[results.mode] + ')'
-        : MODE_LABELS[results.mode] + ' examination results';
+        : results.mode === ACTUAL ? 'Actual Exam results' : MODE_LABELS[results.mode] + ' examination results';
       setPracticeNote(ui.resultsPracticeNote, results.practice);
 
       var card = make('div', 'score-card ' + bandClass(results.band.name));
@@ -2608,7 +2724,7 @@
       var student = make('p', 'results-student');
       student.append(make('span', 'meta-label', 'Student'), make('span', 'meta-value', results.studentName));
       var mode = make('p', 'results-mode');
-      mode.append(make('span', 'meta-label', 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode] + (results.practice ? ' · practice retry' : '')));
+      mode.append(make('span', 'meta-label', results.mode === ACTUAL ? 'Category' : 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode] + (results.practice ? ' · practice retry' : '')));
       var bandLabel = make('p', 'meta-label', 'Mastery band');
       var band = make('p', 'band-badge results-band');
       band.append(iconNode(results.percentage >= STRENGTH_THRESHOLD ? 'check' : 'alert'), make('span', null, results.band.name));
@@ -2655,7 +2771,7 @@
         );
         item.append(
           head,
-          make('p', 'review-topic', TEXT.topicNoun + ': ' + question.category),
+          make('p', 'review-topic', questionTopic(question)),
           make('p', 'review-prompt', question.prompt),
           answerLine(entry.correct ? 'correct' : 'incorrect', 'Your answer:', question, entry.selected),
           answerLine('correct', 'Correct answer:', question, question.answer),
@@ -2781,7 +2897,8 @@
         saved: ['check', 'Saved to the class history.'],
         failed: ['alert', 'Could not save to class history. Your results below are unaffected.'],
         'not-configured': ['dot', 'Class history is not set up, so this score was not saved to a class list.'],
-        practice: ['dot', 'Practice attempts are not saved to the class history.']
+        practice: ['dot', 'Practice attempts are not saved to the class history.'],
+        actual: ['dot', 'Actual Exam attempts are not saved to the class history.']
       }[status];
       ui.saveBox.className = 'history-save save-' + status;
       setChildren(ui.saveMessage, copy ? [iconNode(copy[0]), make('span', null, copy[1])] : []);
@@ -2929,7 +3046,7 @@
     function showHistory() {
       if (ui.historyPanel.hidden) return false;
       ui.historyHeading.focus();
-      if (ENDPOINT) loadHistory(state.history.filter);
+      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
       return true;
     }
 
@@ -2938,7 +3055,7 @@
     function readBanks() {
       var banks = {};
       var errors = [];
-      MODES.forEach(function (mode) {
+      MODES.concat([ACTUAL]).forEach(function (mode) {
         var element = byId('questions-' + mode);
         if (!element) {
           errors.push(mode + ' bank data is missing');
@@ -2968,6 +3085,7 @@
         ui.studyConfirm.disabled = true;
         ui.nameInput.disabled = true;
         MODES.forEach(function (mode) { ui.modeButtons[mode].disabled = true; });
+        ui.actualButtons.forEach(function (button) { button.disabled = true; });
         showView('unavailable');
         ui.unavailableHeading.focus();
         console.error(QUIZ_TITLE + ' is unavailable: ' + state.errors.join('; '));
@@ -2981,6 +3099,9 @@
       ui.studyConfirm.addEventListener('change', function () { setStudyConfirmed(ui.studyConfirm.checked); });
       MODES.forEach(function (mode) {
         ui.modeButtons[mode].addEventListener('click', function () { startQuiz(mode); });
+      });
+      ui.actualButtons.forEach(function (button) {
+        button.addEventListener('click', function () { startQuiz(ACTUAL, button.id === 'mode-actual-all' && ACTUAL_CONFIG.full ? ACTUAL_CONFIG.full : ACTUAL_CONFIG.attempt); });
       });
       ui.btnCheck.addEventListener('click', checkAnswer);
       ui.btnPrev.addEventListener('click', function () { if (state.attempt) goToQuestion(state.attempt.current - 1); });
@@ -3004,7 +3125,9 @@
       setStudentName(ui.nameInput.value, false);
       setStudyConfirmed(false);
       renderSaveStatus();
-      loadHistory('all');
+      // The Comprehensive Exam Reviewer pages have no class history: no request is ever made from them.
+      ui.btnHistory.hidden = ACTUAL_ONLY;
+      if (!ACTUAL_ONLY) loadHistory('all');
     }
 
     function getState() {
@@ -3029,6 +3152,8 @@
     globalThis.__quiz = Object.freeze({
       lessonKey: HISTORY_LESSON,
       validateBanks: validateBanks,
+      validateActualBank: validateActualBank,
+      actualConfig: ACTUAL_CONFIG,
       shuffleQuestions: shuffleQuestions,
       sampleQuestions: sampleQuestions,
       selectCoverage: selectCoverage,
@@ -3063,12 +3188,14 @@
       // Replaces the Web Audio player (tests inject a recorder); null restores the default player.
       setSoundPlayer: function (player) { state.soundPlayer = typeof player === 'function' ? player : defaultSoundPlayer; },
       getState: getState,
-      getBanks: function () { return state.banks; },
+      // The difficulty banks; the Actual Exam bank is separate (getActualBank).
+      getBanks: function () { return state.banks ? { easy: state.banks.easy, medium: state.banks.medium, hard: state.banks.hard } : state.banks; },
+      getActualBank: function () { return state.banks ? state.banks.actual : null; },
       setRandom: function (random) { state.random = typeof random === 'function' ? random : Math.random; }
     });
   })();
   </script>
-<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid"><div><h2>Practice exams</h2><ul><li><a class="main" href="../">Exam hub (all modules)</a></li><li><a class="main" href="../module-1-exam/">Module 1 Exam</a></li><li><a class="main" href="../module-3-exam/">Module 4 Exam</a></li><li><a class="main" href="../module-5-exam/">Module 5 Exam</a></li><li><a class="main" href="../module-6-exam/">Module 6 Exam</a></li><li><a class="main" href="../module-7-exam/">Module 7 Exam</a></li><li><a class="main" href="../module-8-exam/">Module 8 Exam</a></li></ul></div><div><h2>Reviewer</h2><ul><li><a class="main" href="../reviewer/">All Reviewer lessons</a></li></ul><p class="mod">Module 1 · Leadership</p><ul><li><a class="main" href="../military-leadership-attributes/">Military Leadership Attributes quiz</a><a href="../reviewer/leadershipattributes/">Reviewer</a></li><li><a class="main" href="../military-leadership-competencies/">Military Leadership Competencies quiz</a><a href="../reviewer/leadershipcompetencies/">Reviewer</a></li><li><a class="main" href="../company-management/">Company Management quiz</a><a href="../reviewer/companymanagement/">Reviewer</a></li><li><a class="main" href="../mission-command/">Mission Command quiz</a><a href="../reviewer/missioncommand/">Reviewer</a></li><li><a class="main" href="../ethical-transformational-leadership/">Ethical and Transformational Leadership quiz</a><a href="../reviewer/ethicalleadership/">Reviewer</a></li><li><a class="main" href="../nco-empowerment/">NCO Empowerment quiz</a><a href="../reviewer/ncoempowerment/">Reviewer</a></li><li><a class="main" href="../effective-communication-2/">Effective Communication 2 quiz</a><a href="../reviewer/effectivecommunication/">Reviewer</a></li></ul><p class="mod">Module 2 · Army Operating Concept</p><ul><li><a class="main" href="../combined/">Combined Practice Exam quiz</a></li><li><a class="main" href="../field-artillery/">Field Artillery Operations quiz</a><a href="../reviewer/fieldartillery/">Reviewer</a></li><li><a class="main" href="../armor/">Armor Operations quiz</a><a href="../reviewer/armor/">Reviewer</a></li><li><a class="main" href="../isr/">ISR Operations quiz</a><a href="../reviewer/isr/">Reviewer</a></li></ul><p class="mod">Module 3 · Battalion/Brigade Operations Planning</p><ul><li><a class="main" href="../module-3-planning-exam/">Module 3 Planning Exam quiz</a></li><li><a class="main" href="../troop-leading-procedure/">Troop Leading Procedure (TLP) quiz</a><a href="../reviewer/tlp/">Reviewer</a></li><li><a class="main" href="../military-decision-making-process/">Military Decision-Making Process (MDMP) quiz</a><a href="../reviewer/mdmp/">Reviewer</a></li></ul><p class="mod">Module 4 · Signal Support Integration</p><ul><li><a class="main" href="../signal-support/">Signal Support in Combined Arms Operations quiz</a><a href="../reviewer/signal/">Reviewer</a></li><li><a class="main" href="../joint-signal/">Signal Support in Joint Operations quiz</a><a href="../reviewer/signaljoint/">Reviewer</a></li><li><a class="main" href="../coalition-signal/">Signal Support in Coalition Operations quiz</a><a href="../reviewer/coalition/">Reviewer</a></li></ul><p class="mod">Module 5 · Advanced C2 Communications</p><ul><li><a class="main" href="../manet-c4istar-planning/">MANET C4ISTAR Planning quiz</a><a href="../reviewer/manet/">Reviewer</a></li><li><a class="main" href="../c4istar-sensors-integration/">C4ISTAR Sensors Integration quiz</a><a href="../reviewer/sensors/">Reviewer</a></li><li><a class="main" href="../c4istar-weapon-system-integration/">C4ISTAR Weapon System Integration quiz</a><a href="../reviewer/weapons/">Reviewer</a></li><li><a class="main" href="../signal-propagation/">Signal Propagation (Mobile Apps/RF Clouds) quiz</a><a href="../reviewer/propagation/">Reviewer</a></li></ul><p class="mod">Module 6 · Advanced Electronic Warfare Operations</p><ul><li><a class="main" href="../signals-intelligence/">Signals Intelligence (SIGINT) quiz</a><a href="../reviewer/sigint/">Reviewer</a></li><li><a class="main" href="../electronic-intelligence/">Electronic Intelligence (ELINT) quiz</a><a href="../reviewer/elint/">Reviewer</a></li><li><a class="main" href="../radio-direction-finding/">Radio Direction Finding quiz</a><a href="../reviewer/rdf/">Reviewer</a></li><li><a class="main" href="../electronic-counter-countermeasures/">Electronic Counter-Countermeasures (ECCM) quiz</a><a href="../reviewer/eccm/">Reviewer</a></li></ul><p class="mod">Module 7 · Advanced Cyberspace Operations</p><ul><li><a class="main" href="../nist-framework/">NIST Framework quiz</a><a href="../reviewer/nist/">Reviewer</a></li><li><a class="main" href="../zero-trust/">Zero Trust quiz</a><a href="../reviewer/zerotrust/">Reviewer</a></li><li><a class="main" href="../gsomia-compliance/">LOE3 GSOMIA Compliance quiz</a><a href="../reviewer/gsomia/">Reviewer</a></li><li><a class="main" href="../cyber-risk-assessment/">Cyber Risk Assessment quiz</a><a href="../reviewer/cyberrisk/">Reviewer</a></li></ul><p class="mod">Module 8 · Signal Planning</p><ul><li><a class="main" href="../ceoi-cesi-management/">CEOI / CESI Management quiz</a><a href="../reviewer/ceoicesi/">Reviewer</a></li><li><a class="main" href="../signal-estimate/">Signal Estimate quiz</a><a href="../reviewer/signalestimate/">Reviewer</a></li><li><a class="main" href="../c4istar-communications-planning/">C4ISTAR Communications Planning quiz</a><a href="../reviewer/c4istarplanning/">Reviewer</a></li><li><a class="main" href="../signal-planning-process/">Signal Planning Process quiz</a><a href="../reviewer/signalplanning/">Reviewer</a></li></ul><p class="mod">Supporting Lessons · Supporting study material; not separately numbered POI lessons</p><ul><li><a class="main" href="../army-operations/">Army Operations quiz</a><a href="../reviewer/armyops/">Reviewer</a></li><li><a class="main" href="../intelligence-cycle/">Intelligence Cycle quiz</a><a href="../reviewer/intcycle/">Reviewer</a></li></ul></div><div><h2>Library</h2><ul><li><a class="main" href="../library/">Library: lessons, manuals, sources</a></li><li><a class="main" href="../library/unit-organization/">Unit Organization</a></li></ul></div><div><h2>How To guides</h2><ul><li><a class="main" href="../how-to/">All How To guides</a></li><li><a class="main" href="../how-to/how-to-check-repeater-channel-pair/">Check a repeater channel pair</a></li><li><a class="main" href="../how-to/how-to-conduct-radio-check/">Conduct a two-station radio check</a></li><li><a class="main" href="../how-to/how-to-configure-rf5800v-scan/">Configure an RF-5800V scan list</a></li><li><a class="main" href="../how-to/how-to-connect-windows-radio-rndis/">Connect a Windows PC to a radio over USB</a></li><li><a class="main" href="../how-to/how-to-plot-radio-link-profile/">Plot a radio link in Radio Mobile</a></li><li><a class="main" href="../how-to/how-to-program-fixed-frequency-preset/">Program a fixed-frequency radio channel</a></li><li><a class="main" href="../how-to/how-to-program-rf5800v-net/">Program an RF-5800V voice net</a></li><li><a class="main" href="../how-to/how-to-set-up-two-radio-retransmit/">Set up a two-radio repeater</a></li><li><a class="main" href="../how-to/how-to-size-a-half-wave-dipole/">Size a half-wave dipole</a></li><li><a class="main" href="../how-to/how-to-test-tactical-chat-link/">Send a test message over a radio data link</a></li><li><a class="main" href="../how-to/how-to-transfer-cpa-radio-plan/">Transfer a CPA plan to an RF-7800V</a></li></ul></div><div><h2>Radio and codes</h2><ul><li><a class="main" href="../los-radios/">LOS Radios</a></li><li><a class="main" href="../codes-ciphers/">Codes &amp; Ciphers</a></li></ul></div><div><h2>Schedule, class, instructor</h2><ul><li><a class="main" href="../schedule/?v=day-picker-2">Weekly schedule (current week)</a></li><li><a class="main" href="../schedule-2026-11-02/">Week of 02–08 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-09/">Week of 09–15 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-16/">Week of 16–22 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-23/">Week of 23–29 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-30/">Week of 30 Nov – 06 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-07/">Week of 07–13 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-14/">Week of 14–20 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-21/">Week of 21–27 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-28/">Week of 28 Dec 2026 – 03 Jan 2027</a></li><li><a class="main" href="../schedule-2027-01-04/">Week of 04–10 Jan 2027</a></li><li><a class="main" href="../class/">Our class</a></li><li><a class="main" href="../instructor/">Instructor view</a></li></ul></div></div></details></nav>
+<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid"><div><h2>Practice exams</h2><ul><li><a class="main" href="../">Exam hub (all modules)</a></li><li><a class="main" href="../module-1-exam/">Module 1 Exam</a></li><li><a class="main" href="../module-3-exam/">Module 4 Exam</a></li><li><a class="main" href="../module-5-exam/">Module 5 Exam</a></li><li><a class="main" href="../module-6-exam/">Module 6 Exam</a></li><li><a class="main" href="../module-7-exam/">Module 7 Exam</a></li><li><a class="main" href="../module-8-exam/">Module 8 Exam</a></li></ul></div><div><h2>Comprehensive Exam Reviewer</h2><ul><li><a class="main" href="../comprehensive-reviewer/">Actual Exam: all graded exams</a></li><li><a class="main" href="../comprehensive-reviewer/all/">All graded exams, mixed</a></li></ul></div><div><h2>Reviewer</h2><ul><li><a class="main" href="../reviewer/">All Reviewer lessons</a></li></ul><p class="mod">Module 1 · Leadership</p><ul><li><a class="main" href="../military-leadership-attributes/">Military Leadership Attributes quiz</a><a href="../reviewer/leadershipattributes/">Reviewer</a></li><li><a class="main" href="../military-leadership-competencies/">Military Leadership Competencies quiz</a><a href="../reviewer/leadershipcompetencies/">Reviewer</a></li><li><a class="main" href="../company-management/">Company Management quiz</a><a href="../reviewer/companymanagement/">Reviewer</a></li><li><a class="main" href="../mission-command/">Mission Command quiz</a><a href="../reviewer/missioncommand/">Reviewer</a></li><li><a class="main" href="../ethical-transformational-leadership/">Ethical and Transformational Leadership quiz</a><a href="../reviewer/ethicalleadership/">Reviewer</a></li><li><a class="main" href="../nco-empowerment/">NCO Empowerment quiz</a><a href="../reviewer/ncoempowerment/">Reviewer</a></li><li><a class="main" href="../effective-communication-2/">Effective Communication 2 quiz</a><a href="../reviewer/effectivecommunication/">Reviewer</a></li></ul><p class="mod">Module 2 · Army Operating Concept</p><ul><li><a class="main" href="../combined/">Combined Practice Exam quiz</a></li><li><a class="main" href="../field-artillery/">Field Artillery Operations quiz</a><a href="../reviewer/fieldartillery/">Reviewer</a></li><li><a class="main" href="../armor/">Armor Operations quiz</a><a href="../reviewer/armor/">Reviewer</a></li><li><a class="main" href="../isr/">ISR Operations quiz</a><a href="../reviewer/isr/">Reviewer</a></li></ul><p class="mod">Module 3 · Battalion/Brigade Operations Planning</p><ul><li><a class="main" href="../module-3-planning-exam/">Module 3 Planning Exam quiz</a></li><li><a class="main" href="../troop-leading-procedure/">Troop Leading Procedure (TLP) quiz</a><a href="../reviewer/tlp/">Reviewer</a></li><li><a class="main" href="../military-decision-making-process/">Military Decision-Making Process (MDMP) quiz</a><a href="../reviewer/mdmp/">Reviewer</a></li></ul><p class="mod">Module 4 · Signal Support Integration</p><ul><li><a class="main" href="../signal-support/">Signal Support in Combined Arms Operations quiz</a><a href="../reviewer/signal/">Reviewer</a></li><li><a class="main" href="../joint-signal/">Signal Support in Joint Operations quiz</a><a href="../reviewer/signaljoint/">Reviewer</a></li><li><a class="main" href="../coalition-signal/">Signal Support in Coalition Operations quiz</a><a href="../reviewer/coalition/">Reviewer</a></li></ul><p class="mod">Module 5 · Advanced C2 Communications</p><ul><li><a class="main" href="../manet-c4istar-planning/">MANET C4ISTAR Planning quiz</a><a href="../reviewer/manet/">Reviewer</a></li><li><a class="main" href="../c4istar-sensors-integration/">C4ISTAR Sensors Integration quiz</a><a href="../reviewer/sensors/">Reviewer</a></li><li><a class="main" href="../c4istar-weapon-system-integration/">C4ISTAR Weapon System Integration quiz</a><a href="../reviewer/weapons/">Reviewer</a></li><li><a class="main" href="../signal-propagation/">Signal Propagation (Mobile Apps/RF Clouds) quiz</a><a href="../reviewer/propagation/">Reviewer</a></li></ul><p class="mod">Module 6 · Advanced Electronic Warfare Operations</p><ul><li><a class="main" href="../signals-intelligence/">Signals Intelligence (SIGINT) quiz</a><a href="../reviewer/sigint/">Reviewer</a></li><li><a class="main" href="../electronic-intelligence/">Electronic Intelligence (ELINT) quiz</a><a href="../reviewer/elint/">Reviewer</a></li><li><a class="main" href="../radio-direction-finding/">Radio Direction Finding quiz</a><a href="../reviewer/rdf/">Reviewer</a></li><li><a class="main" href="../electronic-counter-countermeasures/">Electronic Counter-Countermeasures (ECCM) quiz</a><a href="../reviewer/eccm/">Reviewer</a></li></ul><p class="mod">Module 7 · Advanced Cyberspace Operations</p><ul><li><a class="main" href="../nist-framework/">NIST Framework quiz</a><a href="../reviewer/nist/">Reviewer</a></li><li><a class="main" href="../zero-trust/">Zero Trust quiz</a><a href="../reviewer/zerotrust/">Reviewer</a></li><li><a class="main" href="../gsomia-compliance/">LOE3 GSOMIA Compliance quiz</a><a href="../reviewer/gsomia/">Reviewer</a></li><li><a class="main" href="../cyber-risk-assessment/">Cyber Risk Assessment quiz</a><a href="../reviewer/cyberrisk/">Reviewer</a></li></ul><p class="mod">Module 8 · Signal Planning</p><ul><li><a class="main" href="../ceoi-cesi-management/">CEOI / CESI Management quiz</a><a href="../reviewer/ceoicesi/">Reviewer</a></li><li><a class="main" href="../signal-estimate/">Signal Estimate quiz</a><a href="../reviewer/signalestimate/">Reviewer</a></li><li><a class="main" href="../c4istar-communications-planning/">C4ISTAR Communications Planning quiz</a><a href="../reviewer/c4istarplanning/">Reviewer</a></li><li><a class="main" href="../signal-planning-process/">Signal Planning Process quiz</a><a href="../reviewer/signalplanning/">Reviewer</a></li></ul><p class="mod">Supporting Lessons · Supporting study material; not separately numbered POI lessons</p><ul><li><a class="main" href="../army-operations/">Army Operations quiz</a><a href="../reviewer/armyops/">Reviewer</a></li><li><a class="main" href="../intelligence-cycle/">Intelligence Cycle quiz</a><a href="../reviewer/intcycle/">Reviewer</a></li></ul></div><div><h2>Library</h2><ul><li><a class="main" href="../library/">Library: lessons, manuals, sources</a></li><li><a class="main" href="../library/unit-organization/">Unit Organization</a></li></ul></div><div><h2>How To guides</h2><ul><li><a class="main" href="../how-to/">All How To guides</a></li><li><a class="main" href="../how-to/how-to-check-repeater-channel-pair/">Check a repeater channel pair</a></li><li><a class="main" href="../how-to/how-to-conduct-radio-check/">Conduct a two-station radio check</a></li><li><a class="main" href="../how-to/how-to-configure-rf5800v-scan/">Configure an RF-5800V scan list</a></li><li><a class="main" href="../how-to/how-to-connect-windows-radio-rndis/">Connect a Windows PC to a radio over USB</a></li><li><a class="main" href="../how-to/how-to-plot-radio-link-profile/">Plot a radio link in Radio Mobile</a></li><li><a class="main" href="../how-to/how-to-program-fixed-frequency-preset/">Program a fixed-frequency radio channel</a></li><li><a class="main" href="../how-to/how-to-program-rf5800v-net/">Program an RF-5800V voice net</a></li><li><a class="main" href="../how-to/how-to-set-up-two-radio-retransmit/">Set up a two-radio repeater</a></li><li><a class="main" href="../how-to/how-to-size-a-half-wave-dipole/">Size a half-wave dipole</a></li><li><a class="main" href="../how-to/how-to-test-tactical-chat-link/">Send a test message over a radio data link</a></li><li><a class="main" href="../how-to/how-to-transfer-cpa-radio-plan/">Transfer a CPA plan to an RF-7800V</a></li></ul></div><div><h2>Radio and codes</h2><ul><li><a class="main" href="../los-radios/">LOS Radios</a></li><li><a class="main" href="../codes-ciphers/">Codes &amp; Ciphers</a></li></ul></div><div><h2>Schedule, class, instructor</h2><ul><li><a class="main" href="../schedule/?v=day-picker-2">Weekly schedule (current week)</a></li><li><a class="main" href="../schedule-2026-11-02/">Week of 02–08 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-09/">Week of 09–15 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-16/">Week of 16–22 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-23/">Week of 23–29 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-30/">Week of 30 Nov – 06 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-07/">Week of 07–13 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-14/">Week of 14–20 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-21/">Week of 21–27 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-28/">Week of 28 Dec 2026 – 03 Jan 2027</a></li><li><a class="main" href="../schedule-2027-01-04/">Week of 04–10 Jan 2027</a></li><li><a class="main" href="../class/">Our class</a></li><li><a class="main" href="../instructor/">Instructor view</a></li></ul></div></div></details></nav>
 <aside class="domain-seal" aria-label="Site signature"><img class="domain-sigil" src="../assets/domain-void-hand-320.webp" width="160" height="221" alt="" loading="lazy" decoding="async"><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>“You see, but you do not observe.”</em><cite data-domain-attribution>— Sherlock Holmes · A Scandal in Bohemia · Arthur Conan Doyle</cite></span></aside>
 <script src="../assets/identity.js" defer></script>
 </body>

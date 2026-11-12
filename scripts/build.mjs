@@ -13,6 +13,7 @@ import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { loadStudy, renderStudyPages, studyQuizLinks } from './study.mjs';
+import { ACTUAL_LABEL, ACTUAL_NOTE, REVIEWER_SLUG, REVIEWER_TITLE, actualExamData, displayDate, examCitation } from './actual-exams.mjs';
 
 export const ROOT = dirname(dirname(fileURLToPath(import.meta.url)));
 export const MODES = ['easy', 'medium', 'hard'];
@@ -30,7 +31,7 @@ export const POOL_MIN_ATTEMPT = 20;
 export const POOL_MAX_ATTEMPT = 35;
 export const LESSON_KEY_PATTERN = /^[a-z][a-z0-9]{1,23}$/;
 export const SLUG_PATTERN = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const RESERVED_SLUGS = new Set(['assets', 'src', 'lessons', 'scripts', 'apps-script', 'instructor', 'class', 'data', 'schedule', 'codes-ciphers']);
+const RESERVED_SLUGS = new Set(['assets', 'src', 'lessons', 'scripts', 'apps-script', 'instructor', 'class', 'data', 'schedule', 'codes-ciphers', 'comprehensive-reviewer']);
 // Art expectations checked by the tests when a lesson.json gives none (a lesson may also ship no hero.css).
 const DEFAULT_ART = { groups: [], nested: {}, labels: [], classes: [], stilled: [], staticPattern: '\\.hero-art' };
 
@@ -439,6 +440,8 @@ export function quizConfig(lesson) {
     sourceRef: lesson.rules.ref ? { label: lesson.rules.ref.label, min: lesson.rules.ref.min, max: lesson.rules.ref.max, required: lesson.rules.ref.required } : null,
     sourceAlt: lesson.rules.alt ? { ref: lesson.rules.alt.ref, label: lesson.rules.alt.label, min: lesson.rules.alt.min, max: lesson.rules.alt.max, title: lesson.rules.alt.title, href: lesson.rules.alt.href } : null,
     pool: lesson.rules.pool,
+    actual: lesson.actual ? { count: lesson.actual.count, attempt: lesson.actual.attempt, ...(lesson.actual.full ? { full: lesson.actual.full } : {}) } : null,
+    ...(lesson.actualOnly ? { actualOnly: true } : {}),
     text: {
       topicNoun: text.topicNoun,
       strengthsEmpty: text.strengthsEmpty,
@@ -525,8 +528,91 @@ export function renderQuizPage(template, contours, lesson, { endpoint = HISTORY_
     EASY_QUESTIONS: scriptJson(lesson.banks.easy),
     MEDIUM_QUESTIONS: scriptJson(lesson.banks.medium),
     HARD_QUESTIONS: scriptJson(lesson.banks.hard),
+    ACTUAL_QUESTIONS: scriptJson(lesson.actual ? lesson.actual.bank : []),
+    ACTUAL_SECTION: actualSection(lesson.actual),
+    DIFFICULTY_HEADING: 'Choose a difficulty',
+    MODE_LIST_HIDDEN: '',
+    PRIVACY_NOTE: escapeHtml(PRIVACY_NOTE + (lesson.actual ? ' Actual Exam attempts are never sent to the class history.' : '')),
     HISTORY_ENDPOINT: endpoint,
   });
+}
+
+const PRIVACY_NOTE = "No login and no tracking. Your answers stay in this browser tab and are cleared when you refresh or close it. When your instructor has set up the class history, finishing an attempt sends your name, difficulty, score, percentage, mastery band and finish time to the class history sheet, together with the reference codes of the questions you were asked and of those you missed (for the instructor's question analysis). The answers you chose are never sent, and practice retries of missed questions are not sent at all. To put questions you have not seen yet first, then those you missed, this browser remembers which questions it has shown you and which were missed (question codes only, no name); that record never leaves this device.";
+const ACTUAL_PRIVACY_NOTE = 'No login and no tracking. Your answers stay in this browser tab and are cleared when you refresh or close it. This reviewer has no class history: nothing about an attempt is ever sent anywhere. To put questions you have not seen yet first, then those you missed, this browser remembers which questions it has shown you and which were missed (question codes only, no name); that record never leaves this device.';
+
+// The Actual Exam category on a quiz page: set apart from Easy, Medium and Hard, with the graded exams it draws on.
+// `all` (the reviewer's mixed set) adds a second button for the full set.
+export function actualSection(actual, { all = false } = {}) {
+  if (!actual) return '';
+  const names = actual.exams.map(exam => `${exam.title} (${displayDate(exam.date)})`);
+  const from = names.length === 1 ? `the graded ${names[0]}` : `${names.length} graded exams: ${names.join('; ')}`;
+  const per = actual.attempt === actual.count ? `${actual.count} questions per attempt` : `${actual.attempt} questions per attempt, drawn from ${actual.count}`;
+  const button = (id, label, desc) => [
+    `            <button type="button" id="${id}" class="mode-button mode-actual" disabled aria-describedby="mode-hint actual-note">`,
+    `              <span class="mode-name"><span class="actual-mark" aria-hidden="true">✓</span>${escapeHtml(label)}</span>`,
+    `              <span class="mode-desc">${escapeHtml(desc)}</span>`,
+    '              <span class="mode-go" aria-hidden="true">Begin →</span>',
+    '            </button>',
+  ];
+  return [
+    '          <section id="actual-block" class="actual-block" aria-labelledby="actual-heading">',
+    `            <h3 id="actual-heading" class="actual-heading"><span class="actual-badge">${escapeHtml(ACTUAL_LABEL)}</span> <span>${escapeHtml(ACTUAL_NOTE)}</span></h3>`,
+    `            <p id="actual-note" class="actual-note">${escapeHtml(`A separate category from Easy, Medium and Hard: ${actual.count} questions from ${from}. Each keeps the exam's question and answer key; the other choices are answer keys of other graded-exam questions. Unseen questions come first. Never saved to the class history.`)}</p>`,
+    '            <div class="mode-list actual-list" role="group" aria-labelledby="actual-heading">',
+    ...button('mode-actual', all ? 'Mixed set' : ACTUAL_LABEL, `${per}.${all ? ' Questions from all graded exams, unseen first.' : ''}`),
+    ...(all && actual.full ? button('mode-actual-all', 'Full set', `All ${actual.full} questions from every graded exam in one sitting.`) : []),
+    '            </div>',
+    '          </section>',
+  ].join('\n');
+}
+
+// One Comprehensive Exam Reviewer quiz page (comprehensive-reviewer/<slug>/): the quiz engine with only the Actual
+// Exam category, no difficulty banks and no class history (the endpoint is left empty, so it never makes a request).
+export function renderActualPage(template, contours, page, { base = '' } = {}) {
+  const { key, title, eyebrow, lede, actual, categoryOrder, warning, meta, ref, all = false } = page;
+  const config = {
+    key, module: 'module-1', title, categoryOrder, sourceRef: null, sourceAlt: null, pool: null,
+    actual: { count: actual.count, attempt: actual.attempt, ...(actual.full ? { full: actual.full } : {}) }, actualOnly: true,
+    text: { topicNoun: 'Exam', strengthsEmpty: 'No exam reached 75% in this attempt.', gapsEmpty: 'No gaps in this attempt. Keep reviewing.', bands: DEFAULT_TEXT.bands.map(band => band.replace('the lesson', 'these lessons').replace('the complete lesson', 'the lessons')) },
+  };
+  const html = fillTemplate(template, {
+    BASE_CSS: baseCss(base, '../assets/'),
+    FONT_PRELOAD: fontPreloads('../assets/'),
+    LESSON_REF: escapeHtml(ref),
+    SOURCE_LINE: escapeHtml(meta.source),
+    MASTHEAD_META: meta.rows.map(([term, value]) => `<div><dt>${escapeHtml(term)}</dt><dd>${escapeHtml(value)}</dd></div>`).join('\n          '),
+    PAGE_TITLE: escapeHtml(`${title} · ${REVIEWER_TITLE}`),
+    PALETTE_CSS: '    :root { --lesson-accent: #a8431a; }',
+    HERO_CSS: '    /* (no artwork animation) */',
+    CONTOURS: contours.trim(),
+    EYEBROW: escapeHtml(eyebrow),
+    H1: escapeHtml(title),
+    LEDE: escapeHtml(lede),
+    HUB_HREF: '__REVIEWER_INDEX__',
+    STUDY_HREF: '../reviewer/',
+    HERO_SVG: indent(page.heroSvg, 8),
+    STUDY_WARNING_LEAD: escapeHtml('These are questions from the class’s graded exams.'),
+    STUDY_WARNING_BODY: escapeHtml(warning),
+    STUDY_CONFIRM: escapeHtml('I understand that this reviewer supports, and does not replace, studying the complete lessons.'),
+    MODE_PREFIX_EASY: '', MODE_PREFIX_MEDIUM: '', MODE_PREFIX_HARD: '',
+    RESULTS_REMINDER: escapeHtml('This score is practice feedback only. Restudy the lessons behind the questions you missed.'),
+    TOPICS_HEADING: 'Exam analysis',
+    TOPICS_CAPTION: escapeHtml('Correct answers by graded exam. An exam is a strength at 75% or higher and a gap below 75%; the line on each bar marks 75%.'),
+    TOPIC_NOUN: 'Exam',
+    GAPS_HEADING: 'Gaps to review',
+    CONFIG: scriptJson(config),
+    STUDY_LINKS: scriptJson({ reviewer: '../reviewer/', sources: {}, byQuestion: {} }),
+    EASY_QUESTIONS: '[]', MEDIUM_QUESTIONS: '[]', HARD_QUESTIONS: '[]',
+    ACTUAL_QUESTIONS: scriptJson(actual.bank),
+    ACTUAL_SECTION: actualSection(actual, { all }),
+    DIFFICULTY_HEADING: 'Choose an attempt',
+    MODE_LIST_HIDDEN: ' hidden',
+    PRIVACY_NOTE: escapeHtml(ACTUAL_PRIVACY_NOTE),
+    HISTORY_ENDPOINT: '',
+  });
+  // These pages sit one folder deeper than a lesson quiz.
+  return html.replace(/\.\.\/(assets|library|reviewer)\//g, '../../$1/').replace(/\.\.\/#/g, '../../#')
+    .replace('__REVIEWER_INDEX__', '../').replace('</span> All quizzes</a>', '</span> All graded exams</a>');
 }
 
 // "50 questions per attempt", or "41–50 questions per attempt" when the difficulties differ.
@@ -615,6 +701,7 @@ function hubExamCard(exam, source, moduleId) {
     `              <p class="card-desc">${escapeHtml(exam.description)}</p>`,
     '              <ul class="card-meta">',
     ...exam.tags.map(tag => `                <li class="tag${tag.comprehensive ? ' tag-comprehensive' : ''}">${escapeHtml(tag.text)}</li>`),
+    ...(source && source.actual ? [`                <li class="tag tag-actual">${escapeHtml(ACTUAL_LABEL)}</li>`] : []),
     ...(source && !source.pool ? [`                <li class="tag tag-progress" data-progress-exam="${exam.key}" hidden></li>`] : []),
     '              </ul>',
     '            </div>',
@@ -1083,7 +1170,10 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   const base = readFileSync(join(root, 'src', 'shared', 'base.css'), 'utf8');
   const engine = readFileSync(join(root, 'src', 'engine', 'template.html'), 'utf8').replace(/\r\n/g, '\n');
   const study = loadStudy(root, lessons);
+  const actual = actualExamData(root, lessons);
+  for (const lesson of lessons) lesson.actual = actual.pages.get(lesson.key) ?? null;
   const pages = {};
+  Object.assign(pages, renderActualPages(root, engine, contours, actual, lessons, { base }));
   for (const lesson of lessons) pages[`${lesson.slug}/index.html`] = renderQuizPage(engine, contours, lesson, { endpoint, base, study: studyQuizLinks(root, lesson, study) });
   pages['index.html'] = renderHub(readFileSync(join(root, 'src', 'hub', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base, root });
   pages['class/index.html'] = renderClass(readFileSync(join(root, 'src', 'class', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, loadClass(root), { base });
@@ -1119,7 +1209,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
     SCAN_PARSER: readFileSync(join(root, 'src', 'cipher', 'scan-parser.mjs'), 'utf8').replace(/\r\n/g, '\n'),
     SCAN_UI: readFileSync(join(root, 'src', 'cipher', 'scan-ui.js'), 'utf8').replace(/\r\n/g, '\n'),
   });
-  Object.assign(pages, renderStudyPages(root, modules, lessons, study, { escapeHtml, scriptJson, fillTemplate, baseCss, fontPreloads, base }));
+  Object.assign(pages, renderStudyPages(root, modules, lessons, study, { escapeHtml, scriptJson, fillTemplate, baseCss, fontPreloads, base, extra: render => renderReviewerIndex(render, actual, lessons) }));
   const siteIndex = buildSiteIndex({ modules, lessons, study, pages });
   // The hub's quick finder also lists the study pages, tools and guides.
   pages['index.html'] = pages['index.html'].replace(/(<script type="application\/json" id="hub-data">)([\s\S]*?)(<\/script>)/, (all, open, json, close) => {
@@ -1154,6 +1244,66 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
     }
   }
   return pages;
+}
+
+// The Comprehensive Exam Reviewer's quiz pages: one per graded exam and the mixed set.
+function renderActualPages(root, engine, contours, actual, lessons, { base }) {
+  const heroSvg = readFileSync(join(root, 'src', 'actual', 'hero.svg'), 'utf8').replace(/\r\n/g, '\n').trimEnd();
+  const byKey = new Map(lessons.map(lesson => [lesson.key, lesson]));
+  const pages = {};
+  const warning = 'Each question keeps the exam’s stem and answer key. The portal showed no answer choices, so the other choices are answer keys of other graded-exam questions. Study the complete lessons as well.';
+  actual.perExam.forEach(({ exam, bank, count, attempt, exams }, index) => {
+    const number = String(index + 1).padStart(2, '0');
+    const also = exam.pages.map(key => byKey.get(key).name);
+    const skipped = exam.skipped.length ? ` ${exam.skipped.length} of ${exam.itemCount} items are left out (${exam.skipped.map(item => `question ${item.n}`).join(', ')}): see the reviewer index.` : '';
+    pages[`${REVIEWER_SLUG}/${exam.slug}/index.html`] = renderActualPage(engine, contours, {
+      key: exam.key, title: exam.title, heroSvg, warning, all: false,
+      eyebrow: `${REVIEWER_TITLE} · Graded exam ${number}`,
+      lede: `${count} questions from the class’s graded ${exam.title}, ${displayDate(exam.date)}, as multiple choice.${also.length ? ` They also appear as the Actual Exam category on ${also.join(' and ')}.` : ''}${skipped}`,
+      actual: { bank, count, attempt, exams }, categoryOrder: [exam.title],
+      ref: `${REVIEWER_TITLE} · Exam ${number}`,
+      meta: { source: `Ref. ${examCitation(exam)}`, rows: [['Questions', `${count} per attempt`], ['Exam date', displayDate(exam.date)], ['Source', 'Graded exam (stem and key)']] },
+    }, { base });
+  });
+  const all = actual.all;
+  pages[`${REVIEWER_SLUG}/all/index.html`] = renderActualPage(engine, contours, {
+    key: 'gradedall', title: 'All graded exams, mixed', heroSvg, warning, all: true,
+    eyebrow: `${REVIEWER_TITLE} · Mixed set`,
+    lede: `${all.count} questions from all ${actual.exams.length} graded exams, mixed: take ${all.attempt} at a time (questions you have not seen come first) or the full set at once.`,
+    actual: all, categoryOrder: actual.exams.map(exam => exam.title),
+    ref: `${REVIEWER_TITLE} · Mixed set`,
+    meta: { source: 'Ref. SOAC 52-2026 graded exams', rows: [['Questions', `${all.attempt} per attempt · full set ${all.full}`], ['Exams', String(actual.exams.length)], ['Source', 'Graded exams (stem and key)']] },
+  }, { base });
+  return pages;
+}
+
+// comprehensive-reviewer/: every graded exam as its own quiz, the mixed set, and where each exam appears.
+function renderReviewerIndex(render, actual, lessons) {
+  const byKey = new Map(lessons.map(lesson => [lesson.key, lesson]));
+  const e = escapeHtml;
+  const total = actual.exams.reduce((sum, exam) => sum + exam.questions.length, 0);
+  const skipped = actual.exams.flatMap(exam => exam.skipped.map(item => ({ exam, ...item })));
+  const card = (exam, index) => {
+    const pages = exam.pages.map(key => byKey.get(key));
+    return '<li class="graded-card"><p class="graded-num" aria-hidden="true">' + String(index + 1).padStart(2, '0') + '</p><div class="graded-main"><h3 id="graded-' + exam.key + '">' + e(exam.title) + '</h3>' +
+      '<p class="graded-meta"><span>' + e(displayDate(exam.date)) + '</span><span>' + exam.questions.length + (exam.skipped.length ? ' of ' + exam.itemCount : '') + ' questions</span></p>' +
+      (pages.length ? '<p class="graded-also">Also the Actual Exam category on ' + pages.map(lesson => '<a href="../' + lesson.slug + '/">' + e(lesson.name) + '</a>').join(', ') + '.</p>' : '<p class="graded-also">Mixed topics: available here and in the mixed set.</p>') +
+      '<a class="study-cta graded-start" href="' + exam.slug + '/" aria-describedby="graded-' + exam.key + '">Take this exam <span aria-hidden="true">→</span></a></div></li>';
+  };
+  const body = '<div class="graded-layout">' +
+    '<section class="graded-mixed" aria-labelledby="mixed-heading"><p class="actual-badge">Actual Exam</p><h2 id="mixed-heading">All graded exams, mixed</h2><p>' + actual.all.count + ' questions from all ' + actual.exams.length + ' exams (a question repeated in a later exam is asked once). Take ' + actual.all.attempt + ' at a time, unseen questions first, or the full set in one sitting.</p><a class="study-cta graded-start" href="all/">Start the mixed set <span aria-hidden="true">→</span></a></section>' +
+    '<section class="reviewer-module" aria-labelledby="graded-heading"><div class="module-heading"><div><p class="study-eyebrow">' + e(ACTUAL_NOTE) + '</p><h2 id="graded-heading">The graded exams</h2></div><p class="study-chip">' + actual.exams.length + ' exams · ' + total + ' questions</p></div>' +
+    '<ol class="graded-list">' + actual.exams.map(card).join('') + '</ol></section>' +
+    '<section class="reviewer-module graded-notes" aria-labelledby="notes-heading"><h2 id="notes-heading">How these questions were prepared</h2><ul>' +
+    '<li>The exam portal’s review screen showed each question and its answer key, but not the answer choices. Here every item is multiple choice: the key plus three other answer keys from the same exam where possible (similar type and length), otherwise from the same module. True/false items keep two choices.</li>' +
+    '<li>Questions and keys are as recorded, except quote marks and apostrophes the export had garbled, which are restored. No student answers, names or scores are kept.</li>' +
+    '<li>Each question cites its graded exam, not a lesson page. Actual Exam attempts are never saved to the class history.</li>' +
+    '<li>Left out (' + skipped.length + '): ' + skipped.map(item => e(item.exam.title + ', question ' + item.n + ': ' + item.reason)).join(' ') + '</li>' +
+    '</ul></section></div>';
+  render(REVIEWER_SLUG + '/index.html', 1, 'exam-reviewer', REVIEWER_TITLE, 'Practise with the questions from our real, graded exams before the Comprehensive Exam.', body, {
+    eyebrow: 'Actual Exam · SOAC 52-2026',
+    meta: '<p class="hero-stats"><span><strong>' + actual.exams.length + '</strong> graded exams</span><span><strong>' + total + '</strong> questions</span></p>',
+  });
 }
 
 const SITE_URL = 'https://atticus-42.github.io/quiz-hub/';

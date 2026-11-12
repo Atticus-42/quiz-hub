@@ -51,6 +51,10 @@ await test('[module exams] hybrid shares, provenance, cross-lesson support and h
   const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/module-exams.test.mjs')], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stdout + result.stderr);
 });
+await test('[actual exam] graded-exam questions: schema, keys among options, no student answers, placement, never posted, reviewer pages', () => {
+  const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/actual-exams.test.mjs')], { encoding: 'utf8' });
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+});
 await test('[choices] confirmed giveaway distractors and module option uniqueness', () => {
   const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/distractor-quality.test.mjs')], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stdout + result.stderr);

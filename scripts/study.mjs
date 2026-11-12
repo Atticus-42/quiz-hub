@@ -79,7 +79,7 @@ export function studyQuizLinks(root, lesson, study) {
   return { reviewer, sources, byQuestion };
 }
 
-export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e, scriptJson, fillTemplate, baseCss, fontPreloads, base }) {
+export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e, scriptJson, fillTemplate, baseCss, fontPreloads, base, extra }) {
   const focus = loadReviewerFocus(root);
   const figures = loadReviewerFigures(root, study.reviewers);
   const template = readFileSync(join(root, 'src', 'study', 'template.html'), 'utf8').replace(/\r\n/g, '\n');
@@ -91,6 +91,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
       BASE_CSS: baseCss(base, up + 'assets/'), STUDY_CSS: css, FONT_PRELOAD: fontPreloads(up + 'assets/'),
       CREST_HREF: up + 'assets/bandwidth-brothers-colored-400.webp', BRAND_HREF: up, HOME: up, REVIEWER_HREF: up + 'reviewer/', LIBRARY_HREF: up + 'library/',
       REVIEWER_CURRENT: section === 'reviewer' ? ' aria-current="page"' : '',
+      EXAMREVIEWER_HREF: up + 'comprehensive-reviewer/', EXAMREVIEWER_CURRENT: section === 'exam-reviewer' ? ' aria-current="page"' : '',
       LIBRARY_CURRENT: section === 'library' && !path.startsWith('library/unit-organization') ? ' aria-current="page"' : '', UNITORG_HREF: up + 'library/unit-organization/', UNITORG_CURRENT: path.startsWith('library/unit-organization') ? ' aria-current="page"' : '',
       CIPHER_HREF: up + 'codes-ciphers/', SCHEDULE_HREF: up + 'schedule/?v=day-picker-2', CLASS_HREF: up + 'class/',
       HOWTO_HREF: up + 'how-to/', APP_HREF: up + 'los-radios/',
@@ -206,5 +207,6 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
   });
   renderOrganizations(root, render, e);
   renderResources(root, render, e);
+  if (extra) extra(render);
   return pages;
 }

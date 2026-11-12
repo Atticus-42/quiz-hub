@@ -548,6 +548,16 @@
     .mode-button:disabled .mode-name .gauge { color: var(--color-rule); }
     .mode-desc { font-size: var(--text-ui); font-weight: 400; line-height: 1.45; }
     .mode-go { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--color-accent); }
+    /* Actual Exam: a fourth category, set apart from the difficulty ladder by a rule, a label and a stamp. */
+    .actual-block { margin-top: var(--space-6); padding-top: var(--space-4); border-top: 3px double var(--color-text); }
+    .actual-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-2) var(--space-3); margin: 0; font-size: var(--text-h4); }
+    .actual-badge { display: inline-block; padding: 0.15rem 0.5rem; border: 2px solid var(--color-signal-text); color: var(--color-signal-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+    .actual-note { max-width: 46rem; margin: var(--space-2) 0 0; color: var(--color-muted); font-size: var(--text-meta); line-height: 1.55; }
+    .actual-list { margin-top: var(--space-3); }
+    .mode-actual .actual-mark { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border: 2px solid currentColor; color: var(--color-signal-text); font-size: 0.95rem; line-height: 1; }
+    .mode-actual:disabled .actual-mark { color: var(--color-rule); }
+    .mode-actual:hover:not(:disabled) { border-left-color: var(--color-signal); }
+    .theme-actual .quiz-rail .gauge { display: none; }
     .privacy-note { max-width: 46rem; font-size: var(--text-meta); line-height: 1.6; color: var(--color-muted); }
     .question-category, .results-reminder { color: var(--color-muted); }
     .device-progress { margin: 0; font-size: var(--text-meta); color: var(--color-muted); }
@@ -1089,6 +1099,7 @@
               <span class="mode-go" aria-hidden="true">Begin →</span>
             </button>
           </div>
+
         </div>
       </div>
 
@@ -1240,11 +1251,12 @@
 
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
 
-  <script type="application/json" id="quiz-config">{"key":"cyberrisk","module":"module-7","title":"Cyber Risk Assessment Mastery Quiz","categoryOrder":["Risk Concepts and CIA","Incident Response Lifecycle","Defensive Control Coverage","People Process Technology and Scoring"],"sourceRef":{"label":"page","min":1,"max":47,"required":true},"sourceAlt":null,"pool":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
+  <script type="application/json" id="quiz-config">{"key":"cyberrisk","module":"module-7","title":"Cyber Risk Assessment Mastery Quiz","categoryOrder":["Risk Concepts and CIA","Incident Response Lifecycle","Defensive Control Coverage","People Process Technology and Scoring"],"sourceRef":{"label":"page","min":1,"max":47,"required":true},"sourceAlt":null,"pool":null,"actual":null,"text":{"topicNoun":"Topic","strengthsEmpty":"No topic reached 75% in this attempt.","gapsEmpty":"No gaps in this attempt. Keep studying the complete lesson.","bands":["Consistent command of the lesson at this difficulty.","Solid understanding. Restudy the topics listed as gaps.","Partial understanding. Restudy the lesson before retaking.","Study the complete lesson again before another attempt."]}}</script>
   <script type="application/json" id="study-links">{"reviewer":"../reviewer/cyberrisk/","sources":{"cyberrisk":{"title":"Cyber Risk Assessment","citationName":"Cyber Risk Assessment","available":true,"doc":"source-cyberrisk","href":"../library/files/lesson-cyber-risk-assessment.pdf","exactPages":true,"studyDoc":"../reviewer/cyberrisk/","manuals":[{"title":"PAM 6-0102 · Signal Operations","available":true,"id":"pam-6-0102","href":"../library/files/pam-6-0102.pdf"},{"title":"PAM 6-00 · Command and Control, Communications, and Cyber Systems","available":true,"id":"pam-6-00","href":"../library/files/pam-6-00.pdf"},{"title":"PAM 6-0102-04 · Cyberspace Operations","available":true,"id":"pam-6-0102-04","href":"../library/files/pam-6-0102-04.pdf"},{"title":"PAM 3-00 · Army Operations","available":true,"id":"pam-3-00","href":"../library/files/pam-3-00.pdf"}]}},"byQuestion":{}}</script>
   <script type="application/json" id="questions-easy">[{"id":1,"qid":"cyberrisk-e-01","difficulty":"easy","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"What does the CIA triad describe?","options":["Connectivity, inventory and authentication","Compliance, intelligence and attribution","Confidentiality, integrity and availability","Classification, inspection and administration"],"answer":2,"explanation":"CIA describes protection against unauthorized disclosure or alteration and loss of availability.","sourceSlides":[15]},{"id":2,"qid":"cyberrisk-e-02","difficulty":"easy","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"What is an asset in the lesson's risk terminology?","options":["A likelihood estimate with no object of concern","Only a hostile event that has already occurred","Only a weakness in a software application","An organizational resource or item that has value"],"answer":3,"explanation":"An asset has value; threats and vulnerabilities are different elements of risk analysis.","sourceSlides":[16]},{"id":3,"qid":"cyberrisk-e-03","difficulty":"easy","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"Which term describes a weakness that may be exploited?","options":["Recovery outcome","Asset","Vulnerability","Mission objective"],"answer":2,"explanation":"A vulnerability is a weakness; a threat is a potential cause of harm involving such weaknesses.","sourceSlides":[16]},{"id":4,"qid":"cyberrisk-e-04","difficulty":"easy","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"Which pair is central to assessing risk?","options":["Threat severity and control maturity","Asset value and remediation cost","Vulnerability count and detection speed","Likelihood and mission impact"],"answer":3,"explanation":"Risk considers how likely harm is and what consequences it would have for the mission.","sourceSlides":[16]},{"id":5,"qid":"cyberrisk-e-05","difficulty":"easy","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"Which threat primarily aims to prevent legitimate service use?","options":["Routine inventory reconciliation","Approved software maintenance","Denial of service","Authorized backup restoration"],"answer":2,"explanation":"Denial of service attacks availability by disrupting legitimate access to services.","sourceSlides":[17]},{"id":6,"qid":"cyberrisk-e-06","difficulty":"easy","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"Which phase establishes response people, tools and procedures?","options":["Recovery","Preparation","Eradication","Assessment and review"],"answer":1,"explanation":"Preparation establishes capabilities before an incident; it is not the same as restoring affected services.","sourceSlides":[18,19]},{"id":7,"qid":"cyberrisk-e-07","difficulty":"easy","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"Which phase recognizes and establishes that an incident may be occurring?","options":["Normalization","Identification","Disposal","Procurement"],"answer":1,"explanation":"Identification concerns recognizing and establishing the incident so a response can proceed.","sourceSlides":[20]},{"id":8,"qid":"cyberrisk-e-08","difficulty":"easy","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"How do containment and eradication differ?","options":["Assign job titles versus publish public announcements","Restore files versus approve annual purchases","Collect invoices versus update organization charts","Limit spread versus remove the cause or malicious components"],"answer":3,"explanation":"Containment limits damage; eradication removes the incident's malicious components or cause and checks removal.","sourceSlides":[21,22]},{"id":9,"qid":"cyberrisk-e-09","difficulty":"easy","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"What is the purpose of recovery?","options":["Erase the need for incident documentation","Restore healthy operation and monitor it","Replace every prevention control with a backup","Skip verification once equipment powers on"],"answer":1,"explanation":"Recovery restores affected operations safely and includes continued monitoring.","sourceSlides":[23]},{"id":10,"qid":"cyberrisk-e-10","difficulty":"easy","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"What should assessment and review produce?","options":["Documented lessons and improvements","Deletion of all incident records","An automatic guarantee against recurrence","A replacement for all earlier response phases"],"answer":0,"explanation":"Post-incident review captures what happened and what should improve, including after-action reporting.","sourceSlides":[24]},{"id":11,"qid":"cyberrisk-e-11","difficulty":"easy","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"What baseline question do hardware and software inventories answer most directly?","options":["Which network services need additional vulnerability testing and patch priorities","Which accounts require privilege changes for specific administrative tasks","Which configuration values meet the organization's approved hardening baseline","Which devices and programs are authorized and present"],"answer":3,"explanation":"Inventories provide a baseline for identifying unauthorized devices and software.","sourceSlides":[25]},{"id":12,"qid":"cyberrisk-e-12","difficulty":"easy","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"Which pairing fits secure configuration and vulnerability management?","options":["Identical passwords and disabled maintenance","Default settings and one-time visual inspection","Unrestricted installs and no patch records","Approved baselines and continuing assessment/remediation"],"answer":3,"explanation":"Secure baselines and continuing vulnerability correction are distinct, complementary controls.","sourceSlides":[25,26]},{"id":13,"qid":"cyberrisk-e-13","difficulty":"easy","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"Why should backup restoration be tested?","options":["To make every recovery exercise a live outage","To verify that saved data can actually be recovered","To avoid retaining any approved backup copies","To prove no prevention controls are needed"],"answer":1,"explanation":"A backup's existence does not prove its usefulness; restoration tests check recoverability.","sourceSlides":[26]},{"id":14,"qid":"cyberrisk-e-14","difficulty":"easy","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"What is the purpose of administrative privilege control?","options":["Replace individual accounts with a shared account","Limit elevated capabilities to authorized need","Give all users permanent administrator rights","Remove records of privileged actions"],"answer":1,"explanation":"Administrative privilege controls reduce unnecessary powerful access and support accountability.","sourceSlides":[27]},{"id":15,"qid":"cyberrisk-e-15","difficulty":"easy","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"What do centralized logs and account monitoring support?","options":["Detection and review of unusual or unauthorized activity","A substitute for every access restriction","Permanent exemption from incident response","Automatic approval of all dormant accounts"],"answer":0,"explanation":"Logs and account monitoring supply evidence and help identify inappropriate activity.","sourceSlides":[27,28]},{"id":16,"qid":"cyberrisk-e-16","difficulty":"easy","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"Which PPT element includes personnel competence and awareness?","options":["People","Technology exclusively","Transmission speed","Process exclusively"],"answer":0,"explanation":"The People element includes training, awareness and personnel assigned security responsibilities.","sourceSlides":[29]},{"id":17,"qid":"cyberrisk-e-17","difficulty":"easy","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"Which PPT element includes backup policies and approved procedures?","options":["Building dimensions","People exclusively","Process","Technology exclusively"],"answer":2,"explanation":"Process concerns how security activities are governed and performed through procedures and policies.","sourceSlides":[29]},{"id":18,"qid":"cyberrisk-e-18","difficulty":"easy","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"Which PPT element includes licensed, updated software and maintained equipment?","options":["People exclusively","Process exclusively","Technology","Staff seniority"],"answer":2,"explanation":"Technology addresses the technical condition and authorized status of hardware and software.","sourceSlides":[29]},{"id":19,"qid":"cyberrisk-e-19","difficulty":"easy","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"Under the lesson's scale, a whole-number score of 10% belongs to which band?","options":["Low","High","Medium","Critical"],"answer":0,"explanation":"The classroom scale defines Low as 1–10%, Medium as 11–50% and High as 51–100%.","sourceSlides":[30]},{"id":20,"qid":"cyberrisk-e-20","difficulty":"easy","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"Which operation combines the three weighted element results in the lesson?","options":["Add People, Process and Technology results","Use only the highest raw percentage","Subtract Technology from People and ignore Process","Multiply all three raw percentages together"],"answer":0,"explanation":"The slide gives overall posture as the sum of People, Process and Technology element results.","sourceSlides":[30]}]</script>
   <script type="application/json" id="questions-medium">[{"id":1,"qid":"cyberrisk-m-01","difficulty":"medium","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"An unauthorized reader views a file without changing it. Which property is directly compromised?","options":["Confidentiality","Integrity alone","Processing speed","Availability alone"],"answer":0,"explanation":"Unauthorized disclosure directly affects confidentiality, even if the file remains unchanged and available.","sourceSlides":[15]},{"id":2,"qid":"cyberrisk-m-02","difficulty":"medium","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"A report is secretly modified while access remains available. Which concern is primary?","options":["Availability alone","Integrity","Storage capacity","Physical durability"],"answer":1,"explanation":"Integrity concerns unauthorized changes to information; availability does not establish correctness.","sourceSlides":[15]},{"id":3,"qid":"cyberrisk-m-03","difficulty":"medium","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"A workstation holds valuable records, has missing updates and faces malware exposure. Which mapping is correct?","options":["Records: asset; missing updates: vulnerability; malware: threat","Records: threat; missing updates: asset; malware: vulnerability","All three are interchangeable names for the same incident","Records: vulnerability; missing updates: threat; malware: asset"],"answer":0,"explanation":"Assets, vulnerabilities and threats describe different parts of the risk situation.","sourceSlides":[16,17]},{"id":4,"qid":"cyberrisk-m-04","difficulty":"medium","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"Two weaknesses have equal likelihood but different mission consequences. What should the assessment consider?","options":["Only whether their technical names are similar","Treat them as equal because likelihood matches","Their different impacts as well as likelihood","Only how long the affected staff have served"],"answer":2,"explanation":"Equal likelihood does not imply equal risk when consequences for the mission differ.","sourceSlides":[16]},{"id":5,"qid":"cyberrisk-m-05","difficulty":"medium","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"An adversary maintains organized, persistent access over time. Which lesson term best fits?","options":["Authorized change management","Routine backup verification","Advanced persistent threat","Physical inventory reconciliation"],"answer":2,"explanation":"The lesson distinguishes persistent organized threats from routine maintenance and authorized controls.","sourceSlides":[17]},{"id":6,"qid":"cyberrisk-m-06","difficulty":"medium","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"A unit appoints response staff and rehearses procedures before any incident. Which phase is illustrated?","options":["Recovery","Preparation","Eradication","Containment"],"answer":1,"explanation":"Pre-incident readiness activities belong to preparation, even when they simulate later phases.","sourceSlides":[19,20]},{"id":7,"qid":"cyberrisk-m-07","difficulty":"medium","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"An approved responder isolates an affected machine to limit spread. Which objective is being pursued?","options":["Long-term procurement","Final lessons reporting","Personnel classification","Containment"],"answer":3,"explanation":"Isolation in the stated response context limits further spread; it does not itself prove eradication.","sourceSlides":[21]},{"id":8,"qid":"cyberrisk-m-08","difficulty":"medium","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"Malicious components have been removed. Why should services not simply be assumed healthy?","options":["Recovery must verify restored operation and monitor it","Service health is unrelated to incident response","Every incident necessarily requires replacing the entire network","Removal means all backup procedures should stop"],"answer":0,"explanation":"Eradication and recovery are distinct; removal must be followed by controlled restoration and observation.","sourceSlides":[22,23]},{"id":9,"qid":"cyberrisk-m-09","difficulty":"medium","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"A team restores service but records no cause, action or lesson. Which phase is deficient?","options":["Software licensing","Traffic forwarding","Assessment and review","Preparation alone"],"answer":2,"explanation":"Review needs useful documentation to support learning and improved future response.","sourceSlides":[24]},{"id":10,"qid":"cyberrisk-m-10","difficulty":"medium","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"A Philippine Army classroom team has staffed and rehearsed its response plan. It now receives the first indications of a possible cyber incident. Which phase should its next work demonstrate?","options":["Preparation, by assigning response roles for future incidents.","Identification, by determining whether the indications represent an incident.","Recovery, by returning affected systems to normal operation.","Assessment and review, by recording completed response actions."],"answer":1,"explanation":"Preparation readies the team. Identification evaluates early signs to recognize an incident.","sourceSlides":[19,20,24]},{"id":11,"qid":"cyberrisk-m-11","difficulty":"medium","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"A team hardens operating systems but ignores its custom web application and unauthorized Wi-Fi. Which areas remain?","options":["Hardware inventory and administrative privilege management","Application security and wireless access control","Malware defense and data backup recovery","Host configuration and log collection management"],"answer":1,"explanation":"The lesson separately includes application security and wireless access control, beyond host hardening.","sourceSlides":[25,26]},{"id":12,"qid":"cyberrisk-m-12","difficulty":"medium","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"A network allows unused services and default device configurations. Which controls address these findings?","options":["Service/protocol restriction and network-device configuration","Vulnerability scanning and audit-log management","Application security and wireless access control","Administrative privileges and malware defense"],"answer":0,"explanation":"The legacy control list separately addresses secure network devices and limiting ports, protocols and services.","sourceSlides":[26,27]},{"id":13,"qid":"cyberrisk-m-13","difficulty":"medium","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"A perimeter device exists, but internal access is broad and outbound activity is unreviewed. What is missing?","options":["A larger device label at the perimeter","Permission to treat all internal traffic as trusted","Layered boundary protection and need-to-know restrictions","A rule that only incoming traffic can create risk"],"answer":2,"explanation":"Boundary defense addresses traffic in both directions; need-to-know limits inappropriate internal access.","sourceSlides":[27]},{"id":14,"qid":"cyberrisk-m-14","difficulty":"medium","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"Departed staff retain active accounts and sensitive files can leave without controls. Which pair applies?","options":["Backup testing and equipment painting","Procurement planning and room booking","Display management and print formatting","Account management and data-loss prevention"],"answer":3,"explanation":"The lesson includes account monitoring and controls on unauthorized movement of sensitive information.","sourceSlides":[28]},{"id":15,"qid":"cyberrisk-m-15","difficulty":"medium","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"A unit buys tools but never trains responders or exercises its defenses. Which gap remains?","options":["Skills development, response management and authorized testing","Asset discovery, configuration baselines and automated vulnerability scanning","Account inventory, privileged-access controls and network boundary management","Data classification, encryption requirements and backup retention schedules"],"answer":0,"explanation":"The controls include skills, incident-response capability, secure engineering and authorized tests of readiness.","sourceSlides":[26,28]},{"id":16,"qid":"cyberrisk-m-16","difficulty":"medium","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"Security officers are appointed but have not been trained. Which PPT issue is most direct?","options":["Network cable length","People capability","Process storage capacity","Technology licensing only"],"answer":1,"explanation":"Appointment alone does not establish the personnel competence assessed under People.","sourceSlides":[29]},{"id":17,"qid":"cyberrisk-m-17","difficulty":"medium","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"Backups exist, but no approved restoration procedure or assigned responsibility exists. Which element needs attention?","options":["Technology exclusively","Equipment color coding","People age profile","Process"],"answer":3,"explanation":"A procedure and defined responsibility make recovery repeatable; possessing backup technology is not enough.","sourceSlides":[29]},{"id":18,"qid":"cyberrisk-m-18","difficulty":"medium","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"The classroom scale gives a unit 11%. What classification follows?","options":["No risk","High","Low","Medium"],"answer":3,"explanation":"Eleven percent is the lower boundary of the lesson's Medium range, not the upper end of Low.","sourceSlides":[30]},{"id":19,"qid":"cyberrisk-m-19","difficulty":"medium","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"Using the stated formula, Risk Output is 40% and Points Allocated is 50. What is the weighted result?","options":["40 points","50 points","20 points","90 points"],"answer":2,"explanation":"Apply the supplied values directly: 40 × 50 / 100 = 20 points; do not infer additional weights.","sourceSlides":[30]},{"id":20,"qid":"cyberrisk-m-20","difficulty":"medium","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"An exercise supplies weighted results of 12, 18 and 9 points. What sum follows the lesson's formula?","options":["3 points","216 points","18 points","39 points"],"answer":3,"explanation":"Overall posture is the sum of the supplied weighted element results: 12 + 18 + 9 = 39.","sourceSlides":[30]}]</script>
   <script type="application/json" id="questions-hard">[{"id":1,"qid":"cyberrisk-h-01","difficulty":"hard","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"A restored database is available but contains unauthorized changes. Which conclusion is justified?","options":["The successful restore establishes record integrity, with availability still requiring validation","The unauthorized changes establish a confidentiality failure but leave integrity undetermined","Restoring access has not established the integrity of the records","Successful restore verification can stand in for checking the record-change history"],"answer":2,"explanation":"Security properties are distinct; being able to open data does not prove it is accurate or unaltered.","sourceSlides":[15,16]},{"id":2,"qid":"cyberrisk-h-02","difficulty":"hard","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"A report lists vulnerabilities without assets or consequences. What prevents meaningful prioritization?","options":["It has too many individual findings to be useful","It omits the vendor's marketing description","It does not use enough abbreviations in its headings","Missing asset and mission-risk context"],"answer":3,"explanation":"A vulnerability list must be connected to assets, threats and consequences to support risk decisions.","sourceSlides":[16]},{"id":3,"qid":"cyberrisk-h-03","difficulty":"hard","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"A team equates every possible threat with a confirmed incident. Why is that unsound?","options":["An asset becomes a threat whenever it is valuable","Only natural events qualify as threats in the lesson","Potential causes of harm are not proof that harm occurred","All threats require identical evidence and consequences"],"answer":2,"explanation":"Threat identification concerns possibility; incident conclusions require evidence of actual events.","sourceSlides":[16,17]},{"id":4,"qid":"cyberrisk-h-04","difficulty":"hard","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"A rare event could stop an essential service; a frequent event causes minor inconvenience. What should be compared?","options":["Both likelihood and impact for each event","Frequency alone regardless of mission consequences","Only the purchase cost of the affected computers","The alphabetical order of the event names"],"answer":0,"explanation":"Neither frequency nor impact alone settles risk; the assessment must consider both in context.","sourceSlides":[16]},{"id":5,"qid":"cyberrisk-h-05","difficulty":"hard","category":"Risk Concepts and CIA","tags":["risk concepts and cia"],"prompt":"A low technical finding count is presented as proof of low overall risk. Which challenge is strongest?","options":["People, process and mission consequences may still expose risk","Risk exists only when a scanner reports a numerical score","Updated software guarantees effective personnel procedures","Finding counts are always equivalent to mission impact"],"answer":0,"explanation":"Technical findings are one input; broader exposure includes human, procedural and mission factors.","sourceSlides":[16,29]},{"id":6,"qid":"cyberrisk-h-06","difficulty":"hard","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"Isolation stops spread, but the team has not removed the malicious component. What is the sound status?","options":["Contained, with eradication still required","Fully recovered because network access was removed","Reviewed, with no further documentation needed","Prepared, with no incident ever identified"],"answer":0,"explanation":"Containment limits spread without necessarily removing the cause; phases must not be collapsed into one.","sourceSlides":[20,21,22]},{"id":7,"qid":"cyberrisk-h-07","difficulty":"hard","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"An affected service is restored from backup while the entry weakness remains. What concern should govern closure?","options":["The unresolved weakness permits recurrence","All further monitoring would invalidate the recovery","Restoration proves the original event was harmless","A backup automatically removes every possible weakness"],"answer":0,"explanation":"Healthy restoration must be supported by removal or remediation of the cause and continued monitoring.","sourceSlides":[22,23]},{"id":8,"qid":"cyberrisk-h-08","difficulty":"hard","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"A review recommends clearer roles, but the next exercise repeats the same confusion. What failed?","options":["Containment can never be practiced in an exercise","Role clarity is unrelated to response effectiveness","Documentation alone proves every improvement was implemented","Lessons were not incorporated into preparation"],"answer":3,"explanation":"Review must feed changes in readiness, procedures and training; recording a lesson is not implementing it.","sourceSlides":[19,24]},{"id":9,"qid":"cyberrisk-h-09","difficulty":"hard","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"A commander asks for a risk program, and the proposal contains only post-incident actions. What is the key limitation?","options":["It should remove preparation to shorten the proposal","It already covers every risk-management requirement","It contains too much asset and vulnerability analysis","Missing preventive assessment and risk treatment"],"answer":3,"explanation":"Incident response is important but does not replace preventive risk assessment and treatment.","sourceSlides":[18,24]},{"id":10,"qid":"cyberrisk-h-10","difficulty":"hard","category":"Incident Response Lifecycle","tags":["incident response lifecycle"],"prompt":"After apparent recovery, similar symptoms return. What is the most defensible assessment?","options":["Assume the first closure report makes recurrence impossible","Treat every symptom as proof of a new unrelated attacker","Reassess incident evidence and recovery effectiveness","Delete old records so the team starts without context"],"answer":2,"explanation":"New evidence should inform identification, recovery checks and lessons rather than be dismissed by an earlier conclusion.","sourceSlides":[20,23,24]},{"id":11,"qid":"cyberrisk-h-11","difficulty":"hard","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"Inventories are accurate and malware tools updated, but custom applications lack security review. What follows?","options":["Accurate inventory proves every application is secure","No further assessment is useful once devices are counted","Application risk remains despite other implemented controls","Malware updates replace application-security practices"],"answer":2,"explanation":"The lesson's controls address different weaknesses; satisfying inventory and malware controls does not cover application design.","sourceSlides":[25,26]},{"id":12,"qid":"cyberrisk-h-12","difficulty":"hard","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"Backups restore correctly, yet privileged accounts are shared and unlogged. Which conclusion is best?","options":["Successful restoration proves account governance is adequate","Recovery does not resolve accountability gaps","Shared accounts improve attribution of administrator actions","Logging is unnecessary when backups are kept securely"],"answer":1,"explanation":"Backup assurance and privileged-access accountability solve different problems and must both be addressed.","sourceSlides":[26,27]},{"id":13,"qid":"cyberrisk-h-13","difficulty":"hard","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"A perimeter firewall is the only planned safeguard. Which lesson-based criticism is strongest?","options":["It omits layered architecture, internal access and data controls","One boundary device necessarily implements all 20 controls","Secure engineering concerns only equipment purchase dates","Data protection ends once traffic crosses the perimeter"],"answer":0,"explanation":"Boundary defense is one control area; need-to-know, secure engineering and data protection remain relevant.","sourceSlides":[27,28]},{"id":14,"qid":"cyberrisk-h-14","difficulty":"hard","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"An authorized classroom exercise finds a configuration weakness and the team applies a correction. Which evidence would best justify closing that finding?","options":["An inventory showing that the affected device is still present.","A record that lists the planned correction and its owner.","A separate exercise that does not exercise the corrected setting.","A follow-up check showing the specific weakness has been addressed."],"answer":3,"explanation":"The lesson connects vulnerability assessment with remediation and uses authorized exercises to validate defenses.","sourceSlides":[25,28]},{"id":15,"qid":"cyberrisk-h-15","difficulty":"hard","category":"Defensive Control Coverage","tags":["defensive control coverage"],"prompt":"A classroom assessment finds unauthorized applications and expired accounts that remain active. The team can verify two controls this week. Which pair directly addresses the evidence?","options":["Review device serial numbers and repeat a data restoration test.","Review wireless configurations and count boundary devices.","Test a training website and check server maintenance records.","Verify authorized software and disable expired accounts."],"answer":3,"explanation":"The software inventory identifies unapproved installations. Account monitoring and control addresses stale accounts.","sourceSlides":[25,26,27,28]},{"id":16,"qid":"cyberrisk-h-16","difficulty":"hard","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"People training is strong, procedures are missing and software is obsolete. What assessment is appropriate?","options":["Average them informally and declare every element strong","Separate strengths and gaps across all three PPT elements","Use training attendance to replace software assessment","Rate only the element with the most favorable evidence"],"answer":1,"explanation":"PPT requires examining each element; strength in one does not erase weaknesses in others.","sourceSlides":[29]},{"id":17,"qid":"cyberrisk-h-17","difficulty":"hard","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"Using only the lesson's stated bands, how should an exact 0% score be classified?","options":["Automatically Low because the slide explicitly includes zero","Automatically High because all unlisted values are High","Seek clarification because zero is not assigned a band","Automatically Medium because zero indicates uncertainty"],"answer":2,"explanation":"The slide begins Low at 1%; assigning zero a band would invent a rule not supplied by the source.","sourceSlides":[30]},{"id":18,"qid":"cyberrisk-h-18","difficulty":"hard","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"Which pair correctly applies the classroom scale's upper transition?","options":["50% High; 51% High","50% Medium; 51% High","50% Low; 51% Medium","50% Medium; 51% Medium"],"answer":1,"explanation":"Medium ends at 50% and High starts at 51% in the lesson's whole-number examples.","sourceSlides":[30]},{"id":19,"qid":"cyberrisk-h-19","difficulty":"hard","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"Two elements each have Risk Output 50%, but allocated points are 40 and 10. Which weighted results follow?","options":["50 and 50 points","20 and 5 points","90 and 60 points","40 and 10 points"],"answer":1,"explanation":"Apply each stated weight separately: 50 × 40 / 100 = 20 and 50 × 10 / 100 = 5.","sourceSlides":[30]},{"id":20,"qid":"cyberrisk-h-20","difficulty":"hard","category":"People Process Technology and Scoring","tags":["people process technology and scoring"],"prompt":"A worksheet supplies only three percentages, with no defined weights or mapping. What should an evaluator avoid?","options":["Requesting the approved scoring instructions","Inventing allocated points to produce an authoritative total","Distinguishing raw inputs from weighted element results","Identifying the source's missing scoring assumptions"],"answer":1,"explanation":"The formula needs defined inputs and allocated points; missing assumptions should be clarified rather than fabricated.","sourceSlides":[30]}]</script>
+  <script type="application/json" id="questions-actual">[]</script>
   <script>
   (function () {
     'use strict';
@@ -1266,8 +1278,13 @@
     var HISTORY_LIMIT = 100;
 
     var MODES = ['easy', 'medium', 'hard'];
-    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
+    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard', actual: 'Actual Exam' };
     var MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h' };
+    // The Actual Exam category: questions from the class's graded exams (scripts/actual-exams.mjs). It is not a
+    // difficulty: its bank has its own rules (2 to 4 choices, an exam citation) and it is never sent to the class
+    // history, whose sheet accepts only easy, medium and hard.
+    var ACTUAL = 'actual';
+    var SOURCE_TYPES = ['graded-exam'];
     var LETTERS = ['A', 'B', 'C', 'D'];
     // A lesson bank holds MIN_BANK_SIZE to MAX_BANK_SIZE (20–35) questions per difficulty and an attempt serves the
     // whole bank, unseen-first and shuffled. Only a pool exam draws a coverage set of each lesson (selectCoverage).
@@ -1301,6 +1318,8 @@
         return null;
       }
       if (config.sourceRef !== null && (!config.sourceRef || !Number.isInteger(config.sourceRef.min) || !Number.isInteger(config.sourceRef.max) || typeof config.sourceRef.label !== 'string')) return null;
+      if (config.actual != null && (typeof config.actual !== 'object' || !Number.isInteger(config.actual.attempt) || config.actual.attempt < 1 || !Number.isInteger(config.actual.count) || config.actual.attempt > config.actual.count)) return null;
+      if (config.actualOnly && !config.actual) return null;
       if (config.sourceAlt != null && (typeof config.sourceAlt !== 'object' || !Number.isInteger(config.sourceAlt.min) || !Number.isInteger(config.sourceAlt.max) || typeof config.sourceAlt.label !== 'string' || typeof config.sourceAlt.ref !== 'string' || typeof config.sourceAlt.href !== 'string' || typeof config.sourceAlt.title !== 'string')) return null;
       return config;
     }
@@ -1318,6 +1337,10 @@
     // Optional secondary reference (for example a student handout in the Library), cited per question as sourceAlt.
     var SOURCE_ALT = CONFIG && CONFIG.sourceAlt ? CONFIG.sourceAlt : null;
     var STUDY_LINKS = JSON.parse(document.getElementById('study-links').textContent);
+    // Actual Exam settings ({ count, attempt, full? }) or null; actualOnly pages (the Comprehensive Exam Reviewer)
+    // have no difficulty banks and no class history.
+    var ACTUAL_CONFIG = CONFIG && CONFIG.actual ? CONFIG.actual : null;
+    var ACTUAL_ONLY = Boolean(CONFIG && CONFIG.actualOnly);
     var CATEGORY_ORDER = !CONFIG ? [] : POOL ? POOL.lessons.map(function (lesson) { return lesson.name; }) : CONFIG.categoryOrder.slice();
     // A primary topic counts as a strength at or above this percentage, otherwise a gap.
     var STRENGTH_THRESHOLD = 75;
@@ -1431,16 +1454,52 @@
       return errors;
     }
 
+    // Mirrors validateActualBank in scripts/actual-exams.mjs: each question cites its graded exam (source type
+    // "graded-exam") and has two to four distinct choices.
+    function validateActualBank(bank) {
+      if (!Array.isArray(bank)) return ['bank must be an array of questions'];
+      var errors = [];
+      if ((ACTUAL_CONFIG ? ACTUAL_CONFIG.count : 0) !== bank.length) errors.push('bank must contain ' + (ACTUAL_CONFIG ? ACTUAL_CONFIG.count : 0) + ' questions');
+      var seen = {};
+      bank.forEach(function (question, index) {
+        var at = 'question ' + (index + 1) + ': ';
+        if (question === null || typeof question !== 'object') { errors.push(at + 'question must be an object'); return; }
+        if (question.id !== index + 1) errors.push(at + 'id must be integer ' + (index + 1));
+        if (!LESSON_KEY_PATTERN.test(question.examKey || '')) errors.push(at + 'examKey must name a graded exam');
+        if (typeof question.qid !== 'string' || !new RegExp('^' + question.examKey + '-a-[0-9]{2,4}$').test(question.qid)) errors.push(at + 'qid must be "<examKey>-a-" followed by 2 to 4 digits');
+        if (Object.prototype.hasOwnProperty.call(seen, question.qid)) errors.push(at + 'qid ' + question.qid + ' is used more than once');
+        seen[question.qid] = true;
+        if (question.difficulty !== ACTUAL) errors.push(at + 'difficulty must be actual');
+        ['category', 'prompt', 'explanation'].forEach(function (field) {
+          if (typeof question[field] !== 'string' || !question[field].trim()) errors.push(at + field + ' must be a nonempty string');
+        });
+        var options = question.options;
+        if (!Array.isArray(options) || options.length < 2 || options.length > 4 || options.some(function (option) { return typeof option !== 'string' || !option.trim(); })) errors.push(at + 'options must contain two to four nonempty strings');
+        if (!Number.isInteger(question.answer) || !Array.isArray(options) || question.answer < 0 || question.answer >= options.length) errors.push(at + 'answer must index one of the options');
+        var source = question.source;
+        if (!source || SOURCE_TYPES.indexOf(source.type) === -1 || source.exam !== question.examKey || typeof source.title !== 'string' || typeof source.date !== 'string' || !Number.isInteger(source.number)) errors.push(at + 'source must be { type: "graded-exam", exam, title, date, number }');
+      });
+      return errors;
+    }
+
     function validateBanks(banks) {
       if (banks === null || typeof banks !== 'object') {
         return { valid: false, errors: ['question banks must be an object'] };
       }
       var errors = [];
-      MODES.forEach(function (mode) {
-        validateBank(banks[mode], mode).forEach(function (error) {
-          errors.push(mode + ' ' + error);
+      if (!ACTUAL_ONLY) {
+        MODES.forEach(function (mode) {
+          validateBank(banks[mode], mode).forEach(function (error) {
+            errors.push(mode + ' ' + error);
+          });
         });
-      });
+      }
+      // A caller checking only the difficulty banks may leave the Actual Exam bank out; the page always has one.
+      if (banks.actual !== undefined) {
+        validateActualBank(banks.actual).forEach(function (error) {
+          errors.push('actual ' + error);
+        });
+      }
       return { valid: errors.length === 0, errors: errors };
     }
 
@@ -1498,7 +1557,7 @@
     }
 
     function priorityClass(question, progress) {
-      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var lessonKey = progressOwner(question);
       var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
       var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
       return flag === 'm' ? 1 : flag === 's' ? 2 : 0;
@@ -1564,7 +1623,22 @@
     // last answered correctly) or 'm' (last answered wrongly). No name, score or answer is stored and nothing is
     // ever sent. Every storage access is wrapped in try/catch; without storage the quiz uses a plain shuffle.
     var PROGRESS_PREFIX = 'mastery-quiz:progress:';
-    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emh]-[0-9]{2,4}$/;
+    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emha]-[0-9]{2,4}$/;
+
+    // Whose device record a question belongs to: its graded exam (shared by every page that asks it), the pool
+    // exam's source lesson, or this lesson.
+    function progressOwner(question) {
+      return question && question.examKey ? question.examKey : POOL ? question.lessonKey : HISTORY_LESSON;
+    }
+
+    // The graded exams behind this page's Actual Exam bank.
+    function actualOwners() {
+      var owners = [];
+      (state && state.banks && state.banks.actual ? state.banks.actual : []).forEach(function (question) {
+        if (owners.indexOf(question.examKey) === -1) owners.push(question.examKey);
+      });
+      return owners;
+    }
 
     function deviceStorage() {
       try {
@@ -1603,14 +1677,14 @@
 
     function loadProgress(mode) {
       var progress = {};
-      progressLessons().forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
+      (mode === ACTUAL ? actualOwners() : progressLessons()).forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
       return progress;
     }
 
     function recordProgress(question, mode, correct) {
       var storage = deviceStorage();
       if (!storage) return false;
-      var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+      var lessonKey = progressOwner(question);
       var progress = readProgress(lessonKey, mode);
       progress[question.qid] = correct ? 's' : 'm';
       try {
@@ -1626,9 +1700,12 @@
       var storage = deviceStorage();
       if (!storage) return false;
       try {
+        var keys = [];
         progressLessons().forEach(function (lessonKey) {
-          MODES.forEach(function (mode) { storage.removeItem(progressKey(lessonKey, mode)); });
+          MODES.forEach(function (mode) { keys.push(progressKey(lessonKey, mode)); });
         });
+        actualOwners().forEach(function (examKey) { keys.push(progressKey(examKey, ACTUAL)); });
+        keys.forEach(function (key) { storage.removeItem(key); });
         return true;
       } catch (error) {
         return false;
@@ -1640,7 +1717,7 @@
     function prioritize(questions, progress, random) {
       var groups = [[], [], []];
       Array.prototype.forEach.call(questions, function (question) {
-        var lessonKey = POOL ? question.lessonKey : HISTORY_LESSON;
+        var lessonKey = progressOwner(question);
         var seen = progress && progress[lessonKey] ? progress[lessonKey] : {};
         var flag = Object.prototype.hasOwnProperty.call(seen, question.qid) ? seen[question.qid] : '';
         groups[flag === 'm' ? 1 : flag === 's' ? 2 : 0].push(question);
@@ -1653,15 +1730,26 @@
     }
 
     // `progress` (optional) is the device-local record from loadProgress(mode).
-    function createAttempt(mode, banks, random, progress) {
+    function createAttempt(mode, banks, random, progress, size) {
+      if (mode === ACTUAL) return createActualAttempt(banks, random, progress, size);
       if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
       var questions = sampleQuestions(banks[mode], random, progress);
       return { mode: mode, practice: false, questions: questions, current: 0, responses: blankResponses(questions) };
     }
 
+    // An Actual Exam attempt: unseen questions first, then missed, then the rest, each group shuffled, cut to `size`
+    // (the page's attempt length by default; the mixed reviewer set also offers its full length).
+    function createActualAttempt(banks, random, progress, size) {
+      var bank = banks && Array.isArray(banks.actual) ? banks.actual : [];
+      if (!ACTUAL_CONFIG || !bank.length) throw new Error('Unknown difficulty: ' + ACTUAL);
+      var length = Number.isInteger(size) && size > 0 ? Math.min(size, bank.length) : ACTUAL_CONFIG.attempt;
+      var questions = prioritize(bank, progress, random).slice(0, length);
+      return { mode: ACTUAL, practice: false, size: length, questions: questions, current: 0, responses: blankResponses(questions) };
+    }
+
     // A practice attempt asks only the given questions (reshuffled; answer choices keep their order).
     function createPracticeAttempt(mode, questions, random) {
-      if (MODES.indexOf(mode) === -1) throw new Error('Unknown difficulty: ' + mode);
+      if (MODES.indexOf(mode) === -1 && !(mode === ACTUAL && ACTUAL_CONFIG)) throw new Error('Unknown difficulty: ' + mode);
       var shuffled = shuffleQuestions(questions, random);
       return { mode: mode, practice: true, questions: shuffled, current: 0, responses: blankResponses(shuffled) };
     }
@@ -1845,6 +1933,7 @@
         medium: byId('mode-medium'),
         hard: byId('mode-hard')
       },
+      actualButtons: [byId('mode-actual'), byId('mode-actual-all')].filter(Boolean),
       soundToggle: byId('btn-sound'),
       soundState: byId('sound-state'),
       reviewerLink: byId('reviewer-link'),
@@ -1932,6 +2021,12 @@
       children.forEach(function (child) { node.appendChild(child); });
     }
 
+    // "Topic: ...", or for a graded-exam question the exam and its question number.
+    function questionTopic(question) {
+      if (question.source && question.source.type === 'graded-exam') return 'Actual Exam · ' + question.source.title + ' · question ' + question.source.number;
+      return TEXT.topicNoun + ': ' + question.category;
+    }
+
     function optionText(question, index) {
       return LETTERS[index] + '. ' + question.options[index];
     }
@@ -1966,7 +2061,7 @@
 
     // Difficulty accent for the page: theme-easy, theme-medium or theme-hard; null clears it.
     function setTheme(mode) {
-      MODES.forEach(function (key) {
+      MODES.concat([ACTUAL]).forEach(function (key) {
         document.body.classList.toggle('theme-' + key, key === mode);
       });
     }
@@ -2031,15 +2126,18 @@
     function updateGate() {
       var open = gateOpen();
       MODES.forEach(function (mode) {
-        ui.modeButtons[mode].disabled = !open;
+        ui.modeButtons[mode].disabled = !open || ACTUAL_ONLY;
       });
+      ui.actualButtons.forEach(function (button) { button.disabled = !open; });
       if (state.available) {
         var missing = [];
         if (!state.nameValid) missing.push('enter your name');
         if (!state.studyConfirmed) missing.push('check the study confirmation');
-        ui.modeHint.textContent = open
-          ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.'
-          : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
+        ui.modeHint.textContent = ACTUAL_ONLY
+          ? (open ? 'Buttons enabled. Choose an attempt to begin.' : 'To enable the buttons, ' + missing.join(' and ') + ' above.')
+          : open
+            ? 'Difficulty buttons enabled. Choose Easy, Medium, or Hard to begin.' + (ACTUAL_CONFIG ? ' The Actual Exam category is below them.' : '')
+            : 'To enable the difficulty buttons, ' + missing.join(' and ') + ' above.';
       }
       return open;
     }
@@ -2091,8 +2189,13 @@
       return true;
     }
 
-    function startQuiz(mode) {
-      if (!gateOpen() || MODES.indexOf(mode) === -1) return false;
+    function startQuiz(mode, size) {
+      if (!gateOpen()) return false;
+      if (mode === ACTUAL) {
+        if (!ACTUAL_CONFIG || !state.banks.actual.length) return false;
+        return beginAttempt(createActualAttempt(state.banks, state.random, loadProgress(ACTUAL), size));
+      }
+      if (MODES.indexOf(mode) === -1 || ACTUAL_ONLY) return false;
       return beginAttempt(createAttempt(mode, state.banks, state.random, loadProgress(mode)));
     }
 
@@ -2122,7 +2225,7 @@
       ui.reviewerLink.setAttribute('href', primary ? primary.studyDoc : STUDY_LINKS.reviewer);
       ui.quizHeading.textContent = attempt.practice
         ? 'Practice: retrying missed questions (' + MODE_LABELS[attempt.mode] + ')'
-        : MODE_LABELS[attempt.mode] + ' examination';
+        : attempt.mode === ACTUAL ? 'Actual Exam review' : MODE_LABELS[attempt.mode] + ' examination';
       setPracticeNote(ui.quizPracticeNote, attempt.practice);
       var student = make('strong', null, attempt.studentName);
       setChildren(ui.quizStudent, [textNode('Student: '), student]);
@@ -2134,7 +2237,7 @@
       if (ui.qIndexNum) ui.qIndexNum.textContent = pad(index + 1);
       if (ui.qIndexTotal) ui.qIndexTotal.textContent = 'of ' + pad(total);
       renderTicks(attempt);
-      ui.questionCategory.textContent = TEXT.topicNoun + ': ' + question.category;
+      ui.questionCategory.textContent = questionTopic(question);
 
       var fieldset = make('fieldset', 'question-fieldset');
       fieldset.id = 'question-fieldset';
@@ -2267,6 +2370,12 @@
       return links;
     }
 
+    var MONTH_NAMES = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    function displayDate(date) {
+      var parts = String(date).split('-').map(Number);
+      return parts.length === 3 && parts[1] >= 1 && parts[1] <= 12 ? parts[2] + ' ' + MONTH_NAMES[parts[1] - 1] + ' ' + parts[0] : String(date);
+    }
+
     function explanationBlock(question, className) {
       var block = make('div', 'explanation-group ' + className);
       var note = question.explanation;
@@ -2295,11 +2404,14 @@
       if (SOURCE_ALT && question.sourceAlt && Array.isArray(question.sourceAlt.pages) && question.sourceAlt.pages.length) {
         references.push(SOURCE_ALT.label + ' · ' + (question.sourceAlt.pages.length === 1 ? 'page ' : 'pages ') + question.sourceAlt.pages.join(', '));
       }
+      var graded = question.source && question.source.type === 'graded-exam';
+      if (graded) references.push('SOAC 52-2026 graded exam: ' + question.source.title + ', ' + displayDate(question.source.date) + ' · question ' + question.source.number);
       if (references.length) {
         var referenceBlock = make('div', 'explanation explanation-references');
         referenceBlock.appendChild(make('p', 'section-label', 'References'));
         references.forEach(function (reference) { referenceBlock.appendChild(make('p', 'source-ref', reference)); });
-        studyReferenceLinks(question, references).forEach(function (reference, destination) {
+        // A graded exam is not a Library document, so its citation stays plain text.
+        (graded ? new Map() : studyReferenceLinks(question, references)).forEach(function (reference, destination) {
           var line = make('p', 'library-source');
           var link = reference.unavailable
             ? make('a', 'library-reference reference-unavailable', reference.title + ' · PDF unavailable')
@@ -2409,6 +2521,10 @@
         // Practice retries never reach the class history or the item analysis.
         state.submission = { payload: null, status: 'practice' };
         renderSaveStatus();
+      } else if (attempt.mode === ACTUAL) {
+        // Nor do Actual Exam attempts: the class history sheet accepts only easy, medium and hard.
+        state.submission = { payload: null, status: 'actual' };
+        renderSaveStatus();
       } else {
         submitAttempt(buildSubmission(state.results));
       }
@@ -2418,7 +2534,7 @@
     function retakeQuiz() {
       var mode = state.attempt ? state.attempt.mode : null;
       if (!mode) return false;
-      return startQuiz(mode);
+      return startQuiz(mode, state.attempt.size);
     }
 
     // The landing view's "Reset my progress on this device" link.
@@ -2439,7 +2555,7 @@
       showView('landing');
       setStudyConfirmed(state.studyConfirmed);
       ui.difficultyHeading.focus();
-      if (ENDPOINT) loadHistory(state.history.filter);
+      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
       return true;
     }
 
@@ -2584,7 +2700,7 @@
     function renderResults(results) {
       ui.resultsHeading.textContent = results.practice
         ? 'Practice results (' + MODE_LABELS[results.mode] + ')'
-        : MODE_LABELS[results.mode] + ' examination results';
+        : results.mode === ACTUAL ? 'Actual Exam results' : MODE_LABELS[results.mode] + ' examination results';
       setPracticeNote(ui.resultsPracticeNote, results.practice);
 
       var card = make('div', 'score-card ' + bandClass(results.band.name));
@@ -2596,7 +2712,7 @@
       var student = make('p', 'results-student');
       student.append(make('span', 'meta-label', 'Student'), make('span', 'meta-value', results.studentName));
       var mode = make('p', 'results-mode');
-      mode.append(make('span', 'meta-label', 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode] + (results.practice ? ' · practice retry' : '')));
+      mode.append(make('span', 'meta-label', results.mode === ACTUAL ? 'Category' : 'Difficulty'), make('span', 'meta-value', MODE_LABELS[results.mode] + (results.practice ? ' · practice retry' : '')));
       var bandLabel = make('p', 'meta-label', 'Mastery band');
       var band = make('p', 'band-badge results-band');
       band.append(iconNode(results.percentage >= STRENGTH_THRESHOLD ? 'check' : 'alert'), make('span', null, results.band.name));
@@ -2643,7 +2759,7 @@
         );
         item.append(
           head,
-          make('p', 'review-topic', TEXT.topicNoun + ': ' + question.category),
+          make('p', 'review-topic', questionTopic(question)),
           make('p', 'review-prompt', question.prompt),
           answerLine(entry.correct ? 'correct' : 'incorrect', 'Your answer:', question, entry.selected),
           answerLine('correct', 'Correct answer:', question, question.answer),
@@ -2769,7 +2885,8 @@
         saved: ['check', 'Saved to the class history.'],
         failed: ['alert', 'Could not save to class history. Your results below are unaffected.'],
         'not-configured': ['dot', 'Class history is not set up, so this score was not saved to a class list.'],
-        practice: ['dot', 'Practice attempts are not saved to the class history.']
+        practice: ['dot', 'Practice attempts are not saved to the class history.'],
+        actual: ['dot', 'Actual Exam attempts are not saved to the class history.']
       }[status];
       ui.saveBox.className = 'history-save save-' + status;
       setChildren(ui.saveMessage, copy ? [iconNode(copy[0]), make('span', null, copy[1])] : []);
@@ -2917,7 +3034,7 @@
     function showHistory() {
       if (ui.historyPanel.hidden) return false;
       ui.historyHeading.focus();
-      if (ENDPOINT) loadHistory(state.history.filter);
+      if (ENDPOINT && !ACTUAL_ONLY) loadHistory(state.history.filter);
       return true;
     }
 
@@ -2926,7 +3043,7 @@
     function readBanks() {
       var banks = {};
       var errors = [];
-      MODES.forEach(function (mode) {
+      MODES.concat([ACTUAL]).forEach(function (mode) {
         var element = byId('questions-' + mode);
         if (!element) {
           errors.push(mode + ' bank data is missing');
@@ -2956,6 +3073,7 @@
         ui.studyConfirm.disabled = true;
         ui.nameInput.disabled = true;
         MODES.forEach(function (mode) { ui.modeButtons[mode].disabled = true; });
+        ui.actualButtons.forEach(function (button) { button.disabled = true; });
         showView('unavailable');
         ui.unavailableHeading.focus();
         console.error(QUIZ_TITLE + ' is unavailable: ' + state.errors.join('; '));
@@ -2969,6 +3087,9 @@
       ui.studyConfirm.addEventListener('change', function () { setStudyConfirmed(ui.studyConfirm.checked); });
       MODES.forEach(function (mode) {
         ui.modeButtons[mode].addEventListener('click', function () { startQuiz(mode); });
+      });
+      ui.actualButtons.forEach(function (button) {
+        button.addEventListener('click', function () { startQuiz(ACTUAL, button.id === 'mode-actual-all' && ACTUAL_CONFIG.full ? ACTUAL_CONFIG.full : ACTUAL_CONFIG.attempt); });
       });
       ui.btnCheck.addEventListener('click', checkAnswer);
       ui.btnPrev.addEventListener('click', function () { if (state.attempt) goToQuestion(state.attempt.current - 1); });
@@ -2992,7 +3113,9 @@
       setStudentName(ui.nameInput.value, false);
       setStudyConfirmed(false);
       renderSaveStatus();
-      loadHistory('all');
+      // The Comprehensive Exam Reviewer pages have no class history: no request is ever made from them.
+      ui.btnHistory.hidden = ACTUAL_ONLY;
+      if (!ACTUAL_ONLY) loadHistory('all');
     }
 
     function getState() {
@@ -3017,6 +3140,8 @@
     globalThis.__quiz = Object.freeze({
       lessonKey: HISTORY_LESSON,
       validateBanks: validateBanks,
+      validateActualBank: validateActualBank,
+      actualConfig: ACTUAL_CONFIG,
       shuffleQuestions: shuffleQuestions,
       sampleQuestions: sampleQuestions,
       selectCoverage: selectCoverage,
@@ -3051,12 +3176,14 @@
       // Replaces the Web Audio player (tests inject a recorder); null restores the default player.
       setSoundPlayer: function (player) { state.soundPlayer = typeof player === 'function' ? player : defaultSoundPlayer; },
       getState: getState,
-      getBanks: function () { return state.banks; },
+      // The difficulty banks; the Actual Exam bank is separate (getActualBank).
+      getBanks: function () { return state.banks ? { easy: state.banks.easy, medium: state.banks.medium, hard: state.banks.hard } : state.banks; },
+      getActualBank: function () { return state.banks ? state.banks.actual : null; },
       setRandom: function (random) { state.random = typeof random === 'function' ? random : Math.random; }
     });
   })();
   </script>
-<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid"><div><h2>Practice exams</h2><ul><li><a class="main" href="../">Exam hub (all modules)</a></li><li><a class="main" href="../module-1-exam/">Module 1 Exam</a></li><li><a class="main" href="../module-3-exam/">Module 4 Exam</a></li><li><a class="main" href="../module-5-exam/">Module 5 Exam</a></li><li><a class="main" href="../module-6-exam/">Module 6 Exam</a></li><li><a class="main" href="../module-7-exam/">Module 7 Exam</a></li><li><a class="main" href="../module-8-exam/">Module 8 Exam</a></li></ul></div><div><h2>Reviewer</h2><ul><li><a class="main" href="../reviewer/">All Reviewer lessons</a></li></ul><p class="mod">Module 1 · Leadership</p><ul><li><a class="main" href="../military-leadership-attributes/">Military Leadership Attributes quiz</a><a href="../reviewer/leadershipattributes/">Reviewer</a></li><li><a class="main" href="../military-leadership-competencies/">Military Leadership Competencies quiz</a><a href="../reviewer/leadershipcompetencies/">Reviewer</a></li><li><a class="main" href="../company-management/">Company Management quiz</a><a href="../reviewer/companymanagement/">Reviewer</a></li><li><a class="main" href="../mission-command/">Mission Command quiz</a><a href="../reviewer/missioncommand/">Reviewer</a></li><li><a class="main" href="../ethical-transformational-leadership/">Ethical and Transformational Leadership quiz</a><a href="../reviewer/ethicalleadership/">Reviewer</a></li><li><a class="main" href="../nco-empowerment/">NCO Empowerment quiz</a><a href="../reviewer/ncoempowerment/">Reviewer</a></li><li><a class="main" href="../effective-communication-2/">Effective Communication 2 quiz</a><a href="../reviewer/effectivecommunication/">Reviewer</a></li></ul><p class="mod">Module 2 · Army Operating Concept</p><ul><li><a class="main" href="../combined/">Combined Practice Exam quiz</a></li><li><a class="main" href="../field-artillery/">Field Artillery Operations quiz</a><a href="../reviewer/fieldartillery/">Reviewer</a></li><li><a class="main" href="../armor/">Armor Operations quiz</a><a href="../reviewer/armor/">Reviewer</a></li><li><a class="main" href="../isr/">ISR Operations quiz</a><a href="../reviewer/isr/">Reviewer</a></li></ul><p class="mod">Module 3 · Battalion/Brigade Operations Planning</p><ul><li><a class="main" href="../module-3-planning-exam/">Module 3 Planning Exam quiz</a></li><li><a class="main" href="../troop-leading-procedure/">Troop Leading Procedure (TLP) quiz</a><a href="../reviewer/tlp/">Reviewer</a></li><li><a class="main" href="../military-decision-making-process/">Military Decision-Making Process (MDMP) quiz</a><a href="../reviewer/mdmp/">Reviewer</a></li></ul><p class="mod">Module 4 · Signal Support Integration</p><ul><li><a class="main" href="../signal-support/">Signal Support in Combined Arms Operations quiz</a><a href="../reviewer/signal/">Reviewer</a></li><li><a class="main" href="../joint-signal/">Signal Support in Joint Operations quiz</a><a href="../reviewer/signaljoint/">Reviewer</a></li><li><a class="main" href="../coalition-signal/">Signal Support in Coalition Operations quiz</a><a href="../reviewer/coalition/">Reviewer</a></li></ul><p class="mod">Module 5 · Advanced C2 Communications</p><ul><li><a class="main" href="../manet-c4istar-planning/">MANET C4ISTAR Planning quiz</a><a href="../reviewer/manet/">Reviewer</a></li><li><a class="main" href="../c4istar-sensors-integration/">C4ISTAR Sensors Integration quiz</a><a href="../reviewer/sensors/">Reviewer</a></li><li><a class="main" href="../c4istar-weapon-system-integration/">C4ISTAR Weapon System Integration quiz</a><a href="../reviewer/weapons/">Reviewer</a></li><li><a class="main" href="../signal-propagation/">Signal Propagation (Mobile Apps/RF Clouds) quiz</a><a href="../reviewer/propagation/">Reviewer</a></li></ul><p class="mod">Module 6 · Advanced Electronic Warfare Operations</p><ul><li><a class="main" href="../signals-intelligence/">Signals Intelligence (SIGINT) quiz</a><a href="../reviewer/sigint/">Reviewer</a></li><li><a class="main" href="../electronic-intelligence/">Electronic Intelligence (ELINT) quiz</a><a href="../reviewer/elint/">Reviewer</a></li><li><a class="main" href="../radio-direction-finding/">Radio Direction Finding quiz</a><a href="../reviewer/rdf/">Reviewer</a></li><li><a class="main" href="../electronic-counter-countermeasures/">Electronic Counter-Countermeasures (ECCM) quiz</a><a href="../reviewer/eccm/">Reviewer</a></li></ul><p class="mod">Module 7 · Advanced Cyberspace Operations</p><ul><li><a class="main" href="../nist-framework/">NIST Framework quiz</a><a href="../reviewer/nist/">Reviewer</a></li><li><a class="main" href="../zero-trust/">Zero Trust quiz</a><a href="../reviewer/zerotrust/">Reviewer</a></li><li><a class="main" href="../gsomia-compliance/">LOE3 GSOMIA Compliance quiz</a><a href="../reviewer/gsomia/">Reviewer</a></li><li><a class="main" href="../cyber-risk-assessment/">Cyber Risk Assessment quiz</a><a href="../reviewer/cyberrisk/">Reviewer</a></li></ul><p class="mod">Module 8 · Signal Planning</p><ul><li><a class="main" href="../ceoi-cesi-management/">CEOI / CESI Management quiz</a><a href="../reviewer/ceoicesi/">Reviewer</a></li><li><a class="main" href="../signal-estimate/">Signal Estimate quiz</a><a href="../reviewer/signalestimate/">Reviewer</a></li><li><a class="main" href="../c4istar-communications-planning/">C4ISTAR Communications Planning quiz</a><a href="../reviewer/c4istarplanning/">Reviewer</a></li><li><a class="main" href="../signal-planning-process/">Signal Planning Process quiz</a><a href="../reviewer/signalplanning/">Reviewer</a></li></ul><p class="mod">Supporting Lessons · Supporting study material; not separately numbered POI lessons</p><ul><li><a class="main" href="../army-operations/">Army Operations quiz</a><a href="../reviewer/armyops/">Reviewer</a></li><li><a class="main" href="../intelligence-cycle/">Intelligence Cycle quiz</a><a href="../reviewer/intcycle/">Reviewer</a></li></ul></div><div><h2>Library</h2><ul><li><a class="main" href="../library/">Library: lessons, manuals, sources</a></li><li><a class="main" href="../library/unit-organization/">Unit Organization</a></li></ul></div><div><h2>How To guides</h2><ul><li><a class="main" href="../how-to/">All How To guides</a></li><li><a class="main" href="../how-to/how-to-check-repeater-channel-pair/">Check a repeater channel pair</a></li><li><a class="main" href="../how-to/how-to-conduct-radio-check/">Conduct a two-station radio check</a></li><li><a class="main" href="../how-to/how-to-configure-rf5800v-scan/">Configure an RF-5800V scan list</a></li><li><a class="main" href="../how-to/how-to-connect-windows-radio-rndis/">Connect a Windows PC to a radio over USB</a></li><li><a class="main" href="../how-to/how-to-plot-radio-link-profile/">Plot a radio link in Radio Mobile</a></li><li><a class="main" href="../how-to/how-to-program-fixed-frequency-preset/">Program a fixed-frequency radio channel</a></li><li><a class="main" href="../how-to/how-to-program-rf5800v-net/">Program an RF-5800V voice net</a></li><li><a class="main" href="../how-to/how-to-set-up-two-radio-retransmit/">Set up a two-radio repeater</a></li><li><a class="main" href="../how-to/how-to-size-a-half-wave-dipole/">Size a half-wave dipole</a></li><li><a class="main" href="../how-to/how-to-test-tactical-chat-link/">Send a test message over a radio data link</a></li><li><a class="main" href="../how-to/how-to-transfer-cpa-radio-plan/">Transfer a CPA plan to an RF-7800V</a></li></ul></div><div><h2>Radio and codes</h2><ul><li><a class="main" href="../los-radios/">LOS Radios</a></li><li><a class="main" href="../codes-ciphers/">Codes &amp; Ciphers</a></li></ul></div><div><h2>Schedule, class, instructor</h2><ul><li><a class="main" href="../schedule/?v=day-picker-2">Weekly schedule (current week)</a></li><li><a class="main" href="../schedule-2026-11-02/">Week of 02–08 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-09/">Week of 09–15 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-16/">Week of 16–22 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-23/">Week of 23–29 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-30/">Week of 30 Nov – 06 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-07/">Week of 07–13 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-14/">Week of 14–20 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-21/">Week of 21–27 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-28/">Week of 28 Dec 2026 – 03 Jan 2027</a></li><li><a class="main" href="../schedule-2027-01-04/">Week of 04–10 Jan 2027</a></li><li><a class="main" href="../class/">Our class</a></li><li><a class="main" href="../instructor/">Instructor view</a></li></ul></div></div></details></nav>
+<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid"><div><h2>Practice exams</h2><ul><li><a class="main" href="../">Exam hub (all modules)</a></li><li><a class="main" href="../module-1-exam/">Module 1 Exam</a></li><li><a class="main" href="../module-3-exam/">Module 4 Exam</a></li><li><a class="main" href="../module-5-exam/">Module 5 Exam</a></li><li><a class="main" href="../module-6-exam/">Module 6 Exam</a></li><li><a class="main" href="../module-7-exam/">Module 7 Exam</a></li><li><a class="main" href="../module-8-exam/">Module 8 Exam</a></li></ul></div><div><h2>Comprehensive Exam Reviewer</h2><ul><li><a class="main" href="../comprehensive-reviewer/">Actual Exam: all graded exams</a></li><li><a class="main" href="../comprehensive-reviewer/all/">All graded exams, mixed</a></li></ul></div><div><h2>Reviewer</h2><ul><li><a class="main" href="../reviewer/">All Reviewer lessons</a></li></ul><p class="mod">Module 1 · Leadership</p><ul><li><a class="main" href="../military-leadership-attributes/">Military Leadership Attributes quiz</a><a href="../reviewer/leadershipattributes/">Reviewer</a></li><li><a class="main" href="../military-leadership-competencies/">Military Leadership Competencies quiz</a><a href="../reviewer/leadershipcompetencies/">Reviewer</a></li><li><a class="main" href="../company-management/">Company Management quiz</a><a href="../reviewer/companymanagement/">Reviewer</a></li><li><a class="main" href="../mission-command/">Mission Command quiz</a><a href="../reviewer/missioncommand/">Reviewer</a></li><li><a class="main" href="../ethical-transformational-leadership/">Ethical and Transformational Leadership quiz</a><a href="../reviewer/ethicalleadership/">Reviewer</a></li><li><a class="main" href="../nco-empowerment/">NCO Empowerment quiz</a><a href="../reviewer/ncoempowerment/">Reviewer</a></li><li><a class="main" href="../effective-communication-2/">Effective Communication 2 quiz</a><a href="../reviewer/effectivecommunication/">Reviewer</a></li></ul><p class="mod">Module 2 · Army Operating Concept</p><ul><li><a class="main" href="../combined/">Combined Practice Exam quiz</a></li><li><a class="main" href="../field-artillery/">Field Artillery Operations quiz</a><a href="../reviewer/fieldartillery/">Reviewer</a></li><li><a class="main" href="../armor/">Armor Operations quiz</a><a href="../reviewer/armor/">Reviewer</a></li><li><a class="main" href="../isr/">ISR Operations quiz</a><a href="../reviewer/isr/">Reviewer</a></li></ul><p class="mod">Module 3 · Battalion/Brigade Operations Planning</p><ul><li><a class="main" href="../module-3-planning-exam/">Module 3 Planning Exam quiz</a></li><li><a class="main" href="../troop-leading-procedure/">Troop Leading Procedure (TLP) quiz</a><a href="../reviewer/tlp/">Reviewer</a></li><li><a class="main" href="../military-decision-making-process/">Military Decision-Making Process (MDMP) quiz</a><a href="../reviewer/mdmp/">Reviewer</a></li></ul><p class="mod">Module 4 · Signal Support Integration</p><ul><li><a class="main" href="../signal-support/">Signal Support in Combined Arms Operations quiz</a><a href="../reviewer/signal/">Reviewer</a></li><li><a class="main" href="../joint-signal/">Signal Support in Joint Operations quiz</a><a href="../reviewer/signaljoint/">Reviewer</a></li><li><a class="main" href="../coalition-signal/">Signal Support in Coalition Operations quiz</a><a href="../reviewer/coalition/">Reviewer</a></li></ul><p class="mod">Module 5 · Advanced C2 Communications</p><ul><li><a class="main" href="../manet-c4istar-planning/">MANET C4ISTAR Planning quiz</a><a href="../reviewer/manet/">Reviewer</a></li><li><a class="main" href="../c4istar-sensors-integration/">C4ISTAR Sensors Integration quiz</a><a href="../reviewer/sensors/">Reviewer</a></li><li><a class="main" href="../c4istar-weapon-system-integration/">C4ISTAR Weapon System Integration quiz</a><a href="../reviewer/weapons/">Reviewer</a></li><li><a class="main" href="../signal-propagation/">Signal Propagation (Mobile Apps/RF Clouds) quiz</a><a href="../reviewer/propagation/">Reviewer</a></li></ul><p class="mod">Module 6 · Advanced Electronic Warfare Operations</p><ul><li><a class="main" href="../signals-intelligence/">Signals Intelligence (SIGINT) quiz</a><a href="../reviewer/sigint/">Reviewer</a></li><li><a class="main" href="../electronic-intelligence/">Electronic Intelligence (ELINT) quiz</a><a href="../reviewer/elint/">Reviewer</a></li><li><a class="main" href="../radio-direction-finding/">Radio Direction Finding quiz</a><a href="../reviewer/rdf/">Reviewer</a></li><li><a class="main" href="../electronic-counter-countermeasures/">Electronic Counter-Countermeasures (ECCM) quiz</a><a href="../reviewer/eccm/">Reviewer</a></li></ul><p class="mod">Module 7 · Advanced Cyberspace Operations</p><ul><li><a class="main" href="../nist-framework/">NIST Framework quiz</a><a href="../reviewer/nist/">Reviewer</a></li><li><a class="main" href="../zero-trust/">Zero Trust quiz</a><a href="../reviewer/zerotrust/">Reviewer</a></li><li><a class="main" href="../gsomia-compliance/">LOE3 GSOMIA Compliance quiz</a><a href="../reviewer/gsomia/">Reviewer</a></li><li><a class="main" href="../cyber-risk-assessment/">Cyber Risk Assessment quiz</a><a href="../reviewer/cyberrisk/">Reviewer</a></li></ul><p class="mod">Module 8 · Signal Planning</p><ul><li><a class="main" href="../ceoi-cesi-management/">CEOI / CESI Management quiz</a><a href="../reviewer/ceoicesi/">Reviewer</a></li><li><a class="main" href="../signal-estimate/">Signal Estimate quiz</a><a href="../reviewer/signalestimate/">Reviewer</a></li><li><a class="main" href="../c4istar-communications-planning/">C4ISTAR Communications Planning quiz</a><a href="../reviewer/c4istarplanning/">Reviewer</a></li><li><a class="main" href="../signal-planning-process/">Signal Planning Process quiz</a><a href="../reviewer/signalplanning/">Reviewer</a></li></ul><p class="mod">Supporting Lessons · Supporting study material; not separately numbered POI lessons</p><ul><li><a class="main" href="../army-operations/">Army Operations quiz</a><a href="../reviewer/armyops/">Reviewer</a></li><li><a class="main" href="../intelligence-cycle/">Intelligence Cycle quiz</a><a href="../reviewer/intcycle/">Reviewer</a></li></ul></div><div><h2>Library</h2><ul><li><a class="main" href="../library/">Library: lessons, manuals, sources</a></li><li><a class="main" href="../library/unit-organization/">Unit Organization</a></li></ul></div><div><h2>How To guides</h2><ul><li><a class="main" href="../how-to/">All How To guides</a></li><li><a class="main" href="../how-to/how-to-check-repeater-channel-pair/">Check a repeater channel pair</a></li><li><a class="main" href="../how-to/how-to-conduct-radio-check/">Conduct a two-station radio check</a></li><li><a class="main" href="../how-to/how-to-configure-rf5800v-scan/">Configure an RF-5800V scan list</a></li><li><a class="main" href="../how-to/how-to-connect-windows-radio-rndis/">Connect a Windows PC to a radio over USB</a></li><li><a class="main" href="../how-to/how-to-plot-radio-link-profile/">Plot a radio link in Radio Mobile</a></li><li><a class="main" href="../how-to/how-to-program-fixed-frequency-preset/">Program a fixed-frequency radio channel</a></li><li><a class="main" href="../how-to/how-to-program-rf5800v-net/">Program an RF-5800V voice net</a></li><li><a class="main" href="../how-to/how-to-set-up-two-radio-retransmit/">Set up a two-radio repeater</a></li><li><a class="main" href="../how-to/how-to-size-a-half-wave-dipole/">Size a half-wave dipole</a></li><li><a class="main" href="../how-to/how-to-test-tactical-chat-link/">Send a test message over a radio data link</a></li><li><a class="main" href="../how-to/how-to-transfer-cpa-radio-plan/">Transfer a CPA plan to an RF-7800V</a></li></ul></div><div><h2>Radio and codes</h2><ul><li><a class="main" href="../los-radios/">LOS Radios</a></li><li><a class="main" href="../codes-ciphers/">Codes &amp; Ciphers</a></li></ul></div><div><h2>Schedule, class, instructor</h2><ul><li><a class="main" href="../schedule/?v=day-picker-2">Weekly schedule (current week)</a></li><li><a class="main" href="../schedule-2026-11-02/">Week of 02–08 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-09/">Week of 09–15 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-16/">Week of 16–22 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-23/">Week of 23–29 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-30/">Week of 30 Nov – 06 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-07/">Week of 07–13 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-14/">Week of 14–20 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-21/">Week of 21–27 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-28/">Week of 28 Dec 2026 – 03 Jan 2027</a></li><li><a class="main" href="../schedule-2027-01-04/">Week of 04–10 Jan 2027</a></li><li><a class="main" href="../class/">Our class</a></li><li><a class="main" href="../instructor/">Instructor view</a></li></ul></div></div></details></nav>
 <aside class="domain-seal" aria-label="Site signature"><img class="domain-sigil" src="../assets/domain-void-hand-320.webp" width="160" height="221" alt="" loading="lazy" decoding="async"><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>“You see, but you do not observe.”</em><cite data-domain-attribution>— Sherlock Holmes · A Scandal in Bohemia · Arthur Conan Doyle</cite></span></aside>
 <script src="../assets/identity.js" defer></script>
 </body>

@@ -1,0 +1,2658 @@
+{
+  "about": "Questions from the SOAC 52-2026 class's graded exams, copied from the exam portal's review screens (question stem and answer key only; the portal did not show the answer choices). Student answers, names and scores are deliberately not recorded. Stems and keys are verbatim except where the export marked garbled quote marks or apostrophes, which are restored as plain text. See docs/actual-exam-reviewer.md.",
+  "exams": [
+    {
+      "key": "gradedew",
+      "slug": "advanced-ew-operations",
+      "title": "Module Exam on Advanced Electronic Warfare Operations",
+      "portalTitle": "Module Exam on Advanced Electronic Warfare Operations",
+      "date": "2026-11-12",
+      "module": "module-6",
+      "pages": [
+        "modulesix"
+      ],
+      "itemCount": 50,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "During a joint electronic warfare curriculum seminar at the Philippine Army Intelligence Center of Excellence, an instructor outlines the specific capabilities associated with the categories of SIGINT. Which of the following lists the capabilities associated with Electronic Intelligence (ELINT)?",
+          "key": "Direction finding to a target in signals intercept, jamming, and communication intercept through traffic analysis of electronic emissions."
+        },
+        {
+          "n": 2,
+          "stem": "An intelligence section receives recorded electromagnetic data from field intercept sensors to build a long-term picture of enemy equipment capabilities through deliberate, deep analysis. How is ELINT characterized, and how does it differ from Electronic Support (ES)?",
+          "key": "ELINT is likened to a \"black-box recorder\" owned by intelligence channels for long-term capabilities analysis."
+        },
+        {
+          "n": 3,
+          "stem": "During an air defense planning session, an officer notes that lower frequency radar bands see farther but offer less precision, while higher frequency bands provide higher precision at shorter ranges. What key operational factor determines actual operational radar range regardless of the band letter assignment?",
+          "key": "Range depends on power, antenna, and target, not on the band letter."
+        },
+        {
+          "n": 4,
+          "stem": "A tactical signal team is deploying to an area near an urban sector to establish communications while avoiding detection by adversarial Electronic Support (ES) assets. The signal officer instructs the team to use the spectrum in the same way the surrounding populace uses it, avoiding predictable report times and hiding their transmissions within the heavy ambient traffic. Which spectral discipline principle and real-world lesson does this deployment strategy demonstrate?",
+          "key": "Hiding military signals among busy commercial networks - similar to operations near Kyiv- because odd military signals stand out in a quiet area."
+        },
+        {
+          "n": 5,
+          "stem": "During an advanced electronic support deployment, an operator utilizes an interferometric direction-finding system to pinpoint a high-priority adversary transmitter. How does an interferometric RDF system process incoming wavefronts to calculate the azimuth of the RF source?",
+          "key": "By comparing the phase differences between signals received at different antenna pairs or elements."
+        },
+        {
+          "n": 6,
+          "stem": "During an operational patrol, your Electronic Support team intercepts a signal identified as a radar altimeter operating from an unmanned aerial system in your sector. What tactical implication does detecting this drone sensor signal reveal?",
+          "key": "A radar signal can betray the presence of a drone nearby."
+        },
+        {
+          "n": 7,
+          "stem": "During a command-level briefing on intelligence reporting protocols, an operations officer emphasizes that finished intelligence must reach tactical commanders swiftly without compromising operational security. How is the Dissemination phase defined?",
+          "key": "Timely production of intelligence to those who need to know only."
+        },
+        {
+          "n": 8,
+          "stem": "An adversary intelligence team is attempting to establish fixed patterns and locations of friendly forces by monitoring radio traffic schedules. To counter this threat, your unit enforces strict radio discipline regarding transmission frequency and antenna setups. Which set of practices directly aligns to prevent pattern analysis and signal intercept?",
+          "key": "Varying routines with no fixed report times, using directional antennas pointed away from the enemy, and keeping off skylines."
+        },
+        {
+          "n": 9,
+          "stem": "During an intelligence syndicate workshop, student officers examine how raw, processed signals are transformed into finished military intelligence. What is the specific function of the Analysis phase?",
+          "key": "Converted collected SIGINT data into intelligence."
+        },
+        {
+          "n": 10,
+          "stem": "During an operational planning conference at the Philippine Army Intelligence Center of Excellence, an intelligence officer briefs junior SIGINT operators on the initial phase of the intelligence cycle. What is the primary focus of the Requirements phase?",
+          "key": "Understanding the mission and the direction needs in order to plan and apply appropriate collection mechanisms."
+        },
+        {
+          "n": 11,
+          "stem": "During an operational reconnaissance mission, an Electronic Warfare team uses Radio Direction Finders (RDFs) to detect distinctive RF signals emitted by hostile radar installations. What tactical capabilities does this detection provide to military forces?",
+          "key": "It allows military forces to identify enemy radar sites, assess their capabilities, and potentially neutralize them."
+        },
+        {
+          "n": 12,
+          "stem": "During a joint offensive operation, an adversarial ground station activates a high-power electronic attack system to jam incoming precision-guided munitions. In response, a friendly air asset launches a missile equipped with a guidance mode that homes directly on the enemy's active jamming transmissions. What key tactical lesson does this engagement demonstrate regarding strong emitters on the battlefield?",
+          "key": "Any strong emitter, whether a jammer or a radio, can be located and struck because \"shouting in the dark tells everyone where you are\"."
+        },
+        {
+          "n": 13,
+          "stem": "Your tactical command post identifies an incoming electronic risk and transitions to EMCON 3 (AMBER), which serves as your field baseline. Which operational measures must your signal personnel implement under this condition?",
+          "key": "Encrypt all traffic, utilize frequency hopping, employ directional antennas, and turn off unencrypted systems."
+        },
+        {
+          "n": 14,
+          "stem": "During a syndicate discussion on electronic protection, a signal officer references a tactical analogy from doctrine regarding thermal and electromagnetic signatures. What key principle explains why minimizing radio emissions protects your position?",
+          "key": "\"The smaller the fire, the harder you are to see.\""
+        },
+        {
+          "n": 15,
+          "stem": "During a tactical electronic support exercise at the Philippine Army Intelligence Center of Excellence, an operations officer inspects the hardware components of a deployed RDF unit, consisting of a Radio Receiver, a Bearing Processor, and a Doppler Antenna. What is the primary operational purpose of this combined system?",
+          "key": "It is used for radio communication transmission counter measures to monitor enemy activities and locate their estimated locations."
+        },
+        {
+          "n": 16,
+          "stem": "During an active deployment, a signal monitoring unit is tasked with safeguarding internal transmissions and identifying unauthorized broadcasts across the tactical zone. How are Radio Direction Finders (RDFs) employed in communication monitoring?",
+          "key": "RDFs are employed to monitor and analyze radio transmissions within the operational area, which includes detecting unauthorized or suspicious communications, as well as ensuring the security of military communications."
+        },
+        {
+          "n": 17,
+          "stem": "During a tactical emitter-locating operation across a distributed sensor network, an Electronic Support analyst processes intercept data using Time Difference of Arrival (TDOA) techniques. How does the TDOA method determine the spatial parameters of the inbound RF signal?",
+          "key": "By using the difference in arrival times of the RF signal at multiple spatially separated antennas."
+        },
+        {
+          "n": 18,
+          "stem": "Your tactical unit comes under heavy enemy jamming while attempting to transmit critical updates across the battle space. To maintain the signal link and protect the transmission under attack, which radio feature set must be configured together on your tactical radio?",
+          "key": "Set the radio to hop and secure to provide both encryption and anti-jam capability."
+        },
+        {
+          "n": 19,
+          "stem": "During tactical operations, the Philippine Army deploys Radio Direction Finder (RDF) technology across active sectors. How is RDF technology utilized in this context, and what specific intelligence outcomes does it provide?",
+          "key": "To intercept and locate enemy communication signals, helping in gathering intelligence about the movements, positions, and intentions of adversaries."
+        },
+        {
+          "n": 20,
+          "stem": "An adversarial electronic warfare aircraft attempts to disrupt a friendly tactical radar by directing heavy noise jamming from off-axis angles into the radar's side reception paths. The radar system successfully neutralizes the threat using an auxiliary second antenna that detects the incoming lateral interference and allows the radar to ignore it. Which Sensor ECCM technique is being demonstrated?",
+          "key": "Sidelobe blanking"
+        },
+        {
+          "n": 21,
+          "stem": "During a maritime transit mission, a vessel encounters heavy weather that obscures all visual landmarks while operating in an area where GPS navigation signals are heavily jammed. The navigator decides to utilize historical radio direction-finding techniques. According to the slide, how do Radio Direction Finders (RDFs) assist in establishing position under these conditions?",
+          "key": "By determining the direction of radio beacons or signals, aiding in establishing position without relying on visual landmarks or GPS."
+        },
+        {
+          "n": 22,
+          "stem": "Enemy forces initiate targeted cyber and electronic warfare attacks against your network nodes, bringing operations to EMCON 5 (BLACK) the most restrictive level. What is the primary directive required of your team under this level?",
+          "key": "Isolate compromised systems while attacks are under way."
+        },
+        {
+          "n": 23,
+          "stem": "During a routine field deployment with no reported hostile electronic activity, your unit is operating under normal conditions with standard encryption enabled. As the signal officer, which EMCON condition level is currently established as your baseline?",
+          "key": "EMCON 1"
+        },
+        {
+          "n": 24,
+          "stem": "During an intelligence collection operation, your signals team intercepts encrypted voice communications and text data exchanges between enemy unit leaders discussing upcoming tactical movements. To analyze this specific category of intelligence, which SIGINT sub-discipline is responsible, and what primary operational question does it attempt to answer?",
+          "key": "Communications Intelligence (COMINT); answers \"What does the enemy intend?\""
+        },
+        {
+          "n": 25,
+          "stem": "During a HADR (Humanitarian Assistance and Disaster Response) operation, a Philippine Army search and rescue unit is dispatched into a rugged, isolated jungle sector to find stranded personnel transmitting emergency distress signals. Why are Radio Direction Finders (RDFs) essential in this operation?",
+          "key": "They can locate distress signals from downed aircraft, stranded personnel, or individuals in remote or difficult-to-access areas, facilitating timely rescue missions."
+        },
+        {
+          "n": 27,
+          "stem": "During an Electronic Support curriculum review session, an instructor asks a student syndicate to provide the precise doctrinal definition of Direction of Arrival (DOA) as applied in Radio Direction Finder (RDF) measurements. Which of the following accurately defines DOA according to the training slide?",
+          "key": "The azimuthal angle indicating the direction from which the RF signal is arriving relative to the RDF system."
+        },
+        {
+          "n": 28,
+          "stem": "During an operational briefing, a radio operator assumes that activating high-grade military encryption will prevent hostile forces from jamming unit communications and hide their tactical transmission site. Which statement accurately reflects what encryption actually accomplishes?",
+          "key": "It protects what you say so the enemy hears gibberish instead of your plan."
+        },
+        {
+          "n": 29,
+          "stem": "During an intelligence synthesis briefing at the Philippine Army Intelligence Center of Excellence, an operations officer evaluates the inherent limitations of intercept-based intelligence. Which of the following describes key operational disadvantages of SIGINT?",
+          "key": "SIGINT sometimes cannot stand alone without substantiation from other intelligence disciplines, and it cannot be clarified from the source."
+        },
+        {
+          "n": 30,
+          "stem": "During a security vulnerability review of an active listening post, a commander analyzes the operational risks associated with intelligence leaks. What specific consequence occurs if SIGINT security is compromised?",
+          "key": "The enemy can counter government efforts with disinformation or deception."
+        },
+        {
+          "n": 31,
+          "stem": "During a joint reconnaissance operation, an Electronic Support platoon is tasked with gathering military intelligence by identifying and pinpointing specific radio frequency sources operating within the area of responsibility. Which specific military communication emitters are RDFs used to intercept and locate to support military intelligence and reconnaissance operations?",
+          "key": "Tactical radios, satellite communications, and radar signals."
+        },
+        {
+          "n": 32,
+          "stem": "A signal officer is reviewing the unit's Electronic Order of Battle (EOB) records to ensure friendly transmitters (radios, radars, data links, and navigation aids) do not disrupt each other's communications during an upcoming operation. Which EOB category serves this specific purpose?",
+          "key": "Friendly EOB"
+        },
+        {
+          "n": 33,
+          "stem": "An Electronic Support operator monitoring radar emissions detects a threat signal where the radar beam stops sweeping back and forth and remains held continuously on a single friendly aircraft. What type of antenna scan pattern is being observed, and what operational event may follow?",
+          "key": "Track (steady) scan; engagement may follow."
+        },
+        {
+          "n": 34,
+          "stem": "During an intelligence staff briefing at the Philippine Army Intelligence Center of Excellence, an operations officer evaluates how intercepted electromagnetic data is processed when sensitive information is encrypted. How do cryptanalysis and traffic analysis support SIGINT operations in this context?",
+          "key": "Cryptanalysis involves deciphering encrypted messages, whereas traffic analysis is used to re-integrate information."
+        },
+        {
+          "n": 35,
+          "stem": "During an instruction block on radar fundamentals, an instructor uses an analogy of shouting into a canyon and timing the echo to explain how distance is determined. What physical requirement of radar transmission creates the operational vulnerability that allows ELINT assets to detect and intercept it?",
+          "key": "To see, a radar must transmit loudly, and that loud outbound pulse is what ELINT intercepts."
+        },
+        {
+          "n": 36,
+          "stem": "A government regulatory agency and border security task force deploy mobile signal monitoring teams along a maritime frontier to track illegal radio broadcasts and illicit maritime traffic. How do government entities utilize Radio Direction Finder (RDF) technology for monitoring and surveillance in border security, law enforcement, and intelligence operations?",
+          "key": "RDFs detect unauthorized transmissions, monitor communication networks, and enforce radio spectrum regulations."
+        },
+        {
+          "n": 37,
+          "stem": "During a domestic civil security and spectrum management operation, government regulatory and signal monitoring teams are deployed to track illicit radio interference. What specific civilian communication sources can Radio Direction Finders (RDFs) detect and locate?",
+          "key": "Radio and television broadcasting stations, cellular networks, and other licensed or unauthorized radio transmissions."
+        },
+        {
+          "n": 38,
+          "stem": "To avoid detection by hostile Electronic Support (ES) teams while surveying airspace, an air defense unit configures its radar to transmit low-power, wideband waveforms that are exceptionally difficult for adversary intercept receivers to isolate. Which radar ECCM feature is being utilized to minimize spectral signature exposure? A. Low-probability-of-intercept",
+          "key": "Pulse compression"
+        },
+        {
+          "n": 39,
+          "stem": "During a joint counter-battery exercise, friendly Electronic Support assets cross multiple Direction Finding bearings to pinpoint the exact location of an enemy radar system, allowing fires assets to target and destroy it. How does PAM 3-0702-01 formally define Electronic Intelligence (ELINT) to explain this operational capability?",
+          "key": "A specialized sub-discipline of SIGINT dedicated to the collection and technical analysis of non-communication electromagnetic signals."
+        },
+        {
+          "n": 40,
+          "stem": "Friendly rotary-wing aviation assets are preparing for a low-altitude transport mission through a contested sector. The signal intelligence officer warns the flight commander about an active emitter type in the area that searches for and tracks low-flying aircraft and drones. Which ground emitter type poses this specific threat?",
+          "key": "Short-range air-defense radar"
+        },
+        {
+          "n": 41,
+          "stem": "During an air defense radar setup, an engineer must choose between configuring an antenna with a narrow beamwidth versus a wide beamwidth. What trade-off does beamwidth selection present?",
+          "key": "A narrow beam gives precise direction, while a wide beam covers more area faster."
+        },
+        {
+          "n": 42,
+          "stem": "During an electronic warfare lab exercise, an operator configures an antenna array to determine the Direction of Arrival (DOA) of an unknown tactical transmitter by analyzing microscopic time-of-arrival shifts across spaced elements. How does the differential RDF technique process these incoming wavefronts to isolate the source?",
+          "key": "By measuring the phase difference between signals received at two or more separate antennas."
+        },
+        {
+          "n": 43,
+          "stem": "During an operational planning phase, an intelligence cell uses ELINT and ES data to track the location, frequency, and technical characteristics of hostile radars, weapon-guidance platforms, and EW systems. According to PAM 3-0702-01, which Electronic Order of Battle (EOB) category are they updating, and what is its primary tactical use?",
+          "key": "Adversary EOB; used to drive targeting and plan countermeasures."
+        },
+        {
+          "n": 44,
+          "stem": "An Electronic Warfare analyst is assigned to evaluate non-communication signals emanating from enemy sensors, weapon-guidance beacons, and surveillance radars. Which technical skill sets and operational targets are required for this analyst under ELINT operations?",
+          "key": "Electronics and signal analysis; targets machine emissions like radars, beacons, and sensors."
+        },
+        {
+          "n": 45,
+          "stem": "During an operational deployment, a radio operator needs to transmit a tactical status update back to the command post while minimizing the risk of adversary Direction Finding detection. To adhere to radio discipline, the operator pre-plans the message, uses brevity codes to keep transmissions short, and adjusts the transmitter settings. Why is utilizing the lowest power that works effective?",
+          "key": "Less power reduces the detection range for enemy DF receivers."
+        },
+        {
+          "n": 46,
+          "stem": "A command post signal officer is selecting a positioning location for the unit's tactical transmission antennas to mitigate enemy Direction Finding and jamming threats. Instead of placing the CP and antenna directly on top of the prominent hill, the officer positions the antenna on the reverse slope. According to terrain masking, why is this placement recommended?",
+          "key": "Terrain between the antenna and the enemy blocks hostile DF and jamming, while hilltops make CPs easy to DF and jam."
+        },
+        {
+          "n": 47,
+          "stem": "Your tactical command post receives reports of hostile counter-battery fire hitting friendly artillery positions shortly after rounds are fired. The EW section is tasked with locating the high-value target emitter that detects incoming shells and computes the origin of the gun. Which system are they hunting?",
+          "key": "Weapon-locating radar"
+        },
+        {
+          "n": 48,
+          "stem": "During an intelligence staff lecture at the Philippine Army Intelligence Center of Excellence, an instructor evaluates the primary focus areas and diagnostic capabilities of Communication Intelligence (COMINT). Which of the following outlines what COMINT is capable of revealing?",
+          "key": "Who is transmitting, location, text interception, and voice interception."
+        },
+        {
+          "n": 49,
+          "stem": "During an Electronic Warfare training module, an instructor reviews the dual military and civilian roles of Radio Direction Finders (RDFs) in locating radio frequency (RF) sources. A student is asked to differentiate how RDF assets are employed in military operations compared to civilian contexts based on the lecture. Which option accurately states these roles?",
+          "key": "Military: locate enemy communication centers, radar installations, and electronic emissions; Civilian: spectrum monitoring, identifying interference, and locating emergency distress signals."
+        },
+        {
+          "n": 50,
+          "stem": "During an ongoing engagement, an intercept receiver picks up signals from a high-threat enemy radar system. The operational team needs real-time, perishable data for immediate threat warning and strike asset targeting. Which operational discipline covers this immediate tactical requirement, and who owns it?",
+          "key": "Electronic Support (ES); owned by the tactical commander."
+        }
+      ],
+      "skipped": [
+        {
+          "n": 26,
+          "reason": "A character of the stated frequency is garbled in the source, and the recorded key (short-range, high-precision sensors and seekers, the K- to M-band role) does not match the legible \"9 GHz (I-band)\", whose chart role is tracking and fire control. Not reconstructable without guessing."
+        }
+      ]
+    },
+    {
+      "key": "gradedcyber",
+      "slug": "advanced-cyberspace-operations",
+      "title": "Module Exam on Advanced Cyberspace Operations",
+      "portalTitle": "Module Exam on Advance Cyberspace Operations",
+      "date": "2026-10-30",
+      "module": "module-7",
+      "pages": [
+        "moduleseven"
+      ],
+      "itemCount": 40,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "What aspect of all enterprise assets does the organization monitor under Tenet 5 of Zero Trust?",
+          "key": "Integrity and posture"
+        },
+        {
+          "n": 2,
+          "stem": "A cyber battalion operates continuously to process system telemetry, device health checks, and threat intelligence feeds to feed real-time evaluation engines. What core cyber-battalion function supports continuous monitoring within Zero Trust Architecture?",
+          "key": "Feeding system logs, device posture, and threat intelligence to the policy engine"
+        },
+        {
+          "n": 3,
+          "stem": "To prevent unauthorized access, communications personnel scan the tactical wireless spectrum for unauthorized rogue access points and ensure only devices with authorized security profiles and documented owners connect to the network. Which control ensures that only wireless devices with an authorized configuration, security profile, and documented owner are allowed on the network?",
+          "key": "Wireless Device Control"
+        },
+        {
+          "n": 4,
+          "stem": "A military unit sets up a mobile command center in a forward operating base. To keep their network operational and safe from cyber threats, they apply the Six Functions of the NIST Cybersecurity Framework: Which function establishes leadership roles, cyber risk strategy, and supply-chain policies before setting up the command post?",
+          "key": "Govern"
+        },
+        {
+          "n": 5,
+          "stem": "In the context of Trust Building under GSOMIA, what foundation enables collaboration between participating nations?",
+          "key": "Mutual trust and the commitment of participating nations to protect shared information"
+        },
+        {
+          "n": 6,
+          "stem": "Which component represents \"Where you stand\" by capturing an organization's current cybersecurity posture versus its target state to form a prioritized action plan?",
+          "key": "Profiles"
+        },
+        {
+          "n": 7,
+          "stem": "A field commander determines that high-risk mission parameters require strict access limits on sensitive operational data, prompting real-time updates to dynamic access rules across the network. In the context of the commander's intent for cyber, what does dynamic access policy represent?",
+          "key": "The digital expression of command decisions on acceptable mission risk"
+        },
+        {
+          "n": 8,
+          "stem": "According to Tenet 1 of Zero Trust, how are data sources and computing services categorized?",
+          "key": "As resources"
+        },
+        {
+          "n": 9,
+          "stem": "A military unit sets up a mobile command center in a forward operating base. To keep their network operational and safe from cyber threats, they apply the Six Functions of the NIST Cybersecurity Framework: When the network team inventories all hardware, software, and critical tactical data to understand what must be defended, which function are they performing?",
+          "key": "Identify"
+        },
+        {
+          "n": 10,
+          "stem": "During a joint tactical exercise, an unencrypted drone feed carrying classified troop movement coordinates is intercepted by an unauthorized adversary network due to a missing encryption protocol. Which pillar of the CIA Triad is directly compromised when unauthorized personnel obtain restricted operational information?",
+          "key": "Confidentiality"
+        },
+        {
+          "n": 11,
+          "stem": "What fundamental shift does Zero Trust (ZT) introduce to cybersecurity defenses?",
+          "key": "It moves defenses from static, network-based perimeters to focus on users, assets, and resources"
+        },
+        {
+          "n": 12,
+          "stem": "What does Zero Trust Architecture (ZTA) represent within an organization?",
+          "key": "An enterprise cybersecurity plan built on zero trust concepts, component relationships, workflow planning, and access policies"
+        },
+        {
+          "n": 13,
+          "stem": "An allied liaison team requires access to selected tactical maps and situational updates. Instead of granting wide-spectrum VPN connections, the system administrator configures controlled session channels. How does the framework handle remote and coalition access to avoid VPN-style broad trust?",
+          "key": "By granting partners per-session, least-privilege access"
+        },
+        {
+          "n": 14,
+          "stem": "A military unit sets up a mobile command center in a forward operating base. To keep their network operational and safe from cyber threats, they apply the Six Functions of the NIST Cybersecurity Framework: When continuous network monitoring flags unusual traffic or an unauthorized device trying to connect, which function is triggered?",
+          "key": "Detect"
+        },
+        {
+          "n": 15,
+          "stem": "In practical application, how do the three NIST CSF components work together to manage cyber risk?",
+          "key": "Use the Core to pick outcomes, Profiles to measure the gap, and Tiers to judge how mature practices need to be"
+        },
+        {
+          "n": 16,
+          "stem": "When malware is detected on an operational server, the unit immediately activates a predefined plan with clearly assigned roles to contain the threat, isolate infected nodes, and eliminate the malicious software from the network. Which SANS Control ensures an organization maintains a structured plan with delineated roles to discover, contain, and eradicate attacks?",
+          "key": "Incident Response and Management"
+        },
+        {
+          "n": 17,
+          "stem": "To maintain operational continuity, a communications section enforces guidelines regarding authorized communication platforms, scheduled system data backups, structured policies, and periodic Vulnerability Assessment and Penetration Testing (VAPT). Which PPT element governs how Information and Communications Technology (ICT) is used, maintained, and managed through operational policies, backup schedules, and VAPT audits?",
+          "key": "Process"
+        },
+        {
+          "n": 18,
+          "stem": "Network engineers deploy a system segmented into a Demilitarized Zone (DMZ), middleware, and an isolated private network to ensure that critical operational databases resist circumvention. Which control is implemented when utilizing a robust three-tier architecture (DMZ, middleware, private network)?",
+          "key": "Secure Network Engineering"
+        },
+        {
+          "n": 19,
+          "stem": "A communications officer is reassigned to a different unit outside the tactical command structure. To prevent unauthorized access or potential account impersonation using old credentials, security administrators update user access records. Which SANS Control is being applied when administrators disable dormant accounts and immediately revoke access of separated personnel?",
+          "key": "Account Monitoring and Control"
+        },
+        {
+          "n": 20,
+          "stem": "After completing a Cyber Risk Assessment (CRA) across all three elements of the PPT Framework, a unit's workstation environment receives an overall rating based on the specific security criteria met or missed under each category. Based on the criteria evaluated under each element of the PPT Framework, how is a unit, office, or workstation rated?",
+          "key": "HIGH, MEDIUM, or LOW risk"
+        },
+        {
+          "n": 21,
+          "stem": "A tactical data server performs automated system backups weekly, with sensitive intel files backed up more frequently, and periodically conducts test restorations to verify data integrity in case of system failure. Which SANS Control requires automatically backing up systems at least weekly and regularly testing restoration procedures?",
+          "key": "Data Recovery Capability"
+        },
+        {
+          "n": 22,
+          "stem": "What constitutes a ZT Enterprise as the final result of implementation?",
+          "key": "The network infrastructure (physical and virtual) and operational policies in place as a product of the ZTA plan"
+        },
+        {
+          "n": 23,
+          "stem": "A Signal Corps team is deploying communication links for a tactical command post. To enforce Zero Trust principles, policy enforcement points (PEPs) are installed directly in front of all command networks and transmission systems. In securing tactical networks according to Philippine Army standards, what rule governs access to network resources?",
+          "key": "PEPs must be placed in front of command networks and transmission systems so no resource is reachable without one"
+        },
+        {
+          "n": 24,
+          "stem": "How is Zero Trust (ZT) defined as a concept?",
+          "key": "Minimizing uncertainty in enforcing accurate, least-privilege, per-request access decisions in a network viewed as compromised"
+        },
+        {
+          "n": 25,
+          "stem": "During a coordinated maneuver, adversary jamming floods the command post's primary satellite link with signal noise, preventing unit commanders from retrieving updated situational reports or accessing the network. Which pillar of the CIA Triad is impacted when operational systems and data are no longer accessible and functional when needed?",
+          "key": "Availability"
+        },
+        {
+          "n": 26,
+          "stem": "Prior to field deployment, a specialized cyber team conducts simulated attacks against command information systems to identify hidden vulnerabilities and test the unit's defensive readiness. Which SANS Control leverages simulated attacks to evaluate defense readiness and response effectiveness?",
+          "key": "Penetration Tests and Red Team Exercises"
+        },
+        {
+          "n": 27,
+          "stem": "Which component answers \"How rigorously\" risk management practices are applied across four levels ranging from Partial (1) to Adaptive (4)?",
+          "key": "Tiers"
+        },
+        {
+          "n": 28,
+          "stem": "On the four implementation tiers of NIST Framework, how is Tier 2 (Risk Informed) defined regarding organizational risk management practices?",
+          "key": "Risk practices are approved by management but are not yet organization-wide policy."
+        },
+        {
+          "n": 29,
+          "stem": "Under the GSOMIA principle of Shared Responsibilities, how are Joint Security Efforts defined?",
+          "key": "All parties involved share responsibility for the protection of sensitive information"
+        },
+        {
+          "n": 30,
+          "stem": "Under the GSOMIA Confidentiality principle, what is the primary goal of Information Security measures?",
+          "key": "To ensure that sensitive information remains confidential and is not disclosed to unauthorized parties"
+        },
+        {
+          "n": 31,
+          "stem": "A military unit sets up a mobile command center in a forward operating base. To keep their network operational and safe from cyber threats, they apply the Six Functions of the NIST Cybersecurity Framework: Isolating the infected server, containing the cyber threat, and notifying the incident response team represents which function?",
+          "key": "Respond"
+        },
+        {
+          "n": 32,
+          "stem": "On the four implementation tiers of NIST Framework, Which Implementation Tier represents the highest level of maturity, driven by continuous improvement where lessons and threat intelligence dynamically reshape defenses?",
+          "key": "Tier 4: Adaptive"
+        },
+        {
+          "n": 33,
+          "stem": "A Signal Unit commander conducts performance evaluations to identify knowledge gaps among network operators and implements role-specific training modules to improve overall unit proficiency. Which control focuses on finding knowledge gaps and filling them with role-mapped training?",
+          "key": "Security Skills Assessment and Training"
+        },
+        {
+          "n": 34,
+          "stem": "Which component of the NIST CSF is described as \"What to do,\" containing a hierarchy of Functions, Categories, and Subcategories that outline cybersecurity outcomes independent of specific technology?",
+          "key": "The Core"
+        },
+        {
+          "n": 35,
+          "stem": "What is the primary purpose of GSOMIA?",
+          "key": "To protect sensitive military information shared between allied nations or partners"
+        },
+        {
+          "n": 36,
+          "stem": "Before deploying a custom-built command software used for troop tracking, cyber technicians test the code for security flaws and install web application firewalls to inspect incoming network traffic. Which SANS Control is being applied when testing in-house or third-party software for flaws and using firewalls to inspect web application traffic?",
+          "key": "Application Software Security"
+        },
+        {
+          "n": 37,
+          "stem": "A tactical radio link used by a artillery battery experiences a spoofing attack. The enemy subtly alters target coordinates transmitted to the fire direction computer without dropping the connection, causing grid location errors. Which pillar of the CIA Triad is violated when data is modified so that it is no longer authentic and reliable?",
+          "key": "Integrity"
+        },
+        {
+          "n": 38,
+          "stem": "Under the GSOMIA Integrity principle, how is Data Accuracy maintained?",
+          "key": "By ensuring the accuracy and integrity of information through preventing unauthorized alterations or tampering"
+        },
+        {
+          "n": 39,
+          "stem": "A military unit sets up a mobile command center in a forward operating base. To keep their network operational and safe from cyber threats, they apply the Six Functions of the NIST Cybersecurity Framework: Enforcing multi-factor authentication, firewalls, data encryption, and conducting role-based security training falls under which function?",
+          "key": "Protect"
+        },
+        {
+          "n": 40,
+          "stem": "To prevent insider threats or accidental leaks, security tools monitor sensitive mission files as they move across network boundaries both electronically over encrypted channels and physically via removable storage devices. Which control focuses on monitoring data movement across network boundaries to stop unauthorized transfer?",
+          "key": "Data Loss Prevention"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "key": "gradedc2",
+      "slug": "advanced-c2-communications",
+      "title": "Module Exam on Advanced C2 Communications",
+      "portalTitle": "Module Exam on Advanced C2 ommunications",
+      "date": "2026-10-28",
+      "module": "module-5",
+      "pages": [
+        "modulefive"
+      ],
+      "itemCount": 35,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "Which of the following describes a Small Unmanned Ground Vehicle?",
+          "key": "A modular platform that plugs in multiple payloads, reduces soldiers' direct exposure to hazards, and delivers information, intelligence, and situational awareness at the squad level"
+        },
+        {
+          "n": 2,
+          "stem": "Which of the following environments represents the non-physical domain?",
+          "key": "Cyberspace, the electromagnetic spectrum (EMS), and the cognitive domain"
+        },
+        {
+          "n": 3,
+          "stem": "According to the definition of MANET, what forms a temporary wireless network in a MANET?",
+          "key": "Low-power wireless mobile nodes"
+        },
+        {
+          "n": 4,
+          "stem": "What hostile operational threat must modern tactical communications deal with?",
+          "key": "Electronic Warfare"
+        },
+        {
+          "n": 5,
+          "stem": "What must be conducted regularly to identify and address vulnerabilities or malfunctions before a sensor is trusted for use in the field?",
+          "key": "Regular operational testing"
+        },
+        {
+          "n": 6,
+          "stem": "What challenge arises when different vendors use distinct protocols, standards, and capabilities, making seamless data sharing across sensors difficult to achieve by default?",
+          "key": "Interoperability"
+        },
+        {
+          "n": 7,
+          "stem": "What is the primary function of a Sniper Fire Location Detector?",
+          "key": "To detect and locate the source of sniper fire in real time"
+        },
+        {
+          "n": 8,
+          "stem": "Which challenge involves variables such as urban, desert, and mountainous terrain, extreme temperatures, and electromagnetic interference (EMI) impacting sensor reliability and performance?",
+          "key": "Environmental Factors"
+        },
+        {
+          "n": 9,
+          "stem": "Modern military communications have evolved from traditional combat-net radios toward which technology, enabling the transmission of voice, e-mail, GPS coordinates, images and video?",
+          "key": "IP-based radios and computer networks"
+        },
+        {
+          "n": 10,
+          "stem": "What process involves detecting, locating, and identifying a target with sufficient accuracy and detail to permit effective weapons employment?",
+          "key": "Target acquisition"
+        },
+        {
+          "n": 11,
+          "stem": "What are Unmanned Aerial Systems (UAS) defined as?",
+          "key": "Light air vehicles that carry payloads such as sensors, used for remote sensing and mapping missions"
+        },
+        {
+          "n": 12,
+          "stem": "Which of the following is listed as a main feature of MANET regarding network restoration and setup?",
+          "key": "Self-forming, Self-healing"
+        },
+        {
+          "n": 13,
+          "stem": "How is the network membership characterized in the MANET main features?",
+          "key": "Dynamic number of members in the net"
+        },
+        {
+          "n": 14,
+          "stem": "Which C4ISTAR component provides the reliable links necessary for commanders to issue orders, coordinate forces, and receive feedback using radios, satellite, microwave or wired communications?",
+          "key": "Communications"
+        },
+        {
+          "n": 15,
+          "stem": "What is defined as the systematic observation of areas, persons, activities, objects, or domains using visual, electronic, photographic, or aural means to contribute to situational awareness?",
+          "key": "Surveillance"
+        },
+        {
+          "n": 16,
+          "stem": "What model used for establishing technical standards and profiles, emphasizing that interoperability encompasses people, processes, technology, and communication information systems?",
+          "key": "NATO interoperability standards and profiles"
+        },
+        {
+          "n": 17,
+          "stem": "Which feature in the MANET diagram relates to changing transmission frequencies?",
+          "key": "Frequency hopping"
+        },
+        {
+          "n": 18,
+          "stem": "What challenge requires engineering backward compatibility because older systems may not natively support or align with new sensors?",
+          "key": "Legacy Integration"
+        },
+        {
+          "n": 19,
+          "stem": "What must accompany interoperability to protect confidentiality, integrity, and availability as information moves through networks?",
+          "key": "Security measures such as authentication, authorization, and encryption"
+        },
+        {
+          "n": 20,
+          "stem": "What do Ground-Based Radio Direction Finding Systems accomplish?",
+          "key": "They find the direction of a radio source to locate unknown transmitters or vehicles using multiple measurements"
+        },
+        {
+          "n": 21,
+          "stem": "Which of the following best describes the infrastructure of a MANET?",
+          "key": "Infrastructure-less and continuously self-configuring"
+        },
+        {
+          "n": 22,
+          "stem": "Which protocol framework provides a standardized, interoperable, scalable, reliable, flexible, and extensible framework for diverse systems and devices to communicate at the networking layer?",
+          "key": "TCP/IP"
+        },
+        {
+          "n": 23,
+          "stem": "What is essential when different systems connect, even if their internal technologies differ?",
+          "key": "Standardizing the points where different systems connect"
+        },
+        {
+          "n": 24,
+          "stem": "How does integrated sensor data directly benefit operations through the Common Operational Picture (COP)?",
+          "key": "By providing accurate battlespace situational awareness, focused intelligence, and efficient logistics"
+        },
+        {
+          "n": 25,
+          "stem": "Which feature is NOT characteristic of a MANET?",
+          "key": "Permanent wired connection setup"
+        },
+        {
+          "n": 26,
+          "stem": "What document is particularly important when connecting C4ISTAR with weapon systems to describe system interfaces and communication rules needed to achieve compatibility?",
+          "key": "Interface Control Document"
+        },
+        {
+          "n": 27,
+          "stem": "Which ISR asset is important for increasing situational awareness, supporting acquisition, detection, designation, and battle-damage assessment?",
+          "key": "Unmanned Aerial Systems (UAS)"
+        },
+        {
+          "n": 28,
+          "stem": "Which aspect ensures performance management within a MANET?",
+          "key": "Quality of service"
+        },
+        {
+          "n": 29,
+          "stem": "Which challenge highlights that operator training, situational awareness, and human error remain critical considerations despite the introduction of greater system automation?",
+          "key": "Human Factors"
+        },
+        {
+          "n": 30,
+          "stem": "Which factor requires balancing the expensive nature of developing, deploying, and maintaining sensor capabilities against financial limitations?",
+          "key": "Cost"
+        },
+        {
+          "n": 31,
+          "stem": "What challenge is driven by numerous components, networks, and technologies that make system reliability and ongoing personnel training a constant task?",
+          "key": "Complexity"
+        },
+        {
+          "n": 32,
+          "stem": "What is defined as a focal point within an architecture where distinct systems providing the same service can interoperate?",
+          "key": "Standardized service interoperability point (SIOP)"
+        },
+        {
+          "n": 33,
+          "stem": "Why must redundancy be built into tactical sensor architectures according to the guidelines?",
+          "key": "To ensure the failure of one piece of equipment does not compromise the entire system"
+        },
+        {
+          "n": 34,
+          "stem": "How is a Thermal Imager described?",
+          "key": "A portable, battery-operated device for long-range observation by reconnaissance teams or forward observers"
+        },
+        {
+          "n": 35,
+          "stem": "What best defines the core concept of system integration?",
+          "key": "Combining multiple applications and systems so they function as one uninterrupted system"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "key": "gradedssi",
+      "slug": "signal-support-integration",
+      "title": "Module Exam on Signal Support Integration",
+      "portalTitle": "Module Exam on Signal Support Integration",
+      "date": "2026-10-07",
+      "module": "module-4",
+      "pages": [
+        "modulethree"
+      ],
+      "itemCount": 40,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "Coalition networks and information systems can be exposed to disruption, unauthorized access, or manipulation. Signal personnel must understand the required protection measures and coordinate with appropriate cyber elements. Which key challenge is being described?",
+          "key": "Cybersecurity threats"
+        },
+        {
+          "n": 2,
+          "stem": "A typhoon damages headquarters communication facilities. Which action most directly applies the Recover function?",
+          "key": "Deploy appropriate teams to repair and restore communication"
+        },
+        {
+          "n": 3,
+          "stem": "A joint headquarters needs IP-based telephone calls over its authorized data network. Which technology best meets this requirement?",
+          "key": "Voice over Internet Protocol"
+        },
+        {
+          "n": 4,
+          "stem": "An engineer element joins the force after the signal plan has been prepared. What should the planner do?",
+          "key": "Confirm its requirements and compatibility, then update and coordinate the plan"
+        },
+        {
+          "n": 5,
+          "stem": "Coalition partners may differ in doctrine, organization, language, equipment, and communication procedures. Signal support helps manage these differences through planning, coordination, interoperability arrangements, and appropriate technical solutions. Which role of signal support in coalition operations is primarily being described?",
+          "key": "Supporting multinational efforts"
+        },
+        {
+          "n": 6,
+          "stem": "The primary communication link fails during an operation, but an authorized alternate arrangement was established beforehand. What should personnel do?",
+          "key": "Use the planned alternate arrangement while restoration is coordinated"
+        },
+        {
+          "n": 7,
+          "stem": "How should limited signal resources be prioritized?",
+          "key": "By supportability and importance to mission accomplishment"
+        },
+        {
+          "n": 8,
+          "stem": "An Army unit ashore receives delayed messages from a supporting naval element because their systems cannot communicate directly. What is the best signal support action?",
+          "key": "Coordinate compatible equipment or an approved embedded-operator relay arrangement"
+        },
+        {
+          "n": 9,
+          "stem": "A commander may need timely information, but speed does not remove the requirement to use an appropriately protected communication method. During a coalition operation, which key component of signal support is primarily highlighted by balancing the need for speed with the mandate for protection?",
+          "key": "Secure communication"
+        },
+        {
+          "n": 10,
+          "stem": "During a combined arms operation, the Signal Officer evaluates which maneuver elements and supporting arms must communicate, the critical data they must exchange, and the systems required to link them together. Which pillar of the Philippine Army Signal Operations Framework is being applied?",
+          "key": "Connect"
+        },
+        {
+          "n": 11,
+          "stem": "A joint network operator detects suspicious activity affecting Army and Navy systems. What is the most appropriate action?",
+          "key": "Report through established channels and activate coordinated incident-response procedures"
+        },
+        {
+          "n": 12,
+          "stem": "Different terminology, procedures, and communication habits can create misunderstanding even when systems are technically compatible. Which challenge to coalition signal support does this describe?",
+          "key": "Language and cultural barriers"
+        },
+        {
+          "n": 13,
+          "stem": "Signal support enables participating forces to coordinate actions, exchange reports, synchronize activities, and maintain a shared understanding of the operation. Which role of signal support in coalition operations is primarily being described?",
+          "key": "Enhancing coordination"
+        },
+        {
+          "n": 14,
+          "stem": "In a coalition operation, two forces may both have functioning radios but still be unable to exchange information because their systems or procedures are not compatible. The Signal Officer must identify the gap before the operation and coordinate a workable solution. Which key component of signal support is being described?",
+          "key": "Interoperability"
+        },
+        {
+          "n": 15,
+          "stem": "What is the main purpose of Signal Support in military operations?",
+          "key": "To enable communication, coordination and information exchange"
+        },
+        {
+          "n": 16,
+          "stem": "Suspicious activity is detected on a headquarters network. Which response follows the handout?",
+          "key": "Report through prescribed channels and involve authorized incident responders"
+        },
+        {
+          "n": 17,
+          "stem": "A deployed radio is reported lost during a joint operation. What should the responsible personnel do?",
+          "key": "Report the possible compromise and implement directed protective actions under prescribed procedures"
+        },
+        {
+          "n": 18,
+          "stem": "An Air Force element joins an existing Army-Navy mission. The signal officer adds required links and capacity while retaining agreed procedures. Which principle is most directly applied?",
+          "key": "Scalable"
+        },
+        {
+          "n": 19,
+          "stem": "A force has ten radios, but three are unserviceable and some remaining sets lack trained operators. What should the planner base the support plan on?",
+          "key": "Actual usable equipment capability and available trained personnel"
+        },
+        {
+          "n": 20,
+          "stem": "The joint force shifts from maritime transport to securing land objectives, and the Army becomes the supported component. What should the signal officer do?",
+          "key": "Update the estimate, links, responsibilities, and priorities for the new phase"
+        },
+        {
+          "n": 21,
+          "stem": "An infantry company and an armored element have functioning radios but cannot exchange required information because their systems and arrangements are incompatible. What should the signal planner address first?",
+          "key": "Establish compatible, standardized communication arrangements"
+        },
+        {
+          "n": 22,
+          "stem": "During the network build-out phase, signal personnel implement a specific monitoring tool that systematically collects and analyzes log activity across various IT resources to detect anomalies. Which specific security and monitoring function is being described?",
+          "key": "Security Information and Event Management (SIEM)"
+        },
+        {
+          "n": 23,
+          "stem": "Army units and civilian responders need to coordinate relief activities after a disaster. Which communication arrangement follows the handout?",
+          "key": "Establish a response net separate from the secured Army operational net"
+        },
+        {
+          "n": 24,
+          "stem": "A commander must communicate through a vigilance net after other means fail. How should signal personnel treat the net?",
+          "key": "Apply authorized protection measures and recognize its continuing interception risk"
+        },
+        {
+          "n": 25,
+          "stem": "Distance, terrain, mobility, dispersed forces, changing command relationships, and degraded communications can affect Signal support. What key factor affecting coalition signal support is being highlighted here?",
+          "key": "Operational environment"
+        },
+        {
+          "n": 26,
+          "stem": "A tactical radio is lost and may have fallen into adversary hands. What is the appropriate response?",
+          "key": "Report the incident and follow prescribed compromise and coordinated change procedures"
+        },
+        {
+          "n": 27,
+          "stem": "A coalition command post loses a critical communication capability during an operation. The problem may not be solved simply by 'restarting the radio.' The Signal element must identify the fault, determine whether an alternate means is available, coordinate with the affected user, and restore the required capability as quickly as practical. Which key component of signal support in coalition operations is primarily being tested or addressed through this troubleshooting and restoration process?",
+          "key": "Technical support and maintenance"
+        },
+        {
+          "n": 28,
+          "stem": "A unit moves behind a mountain and loses its previously reliable connection. What is the most appropriate planning response?",
+          "key": "Reassess coverage and propagation, then coordinate suitable alternate support"
+        },
+        {
+          "n": 29,
+          "stem": "During a coalition operation, a unit may need timely updates from another element to maintain a common operational picture. The value is not simply 'more data'; it is delivering relevant information to the users who need it. Which key component of signal support in coalition operations is being described?",
+          "key": "Real-time data sharing"
+        },
+        {
+          "n": 30,
+          "stem": "Commanders need reliable means to issue guidance, receive reports, and make decisions. Signal support therefore directly contributes to command and control. Which role of signal support in coalition operations is primarily being described?",
+          "key": "Facilitating command and control"
+        },
+        {
+          "n": 31,
+          "stem": "A platoon proposes using a convenient commercial application to send sensitive operational reports. What should be checked before use?",
+          "key": "Whether its use is authorized and meets applicable COMSEC requirements"
+        },
+        {
+          "n": 32,
+          "stem": "Signal support must protect mission-critical information and communication capabilities. Security considerations should be built into planning and operation not added only after a problem occurs. Which role of signal support in coalition operations is primarily being described?",
+          "key": "Strengthening operational security"
+        },
+        {
+          "n": 33,
+          "stem": "What does Signal Support to Combined Arms Operations enable?",
+          "key": "Coordination among complementary Army capabilities"
+        },
+        {
+          "n": 34,
+          "stem": "In a fast-moving combined arms operation, primary communication lines may be disrupted by terrain or enemy action. Identifying backup radio frequencies, alternate routing, and rapid restoration capabilities addresses which pillar of the Philippine Army Signal Operations Framework?",
+          "key": "Recover"
+        },
+        {
+          "n": 35,
+          "stem": "Different forces may use different systems or technical standards. A working system is not necessarily an interoperable system. Which major challenge in coalition operations does this statement primarily highlight?",
+          "key": "Technical compatibility"
+        },
+        {
+          "n": 36,
+          "stem": "A storm disables the primary link between the joint headquarters and an Army unit. A tested alternate is available. What is the best response?",
+          "key": "Use the planned alternate and coordinate diagnosis and restoration of the primary link"
+        },
+        {
+          "n": 37,
+          "stem": "When establishing security controls for a new signal network, signal personnel conduct a review to measure how well the network complies with the security controls referenced by the manual. Which monitoring and assessment function does this represent?",
+          "key": "Cyber risk assessment"
+        },
+        {
+          "n": 38,
+          "stem": "An Army command post will relocate during a joint mission. Which action best maintains communication support?",
+          "key": "Plan continuity during movement and assess the new site's coverage and logistics"
+        },
+        {
+          "n": 39,
+          "stem": "A unit has serviceable radios but too few charged batteries for a three-day mission with naval support. What should the signal planner do?",
+          "key": "Arrange power resupply or charging support based on mission duration"
+        },
+        {
+          "n": 40,
+          "stem": "A coalition operation may expand from a small command post into several dispersed locations. Signal planning must anticipate increased users, traffic, locations, coordination requirements, and contingencies. Which key component of signal support in coalition operations is primarily being described?",
+          "key": "Scalable systems"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "key": "gradedcoalition",
+      "slug": "signal-support-coalition-operations",
+      "title": "Exam on Signal Support in Coalition Operations",
+      "portalTitle": "Exam on Signal Support in Coalition Operation",
+      "date": "2026-10-07",
+      "module": "module-4",
+      "pages": [
+        "coalition",
+        "modulethree"
+      ],
+      "itemCount": 13,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "An existing coalition Signal plan adequately supports two contingents. A third contingent joins the operation, adding new headquarters, users, locations, and information exchanges, while the original capabilities remain serviceable. What is the BEST planning response?",
+          "key": "Expand the support arrangement to accommodate the increased requirement while preserving interoperability and security"
+        },
+        {
+          "n": 2,
+          "stem": "During coalition planning, all participating forces can exchange required voice communications. However, one contingent cannot receive a mission-essential digital operational report in a usable form. Which assessment BEST identifies the remaining problem?",
+          "key": "Information interoperability remains deficient because required information cannot be effectively exchanged and understood"
+        },
+        {
+          "n": 3,
+          "stem": "During mission analysis, the Signal Officer identifies several available communications systems. One provides excellent connectivity but cannot satisfy the coalition's information-protection requirements. Another is more limited but meets the required information exchange and security conditions. What is the BEST basis for recommending a capability?",
+          "key": "The capability that best satisfies the total mission requirement, including required information exchange and protection"
+        },
+        {
+          "n": 4,
+          "stem": "Two coalition contingents successfully establish a technical connection. During operations, however, reports are repeatedly misunderstood because each force uses different procedures and terminology. Which assessment is MOST appropriate?",
+          "key": "Technical connectivity exists, but procedural and information interoperability remain deficient"
+        },
+        {
+          "n": 5,
+          "stem": "During planning, the primary communications arrangement satisfies current command and control requirements. Intelligence indicates that the primary means may become unavailable during a critical phase. What is the MOST appropriate Signal planning response?",
+          "key": "Establish alternative arrangements and actions synchronized with the operational plan before execution"
+        },
+        {
+          "n": 6,
+          "stem": "A participating force requests access to a coalition information service because its system is technically capable of connecting to it. What should PRINCIPALLY determine whether access is authorized?",
+          "key": "Whether the information is required for the mission and applicable security requirements permit access"
+        },
+        {
+          "n": 7,
+          "stem": "During execution, the coalition shifts its main effort, requiring headquarters relocation and changing priority information exchanges. Existing communications remain operational but no longer fully support the revised command and information requirements. What should the Signal Officer do FIRST?",
+          "key": "Reassess the changed operational requirements and adjust Signal support to the new users, locations, and information exchanges"
+        },
+        {
+          "n": 8,
+          "stem": "A coalition communications plan identifies required users, systems, and information exchanges, but responsibilities between participating Signal elements remain unclear. Which deficiency presents the MOST immediate planning concern?",
+          "key": "Support relationships and coordination mechanisms have not been clearly established"
+        },
+        {
+          "n": 9,
+          "stem": "Which condition provides the STRONGEST basis for the Signal Officer to assess coalition communications support as ready for execution?",
+          "key": "Mission-required users and information exchanges are supported, interoperability gaps addressed, responsibilities coordinated, contingencies established, and applicable protection requirements incorporated"
+        },
+        {
+          "n": 10,
+          "stem": "A coalition headquarters directs the Signal planning team to immediately identify radios and network equipment for an upcoming operation. Mission analysis and user requirements have not yet been completed. What is the BEST response by the Signal Officer?",
+          "key": "Determine the mission, command, information, and user requirements before matching available capabilities against them"
+        },
+        {
+          "n": 11,
+          "stem": "During preparation for execution, the Signal Officer discovers that all current communications requirements are supported, but no arrangements exist if the primary means is disrupted. Which conclusion is MOST defensible?",
+          "key": "The support plan remains incomplete because continuity requirements have not been adequately addressed"
+        },
+        {
+          "n": 12,
+          "stem": "During coalition mission planning, one contingent reports that its internal communications are fully operational. However, it cannot exchange required operational information with another participating force. What should the Signal Officer assess FIRST?",
+          "key": "Whether mission-required information exchange and interoperability interfaces have been established"
+        },
+        {
+          "n": 13,
+          "stem": "A coalition headquarters is preparing to support geographically separated forces. Several communications systems are available, but their suitability has not yet been determined. Which action BEST reflects the proper planning approach?",
+          "key": "Determine mission, user, information, terrain, security, and continuity requirements before selecting capabilities"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "key": "gradedjoint",
+      "slug": "signal-support-joint-operations",
+      "title": "Exam on Signal Support in Joint Operations",
+      "portalTitle": "Exam on Signal Support in Joint Operation",
+      "date": "2026-10-05",
+      "module": "module-4",
+      "pages": [
+        "signaljoint",
+        "modulethree"
+      ],
+      "itemCount": 30,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "The joint force shifts from maritime transport to securing land objectives, and the Army becomes the supported component. What should the signal officer do?",
+          "key": "Update the estimate, links, responsibilities, and priorities for the new phase"
+        },
+        {
+          "n": 2,
+          "stem": "Which principle applies when the network expands to include an additional service component?",
+          "key": "Scalable"
+        },
+        {
+          "n": 3,
+          "stem": "A plan provides a tested alternative path if the main link fails. Which principle does this demonstrate?",
+          "key": "Redundant"
+        },
+        {
+          "n": 4,
+          "stem": "What is the main contribution of signal support to joint command and control?",
+          "key": "It enables timely exchange of decisions and reports across participating forces"
+        },
+        {
+          "n": 5,
+          "stem": "A joint headquarters needs IP-based telephone calls over its authorized data network. Which technology best meets this requirement?",
+          "key": "Voice over Internet Protocol"
+        },
+        {
+          "n": 6,
+          "stem": "A unit has serviceable radios but too few charged batteries for a three-day mission with naval support. What should the signal planner do?",
+          "key": "Arrange power resupply or charging support based on mission duration"
+        },
+        {
+          "n": 7,
+          "stem": "Which security technology enforces access policies for users and devices?",
+          "key": "Network Access Control"
+        },
+        {
+          "n": 8,
+          "stem": "An Air Force element joins an existing Army-Navy mission. The signal officer adds required links and capacity while retaining agreed procedures. Which principle is most directly applied?",
+          "key": "Scalable"
+        },
+        {
+          "n": 9,
+          "stem": "What should the signal planner determine before selecting communication equipment?",
+          "key": "The mission, communication requirements, and factors affecting support"
+        },
+        {
+          "n": 10,
+          "stem": "What is the proper basis for using a commercial communication platform for military information?",
+          "key": "Authorization under applicable COMSEC policies and information requirements"
+        },
+        {
+          "n": 11,
+          "stem": "Which system provides a secured and managed Army intranet?",
+          "key": "PANET"
+        },
+        {
+          "n": 12,
+          "stem": "How should communication resources be allocated when requirements exceed available capability?",
+          "key": "Prioritize requirements according to mission importance and commander's guidance"
+        },
+        {
+          "n": 13,
+          "stem": "A commander must communicate through a vigilance net after other means fail. How should signal personnel treat the net?",
+          "key": "Apply authorized protection measures and recognize its continuing interception risk"
+        },
+        {
+          "n": 14,
+          "stem": "Which capability allows a commander to establish an operations center away from a fixed facility?",
+          "key": "Mobile Command Center"
+        },
+        {
+          "n": 15,
+          "stem": "Which statement best guides selection of tactical radios for a joint force?",
+          "key": "Compatibility, configuration, and agreed procedures must be verified"
+        },
+        {
+          "n": 16,
+          "stem": "An Army command post will relocate during a joint mission. Which action best maintains communication support?",
+          "key": "Plan continuity during movement and assess the new site's coverage and logistics"
+        },
+        {
+          "n": 17,
+          "stem": "Why embed an Air Force radio operator at an Army tactical operations center?",
+          "key": "To facilitate direct coordination with supporting air assets"
+        },
+        {
+          "n": 18,
+          "stem": "Which assessment best determines whether radios can support a prolonged deployment?",
+          "key": "Check serviceability, trained operators, power, and maintenance support"
+        },
+        {
+          "n": 19,
+          "stem": "Which set correctly describes PACE communication arrangements?",
+          "key": "Primary, alternate, contingency, and emergency"
+        },
+        {
+          "n": 20,
+          "stem": "A storm disables the primary link between the joint headquarters and an Army unit. A tested alternate is available. What is the best response?",
+          "key": "Use the planned alternate and coordinate diagnosis and restoration of the primary link"
+        },
+        {
+          "n": 21,
+          "stem": "A joint network operator detects suspicious activity affecting Army and Navy systems. What is the most appropriate action?",
+          "key": "Report through established channels and activate coordinated incident-response procedures"
+        },
+        {
+          "n": 22,
+          "stem": "Which arrangement best illustrates a joint operation?",
+          "key": "Army and Navy forces executing a common mission under one commander"
+        },
+        {
+          "n": 23,
+          "stem": "Which statement correctly distinguishes CEOI from CESI?",
+          "key": "CEOI provides operating instructions; CESI explains how to use the CEOI items"
+        },
+        {
+          "n": 24,
+          "stem": "Which technology links radio communication through an IP network?",
+          "key": "Radio over IP"
+        },
+        {
+          "n": 25,
+          "stem": "Which action best validates a tentative joint signal plan?",
+          "key": "Verify links, coverage gaps, resources, responsibilities, and security with the services"
+        },
+        {
+          "n": 26,
+          "stem": "An Army unit ashore receives delayed messages from a supporting naval element because their systems cannot communicate directly. What is the best signal support action?",
+          "key": "Coordinate compatible equipment or an approved embedded-operator relay arrangement"
+        },
+        {
+          "n": 27,
+          "stem": "A deployed radio is reported lost during a joint operation. What should the responsible personnel do?",
+          "key": "Report the possible compromise and implement directed protective actions under prescribed procedures"
+        },
+        {
+          "n": 28,
+          "stem": "Why coordinate electromagnetic spectrum use among participating units?",
+          "key": "To manage frequency requirements and reduce interference"
+        },
+        {
+          "n": 29,
+          "stem": "Which planning decision best demonstrates the operations focused principle?",
+          "key": "Match communication support to the commander's mission requirements"
+        },
+        {
+          "n": 30,
+          "stem": "Which factor should be assessed when a proposed link crosses a mountain range?",
+          "key": "Terrain effects on line-of-sight communication"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "key": "gradedcombined",
+      "slug": "signal-support-combined-arms-operations",
+      "title": "Exam on Signal Support in Combined Arms Operations",
+      "portalTitle": "Exam on Signal Support in Combined Arms Operation",
+      "date": "2026-10-03",
+      "module": "module-4",
+      "pages": [
+        "signal",
+        "modulethree"
+      ],
+      "itemCount": 30,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "The primary communication link fails during an operation, but an authorized alternate arrangement was established beforehand. What should personnel do?",
+          "key": "Use the planned alternate arrangement while restoration is coordinated"
+        },
+        {
+          "n": 2,
+          "stem": "What does Sustain mean in the Connect, Sustain, and Recover framework?",
+          "key": "Maintain connectivity throughout operations"
+        },
+        {
+          "n": 3,
+          "stem": "What does Operations Focused require?",
+          "key": "Communication support must serve the mission and avoid limiting its execution"
+        },
+        {
+          "n": 4,
+          "stem": "Which principle provides multiple transmission paths and backup capabilities?",
+          "key": "Redundant"
+        },
+        {
+          "n": 5,
+          "stem": "A typhoon damages headquarters communication facilities. Which action most directly applies the Recover function?",
+          "key": "Deploy appropriate teams to repair and restore communication"
+        },
+        {
+          "n": 6,
+          "stem": "Which characteristic refers to cooperation with agencies, organizations, and partner nations?",
+          "key": "Collective Environment"
+        },
+        {
+          "n": 7,
+          "stem": "Which principle requires Signal Support to adapt to changing force size and phases of operations?",
+          "key": "Scalable"
+        },
+        {
+          "n": 8,
+          "stem": "What does Signal Support to Combined Arms Operations enable?",
+          "key": "Coordination among complementary Army capabilities"
+        },
+        {
+          "n": 9,
+          "stem": "Which document explains how to use the items in the CEOI?",
+          "key": "Communication-Electronics Standing Instructions"
+        },
+        {
+          "n": 10,
+          "stem": "A force has ten radios, but three are unserviceable and some remaining sets lack trained operators. What should the planner base the support plan on?",
+          "key": "Actual usable equipment capability and available trained personnel"
+        },
+        {
+          "n": 11,
+          "stem": "Which list contains the three Signal Operations environments?",
+          "key": "Physical, cyberspace, and electromagnetic spectrum"
+        },
+        {
+          "n": 12,
+          "stem": "An infantry company and an armored element have functioning radios but cannot exchange required information because their systems and arrangements are incompatible. What should the signal planner address first?",
+          "key": "Establish compatible, standardized communication arrangements"
+        },
+        {
+          "n": 13,
+          "stem": "A tactical radio is lost and may have fallen into adversary hands. What is the appropriate response?",
+          "key": "Report the incident and follow prescribed compromise and coordinated change procedures"
+        },
+        {
+          "n": 14,
+          "stem": "An engineer element joins the force after the signal plan has been prepared. What should the planner do?",
+          "key": "Confirm its requirements and compatibility, then update and coordinate the plan"
+        },
+        {
+          "n": 15,
+          "stem": "What does the letter L represent in METAL?",
+          "key": "Logistical Requirements"
+        },
+        {
+          "n": 16,
+          "stem": "What is PANET according to the handout?",
+          "key": "A secured, managed Army intranet"
+        },
+        {
+          "n": 17,
+          "stem": "What does Radio over IP do?",
+          "key": "Links radio communications through IP networks"
+        },
+        {
+          "n": 18,
+          "stem": "Army units and civilian responders need to coordinate relief activities after a disaster. Which communication arrangement follows the handout?",
+          "key": "Establish a response net separate from the secured Army operational net"
+        },
+        {
+          "n": 19,
+          "stem": "How should limited signal resources be prioritized?",
+          "key": "By supportability and importance to mission accomplishment"
+        },
+        {
+          "n": 20,
+          "stem": "Which security concern protects information from unauthorized alteration?",
+          "key": "Integrity"
+        },
+        {
+          "n": 21,
+          "stem": "A platoon proposes using a convenient commercial application to send sensitive operational reports. What should be checked before use?",
+          "key": "Whether its use is authorized and meets applicable COMSEC requirements"
+        },
+        {
+          "n": 22,
+          "stem": "What is the main purpose of Signal Support in military operations?",
+          "key": "To enable communication, coordination, and information exchange"
+        },
+        {
+          "n": 23,
+          "stem": "Where are approved signal arrangements formally published?",
+          "key": "In the Signal Plan or C4S Annex to the operations order or plan"
+        },
+        {
+          "n": 24,
+          "stem": "Which principle requires compatibility and standardization so units can communicate?",
+          "key": "Interoperable"
+        },
+        {
+          "n": 25,
+          "stem": "Suspicious activity is detected on a headquarters network. Which response follows the handout?",
+          "key": "Report through prescribed channels and involve authorized incident responders"
+        },
+        {
+          "n": 26,
+          "stem": "A unit moves behind a mountain and loses its previously reliable connection. What is the most appropriate planning response?",
+          "key": "Reassess coverage and propagation, then coordinate suitable alternate support"
+        },
+        {
+          "n": 27,
+          "stem": "Which set correctly identifies the four main Signal Support service categories?",
+          "key": "Command and control communication; cyberspace operations and electronic warfare; repair and maintenance; recovery and restoration"
+        },
+        {
+          "n": 28,
+          "stem": "What does PACE stand for?",
+          "key": "Primary, Alternate, Contingency, and Emergency"
+        },
+        {
+          "n": 29,
+          "stem": "Which cyberspace domain includes firewall configurations, network topology, and internet protocols?",
+          "key": "Logical domain"
+        },
+        {
+          "n": 30,
+          "stem": "Which service connects operating troops both on the move and on the halt?",
+          "key": "Tactical communication"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "key": "gradedma2",
+      "slug": "module-assessment-2",
+      "title": "Module Assessment 2",
+      "portalTitle": "Module Assessment 2",
+      "date": "2026-10-02",
+      "module": "module-2",
+      "pages": [
+        "combined"
+      ],
+      "itemCount": 50,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "According to the doctrine on Army Operational Platforms, what describes \"Joint Operations\"?",
+          "key": "Involve forces of two or more services under a single commander."
+        },
+        {
+          "n": 2,
+          "stem": "During a multi-domain operational planning conference, a joint task force commander reviews the categorization of available intelligence collection assets to ensure comprehensive coverage across different operational tiers. Which category of ISR assets and platforms operates in the airspace above the theater to provide flexible and persistent surveillance?",
+          "key": "Airborne ISR Systems"
+        },
+        {
+          "n": 3,
+          "stem": "An instructor outlines an operation conducted by fire and maneuver that are combined and controlled to create a preponderance of combat power that culminates in a powerful and violent action at the decisive time and place. What is being defined?",
+          "key": "Armor Operation"
+        },
+        {
+          "n": 4,
+          "stem": "During a naval task force deployment in coastal waters, surface vessels and specialized watercraft are utilized to conduct continuous surveillance and monitor maritime approaches. Which primary category of ISR platforms encompasses these waterborne systems?",
+          "key": "Maritime ISR Platforms"
+        },
+        {
+          "n": 5,
+          "stem": "During a technical intelligence collection mission, an analyst uses a specialized discipline to identify distinctive characteristics of targets, such as source, sender, or emitter type and location, to achieve precise measurement and identification. Which intelligence discipline is being applied?",
+          "key": "MASINT (Measurement and Signature Intelligence)"
+        },
+        {
+          "n": 6,
+          "stem": "During an air-ground coordination mission, an armed drone carrying precision-guided munitions is deployed to engage high-value targets previously identified during ISR tracking, providing a flexible and persistent strike capability in support of ground units. What type of airborne ISR system provides this flexible and persistent strike capability?",
+          "key": "Unmanned Aerial Vehicles (UAVs)"
+        },
+        {
+          "n": 7,
+          "stem": "During a tactical staff discussion regarding force structures and doctrinal definitions, an operations officer analyzes a specialized element that functions as the commander's \"eyes and ears,\" providing crucial situational awareness and facilitating the maneuver of divisions, brigades, and battalions. What component is being evaluated?",
+          "key": "Cavalry"
+        },
+        {
+          "n": 8,
+          "stem": "During an operation, a commander employs forces to concentrate and disperse combat power, keeping the enemy off balance and placing them in a disadvantaged position through the flexible application of combat power. Which principle of army operations is being applied?",
+          "key": "Principle of Maneuver"
+        },
+        {
+          "n": 9,
+          "stem": "During a force structuring and integration review, a fires command planner examines how command and support relationships are established between cannon, rocket, and missile systems and maneuver elements to ensure accurate fusion and economical delivery of fires, noting that the smallest artillery unit deployed to provide fire support is an FA Platoon. Which functional element of the artillery system is being described?",
+          "key": "Organization"
+        },
+        {
+          "n": 10,
+          "stem": "What best describes the \"Neutralize\" effect of fires?",
+          "key": "Causes enemy personnel or materiel to become ineffective for a short period, with at least 10% casualties or materiel damage."
+        },
+        {
+          "n": 11,
+          "stem": "During a critical breakthrough operation, a commander concentrates and focuses the effects of combat power applying elements simultaneously against multiple targets and concentrating combat power against a single target to completely overwhelm the enemy at the decisive place and time. Which principle of Army operations is being applied in this scenario?",
+          "key": "Mass"
+        },
+        {
+          "n": 12,
+          "stem": "During mission planning, an intelligence officer utilizes unclassified space-based resources that benefit multinational partners, are easily obtained from a variety of sources, and represent the most relevant ISR capability for operations. Which specific resource category provides these advantages?",
+          "key": "Commercial Space-Based Imagery"
+        },
+        {
+          "n": 13,
+          "stem": "During a border security defense review, an intelligence coordinator deploys fixed and mobile surveillance radars and sensor stations stationed directly on terrain features to monitor enemy ground movements. Which category of ISR assets and platforms includes these systems?",
+          "key": "Ground-Based ISR Systems"
+        },
+        {
+          "n": 14,
+          "stem": "An instructor discusses a combined arms force designed to conduct mounted combat, employing armor-protected vehicles as a principal means of accomplishing a ground combat mission. What is being defined?",
+          "key": "Armor"
+        },
+        {
+          "n": 15,
+          "stem": "During a tactical fires coordination briefing, an operations officer evaluates specific effects of fires used to shape the battlefield, noting an action defined as the act of drawing the attention and forces of an enemy away from the point of the principal operation through an attack, alarm, or feint. Which tactical effect of fires is being described?",
+          "key": "Diversion"
+        },
+        {
+          "n": 16,
+          "stem": "During a brigade tactical planning conference, an artillery fire support coordinator reviews how field artillery units must integrate their targeting plans to ensure that all planned fires directly fulfill the strategic intent and objectives established by the supported maneuver unit commander. Which basic task of field artillery is being executed?",
+          "key": "Support the Concept of Operations"
+        },
+        {
+          "n": 17,
+          "stem": "During an operation, a maneuver unit requires continuous and timely artillery support. To accomplish this, the Field Artillery unit must coordinate its communication, mobility, survey, meteorological, target acquisition, and fire direction capabilities. Which action best demonstrates the application of the Field Artillery functions described in the slide?",
+          "key": "Integrate its communication, survey, meteorological, target acquisition, and fire direction capabilities to provide continuous, accurate, and timely fire support to the maneuver unit."
+        },
+        {
+          "n": 18,
+          "stem": "A commander wants to mass fires accurately from different firing units. Why is a common grid important?",
+          "key": "It allows the firing units to use a common reference for location and direction."
+        },
+        {
+          "n": 19,
+          "stem": "During a multi-national joint military exercise, coalition forces face severe communication breakdowns and data-sharing roadblocks because their ISR systems and platforms cannot seamlessly connect or exchange information with allied units. Based on the principles of ISR operations shown in the slide, which principle is essential to ensure effective coordination among different military services and allied forces?",
+          "key": "Interoperability"
+        },
+        {
+          "n": 20,
+          "stem": "A long-range sensor station is tasked to maintain an uninterrupted, 24-hour watch over a suspected enemy staging area to detect any movement or activity without interruption. Which component of ISR does this activity represent?",
+          "key": "Surveillance"
+        },
+        {
+          "n": 21,
+          "stem": "An infantry battalion rapidly transitions from disaster relief and civil support operations to high-intensity combat operations, showcasing the ability of forces to meet diverse mission requirements. Which tenet of army operations is demonstrated by this capability?",
+          "key": "Versatility"
+        },
+        {
+          "n": 22,
+          "stem": "During a combined arms operation, an armored force commander directs heavy tracked elements to spearhead an assault against entrenched enemy lines. What is defined as the primary mission of the Tank unit?",
+          "key": "To close with and neutralize enemy forces by fire, maneuver, and shock effect in coordination with other arms"
+        },
+        {
+          "n": 23,
+          "stem": "During strategic intelligence collection planning, an analyst integrates data gathered from high-altitude orbital assets that provide broad-area coverage across global theater boundaries. Which category of ISR systems encompasses these orbital platforms? Intro to Artillery Operation",
+          "key": "Space-Based ISR Systems"
+        },
+        {
+          "n": 24,
+          "stem": "During a regional security campaign, an infantry battalion is tasked to secure critical infrastructure, assist local government agencies in disaster response, and conduct community stability projects in a newly liberated municipality. According to Army doctrine, which element of Full Spectrum Operations does this mission primarily fall under?",
+          "key": "Support to Civil Governance"
+        },
+        {
+          "n": 25,
+          "stem": "During mission planning, a commander enforces measures to protect and preserve the combat force, take necessary calculated risks, and ensure that the enemy is never permitted to acquire an unexpected advantage. Which principle of army operations is being applied?",
+          "key": "Principle of Security"
+        },
+        {
+          "n": 26,
+          "stem": "Which element of Army Power is specifically described as the multiplying and unifying element that is often the difference between success and failure?",
+          "key": "Leadership"
+        },
+        {
+          "n": 27,
+          "stem": "During an operational planning session for armored forces, a task force commander evaluates the specific tactical roles assigned to different frontline elements. What is defined as the primary mission of the Cavalry unit?",
+          "key": "To perform reconnaissance and surveillance and provide security in close operations"
+        },
+        {
+          "n": 28,
+          "stem": "During an operational terrain exercise, a fast-moving combat force is utilized to conduct reconnaissance and surveillance, operate in an economy of force role without reinforcement across various operations, and execute zone reconnaissance as a flank or rear guard. Which specific tactical capabilities are being demonstrated?",
+          "key": "Cavalry Capabilities"
+        },
+        {
+          "n": 29,
+          "stem": "During an armored combat rehearsal, a battalion commander reviews the core tactical proficiencies required to support a combined arms team, including operating on a conventional battlefield, leveraging thermal sights for night fighting, and providing vehicle protection against small arms and artillery fire. Which specific unit capabilities are being demonstrated?",
+          "key": "Tank Unit Capabilities"
+        },
+        {
+          "n": 30,
+          "stem": "During a strategic reconnaissance review, analysts evaluate a powerful intelligence collection method capable of observing massive geographic areas without blurred or blocked details, though sophisticated adversaries can track predictable satellite orbit cycles to hide their movements. Which intelligence discipline is being evaluated?",
+          "key": "IMINT (Imagery Intelligence)"
+        },
+        {
+          "n": 31,
+          "stem": "During an urgent operational planning cycle, a commander decides that clear, uncomplicated plans and concise orders are necessary to prevent confusion and ensure timely execution over overly detailed plans. Which principle of army operations is being applied?",
+          "key": "Principle of Simplicity"
+        },
+        {
+          "n": 32,
+          "stem": "During an artillery deployment briefing, an artillery commander analyzes how positional placement changes based on the tactical posture, noting that units are positioned well forward during the offense to exploit weapon range, but placed toward the rear during defense to ensure continuity of fires if an enemy breakthrough occurs. Which functional element and tactical concept is being applied?",
+          "key": "Employment Tactics"
+        },
+        {
+          "n": 33,
+          "stem": "During urban military operations, a commander strictly regulates the use of firepower to limit collateral damage, prevent the unnecessary use of force, and balance security requirements while remaining consistent with the inherent right of self-defense. Which principle of army operations is being applied?",
+          "key": "Principle of Restraint"
+        },
+        {
+          "n": 34,
+          "stem": "When an unexpected enemy counter-offensive develops on a different flank, an intelligence officer must immediately redirect aerial reconnaissance assets, alter collection targets, and shift tracking methods to match the new battlefield reality. Based on the principles of ISR operations shown in the slide, which principle enables ISR operations to adapt to these changing operational requirements and priorities? Correct Answer C",
+          "key": "Accuracy"
+        },
+        {
+          "n": 35,
+          "stem": "During a civil-military stability campaign, a commander ensures that all operations are strictly conducted in accordance with Philippine and international laws, treaties, and established authority to maintain public acceptance and support. Which principle of army operations is being applied?",
+          "key": "Principle of Legitimacy"
+        },
+        {
+          "n": 36,
+          "stem": "During a multi-agency and joint military operation, a single commander is designated to direct all actions of all forces toward a common objective, ensuring unity of command and unity of effort under a nested concept. Which principle of army operations is being applied?",
+          "key": "Principle of Unity of Command"
+        },
+        {
+          "n": 37,
+          "stem": "During a military operation, a Field Artillery unit must maintain continuous fire support while the maneuver force changes its direction of attack and operates in difficult terrain and changing weather conditions. Which action best demonstrates the application of Field Artillery capabilities shown in the slide?",
+          "key": "Shift and mass fires rapidly, employ appropriate ammunition combinations, and use judicious displacement to maintain continuous support."
+        },
+        {
+          "n": 38,
+          "stem": "An army brigade detects an imminent enemy buildup along a strategic mountain pass. The commander orders subordinate units to establish fortified holding positions, prepare counter-attack routes, and repel any incoming enemy assaults to protect friendly forces and territory. According to the Elements of Full Spectrum Operations, which type of operation is the brigade primarily executing?",
+          "key": "Defensive Operations"
+        },
+        {
+          "n": 39,
+          "stem": "During preparation for a combined-arms campaign, an intelligence staff gathers data from multiple distinct feeds-including signals intelligence (SIGINT), human intelligence (HUMINT), and imagery intelligence (IMINT)-to build a complete picture of the battlefield. Based on the principles of ISR operations shown in the slide, which principle describes this integration of multiple sources of intelligence?",
+          "key": "Fusion"
+        },
+        {
+          "n": 40,
+          "stem": "During an ongoing operation, an infantry battalion commander urgently needs current intelligence regarding an opposing force's shifting maneuvers to make a proactive decision. However, the intelligence reports arrive hours too late, rendering the data obsolete. Based on the principles of ISR operations, which principle was compromised in this scenario?",
+          "key": "Timeliness"
+        },
+        {
+          "n": 41,
+          "stem": "Which traditional approach to aerial ISR has been used for reconnaissance since World War I and with great effect since World War II?",
+          "key": "Manned Reconnaissance Aircraft"
+        },
+        {
+          "n": 42,
+          "stem": "What best describes the tactical mission task of \"Disrupt\"?",
+          "key": "To upset the enemy's formation or tempo, interrupt its timetable, or cause it to act prematurely or piecemeal."
+        },
+        {
+          "n": 43,
+          "stem": "During operational planning, a commander ensures that all tactical-level actions directly contribute to the higher commander's ultimate goals and that every military action is directed toward a clearly defined, decisive, and attainable end-state. Which principle of army operations is being applied here?",
+          "key": "Principle of Objective"
+        },
+        {
+          "n": 44,
+          "stem": "During a sensitive intelligence-gathering mission, a unit's data feeds and collection equipment lack proper protection, leading to adversary interception, compromise, and exploitation of critical intelligence assets. Based on the principles of ISR operations shown in the slide, which principle must be strictly enforced to protect sensitive information and assets against adversary exploitation?",
+          "key": "Security"
+        },
+        {
+          "n": 45,
+          "stem": "During a combined arms tactical review, a task force commander evaluates a specialized force tasked to close with and neutralize enemy forces through fire, maneuver, and shock effect, while also possessing the mandate to conduct Internal Security Operations (ISO) independently or as part of a task force in a peacetime environment. Which doctrinal mission is being specified?",
+          "key": "Armor Mission"
+        },
+        {
+          "n": 46,
+          "stem": "An intelligence team is deployed ahead of the main line to gather specific data addressing whether a bridge across a river is intact and capable of supporting armored vehicles. Which component of ISR focuses on collecting data to answer a specific military question?",
+          "key": "Reconnaissance"
+        },
+        {
+          "n": 47,
+          "stem": "During a command briefing on constitutional mandates, an officer is asked to identify the specific constitutional article that establishes the Armed Forces of the Philippines (AFP) as the protector of the people and the State, tasked with securing the sovereignty of the State and the integrity of the national territory. Which part of the 1987 Philippine Constitution serves as the legal basis establishing that the AFP is the protector of the people and the State?",
+          "key": "Article II, 1987 Constitution"
+        },
+        {
+          "n": 48,
+          "stem": "During a dismounted infantry assault, a mechanized platoon exits their armored vehicles to fix the enemy and allow friendly maneuver, infiltrate hostile lines, secure obstacles to defeat enemy breaching efforts, move over non-trafficable terrain, and defend against dismounted attacks. Which specific unit capabilities are being executed?",
+          "key": "Mechanized Infantry Capabilities"
+        },
+        {
+          "n": 49,
+          "stem": "During an operational briefing, a mechanized infantry commander outlines the unit's core mandate, emphasizing the dual capability to aggressively engage and eliminate hostile forces or successfully repel an enemy assault using fire, close combat, and counter-attacks. What is defined as the primary mission of the Mechanized Infantry unit?",
+          "key": "To close with the enemy by means of fire and maneuver to destroy or capture him, or to repel his assault by fire, close combat, and counter-attack"
+        },
+        {
+          "n": 50,
+          "stem": "In response to rising transnational security threats, the Philippine Army deploys units alongside military contingents from allied partner nations to conduct a coordinated peacekeeping and territorial defense campaign. Within the structure of an alliance or a coalition, what type of army operational platform is being conducted?",
+          "key": "Multinational / Combined Operations"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "key": "gradedisr",
+      "slug": "isr-operations",
+      "title": "Exam on ISR Operations",
+      "portalTitle": "Exam on ISR Operations (22 items)",
+      "date": "2026-10-01",
+      "module": "module-2",
+      "pages": [
+        "isr",
+        "combined"
+      ],
+      "itemCount": 22,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "Which system may be fixed or mounted on a vehicle as a mobile unit?",
+          "key": "Ground surveillance radar"
+        },
+        {
+          "n": 2,
+          "stem": "What does IMINT refer to?",
+          "key": "Imagery Intelligence"
+        },
+        {
+          "n": 3,
+          "stem": "What does SIGINT stand for?",
+          "key": "Signals Intelligence"
+        },
+        {
+          "n": 4,
+          "stem": "During a multi-national joint military exercise, coalition forces face severe communication breakdowns and data-sharing roadblocks because their ISR systems and platforms cannot seamlessly connect or exchange information with allied units. Based on the principles of ISR operations shown in the slide, which principle is essential to ensure effective coordination among different military services and allied forces? Scenario-Based Question",
+          "key": "Interoperability"
+        },
+        {
+          "n": 5,
+          "stem": "What is ISR stands for?",
+          "key": "Intelligence, Surveillance, and Reconnaissance"
+        },
+        {
+          "n": 6,
+          "stem": "During operational planning for an upcoming regional deployment, a tactical commander notes that intelligence assets are missing critical blind spots across large portions of the designated area of interest, failing to provide a complete picture of a specific geographic region. Which principle must be optimized to achieve a comprehensive view of the operational environment?",
+          "key": "Coverage"
+        },
+        {
+          "n": 7,
+          "stem": "During a sensitive intelligence-gathering mission, a unit's data feeds and collection equipment lack proper protection, leading to adversary interception, compromise, and exploitation of critical intelligence assets. Based on the principles of ISR operations shown in the slide, which principle must be strictly enforced to protect sensitive information and assets against adversary exploitation?",
+          "key": "Security"
+        },
+        {
+          "n": 8,
+          "stem": "What is MASINT primarily used to identify?",
+          "key": "Distinctive characteristics and signatures of targets"
+        },
+        {
+          "n": 9,
+          "stem": "When an unexpected enemy counter-offensive develops on a different flank, an intelligence officer must immediately redirect aerial reconnaissance assets, alter collection targets, and shift tracking methods to match the new battlefield reality. Based on the principles of ISR operations shown in the slide, which principle enables ISR operations to adapt to these changing operational requirements and priorities?",
+          "key": "Flexibility"
+        },
+        {
+          "n": 10,
+          "stem": "Which ISR platform provides maritime information collection capabilities?",
+          "key": "Surface ships and submarines"
+        },
+        {
+          "n": 11,
+          "stem": "During an operational planning session, an intelligence unit provides a commander with targeting data that contains significant errors and misinterpretations regarding the enemy's actual force layout, putting the mission at risk of an adverse outcome. Which core principle must be emphasized to ensure reliable information for decision-making?",
+          "key": "Accuracy"
+        },
+        {
+          "n": 12,
+          "stem": "During preparation for a combined-arms campaign, an intelligence staff gathers data from multiple distinct feeds, including signals intelligence (SIGINT), human intelligence (HUMINT), and imagery intelligence (IMINT), to build a complete picture of the battlefield. Based on the principles of ISR operations, which principle describes this integration of multiple sources of intelligence?",
+          "key": "Fusion"
+        },
+        {
+          "n": 13,
+          "stem": "Which ISR platform operates at high altitude for extended periods?",
+          "key": "HALE platform"
+        },
+        {
+          "n": 14,
+          "stem": "What is the primary purpose of ISR operations?",
+          "key": "To provide information and assessments to aid mission completion"
+        },
+        {
+          "n": 15,
+          "stem": "During a protracted security operation, an intelligence detachment only conducts periodic, short-term reconnaissance scans of a high-risk zone, frequently leaving gaps in observation where enemy forces slip through undetected between monitoring windows. Which principle must be applied to ensure sustained and continuous tracking of changes and movements over time?",
+          "key": "Persistence"
+        },
+        {
+          "n": 16,
+          "stem": "During an intelligence-gathering operation, an analysis team is urged to bypass established rules of engagement and disregard international laws to rapidly collect and disseminate critical tracking data on a target. Which principle must guide the team's conduct to ensure intelligence collection, analysis, and dissemination comply with moral standards and legal frameworks?",
+          "key": "Ethical Considerations"
+        },
+        {
+          "n": 17,
+          "stem": "Which component involves collecting data to address a specific military question?",
+          "key": "Reconnaissance"
+        },
+        {
+          "n": 18,
+          "stem": "Which ISR component refers to the result of surveillance and reconnaissance combined with other data?",
+          "key": "Intelligence"
+        },
+        {
+          "n": 19,
+          "stem": "Which of the following is an airborne ISR system?",
+          "key": "UAV"
+        },
+        {
+          "n": 20,
+          "stem": "Which component refers to the continuous observation of a target?",
+          "key": "Surveillance"
+        },
+        {
+          "n": 21,
+          "stem": "What does UAV stand for?",
+          "key": "Unmanned Aerial Vehicle"
+        },
+        {
+          "n": 22,
+          "stem": "During an ongoing operation, an infantry battalion commander urgently needs current intelligence regarding an opposing force's shifting maneuvers to make a proactive decision. However, the intelligence reports arrive hours too late, rendering the data obsolete. Based on the principles of ISR operations, which principle was compromised in this scenario?",
+          "key": "Timeliness"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "key": "gradedartillery",
+      "slug": "introduction-to-artillery-operations",
+      "title": "Exam on Introduction to Artillery Operations",
+      "portalTitle": "Exam on Introduction to Artillery Operations",
+      "date": "2026-10-01",
+      "module": "module-2",
+      "pages": [
+        "fieldartillery",
+        "combined"
+      ],
+      "itemCount": 20,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "When is an enemy force considered \"Defeated\" according to the slide?",
+          "key": "When the enemy has temporarily or permanently lost the physical means or the will to fight."
+        },
+        {
+          "n": 2,
+          "stem": "What is the primary mission of Field Artillery?",
+          "key": "To provide timely and accurate artillery fires and assist in integrating fire support means in support of ground forces."
+        },
+        {
+          "n": 3,
+          "stem": "Based on the classification of Field Artillery weapons according to caliber, which classification refers to a weapon with a caliber of 211 mm and above?",
+          "key": "Very Heavy"
+        },
+        {
+          "n": 4,
+          "stem": "Which statement best describes the limitations of Field Artillery presented in the slide?",
+          "key": "Field Artillery has limited self-defense capabilities, may require considerable ammunition to engage point targets, has a firing signature that can reveal its location, and is constrained by weapon range."
+        },
+        {
+          "n": 5,
+          "stem": "A commander wants to mass fires accurately from different firing units. Why is a common grid important?",
+          "key": "It allows the firing units to use a common reference for location and direction."
+        },
+        {
+          "n": 6,
+          "stem": "Based on the slide, what does the \"Destroy\" effect of fires mean?",
+          "key": "Renders an enemy force combat-ineffective until it is reconstituted, normally involving at least 30% casualties or materiel damage."
+        },
+        {
+          "n": 7,
+          "stem": "Which statement best explains the three tactical roles of Field Artillery fires presented in the slide?",
+          "key": "Close support engages threats to friendly forces, attack at depth disrupts or delays enemy forces beyond the immediate battle area, and counterfires target the enemy fire support system."
+        },
+        {
+          "n": 8,
+          "stem": "What is the primary purpose of \"Diversion\" as a tactical mission task?",
+          "key": "To draw the enemy's attention and forces away from the point of the principal operation."
+        },
+        {
+          "n": 9,
+          "stem": "A maneuver commander directs his unit to seize a key terrain that is essential to the overall operation. Which basic FA task requires FA fires to contribute directly to achieving this objective?",
+          "key": "Support the Concept of Operations"
+        },
+        {
+          "n": 10,
+          "stem": "Why is target acquisition considered the \"eyes and ears\" of the Field Artillery system?",
+          "key": "It detects, identifies, and locates targets for effective employment of fires."
+        },
+        {
+          "n": 11,
+          "stem": "What best describes the \"Neutralize\" effect of fires?",
+          "key": "Causes enemy personnel or materiel to become ineffective for a short period, with at least 10% casualties or materiel damage."
+        },
+        {
+          "n": 12,
+          "stem": "During a military operation, a Field Artillery unit must maintain continuous fire support while the maneuver force changes its direction of attack and operates in difficult terrain and changing weather conditions. Which action best demonstrates the application of Field Artillery capabilities shown in the slide?",
+          "key": "Shift and mass fires rapidly, employ appropriate ammunition combinations, and use judicious displacement to maintain continuous support."
+        },
+        {
+          "n": 13,
+          "stem": "What best describes the \"Suppress\" effect of fires?",
+          "key": "Renders an enemy target ineffective for a short period by degrading its performance below the level needed to accomplish its mission."
+        },
+        {
+          "n": 14,
+          "stem": "What best describes the tactical mission task of \"Disrupt\"?",
+          "key": "To upset the enemy's formation or tempo, interrupt its timetable, or cause it to act prematurely or piecemeal."
+        },
+        {
+          "n": 15,
+          "stem": "An FA commander ensures that ammunition, personnel, maintenance, and other requirements are continuously addressed so the FA unit can continue supporting the maneuver force. Which basic task is being performed?",
+          "key": "Sustain FA Operations"
+        },
+        {
+          "n": 16,
+          "stem": "Which of the following correctly identifies the means of transport used to classify Field Artillery weapons?",
+          "key": "Towed, Self-Propelled, and Aerial"
+        },
+        {
+          "n": 17,
+          "stem": "During an operation, a maneuver unit requires continuous and timely artillery support. To accomplish this, the Field Artillery unit must coordinate its communication, mobility, survey, meteorological, target acquisition, and fire direction capabilities. Which action best demonstrates the application of the Field Artillery functions described in the slide?",
+          "key": "Integrate its communication, survey, meteorological, target acquisition, and fire direction capabilities to provide continuous, accurate, and timely fire support to the maneuver unit."
+        },
+        {
+          "n": 18,
+          "stem": "Why is it important for FA fires to be synchronized with other available fire support assets?",
+          "key": "To maximize effects while making efficient use of available resources"
+        },
+        {
+          "n": 19,
+          "stem": "Which situation best demonstrates the FA task of \"Support Forces in Contact\"?",
+          "key": "FA fires are prepared to respond when the supported maneuver unit requests fires."
+        },
+        {
+          "n": 20,
+          "stem": "During an operation, the FA coordinates its fires with mortars, close air support, and other available fire support assets to avoid duplication and maximize effects. Which basic task is being demonstrated?",
+          "key": "Synchronize Fire Support"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "key": "gradedarmyops",
+      "slug": "army-operations",
+      "title": "Exam on Army Operations",
+      "portalTitle": "Exam on Army Operations",
+      "date": "2026-09-29",
+      "module": "supplemental",
+      "pages": [
+        "armyops",
+        "combined"
+      ],
+      "itemCount": 20,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "During a community outreach program, a military unit undertakes planned activities in coordination with civilian entities specifically designed to gain popular support and weaken the enemy's will to fight. Which warfighting function is being demonstrated in this scenario?",
+          "key": "Civil Military Operation"
+        },
+        {
+          "n": 2,
+          "stem": "According to Article II of the 1987 Constitution, what is defined as the role and goal of the Armed Forces of the Philippines (AFP)?",
+          "key": "The AFP is the protector of the people and the State, and its goal is to secure the sovereignty of the State and the integrity of the national territory."
+        },
+        {
+          "n": 3,
+          "stem": "A battalion commander plans an operation to fight the enemy throughout their entire disposition, aggressively project the current battle into rear areas, attack uncommitted forces, and maintain a continuous flow of sustainment to preserve momentum. Which tenet of army operations is being applied in this scenario?",
+          "key": "Depth"
+        },
+        {
+          "n": 4,
+          "stem": "During a campaign, a commander allocates the minimum essential combat power to secondary holding efforts, accepting calculated risks in those sectors to concentrate overwhelming combat power for the decisive operation. Which principle of Army operations is being applied in this scenario?",
+          "key": "Economy of Force"
+        },
+        {
+          "n": 5,
+          "stem": "During an infantry assault, a platoon executes tactical movements through complex terrain to achieve a position of advantage over the enemy forces, excluding any routine administrative movements of personnel and materiel. Which warfighting function is being demonstrated in this scenario?",
+          "key": "Movement & Maneuver"
+        },
+        {
+          "n": 6,
+          "stem": "During a critical breakthrough operation, a commander concentrates and focuses the effects of combat power applying elements simultaneously against multiple targets and concentrating combat power against a single target to completely overwhelm the enemy at the decisive place and time. Which principle of Army operations is being applied in this scenario?",
+          "key": "Mass"
+        },
+        {
+          "n": 7,
+          "stem": "Facing an unexpected enemy counter-attack, a commander quickly comprehends the unfamiliar situation, makes a timely decision, and rapidly reorients forces to act faster than the adversary. Which tenet of army operations is being applied in this scenario?",
+          "key": "Agility"
+        },
+        {
+          "n": 8,
+          "stem": "A brigade staff carefully plans an operation to coordinate time-space relationships, integrate combined arms effects, and ensure every available asset is brought to bear at the decisive time and place to overwhelm the enemy. Which tenet of army operations is being applied in this scenario?",
+          "key": "Synchronization"
+        },
+        {
+          "n": 9,
+          "stem": "An army brigade detects an imminent enemy buildup along a strategic mountain pass. The commander orders subordinate units to establish fortified holding positions, prepare counter-attack routes, and repel any incoming enemy assaults to protect friendly forces and territory. According to the Elements of Full Spectrum Operations, which type of operation is the brigade primarily executing?",
+          "key": "Defensive Operations"
+        },
+        {
+          "n": 10,
+          "stem": "During a conduct of exercise, a battalion commander synchronizes a group of tasks and systems, including people, organizations, information, and processes united by a common purpose to accomplish the mission. According to the doctrine, what is this group of tasks and systems called?",
+          "key": "Warfighting Functions"
+        },
+        {
+          "n": 11,
+          "stem": "Which Army Operational Platform is characterized by the synchronized or simultaneous application of several Army-specific arms (such as infantry, armor, field artillery, engineer, and aviation) to achieve an effect greater than if used separately?",
+          "key": "Combined Arms"
+        },
+        {
+          "n": 12,
+          "stem": "During a tactical reconnaissance mission, a unit conducts surveillance and reconnaissance operations driven by the commander to facilitate a complete understanding of the operational environment, enemy forces, terrain, and civil considerations. Which Warfighting Function is being applied in this scenario?",
+          "key": "Intelligence"
+        },
+        {
+          "n": 13,
+          "stem": "During a night infiltration, a force strikes the enemy at a time, place, and in a manner for which they are completely unprepared, achieving a powerful yet temporary effect. Which principle of Army operations is being applied in this scenario?",
+          "key": "Surprise"
+        },
+        {
+          "n": 14,
+          "stem": "An instructor describes a military concept defined as the summation of potency that a total Army force generates, consisting of warfighting functions tied together by leadership and enhanced by information, representing the total means of destructive, constructive, and information capabilities a formation can apply at a given time. What is being described in this scenario?",
+          "key": "Army Power"
+        },
+        {
+          "n": 15,
+          "stem": "During a combined arms operation, a commander integrates and synchronizes the collective and coordinated use of Army indirect fires, joint fires, and command and control warfare including non-lethal effects through the targeting process to suppress enemy positions. Which warfighting function is being applied in this scenario?",
+          "key": "Fires"
+        },
+        {
+          "n": 16,
+          "stem": "During a tactical engagement, a commander sets the terms of the battle by taking the fight directly to the enemy, maintaining relentless pressure to break their will, and creating a fluid situation where the adversary completely loses control of events. Which tenet of army operations is being applied in this scenario?",
+          "key": "Initiative"
+        },
+        {
+          "n": 17,
+          "stem": "According to the doctrine on Army Operational Platforms, what describes \"Joint Operations\"?",
+          "key": "Involve forces of two or more services under a single commander."
+        },
+        {
+          "n": 18,
+          "stem": "An instructor discusses a specific component, noting that it acts as a weapon against the enemy's command and control, serves as a means to affect enemy morale, and is described as both destructive and constructive. Which element of Army Power is being described in this scenario?",
+          "key": "Information"
+        },
+        {
+          "n": 19,
+          "stem": "During a regional security campaign, an infantry battalion is tasked to secure critical infrastructure, assist local government agencies in disaster response, and conduct community stability projects in a newly liberated municipality. According to Army doctrine, which element of Full Spectrum Operations does this mission primarily fall under?",
+          "key": "Support to Civil Governance"
+        },
+        {
+          "n": 20,
+          "stem": "Which element of Army Power is specifically described as the multiplying and unifying element that is often the difference between success and failure?",
+          "key": "Leadership"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "key": "gradedma1",
+      "slug": "module-assessment-1",
+      "title": "Module Assessment 1",
+      "portalTitle": "Module Assessment 1 ( 45 Items )",
+      "date": "2026-09-26",
+      "module": "module-1",
+      "pages": [
+        "moduleone"
+      ],
+      "itemCount": 45,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "A company commander wants to ensure that subordinate platoon leaders feel confident to act without constantly waiting for micro-management, knowing that everyone within the unit relies on each other's integrity, professional competence, and shared values. Which principle of Mission Command is the commander primarily building?",
+          "key": "Mutual Trust"
+        },
+        {
+          "n": 2,
+          "stem": "A company commander encourages his soldiers during a difficult operation by expressing confidence in their abilities, sharing a clear vision of success, and boosting their morale to push forward despite challenges. Which component of transformational leadership is being demonstrated?",
+          "key": "Inspirational Motivation"
+        },
+        {
+          "n": 3,
+          "stem": "Which best describes Mutual Trust in Mission Command?",
+          "key": "Shared confidence between commanders, subordinates, and partners"
+        },
+        {
+          "n": 4,
+          "stem": "Halfway through a multi-day field training exercise, a signal company suffers an abrupt, total communications blackout due to heavy atmospheric interference. Instead of panicking or assigning blame to the radio operators, the company commander keeps a level head, directs the team to shift immediately to backup tactical procedures, and oversees the recovery. Which attribute is demonstrated?",
+          "key": "Resilience by recovering from setbacks and adapting to adversity under pressure"
+        },
+        {
+          "n": 5,
+          "stem": "Which of the following is considered one of the most important leadership situations that an NCO may face?",
+          "key": "Leading soldiers during combat or high-risk operations"
+        },
+        {
+          "n": 6,
+          "stem": "Which leadership style involves a leader working with followers beyond their self-interests to create a vision, inspire change, and guide transformation through influence and commitment?",
+          "key": "Transformational Leadership"
+        },
+        {
+          "n": 7,
+          "stem": "An NCO enforces standards of military appearance, so he corrects soldiers who wear the uniform improperly and teaches the standard. What type of responsibility does this best demonstrate?",
+          "key": "Command responsibility"
+        },
+        {
+          "n": 8,
+          "stem": "A company leader takes time to understand each soldier's strengths, weaknesses, and personal needs, and provides guidance and support tailored to help them improve and succeed in their duties. Which component of transformational leadership is being demonstrated?",
+          "key": "Individualized Consideration"
+        },
+        {
+          "n": 9,
+          "stem": "A company commander issues an operation order that clearly outlines the purpose of the operation, the key tasks, and the desired end state, allowing subordinates to understand the ultimate goal even if the original plan completely breaks down. What element of Mission Command is this?",
+          "key": "Commander's Intent"
+        },
+        {
+          "n": 10,
+          "stem": "A company commander discovers during a routine supply inventory that several sensitive items are unaccounted for. A subordinate suggests quietly writing off the missing gear as \"administrative error\" to prevent the battalion commander from lowering the company's operational rating. The commander refuses and immediately reports the discrepancy with an initiated investigation plan. Which leadership attribute is the commander primarily demonstrating?",
+          "key": "Applying the moral foundation of Army values to decisions, actions, and relationships"
+        },
+        {
+          "n": 11,
+          "stem": "Which of the following goes beyond mere tasks and encompasses a broader sense of obligation or accountability?",
+          "key": "Responsibilities"
+        },
+        {
+          "n": 12,
+          "stem": "Which scenario exemplifies Inspirational Motivation?",
+          "key": "Giving routine standards a deeper purpose by explaining how they protect teammates."
+        },
+        {
+          "n": 13,
+          "stem": "Which of the following best demonstrates a leader's presence?",
+          "key": "A leader maintains a professional appearance and confidently engages with subordinates during unit activities."
+        },
+        {
+          "n": 14,
+          "stem": "A company commander consistently maintains personal COMSEC discipline and models high standards of integrity so that subordinates follow the example rather than just an order. Which leadership competency category under \"A CO must lead\" does this best demonstrate?",
+          "key": "Leads by example"
+        },
+        {
+          "n": 15,
+          "stem": "Which situation best demonstrates effective communication?",
+          "key": "A leader ensures instructions are clearly understood before execution"
+        },
+        {
+          "n": 16,
+          "stem": "Moral and ethical quality of a leader that helps determine what is right and gives a motivation to do what is appropriate.",
+          "key": "Leaders Character"
+        },
+        {
+          "n": 17,
+          "stem": "A company commander decides to use a faster, less secure mountain trail to achieve tactical surprise against an insurgent camp, accepting the calculated hazard of rough terrain and reduced communication in exchange for a decisive tactical advantage. Which principle of Mission Command is the commander applying?",
+          "key": "Risk Acceptance"
+        },
+        {
+          "n": 18,
+          "stem": "Which action best demonstrates Idealized Influence at the unit level?",
+          "key": "Adhering strictly to COMSEC protocols personally when no one is watching."
+        },
+        {
+          "n": 19,
+          "stem": "Before launching a night insertion, a company commander gathers all platoon leaders and key NCOs to brief the operational environment, the enemy situation, and the purpose of the maneuver until every leader clearly visualizes the same operational picture. Which principle of Mission Command is being established?",
+          "key": "Shared Understanding"
+        },
+        {
+          "n": 20,
+          "stem": "Which leadership style focuses on the exchange of skills, knowledge, resources, or effort between leaders and subordinates?",
+          "key": "Transactional Leadership"
+        },
+        {
+          "n": 21,
+          "stem": "Which of the following refers to the specific tasks or assignments that individuals within the Philippine Army are expected to perform?",
+          "key": "Duties"
+        },
+        {
+          "n": 22,
+          "stem": "A company commander dedicates personal time to study military doctrine, evaluate their own leadership performance, and maintain professional readiness. Which specific competency is the commander demonstrating?",
+          "key": "Prepares self"
+        },
+        {
+          "n": 23,
+          "stem": "A leader organizes resources, sets clear goals, and ensures tasks are completed efficiently to meet mission objectives. Which competency is being demonstrated?",
+          "key": "Achieving"
+        },
+        {
+          "n": 24,
+          "stem": "Which scenario represents Individualized Consideration?",
+          "key": "Privately mentoring a soldier and adjusting duties during a personal crisis."
+        },
+        {
+          "n": 25,
+          "stem": "Core leader competencies focus on who is being led and with what degree of authority and influence.",
+          "key": "Leading Competency"
+        },
+        {
+          "n": 26,
+          "stem": "Instead of dictating every minute step of how a platoon must secure a designated crossroads, a company commander issues a directive stating what needs to be done and why, while leaving the how entirely up to the platoon leader's tactical judgment. What element of Mission Command is being utilized?",
+          "key": "Mission Orders"
+        },
+        {
+          "n": 27,
+          "stem": "The regulation of forces and war fighting functions to accomplish the mission in accordance with the commander's intent.",
+          "key": "Control"
+        },
+        {
+          "n": 28,
+          "stem": "According to the Warrior Ethos, which statement best demonstrates unrelenting and consistent determination to do what is right, perform duties with pride, and sustain the will to win?",
+          "key": "A soldier continues to accomplish the mission despite fatigue, adversity, and obstacles while maintaining professional standards."
+        },
+        {
+          "n": 29,
+          "stem": "Consist of the principles, standards, and qualities considered essential for successful Army leaders.",
+          "key": "Army Core Values"
+        },
+        {
+          "n": 30,
+          "stem": "A company commander takes time to understand how their team perceives a stressful situation, respects individual differences within the squad, and maintains composure under pressure. What attribute or skill does this best demonstrate?",
+          "key": "Interpersonal Tact"
+        },
+        {
+          "n": 31,
+          "stem": "During a demanding field training exercise, which action best reflects resilience in a soldier?",
+          "key": "A soldier maintains focus and continues performing assigned duties after recovering from a challenging setback during an operation."
+        },
+        {
+          "n": 32,
+          "stem": "During a tactical movement exercise, a company commander notices a soldier repeatedly violating standard operating safety procedures by failing to secure weapon lines. Instead of losing his temper or ignoring it because the soldier is a top athlete, the leader calmly halts the movement, addresses the infraction strictly by the book, and implements standard corrective training. Which leadership attribute is being exhibited?",
+          "key": "Discipline through consistent behavior, lawful order enforcement, and standard compliance"
+        },
+        {
+          "n": 33,
+          "stem": "Leadership style that focuses on the exchange of skills, knowledge, resources, or effort between leaders and their subordinates.",
+          "key": "Transactional Leadership"
+        },
+        {
+          "n": 34,
+          "stem": "A company commander guides soldiers, applies authority appropriately, and influences them to accomplish the mission effectively. Which competency is being demonstrated?",
+          "key": "Leading"
+        },
+        {
+          "n": 35,
+          "stem": "It will lead you to apply not only leadership, but also management and command and apply these to authority.",
+          "key": "Commandership"
+        },
+        {
+          "n": 36,
+          "stem": "A company commander takes deliberate steps to cultivate mutual respect, stamp out toxic climates, and foster a healthy organizational culture within the unit. Which competency under \"A CO must develop\" does this action best represent?",
+          "key": "Creates a positive environment"
+        },
+        {
+          "n": 37,
+          "stem": "During a patrol, a platoon leader encounters an unexpected enemy observation post that threatens the company's flank, a situation not explicitly covered in the original operations order. Instead of halting to ask for permission, the platoon leader aggressively maneuvers to neutralize the threat based on the previously understood company objective. What element of Mission Command does this action demonstrate?",
+          "key": "Disciplined Initiative"
+        },
+        {
+          "n": 38,
+          "stem": "During a high-stakes nighttime tactical displacement, the lead element reports that a sudden civilian blockade completely severs the designated primary axis of advance. Rather than showing hesitation or repeatedly querying higher headquarters for instructions, the company commander evaluates alternative routes on the map, projects a calm and steady demeanor, and issues authoritative redirection vectors to the platoon leaders over the net, ensuring zero panic ripples through the formation. Which specific leadership attribute is the commander primarily demonstrating?",
+          "key": "Confidence through self-assurance and steady composure when executing command responsibilities during unforeseen crises"
+        },
+        {
+          "n": 39,
+          "stem": "A company commander mentors junior leaders, provides training opportunities, and ensures that their skills are improved so the unit becomes more capable over time. Which competency is being demonstrated?",
+          "key": "Developing Competencies"
+        },
+        {
+          "n": 40,
+          "stem": "A company commander consistently demonstrates honesty, fairness, and accountability in decision-making. As a result, soldiers respect their leader and remain motivated even during difficult missions. What is the primary benefit of ethical leadership in this situation?",
+          "key": "Enhances trust, discipline, and morale among troops"
+        },
+        {
+          "n": 41,
+          "stem": "A leadership style where a leader works with teams/followers beyond their immediate self-interests to identify needed change, creating a vision to guide the change through influence, inspiration, and executing the change in tandem with committed members of a group.",
+          "key": "Transformational Leadership"
+        },
+        {
+          "n": 42,
+          "stem": "Which of the following best demonstrates Idealized Influence (Charisma)?",
+          "key": "A leader sets a strong personal example through integrity, confidence, and high standards that earns respect and trust."
+        },
+        {
+          "n": 43,
+          "stem": "Aims at using these existing qualities and potential to develop a well-rounded leader with sets of desired attributes forming the leader's character, presence, and intellect.",
+          "key": "Military Leadership Attributes"
+        },
+        {
+          "n": 44,
+          "stem": "During a field exercise, a company commander insists on transparently reporting a compliance error rather than covering it up, which is crucial for maintaining trust, discipline, and morale among troops. What concept does this best demonstrate?",
+          "key": "Ethical leadership"
+        },
+        {
+          "n": 45,
+          "stem": "A company commander actively mentors junior officers, coaches subordinates through professional challenges, and ensures future leaders are prepared to step up. Under which major grouping of company commander competencies does this fall?",
+          "key": "A CO must develop"
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "key": "gradedmla",
+      "slug": "military-leadership-attributes",
+      "title": "Exam on Military Leadership Attributes",
+      "portalTitle": "Exam on Military Leadership Attributes",
+      "date": "2026-09-23",
+      "module": "module-1",
+      "pages": [
+        "leadershipattributes",
+        "moduleone"
+      ],
+      "itemCount": 20,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "Which behavior best demonstrates military and professional bearing?",
+          "key": "Maintaining proper uniform standards, military courtesy, punctuality, and professional conduct."
+        },
+        {
+          "n": 2,
+          "stem": "Two platoon leaders disagree about the allocation of communications equipment. Which action best demonstrates interpersonal tact?",
+          "key": "Listen to both leaders, consider their requirements, and explain the decision respectfully."
+        },
+        {
+          "n": 3,
+          "stem": "What is Intellect as a military leadership attribute?",
+          "key": "The mental abilities and knowledge that enable a leader to understand situations, make sound decisions, and solve problems."
+        },
+        {
+          "n": 4,
+          "stem": "Which statement best explains how Character, Presence, and Intellect work together?",
+          "key": "Character guides ethical conduct, Presence inspires confidence, and Intellect enables informed decisions and effective solutions."
+        },
+        {
+          "n": 5,
+          "stem": "A soldier's performance declines because of a serious family problem. What should a platoon leader do to demonstrate empathy?",
+          "key": "Privately discuss the situation, arrange appropriate assistance, and maintain mission requirements."
+        },
+        {
+          "n": 6,
+          "stem": "During a field exercise, the primary radio system fails. The commander remains composed, implements contingency procedures, and coordinates restoration. Which Presence component is most clearly demonstrated?",
+          "key": "Resilience"
+        },
+        {
+          "n": 7,
+          "stem": "What does Presence primarily describe?",
+          "key": "The impression a leader makes through appearance, demeanor, actions, and words."
+        },
+        {
+          "n": 8,
+          "stem": "Two platoon leaders disagree about the allocation of communications equipment. Which action best demonstrates interpersonal tact?",
+          "key": "Listen to both leaders, consider their requirements, and explain the decision respectfully."
+        },
+        {
+          "n": 9,
+          "stem": "Which of the following correctly identifies the three military leadership attributes?",
+          "key": "Character, Presence, and Intellect"
+        },
+        {
+          "n": 10,
+          "stem": "An unexpected operational change requires a company commander to revise the movement plan. Which action best demonstrates confidence?",
+          "key": "Calmly assess the situation, consult subordinate leaders when appropriate, and issue clear instructions."
+        },
+        {
+          "n": 11,
+          "stem": "During a prolonged field exercise, which action best demonstrates fitness as a leadership attribute?",
+          "key": "Maintaining personal readiness while ensuring appropriate rest, hydration, and medical attention for soldiers."
+        },
+        {
+          "n": 12,
+          "stem": "A commander receives conflicting reports about the condition of a bridge. What action best demonstrates sound judgment?",
+          "key": "Evaluate the available information, verify the bridge's condition, and determine whether crossing is safe."
+        },
+        {
+          "n": 13,
+          "stem": "During an equipment inventory, a company commander discovers missing equipment. Which action best demonstrates integrity?",
+          "key": "Accurately report the discrepancy and initiate corrective action."
+        },
+        {
+          "n": 14,
+          "stem": "Which statement is NOT part of the Warrior Ethos presented in the lesson?",
+          "key": "Always prioritize personal comfort over mission accomplishment."
+        },
+        {
+          "n": 15,
+          "stem": "A signal company commander applies knowledge of radio communications, network operations, communications security, and equipment limitations to resolve technical problems. Which component is demonstrated?",
+          "key": "Expertise"
+        },
+        {
+          "n": 16,
+          "stem": "A signal company experiences repeated delays in reporting equipment failures. The commander introduces a standardized digital reporting system. Which Intellect component is demonstrated?",
+          "key": "Innovation"
+        },
+        {
+          "n": 17,
+          "stem": "What is the primary focus of Character as a military leadership attribute?",
+          "key": "The leader's moral and ethical qualities that guide decisions and actions."
+        },
+        {
+          "n": 18,
+          "stem": "A soldier violates an established safety procedure during an operation. Which response best demonstrates discipline?",
+          "key": "Apply standards fairly, address the violation, and conduct corrective training."
+        },
+        {
+          "n": 19,
+          "stem": "A company commander discovers that the planned movement route is impassable because of flooding. The commander assesses alternative routes and adjusts the plan. Which Intellect component is demonstrated?",
+          "key": "Mental agility"
+        },
+        {
+          "n": 20,
+          "stem": "What is military leadership?",
+          "key": "The process of influencing, motivating, and directing soldiers to accomplish the mission while improving the organization."
+        }
+      ],
+      "skipped": []
+    },
+    {
+      "key": "gradeddiag",
+      "slug": "diagnostic-exam",
+      "title": "Diagnostic Examination, SOAC 52-2026",
+      "portalTitle": "DIAGNOSTIC SOAC 52-2026",
+      "date": "2026-09-19",
+      "module": "mixed",
+      "pages": [],
+      "itemCount": 73,
+      "questions": [
+        {
+          "n": 1,
+          "stem": "It is a task that must be performed to successfully accomplish a specified or essential task, even though it is not explicitly directed in the order or mission statement.",
+          "key": "Implied Task"
+        },
+        {
+          "n": 2,
+          "stem": "A command post requires real-time analysis of troop movements, weather updates, and logistic statuses. Which sub-system provides this capability for effective decision-making?",
+          "key": "Information System"
+        },
+        {
+          "n": 3,
+          "stem": "What means of signal communications interconnect closely located activities?",
+          "key": "Wires & Cables"
+        },
+        {
+          "n": 4,
+          "stem": "What is a facility that encompasses the personnel and equipment necessary to provide signal communications by any particular means or combination thereof?",
+          "key": "Agency of Comms"
+        },
+        {
+          "n": 5,
+          "stem": "Crucial for maintaining trust, discipline, and morale among troops.",
+          "key": "Ethical Leadership"
+        },
+        {
+          "n": 6,
+          "stem": "Consist of the principles, standards, and qualities considered essential for successful Army leaders.",
+          "key": "Army Core Values"
+        },
+        {
+          "n": 7,
+          "stem": "Maybe received in the form of either a written or oral warning order, operation order (OPORD) or Fragmentary Order (FRAGO).",
+          "key": "Mission (Receipt of Mission)"
+        },
+        {
+          "n": 8,
+          "stem": "While preparing for a large-scale exercise, a commander organizes his units according to key areas such as movement, fires, and intelligence. What concept is being applied to align unit capabilities with training objectives?",
+          "key": "Warfighting Functions"
+        },
+        {
+          "n": 9,
+          "stem": "Describes the Army leader's ability to introduce something new.",
+          "key": "Innovation"
+        },
+        {
+          "n": 10,
+          "stem": "Results from collecting, locating, processing, analyzing, and reporting intercepted communications and non-communications emitters.",
+          "key": "SIGINT"
+        },
+        {
+          "n": 11,
+          "stem": "What are all measures taken to protect all information which may be of value to the enemy or to deliberately mislead the enemy in the interpretation of information they may gather?",
+          "key": "COMSEC"
+        },
+        {
+          "n": 12,
+          "stem": "The dynamic process by which a commander receives a mission, plans it and executes it.",
+          "key": "Troop Leading Procedure (TLP) / MDMP"
+        },
+        {
+          "n": 13,
+          "stem": "It is an effect of fires delivered in a tactical mission task that results in rendering enemy personnel or materiel incapable of interfering with a particular operation and producing at least 10-percent casualties or materiel damage.",
+          "key": "Disrupt"
+        },
+        {
+          "n": 14,
+          "stem": "The regulation of forces and war fighting functions to accomplish the mission in accordance with the commander's intent.",
+          "key": "Control"
+        },
+        {
+          "n": 15,
+          "stem": "What is the uninterrupted availability of information paths for the effective performance of the C2 function?",
+          "key": "Continuity"
+        },
+        {
+          "n": 16,
+          "stem": "The assigned frequency to all aircraft engages in ISO (Internal Security Operation).",
+          "key": "49 MHz"
+        },
+        {
+          "n": 17,
+          "stem": "What sky wave propagation extends the range of communications between two or more stations?",
+          "key": "AM"
+        },
+        {
+          "n": 18,
+          "stem": "Detailed, unprescribed method for doing a task which can be modified or changed, as situation requires.",
+          "key": "Techniques"
+        },
+        {
+          "n": 19,
+          "stem": "During a cyber defense exercise, the team is instructed to protect critical databases from hacking attempts and prevent leakage of sensitive operational data. What component of C4S are they focusing on?",
+          "key": "Cyber Systems"
+        },
+        {
+          "n": 20,
+          "stem": "Knowing what others perceive along with recognizing diversity and displaying self-control.",
+          "key": "Interpersonal Tact"
+        },
+        {
+          "n": 21,
+          "stem": "In mission analysis, which factor is NOT part of METT-TC?",
+          "key": "Training"
+        },
+        {
+          "n": 22,
+          "stem": "Who approves the final Operations Order at battalion/brigade level?",
+          "key": "Commander"
+        },
+        {
+          "n": 23,
+          "stem": "Which annex covers signal in an operations order?",
+          "key": "Annex H"
+        },
+        {
+          "n": 24,
+          "stem": "Frequency that is assigned for Vigilance Nets.",
+          "key": "Watch Frequency"
+        },
+        {
+          "n": 25,
+          "stem": "TLP is commonly used at which unit level?",
+          "key": "Platoon/Company"
+        },
+        {
+          "n": 26,
+          "stem": "One other dimension of leadership that officers need to pay attention to.",
+          "key": "Ethics"
+        },
+        {
+          "n": 27,
+          "stem": "It is a task clearly stated in the mission statement, operations order (OPORD), fragmentary order (FRAGO), or any formal instruction from higher command. These tasks must be accomplished as directed.",
+          "key": "Specified Task"
+        },
+        {
+          "n": 28,
+          "stem": "Consist of the principles, standards, and qualities considered essential for successful Army leaders.",
+          "key": "Army values (or Leader Attributes/Core Values)"
+        },
+        {
+          "n": 29,
+          "stem": "Which staff officer is primarily responsible for signal support planning at brigade?",
+          "key": "S6"
+        },
+        {
+          "n": 30,
+          "stem": "The use of weapons systems to create a specific lethal or nonlethal effect on a target?",
+          "key": "Fires"
+        },
+        {
+          "n": 31,
+          "stem": "The most essential ability of a person who leads or commands.",
+          "key": "Core Leader Competency"
+        },
+        {
+          "n": 32,
+          "stem": "It is the authoritative guide on how the Army fights wars and conducts operations other than war.",
+          "key": "Doctrine"
+        },
+        {
+          "n": 33,
+          "stem": "Is the conduct of military operations through Centralized Planning and Decentralized Execution based on commander's intent and mission orders.",
+          "key": "Mission Command"
+        },
+        {
+          "n": 34,
+          "stem": "Which of the following is NOT part of the MDMP steps?",
+          "key": "Evaluation of enemy TTPs"
+        },
+        {
+          "n": 35,
+          "stem": "What is the medium by which a message is conveyed from one person or place to another?",
+          "key": "Means of Comms"
+        },
+        {
+          "n": 36,
+          "stem": "The exercise of authority and direction by a properly designated commander over assigned and attached forces in the accomplishment of mission.",
+          "key": "Command and Control"
+        },
+        {
+          "n": 37,
+          "stem": "The first step in the MDMP is:",
+          "key": "Receipt of Mission"
+        },
+        {
+          "n": 38,
+          "stem": "What is a method or means of conveying information of any kind from one person or place to another?",
+          "key": "Signal"
+        },
+        {
+          "n": 39,
+          "stem": "Communication links between and/or among Major Services, and the Unified Commands particularly component units of Major Services deployed within a Unified Command.",
+          "key": "Tactical Communications Interoperability"
+        },
+        {
+          "n": 40,
+          "stem": "Which product is the output of the MDMP process?",
+          "key": "OPORD"
+        },
+        {
+          "n": 41,
+          "stem": "Aims at using these existing qualities and potential to develop a well-rounded leader with sets of desired attributes forming the leader's character, presence, and intellect.",
+          "key": "Military Leadership Attributes"
+        },
+        {
+          "n": 42,
+          "stem": "An art and science involving the employment of combat units and the arrangement of maneuver units in relation to each other.",
+          "key": "Tactics"
+        },
+        {
+          "n": 43,
+          "stem": "How many editions is the CEOI prepared in to facilitate replacement in the event of a compromise?",
+          "key": "2"
+        },
+        {
+          "n": 44,
+          "stem": "Core leader competencies focus on who is being led and with what degree of authority and influence.",
+          "key": "Leading Competency"
+        },
+        {
+          "n": 45,
+          "stem": "Moral and ethical quality of a leader that helps determine what is right and gives a motivation to do what is appropriate.",
+          "key": "Leaders Character"
+        },
+        {
+          "n": 46,
+          "stem": "Intelligence products, organizations, and activities that incorporate all sources of information and intelligence information, including open-source information, in the production of intelligence.",
+          "key": "All source Intelligence"
+        },
+        {
+          "n": 47,
+          "stem": "Requires unrelenting and consistent determination to do what is right and do it with pride. It is to sustain the will to win.",
+          "key": "Warrior Ethos"
+        },
+        {
+          "n": 48,
+          "stem": "Air assets belonging to the AFP capable to provide close air support, maritime air patrol, disaster and rescue operations, evacuation, resupply and troop insertion.",
+          "key": "Aircraft"
+        },
+        {
+          "n": 49,
+          "stem": "It is a task that is crucial to the successful accomplishment of the mission.",
+          "key": "Essential Task"
+        },
+        {
+          "n": 50,
+          "stem": "Derived from the exploitation of imagery collected by visual photography, videos, multi-spectral sensors and radars.",
+          "key": "IMINT"
+        },
+        {
+          "n": 51,
+          "stem": "You are the signal officer tasked with ensuring smooth communication support for an upcoming battalion operation. Before drafting the communication plan, you systematically examine terrain, enemy capabilities, available equipment, and troop movements. What step are you performing?",
+          "key": "Signal Estimate"
+        },
+        {
+          "n": 52,
+          "stem": "It will lead you to apply not only leadership, but also management and command and apply these to authority.",
+          "key": "Commandership"
+        },
+        {
+          "n": 53,
+          "stem": "What is an organization of stations capable of direct communications on a common frequency for a specific purpose?",
+          "key": "Radio Net"
+        },
+        {
+          "n": 54,
+          "stem": "Leadership style that focuses on the exchange of skills, knowledge, resources, or effort between leaders and their subordinates.",
+          "key": "Transactional Leadership"
+        },
+        {
+          "n": 55,
+          "stem": "During a joint force operation against a heavily fortified enemy position, commanders decide to employ artillery, infantry, armor, and aviation units in synchronized action. What approach are they applying to achieve overwhelming effects on the enemy?",
+          "key": "Combined Arms Operation"
+        },
+        {
+          "n": 56,
+          "stem": "Which method can be used during an attack to transmit pre-arranged messages in accordance with CEOI?",
+          "key": "Visual and Sound"
+        },
+        {
+          "n": 57,
+          "stem": "Which principle of planning emphasizes flexibility and adaptability?",
+          "key": "Resilience"
+        },
+        {
+          "n": 58,
+          "stem": "What is the rated range of VHF radio for planning purposes?",
+          "key": "10 kms"
+        },
+        {
+          "n": 59,
+          "stem": "What type of modulation limits the range due to line-of-sight operations (no obstacles exist between two stations)?",
+          "key": "FM"
+        },
+        {
+          "n": 60,
+          "stem": "A considerate communication that equally valued and respected students for their ideas, beliefs, and values.",
+          "key": "Effective Communication"
+        },
+        {
+          "n": 61,
+          "stem": "What characteristic must signal support have to be sufficiently mobile and adaptable to all possible battlefield conditions to support C2?",
+          "key": "Versatility"
+        },
+        {
+          "n": 62,
+          "stem": "During an intelligence operation, a unit collects information by intercepting enemy radar signals and voice communications over radio. What type of intelligence collection method is being used?",
+          "key": "Signals Intelligence (SIGINT)"
+        },
+        {
+          "n": 63,
+          "stem": "It is an effect of fires delivered in a tactical mission task that physically renders an enemy force combat-ineffective until it is reconstituted and producing at least 30-percent casualties or materiel damage.",
+          "key": "Destroy"
+        },
+        {
+          "n": 64,
+          "stem": "Which planning process is used at battalion/brigade level?",
+          "key": "MDMP"
+        },
+        {
+          "n": 65,
+          "stem": "In planning an armored assault, what key component helps coordinate movements with artillery and infantry units?",
+          "key": "Synchronization"
+        },
+        {
+          "n": 66,
+          "stem": "A leadership style where a leader works with teams/followers beyond their immediate self-interests to identify needed change, creating a vision to guide the change through influence, inspiration, and executing the change in tandem with committed members of a group.",
+          "key": "Transformational Leadership"
+        },
+        {
+          "n": 67,
+          "stem": "Refers to collective or organizational accountability and includes how well the unit performs its missions.",
+          "key": "Command Responsibility"
+        },
+        {
+          "n": 68,
+          "stem": "What is a means of transmitting information in accordance with a certain pre-arranged system or code when direct verbal or written statements are unnecessary or impractical.",
+          "key": "Signal"
+        },
+        {
+          "n": 69,
+          "stem": "The authority that a commander in the armed forces lawfully exercises over subordinates BY VIRTUE OF RANK OR DESIGNATION.",
+          "key": "Command"
+        },
+        {
+          "n": 70,
+          "stem": "This shall be used by AFP units to determine the legitimacy of stations operating in the Net.",
+          "key": "Authentication"
+        }
+      ],
+      "skipped": [
+        {
+          "n": 71,
+          "reason": "Essay item: the portal shows no answer key."
+        },
+        {
+          "n": 72,
+          "reason": "Essay item: the portal shows no answer key."
+        },
+        {
+          "n": 73,
+          "reason": "Essay item: the portal shows no answer key."
+        }
+      ]
+    }
+  ]
+}
