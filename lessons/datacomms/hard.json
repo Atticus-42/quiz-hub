@@ -1,0 +1,671 @@
+[
+  {
+    "id": 1,
+    "qid": "datacomms-h-01",
+    "difficulty": "hard",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "situational"
+    ],
+    "prompt": "Task Force SENTINEL's TOC reaches PANET through one microwave link to the AFP FCS. Which two principles does that single link most directly fail?",
+    "options": [
+      "Redundant and survivability",
+      "Interoperable and scalable",
+      "Secured and interoperable",
+      "Scalable and appropriate technology"
+    ],
+    "answer": 0,
+    "explanation": "Redundant (0211) calls for multiple paths and backups; survivability (PAM 6-00 0202a) says losing one part must not disrupt the whole system. One microwave link is a single path.",
+    "sourceSlides": [
+      3,
+      14
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "datacomms-h-02",
+    "difficulty": "hard",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "situational"
+    ],
+    "prompt": "In Phase 2 local government offices and responding agencies join SENTINEL's network, and the user count grows. Which principle should the network show?",
+    "options": [
+      "Scalable (0212): it expands or shrinks by phase",
+      "Secured (0213): COMSEC governs every service",
+      "Reliability first: reliability is paramount",
+      "Appropriate technology: newest is not always best"
+    ],
+    "answer": 0,
+    "explanation": "Scalable (0212): the network expands or shrinks by phase.",
+    "sourceSlides": [
+      3,
+      14,
+      15
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "datacomms-h-03",
+    "difficulty": "hard",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "situational"
+    ],
+    "prompt": "The Verdana Armed Group probes Army and local government networks. Which threat from section 1.3 does this most directly represent?",
+    "options": [
+      "Insider threats from within the Army and the local government units",
+      "Hybrid threats from regular, irregular, terrorist and criminal elements acting together",
+      "Cyber threats against the confidentiality, integrity or availability of networks",
+      "Physical environment threats, such as typhoons that disable equipment"
+    ],
+    "answer": 2,
+    "explanation": "Probing networks is a cyber threat against the confidentiality, integrity or availability of networks.",
+    "sourceSlides": [
+      2,
+      14
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "datacomms-h-04",
+    "difficulty": "hard",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "situational"
+    ],
+    "prompt": "Which Task Force SENTINEL fact belongs to the physical operating environment?",
+    "options": [
+      "The VAG probes Army and local government networks",
+      "The VAG may jam local VHF channels at close range",
+      "The signal platoon has no qualified network administrator and only one radio technician",
+      "Isla Menor lies 35 km across open water, and the area is typhoon-prone"
+    ],
+    "answer": 3,
+    "explanation": "The physical environment covers distances over water, mountains, foliage, cities and typhoons. Network probing is cyberspace, jamming is the electromagnetic spectrum, and the platoon's skills are a resource.",
+    "sourceSlides": [
+      2,
+      14,
+      15
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "datacomms-h-05",
+    "difficulty": "hard",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "situational"
+    ],
+    "prompt": "SENTINEL's TOC needs drone video, a common operational picture and blue force tracking. Which past operation does the handout tie to drones, digital maps, blue force tracking and live feeds?",
+    "options": [
+      "Typhoon Yolanda 2013",
+      "The Marawi siege",
+      "COVID-19",
+      "The Zamboanga siege"
+    ],
+    "answer": 1,
+    "explanation": "The handout lists the Marawi siege for drones, digital maps, blue force tracking and live feeds.",
+    "sourceSlides": [
+      2,
+      15
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "datacomms-h-06",
+    "difficulty": "hard",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "situational"
+    ],
+    "prompt": "Inject 2: division asks SENTINEL for drone video and a daily 0600 video-teleconference. Which requirement category mainly tests whether the TOC-to-division link can carry this?",
+    "options": [
+      "Mobility",
+      "Speed and capacity",
+      "Interoperability",
+      "Scalability"
+    ],
+    "answer": 1,
+    "explanation": "Speed and capacity asks how much data, how often, and how fast it must arrive. Video and a VTC add volume on the TOC-to-division link.",
+    "sourceSlides": [
+      5,
+      16
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "datacomms-h-07",
+    "difficulty": "hard",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "Why does an information exchange requirement need a maximum delay and a precedence, not only a volume?",
+    "options": [
+      "The NTC requires a stated delay and a precedence before it will assign any frequency to the unit for the operation",
+      "The volume alone sets the classification, so the delay and precedence add nothing",
+      "Late or unreadable information has the same effect as none, and requirements must be ranked because resources are limited",
+      "The precedence decides which voice codec the router must use on every link"
+    ],
+    "answer": 2,
+    "explanation": "Information that arrives late, or in a form no one can read, has the same effect as none (PAM 3-00 0839), and requirements are ranked because resources are always limited (0310).",
+    "sourceSlides": [
+      4,
+      6
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "datacomms-h-08",
+    "difficulty": "hard",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "situational"
+    ],
+    "prompt": "Which SENTINEL requirement statement passes the section 2.5 test?",
+    "options": [
+      "Good, reliable and secure communications from the TOC to every unit and agency at all times in both phases",
+      "1st Battalion TOC to TOC: position reports every few minutes, under 1 minute delay, Priority, Restricted, Phase 1",
+      "Use the VSAT terminal for all traffic between the TOC and the two battalions",
+      "Give both battalions as much bandwidth as the TOC can provide, as soon as possible"
+    ],
+    "answer": 1,
+    "explanation": "A requirement must be specific, measurable, tied to the mission, ranked and phased. Only the first names originator, recipient, volume, delay, precedence, classification and phase.",
+    "sourceSlides": [
+      5,
+      6
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "datacomms-h-09",
+    "difficulty": "hard",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "situational"
+    ],
+    "prompt": "A planner starts SENTINEL's requirements list from the 60 VHF handhelds on hand. What is wrong with this?",
+    "options": [
+      "Nothing is wrong, because the equipment on hand is what defines what the requirements of the unit can be",
+      "VHF handhelds are special purpose means, so they cannot appear in a requirement",
+      "Requirements come only from the higher headquarters' order, not from the unit",
+      "Requirements come from the mission and the commander; equipment is considered later as a resource"
+    ],
+    "answer": 3,
+    "explanation": "Requirements come from the mission and the commander, not from the equipment on hand. Equipment is considered later, as a resource.",
+    "sourceSlides": [
+      3
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "datacomms-h-10",
+    "difficulty": "hard",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "situational"
+    ],
+    "prompt": "SENTINEL must coordinate with Philippine Air Force and Navy elements on their own networks. Which requirement category asks which units, services, agencies or allies must be reachable?",
+    "options": [
+      "Security",
+      "Mobility",
+      "Interoperability",
+      "Coverage and range"
+    ],
+    "answer": 2,
+    "explanation": "Interoperability asks which units, services, agencies or allies must be reachable.",
+    "sourceSlides": [
+      5,
+      14
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "datacomms-h-11",
+    "difficulty": "hard",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "On the Annex C information exchange requirements worksheet, what is totaled for each link after the rows are filled?",
+    "options": [
+      "The precedence",
+      "The volume",
+      "The classification",
+      "The maximum delay"
+    ],
+    "answer": 1,
+    "explanation": "Annex C: add one row per requirement, then total the volume per link. Section 2.4 gives the same method.",
+    "sourceSlides": [
+      5,
+      18
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "datacomms-h-12",
+    "difficulty": "hard",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "situational"
+    ],
+    "prompt": "SENTINEL's 2nd Battalion on Isla Menor reaches the TOC only across 35 km of open water. Which planning response does section 3.5 give for islands and open water?",
+    "options": [
+      "Repeaters on high ground",
+      "Short hops, with wired backup",
+      "HF, satellite or relay stations",
+      "Commercial cellular from the lowlands"
+    ],
+    "answer": 2,
+    "explanation": "Islands and open water: line of sight fails over distance, so the response is HF, satellite or relay stations.",
+    "sourceSlides": [
+      7,
+      14
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "datacomms-h-13",
+    "difficulty": "hard",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "situational"
+    ],
+    "prompt": "Inject 3 cuts SENTINEL's microwave link to the AFP FCS and takes down cellular on Isla Mayor. On an operational-to-tactical HQ link, what does the 0406 table give as the secondary means?",
+    "options": [
+      "Commercial landline or mobile",
+      "Standardized mobile systems",
+      "HF/SSB with VHF/FM or UHF/FM, linked through repeaters",
+      "AFP FCS with PA drop-and-insert to major camps"
+    ],
+    "answer": 2,
+    "explanation": "Operational to tactical HQ: primary AFP FCS if technically feasible, secondary HF/SSB with VHF/FM or UHF/FM linked through repeaters, tertiary commercial landline or mobile.",
+    "sourceSlides": [
+      7,
+      16
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "datacomms-h-14",
+    "difficulty": "hard",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "situational"
+    ],
+    "prompt": "SENTINEL's dismounted 1st Battalion needs blue force tracking in the mountains. Which means does the comparison table give for dismounted and vehicle data and blue force tracking?",
+    "options": [
+      "Fiber and microwave",
+      "Geostationary satellite (VSAT)",
+      "Mobile ad-hoc network (MANET)",
+      "Commercial cellular"
+    ],
+    "answer": 2,
+    "explanation": "MANET is self-forming, extends coverage and tolerates node loss; its typical use is dismounted and vehicle data and blue force tracking.",
+    "sourceSlides": [
+      8
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "datacomms-h-15",
+    "difficulty": "hard",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "situational"
+    ],
+    "prompt": "Why is commercial cellular a poor primary path for SENTINEL's operational traffic?",
+    "options": [
+      "It costs more than the VSAT terminal for every call and every message sent",
+      "It has a higher delay than geostationary satellite on every kind of link",
+      "It cannot carry voice at all, only short text messages and position reports between the units",
+      "It fails in disasters, is not secure, and the VAG monitors commercial cellular traffic"
+    ],
+    "answer": 3,
+    "explanation": "Commercial cellular fails in disasters, is not secure and is exposed to interception. The scenario says the VAG monitors commercial cellular traffic and the typhoon takes cellular down.",
+    "sourceSlides": [
+      8,
+      14
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "datacomms-h-16",
+    "difficulty": "hard",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "situational"
+    ],
+    "prompt": "A section wants a VPN over a commercial circuit to reach the provincial office. What does the handout say to do first?",
+    "options": [
+      "Check approval and COMSEC policy",
+      "Connect it straight to PANET",
+      "Buy a firewall from the carrier",
+      "Ask the carrier to encrypt it"
+    ],
+    "answer": 0,
+    "explanation": "A VPN is an encrypted tunnel over a shared network, such as a protected link over a commercial circuit; the handout says to check approval and COMSEC policy first.",
+    "sourceSlides": [
+      9
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "datacomms-h-17",
+    "difficulty": "hard",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "objective"
+    ],
+    "prompt": "Which topology does the handout call typical of a real Army network?",
+    "options": [
+      "Hybrid: a star at the TOC and a mesh in the field",
+      "Star everywhere, with one center for all units",
+      "Mesh at the TOC and a star in the field",
+      "Bus from the TOC down to every unit"
+    ],
+    "answer": 0,
+    "explanation": "A hybrid topology mixes the others and is typical of a real Army network: a star at the TOC and a mesh in the field.",
+    "sourceSlides": [
+      9
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "datacomms-h-18",
+    "difficulty": "hard",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "situational"
+    ],
+    "prompt": "Inject 1: two captured handheld radios were loaded with operational frequencies. What must the recovery procedures provide (0311)?",
+    "options": [
+      "Monitoring of the PA network, and procedures for the CSIRT and first responders",
+      "Procedures to change frequencies efficiently, in the shortest possible time",
+      "Redundant communications, equipment repair and replacement, and on-site support",
+      "Countermeasures and counter-countermeasures against jamming and interception"
+    ],
+    "answer": 1,
+    "explanation": "Compromised frequencies (captured equipment): procedures to change frequencies efficiently, in the shortest possible time.",
+    "sourceSlides": [
+      10,
+      15
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "datacomms-h-19",
+    "difficulty": "hard",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "situational"
+    ],
+    "prompt": "Inject 4: the cyber monitoring cell reports suspicious traffic and a possible malware infection on a TOC laptop on PANET. Which team acts, under which plan?",
+    "options": [
+      "The TOC team, under the TOC deployment plan",
+      "The C3 restoration team, under the signal plan",
+      "The network recovery team, under the CEOI",
+      "The CSIRT, under the incident response plan"
+    ],
+    "answer": 3,
+    "explanation": "The cyber security incident response team executes the incident response plan; cyberattack recovery includes CSIRT and first responder procedures.",
+    "sourceSlides": [
+      10,
+      16
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "datacomms-h-20",
+    "difficulty": "hard",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "situational"
+    ],
+    "prompt": "Inject 3: a typhoon cuts the microwave link and commercial cellular. Which response matches the handout's typhoon guidance?",
+    "options": [
+      "Deployable signal teams and the mobile command center, with tactical radio as backup",
+      "The CSIRT alone, under the incident response plan",
+      "Restore commercial cellular first, then the radio nets",
+      "Hold all reporting until the typhoon has passed"
+    ],
+    "answer": 0,
+    "explanation": "Typhoons disable commercial and Army assets. The planning response is deployable signal teams, the mobile command center and tactical radio as backup (the Yolanda lesson); for HADR they are put on standby.",
+    "sourceSlides": [
+      7,
+      11,
+      16
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "datacomms-h-21",
+    "difficulty": "hard",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "situational"
+    ],
+    "prompt": "Inject 5: a navy patrol boat and provincial disaster officials ask to join the task force radio net. Which response follows the handout?",
+    "options": [
+      "Support them on a HADR net that is separate from the secured operational net and treated as unclassified",
+      "Connect them to PANET so that they can see the common operational picture",
+      "Add them to the encrypted battalion command net for the rest of the operation",
+      "Bridge the HADR net into the TOC's IP telephones through the secured router, so that officials can call the staff"
+    ],
+    "answer": 0,
+    "explanation": "The HADR radio net must be separate from the secured operational net and is treated as unclassified and unsecured. Connecting the HADR net to the secured net is a common planning error.",
+    "sourceSlides": [
+      11,
+      13,
+      16
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "datacomms-h-22",
+    "difficulty": "hard",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "Where does the handout suggest putting the network diagram, service list, and link and routing table with PACE?",
+    "options": [
+      "In the C-E support paragraph, which Annex B already sets out for data",
+      "In the condensed signal estimate, under the heading of courses of action",
+      "In the CEOI, beside the call signs and the frequency assignments",
+      "In a data communications appendix attached to the signal plan (Annex D template)"
+    ],
+    "answer": 3,
+    "explanation": "The Annex B format has an empty C-E Support paragraph and no data-specific tab, so the handout suggests a data communications appendix, with Annex D as its template.",
+    "sourceSlides": [
+      11,
+      18
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "datacomms-h-23",
+    "difficulty": "hard",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "For how many services must SENTINEL's PACE table be written, and how many of them must be voice services?",
+    "options": [
+      "At least six services, including at least three voice services",
+      "At least eight services, all of them data services",
+      "At least four services, including at least one voice service",
+      "At least five services, including at least two voice services"
+    ],
+    "answer": 3,
+    "explanation": "The task asks for a PACE table for at least five services, including at least two voice services (8.4.3, 8.4.4).",
+    "sourceSlides": [
+      16
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "datacomms-h-24",
+    "difficulty": "hard",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "situational"
+    ],
+    "prompt": "A brigade TOC needs 20 simultaneous compressed calls at about 30 kbps each, plus 500 kbps of data, with a 25 percent margin. About how large should the link be?",
+    "options": [
+      "About 1.1 Mbps: 600 + 500 = 1,100 kbps, with no margin",
+      "About 2.9 Mbps: (1,800 + 500) × 1.25, at 90 kbps a call",
+      "About 1.4 Mbps: (600 + 500) × 1.25 ≈ 1,375 kbps",
+      "About 750 kbps: 600 × 1.25, with the data left off the link"
+    ],
+    "answer": 2,
+    "explanation": "Voice is 20 × 30 = 600 kbps. Adding 500 kbps of data and a 25 percent margin gives (600 + 500) × 1.25 ≈ 1,375 kbps, about 1.4 Mbps. Compressed calls use the 25 to 30 kbps figure.",
+    "sourceSlides": [
+      13,
+      19
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "datacomms-h-25",
+    "difficulty": "hard",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "objective"
+    ],
+    "prompt": "In the handout's worked example, why is the brigade-to-division VSAT link planned at roughly 1.1 Mbps or more?",
+    "options": [
+      "15 calls × 90 kbps = 1,350 kbps, plus 400 kbps of data, with no margin added",
+      "450 kbps of voice plus 400 kbps of data = 850 kbps, rounded up to the next size",
+      "15 calls × 30 kbps = 450 kbps, doubled for both directions and then plus 200 kbps",
+      "15 calls × 30 kbps = 450 kbps, plus 400 kbps of data, × 1.25 margin ≈ 1,060 kbps"
+    ],
+    "answer": 3,
+    "explanation": "Voice is about 15 × 30 kbps = 450 kbps. Adding 400 kbps of data and a margin of at least 25 percent gives (450 + 400) × 1.25 ≈ 1,060 kbps.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 26,
+    "qid": "datacomms-h-26",
+    "difficulty": "hard",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "situational"
+    ],
+    "prompt": "A voice PACE lists IP telephony over PANET as primary and VSAT voice as alternate, both through the same TOC router on one generator. What is the error?",
+    "options": [
+      "VSAT cannot carry voice, so it cannot be any level of PACE",
+      "The two paths share a failure point, so the fallback is not independent",
+      "IP telephony must be the emergency means, not the primary",
+      "There is no error, because the two means are different"
+    ],
+    "answer": 1,
+    "explanation": "Each critical voice service needs PACE means that do not share the same failure point. Power, antennas and switches are dependencies too.",
+    "sourceSlides": [
+      12,
+      13
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "datacomms-h-27",
+    "difficulty": "hard",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "situational"
+    ],
+    "prompt": "Provincial officials want to reach the TOC's IP phones from their disaster net. Which common planning error would joining the two nets commit?",
+    "options": [
+      "Sizing the link for data only",
+      "Connecting the HADR net to the secured net",
+      "Using one commercial circuit for both paths",
+      "Treating IP telephony and data as separate plans"
+    ],
+    "answer": 1,
+    "explanation": "Connecting the HADR net to the secured net is listed among the common planning errors; the HADR net is separate and unsecured (0324).",
+    "sourceSlides": [
+      12,
+      13
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "datacomms-h-28",
+    "difficulty": "hard",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "objective"
+    ],
+    "prompt": "Which evaluation criterion checks that voice dependencies are shown, sizing is correct and the voice fallback is independent, and how many points is it worth?",
+    "options": [
+      "Voice on data, 15 points (8.4.4)",
+      "Redundancy and recovery, 15 points (8.4.3)",
+      "Security and separation, 10 points",
+      "Technology selection, 15 points (8.4.2)"
+    ],
+    "answer": 0,
+    "explanation": "Voice on data (8.4.4, 15 points): voice dependencies on the network shown, sizing correct with reasoning, and an independent voice fallback.",
+    "sourceSlides": [
+      17
+    ]
+  }
+]

@@ -1,0 +1,647 @@
+[
+  {
+    "id": 1,
+    "qid": "voicecomms-m-01",
+    "difficulty": "medium",
+    "category": "Voice Requirements",
+    "tags": [
+      "voicecomms",
+      "voice requirements",
+      "objective"
+    ],
+    "prompt": "Who directs the means of communication to be provided and the priorities?",
+    "options": [
+      "The signal officer",
+      "The staff users",
+      "The higher headquarters' signal unit",
+      "The commander"
+    ],
+    "answer": 3,
+    "explanation": "After listing the sources of requirements, the handout states that the commander directs the means to be provided and the priorities.",
+    "sourceSlides": [
+      1
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "voicecomms-m-02",
+    "difficulty": "medium",
+    "category": "Voice Requirements",
+    "tags": [
+      "voicecomms",
+      "voice requirements",
+      "objective"
+    ],
+    "prompt": "Why does the handout list staff guidance as a source of voice requirements?",
+    "options": [
+      "Staff officers are the users",
+      "Staff officers approve the signal budget",
+      "Staff officers write the CEOI",
+      "Staff officers operate the radios"
+    ],
+    "answer": 0,
+    "explanation": "Staff guidance is a source of requirements because staff officers are the users of signal support.",
+    "sourceSlides": [
+      1
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "voicecomms-m-03",
+    "difficulty": "medium",
+    "category": "Voice Requirements",
+    "tags": [
+      "voicecomms",
+      "voice requirements",
+      "objective"
+    ],
+    "prompt": "By what other name is the signal estimate known, and when is it revised?",
+    "options": [
+      "The signal plan; it is fixed once published",
+      "The CEOI; it is revised every 24 hours",
+      "The C4S annex; it is revised only after the operation has ended",
+      "The C4S estimate; it is revised as the situation changes"
+    ],
+    "answer": 3,
+    "explanation": "The signal estimate examines all factors that may affect signal support. It is also called the C4S estimate and is revised as the situation changes.",
+    "sourceSlides": [
+      1
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "voicecomms-m-04",
+    "difficulty": "medium",
+    "category": "Voice Requirements",
+    "tags": [
+      "voicecomms",
+      "voice requirements",
+      "objective"
+    ],
+    "prompt": "According to section 2.4, when is a voice requirement worth stating?",
+    "options": [
+      "When it supports a decision or an action",
+      "When equipment is available to support it",
+      "When a subordinate unit requests a net",
+      "When commercial means can meet it"
+    ],
+    "answer": 0,
+    "explanation": "A requirement is worth stating only if it supports a decision or an action. The planner asks which information requirement or task needs the link and what happens if it fails.",
+    "sourceSlides": [
+      2
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "voicecomms-m-05",
+    "difficulty": "medium",
+    "category": "Voice Requirements",
+    "tags": [
+      "voicecomms",
+      "voice requirements",
+      "situational"
+    ],
+    "prompt": "A planner records that the forward command post must talk while on the move. Which requirement field holds this?",
+    "options": [
+      "Reach",
+      "Mobility",
+      "Availability",
+      "Quality"
+    ],
+    "answer": 1,
+    "explanation": "Mobility records whether a station is fixed, on the halt or on the move. Reach covers distance and terrain, availability the hours and restoration time.",
+    "sourceSlides": [
+      2
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "voicecomms-m-06",
+    "difficulty": "medium",
+    "category": "Voice Requirements",
+    "tags": [
+      "voicecomms",
+      "voice requirements",
+      "objective"
+    ],
+    "prompt": "Which requirement field asks whether intelligible voice is enough or a telephone-quality call is needed?",
+    "options": [
+      "Security",
+      "Precedence",
+      "Net or service",
+      "Quality"
+    ],
+    "answer": 3,
+    "explanation": "The quality field asks whether intelligible voice is enough or a telephone-quality call is needed.",
+    "sourceSlides": [
+      2
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "voicecomms-m-07",
+    "difficulty": "medium",
+    "category": "Communication Technologies",
+    "tags": [
+      "voicecomms",
+      "communication technologies",
+      "objective"
+    ],
+    "prompt": "What does the handout say about telephone service on the fixed system?",
+    "options": [
+      "The Army is shifting to IP telephony on PANET",
+      "Telephones are limited to coalition operations",
+      "IP telephony replaces all tactical radio nets",
+      "Telephones are a special purpose means only"
+    ],
+    "answer": 0,
+    "explanation": "In the fixed category the voice use is the telephone, and the Army is shifting to IP telephony on PANET.",
+    "sourceSlides": [
+      2
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "voicecomms-m-08",
+    "difficulty": "medium",
+    "category": "Communication Technologies",
+    "tags": [
+      "voicecomms",
+      "communication technologies",
+      "objective"
+    ],
+    "prompt": "What does DBTOCS do?",
+    "options": [
+      "It links the Army to commercial satellite services",
+      "It provides radio over IP to rifle squads",
+      "It extends fixed communications to brigades",
+      "It manages spectrum assignments with the NTC"
+    ],
+    "answer": 2,
+    "explanation": "DBTOCS, the deployable brigade tactical operations center system, extends fixed communications to brigades (PAM 6-0102 0133).",
+    "sourceSlides": [
+      2
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "voicecomms-m-09",
+    "difficulty": "medium",
+    "category": "Communication Technologies",
+    "tags": [
+      "voicecomms",
+      "communication technologies",
+      "objective"
+    ],
+    "prompt": "Which list gives the components of the fixed system in PAM 6-00 0403?",
+    "options": [
+      "Radios, repeaters, antennas and batteries",
+      "Transmission, switching, cable, terminal and support facilities",
+      "Command, administrative, fires and emergency nets",
+      "Primary, alternate, contingency and emergency means"
+    ],
+    "answer": 1,
+    "explanation": "The fixed system has transmission facilities (AFP FCS), switching, cable, terminal (telephones and computers) and support facilities (buildings, power, environmental control).",
+    "sourceSlides": [
+      3
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "voicecomms-m-10",
+    "difficulty": "medium",
+    "category": "Communication Technologies",
+    "tags": [
+      "voicecomms",
+      "communication technologies",
+      "objective"
+    ],
+    "prompt": "On the operational-to-tactical link, what is the secondary means under PAM 6-00 0406?",
+    "options": [
+      "HF/SSB with VHF/FM or UHF/FM",
+      "AFP FCS if technically feasible",
+      "Commercial landline or mobile",
+      "Mobile communications systems"
+    ],
+    "answer": 0,
+    "explanation": "Operational to tactical: primary AFP FCS if technically feasible, secondary HF/SSB with VHF/FM or UHF/FM, and other means such as repeaters at strategic areas and commercial landline or mobile.",
+    "sourceSlides": [
+      3
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "voicecomms-m-11",
+    "difficulty": "medium",
+    "category": "Communication Technologies",
+    "tags": [
+      "voicecomms",
+      "communication technologies",
+      "objective"
+    ],
+    "prompt": "Why do repeaters on high ground extend VHF and UHF?",
+    "options": [
+      "Repeaters turn VHF signals into HF skywave",
+      "VHF and UHF need line of sight between stations, and hills block it",
+      "Repeaters encrypt clear-voice radios",
+      "Repeaters on high ground cancel the effects of season and time of day on VHF"
+    ],
+    "answer": 1,
+    "explanation": "VHF and UHF depend on line of sight between stations, so hills block them and repeaters on high ground extend them.",
+    "sourceSlides": [
+      3
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "voicecomms-m-12",
+    "difficulty": "medium",
+    "category": "Communication Technologies",
+    "tags": [
+      "voicecomms",
+      "communication technologies",
+      "objective"
+    ],
+    "prompt": "What limitation of HF does the handout's supplementary note give?",
+    "options": [
+      "It cannot reach beyond line of sight",
+      "It works only from fixed stations",
+      "Conditions vary with time of day and season, and reception can be noisy",
+      "It always needs a repeater on high ground to get past the hills between stations"
+    ],
+    "answer": 2,
+    "explanation": "HF can reach over the horizon, but conditions vary with time of day and season and reception can be noisy.",
+    "sourceSlides": [
+      3
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "voicecomms-m-13",
+    "difficulty": "medium",
+    "category": "Spectrum, Threat and Security",
+    "tags": [
+      "voicecomms",
+      "spectrum, threat and security",
+      "objective"
+    ],
+    "prompt": "How may special purpose means be used for voice?",
+    "options": [
+      "For any traffic, because commercial services are exempt from COMSEC",
+      "As the primary means for classified command traffic",
+      "Only by coalition partners in their own networks",
+      "For routine and administrative traffic and as gap fillers, with prudence and within COMSEC policy"
+    ],
+    "answer": 3,
+    "explanation": "Special purpose means carry routine and administrative traffic and act as gap fillers, used with prudence and within COMSEC policy.",
+    "sourceSlides": [
+      2
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "voicecomms-m-14",
+    "difficulty": "medium",
+    "category": "Spectrum, Threat and Security",
+    "tags": [
+      "voicecomms",
+      "spectrum, threat and security",
+      "objective"
+    ],
+    "prompt": "Under PAM 6-0102 0311c, when does the plan provide for employing the cyber response team?",
+    "options": [
+      "Whenever a radio is captured",
+      "Only after a typhoon strikes",
+      "When the vigilance net is opened",
+      "Where network attack is expected"
+    ],
+    "answer": 3,
+    "explanation": "Recovery includes changing frequencies when equipment is compromised (0311d) and employing the cyber response team where network attack is expected (0311c).",
+    "sourceSlides": [
+      5
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "voicecomms-m-15",
+    "difficulty": "medium",
+    "category": "Spectrum, Threat and Security",
+    "tags": [
+      "voicecomms",
+      "spectrum, threat and security",
+      "objective"
+    ],
+    "prompt": "How must a disaster response radio net relate to the Army's secured operational net?",
+    "options": [
+      "It must be different from and separate to it",
+      "It must be bridged to it so agencies receive orders",
+      "It must use the same encryption keys",
+      "It must replace it during the disaster"
+    ],
+    "answer": 0,
+    "explanation": "In disaster response the radio net must be different from and separate to the Army's secured operational net.",
+    "sourceSlides": [
+      5
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "voicecomms-m-16",
+    "difficulty": "medium",
+    "category": "Spectrum, Threat and Security",
+    "tags": [
+      "voicecomms",
+      "spectrum, threat and security",
+      "objective"
+    ],
+    "prompt": "How is the disaster response net treated?",
+    "options": [
+      "As confidential and limited to Army stations",
+      "As secret, with ciphertext and double talk on every single call",
+      "As unclassified and unsecured, connecting many entities",
+      "As a coalition partner's sovereign network"
+    ],
+    "answer": 2,
+    "explanation": "The disaster response net is treated as unclassified and unsecured, and it connects many entities.",
+    "sourceSlides": [
+      5
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "voicecomms-m-17",
+    "difficulty": "medium",
+    "category": "Spectrum, Threat and Security",
+    "tags": [
+      "voicecomms",
+      "spectrum, threat and security",
+      "objective"
+    ],
+    "prompt": "Which pair does the handout name as part of electronic protection?",
+    "options": [
+      "Frequency hopping and anti-jamming",
+      "Double talk and messengers",
+      "Satellite phones and cellular phones",
+      "Repeaters and commercial base radios"
+    ],
+    "answer": 0,
+    "explanation": "Electronic warfare has support, attack and protect parts, including frequency hopping and anti-jamming (PAM 6-0102 0223).",
+    "sourceSlides": [
+      3
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "voicecomms-m-18",
+    "difficulty": "medium",
+    "category": "Voice Plans and PACE",
+    "tags": [
+      "voicecomms",
+      "voice plans and pace",
+      "objective"
+    ],
+    "prompt": "What does step 5, prepare a tentative plan (0312), contain?",
+    "options": [
+      "The requirements gathered from the commander, the staff and adjacent headquarters",
+      "The chart of available equipment, personnel and funds",
+      "The final check of reconnaissance, propagation, coverage and gaps",
+      "A concept with primary, alternate, contingency and emergency plans, resource allocation, siting of centers, security, and interconnection and alternate routing"
+    ],
+    "answer": 3,
+    "explanation": "The tentative plan (0312) holds the concept with PACE plans, allocation of resources, siting of centers, security, and interconnection and alternate routing.",
+    "sourceSlides": [
+      4
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "voicecomms-m-19",
+    "difficulty": "medium",
+    "category": "Voice Plans and PACE",
+    "tags": [
+      "voicecomms",
+      "voice plans and pace",
+      "objective"
+    ],
+    "prompt": "Which PAM 6-0102 paragraph covers developing recovery procedures?",
+    "options": [
+      "0305",
+      "0311",
+      "0310",
+      "0314"
+    ],
+    "answer": 1,
+    "explanation": "Develop recovery procedures is step 4, paragraph 0311: how to restore service after failure.",
+    "sourceSlides": [
+      4
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "voicecomms-m-20",
+    "difficulty": "medium",
+    "category": "Voice Plans and PACE",
+    "tags": [
+      "voicecomms",
+      "voice plans and pace",
+      "objective"
+    ],
+    "prompt": "Why are two radios on the same repeater not an alternate?",
+    "options": [
+      "Two radios cannot share a repeater frequency",
+      "An alternate must always be a messenger",
+      "Repeaters are special purpose means",
+      "Each PACE level should fail differently from the one above it, and both fail with the repeater"
+    ],
+    "answer": 3,
+    "explanation": "The handout advises choosing each PACE level so it fails differently from the one above it. Two radios on the same repeater are not an alternate.",
+    "sourceSlides": [
+      4
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "voicecomms-m-21",
+    "difficulty": "medium",
+    "category": "Voice Plans and PACE",
+    "tags": [
+      "voicecomms",
+      "voice plans and pace",
+      "objective"
+    ],
+    "prompt": "Which is one of the joint operations options the handout lists?",
+    "options": [
+      "Keeping each service on a sovereign network with no integration",
+      "Treating the joint net as unclassified and unsecured",
+      "Lending equipment to another service",
+      "Using commercial cellular as the only link between services"
+    ],
+    "answer": 2,
+    "explanation": "Joint options are the vigilance net, lending equipment to another service, embedding Army radio operators in other services, or embedding their operators with our nearest TOC.",
+    "sourceSlides": [
+      5
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "voicecomms-m-22",
+    "difficulty": "medium",
+    "category": "Voice Plans and PACE",
+    "tags": [
+      "voicecomms",
+      "voice plans and pace",
+      "objective"
+    ],
+    "prompt": "What should each net in the voice plan be given under section 4.5?",
+    "options": [
+      "A call sign and one frequency, with membership decided on the day",
+      "A purpose, a net control station, a member list, primary and alternate frequencies, and a rule for who may break in",
+      "A budget line, a maintenance schedule and a spare-parts list",
+      "A commercial carrier, a phone number and a billing account"
+    ],
+    "answer": 1,
+    "explanation": "Each net needs a purpose, a net control station, a member list, a primary and alternate frequency, and a rule for who may break in.",
+    "sourceSlides": [
+      5
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "voicecomms-m-23",
+    "difficulty": "medium",
+    "category": "Voice Plans and PACE",
+    "tags": [
+      "voicecomms",
+      "voice plans and pace",
+      "objective"
+    ],
+    "prompt": "In the voice plan, where do call signs and frequencies come from, and where do instructions for using them come from?",
+    "options": [
+      "Call signs and frequencies from the CESI; how to use them from the CEOI",
+      "Both from the unit SOP",
+      "Call signs and frequencies from the CEOI; how to use them from the CESI",
+      "Both from the C4S annex"
+    ],
+    "answer": 2,
+    "explanation": "Use the CEOI for call signs and frequencies and the CESI for how to use them.",
+    "sourceSlides": [
+      5
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "voicecomms-m-24",
+    "difficulty": "medium",
+    "category": "Voice Resources",
+    "tags": [
+      "voicecomms",
+      "voice resources",
+      "objective"
+    ],
+    "prompt": "Which group of items is a personnel consideration under PAM 6-0102 0308?",
+    "options": [
+      "Authorized (TE), on hand, serviceable, unserviceable, reserve pool and capability",
+      "Installation, operation and maintenance of C4 systems",
+      "Authorized (TO), actual fill-up, training status, critical shortages, committed or deployed, and reserve",
+      "Call signs, frequencies and net members"
+    ],
+    "answer": 2,
+    "explanation": "Personnel (0308) covers authorized (TO), actual fill-up, training status, critical shortages, committed or deployed, and reserve. TE items belong to equipment (0307).",
+    "sourceSlides": [
+      5
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "voicecomms-m-25",
+    "difficulty": "medium",
+    "category": "Voice Resources",
+    "tags": [
+      "voicecomms",
+      "voice resources",
+      "objective"
+    ],
+    "prompt": "What does the equipment chart under PAM 6-0102 0307 track?",
+    "options": [
+      "Authorized (TO), actual fill-up, training status and critical shortages",
+      "Authorized (TE), on hand, in use or serviceable, unserviceable, reserve pool and capability of each item",
+      "Installation, operation and maintenance costs of C4 systems",
+      "Net purpose, net control station and member list"
+    ],
+    "answer": 1,
+    "explanation": "Equipment (0307) covers authorized (TE), on hand, in use or serviceable, unserviceable, reserve pool and the capability of each item.",
+    "sourceSlides": [
+      5
+    ]
+  },
+  {
+    "id": 26,
+    "qid": "voicecomms-m-26",
+    "difficulty": "medium",
+    "category": "Voice Resources",
+    "tags": [
+      "voicecomms",
+      "voice resources",
+      "objective"
+    ],
+    "prompt": "Which task does the handout list for SMMART but not for the SMTF?",
+    "options": [
+      "Visiting brigades, battalions and companies",
+      "Level 1 to 2 repairs of UHF commercial radios",
+      "Radio programming",
+      "Level 3 repairs of tactical HF radios"
+    ],
+    "answer": 0,
+    "explanation": "Both facilities repair UHF commercial radios at level 1 to 2 and program radios. Only SMMART visits brigades, battalions and companies; only the SMTF repairs tactical HF and VHF radios up to level 3.",
+    "sourceSlides": [
+      5,
+      6
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "voicecomms-m-27",
+    "difficulty": "medium",
+    "category": "Voice Resources",
+    "tags": [
+      "voicecomms",
+      "voice resources",
+      "objective"
+    ],
+    "prompt": "Why do radio operators of non-signal units need refresher training?",
+    "options": [
+      "Their radios change bands every year",
+      "Skills are perishable",
+      "They must replace the signal platoon",
+      "The NTC licenses each operator per operation"
+    ],
+    "answer": 1,
+    "explanation": "Skills are perishable, so radio operators of non-signal units need refresher training (PAM 6-00 0447 to 0450).",
+    "sourceSlides": [
+      6
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "voicecomms-m-28",
+    "difficulty": "medium",
+    "category": "Voice Resources",
+    "tags": [
+      "voicecomms",
+      "voice resources",
+      "objective"
+    ],
+    "prompt": "What does the handout say about commercial phones and radios?",
+    "options": [
+      "They replace tactical systems in every phase",
+      "They are prohibited in all operations",
+      "They may complement tactical systems without sacrificing security",
+      "They may carry classified command traffic as long as the users encrypt it themselves"
+    ],
+    "answer": 2,
+    "explanation": "Commercial phones and radios may complement tactical systems, and facilities may be leveraged for services, without sacrificing security (PAM 6-00 0407 and 0514).",
+    "sourceSlides": [
+      6
+    ]
+  }
+]

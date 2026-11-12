@@ -1,0 +1,648 @@
+[
+  {
+    "id": 1,
+    "qid": "datacomms-e-01",
+    "difficulty": "easy",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "objective"
+    ],
+    "prompt": "According to Part 1, what is the data communications plan part of?",
+    "options": [
+      "A separate IT project run by the network administrator",
+      "The signal plan; it is not a separate IT project",
+      "The logistics plan of the supporting battalion",
+      "The CEOI issued by the higher headquarters"
+    ],
+    "answer": 1,
+    "explanation": "A data communications plan keeps the commander connected to every unit and information source the mission needs. It is part of the signal plan, not a separate IT project.",
+    "sourceSlides": [
+      1
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "datacomms-e-02",
+    "difficulty": "easy",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "objective"
+    ],
+    "prompt": "What does C4S stand for?",
+    "options": [
+      "Command, Control, Computers, Communications and Surveillance",
+      "Combined Communications, Computers and Cyber Security",
+      "Command and Control, Communications, Computers and Signals",
+      "Command and Control Communications, and Cyber Systems"
+    ],
+    "answer": 3,
+    "explanation": "C4S is Command and Control Communications, and Cyber Systems: the set of capabilities that enables signal (PAM 6-00 0127).",
+    "sourceSlides": [
+      2
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "datacomms-e-03",
+    "difficulty": "easy",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "objective"
+    ],
+    "prompt": "Which four sub-systems make up C4S (PAM 6-00 0401)?",
+    "options": [
+      "Communications, electronics, information and cyber",
+      "Fixed, tactical, special purpose and cyber communications systems",
+      "Voice, data, image and video",
+      "Connect, sustain, recover and protect"
+    ],
+    "answer": 0,
+    "explanation": "C4S has four sub-systems: communications, electronics, information and cyber.",
+    "sourceSlides": [
+      2
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "datacomms-e-04",
+    "difficulty": "easy",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "objective"
+    ],
+    "prompt": "In the Connect, Sustain, Recover framework (0144), what does Recover mean?",
+    "options": [
+      "Repair and restore connectivity when it is attacked or destroyed",
+      "Keep connectivity going through the operation",
+      "Provide connectivity for all Army units",
+      "Recover radios, terminals and keying material captured by the enemy"
+    ],
+    "answer": 0,
+    "explanation": "Connect is connectivity for all Army units, Sustain keeps it going through the operation, and Recover repairs and restores it when attacked or destroyed.",
+    "sourceSlides": [
+      2
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "datacomms-e-05",
+    "difficulty": "easy",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "objective"
+    ],
+    "prompt": "Which battalion of the Army Signal Regiment runs defensive cyber operations?",
+    "options": [
+      "The NETBn",
+      "The signal platoon",
+      "The SMMART",
+      "The CyBn"
+    ],
+    "answer": 3,
+    "explanation": "The Army Signal Regiment is the sole provider of signal support. Its NETBn runs information network operations, and its CyBn runs defensive cyber operations (0110, 0124).",
+    "sourceSlides": [
+      2
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "datacomms-e-06",
+    "difficulty": "easy",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "Which mnemonic structures the signal estimate in the data handout?",
+    "options": [
+      "PACE",
+      "METT-TC",
+      "METAL",
+      "SMEAC"
+    ],
+    "answer": 2,
+    "explanation": "The signal estimate is an orderly examination of every factor that may affect the signal mission, structured by METAL: mission, enemy signal capabilities, troops available, area of operations and logistical requirements (0302, 0303).",
+    "sourceSlides": [
+      4
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "datacomms-e-07",
+    "difficulty": "easy",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "According to Part 2, where do data transmission requirements come from?",
+    "options": [
+      "The equipment on hand, checked later against the mission",
+      "The network administrator's inventory of terminals",
+      "The commercial service provider's coverage maps",
+      "The mission and the commander, not the equipment on hand"
+    ],
+    "answer": 3,
+    "explanation": "Requirements come from the mission and the commander, not from the equipment on hand. Equipment is considered later, as a resource.",
+    "sourceSlides": [
+      3
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "datacomms-e-08",
+    "difficulty": "easy",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "How many command and control requirements does PAM 6-00 (0211) list for the infrastructure to support?",
+    "options": [
+      "Four",
+      "Seven",
+      "Five",
+      "Eight"
+    ],
+    "answer": 1,
+    "explanation": "PAM 6-00 (0211) lists seven C2 requirements, from the common operational picture to security, and each implies a data requirement.",
+    "sourceSlides": [
+      4
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "datacomms-e-09",
+    "difficulty": "easy",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "Which six qualities must information have under PAM 3-00 (0847)?",
+    "options": [
+      "Accurate, timely, secure, redundant, scalable, reliable",
+      "Relevant, timely, classified, complete, encrypted, usable",
+      "Accurate, timely, usable, complete, precise, reliable",
+      "Accurate, fast, low-cost, complete, precise, redundant"
+    ],
+    "answer": 2,
+    "explanation": "PAM 3-00 (0847) adds six qualities: accurate, timely, usable, complete, precise and reliable.",
+    "sourceSlides": [
+      4
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "datacomms-e-10",
+    "difficulty": "easy",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "Which requirement category asks \"How will the user count change by phase?\"",
+    "options": [
+      "Mobility",
+      "Interoperability",
+      "Coverage and range",
+      "Scalability"
+    ],
+    "answer": 3,
+    "explanation": "Scalability asks how the user count will change by phase. Mobility asks whether the user moves, interoperability who must be reachable, and coverage and range what terrain the link crosses.",
+    "sourceSlides": [
+      5
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "datacomms-e-11",
+    "difficulty": "easy",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "Under section 2.5, which test must a requirement pass before it is used?",
+    "options": [
+      "Low in cost, fast to install, encrypted and carried on a commercial service",
+      "Approved by the NTC, listed in the CESI and signed by the network administrator",
+      "Specific, measurable, tied to the mission or CCIR, ranked in priority, and phased",
+      "Matched to the equipment on hand, already funded and already in the SOP"
+    ],
+    "answer": 2,
+    "explanation": "A requirement must be specific, measurable, tied to the mission or the commander's CCIR, ranked in priority and phased. Ranking matters because resources are always limited (0310).",
+    "sourceSlides": [
+      6
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "datacomms-e-12",
+    "difficulty": "easy",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "objective"
+    ],
+    "prompt": "What is PANET?",
+    "options": [
+      "The AFP transmission superhighway between switches, run by GHQ-AFP",
+      "The Philippine Army Network: a secured, managed intranet for administrative and mission-critical systems",
+      "A commercial cellular and satellite service contracted for Army units operating in the field",
+      "The combat net radio system that uses radio-over-IP and ad-hoc networks"
+    ],
+    "answer": 1,
+    "explanation": "PANET is the secured, managed intranet carrying administrative and mission-critical information systems. Its primary hub is at the PA communications center, Fort Bonifacio (PAM 6-00 0414).",
+    "sourceSlides": [
+      6
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "datacomms-e-13",
+    "difficulty": "easy",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "objective"
+    ],
+    "prompt": "Where is the primary hub of PANET?",
+    "options": [
+      "GHQ-AFP, Camp Aguinaldo",
+      "The PA communications center, Fort Bonifacio",
+      "Each brigade tactical operations center",
+      "The deployable brigade TOC kit"
+    ],
+    "answer": 1,
+    "explanation": "PANET's primary hub is at the PA communications center, Fort Bonifacio (PAM 6-00 0414).",
+    "sourceSlides": [
+      6
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "datacomms-e-14",
+    "difficulty": "easy",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "objective"
+    ],
+    "prompt": "How does the handout describe the AFP Fixed Communications System?",
+    "options": [
+      "The transmission \"superhighway\" between switches, run by GHQ-AFP",
+      "The telephone exchange linking Army units to HPA and GHQ",
+      "A deployable kit that extends fixed communications to brigades",
+      "A satellite service that reaches remote sites off the fixed system"
+    ],
+    "answer": 0,
+    "explanation": "The AFP FCS is the transmission \"superhighway\" between switches, run by GHQ-AFP. BONTEX is the telephone exchange and DBTOCS the deployable brigade system.",
+    "sourceSlides": [
+      6
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "datacomms-e-15",
+    "difficulty": "easy",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "objective"
+    ],
+    "prompt": "Which means does the handout list under special purpose communications (0135, PAM 6-00 0405)?",
+    "options": [
+      "BONTEX, PANET, the AFP FCS and the deployable brigade TOC system",
+      "HF, VHF and UHF radios and the combat net radio system",
+      "The mobile command center and the four deployable signal teams",
+      "VSAT terminals, mobile satellite, commercial cellular, satellite phones and commercial video-conferencing"
+    ],
+    "answer": 3,
+    "explanation": "Special purpose communications reach places the fixed system cannot and augment it with commercial services: VSAT terminals, mobile satellite, commercial cellular, satellite phones and commercial video-conferencing.",
+    "sourceSlides": [
+      6
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "datacomms-e-16",
+    "difficulty": "easy",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "objective"
+    ],
+    "prompt": "Frequency hopping, anti-jamming and counter-countermeasures belong to which objective of electronic warfare (0138, 0223)?",
+    "options": [
+      "Protect",
+      "Support",
+      "Attack",
+      "Sustain"
+    ],
+    "answer": 0,
+    "explanation": "Electronic warfare has three objectives: support, attack and protect. Protection includes frequency hopping, anti-jamming and counter-countermeasures.",
+    "sourceSlides": [
+      7
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "datacomms-e-17",
+    "difficulty": "easy",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "objective"
+    ],
+    "prompt": "In the network vocabulary table, what does a firewall do?",
+    "options": [
+      "Directs packets between networks, for example connecting a unit LAN to PANET",
+      "Connects devices within a LAN, such as computers and IP phones in a TOC",
+      "Filters traffic by rules, for example protecting PANET from outside networks",
+      "Makes an encrypted tunnel over a shared network, such as a commercial circuit"
+    ],
+    "answer": 2,
+    "explanation": "A firewall filters traffic by rules and protects PANET from outside networks. A router directs packets between networks, a switch connects devices within a LAN, and a VPN is an encrypted tunnel.",
+    "sourceSlides": [
+      9
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "datacomms-e-18",
+    "difficulty": "easy",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "How many steps does the signal planning process (0304 to 0314) have?",
+    "options": [
+      "Five",
+      "Six",
+      "Eight",
+      "Seven"
+    ],
+    "answer": 3,
+    "explanation": "The seven steps run from developing signal and C4S requirements (0305) to publishing plans and orders (0314).",
+    "sourceSlides": [
+      9,
+      10
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "datacomms-e-19",
+    "difficulty": "easy",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "What does PACE stand for?",
+    "options": [
+      "Plan, allocate, coordinate, execute",
+      "Primary, alternate, contingency, emergency",
+      "Primary, auxiliary, commercial, emergency",
+      "Priority, availability, capacity, encryption"
+    ],
+    "answer": 1,
+    "explanation": "PACE is primary, alternate, contingency, emergency: for every critical service, the plan decides the main means and three fallbacks before the operation begins.",
+    "sourceSlides": [
+      10,
+      20
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "datacomms-e-20",
+    "difficulty": "easy",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "Which deployable signal team executes the incident response plan?",
+    "options": [
+      "The TOC team",
+      "The C3 restoration team",
+      "The cyber security incident response team (CSIRT)",
+      "The network recovery team"
+    ],
+    "answer": 2,
+    "explanation": "The four deployable signal teams are the TOC team (TOC deployment plan, mobile command center), the C3 restoration team, the network recovery team and the CSIRT (incident response plan).",
+    "sourceSlides": [
+      10
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "datacomms-e-21",
+    "difficulty": "easy",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "What are the five main parts of the signal plan format?",
+    "options": [
+      "Mission, enemy, troops available, area of operations, logistics",
+      "Requirements, resources, priorities, recovery procedures, publication",
+      "Situation, courses of action, comparison, decision, task list",
+      "Situation, mission, execution, sustainment, command and signal"
+    ],
+    "answer": 3,
+    "explanation": "The signal plan follows the operation order format: situation, mission, execution, sustainment, and command and signal.",
+    "sourceSlides": [
+      11
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "datacomms-e-22",
+    "difficulty": "easy",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "According to section 4.7, what is the key in joint operations?",
+    "options": [
+      "Interoperability with other services",
+      "A sovereign network for each service",
+      "An unclassified net for every service",
+      "Commercial cellular between services"
+    ],
+    "answer": 0,
+    "explanation": "In joint operations interoperability with other services is the key. The options include the Vigilance Net, lending equipment and embedding operators.",
+    "sourceSlides": [
+      11
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "datacomms-e-23",
+    "difficulty": "easy",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "For humanitarian assistance and disaster response, which plan and system does the handout say to follow?",
+    "options": [
+      "The NDRRM plan and the incident command system",
+      "The operation order and the CEOI only",
+      "The coalition lead nation's response plan",
+      "The commercial carrier's restoration plan"
+    ],
+    "answer": 0,
+    "explanation": "For HADR (0323 to 0326) the planner follows the NDRRM plan and the incident command system.",
+    "sourceSlides": [
+      11
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "datacomms-e-24",
+    "difficulty": "easy",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "objective"
+    ],
+    "prompt": "In the voice-on-data table, what is happening to BONTEX?",
+    "options": [
+      "It is being replaced by IP telephony (voice over IP) over PANET",
+      "It is being replaced by HF/SSB voice nets between the camps and bases",
+      "It is moving to commercial cellular service",
+      "It is becoming the HADR radio net"
+    ],
+    "answer": 0,
+    "explanation": "Fixed telephone: BONTEX is being replaced by IP telephony (voice over IP) over PANET (0133).",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "datacomms-e-25",
+    "difficulty": "easy",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "objective"
+    ],
+    "prompt": "Which four forms of information must the communications infrastructure support (PAM 6-00 0402)?",
+    "options": [
+      "Voice, text, email and chat",
+      "Voice, data, image and video",
+      "Command, control, communications and computers",
+      "Secret, confidential, restricted and unclassified"
+    ],
+    "answer": 1,
+    "explanation": "The communications infrastructure must support all four forms of information: voice, data, image and video.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 26,
+    "qid": "datacomms-e-26",
+    "difficulty": "easy",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "objective"
+    ],
+    "prompt": "Roughly how much bandwidth does one uncompressed (G.711) IP voice call need, including overhead?",
+    "options": [
+      "About 25 to 30 kbps",
+      "About 8 to 9 kbps",
+      "About 80 to 90 kbps",
+      "About 1.1 Mbps"
+    ],
+    "answer": 2,
+    "explanation": "The handout's rough planning figures are about 80 to 90 kbps per uncompressed G.711 call and about 25 to 30 kbps per compressed G.729 call.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "datacomms-e-27",
+    "difficulty": "easy",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "objective"
+    ],
+    "prompt": "Which of these is one of the common planning errors in section 5.5?",
+    "options": [
+      "Sizing the link for the voice calls plus the data traffic",
+      "Keeping the HADR net separate from the secured network",
+      "Using one commercial circuit for both the primary and the alternate path",
+      "Using a compressed codec and a priority rule on a satellite link"
+    ],
+    "answer": 2,
+    "explanation": "The common errors are treating IP telephony and the data network as separate plans, using one commercial circuit for both primary and alternate, sizing the link for data only, and connecting the HADR net to the secured net.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "datacomms-e-28",
+    "difficulty": "easy",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "objective"
+    ],
+    "prompt": "What is the PA default fallback order for voice in section 5.2 (PAM 6-00 0406)?",
+    "options": [
+      "Commercial, then VHF/UHF, then HF/SSB, then AFP FCS",
+      "AFP FCS, then HF/SSB, then VHF/UHF, then commercial",
+      "HF/SSB, then AFP FCS, then commercial, then VHF/UHF",
+      "VHF/UHF, then AFP FCS, then HF/SSB, then commercial"
+    ],
+    "answer": 1,
+    "explanation": "Each critical voice service needs PACE means that do not share a failure point, using the PA default: AFP FCS, then HF/SSB, then VHF/UHF, then commercial.",
+    "sourceSlides": [
+      12
+    ]
+  }
+]

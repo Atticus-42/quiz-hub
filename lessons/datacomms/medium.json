@@ -1,0 +1,647 @@
+[
+  {
+    "id": 1,
+    "qid": "datacomms-m-01",
+    "difficulty": "medium",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "objective"
+    ],
+    "prompt": "What lesson does the handout draw from Typhoon Yolanda in 2013?",
+    "options": [
+      "Drones, digital maps and blue force tracking were used",
+      "Video-teleconferencing and information systems took over from meetings",
+      "Urban signal support was needed during a siege",
+      "Commercial networks failed, and Army tactical radio reported first"
+    ],
+    "answer": 3,
+    "explanation": "Typhoon Yolanda 2013: commercial networks failed and Army tactical radio reported first. Drones and blue force tracking are the Marawi lesson, VTC the COVID-19 lesson, urban support the Zamboanga lesson.",
+    "sourceSlides": [
+      2
+    ]
+  },
+  {
+    "id": 2,
+    "qid": "datacomms-m-02",
+    "difficulty": "medium",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "objective"
+    ],
+    "prompt": "What does the operations-focused principle (0209) require?",
+    "options": [
+      "The network must always use the newest technology available",
+      "Communications must never be the limiting factor on the commander's mission",
+      "Speed must always outweigh security in every condition",
+      "Only the operations staff may use the network while an operation is under way"
+    ],
+    "answer": 1,
+    "explanation": "Operations-focused (0209): communications must never be the limiting factor on the commander's mission.",
+    "sourceSlides": [
+      3
+    ]
+  },
+  {
+    "id": 3,
+    "qid": "datacomms-m-03",
+    "difficulty": "medium",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "objective"
+    ],
+    "prompt": "What does the appropriate technology principle (PAM 6-00 0203) say?",
+    "options": [
+      "Only commercial technology may be used in the field",
+      "The newest technology is not necessarily the best choice",
+      "The vendor chooses the technology for each link",
+      "The oldest proven system is always the best choice"
+    ],
+    "answer": 1,
+    "explanation": "Appropriate technology (PAM 6-00 0203): the newest technology is not necessarily the best choice.",
+    "sourceSlides": [
+      3
+    ]
+  },
+  {
+    "id": 4,
+    "qid": "datacomms-m-04",
+    "difficulty": "medium",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "objective"
+    ],
+    "prompt": "In the cyberspace operating environment, what belongs to the logical domain?",
+    "options": [
+      "Configuration such as firewalls, topology and protocols",
+      "Hardware and transmission facilities",
+      "The users of the network",
+      "Tactical radio, microwave, cellular and wireless networks shared with the enemy"
+    ],
+    "answer": 0,
+    "explanation": "Cyberspace has a physical domain (hardware and transmission facilities), a logical domain (configuration such as firewalls, topology and protocols) and a people domain (users).",
+    "sourceSlides": [
+      2
+    ]
+  },
+  {
+    "id": 5,
+    "qid": "datacomms-m-05",
+    "difficulty": "medium",
+    "category": "Foundations and Principles",
+    "tags": [
+      "datacomms",
+      "foundations and principles",
+      "objective"
+    ],
+    "prompt": "What does reliability first (PAM 6-00 0201e) say about speed and security?",
+    "options": [
+      "Security always outweighs speed, whatever the conditions of the operation may be",
+      "Speed is paramount, and reliability matters only after security is met",
+      "Reliability is paramount, and speed can outweigh security depending on conditions",
+      "Security and speed are never traded against each other in any plan"
+    ],
+    "answer": 2,
+    "explanation": "Reliability is paramount. Speed can outweigh security depending on conditions (PAM 6-00 0201e).",
+    "sourceSlides": [
+      3
+    ]
+  },
+  {
+    "id": 6,
+    "qid": "datacomms-m-06",
+    "difficulty": "medium",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "Which source of requirements gives the concept of operations, the means directed and the priorities of establishment?",
+    "options": [
+      "Staff guidance",
+      "Commander's guidance or intent",
+      "The SOP",
+      "Higher, subordinate and adjacent units"
+    ],
+    "answer": 1,
+    "explanation": "The commander's guidance or intent gives the concept of operations, the means directed and the priorities of establishment. The planner offers courses of action, and the commander decides.",
+    "sourceSlides": [
+      3
+    ]
+  },
+  {
+    "id": 7,
+    "qid": "datacomms-m-07",
+    "difficulty": "medium",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "Why does the SOP matter as a source of requirements?",
+    "options": [
+      "It gives installed capabilities and standing procedures, which shorten planning time",
+      "It sets the commander's priorities of establishment for each phase",
+      "It replaces the signal estimate and the requirements step when time is short before the operation",
+      "It names the enemy signal capabilities that the plan must answer"
+    ],
+    "answer": 0,
+    "explanation": "The SOP gives installed capabilities and standing procedures, which shorten planning time.",
+    "sourceSlides": [
+      3
+    ]
+  },
+  {
+    "id": 8,
+    "qid": "datacomms-m-08",
+    "difficulty": "medium",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "Which data requirement does the C2 requirement \"common operational picture\" imply?",
+    "options": [
+      "Electronic exchange of plans between planners at separate locations",
+      "Prompt receipt and exchange of intelligence between the intelligence and operations staff sections",
+      "Current status and location of resources, and directives to move them",
+      "Situational display, messaging and database access shared to the lowest tactical unit"
+    ],
+    "answer": 3,
+    "explanation": "The common operational picture implies situational display, messaging and database access shared to the lowest tactical unit. The other options are collaborative planning, intelligence and operations integration, and apportionment of resources.",
+    "sourceSlides": [
+      4
+    ]
+  },
+  {
+    "id": 9,
+    "qid": "datacomms-m-09",
+    "difficulty": "medium",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "Commanders express their needs through CCIR. What do CCIR generate (PAM 3-00 0849)?",
+    "options": [
+      "PIR, FFIR and EEFI",
+      "PACE, CEOI and CESI",
+      "METAL, SOP and TO&E",
+      "IER, MCC and DST"
+    ],
+    "answer": 0,
+    "explanation": "PAM 3-00 (0849): commanders express their needs through CCIR, which generate PIR, FFIR and EEFI.",
+    "sourceSlides": [
+      4
+    ]
+  },
+  {
+    "id": 10,
+    "qid": "datacomms-m-10",
+    "difficulty": "medium",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "Which requirement category asks whether equipment can survive weather, power loss and rough handling, and who maintains it?",
+    "options": [
+      "Reliability and redundancy",
+      "Coverage and range",
+      "Environmental resilience and sustainment",
+      "Speed and capacity"
+    ],
+    "answer": 2,
+    "explanation": "Environmental resilience and sustainment is one of the three categories that come from the operating environment, with coverage and range and mobility.",
+    "sourceSlides": [
+      5
+    ]
+  },
+  {
+    "id": 11,
+    "qid": "datacomms-m-11",
+    "difficulty": "medium",
+    "category": "Data Transmission Requirements",
+    "tags": [
+      "datacomms",
+      "data transmission requirements",
+      "objective"
+    ],
+    "prompt": "In the handout's filled-in example, what are the maximum delay and precedence of the brigade-to-division drone video feed?",
+    "options": [
+      "Real time; Immediate",
+      "Under 1 minute; Priority",
+      "Every few minutes; Routine",
+      "Real time; Priority"
+    ],
+    "answer": 0,
+    "explanation": "The drone video feed from brigade TOC to division TOC is continuous video, real time, Immediate, Confidential, in execution. The position reports are under 1 minute and Priority.",
+    "sourceSlides": [
+      5
+    ]
+  },
+  {
+    "id": 12,
+    "qid": "datacomms-m-12",
+    "difficulty": "medium",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "objective"
+    ],
+    "prompt": "What role does the handout give tactical communications (0134)?",
+    "options": [
+      "The permanent backbone for voice and data between camps and bases",
+      "Reaching the places the fixed system cannot, and augmenting it with commercial services",
+      "Transmission between switches, run by GHQ-AFP for the services",
+      "Communications on the move and on the halt, over the radio frequency spectrum"
+    ],
+    "answer": 3,
+    "explanation": "Tactical communications provide communications on the move and on the halt over the radio frequency spectrum. Fixed communications are the backbone; special purpose means reach where the fixed system cannot.",
+    "sourceSlides": [
+      6
+    ]
+  },
+  {
+    "id": 13,
+    "qid": "datacomms-m-13",
+    "difficulty": "medium",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "objective"
+    ],
+    "prompt": "What does the PAM 6-00 0406 table give for the unit HQ to unit elements link?",
+    "options": [
+      "AFP FCS as primary, then HF/SSB, then commercial landline or mobile if it is funded",
+      "Standardized mobile systems as primary; no secondary or tertiary is stated",
+      "HF/SSB with VHF/FM or UHF/FM, linked through repeaters",
+      "Commercial landline and mobile, if the funds are available"
+    ],
+    "answer": 1,
+    "explanation": "Unit HQ to unit elements: standardized mobile systems as primary; secondary and tertiary are not stated.",
+    "sourceSlides": [
+      7
+    ]
+  },
+  {
+    "id": 14,
+    "qid": "datacomms-m-14",
+    "difficulty": "medium",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "objective"
+    ],
+    "prompt": "What planning response does section 3.5 give for mountains that block line-of-sight radio?",
+    "options": [
+      "HF, satellite or relay stations",
+      "Repeaters on high ground, and a propagation study",
+      "Short hops, with wired or cellular backup",
+      "Antennas sited with clear sky, tested before committing"
+    ],
+    "answer": 1,
+    "explanation": "Mountains: repeaters on high ground and a propagation study. HF, satellite or relays answer islands and open water, short hops answer cities, and clear-sky siting answers dense foliage.",
+    "sourceSlides": [
+      7
+    ]
+  },
+  {
+    "id": 15,
+    "qid": "datacomms-m-15",
+    "difficulty": "medium",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "objective"
+    ],
+    "prompt": "In the comparison table, what is the limitation of geostationary satellite (VSAT)?",
+    "options": [
+      "Low data rate, and affected by ionospheric conditions that change through the day and season",
+      "Capacity falls as hops increase, and it needs power and monitoring",
+      "Higher delay, needs clear sky and a power supply, and rain and foliage reduce the link",
+      "Fails in disasters, is not secure, and is exposed to interception"
+    ],
+    "answer": 2,
+    "explanation": "VSAT has wide coverage and high capacity but higher delay, needs clear sky and power, and rain and foliage reduce the link. The other options describe HF/SSB, MANET and commercial cellular.",
+    "sourceSlides": [
+      8
+    ]
+  },
+  {
+    "id": 16,
+    "qid": "datacomms-m-16",
+    "difficulty": "medium",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "objective"
+    ],
+    "prompt": "Which property of the mesh topology does the handout highlight?",
+    "options": [
+      "Everything connects to one center, which keeps it simple to manage",
+      "It needs no power and no monitoring in the field",
+      "Many paths between nodes, so it survives the loss of a node",
+      "It links networks in one building or camp only"
+    ],
+    "answer": 2,
+    "explanation": "A mesh has many paths between nodes and survives loss of a node, which suits survivability and MANET. A star connects everything to one center, a single point of failure.",
+    "sourceSlides": [
+      9
+    ]
+  },
+  {
+    "id": 17,
+    "qid": "datacomms-m-17",
+    "difficulty": "medium",
+    "category": "Data Communication Technologies",
+    "tags": [
+      "datacomms",
+      "data communication technologies",
+      "objective"
+    ],
+    "prompt": "What typical data use does the comparison table give for commercial cellular?",
+    "options": [
+      "Backbone links, video and bulk data to remote sites",
+      "Classified traffic once a VPN has been approved",
+      "Blue force tracking for dismounted units in the field",
+      "Routine or administrative traffic, never classified"
+    ],
+    "answer": 3,
+    "explanation": "Commercial cellular has wide urban coverage and is cheap, but fails in disasters, is not secure and is exposed to interception, so it carries routine or administrative traffic, never classified.",
+    "sourceSlides": [
+      8
+    ]
+  },
+  {
+    "id": 18,
+    "qid": "datacomms-m-18",
+    "difficulty": "medium",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "In step 3, develop priorities (0310), how is support ranked where resources fall short?",
+    "options": [
+      "By supportability and importance to the mission",
+      "By the order in which the requests arrived",
+      "By the rank of the requesting commander",
+      "By the cost of each requirement"
+    ],
+    "answer": 0,
+    "explanation": "Develop priorities compares requirements to capabilities. Where resources fall short, support is ranked by supportability and importance to the mission.",
+    "sourceSlides": [
+      9
+    ]
+  },
+  {
+    "id": 19,
+    "qid": "datacomms-m-19",
+    "difficulty": "medium",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "Which items belong to the finalization checklist (0313)?",
+    "options": [
+      "The sources of requirements, and the METAL estimate of every factor, known or assumed, that may affect the signal mission",
+      "The current chart of equipment, personnel and funds held against what is authorized",
+      "A site survey or reconnaissance and a propagation study, locations pinpointed, and coverage and gaps identified",
+      "The plan heading, copy number, date-time group and the authentication block"
+    ],
+    "answer": 2,
+    "explanation": "The checklist confirms the plan meets requirements, is practical, agrees with priorities, assigns areas of responsibility, rests on a site survey and propagation study, pinpoints locations, identifies coverage and gaps, and has security measures.",
+    "sourceSlides": [
+      10
+    ]
+  },
+  {
+    "id": 20,
+    "qid": "datacomms-m-20",
+    "difficulty": "medium",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "For the cyberattack contingency, what must the plan include (0311)?",
+    "options": [
+      "Procedures to change frequencies efficiently, in the shortest possible time",
+      "Countermeasures and counter-countermeasures against jamming and interception",
+      "Redundant communications, equipment repair and replacement, and on-site technical support for every configuration fault",
+      "Monitoring of the PA network, including the mobile ad-hoc network, and procedures for the CSIRT and first responders"
+    ],
+    "answer": 3,
+    "explanation": "Cyberattack: monitoring of the PA network including MANET, and procedures for the CSIRT and first responders. The other options answer compromised frequencies, electronic warfare and interrupted connectivity.",
+    "sourceSlides": [
+      10
+    ]
+  },
+  {
+    "id": 21,
+    "qid": "datacomms-m-21",
+    "difficulty": "medium",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "On what does the siting of C4S centers and facilities depend under 0312?",
+    "options": [
+      "Requirement density, unit disposition, support unit location, terrain, propagation, projected operations, accessibility, and admin and logistics needs",
+      "The commercial coverage map and the rent of each building, and nothing else",
+      "The commander's preference for a site, as stated in the planning guidance",
+      "The enemy's signal capabilities as assessed in the intelligence estimate alone"
+    ],
+    "answer": 0,
+    "explanation": "Siting is based on requirement density, tactical disposition of units, location of support units, terrain, propagation, projected operations, accessibility, and administrative and logistics needs.",
+    "sourceSlides": [
+      10
+    ]
+  },
+  {
+    "id": 22,
+    "qid": "datacomms-m-22",
+    "difficulty": "medium",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "Which three phases does the sample signal plan use?",
+    "options": [
+      "Connect, sustain and recover",
+      "Security operation, then typhoon response",
+      "Planning and preparation, execution, and consolidation and reorganization",
+      "Shaping, decisive and sustaining"
+    ],
+    "answer": 2,
+    "explanation": "The sample plan uses three phases: planning and preparation, execution, and consolidation and reorganization. Each phase states task, purpose, method and effect.",
+    "sourceSlides": [
+      11,
+      18
+    ]
+  },
+  {
+    "id": 23,
+    "qid": "datacomms-m-23",
+    "difficulty": "medium",
+    "category": "The Data Communications Plan",
+    "tags": [
+      "datacomms",
+      "the data communications plan",
+      "objective"
+    ],
+    "prompt": "Among the joint operations options, which does the handout call the most common practice?",
+    "options": [
+      "Using the Vigilance Net, with ciphertext and double talk, for all traffic between the two services",
+      "Lending Army equipment to the other service for the operation",
+      "Embedding Army radio operators with the other service's units",
+      "Embedding the other service's operators at the Army TOC closest to the operating units"
+    ],
+    "answer": 3,
+    "explanation": "The joint options are the Vigilance Net, lending equipment, embedding Army radio operators with the other service, or embedding its operators at the Army TOC closest to the operating units, the most common practice.",
+    "sourceSlides": [
+      11
+    ]
+  },
+  {
+    "id": 24,
+    "qid": "datacomms-m-24",
+    "difficulty": "medium",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "objective"
+    ],
+    "prompt": "Why does a voice-on-data plan need a priority rule?",
+    "options": [
+      "So voice and command traffic are not starved by bulk data",
+      "So commercial traffic always goes before Army traffic",
+      "So the HADR net can share the secured network",
+      "So data always goes before voice on every link"
+    ],
+    "answer": 0,
+    "explanation": "Voice and command traffic must not be starved by bulk data, so the plan needs a priority rule.",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 25,
+    "qid": "datacomms-m-25",
+    "difficulty": "medium",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "objective"
+    ],
+    "prompt": "What does the handout say about a phone that works only while the router has power?",
+    "options": [
+      "It is acceptable as long as the router itself uses encryption and sits on the secured PANET",
+      "It meets PACE, because the phone and the router are separate devices",
+      "It is a single point of failure; power, antennas, switches and the NOC must also survive",
+      "It is the emergency means, because it works without the AFP FCS"
+    ],
+    "answer": 2,
+    "explanation": "Dependencies: power, antennas, switches and the network operations center must also survive. A phone that works only while the router has power is a single point of failure.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 26,
+    "qid": "datacomms-m-26",
+    "difficulty": "medium",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "objective"
+    ],
+    "prompt": "Why does a satellite link that carries voice and data need a compressed codec and a priority rule?",
+    "options": [
+      "G.711 calls are not permitted anywhere on PANET",
+      "Capacity is limited, and satellite delay also affects conversation quality",
+      "Compression removes the delay of the satellite link",
+      "Satellite links are allowed to carry data only"
+    ],
+    "answer": 1,
+    "explanation": "A satellite or radio link carrying voice and data needs a compressed codec and a priority rule. Satellite links also add delay, which affects conversation quality more than raw capacity does.",
+    "sourceSlides": [
+      13
+    ]
+  },
+  {
+    "id": 27,
+    "qid": "datacomms-m-27",
+    "difficulty": "medium",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "objective"
+    ],
+    "prompt": "How does the combat net radio system use the data network?",
+    "options": [
+      "It replaces every tactical radio in the unit with an IP telephone connected over PANET",
+      "It runs only over commercial cellular service in the lowlands",
+      "It carries video feeds only, leaving voice on the fixed system",
+      "It uses radio-over-IP and ad-hoc networks so radio nets can be linked across the network"
+    ],
+    "answer": 3,
+    "explanation": "The CNR system uses radio-over-IP (RoIP) and ad-hoc network technologies, so radio nets can be linked across the network (0134).",
+    "sourceSlides": [
+      12
+    ]
+  },
+  {
+    "id": 28,
+    "qid": "datacomms-m-28",
+    "difficulty": "medium",
+    "category": "Voice on Data Networks",
+    "tags": [
+      "datacomms",
+      "voice on data networks",
+      "objective"
+    ],
+    "prompt": "In the planning table for brigade TOC to division voice, what is the alternate means?",
+    "options": [
+      "IP telephony over PANET via AFP FCS",
+      "VSAT voice",
+      "HF/SSB voice",
+      "Messenger"
+    ],
+    "answer": 1,
+    "explanation": "Brigade TOC to division voice: primary IP telephony over PANET via AFP FCS, alternate VSAT voice, contingency HF/SSB voice, emergency messenger.",
+    "sourceSlides": [
+      13
+    ]
+  }
+]

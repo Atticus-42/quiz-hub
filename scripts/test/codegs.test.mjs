@@ -24,6 +24,8 @@ const TABS = {
   modulethreeops: 'Module 3 Planning Exam History',
   ceoicesi: 'CEOI CESI Management History',
   signalestimate: 'Signal Estimate History',
+  voicecomms: 'Voice Communications Planning History',
+  datacomms: 'Data Communications Planning History',
   c4istarplanning: 'C4ISTAR Communications Planning History',
   signalplanning: 'Signal Planning Process History',
   gradedew: 'Graded EW Operations History',

@@ -979,6 +979,407 @@
       ]
     }
   },
+  "voicecomms": {
+    "brief": "Turn the mission into stated voice requirements, choose fixed, tactical or special purpose means for each link, build PACE and recovery into the plan, and chart the equipment, people, funds and maintenance behind it.",
+    "facts": [
+      {
+        "term": "Why voice matters",
+        "detail": "Despite computer networks and satellite communication, voice remains the bedrock of tactical communication (PAM 6-0102 0134). PAM 6-00 (0205) calls the communications system the voice of command."
+      },
+      {
+        "term": "Sources of requirements",
+        "detail": "Commander’s guidance or intent, staff guidance (staff are the users), higher, subordinate and adjacent headquarters, SOPs, and the CEOI and CESI (0305). The commander directs the means and the priorities."
+      },
+      {
+        "term": "CEOI and CESI",
+        "detail": "The CEOI says what to do; the CESI explains how to do it. Call signs and frequencies come from the CEOI, and how to use them from the CESI."
+      },
+      {
+        "term": "Signal estimate (METAL)",
+        "detail": "Mission, Enemy signal capabilities, Troops available, Area of operations, Logistical requirements. Also called the C4S estimate, and revised as the situation changes."
+      },
+      {
+        "term": "Three categories of communications",
+        "detail": "Fixed (BONTEX, PANET, AFP FCS, DBTOCS), tactical (HF, VHF and UHF radios, combat net radio with radio over IP) and special purpose (commercial video-conferencing, cellular and satellite phones)."
+      },
+      {
+        "term": "Radio bands",
+        "detail": "HF/SSB 3 to 30 MHz for long-distance ground communication; VHF/FM 30 to 80 MHz for short distance; UHF/FM 403 to 433 MHz for internal communications."
+      },
+      {
+        "term": "Resources and maintenance",
+        "detail": "Chart equipment (0307), personnel (0308) and funds (0309). The SMTF repairs tactical HF and VHF radios up to level 3; SMMART visits brigades, battalions and companies."
+      }
+    ],
+    "insights": [
+      "A requirement is worth stating only if it supports a decision or an action. Ask which information requirement or task needs the link, and what happens if it fails.",
+      "A PACE level is a real fallback only if it fails differently from the level above it. Two radios on the same repeater fail together.",
+      "Line of sight drives most voice choices: hills block VHF and UHF, repeaters on high ground extend them, and HF reaches over the horizon with variable conditions."
+    ],
+    "scenario": {
+      "situation": "In a fictional Philippine Army classroom exercise, a company moves into hills out of VHF line of sight of its command post, and a platoon operates on an island 30 km across open water. The enemy scans clear VHF and has started jamming the battalion VHF net.",
+      "question": "Which means should the planner propose for the two links, and what must the plan add against the enemy?",
+      "analysis": "For the company in the hills, extend VHF with a repeater on high ground and keep HF as a fallback, because HF reaches over the horizon and does not fail with the repeater. For the island platoon, HF/SSB is the long-distance means, with special purpose means only as gap fillers within COMSEC policy. Against scanning, put encryption-capable radios on sensitive nets and limit what is said on clear nets. Against jamming, rely on electronic protection such as frequency hopping and anti-jamming, and keep a procedure to change frequencies quickly. Record each switch in the PACE table with its trigger."
+    },
+    "steps": [
+      "Gather voice requirements from the 0305 sources and state each one with its users, mobility, reach, precedence, security, availability and quality.",
+      "Choose the means for each link from the fixed, tactical and special purpose categories, starting from the PAM 6-00 0406 table.",
+      "Chart the equipment, personnel and funds available, then rank the requirements that can be supported.",
+      "Write a PACE table whose levels fail differently, and add recovery procedures for compromised frequencies, jamming and network attack.",
+      "Finalize with reconnaissance, propagation, coverage and gaps, then publish the voice appendix to the C4S annex."
+    ],
+    "checks": [
+      {
+        "question": "Which facility repairs level 3 HF radios, and which visits companies?",
+        "answer": "The SMTF repairs tactical HF and VHF radios up to level 3. SMMART visits brigades, battalions and companies."
+      },
+      {
+        "question": "What must a plan say about compromised frequencies?",
+        "answer": "It must include procedures to change frequencies quickly, because radios may fall into enemy hands (0311d)."
+      },
+      {
+        "question": "Why must a disaster response net be separate from the operational net?",
+        "answer": "It is unclassified and unsecured and connects many entities, so it must be different from and separate to the Army’s secured operational net."
+      }
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Voice requirements and where they come from",
+          "explanation": "The planner obtains requirements from the commander’s guidance or intent, staff guidance, higher, subordinate and adjacent headquarters, SOPs, and the CEOI and CESI (PAM 6-0102 0305). The commander directs the means and the priorities. The signal estimate, structured by METAL, examines every factor that may affect signal support. Each voice requirement is stated by net or service, users, mobility, reach, precedence, security, availability and quality, and recorded on the Annex A worksheet. A requirement is worth stating only if it supports a decision or an action.",
+          "remember": [
+            "The CEOI says what to do; the CESI explains how to do it.",
+            "Precedence answers who gets the net first when traffic is heavy."
+          ],
+          "trap": "Listing nets because they existed last time, without asking which decision or task needs them.",
+          "pages": [
+            1,
+            2
+          ]
+        },
+        {
+          "title": "Fixed, tactical and special purpose means",
+          "explanation": "Fixed communications are BONTEX, PANET, the AFP FCS and DBTOCS, and the Army is shifting telephone service to IP telephony on PANET. Tactical communications are HF, VHF and UHF radios and combat net radio using radio over IP and ad-hoc networks. Special purpose means (commercial video-conferencing, cellular and satellite phones) carry routine and administrative traffic and fill gaps, with prudence and within COMSEC policy. PAM 6-00 0406 sets a primary, secondary and tertiary means for each link between command levels.",
+          "remember": [
+            "HF/SSB is for long distance, VHF/FM for short distance, UHF/FM for internal communications.",
+            "Between strategic and operational headquarters the primary is the AFP FCS and the secondary HF/SSB."
+          ],
+          "trap": "Choosing VHF for a link that crosses hills or open water, where line of sight fails.",
+          "pages": [
+            2,
+            3
+          ]
+        },
+        {
+          "title": "Spectrum, threat and security",
+          "explanation": "Spectrum management plans, coordinates and manages spectrum use under NTC laws and policies (0218). Electronic warfare has support (sense), attack and protect parts, and protection includes frequency hopping and anti-jamming (0223). The vigilance net serves emergency and exigent situations and joint operations; it is less secure, so operators use ciphertext and double talk (0316). Radios may fall into enemy hands, so the plan must change frequencies quickly (0311d), and the cyber response team is employed where network attack is expected (0311c).",
+          "remember": [
+            "The disaster response net is unclassified and unsecured and must stay separate from the secured operational net."
+          ],
+          "trap": "Bringing civil agencies or another service straight onto the secured command net.",
+          "pages": [
+            3,
+            4,
+            5
+          ]
+        },
+        {
+          "title": "The planning process, PACE and recovery",
+          "explanation": "The signal planning process runs with the MDMP and troop leading procedures in seven steps: develop requirements (0305), determine available resources (0306 to 0309), develop priorities (0310), develop recovery procedures (0311), prepare a tentative plan (0312), finalize the plan (0313) and publish plans and orders (0314). The tentative plan sets primary, alternate, contingency and emergency means; the sample plan uses a Harris handheld VHF radio, a Harris manpack radio and a messenger. Each net needs a purpose, a net control station, members, primary and alternate frequencies and a break-in rule, and the plan is published as the C4S annex with appendices and tabs.",
+          "remember": [
+            "Choose each PACE level so it fails differently from the one above it.",
+            "In coalition operations each nation keeps a sovereign network, and the plan identifies points of integration."
+          ],
+          "trap": "Calling a second radio on the same repeater an alternate.",
+          "pages": [
+            4,
+            5
+          ]
+        },
+        {
+          "title": "Voice resources and maintenance",
+          "explanation": "The planner keeps an up-to-date chart of equipment (authorized TE, on hand, serviceable, unserviceable, reserve pool and capability), personnel (authorized TO, actual fill-up, training status, critical shortages, committed or deployed, reserve) and funds (installation, operation and maintenance of C4 systems and administrative requirements). The SMTF repairs tactical HF and VHF radios up to level 3 and UHF commercial radios up to level 2, programs radios and trains; SMMART repairs UHF commercial radios up to level 2, programs radios, gives refresher training and visits brigades, battalions and companies. Skills are perishable, and 22E, 22L and 22P are the relevant specialties.",
+          "remember": [
+            "The Army acquired the HF/SSB 20 W manpack and the VHF/FM 5 W handheld through the AFP modernization program."
+          ],
+          "trap": "Counting authorized equipment or positions as if they were serviceable and filled.",
+          "pages": [
+            5,
+            6
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "List the sources of voice requirements in PAM 6-0102 0305.",
+          "answer": "Commander’s guidance or intent, staff guidance, higher, subordinate and adjacent headquarters, SOPs, and the CEOI and CESI.",
+          "reasoning": "The commander then directs the means to be provided and the priorities.",
+          "pages": [
+            1
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "Which means is the primary between strategic and operational headquarters, and which is the secondary?",
+          "answer": "The AFP FCS is primary, with the Army providing drop and insert to major camps; HF/SSB is secondary.",
+          "reasoning": "The PAM 6-00 0406 table sets the means for each link between command levels.",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "What frequency ranges does the handout give for HF/SSB, VHF/FM and UHF/FM?",
+          "answer": "HF/SSB 3 to 30 MHz, VHF/FM 30 to 80 MHz, UHF/FM 403 to 433 MHz.",
+          "reasoning": "HF serves long-distance ground communication, VHF short distance and UHF internal communications.",
+          "pages": [
+            3
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Why should a handheld VHF radio net not be the only means for a company in the mountains?",
+          "answer": "VHF depends on line of sight, which hills block. The plan needs a repeater on high ground and a fallback that fails differently, such as HF.",
+          "reasoning": "A PACE level must fail differently from the one above it, and HF can reach over the horizon.",
+          "pages": [
+            3,
+            4
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Two handheld radios loaded with operational frequencies are captured. What should the plan already provide?",
+          "answer": "A procedure to change frequencies quickly, set out in the frequency compromise and jamming section of the voice appendix.",
+          "reasoning": "Radios may fall into enemy hands, so the plan must include procedures to change frequencies quickly (0311d).",
+          "pages": [
+            4,
+            5,
+            10
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A navy boat and provincial officials ask to join the task force radio net during a typhoon response. How should the planner answer?",
+          "answer": "Keep them off the secured operational net: provide a separate disaster response net, and use the vigilance net with ciphertext and double talk for joint traffic.",
+          "reasoning": "The disaster net is unclassified and unsecured and must be separate; the vigilance net serves joint and emergency use.",
+          "pages": [
+            4,
+            5
+          ]
+        }
+      ],
+      "checklist": [
+        "State the eight voice requirement fields and the five sources of requirements without notes.",
+        "Pick a means for a link over hills, over open water and inside a camp, and give the 0406 primary and secondary.",
+        "Write a PACE row whose levels fail differently, with its trigger, and the frequency-change step after a compromise."
+      ]
+    }
+  },
+  "datacomms": {
+    "brief": "Define who must exchange what information, how fast and how securely; match fixed, tactical and special purpose technologies to terrain and threat; apply the signal planning process with PACE and recovery; and size the data networks that carry voice.",
+    "facts": [
+      {
+        "term": "C4S",
+        "detail": "Command and Control Communications, and Cyber Systems: the capabilities that enable signal. Its four sub-systems are communications, electronics, information and cyber (PAM 6-00 0127, 0401)."
+      },
+      {
+        "term": "Connect, Sustain, Recover",
+        "detail": "Connect gives connectivity to all Army units, Sustain keeps it going through the operation, and Recover repairs and restores it when attacked or destroyed (0144)."
+      },
+      {
+        "term": "Data transmission requirement",
+        "detail": "A statement of who must exchange what information, with whom, how quickly, how securely and over what terrain. It comes from the mission and the commander, not from the equipment on hand."
+      },
+      {
+        "term": "Requirement categories",
+        "detail": "Reliability and redundancy, security, speed and capacity, interoperability, scalability, coverage and range, mobility, and environmental resilience and sustainment."
+      },
+      {
+        "term": "PANET and the AFP FCS",
+        "detail": "PANET is the secured, managed Army intranet, with its primary hub at the PA communications center, Fort Bonifacio. The AFP FCS is the transmission superhighway between switches, run by GHQ-AFP."
+      },
+      {
+        "term": "Recovery teams",
+        "detail": "The TOC team, the C3 restoration team, the network recovery team and the cyber security incident response team (CSIRT) execute recovery (0143, 0228 to 0231)."
+      },
+      {
+        "term": "Voice sizing figures",
+        "detail": "About 80 to 90 kbps per uncompressed G.711 call and about 25 to 30 kbps per compressed G.729 call, plus the data, plus a margin of at least 25 percent."
+      }
+    ],
+    "insights": [
+      "Requirements come first and equipment second. Start from the information exchanges the mission needs, then see what the resources can support and rank the rest.",
+      "Once voice rides on a data network, the voice plan is only as reliable as that network, including its power, antennas, switches and operations center.",
+      "No single technology works everywhere, so each link is matched to its terrain, spectrum and threat, and its fallback must not share the same failure point."
+    ],
+    "scenario": {
+      "situation": "In a fictional Philippine Army classroom exercise, a task force TOC reaches higher headquarters through one microwave link. A battalion operates on an island across open water, and the higher headquarters now wants a daily video-teleconference and drone video from the TOC.",
+      "question": "What should the data plan change, and how should the TOC-to-higher link be checked?",
+      "analysis": "One microwave link fails the redundant and survivability principles, so the plan adds an independent path, such as a satellite terminal, and keeps HF/SSB as the secondary means of the PAM 6-00 0406 table. The island battalion needs HF, satellite or relay stations because line of sight fails over water. The new video and VTC traffic is stated as requirements with volume, delay, precedence and classification, then the link is sized: voice calls times the per-call figure, plus data, plus at least 25 percent margin. If the link is short, reduce the load at peak hours or ask for more capacity."
+    },
+    "steps": [
+      "List each information exchange requirement with originator, recipient, information type, volume and frequency, maximum delay, precedence, classification and phase.",
+      "Check that each requirement is specific, measurable, tied to the mission or CCIR, ranked and phased.",
+      "Choose the means for each link from the 0406 table and the environment responses, and note each means’ limits.",
+      "Write the PACE table for each critical service, including voice, so that no two levels share a failure point, and add recovery procedures for each contingency.",
+      "Size the links that carry voice and data, finalize against the checklist, and attach the data communications appendix to the signal plan."
+    ],
+    "checks": [
+      {
+        "question": "Name four sources of data transmission requirements for the signal planner.",
+        "answer": "Any four of: commander’s guidance or intent, staff guidance, higher, subordinate and adjacent units, the SOP, and the CEOI and CESI."
+      },
+      {
+        "question": "What must the plan include for compromised frequencies after captured equipment?",
+        "answer": "Procedures to change frequencies efficiently, in the shortest possible time (0311)."
+      },
+      {
+        "question": "Why is a voice service that runs over IP not made safe just by having a backup router?",
+        "answer": "Power, antennas, switches and the network operations center must also survive, and the fallback voice path must not share the same failure point."
+      }
+    ],
+    "examGuide": {
+      "topics": [
+        {
+          "title": "Foundations: C4S, environments and principles",
+          "explanation": "A data communications plan keeps the commander connected to every unit and information source the mission needs. It is part of the signal plan. C4S enables signal and has communications, electronics, information and cyber sub-systems. The plan works in three environments: physical (islands, mountains, foliage, cities, typhoons), cyberspace (physical, logical and people domains) and the electromagnetic spectrum. It must answer information warfare, hybrid, cyber and insider threats, and follow eight principles: operations-focused, interoperable, redundant, scalable, secured, reliability first, survivability and appropriate technology.",
+          "remember": [
+            "Communications must never be the limiting factor on the commander’s mission.",
+            "The newest technology is not necessarily the best choice."
+          ],
+          "trap": "Treating the data plan as a separate IT project instead of part of the signal plan.",
+          "pages": [
+            1,
+            2,
+            3
+          ]
+        },
+        {
+          "title": "Data transmission requirements",
+          "explanation": "A requirement states who must exchange what information, with whom, how quickly, how securely and over what terrain. Sources are the commander’s guidance or intent, staff guidance, higher, subordinate and adjacent units, the SOP, and the CEOI and CESI (0305). The signal estimate uses METAL. PAM 6-00 (0211) lists seven C2 requirements, each implying a data requirement, and PAM 3-00 adds information qualities and the CCIR. Each requirement is written under the eight categories, quantified on the Annex C worksheet, and tested as specific, measurable, tied to the mission or CCIR, ranked and phased.",
+          "remember": [
+            "Information that arrives late, or in a form no one can read, has the same effect as none.",
+            "Total the volume by link on the Annex C worksheet."
+          ],
+          "trap": "Starting the requirements list from the equipment on hand.",
+          "pages": [
+            3,
+            4,
+            5,
+            6
+          ]
+        },
+        {
+          "title": "Choosing data technologies",
+          "explanation": "Fixed communications (BONTEX, PANET, AFP FCS, DBTOCS) are the permanent backbone. Tactical communications work on the move and on the halt over the radio spectrum, including CNR with radio over IP and ad-hoc networks. Special purpose means (VSAT, mobile satellite, cellular, satellite phones, commercial video-conferencing) reach where the fixed system cannot and are used with utmost prudence under COMSEC policy. The PAM 6-00 0406 table is the default routing plan, and the environment drives each choice: HF, satellite or relays over water, repeaters and a propagation study in mountains, clear-sky siting in foliage, short hops in cities.",
+          "remember": [
+            "Commercial cellular is for routine or administrative traffic, never classified.",
+            "A typical Army network is a hybrid: a star at the TOC and a mesh in the field."
+          ],
+          "trap": "Using one technology for every link, or ignoring a means’ stated limitation.",
+          "pages": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        {
+          "title": "Building the plan: process, PACE and recovery",
+          "explanation": "The plan follows the seven-step signal planning process (0304 to 0314), alongside the MDMP or troop leading procedures. The tentative plan sets the concept with PACE, allocates resources, sites C4S centers, sets security measures and plans interconnection and alternate routing. The finalization checklist confirms requirements, practicality, priorities, areas of responsibility, a site survey and propagation study, locations, coverage and gaps, and security. Recovery covers interrupted connectivity, electronic warfare, cyberattack and compromised frequencies, executed by the TOC team, the C3 restoration team, the network recovery team and the CSIRT. Joint operations need interoperability, coalition operations points of integration, and HADR a separate, unclassified net.",
+          "remember": [
+            "The signal plan has five parts: situation, mission, execution, sustainment, and command and signal.",
+            "The handout suggests a data communications appendix, using the Annex D template."
+          ],
+          "trap": "Connecting the HADR net to the secured operational net.",
+          "pages": [
+            9,
+            10,
+            11
+          ]
+        },
+        {
+          "title": "Voice on data networks",
+          "explanation": "More voice now travels as data: IP telephony over PANET is replacing BONTEX, CNR links radio nets with radio over IP, and secure voice and video-teleconferencing run over the C4ISTAR network. A voice-on-data plan determines which voice services depend on the network, the capacity they need, a priority rule, a fallback path that does not share the same failure point, security, dependencies such as power and switches, and recovery. To size a link, multiply simultaneous calls by the per-call figure, add the data, and add a margin of at least 25 percent.",
+          "remember": [
+            "Worked example: (15 × 30 + 400) × 1.25 ≈ 1,060 kbps, so plan about 1.1 Mbps or more.",
+            "The PA default fallback order is AFP FCS, then HF/SSB, then VHF/UHF, then commercial."
+          ],
+          "trap": "Sizing the link for data only, so voice quality fails at peak.",
+          "pages": [
+            12,
+            13
+          ]
+        }
+      ],
+      "practice": [
+        {
+          "type": "objective",
+          "question": "What does the mnemonic METAL stand for, and what is the signal estimate used for?",
+          "answer": "Mission, enemy signal capabilities, troops available, area of operations and logistical requirements; it is an orderly examination of every factor that may affect the signal mission.",
+          "reasoning": "The estimate is revised as the situation changes, and its full format is in Annex A.",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "For a link between an operational and a tactical headquarters, what are the primary and secondary means under PAM 6-00 0406?",
+          "answer": "Primary AFP FCS if technically feasible; secondary HF/SSB with VHF/FM or UHF/FM, linked through repeaters.",
+          "reasoning": "The 0406 table is the default routing plan, and changes must be justified.",
+          "pages": [
+            7
+          ]
+        },
+        {
+          "type": "objective",
+          "question": "List the seven steps of the signal planning process.",
+          "answer": "Develop requirements, determine available resources, develop priorities, develop recovery procedures, prepare a tentative plan, finalize the plan, publish plans and orders.",
+          "reasoning": "The steps run from paragraph 0305 to paragraph 0314.",
+          "pages": [
+            9,
+            10
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "A brigade TOC needs 20 simultaneous compressed voice calls and 500 kbps of data over one link. Estimate the link size with a 25 percent margin.",
+          "answer": "Assuming about 30 kbps per call: (20 × 30 + 500) × 1.25 = (600 + 500) × 1.25 ≈ 1,375 kbps, about 1.4 Mbps.",
+          "reasoning": "A compressed G.729 call needs about 25 to 30 kbps including overhead; the margin covers peaks and overhead.",
+          "pages": [
+            13,
+            19
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "How do you keep the HADR radio net from compromising the secured operational net?",
+          "answer": "Keep it separate from the secured net, treat it as unclassified and unsecured, and never connect the two.",
+          "reasoning": "Connecting the HADR net to the secured net is listed as a common planning error.",
+          "pages": [
+            11,
+            13
+          ]
+        },
+        {
+          "type": "analytical",
+          "question": "Why does an information requirement need a maximum delay and a precedence, not only a volume?",
+          "answer": "Because late or unreadable information has the same effect as none, and because limited resources force the planner to rank requirements.",
+          "reasoning": "Delay tests timeliness; precedence decides what is supported first when capacity is short.",
+          "pages": [
+            4,
+            6
+          ]
+        }
+      ],
+      "checklist": [
+        "Write one information exchange requirement that passes the section 2.5 test.",
+        "Match each environment condition and each recovery contingency to its planning response.",
+        "Size a voice-and-data link with a 25 percent margin and name a fallback that does not share its failure point."
+      ]
+    }
+  },
   "c4istarplanning": {
     "brief": "Plan communications around the information that C4ISTAR components must exchange, the decisions that depend on it and the conditions in which it must arrive.",
     "facts": [

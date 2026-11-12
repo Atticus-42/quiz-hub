@@ -32,7 +32,9 @@ The whole site is published from this repository with GitHub Pages at https://at
   | Module 7 | Zero Trust | `zerotrust` | `/quiz-hub/zero-trust/` |
   | Module 7 | LOE3 GSOMIA Compliance | `gsomia` | `/quiz-hub/gsomia-compliance/` |
   | Module 7 | Cyber Risk Assessment | `cyberrisk` | `/quiz-hub/cyber-risk-assessment/` |
-  | Module 8 | Module 8 Exam (32 questions, 8 per available lesson; 4 lessons) | `moduleeight` | `/quiz-hub/module-8-exam/` |
+  | Module 8 | Module 8 Exam (30 questions, 5 per lesson; 6 lessons) | `moduleeight` | `/quiz-hub/module-8-exam/` |
+  | Module 8 | Voice Communications Planning | `voicecomms` | `/quiz-hub/voice-communications-planning/` |
+  | Module 8 | Data Communications Planning | `datacomms` | `/quiz-hub/data-communications-planning/` |
   | Supporting | Army Operations | `armyops` | `/quiz-hub/army-operations/` |
   | Supporting | Intelligence Cycle | `intcycle` | `/quiz-hub/intelligence-cycle/` |
 

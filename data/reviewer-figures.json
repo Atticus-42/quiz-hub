@@ -381,5 +381,240 @@
         { "label": "Command consoles and operations centers", "note": "Use information for coordination and decisions", "highlight": true }
       ]
     }
+  ],
+  "voicecomms": [
+    {
+      "topic": "Fixed, tactical and special purpose means",
+      "kind": "matrix",
+      "title": "Radio bands and their typical use",
+      "caption": "HF reaches long distances over the horizon; VHF and UHF depend on line of sight, so hills block them.",
+      "pages": [
+        3
+      ],
+      "columns": [
+        "Band",
+        "Frequency",
+        "Typical use"
+      ],
+      "widths": [
+        0.8,
+        0.9,
+        1.9
+      ],
+      "rows": [
+        [
+          "HF/SSB",
+          "3 to 30 MHz",
+          "Long-distance ground communication; 20 W manpack fielded"
+        ],
+        [
+          "VHF/FM",
+          "30 to 80 MHz",
+          "Short-distance communication; 5 W handheld fielded"
+        ],
+        [
+          "UHF/FM",
+          "403 to 433 MHz",
+          "Internal communications"
+        ]
+      ]
+    },
+    {
+      "topic": "Fixed, tactical and special purpose means",
+      "kind": "matrix",
+      "title": "Connectivity by command level (PAM 6-00 0406)",
+      "caption": "The default means for each link between command levels. The AFP FCS leads, with HF/SSB as the usual secondary.",
+      "pages": [
+        3
+      ],
+      "columns": [
+        "Link",
+        "Primary",
+        "Secondary",
+        "Tertiary or other"
+      ],
+      "widths": [
+        1.1,
+        1,
+        1,
+        1.3
+      ],
+      "rows": [
+        [
+          "Between strategic HQs",
+          "AFP FCS",
+          "HF/SSB",
+          "Commercial landline; cellular on the move"
+        ],
+        [
+          "Strategic to operational",
+          "AFP FCS, drop and insert to major camps",
+          "HF/SSB",
+          "Commercial landline; mobile if funds permit"
+        ],
+        [
+          "Operational to tactical",
+          "AFP FCS if feasible",
+          "HF/SSB with VHF/FM or UHF/FM",
+          "Repeaters; commercial landline or mobile"
+        ],
+        [
+          "Tactical to operating units",
+          "AFP FCS if feasible",
+          "HF/SSB",
+          "VHF/FM, UHF/FM; commercial landline or mobile"
+        ],
+        [
+          "Unit HQ to elements",
+          "Mobile communications systems",
+          "Standardized equipment",
+          ""
+        ]
+      ]
+    },
+    {
+      "topic": "Voice resources and maintenance",
+      "kind": "matrix",
+      "title": "Who repairs and programs voice radios",
+      "caption": "The SMTF repairs tactical HF and VHF radios up to level 3; SMMART goes out to the units.",
+      "pages": [
+        5,
+        6
+      ],
+      "columns": [
+        "Facility",
+        "Tasks"
+      ],
+      "widths": [
+        1,
+        2.2
+      ],
+      "rows": [
+        [
+          "SMTF",
+          "Level 1 to 3 repairs of tactical HF and VHF radios; level 1 to 2 repairs of UHF commercial radios; radio programming; training"
+        ],
+        [
+          "SMMART",
+          "Level 1 to 2 repairs of UHF commercial radios; radio programming; refresher training; visits brigades, battalions and companies"
+        ]
+      ]
+    }
+  ],
+  "datacomms": [
+    {
+      "topic": "Choosing data technologies",
+      "kind": "matrix",
+      "title": "How the environment drives the choice",
+      "caption": "Each condition has an effect on the link and a planning response (0116).",
+      "pages": [
+        7
+      ],
+      "columns": [
+        "Condition",
+        "Effect",
+        "Planning response"
+      ],
+      "widths": [
+        0.9,
+        1.2,
+        1.6
+      ],
+      "rows": [
+        [
+          "Islands and open water",
+          "Line of sight fails over distance",
+          "HF, satellite or relay stations"
+        ],
+        [
+          "Mountains",
+          "Block line-of-sight radio",
+          "Repeaters on high ground, a propagation study"
+        ],
+        [
+          "Dense foliage",
+          "Weakens propagation, including satellite links",
+          "Site antennas with clear sky, test before committing"
+        ],
+        [
+          "Cities",
+          "Buildings, towers and power lines distort radio",
+          "Short hops, wired or cellular backup"
+        ],
+        [
+          "Typhoons",
+          "Disable commercial and Army assets",
+          "Deployable signal teams, mobile command center, tactical radio as backup"
+        ],
+        [
+          "Enemy EW",
+          "Jamming and interception",
+          "Frequency hopping, anti-jamming, procedures for changing frequencies"
+        ]
+      ]
+    },
+    {
+      "topic": "Building the plan: process, PACE and recovery",
+      "kind": "matrix",
+      "title": "Recovery procedures (0311)",
+      "caption": "Four contingencies, and what the plan must include for each.",
+      "pages": [
+        10
+      ],
+      "columns": [
+        "Contingency",
+        "The plan must include"
+      ],
+      "widths": [
+        1.2,
+        2
+      ],
+      "rows": [
+        [
+          "Interrupted connectivity",
+          "Redundant communications, equipment repair and replacement, on-site technical support"
+        ],
+        [
+          "Electronic warfare",
+          "Countermeasures and counter-countermeasures"
+        ],
+        [
+          "Cyberattack",
+          "Monitoring of the PA network including MANET; procedures for the CSIRT and first responders"
+        ],
+        [
+          "Compromised frequencies",
+          "Procedures to change frequencies efficiently, in the shortest possible time"
+        ]
+      ]
+    },
+    {
+      "topic": "Voice on data networks",
+      "kind": "flow",
+      "title": "Sizing voice on a link: the worked example",
+      "caption": "Brigade TOC to division over VSAT: 15 compressed calls plus 400 kbps of data, with a margin of at least 25 percent.",
+      "pages": [
+        13
+      ],
+      "steps": [
+        {
+          "label": "Voice",
+          "note": "15 calls × about 30 kbps = 450 kbps"
+        },
+        {
+          "label": "Add the data",
+          "note": "450 + 400 kbps = 850 kbps"
+        },
+        {
+          "label": "Add the margin",
+          "note": "850 × 1.25 ≈ 1,060 kbps for peaks and overhead"
+        },
+        {
+          "label": "Plan the link",
+          "note": "Roughly 1.1 Mbps or more, or reduce calls, or move bulk data off the link at peak hours",
+          "highlight": true
+        }
+      ]
+    }
   ]
 }

@@ -60,7 +60,7 @@ test('POI placement preserves legacy routes and history identities without unsup
   const fullPools = [
     ['moduleone', 35, ['leadershipattributes','leadershipcompetencies','companymanagement','missioncommand','ethicalleadership','ncoempowerment','effectivecommunication']],
     ['modulesix', 32, ['sigint','elint','rdf','eccm']],
-    ['moduleeight', 32, ['ceoicesi','signalestimate','c4istarplanning','signalplanning']],
+    ['moduleeight', 30, ['ceoicesi','signalestimate','voicecomms','datacomms','c4istarplanning','signalplanning']],
     ['modulethreeops', 30, ['tlp','mdmp']]
   ];
   for (const [key, count, sources] of fullPools) {

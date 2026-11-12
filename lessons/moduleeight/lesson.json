@@ -7,12 +7,12 @@
   "name": "Module 8 Exam",
   "title": "Module 8 Exam",
   "eyebrow": "SOAC 52-26 · Signal Planning",
-  "hubDescription": "32 questions per attempt, with 8 from each of the 4 available lessons: CEOI/CESI, Signal Estimate, C4ISTAR Communications Planning and the Signal Planning Process.",
-  "lede": "Practice Signal Planning with {count} questions per attempt in Easy, Medium or Hard mode. Each attempt draws 8 questions from each of the 4 available lessons: CEOI / CESI Management, Signal Estimate, C4ISTAR Communications Planning, and the Signal Planning Process. Voice and Data Communications Planning are not part of this exam.",
+  "hubDescription": "30 questions per attempt, with 5 from each of the 6 lessons: CEOI/CESI, Signal Estimate, Voice and Data Communications Planning, C4ISTAR Communications Planning and the Signal Planning Process.",
+  "lede": "Practice Signal Planning with {count} questions per attempt in Easy, Medium or Hard mode. Each attempt draws 5 questions from each of the 6 lessons: CEOI / CESI Management, Signal Estimate, Voice Communications Planning, Data Communications Planning, C4ISTAR Communications Planning, and the Signal Planning Process.",
   "hubKicker": "Module examination",
   "hubTags": [
     {
-      "text": "All 4 available lessons",
+      "text": "All 6 lessons",
       "comprehensive": true
     },
     {
@@ -24,17 +24,19 @@
     "lessons": [
       "ceoicesi",
       "signalestimate",
+      "voicecomms",
+      "datacomms",
       "c4istarplanning",
       "signalplanning"
     ],
-    "count": 32
+    "count": 30
   },
   "palette": {
     "--lesson-accent": "#3d4a8f"
   },
   "text": {
     "studyWarningLead": "Review the complete module before you begin.",
-    "studyWarningBody": "This exam draws from CEOI / CESI Management, Signal Estimate, C4ISTAR Communications Planning, and the Signal Planning Process. Voice and Data Communications Planning are not covered.",
+    "studyWarningBody": "This exam draws from CEOI / CESI Management, Signal Estimate, Voice Communications Planning, Data Communications Planning, C4ISTAR Communications Planning, and the Signal Planning Process.",
     "studyConfirm": "I have reviewed the lessons included in this module.",
     "resultsReminder": "Use your lesson scores and the source references to guide your next review.",
     "modeDescPrefix": "{attempt} questions per attempt, drawn from {bank} across the module.",

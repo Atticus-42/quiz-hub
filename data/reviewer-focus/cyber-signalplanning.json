@@ -142,6 +142,262 @@
     "memoryCue":"METAL → situation → effects → compare → recommend; revise when the facts change.",
     "lastCheck":["Expand METAL and identify one fact or assumption under each factor.","Turn a terrain observation into an explanation of its support effect.","Compare two options on the same mission, then state a recommendation, support needs and the assumption that could change it."]
   },
+  "voicecomms": {
+    "takeaway": "A voice plan states each requirement from the mission, gives every link a means that fits its terrain and threat, and backs each critical net with PACE levels that fail differently and with the resources to sustain them.",
+    "keyPoints": [
+      {
+        "label": "Requirements",
+        "answer": "Gather from the 0305 sources and state each requirement by users, mobility, reach, precedence, security, availability and quality.",
+        "why": "Only requirements that support a decision or an action are worth the scarce means.",
+        "pages": [
+          1,
+          2
+        ]
+      },
+      {
+        "label": "Means by category",
+        "answer": "Fixed (BONTEX, PANET, AFP FCS, DBTOCS), tactical (HF, VHF, UHF, CNR) and special purpose (video-conferencing, cellular, satellite phones).",
+        "why": "Each category has a different role; special purpose means are gap fillers within COMSEC policy.",
+        "pages": [
+          2
+        ]
+      },
+      {
+        "label": "Bands and line of sight",
+        "answer": "HF/SSB 3 to 30 MHz for long distance, VHF/FM 30 to 80 MHz for short distance, UHF/FM 403 to 433 MHz internal; hills block VHF and UHF.",
+        "why": "Terrain and distance decide whether a radio link works at all.",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "label": "Connectivity hierarchy",
+        "answer": "PAM 6-00 0406 gives the AFP FCS as primary and HF/SSB as secondary on most links between command levels.",
+        "why": "It is the default routing plan the planner adapts and justifies.",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "label": "Security and recovery",
+        "answer": "Frequency hopping and anti-jamming protect; compromised radios trigger a quick frequency change; the vigilance net uses ciphertext and double talk; the disaster net stays separate.",
+        "why": "The enemy can scan, jam and capture, and civil agencies cannot join the secured net.",
+        "pages": [
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "label": "Resources",
+        "answer": "Chart equipment, personnel and funds; use the SMTF for level 1 to 3 tactical radio repairs and SMMART for visits to units.",
+        "why": "A plan the unit cannot staff, fund or repair will not survive the operation.",
+        "pages": [
+          5,
+          6
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "CEOI",
+        "b": "CESI",
+        "difference": "The CEOI says what to do and gives call signs and frequencies; the CESI explains how to do it and how to use them.",
+        "pages": [
+          1,
+          5
+        ]
+      },
+      {
+        "a": "SMTF",
+        "b": "SMMART",
+        "difference": "The SMTF repairs tactical HF and VHF radios up to level 3 and trains; SMMART repairs UHF commercial radios up to level 2 and visits brigades, battalions and companies.",
+        "pages": [
+          5,
+          6
+        ]
+      },
+      {
+        "a": "Vigilance net",
+        "b": "Disaster response net",
+        "difference": "The vigilance net serves emergencies and joint operations with ciphertext and double talk; the disaster net connects many entities, is unclassified and unsecured, and is kept separate from the operational net.",
+        "pages": [
+          4,
+          5
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "Recall style: What is the secondary means between strategic and operational headquarters?",
+        "answer": "HF/SSB, with the AFP FCS as primary.",
+        "reasoning": "The PAM 6-00 0406 table sets primary, secondary and tertiary means for each link.",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "Matching style: Which specialty is the electromagnetic spectrum manager?",
+        "answer": "22P. 22E is the radio operator/maintainer and 22L the radio programmer/technician.",
+        "reasoning": "The handout lists the three specialties relevant to voice resources.",
+        "pages": [
+          6
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "A PACE lists two VHF handhelds on the same repeater as primary and alternate. What is wrong?",
+        "answer": "Both fail if the repeater fails, so the alternate is not independent; choose a means that fails differently, such as HF.",
+        "reasoning": "Each PACE level should fail differently from the one above it.",
+        "pages": [
+          4
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "Provincial officials ask to join the battalion command net during a typhoon response. What should the planner do?",
+        "answer": "Give them a separate disaster response net, unclassified and unsecured, and keep them off the secured operational net.",
+        "reasoning": "The disaster net must be different from and separate to the secured operational net.",
+        "pages": [
+          5
+        ]
+      }
+    ],
+    "memoryCue": "Sources: commander, staff, higher-subordinate-adjacent, SOP, CEOI/CESI. HF far, VHF near, UHF inside. AFP FCS first, HF second. PACE levels fail differently. Captured radio, change frequency. Disaster net stays separate.",
+    "lastCheck": [
+      "List the 0305 sources of requirements and the eight requirement fields.",
+      "Give the band, range and use of HF/SSB, VHF/FM and UHF/FM, and the 0406 primary and secondary means.",
+      "Explain how the plan answers a captured radio, jamming and a request from civil agencies to join the net."
+    ]
+  },
+  "datacomms": {
+    "takeaway": "A data plan starts from the information exchanges the mission needs, matches each link to its terrain, spectrum and threat, protects every critical service, voice included, with independent PACE paths and recovery, and sizes the links that carry voice.",
+    "keyPoints": [
+      {
+        "label": "Part of the signal plan",
+        "answer": "The data plan keeps the commander connected and is part of the signal plan, published with the C4S annex; it is not a separate IT project.",
+        "why": "It must follow the same planning process and priorities as the rest of signal support.",
+        "pages": [
+          1,
+          9
+        ]
+      },
+      {
+        "label": "Requirements first",
+        "answer": "State who exchanges what, with whom, how quickly, how securely and over what terrain; equipment comes later as a resource.",
+        "why": "Requirements drawn from equipment miss what the mission actually needs.",
+        "pages": [
+          3
+        ]
+      },
+      {
+        "label": "The section 2.5 test",
+        "answer": "Each requirement must be specific, measurable, tied to the mission or CCIR, ranked in priority and phased.",
+        "why": "Resources are always limited, so only clear, ranked requirements can be allocated.",
+        "pages": [
+          6
+        ]
+      },
+      {
+        "label": "Technology by environment",
+        "answer": "Over water use HF, satellite or relays; in mountains repeaters and a propagation study; in foliage clear-sky siting; in cities short hops with backup; against EW frequency hopping and anti-jamming.",
+        "why": "No single technology works everywhere.",
+        "pages": [
+          7
+        ]
+      },
+      {
+        "label": "Recovery",
+        "answer": "Plan for interrupted connectivity, EW, cyberattack and compromised frequencies, executed by the TOC team, C3 restoration team, network recovery team and CSIRT.",
+        "why": "Connect and sustain are not enough without a planned way to recover.",
+        "pages": [
+          10
+        ]
+      },
+      {
+        "label": "Voice on data",
+        "answer": "List voice services that depend on the network, size them (calls × per-call figure + data, + at least 25 percent), set a priority rule and keep an independent fallback.",
+        "why": "A voice plan is only as reliable as the network under it.",
+        "pages": [
+          12,
+          13
+        ]
+      }
+    ],
+    "distinctions": [
+      {
+        "a": "PANET",
+        "b": "AFP FCS",
+        "difference": "PANET is the Army’s secured, managed intranet for information systems; the AFP FCS is the transmission superhighway between switches, run by GHQ-AFP.",
+        "pages": [
+          6
+        ]
+      },
+      {
+        "a": "Uncompressed G.711 call",
+        "b": "Compressed G.729 call",
+        "difference": "About 80 to 90 kbps against about 25 to 30 kbps per call, including overhead; satellite and radio links need the compressed codec.",
+        "pages": [
+          13
+        ]
+      },
+      {
+        "a": "Star topology",
+        "b": "Mesh topology",
+        "difference": "A star connects everything to one center, a single point of failure; a mesh has many paths and survives loss of a node.",
+        "pages": [
+          9
+        ]
+      }
+    ],
+    "examAngles": [
+      {
+        "type": "Objective",
+        "question": "Recall style: Which team executes the incident response plan?",
+        "answer": "The cyber security incident response team (CSIRT).",
+        "reasoning": "It is one of the four deployable signal teams that execute recovery.",
+        "pages": [
+          10
+        ]
+      },
+      {
+        "type": "Objective",
+        "question": "Recall style: What does the 0406 table give as primary and secondary on an operational-to-tactical link?",
+        "answer": "AFP FCS if technically feasible; HF/SSB with VHF/FM or UHF/FM, linked through repeaters.",
+        "reasoning": "The table is the default routing plan.",
+        "pages": [
+          7
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "A TOC expects 15 compressed calls and 400 kbps of data over VSAT. What link size should the plan use?",
+        "answer": "About (15 × 30 + 400) × 1.25 ≈ 1,060 kbps, so roughly 1.1 Mbps or more.",
+        "reasoning": "Calls times the per-call figure, plus data, plus at least a 25 percent margin.",
+        "pages": [
+          13
+        ]
+      },
+      {
+        "type": "Analytical",
+        "question": "The primary and alternate voice paths both run through one TOC router on one generator. What should change?",
+        "answer": "Give the alternate a path that does not share that failure point, such as HF/SSB voice, and protect power and switches as dependencies.",
+        "reasoning": "Each critical voice service needs PACE means that do not share the same failure point.",
+        "pages": [
+          12,
+          13
+        ]
+      }
+    ],
+    "memoryCue": "Requirements before equipment. Specific, measurable, tied, ranked, phased. Water: HF, satellite, relay. Mountains: repeaters. Four contingencies, four teams. Calls × kbps + data, × 1.25. HADR net never joins the secured net.",
+    "lastCheck": [
+      "State one requirement with originator, recipient, type, volume, delay, precedence, classification and phase.",
+      "Match the four recovery contingencies to what the plan must include, and name the four deployable signal teams.",
+      "Size a link for a given number of compressed calls plus data with a 25 percent margin."
+    ]
+  },
   "c4istarplanning": {
     "takeaway":"Plan C4ISTAR around a timely, usable and protected information exchange, and verify its entire path from observation to command use under realistic support conditions.",
     "keyPoints":[
