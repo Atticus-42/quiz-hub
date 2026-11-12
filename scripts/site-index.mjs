@@ -16,17 +16,24 @@ export function buildSiteIndex({ modules, lessons, study, pages }) {
   const exams = lessons.filter(lesson => examRe.test(lesson.slug));
   const byModule = modules.map(module => ({ module, items: lessons.filter(lesson => lesson.module === module.id && !examRe.test(lesson.slug)) })).filter(group => group.items.length);
 
-  return up => {
+  return (up, path = '') => {
     const a = (href, text, cls = '') => '<a' + (cls ? ' class="' + cls + '"' : '') + ' href="' + up + href + '">' + esc(text) + '</a>';
     const li = (...links) => '<li>' + links.join('') + '</li>';
-    const col = (title, body) => '<div><h2>' + esc(title) + '</h2>' + body + '</div>';
+    const col = (title, body, cls = '') => '<div' + (cls ? ' class="' + cls + '"' : '') + '><h2>' + esc(title) + '</h2>' + body + '</div>';
+    // One row per lesson: the name, then small Quiz / Reviewer links aligned right.
+    const small = (href, text, label) => '<a href="' + up + href + '" aria-label="' + esc(label) + '">' + esc(text) + '</a>';
+    const row = (name, links) => '<li class="si-row"><span class="si-name">' + name + '</span><span class="si-links">' + links.join('') + '</span></li>';
+    const reviewerOf = lesson => study.byKey.has(lesson.key) ? [small('reviewer/' + lesson.key + '/', 'Reviewer', lesson.name + ' reviewer')] : [];
+    const here = path.split('/')[0];
+    const current = lesson => here === lesson.slug || (path.startsWith('reviewer/') && path.split('/')[1] === lesson.key);
     const parts = [];
-    parts.push(col('Practice exams', '<ul>' + li(a('', 'Exam hub (all modules)', 'main')) +
-      exams.map(lesson => li(a(lesson.slug + '/', lesson.name, 'main'), study.byKey.has(lesson.key) ? a('reviewer/' + lesson.key + '/', 'Reviewer') : '')).join('') + '</ul>'));
+    parts.push(col('Practice exams', '<ul>' + li(a('', 'Exam hub (all modules)', 'main')) + 
+      exams.map(lesson => li(a(lesson.slug + '/', lesson.name, 'main'))).join('') + '</ul>'));
     parts.push(col('Comprehensive Exam Reviewer', '<ul>' + li(a('comprehensive-reviewer/', 'Actual Exam: all graded exams', 'main')) + li(a('comprehensive-reviewer/all/', 'All graded exams, mixed', 'main')) + '</ul>'));
-    parts.push(col('Reviewer', '<ul>' + li(a('reviewer/', 'All Reviewer lessons', 'main')) + '</ul>' +
-      byModule.map(({ module, items }) => '<p class="mod">' + esc(module.title + (module.note ? ' · ' + module.note : '')) + '</p><ul>' +
-        items.map(lesson => li(a(lesson.slug + '/', lesson.name + ' quiz', 'main'), study.byKey.has(lesson.key) ? a('reviewer/' + lesson.key + '/', 'Reviewer') : '')).join('') + '</ul>').join('')));
+    parts.push(col('Lessons by module', '<ul>' + li(a('reviewer/', 'All Reviewer lessons', 'main')) + '</ul><div class="si-modules">' +
+      byModule.map(({ module, items }) => '<details class="si-module"' + (items.some(current) ? ' open' : '') + '><summary>' + esc(module.title) +
+        (module.note && module.id !== 'supplemental' ? ' <span>' + esc(module.note) + '</span>' : '') + ' <small>' + items.length + '</small></summary><ul class="si-rows">' +
+        items.map(lesson => row(esc(lesson.name), [small(lesson.slug + '/', 'Quiz', lesson.name + ' quiz'), ...reviewerOf(lesson)])).join('') + '</ul></details>').join('') + '</div>', 'si-lessons'));
     parts.push(col('Library', '<ul>' + li(a('library/', 'Library: lessons, manuals, sources', 'main')) + li(a('library/unit-organization/', 'Unit Organization', 'main')) + '</ul>'));
     parts.push(col('How To guides', '<ul>' + li(a('how-to/', 'All How To guides', 'main')) + howTo.map(path => li(a(path.replace(/index\.html$/, ''), titleOf(path), 'main'))).join('') + '</ul>'));
     parts.push(col('Radio and codes', '<ul>' + li(a('los-radios/', 'LOS Radios', 'main')) + li(a('codes-ciphers/', 'Codes & Ciphers', 'main')) + '</ul>'));
@@ -54,7 +61,7 @@ export function siteSearchPages({ lessons, study, pages }) {
   out.push({ t: 'Codes & Ciphers', d: 'Cipher desk: encode, decode and practise handout ciphers', k: 'Tool', u: 'codes-ciphers/' });
   out.push({ t: 'Weekly schedule', d: 'Training timetable, venues, uniforms and menus by week', k: 'Class', u: 'schedule/?v=day-picker-2' });
   out.push({ t: 'Our class', d: 'Class organization and roster', k: 'Class', u: 'class/' });
-  out.push({ t: 'Gallery', d: 'Class photos: Krav Maga training, PT at the Signal School and the class group photo', k: 'Class', u: 'gallery/' });
+  out.push({ t: 'Gallery', d: 'Class photos and videos: training, PT, meals and class events', k: 'Class', u: 'gallery/' });
   out.push({ t: 'Instructor view', d: 'Question analysis for instructors', k: 'Class', u: 'instructor/' });
   return out;
 }

@@ -11,6 +11,21 @@
 .site-index li a.main{flex:1 1 auto;font-weight:500}
 .site-index li a:hover{color:var(--color-accent-hover,#2e3418)}
 .site-index .mod{margin:.6rem 0 0;font-size:.75rem;color:var(--color-muted,#4a4c40);font-weight:600}
+/* Compact rows: name on the left, small Quiz / Reviewer links aligned right (same column whether or not the name wraps). */
+.site-index .si-lessons{grid-column:1/-1}
+.site-index .si-modules{display:grid;grid-template-columns:repeat(auto-fill,minmax(18rem,1fr));gap:0 2rem;align-items:start}
+.site-index .si-module{border-bottom:1px solid var(--color-hairline,#c8c2ae)}
+.site-index .si-module>summary{display:flex;align-items:baseline;flex-wrap:wrap;gap:.15rem .5rem;min-height:44px;padding:.55rem 0;cursor:pointer;font-size:.875rem;font-weight:600;letter-spacing:0;text-transform:none;color:var(--color-text,#1e211b)}
+.site-index .si-module>summary span{font-weight:400;color:var(--color-muted,#4a4c40)}
+.site-index .si-module>summary small{margin-left:auto;font:500 .75rem var(--font-mono,monospace);color:var(--color-muted,#4a4c40)}
+.site-index .si-module>summary::before{content:"+";display:inline-block;width:1ch;font-family:var(--font-mono,monospace);color:var(--color-signal-text,#a8431a)}
+.site-index .si-module[open]>summary::before{content:"-"}
+.site-index .si-module>summary::-webkit-details-marker{display:none}
+.site-index .si-module>summary{list-style:none}
+.site-index li.si-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:.25rem .75rem;flex-wrap:nowrap}
+.site-index .si-name{padding:.35rem 0;font-size:.9375rem;line-height:1.3}
+.site-index .si-links{display:flex;gap:.25rem;justify-self:end}
+.site-index .si-links a{min-height:44px;padding:0 .45rem;font-size:.8125rem;font-weight:600}
 .library-subtabs{display:flex;flex-wrap:wrap;gap:0;margin:0 0 1rem;border:1px solid var(--color-hairline,#c8c2ae);width:fit-content;max-width:100%}
 .library-subtabs a{display:inline-flex;align-items:center;min-height:44px;padding:.45rem 1rem;color:var(--color-accent,#4b5320);text-decoration:none;font-weight:600}
 .library-subtabs a+a{border-left:1px solid var(--color-hairline,#c8c2ae)}

@@ -73,11 +73,18 @@
       text-decoration: none;
       transition: color var(--speed) var(--ease);
     }
-    .hero-bar .reviewer-button { display: inline-flex; align-items: center; justify-content: center; gap: .6rem; padding: .85rem 1.15rem; min-height: 48px; background: #fff8e5; color: var(--color-text); border: 2px solid var(--color-text); font-size: .9rem; font-weight: 700; letter-spacing: .04em; text-decoration: none; box-shadow: 3px 3px 0 #c8ad65; }
-    .hero-bar .reviewer-button:hover { background: #f4e5b7; color: var(--color-text); }
-    .hero-bar .reviewer-button:active { box-shadow: 1px 1px 0 #c8ad65; transform: translate(2px, 2px); }
-    .hero-bar .reviewer-button:focus-visible { background: #f4e5b7; color: var(--color-text); outline: 3px solid var(--color-focus); outline-offset: 3px; }
-    @media(max-width: 540px) { .hero-bar .reviewer-button { order: 3; width: 100%; } }
+    /* Open Reviewer: same outline chip as the sound toggle, grouped with it on the right. */
+    .hero-bar .reviewer-button { margin-left: auto; padding: 0 var(--space-3); border: 1px solid var(--color-rule); background: transparent; }
+    .hero-bar .reviewer-button:hover { background: var(--color-sunken); border-color: var(--color-text); color: var(--color-text); text-decoration: none; }
+    .hero-bar .reviewer-button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+    .hero-bar .reviewer-icon { font-size: 1rem; letter-spacing: 0; }
+    .hero-bar .reviewer-arrow { letter-spacing: 0; color: var(--color-signal-text); }
+    @media (max-width: 540px) {
+      .hero-bar { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: var(--space-2); }
+      .hero-bar .hub-link:not(.reviewer-button) { grid-column: 1 / -1; }
+      .hero-bar .reviewer-button, .hero-bar .sound-toggle { margin: 0; justify-content: center; padding-inline: var(--space-2); letter-spacing: 0.08em; }
+      .hero-bar .reviewer-icon { display: none; }
+    }
     .hub-link:hover { color: var(--color-accent); text-decoration: underline; text-underline-offset: 0.3em; }
     .hub-arrow { font-size: 1rem; letter-spacing: 0; color: var(--color-signal-text); }
 
@@ -690,7 +697,7 @@
   <header class="site-header hero">
     <div class="wrap hero-bar">
       <a id="hub-link" class="hub-link" href="{{HUB_HREF}}"><span class="hub-arrow" aria-hidden="true">&#8592;</span> All quizzes</a>
-      <a id="reviewer-link" class="hub-link reviewer-button" href="{{STUDY_HREF}}"><span aria-hidden="true">&#128214;</span> Open Reviewer <span aria-hidden="true">&#8599;</span></a>
+      <a id="reviewer-link" class="hub-link reviewer-button" href="{{STUDY_HREF}}"><span class="reviewer-icon" aria-hidden="true">&#128214;</span> Open Reviewer <span class="reviewer-arrow" aria-hidden="true">&#8599;</span></a>
       <button type="button" id="btn-sound" class="sound-toggle" aria-pressed="true" aria-keyshortcuts="S">
         <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square" stroke-linejoin="miter">
           <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z"/>

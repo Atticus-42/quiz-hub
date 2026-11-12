@@ -1298,7 +1298,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
     }
     html = withShareMetadata(html, path, up);
     html = html.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/site-index.css">\n</head>');
-    html = html.replace('</body>', () => siteIndex(up) + '\n</body>');
+    html = html.replace('</body>', () => siteIndex(up, path) + '\n</body>');
     html = html.replace('</body>', '<aside class="domain-seal" aria-label="Site signature"><img class="domain-sigil" src="' + up + 'assets/domain-void-hand-320.webp" width="160" height="221" alt="" loading="lazy" decoding="async"><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>“You see, but you do not observe.”</em><cite data-domain-attribution>— Sherlock Holmes · A Scandal in Bohemia · Arthur Conan Doyle</cite></span></aside>\n</body>');
     pages[path] = html.replace('</body>', '<script src="' + up + 'assets/identity.js" defer></script>\n</body>');
   }
