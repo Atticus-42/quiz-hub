@@ -22,5 +22,5 @@
       const digest = /^sha256:([a-f0-9]{64})$/i.exec(asset.digest || '');
       sha.textContent=digest?digest[1]:'See the release notes for this build’s checksum.';
       document.querySelector('#copy-sha').hidden=!digest;
-    }).catch(() => {document.querySelector('#release-status').textContent='Showing the verified 4 November 2026 build. Open release notes to check for updates.';});
+    }).catch(() => {document.querySelector('#release-status').textContent='Showing the verified 13 November 2026 build. Open release notes to check for updates.';});
 })();
