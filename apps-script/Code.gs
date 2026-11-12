@@ -1,20 +1,21 @@
-// Class score history and question analysis for the quiz sites (version 7).
+// Class score history and question analysis for the quiz sites (version 8).
 // Deploy as a Web app (Execute as: Me, Who has access: Anyone); see SETUP.md.
 // One spreadsheet serves every quiz: each lesson has its own history tab (see LESSONS), and the
 // 'Item Analysis' tab counts how often each question was asked and missed.
 //
 // POST (Content-Type text/plain) body:
+//   mode is easy|medium|hard|actual (Actual Exam; qids <examKey>-a-NN, see LESSONS for the graded exam keys).
 //   {"lesson","name","mode","score","total","percent","band","finishedAt"[, "asked": [qid...], "missed": [qid...]]}
 //   total is the number of questions in the attempt (1-500). asked/missed hold stable question ids
 //   "<lessonKey>:<mode>:<qid>" (never the answers chosen); pages older than version 7 send neither, and
 //   their attempts are still stored.
-// GET ?lesson=isr|armor|fieldartillery|armyops|signal|signaljoint|combined&mode=all|easy|medium|hard&limit=100
+// GET ?lesson=isr|armor|fieldartillery|armyops|signal|signaljoint|combined&mode=all|easy|medium|hard|actual&limit=100
 //   -> {"ok":true,"rows":[...newest first]}
 // GET ?action=items&lesson=<key>|all
-//   -> {"ok":true,"kind":"items","version":7,"rows":[{qid,lesson,mode,asked,missed}, ...]}
+//   -> {"ok":true,"kind":"items","version":8,"rows":[{qid,lesson,mode,asked,missed}, ...]}
 // A request without "lesson" is treated as the first lesson ('isr'), so the oldest quiz pages keep working.
 
-var VERSION = 7;
+var VERSION = 8;
 var LESSONS = {
   isr: 'History',        // first quiz: ISR Operations (original tab name kept)
   armor: 'Armor History',                  // Fundamentals of Armor Operations quiz
@@ -56,7 +57,24 @@ var LESSONS = {
   ceoicesi: 'CEOI CESI Management History',
   signalestimate: 'Signal Estimate History',
   c4istarplanning: 'C4ISTAR Communications Planning History',
-  signalplanning: 'Signal Planning Process History'
+  signalplanning: 'Signal Planning Process History',
+  // Comprehensive Exam Reviewer (Actual Exam): one tab per graded exam page, plus the mixed set. Actual Exam
+  // attempts on lesson pages are stored in that lesson's own tab with mode 'actual'.
+  gradedew: 'Graded EW Operations History',
+  gradedcyber: 'Graded Cyberspace Operations History',
+  gradedc2: 'Graded C2 Communications History',
+  gradedssi: 'Graded Signal Support Integration History',
+  gradedcoalition: 'Graded Signal Coalition History',
+  gradedjoint: 'Graded Signal Joint History',
+  gradedcombined: 'Graded Signal Combined Arms History',
+  gradedma2: 'Graded Module Assessment 2 History',
+  gradedisr: 'Graded ISR Operations History',
+  gradedartillery: 'Graded Artillery Operations History',
+  gradedarmyops: 'Graded Army Operations History',
+  gradedma1: 'Graded Module Assessment 1 History',
+  gradedmla: 'Graded Leadership Attributes History',
+  gradeddiag: 'Graded Diagnostic Exam History',
+  gradedall: 'Graded Mixed Set History'
 };
 // Only for pages from before version 7 that send no total: their attempt length was fixed.
 var LEGACY_TOTALS = { combined: 30 };
@@ -67,9 +85,10 @@ var HEADERS = ['Received', 'Name', 'Mode', 'Score', 'Total', 'Percent', 'Band', 
 var LEGACY_HEADER_COUNT = 8;               // history tabs created before version 7 have no 'Missed' column
 var ITEM_TAB = 'Item Analysis';
 var ITEM_HEADERS = ['QID', 'Lesson', 'Mode', 'Asked', 'Missed', 'Miss rate', 'Last updated'];
-var QID_PATTERN = /^([a-z][a-z0-9]{1,23}):(easy|medium|hard):([a-z][a-z0-9]{1,23}-[emh]-[0-9]{2,4})$/;
+var QID_PATTERN = /^([a-z][a-z0-9]{1,23}):(easy|medium|hard|actual):([a-z][a-z0-9]{1,23}-[emha]-[0-9]{2,4})$/;
 var MISSED_CELL_MAX = 4000;                // characters kept in an attempt row's 'Missed' cell
-var MODES = ['easy', 'medium', 'hard'];
+var MODES = ['easy', 'medium', 'hard', 'actual'];
+var MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h', actual: 'a' };
 var BANDS = ['Mastery', 'Proficient', 'Developing', 'Needs review'];
 var MAX_LIMIT = 200;
 
@@ -169,8 +188,14 @@ function validQid(value, mode) {
   if (typeof value !== 'string' || value.length > 64) return null;
   var match = QID_PATTERN.exec(value);
   if (!match || match[2] !== mode || !Object.prototype.hasOwnProperty.call(LESSONS, match[1])) return null;
-  // The qid itself is <lessonKey>-<e|m|h>-NN: it must name the same lesson and difficulty.
-  if (match[3].indexOf(match[1] + '-' + mode.charAt(0) + '-') !== 0) return null;
+  // The qid itself is <lessonKey>-<e|m|h|a>-NN: it must name the same lesson and difficulty. An Actual Exam
+  // qid is <examKey>-a-NN and may be asked on a lesson page, so it needs only to name a known key.
+  var letter = MODE_LETTERS[mode];
+  if (mode === 'actual') {
+    var own = /^([a-z][a-z0-9]{1,23})-a-[0-9]{2,4}$/.exec(match[3]);
+    return own && Object.prototype.hasOwnProperty.call(LESSONS, own[1]) ? value : null;
+  }
+  if (match[3].indexOf(match[1] + '-' + letter + '-') !== 0) return null;
   return value;
 }
 

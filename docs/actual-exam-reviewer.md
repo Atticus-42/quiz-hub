@@ -97,14 +97,9 @@ The portal showed no answer choices, so the build makes each item multiple choic
 - **Citations:** each question carries `source: { type: "graded-exam", exam, title, date, number }`. Feedback cites
   "SOAC 52-2026 graded exam: <title>, <date> · question N". It never cites a lesson slide or PDF page. Both the build
   and the engine reject any source type that is not listed.
-- **Class history:** Actual Exam attempts are never sent. The live Apps Script (`apps-script/Code.gs` v7) accepts only
-  `easy|medium|hard` and qids matching `[emh]`, and these pages never send it another mode. The reviewer pages are
-  built with an empty endpoint and make no requests at all.
-
-To record Actual Exam scores later, `Code.gs` would need:
-
-1. `MODES` and `QID_PATTERN` extended to `actual` and `a`.
-2. `validQid` to accept `<examKey>-a-NN` items. These belong to a graded exam, not to the page's lesson.
-3. History tabs or `LESSONS` entries for the reviewer pages.
-
-After redeploying, the engine's `finishQuiz` would post for `attempt.mode === 'actual'`.
+- **Class history:** Actual Exam attempts post to the same Apps Script endpoint as Easy/Medium/Hard, with
+  `mode: "actual"`. Lesson and module pages post under their own key; each reviewer page posts under its graded
+  exam key (`gradedisr`, ...) and the mixed set under `gradedall`. Item ids are `<examKey>:actual:<examKey>-a-NN`.
+  This needs `apps-script/Code.gs` v8 or later (`MODES` and `QID_PATTERN` accept `actual` and `a`; `LESSONS` has a
+  tab per reviewer key). The history view has an Actual Exam filter; reviewer pages show only All and Actual Exam.
+  After deploying, check `?action=history&lesson=gradedall&limit=1` returns `ok:true`.

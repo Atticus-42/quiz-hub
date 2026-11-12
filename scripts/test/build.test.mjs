@@ -107,8 +107,7 @@ export async function buildSuite({ lessons, modules }) {
     for (const [path, html] of Object.entries(pages)) {
       assert.equal(readFileSync(join(ROOT, path), 'utf8'), html, `${path} is stale: run node scripts/build.mjs`);
       if (path.endsWith('.json')) continue;
-      if (actualPages.includes(path)) assert.ok(html.includes("var HISTORY_ENDPOINT = '';") && !html.includes('script.google.com'), `${path} (Comprehensive Exam Reviewer) never contacts the history endpoint`);
-      else if (studyPages.includes(path) || ['class/index.html', 'codes-ciphers/index.html'].includes(path) || /^schedule(?:-\d{4}-\d{2}-\d{2})?\//.test(path)) assert.ok(!html.includes('HISTORY_ENDPOINT') && !html.includes('script.google.com'), `${path} never contacts the history endpoint`);
+      if (!actualPages.includes(path) && (studyPages.includes(path) || ['class/index.html', 'codes-ciphers/index.html'].includes(path) || /^schedule(?:-\d{4}-\d{2}-\d{2})?\//.test(path))) assert.ok(!html.includes('HISTORY_ENDPOINT') && !html.includes('script.google.com'), `${path} never contacts the history endpoint`);
       else assert.equal(html.split(`var HISTORY_ENDPOINT = '${HISTORY_ENDPOINT}';`).length - 1, 1, `${path} declares the endpoint once`);
       assert.doesNotMatch(html, /\{\{[A-Z_]+\}\}/, `${path} has no unfilled placeholder`);
     }

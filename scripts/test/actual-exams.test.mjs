@@ -109,7 +109,7 @@ test('placement: lesson and module pages carry their graded exams; qids follow <
   assert.ok(ids.every(id => !lessonQids.has(id)));
 });
 
-test('built lesson page: Actual Exam is a labelled category apart from Easy/Medium/Hard and is never posted', async () => {
+test('built lesson page: Actual Exam is a labelled category apart from Easy/Medium/Hard and posts as mode actual', async () => {
   const html = withEndpoint(pages['isr/index.html'], TEST_ENDPOINT);
   assert.match(html, /<section id="actual-block" class="actual-block" aria-labelledby="actual-heading">/);
   assert.match(html, /<span class="actual-badge">Actual Exam<\/span> <span>Questions from the class’s graded exams<\/span>/);
@@ -131,17 +131,28 @@ test('built lesson page: Actual Exam is a labelled category apart from Easy/Medi
   await api.whenSettled();
   const after = plain(api.getState());
   assert.equal(after.view, 'results');
-  assert.equal(after.submission.status, 'actual');
-  assert.equal(after.submission.payload, null);
-  assert.ok(fetch.calls.every(call => call.method === 'GET'), 'no POST to the class history');
-  assert.ok(fetch.calls.every(call => !/mode=actual/.test(call.url)), 'the endpoint never sees the actual mode');
-  assert.match(app.document.getElementById('history-save-message').textContent, /Actual Exam attempts are not saved/);
+  assert.equal(after.submission.status, 'saved');
+  const posts = fetch.calls.filter(call => call.method === 'POST');
+  assert.equal(posts.length, 1);
+  assert.ok(posts[0].url.startsWith(TEST_ENDPOINT));
+  const body = JSON.parse(posts[0].body);
+  const total = data.pages.get('isr').count;
+  assert.deepEqual(Object.keys(body).sort(), ['asked', 'band', 'finishedAt', 'lesson', 'missed', 'mode', 'name', 'percent', 'score', 'total']);
+  assert.equal(body.lesson, 'isr');
+  assert.equal(body.mode, 'actual');
+  assert.equal(body.total, total);
+  assert.equal(body.asked.length, total);
+  assert.equal(body.score, total - body.missed.length);
+  assert.ok(body.asked.every(id => /^graded[a-z0-9]+:actual:graded[a-z0-9]+-a-\d{2,4}$/.test(id) && id.split(':')[0] === id.split(':')[2].replace(/-a-\d+$/, '')), 'item ids are <examKey>:actual:<examKey>-a-NN');
+  assert.ok(body.missed.length > 0 && body.missed.every(id => body.asked.includes(id)));
+  assert.doesNotMatch(posts[0].body, /"selected"|"responses"|"answer"/);
+  assert.match(app.document.getElementById('history-save-message').textContent, /Saved to the class history/);
   assert.ok(Object.keys(storage.entries()).includes('mastery-quiz:progress:gradedisr:actual'), 'device progress is keyed by graded exam');
   assert.equal(api.retryMissed(), true);
   assert.equal(plain(api.getState()).attempt.practice, true);
   answerAll(api);
   await api.whenSettled();
-  assert.ok(fetch.calls.every(call => call.method === 'GET'));
+  assert.equal(fetch.calls.filter(call => call.method === 'POST').length, 1, 'practice retries are not posted');
 });
 
 test('built module page: draws at most 50, retake keeps the size, Easy still posts normally', async () => {
@@ -153,14 +164,16 @@ test('built module page: draws at most 50, retake keeps the size, Easy still pos
   answerAll(api);
   assert.equal(api.retakeQuiz(), true);
   assert.equal(api.getState().attempt.questions.length, ACTUAL_DRAW);
-  assert.ok(fetch.calls.every(call => call.method === 'GET'));
+  await api.whenSettled();
+  assert.equal(fetch.calls.filter(call => call.method === 'POST').length, 1, 'the actual attempt posted once');
   api.resetToDifficulty();
   api.startQuiz('easy');
   answerAll(api);
   await api.whenSettled();
   const posts = fetch.calls.filter(call => call.method === 'POST');
-  assert.equal(posts.length, 1);
-  assert.equal(JSON.parse(posts[0].body).mode, 'easy');
+  assert.equal(posts.length, 2);
+  assert.equal(JSON.parse(posts[0].body).mode, 'actual');
+  assert.equal(JSON.parse(posts[1].body).mode, 'easy');
 });
 
 test('pages without graded exams have no Actual Exam category; Easy/Medium/Hard banks are unchanged', () => {
@@ -182,27 +195,66 @@ test('Comprehensive Exam Reviewer: index lists all 14 exams and the mixed set; e
   for (const path of [...data.exams.map(exam => `${REVIEWER_SLUG}/${exam.slug}/index.html`), `${REVIEWER_SLUG}/all/index.html`]) {
     const html = pages[path];
     assert.ok(html, path);
-    assert.doesNotMatch(html, /script\.google\.com/, `${path} never contacts the history endpoint`);
+    assert.match(html, /var HISTORY_ENDPOINT = 'https:\/\/script\.google\.com\/macros\/s\/[^']+\/exec';/, `${path} carries the real history endpoint`);
     assert.doesNotMatch(html, /studentAnswer|Juan|PASSED/);
     assert.match(html, /href="\.\.\/\.\.\/assets\/banner-1600\.jpg"|src="\.\.\/\.\.\/assets\/banner-1600\.jpg"/);
     assert.doesNotMatch(html, /(?:src|href)="\.\.\/assets\//, `${path}: asset paths reach the site root`);
     assert.match(html, /<a id="hub-link" class="hub-link" href="\.\.\/">/);
   }
-  const fetch = fakeFetch(() => { throw new Error('no request expected'); });
-  const one = start(pages[`${REVIEWER_SLUG}/coalition/index.html`] ?? pages[`${REVIEWER_SLUG}/signal-support-coalition-operations/index.html`], { fetch });
+  const fetch = fakeFetch(() => ok);
+  const coalitionPath = `${REVIEWER_SLUG}/signal-support-coalition-operations/index.html`;
+  const one = start(withEndpoint(pages[coalitionPath], TEST_ENDPOINT), { fetch });
   assert.equal(one.api.getState().attempt.questions.length, 13);
   assert.equal(one.app.document.getElementById('mode-list').hidden, true, 'no difficulty buttons');
-  assert.equal(one.app.document.getElementById('btn-history').hidden, true);
+  assert.equal(one.app.document.getElementById('btn-history').hidden, false, 'the score history is available');
   answerAll(one.api);
   await one.api.whenSettled();
-  assert.equal(one.api.getState().submission.status, 'actual');
-  const mixed = start(pages[`${REVIEWER_SLUG}/all/index.html`], { fetch, button: 'mode-actual-all' });
+  assert.equal(one.api.getState().submission.status, 'saved');
+  const post = fetch.calls.find(call => call.method === 'POST');
+  const body = JSON.parse(post.body);
+  assert.equal(body.lesson, 'gradedcoalition');
+  assert.equal(body.mode, 'actual');
+  assert.equal(body.total, 13);
+  assert.equal(body.score, 13);
+  assert.ok(body.asked.every(id => /^gradedcoalition:actual:gradedcoalition-a-\d{2}$/.test(id)));
+  const mixed = start(withEndpoint(pages[`${REVIEWER_SLUG}/all/index.html`], TEST_ENDPOINT), { fetch, button: 'mode-actual-all' });
   assert.equal(mixed.api.getState().attempt.questions.length, data.all.full);
+  answerAll(mixed.api);
+  await mixed.api.whenSettled();
+  const mixedBody = JSON.parse(fetch.calls.filter(call => call.method === 'POST').at(-1).body);
+  assert.equal(mixedBody.lesson, 'gradedall');
+  assert.equal(mixedBody.total, data.all.full);
+  assert.equal(new Set(mixedBody.asked).size, data.all.full);
+  assert.ok(mixedBody.asked.every(id => examKeys.has(id.split(':')[0])), 'every item id names its graded exam');
   mixed.api.resetToDifficulty();
   mixed.app.document.getElementById('mode-actual').click();
   assert.equal(mixed.api.getState().attempt.questions.length, ACTUAL_DRAW);
-  assert.equal(fetch.calls.length, 0);
   assert.equal(mixed.api.startQuiz('easy'), false, 'no difficulty attempts on reviewer pages');
+});
+
+test('score history filters: reviewer pages show All + Actual Exam only; lesson pages add Actual Exam; others unchanged', async () => {
+  const filters = (html) => {
+    const fetch = fakeFetch(() => ({ body: { ok: true, rows: [
+      { name: 'Ana Reyes', mode: 'actual', score: 9, total: 10, percent: 90, band: 'Mastery', finishedAt: '2026-11-01T08:00:00.000Z' },
+      { name: 'Ben Cruz', mode: 'easy', score: 5, total: 10, percent: 50, band: 'Developing', finishedAt: '2026-11-02T08:00:00.000Z' },
+    ] } }));
+    const app = runPage(withEndpoint(html, TEST_ENDPOINT), { fetch });
+    const visible = ['all', 'easy', 'medium', 'hard', 'actual'].filter(f => !app.document.getElementById(`history-filter-${f}`).hidden);
+    return { app, fetch, visible };
+  };
+  const reviewer = filters(pages[`${REVIEWER_SLUG}/isr-operations/index.html`]);
+  assert.deepEqual(reviewer.visible, ['all', 'actual']);
+  const lesson = filters(pages['isr/index.html']);
+  assert.deepEqual(lesson.visible, ['all', 'easy', 'medium', 'hard', 'actual']);
+  assert.deepEqual(filters(pages['armor/index.html']).visible, ['all', 'easy', 'medium', 'hard']);
+  await lesson.app.window.__quiz.whenSettled();
+  const rows = () => findAll(lesson.app.document.getElementById('history-body'), node => hasClass(node, 'history-row')).map(row => row.textContent);
+  assert.equal(rows().length, 2);
+  lesson.app.document.getElementById('history-filter-actual').click();
+  await lesson.app.window.__quiz.whenSettled();
+  assert.ok(lesson.fetch.calls.at(-1).url.includes('mode=actual'));
+  assert.deepEqual(rows().map(text => /Ana Reyes/.test(text)), [true]);
+  assert.match(rows()[0], /Actual Exam/, 'mode label');
 });
 
 test('build freshness: the committed reviewer pages and lesson pages match a fresh build', () => {
