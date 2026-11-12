@@ -945,11 +945,17 @@ export function loadGallery(root = ROOT) {
   const ids = new Set();
   data.photos.forEach((photo, index) => {
     const where = `photo ${index + 1}`;
-    if (!photo || !allowed(photo, ['id', 'src800', 'src1600', 'width', 'height', 'alt', 'caption'])) fail(`${where}: only id, src800, src1600, width, height, alt and caption are allowed`);
+    const video = photo && photo.type === 'video';
+    if (!photo || !allowed(photo, video ? ['id', 'type', 'src', 'poster', 'width', 'height', 'alt', 'caption', 'muted', 'loop'] : ['id', 'src800', 'src1600', 'width', 'height', 'alt', 'caption'])) fail(`${where}: photos allow id, src800, src1600, width, height, alt, caption; videos (type "video") allow id, src, poster, width, height, alt, caption, muted, loop`);
     if (!text(photo.id) || !/^[a-z0-9-]+$/.test(photo.id) || ids.has(photo.id)) fail(`${where}: id must be a unique lowercase slug`);
     ids.add(photo.id);
-    for (const key of ['src800', 'src1600']) {
-      if (!text(photo[key]) || !/^assets\/[\w./-]+\.jpg(\?v=\w+)?$/.test(photo[key])) fail(`${where}: ${key} must be an assets/ jpg path (scripts/test/gallery.test.mjs checks the file exists)`);
+    if (video) {
+      if (!text(photo.src) || !/^assets\/[\w./-]+\.mp4(\?v=\w+)?$/.test(photo.src)) fail(`${where}: src must be an assets/ mp4 path`);
+      if (!text(photo.poster) || !/^assets\/[\w./-]+\.jpg(\?v=\w+)?$/.test(photo.poster)) fail(`${where}: poster must be an assets/ jpg path`);
+    } else {
+      for (const key of ['src800', 'src1600']) {
+        if (!text(photo[key]) || !/^assets\/[\w./-]+\.jpg(\?v=\w+)?$/.test(photo[key])) fail(`${where}: ${key} must be an assets/ jpg path (scripts/test/gallery.test.mjs checks the file exists)`);
+      }
     }
     if (!Number.isInteger(photo.width) || !Number.isInteger(photo.height) || photo.width < 1 || photo.height < 1) fail(`${where}: width and height must be positive integers`);
     if (!text(photo.alt) || !text(photo.caption)) fail(`${where}: alt and caption must be text`);
@@ -958,22 +964,33 @@ export function loadGallery(root = ROOT) {
 }
 
 export function renderGallery(template, contours, data, { base = '' } = {}) {
-  const items = data.photos.map(photo => [
-    '      <li class="gallery-item">',
-    `        <figure class="gallery-figure" id="photo-${photo.id}">`,
-    `          <a class="gallery-open" href="../${escapeHtml(photo.src1600)}" data-caption="${escapeHtml(photo.caption)}">`,
-    `            <img src="../${escapeHtml(photo.src800)}" srcset="../${escapeHtml(photo.src800)} 800w, ../${escapeHtml(photo.src1600)} 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="${photo.width}" height="${photo.height}" style="--ratio: ${photo.width} / ${photo.height}" loading="lazy" decoding="async" alt="${escapeHtml(photo.alt)}">`,
-    '          </a>',
-    `          <figcaption>${escapeHtml(photo.caption)}</figcaption>`,
-    '        </figure>',
-    '      </li>',
-  ].join('\n')).join('\n');
+  const items = data.photos.map(photo => {
+    const media = photo.type === 'video'
+      ? `          <video class="gallery-video" controls${photo.muted ? ' muted' : ''}${photo.loop ? ' loop' : ''} preload="none" playsinline poster="../${escapeHtml(photo.poster)}" width="${photo.width}" height="${photo.height}" style="--ratio: ${photo.width} / ${photo.height}" aria-label="${escapeHtml(photo.alt)}">
+            <source src="../${escapeHtml(photo.src)}" type="video/mp4">
+            <a href="../${escapeHtml(photo.src)}">Download the video</a>
+          </video>`
+      : [
+        `          <a class="gallery-open" href="../${escapeHtml(photo.src1600)}" data-caption="${escapeHtml(photo.caption)}">`,
+        `            <img src="../${escapeHtml(photo.src800)}" srcset="../${escapeHtml(photo.src800)} 800w, ../${escapeHtml(photo.src1600)} 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="${photo.width}" height="${photo.height}" style="--ratio: ${photo.width} / ${photo.height}" loading="lazy" decoding="async" alt="${escapeHtml(photo.alt)}">`,
+        '          </a>',
+      ].join('\n');
+    return [
+      '      <li class="gallery-item">',
+      `        <figure class="gallery-figure" id="photo-${photo.id}">`,
+      media,
+      `          <figcaption>${escapeHtml(photo.caption)}</figcaption>`,
+      '        </figure>',
+      '      </li>',
+    ].join('\n');
+  }).join('\n');
   return fillTemplate(template, {
     BASE_CSS: baseCss(base, '../assets/'),
     FONT_PRELOAD: fontPreloads('../assets/'),
     CONTOURS: contours.trim(),
     GALLERY_INTRO: escapeHtml(data.intro),
-    GALLERY_COUNT: String(data.photos.length),
+    GALLERY_COUNT: String(data.photos.filter(photo => photo.type !== 'video').length),
+    GALLERY_VIDEO_COUNT: String(data.photos.filter(photo => photo.type === 'video').length),
     GALLERY_ITEMS: items,
   });
 }

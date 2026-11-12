@@ -44,6 +44,7 @@
     .gallery-figure { margin: 0; padding: 0; }
     .gallery-open { display: block; padding: 0; border: 0; background: none; color: inherit; text-decoration: none; cursor: zoom-in; }
     .gallery-open img { display: block; width: 100%; height: auto; aspect-ratio: var(--ratio, 4 / 3); object-fit: cover; max-height: 36rem; filter: none; border-radius: 0; }
+    .gallery-video { display: block; width: 100%; height: auto; aspect-ratio: var(--ratio, 4 / 3); max-height: 36rem; object-fit: contain; background: #000; border-radius: 0; }
     .gallery-open:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
     .gallery-figure figcaption { margin: 0; padding: var(--space-2) 0; border-top: 1px solid var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text); }
     .gallery-more { margin: var(--space-6) 0 0; text-align: center; }
@@ -110,6 +111,7 @@
       </div>
       <dl class="hero-meta">
         <div><dt>Photos</dt><dd>{{GALLERY_COUNT}}</dd></div>
+        <div><dt>Videos</dt><dd>{{GALLERY_VIDEO_COUNT}}</dd></div>
       </dl>
     </div>
   </header>
@@ -118,7 +120,7 @@
     <ul class="gallery-grid" id="gallery-grid">
 {{GALLERY_ITEMS}}
     </ul>
-    <p class="gallery-more" id="gallery-more" hidden><button type="button" id="gallery-more-button">Show more photos</button></p>
+    <p class="gallery-more" id="gallery-more" hidden><button type="button" id="gallery-more-button">Show more</button></p>
   </main>
 
   <dialog class="lightbox" id="lightbox" aria-label="Photo, full size">

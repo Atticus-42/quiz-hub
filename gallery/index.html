@@ -337,6 +337,7 @@
     .gallery-figure { margin: 0; padding: 0; }
     .gallery-open { display: block; padding: 0; border: 0; background: none; color: inherit; text-decoration: none; cursor: zoom-in; }
     .gallery-open img { display: block; width: 100%; height: auto; aspect-ratio: var(--ratio, 4 / 3); object-fit: cover; max-height: 36rem; filter: none; border-radius: 0; }
+    .gallery-video { display: block; width: 100%; height: auto; aspect-ratio: var(--ratio, 4 / 3); max-height: 36rem; object-fit: contain; background: #000; border-radius: 0; }
     .gallery-open:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
     .gallery-figure figcaption { margin: 0; padding: var(--space-2) 0; border-top: 1px solid var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text); }
     .gallery-more { margin: var(--space-6) 0 0; text-align: center; }
@@ -413,10 +414,11 @@
         <p class="eyebrow label">Philippine Army · Mastery Quizzes · Gallery</p>
         <h1 id="gallery-title">Gallery</h1>
         <p class="hero-subtitle">Bandwidth Brothers, SOAC 52 - 2026</p>
-        <p class="hero-lede">Photos of Bandwidth Brothers, SOAC 52 - 2026. Select a photo to see it full size.</p>
+        <p class="hero-lede">Photos and videos of Bandwidth Brothers, SOAC 52 - 2026. Select a photo to see it full size; videos play right on the page.</p>
       </div>
       <dl class="hero-meta">
-        <div><dt>Photos</dt><dd>19</dd></div>
+        <div><dt>Photos</dt><dd>69</dd></div>
+        <div><dt>Videos</dt><dd>7</dd></div>
       </dl>
     </div>
   </header>
@@ -448,11 +450,68 @@
         </figure>
       </li>
       <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261112-barracks">
+          <a class="gallery-open" href="../assets/gallery/20261112-barracks-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 12 NOV 2026 · BARRACKS">
+            <img src="../assets/gallery/20261112-barracks-800.jpg?v=1" srcset="../assets/gallery/20261112-barracks-800.jpg?v=1 800w, ../assets/gallery/20261112-barracks-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1200" height="1600" style="--ratio: 1200 / 1600" loading="lazy" decoding="async" alt="An officer in camouflage uniform gesturing in a barracks room with bunk beds">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 12 NOV 2026 · BARRACKS</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261112-edited-piggyback">
+          <video class="gallery-video" controls preload="none" playsinline poster="../assets/gallery/20261112-edited-piggyback-poster.jpg?v=1" width="1078" height="1118" style="--ratio: 1078 / 1118" aria-label="Edited video of an officer carrying another on his back against a pink blossom background">
+            <source src="../assets/gallery/20261112-edited-piggyback.mp4?v=1" type="video/mp4">
+            <a href="../assets/gallery/20261112-edited-piggyback.mp4?v=1">Download the video</a>
+          </video>
+          <figcaption>SOAC 52 - 2026 · 12 NOV 2026 · EDITED CLIP · VIDEO</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261111-barber">
+          <a class="gallery-open" href="../assets/gallery/20261111-barber-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 11 NOV 2026 · HAIRCUT">
+            <img src="../assets/gallery/20261111-barber-800.jpg?v=1" srcset="../assets/gallery/20261111-barber-800.jpg?v=1 800w, ../assets/gallery/20261111-barber-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1086" height="1448" style="--ratio: 1086 / 1448" loading="lazy" decoding="async" alt="Selfie angle of a man getting a haircut under a metal roof, another person holding a banana beside his head">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 11 NOV 2026 · HAIRCUT</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261111-night-stall">
+          <a class="gallery-open" href="../assets/gallery/20261111-night-stall-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 11 NOV 2026 · NIGHT OUT">
+            <img src="../assets/gallery/20261111-night-stall-800.jpg?v=1" srcset="../assets/gallery/20261111-night-stall-800.jpg?v=1 800w, ../assets/gallery/20261111-night-stall-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1408" height="3048" style="--ratio: 1408 / 3048" loading="lazy" decoding="async" alt="Two men in gray shirts and shorts standing at a lit roadside stall at night">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 11 NOV 2026 · NIGHT OUT</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261111-banana">
+          <a class="gallery-open" href="../assets/gallery/20261111-banana-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 11 NOV 2026 · BREAK">
+            <img src="../assets/gallery/20261111-banana-800.jpg?v=1" srcset="../assets/gallery/20261111-banana-800.jpg?v=1 800w, ../assets/gallery/20261111-banana-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1086" height="1448" style="--ratio: 1086 / 1448" loading="lazy" decoding="async" alt="A man in a gray shirt seated holding a peeled banana next to camouflage uniforms on hangers">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 11 NOV 2026 · BREAK</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261111-selfie-class">
+          <a class="gallery-open" href="../assets/gallery/20261111-selfie-class-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 11 NOV 2026 · SELFIE">
+            <img src="../assets/gallery/20261111-selfie-class-800.jpg?v=1" srcset="../assets/gallery/20261111-selfie-class-800.jpg?v=1 800w, ../assets/gallery/20261111-selfie-class-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="2842" style="--ratio: 1600 / 2842" loading="lazy" decoding="async" alt="Close selfie of a man in a gray shirt with a crowd of class members behind him">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 11 NOV 2026 · SELFIE</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
         <figure class="gallery-figure" id="photo-20261111-class-meal">
           <a class="gallery-open" href="../assets/gallery/20261111-class-meal-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 11 NOV 2026 · CLASS MEAL">
             <img src="../assets/gallery/20261111-class-meal-800.jpg?v=1" srcset="../assets/gallery/20261111-class-meal-800.jpg?v=1 800w, ../assets/gallery/20261111-class-meal-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="901" style="--ratio: 1600 / 901" loading="lazy" decoding="async" alt="Class members crowded together in a classroom for a group selfie around a shared meal on the table">
           </a>
           <figcaption>SOAC 52 - 2026 · 11 NOV 2026 · CLASS MEAL</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261111-innovations-wall">
+          <a class="gallery-open" href="../assets/gallery/20261111-innovations-wall-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 11 NOV 2026 · INNOVATIONS IN TRACOM WALL">
+            <img src="../assets/gallery/20261111-innovations-wall-800.jpg?v=1" srcset="../assets/gallery/20261111-innovations-wall-800.jpg?v=1 800w, ../assets/gallery/20261111-innovations-wall-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1195" height="896" style="--ratio: 1195 / 896" loading="lazy" decoding="async" alt="Wall display titled Innovations in TRACOM with eight photo cards of training and daily life">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 11 NOV 2026 · INNOVATIONS IN TRACOM WALL</figcaption>
         </figure>
       </li>
       <li class="gallery-item">
@@ -480,11 +539,115 @@
         </figure>
       </li>
       <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261106-clinic">
+          <a class="gallery-open" href="../assets/gallery/20261106-clinic-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 06 NOV 2026 · MEDICAL FACILITY">
+            <img src="../assets/gallery/20261106-clinic-800.jpg?v=1" srcset="../assets/gallery/20261106-clinic-800.jpg?v=1 800w, ../assets/gallery/20261106-clinic-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="900" height="1600" style="--ratio: 900 / 1600" loading="lazy" decoding="async" alt="A man in a gray shirt seated at a reception counter inside a medical facility, a staff member behind the counter">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 06 NOV 2026 · MEDICAL FACILITY</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261106-selfie-pair">
+          <a class="gallery-open" href="../assets/gallery/20261106-selfie-pair-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 06 NOV 2026 · SELFIE">
+            <img src="../assets/gallery/20261106-selfie-pair-800.jpg?v=1" srcset="../assets/gallery/20261106-selfie-pair-800.jpg?v=1 800w, ../assets/gallery/20261106-selfie-pair-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="900" height="1600" style="--ratio: 900 / 1600" loading="lazy" decoding="async" alt="Two men taking a close selfie, one in camouflage uniform">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 06 NOV 2026 · SELFIE</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261105-birthday">
+          <a class="gallery-open" href="../assets/gallery/20261105-birthday-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 05 NOV 2026 · BIRTHDAY">
+            <img src="../assets/gallery/20261105-birthday-800.jpg?v=1" srcset="../assets/gallery/20261105-birthday-800.jpg?v=1 800w, ../assets/gallery/20261105-birthday-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1200" height="1600" style="--ratio: 1200 / 1600" loading="lazy" decoding="async" alt="A woman seated in a wheelchair holding a birthday cake with a lit candle outdoors">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 05 NOV 2026 · BIRTHDAY</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261031-halloween">
+          <a class="gallery-open" href="../assets/gallery/20261031-halloween-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 31 OCT 2026 · HALLOWEEN">
+            <img src="../assets/gallery/20261031-halloween-800.jpg?v=1" srcset="../assets/gallery/20261031-halloween-800.jpg?v=1 800w, ../assets/gallery/20261031-halloween-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1122" height="1402" style="--ratio: 1122 / 1402" loading="lazy" decoding="async" alt="Edited Halloween poster of a man crouching in a costume among carved pumpkins and a haunted mansion">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 31 OCT 2026 · HALLOWEEN</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261030-walking">
+          <a class="gallery-open" href="../assets/gallery/20261030-walking-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 30 OCT 2026 · ON THE ROAD">
+            <img src="../assets/gallery/20261030-walking-800.jpg?v=1" srcset="../assets/gallery/20261030-walking-800.jpg?v=1 800w, ../assets/gallery/20261030-walking-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1200" height="1600" style="--ratio: 1200 / 1600" loading="lazy" decoding="async" alt="A man in an orange shirt carrying a backpack walking along a covered roadway">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 30 OCT 2026 · ON THE ROAD</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261030-rest-3">
+          <a class="gallery-open" href="../assets/gallery/20261030-rest-3-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 30 OCT 2026 · REST BREAK">
+            <img src="../assets/gallery/20261030-rest-3-800.jpg?v=1" srcset="../assets/gallery/20261030-rest-3-800.jpg?v=1 800w, ../assets/gallery/20261030-rest-3-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="1200" style="--ratio: 1600 / 1200" loading="lazy" decoding="async" alt="Close view of a man resting his head on his shoulder in a classroom">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 30 OCT 2026 · REST BREAK</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261030-rest-2">
+          <a class="gallery-open" href="../assets/gallery/20261030-rest-2-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 30 OCT 2026 · REST BREAK">
+            <img src="../assets/gallery/20261030-rest-2-800.jpg?v=1" srcset="../assets/gallery/20261030-rest-2-800.jpg?v=1 800w, ../assets/gallery/20261030-rest-2-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="1200" style="--ratio: 1600 / 1200" loading="lazy" decoding="async" alt="Close view of a man in a gray shirt with a student badge on a lanyard, resting his head">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 30 OCT 2026 · REST BREAK</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
         <figure class="gallery-figure" id="photo-20261029-pt-snack">
           <a class="gallery-open" href="../assets/gallery/20261029-pt-snack-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 29 OCT 2026 · PT">
             <img src="../assets/gallery/20261029-pt-snack-800.jpg?v=1" srcset="../assets/gallery/20261029-pt-snack-800.jpg?v=1 800w, ../assets/gallery/20261029-pt-snack-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="2133" style="--ratio: 1600 / 2133" loading="lazy" decoding="async" alt="An officer in a gray PT shirt holding up two snack bars inside a small store">
           </a>
           <figcaption>SOAC 52 - 2026 · 29 OCT 2026 · PT</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261029-edited-group">
+          <a class="gallery-open" href="../assets/gallery/20261029-edited-group-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 29 OCT 2026 · EDITED IMAGE">
+            <img src="../assets/gallery/20261029-edited-group-800.jpg?v=1" srcset="../assets/gallery/20261029-edited-group-800.jpg?v=1 800w, ../assets/gallery/20261029-edited-group-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1448" height="1086" style="--ratio: 1448 / 1086" loading="lazy" decoding="async" alt="Edited group selfie of four people in hero-style costumes in front of a large building and trees">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 29 OCT 2026 · EDITED IMAGE</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261029-selfie-outdoors">
+          <a class="gallery-open" href="../assets/gallery/20261029-selfie-outdoors-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 29 OCT 2026 · SELFIE">
+            <img src="../assets/gallery/20261029-selfie-outdoors-800.jpg?v=1" srcset="../assets/gallery/20261029-selfie-outdoors-800.jpg?v=1 800w, ../assets/gallery/20261029-selfie-outdoors-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="512" height="471" style="--ratio: 512 / 471" loading="lazy" decoding="async" alt="Close selfie of a man squinting in the sun outdoors, with trees and a pole behind">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 29 OCT 2026 · SELFIE</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261029-class-meme">
+          <a class="gallery-open" href="../assets/gallery/20261029-class-meme-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 29 OCT 2026 · CLASS">
+            <img src="../assets/gallery/20261029-class-meme-800.jpg?v=1" srcset="../assets/gallery/20261029-class-meme-800.jpg?v=1 800w, ../assets/gallery/20261029-class-meme-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1200" height="1600" style="--ratio: 1200 / 1600" loading="lazy" decoding="async" alt="Officers in camouflage uniform in a classroom with caption text added over the picture">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 29 OCT 2026 · CLASS</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261029-rest-table">
+          <a class="gallery-open" href="../assets/gallery/20261029-rest-table-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 29 OCT 2026 · REST BREAK">
+            <img src="../assets/gallery/20261029-rest-table-800.jpg?v=1" srcset="../assets/gallery/20261029-rest-table-800.jpg?v=1 800w, ../assets/gallery/20261029-rest-table-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1200" height="1600" style="--ratio: 1200 / 1600" loading="lazy" decoding="async" alt="An officer in camouflage uniform lying with his head on a dark table">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 29 OCT 2026 · REST BREAK</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261029-flight">
+          <a class="gallery-open" href="../assets/gallery/20261029-flight-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 29 OCT 2026 · FLIGHT">
+            <img src="../assets/gallery/20261029-flight-800.jpg?v=1" srcset="../assets/gallery/20261029-flight-800.jpg?v=1 800w, ../assets/gallery/20261029-flight-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1448" height="1086" style="--ratio: 1448 / 1086" loading="lazy" decoding="async" alt="Three officers in camouflage uniform asleep or resting in aircraft seats next to cabin windows">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 29 OCT 2026 · FLIGHT</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261028-selfie-hall">
+          <a class="gallery-open" href="../assets/gallery/20261028-selfie-hall-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 28 OCT 2026 · SELFIE">
+            <img src="../assets/gallery/20261028-selfie-hall-800.jpg?v=1" srcset="../assets/gallery/20261028-selfie-hall-800.jpg?v=1 800w, ../assets/gallery/20261028-selfie-hall-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="1200" style="--ratio: 1600 / 1200" loading="lazy" decoding="async" alt="Close selfie of a man in a gray shirt in a function hall with curtains and buffet tables behind">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 28 OCT 2026 · SELFIE</figcaption>
         </figure>
       </li>
       <li class="gallery-item">
@@ -496,11 +659,150 @@
         </figure>
       </li>
       <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261024-pull-up-reps">
+          <video class="gallery-video" controls muted loop preload="none" playsinline poster="../assets/gallery/20261024-pull-up-reps-poster.jpg?v=1" width="300" height="530" style="--ratio: 300 / 530" aria-label="Short stylized clip of a person doing pull-ups on an outdoor bar, with a rep counter overlay">
+            <source src="../assets/gallery/20261024-pull-up-reps.mp4?v=1" type="video/mp4">
+            <a href="../assets/gallery/20261024-pull-up-reps.mp4?v=1">Download the video</a>
+          </video>
+          <figcaption>SOAC 52 - 2026 · 24 OCT 2026 · PULL-UP REPS · VIDEO</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261023-desktop">
+          <a class="gallery-open" href="../assets/gallery/20261023-desktop-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 23 OCT 2026 · COMPUTER DESKTOP">
+            <img src="../assets/gallery/20261023-desktop-800.jpg?v=1" srcset="../assets/gallery/20261023-desktop-800.jpg?v=1 800w, ../assets/gallery/20261023-desktop-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="768" height="576" style="--ratio: 768 / 576" loading="lazy" decoding="async" alt="Photo of a computer monitor showing a beach wallpaper with desktop icons; icon labels are blurred">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 23 OCT 2026 · COMPUTER DESKTOP</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261022-marcher-of-the-day">
+          <a class="gallery-open" href="../assets/gallery/20261022-marcher-of-the-day-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 22 OCT 2026 · MARCHER OF THE DAY">
+            <img src="../assets/gallery/20261022-marcher-of-the-day-800.jpg?v=1" srcset="../assets/gallery/20261022-marcher-of-the-day-800.jpg?v=1 800w, ../assets/gallery/20261022-marcher-of-the-day-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1200" height="1200" style="--ratio: 1200 / 1200" loading="lazy" decoding="async" alt="Circular green and gold badge graphic reading Marcher of the Day around an edited portrait">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 22 OCT 2026 · MARCHER OF THE DAY</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261022-formation-video">
+          <video class="gallery-video" controls preload="none" playsinline poster="../assets/gallery/20261022-formation-video-poster.jpg?v=1" width="480" height="656" style="--ratio: 480 / 656" aria-label="Video of a smiling woman in a boonie hat and green shirt among a formation of troops, making a peace sign">
+            <source src="../assets/gallery/20261022-formation-video.mp4?v=1" type="video/mp4">
+            <a href="../assets/gallery/20261022-formation-video.mp4?v=1">Download the video</a>
+          </video>
+          <figcaption>SOAC 52 - 2026 · 22 OCT 2026 · FORMATION · VIDEO</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261020-selfie-classroom-2">
+          <a class="gallery-open" href="../assets/gallery/20261020-selfie-classroom-2-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 20 OCT 2026 · SELFIE">
+            <img src="../assets/gallery/20261020-selfie-classroom-2-800.jpg?v=1" srcset="../assets/gallery/20261020-selfie-classroom-2-800.jpg?v=1 800w, ../assets/gallery/20261020-selfie-classroom-2-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="2133" style="--ratio: 1600 / 2133" loading="lazy" decoding="async" alt="Close selfie of two officers in camouflage uniform in a room with a window">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 20 OCT 2026 · SELFIE</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261020-selfie-classroom">
+          <a class="gallery-open" href="../assets/gallery/20261020-selfie-classroom-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 20 OCT 2026 · SELFIE">
+            <img src="../assets/gallery/20261020-selfie-classroom-800.jpg?v=1" srcset="../assets/gallery/20261020-selfie-classroom-800.jpg?v=1 800w, ../assets/gallery/20261020-selfie-classroom-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="2844" style="--ratio: 1600 / 2844" loading="lazy" decoding="async" alt="Two officers in camouflage uniform in a classroom, one smiling toward the camera">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 20 OCT 2026 · SELFIE</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261020-classroom-video">
+          <video class="gallery-video" controls preload="none" playsinline poster="../assets/gallery/20261020-classroom-video-poster.jpg?v=1" width="848" height="480" style="--ratio: 848 / 480" aria-label="Video in a classroom of a man in camouflage uniform resting back in a chair while another stands behind him">
+            <source src="../assets/gallery/20261020-classroom-video.mp4?v=1" type="video/mp4">
+            <a href="../assets/gallery/20261020-classroom-video.mp4?v=1">Download the video</a>
+          </video>
+          <figcaption>SOAC 52 - 2026 · 20 OCT 2026 · CLASS BREAK · VIDEO</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261020-class-break">
+          <a class="gallery-open" href="../assets/gallery/20261020-class-break-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 20 OCT 2026 · CLASS BREAK">
+            <img src="../assets/gallery/20261020-class-break-800.jpg?v=1" srcset="../assets/gallery/20261020-class-break-800.jpg?v=1 800w, ../assets/gallery/20261020-class-break-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="901" height="1600" style="--ratio: 901 / 1600" loading="lazy" decoding="async" alt="Class members in camouflage uniform seated in a classroom, one resting back in a chair in the foreground">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 20 OCT 2026 · CLASS BREAK</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261017-meal-table">
+          <a class="gallery-open" href="../assets/gallery/20261017-meal-table-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 17 OCT 2026 · MEAL">
+            <img src="../assets/gallery/20261017-meal-table-800.jpg?v=1" srcset="../assets/gallery/20261017-meal-table-800.jpg?v=1 800w, ../assets/gallery/20261017-meal-table-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="1200" style="--ratio: 1600 / 1200" loading="lazy" decoding="async" alt="A man in a gray shirt seated at a round table with trays of food in a hall with tall curtains">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 17 OCT 2026 · MEAL</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261016-crowd">
+          <a class="gallery-open" href="../assets/gallery/20261016-crowd-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 16 OCT 2026 · EVENT">
+            <img src="../assets/gallery/20261016-crowd-800.jpg?v=1" srcset="../assets/gallery/20261016-crowd-800.jpg?v=1 800w, ../assets/gallery/20261016-crowd-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="768" height="1024" style="--ratio: 768 / 1024" loading="lazy" decoding="async" alt="A man in a white shirt yawning with arms crossed among a crowd of seated people at night">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 16 OCT 2026 · EVENT</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261014-meal-dining">
+          <a class="gallery-open" href="../assets/gallery/20261014-meal-dining-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 14 OCT 2026 · MEAL">
+            <img src="../assets/gallery/20261014-meal-dining-800.jpg?v=1" srcset="../assets/gallery/20261014-meal-dining-800.jpg?v=1 800w, ../assets/gallery/20261014-meal-dining-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="900" height="1600" style="--ratio: 900 / 1600" loading="lazy" decoding="async" alt="A man eating at a dining table with condiment bottles and metal trays, with a cartoon thought bubble added">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 14 OCT 2026 · MEAL</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261014-meal-plate">
+          <a class="gallery-open" href="../assets/gallery/20261014-meal-plate-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 14 OCT 2026 · MEAL">
+            <img src="../assets/gallery/20261014-meal-plate-800.jpg?v=1" srcset="../assets/gallery/20261014-meal-plate-800.jpg?v=1 800w, ../assets/gallery/20261014-meal-plate-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="768" height="1364" style="--ratio: 768 / 1364" loading="lazy" decoding="async" alt="Overhead view of a metal meal tray with rice and fish, with an edited smiling face added to the fish">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 14 OCT 2026 · MEAL</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261014-meal-pizza-3">
+          <a class="gallery-open" href="../assets/gallery/20261014-meal-pizza-3-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 14 OCT 2026 · MEAL">
+            <img src="../assets/gallery/20261014-meal-pizza-3-800.jpg?v=1" srcset="../assets/gallery/20261014-meal-pizza-3-800.jpg?v=1 800w, ../assets/gallery/20261014-meal-pizza-3-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="576" height="1024" style="--ratio: 576 / 1024" loading="lazy" decoding="async" alt="A man and a woman seated with pizza and cups at a blue table in a food court">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 14 OCT 2026 · MEAL</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261014-meal-pizza-2">
+          <a class="gallery-open" href="../assets/gallery/20261014-meal-pizza-2-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 14 OCT 2026 · MEAL">
+            <img src="../assets/gallery/20261014-meal-pizza-2-800.jpg?v=1" srcset="../assets/gallery/20261014-meal-pizza-2-800.jpg?v=1 800w, ../assets/gallery/20261014-meal-pizza-2-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="738" height="1600" style="--ratio: 738 / 1600" loading="lazy" decoding="async" alt="Close selfie of a man smiling with pizza at a food court table, a woman seated behind him">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 14 OCT 2026 · MEAL</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261014-meal-pizza">
+          <a class="gallery-open" href="../assets/gallery/20261014-meal-pizza-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 14 OCT 2026 · MEAL">
+            <img src="../assets/gallery/20261014-meal-pizza-800.jpg?v=1" srcset="../assets/gallery/20261014-meal-pizza-800.jpg?v=1 800w, ../assets/gallery/20261014-meal-pizza-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="900" height="1600" style="--ratio: 900 / 1600" loading="lazy" decoding="async" alt="Class members eating pizza at tables in a large indoor food court">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 14 OCT 2026 · MEAL</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261014-break">
+          <a class="gallery-open" href="../assets/gallery/20261014-break-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 14 OCT 2026 · BREAK">
+            <img src="../assets/gallery/20261014-break-800.jpg?v=1" srcset="../assets/gallery/20261014-break-800.jpg?v=1 800w, ../assets/gallery/20261014-break-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1200" height="1600" style="--ratio: 1200 / 1600" loading="lazy" decoding="async" alt="Officer in camouflage uniform seated with his feet up on a desk, looking at a phone">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 14 OCT 2026 · BREAK</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
         <figure class="gallery-figure" id="photo-20261009-field">
           <a class="gallery-open" href="../assets/gallery/20261009-field-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 09 OCT 2026 · FIELD TRAINING">
             <img src="../assets/gallery/20261009-field-800.jpg?v=1" srcset="../assets/gallery/20261009-field-800.jpg?v=1 800w, ../assets/gallery/20261009-field-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="1200" style="--ratio: 1600 / 1200" loading="lazy" decoding="async" alt="Six officers in field uniform smiling and pointing upward for a group selfie on a gravel road">
           </a>
           <figcaption>SOAC 52 - 2026 · 09 OCT 2026 · FIELD TRAINING</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261008-edited-costume">
+          <a class="gallery-open" href="../assets/gallery/20261008-edited-costume-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 08 OCT 2026 · EDITED IMAGE">
+            <img src="../assets/gallery/20261008-edited-costume-800.jpg?v=1" srcset="../assets/gallery/20261008-edited-costume-800.jpg?v=1 800w, ../assets/gallery/20261008-edited-costume-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="900" style="--ratio: 1600 / 900" loading="lazy" decoding="async" alt="Edited image of two people in dark costume-style outfits crouching in front of greenery">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 08 OCT 2026 · EDITED IMAGE</figcaption>
         </figure>
       </li>
       <li class="gallery-item">
@@ -512,11 +814,52 @@
         </figure>
       </li>
       <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261007-class-laptop">
+          <a class="gallery-open" href="../assets/gallery/20261007-class-laptop-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 07 OCT 2026 · CLASS">
+            <img src="../assets/gallery/20261007-class-laptop-800.jpg?v=1" srcset="../assets/gallery/20261007-class-laptop-800.jpg?v=1 800w, ../assets/gallery/20261007-class-laptop-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="896" height="1195" style="--ratio: 896 / 1195" loading="lazy" decoding="async" alt="Officer in camouflage uniform with a hand on his head looking at a laptop, with a cartoon thought bubble added">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 07 OCT 2026 · CLASS</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
         <figure class="gallery-figure" id="photo-20261007-demo">
           <a class="gallery-open" href="../assets/gallery/20261007-demo-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 07 OCT 2026 · FIELD">
             <img src="../assets/gallery/20261007-demo-800.jpg?v=1" srcset="../assets/gallery/20261007-demo-800.jpg?v=1 800w, ../assets/gallery/20261007-demo-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="727" height="1600" style="--ratio: 727 / 1600" loading="lazy" decoding="async" alt="Officers in camouflage uniform seated on a bench under a shelter, watching something off camera">
           </a>
           <figcaption>SOAC 52 - 2026 · 07 OCT 2026 · FIELD</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261007-transport">
+          <a class="gallery-open" href="../assets/gallery/20261007-transport-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 07 OCT 2026 · TRANSPORT">
+            <img src="../assets/gallery/20261007-transport-800.jpg?v=1" srcset="../assets/gallery/20261007-transport-800.jpg?v=1 800w, ../assets/gallery/20261007-transport-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="727" height="1600" style="--ratio: 727 / 1600" loading="lazy" decoding="async" alt="Officers in camouflage uniform seated close together inside a vehicle">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 07 OCT 2026 · TRANSPORT</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261004-respects-2">
+          <a class="gallery-open" href="../assets/gallery/20261004-respects-2-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 04 OCT 2026 · PAYING RESPECTS">
+            <img src="../assets/gallery/20261004-respects-2-800.jpg?v=1" srcset="../assets/gallery/20261004-respects-2-800.jpg?v=1 800w, ../assets/gallery/20261004-respects-2-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="900" style="--ratio: 1600 / 900" loading="lazy" decoding="async" alt="Three men standing together in a chapel hall beside flower arrangements and a memorial display">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 04 OCT 2026 · PAYING RESPECTS</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261004-respects">
+          <a class="gallery-open" href="../assets/gallery/20261004-respects-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 04 OCT 2026 · PAYING RESPECTS">
+            <img src="../assets/gallery/20261004-respects-800.jpg?v=1" srcset="../assets/gallery/20261004-respects-800.jpg?v=1 800w, ../assets/gallery/20261004-respects-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="1200" style="--ratio: 1600 / 1200" loading="lazy" decoding="async" alt="Four people standing together in a chapel hall beside flower arrangements and a memorial display">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 04 OCT 2026 · PAYING RESPECTS</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20261004-field-ponchos">
+          <video class="gallery-video" controls preload="none" playsinline poster="../assets/gallery/20261004-field-ponchos-poster.jpg?v=1" width="480" height="848" style="--ratio: 480 / 848" aria-label="Video of two soldiers in ponchos and helmets walking across a parade ground, one giving a thumbs up">
+            <source src="../assets/gallery/20261004-field-ponchos.mp4?v=1" type="video/mp4">
+            <a href="../assets/gallery/20261004-field-ponchos.mp4?v=1">Download the video</a>
+          </video>
+          <figcaption>SOAC 52 - 2026 · 04 OCT 2026 · FIELD TRAINING · VIDEO</figcaption>
         </figure>
       </li>
       <li class="gallery-item">
@@ -528,11 +871,133 @@
         </figure>
       </li>
       <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260930-assembly-3">
+          <a class="gallery-open" href="../assets/gallery/20260930-assembly-3-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 30 SEP 2026 · CLASS ASSEMBLY">
+            <img src="../assets/gallery/20260930-assembly-3-800.jpg?v=1" srcset="../assets/gallery/20260930-assembly-3-800.jpg?v=1 800w, ../assets/gallery/20260930-assembly-3-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1024" height="1365" style="--ratio: 1024 / 1365" loading="lazy" decoding="async" alt="Officer in camouflage uniform holding a paper cup, seated among class members in a hall">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 30 SEP 2026 · CLASS ASSEMBLY</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260930-assembly-2">
+          <a class="gallery-open" href="../assets/gallery/20260930-assembly-2-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 30 SEP 2026 · CLASS ASSEMBLY">
+            <img src="../assets/gallery/20260930-assembly-2-800.jpg?v=1" srcset="../assets/gallery/20260930-assembly-2-800.jpg?v=1 800w, ../assets/gallery/20260930-assembly-2-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1200" height="1600" style="--ratio: 1200 / 1600" loading="lazy" decoding="async" alt="A smiling officer in camouflage uniform seated among class members in a hall with purple curtains">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 30 SEP 2026 · CLASS ASSEMBLY</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260930-assembly">
+          <a class="gallery-open" href="../assets/gallery/20260930-assembly-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 30 SEP 2026 · CLASS ASSEMBLY">
+            <img src="../assets/gallery/20260930-assembly-800.jpg?v=1" srcset="../assets/gallery/20260930-assembly-800.jpg?v=1 800w, ../assets/gallery/20260930-assembly-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1200" height="1600" style="--ratio: 1200 / 1600" loading="lazy" decoding="async" alt="Officers and class members seated in a hall with purple curtains, one holding a phone toward the camera">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 30 SEP 2026 · CLASS ASSEMBLY</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260928-edited-vehicle-2">
+          <a class="gallery-open" href="../assets/gallery/20260928-edited-vehicle-2-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 28 SEP 2026 · EDITED IMAGE">
+            <img src="../assets/gallery/20260928-edited-vehicle-2-800.jpg?v=1" srcset="../assets/gallery/20260928-edited-vehicle-2-800.jpg?v=1 800w, ../assets/gallery/20260928-edited-vehicle-2-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1448" height="1086" style="--ratio: 1448 / 1086" loading="lazy" decoding="async" alt="Edited image of two officers in tan uniform seated together in the front seats of a vehicle">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 28 SEP 2026 · EDITED IMAGE</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260928-edited-vehicle">
+          <a class="gallery-open" href="../assets/gallery/20260928-edited-vehicle-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 28 SEP 2026 · EDITED IMAGE">
+            <img src="../assets/gallery/20260928-edited-vehicle-800.jpg?v=1" srcset="../assets/gallery/20260928-edited-vehicle-800.jpg?v=1 800w, ../assets/gallery/20260928-edited-vehicle-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1448" height="1086" style="--ratio: 1448 / 1086" loading="lazy" decoding="async" alt="Edited image of two people seated in the front seats of a vehicle, one in uniform at the wheel">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 28 SEP 2026 · EDITED IMAGE</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260928-edited-portrait-2">
+          <a class="gallery-open" href="../assets/gallery/20260928-edited-portrait-2-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 28 SEP 2026 · EDITED PORTRAIT">
+            <img src="../assets/gallery/20260928-edited-portrait-2-800.jpg?v=1" srcset="../assets/gallery/20260928-edited-portrait-2-800.jpg?v=1 800w, ../assets/gallery/20260928-edited-portrait-2-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="1600" style="--ratio: 1600 / 1600" loading="lazy" decoding="async" alt="Edited studio-style portrait of an officer in tan uniform against a white background">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 28 SEP 2026 · EDITED PORTRAIT</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260928-edited-portrait">
+          <a class="gallery-open" href="../assets/gallery/20260928-edited-portrait-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 28 SEP 2026 · EDITED PORTRAIT">
+            <img src="../assets/gallery/20260928-edited-portrait-800.jpg?v=1" srcset="../assets/gallery/20260928-edited-portrait-800.jpg?v=1 800w, ../assets/gallery/20260928-edited-portrait-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1024" height="1024" style="--ratio: 1024 / 1024" loading="lazy" decoding="async" alt="Edited studio-style portrait of an officer in tan uniform against a white background">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 28 SEP 2026 · EDITED PORTRAIT</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260928-class-session">
+          <a class="gallery-open" href="../assets/gallery/20260928-class-session-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 28 SEP 2026 · CLASS SESSION">
+            <img src="../assets/gallery/20260928-class-session-800.jpg?v=1" srcset="../assets/gallery/20260928-class-session-800.jpg?v=1 800w, ../assets/gallery/20260928-class-session-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1200" height="1600" style="--ratio: 1200 / 1600" loading="lazy" decoding="async" alt="Officer in tan uniform seated at a table in a classroom with a small fan, with a cartoon thought bubble added">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 28 SEP 2026 · CLASS SESSION</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260928-rest-break-video">
+          <video class="gallery-video" controls preload="none" playsinline poster="../assets/gallery/20260928-rest-break-video-poster.jpg?v=1" width="848" height="480" style="--ratio: 848 / 480" aria-label="Close video of a man in a gray shirt lying on pavement resting with a hand over his face, other class members behind">
+            <source src="../assets/gallery/20260928-rest-break-video.mp4?v=1" type="video/mp4">
+            <a href="../assets/gallery/20260928-rest-break-video.mp4?v=1">Download the video</a>
+          </video>
+          <figcaption>SOAC 52 - 2026 · 28 SEP 2026 · REST BREAK · VIDEO</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260928-rest">
+          <a class="gallery-open" href="../assets/gallery/20260928-rest-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 28 SEP 2026 · REST BREAK">
+            <img src="../assets/gallery/20260928-rest-800.jpg?v=1" srcset="../assets/gallery/20260928-rest-800.jpg?v=1 800w, ../assets/gallery/20260928-rest-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="1200" style="--ratio: 1600 / 1200" loading="lazy" decoding="async" alt="Close-up of a man in uniform shirt resting with his eyes closed under a roofed area">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 28 SEP 2026 · REST BREAK</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
         <figure class="gallery-figure" id="photo-20260927-meal-out">
           <a class="gallery-open" href="../assets/gallery/20260927-meal-out-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 27 SEP 2026 · MEAL OUT">
             <img src="../assets/gallery/20260927-meal-out-800.jpg?v=1" srcset="../assets/gallery/20260927-meal-out-800.jpg?v=1 800w, ../assets/gallery/20260927-meal-out-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1600" height="2844" style="--ratio: 1600 / 2844" loading="lazy" decoding="async" alt="Three men sharing a meal at a small restaurant table, one taking the selfie">
           </a>
           <figcaption>SOAC 52 - 2026 · 27 SEP 2026 · MEAL OUT</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260926-pull-up-bar-night">
+          <video class="gallery-video" controls preload="none" playsinline poster="../assets/gallery/20260926-pull-up-bar-night-poster.jpg?v=1" width="480" height="848" style="--ratio: 480 / 848" aria-label="Night video of a person walking to an outdoor pull-up bar among trees, then doing pull-ups">
+            <source src="../assets/gallery/20260926-pull-up-bar-night.mp4?v=1" type="video/mp4">
+            <a href="../assets/gallery/20260926-pull-up-bar-night.mp4?v=1">Download the video</a>
+          </video>
+          <figcaption>SOAC 52 - 2026 · 26 SEP 2026 · PULL-UP BAR · VIDEO</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260925-prayer">
+          <a class="gallery-open" href="../assets/gallery/20260925-prayer-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 25 SEP 2026 · PRAYER GATHERING">
+            <img src="../assets/gallery/20260925-prayer-800.jpg?v=1" srcset="../assets/gallery/20260925-prayer-800.jpg?v=1 800w, ../assets/gallery/20260925-prayer-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1195" height="896" style="--ratio: 1195 / 896" loading="lazy" decoding="async" alt="Class members seated outdoors at night facing a speaker who raises one hand, with a quoted Bible verse over the picture">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 25 SEP 2026 · PRAYER GATHERING</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260925-shared-image">
+          <a class="gallery-open" href="../assets/gallery/20260925-shared-image-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 25 SEP 2026 · SHARED IMAGE">
+            <img src="../assets/gallery/20260925-shared-image-800.jpg?v=1" srcset="../assets/gallery/20260925-shared-image-800.jpg?v=1 800w, ../assets/gallery/20260925-shared-image-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="927" height="1024" style="--ratio: 927 / 1024" loading="lazy" decoding="async" alt="Smiling man in a blue basketball jersey under a covered outdoor area, raising one hand">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 25 SEP 2026 · SHARED IMAGE</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260922-classroom-rest">
+          <a class="gallery-open" href="../assets/gallery/20260922-classroom-rest-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 22 SEP 2026 · CLASSROOM">
+            <img src="../assets/gallery/20260922-classroom-rest-800.jpg?v=1" srcset="../assets/gallery/20260922-classroom-rest-800.jpg?v=1 800w, ../assets/gallery/20260922-classroom-rest-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1200" height="1600" style="--ratio: 1200 / 1600" loading="lazy" decoding="async" alt="Close view of an officer in camouflage uniform resting his head against a classroom wall">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 22 SEP 2026 · CLASSROOM</figcaption>
+        </figure>
+      </li>
+      <li class="gallery-item">
+        <figure class="gallery-figure" id="photo-20260922-classroom">
+          <a class="gallery-open" href="../assets/gallery/20260922-classroom-1600.jpg?v=1" data-caption="SOAC 52 - 2026 · 22 SEP 2026 · CLASSROOM">
+            <img src="../assets/gallery/20260922-classroom-800.jpg?v=1" srcset="../assets/gallery/20260922-classroom-800.jpg?v=1 800w, ../assets/gallery/20260922-classroom-1600.jpg?v=1 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="1079" height="1920" style="--ratio: 1079 / 1920" loading="lazy" decoding="async" alt="Two officers in camouflage uniform seated at classroom tables; one rests against the wall while the other speaks">
+          </a>
+          <figcaption>SOAC 52 - 2026 · 22 SEP 2026 · CLASSROOM</figcaption>
         </figure>
       </li>
       <li class="gallery-item">
@@ -576,7 +1041,7 @@
         </figure>
       </li>
     </ul>
-    <p class="gallery-more" id="gallery-more" hidden><button type="button" id="gallery-more-button">Show more photos</button></p>
+    <p class="gallery-more" id="gallery-more" hidden><button type="button" id="gallery-more-button">Show more</button></p>
   </main>
 
   <dialog class="lightbox" id="lightbox" aria-label="Photo, full size">
