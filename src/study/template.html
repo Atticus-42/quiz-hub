@@ -14,17 +14,23 @@
     <div class="study-wrap study-header-inner">
       <a class="study-brand" href="{{BRAND_HREF}}"><img class="brand-crest" data-class-crest src="{{CREST_HREF}}" width="48" height="48" alt=""><span>Bandwidth Brothers <small>SOAC 52–26</small></span></a>
       <nav class="study-nav" aria-label="Site sections">
-        <a href="{{HOME}}"><span>Practice exams</span></a>
-        <a href="{{REVIEWER_HREF}}"{{REVIEWER_CURRENT}}><span>Reviewer</span></a>
-        <a href="{{EXAMREVIEWER_HREF}}"{{EXAMREVIEWER_CURRENT}}><span>Exam Reviewer</span></a>
-        <a href="{{LIBRARY_HREF}}"{{LIBRARY_CURRENT}}><span>Library</span></a>
-        <a href="{{UNITORG_HREF}}"{{UNITORG_CURRENT}}><span>Unit Organization</span></a>
-        <a href="{{HOWTO_HREF}}"{{HOWTO_CURRENT}}><span>How To</span></a>
-        <a href="{{APP_HREF}}"{{APP_CURRENT}}><span>LOS Radios</span></a>
-        <a href="{{CIPHER_HREF}}">Codes &amp; Ciphers</a>
-        <a href="{{SCHEDULE_HREF}}">Weekly schedule</a>
-        <a href="{{CLASS_HREF}}">Our class</a>
-        <a href="{{GALLERY_HREF}}">Gallery</a>
+        <div class="nav-group" role="group" aria-label="Study">
+          <a href="{{HOME}}"><span>Practice exams</span></a>
+          <a href="{{REVIEWER_HREF}}"{{REVIEWER_CURRENT}}><span>Reviewer</span></a>
+          <a href="{{EXAMREVIEWER_HREF}}"{{EXAMREVIEWER_CURRENT}}><span>Exam Reviewer</span></a>
+          <a href="{{LIBRARY_HREF}}"{{LIBRARY_CURRENT}}><span>Library</span></a>
+        </div>
+        <div class="nav-group" role="group" aria-label="Reference">
+          <a href="{{UNITORG_HREF}}"{{UNITORG_CURRENT}}><span>Unit Organization</span></a>
+          <a href="{{HOWTO_HREF}}"{{HOWTO_CURRENT}}><span>How To</span></a>
+          <a href="{{APP_HREF}}"{{APP_CURRENT}}><span>LOS Radios</span></a>
+          <a href="{{CIPHER_HREF}}">Codes &amp; Ciphers</a>
+        </div>
+        <div class="nav-group" role="group" aria-label="Class">
+          <a href="{{SCHEDULE_HREF}}">Weekly schedule</a>
+          <a href="{{CLASS_HREF}}">Our class</a>
+          <a href="{{GALLERY_HREF}}">Gallery</a>
+        </div>
       </nav>
     </div>
   </header>

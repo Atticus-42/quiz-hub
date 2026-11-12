@@ -338,12 +338,7 @@
     .hero-meta dt { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-muted); }
     .hero-meta dd { margin: var(--space-1) 0 0; font-family: var(--font-mono); font-size: 0.9375rem; font-weight: 500; font-variant-numeric: tabular-nums; }
     .hero-nav { display: flex; flex-wrap: wrap; gap: 0 var(--space-6); margin: var(--space-5) 0 0; }
-    .site-tabs { position:relative; z-index:2; display:flex; flex-wrap:wrap; gap:.5rem; padding-block:.8rem; border-bottom:1px solid var(--color-rule); }
-    .site-tabs a { display:flex; align-items:center; justify-content:center; min-height:48px; padding:.65rem 1.1rem; border:1px solid var(--color-rule); color:var(--color-text); background:var(--color-paper); font-weight:600; text-decoration:none; }
-    .site-tabs a[aria-current="page"] { border-bottom:3px solid var(--color-signal); }
-    .site-tabs .cipher-tab { background:var(--color-olive-dark); color:var(--color-paper); border-color:var(--color-olive-dark); }
-    .site-tabs a:hover { background:var(--color-selected); color:var(--color-text); }
-    @media(max-width:560px) { .site-tabs { display:grid; grid-template-columns:1fr 1fr; }.site-tabs a { padding:.6rem .4rem; font-size:.95rem; } }
+    .site-tabs { position:relative; z-index:2; }
     .hero-link {
       display: inline-flex; align-items: center; gap: var(--space-2); min-height: 44px;
       color: var(--color-text); font-size: var(--text-ui); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 0.3em;
@@ -689,17 +684,23 @@
     </div>
   </div>
   <nav class="site-tabs wrap" aria-label="Site sections">
-    <a href="./" aria-current="page"><span>Practice exams</span></a>
-    <a href="reviewer/"><span>Reviewer</span></a>
-    <a href="comprehensive-reviewer/"><span>Exam Reviewer</span></a>
-    <a href="library/"><span>Library</span></a>
-    <a href="library/unit-organization/"><span>Unit Organization</span></a>
-    <a href="how-to/"><span>How To</span></a>
-    <a href="los-radios/"><span>LOS Radios</span></a>
-    <a class="cipher-tab" id="cipher-tab" href="codes-ciphers/">Codes &amp; Ciphers</a>
-    <a href="schedule/?v=day-picker-2">Weekly schedule</a>
-    <a href="class/">Our class</a>
-    <a href="gallery/">Gallery</a>
+    <div class="nav-group" role="group" aria-label="Study">
+      <a href="./" aria-current="page"><span>Practice exams</span></a>
+      <a href="reviewer/"><span>Reviewer</span></a>
+      <a href="comprehensive-reviewer/"><span>Exam Reviewer</span></a>
+      <a href="library/"><span>Library</span></a>
+    </div>
+    <div class="nav-group" role="group" aria-label="Reference">
+      <a href="library/unit-organization/"><span>Unit Organization</span></a>
+      <a href="how-to/"><span>How To</span></a>
+      <a href="los-radios/"><span>LOS Radios</span></a>
+      <a class="cipher-tab" id="cipher-tab" href="codes-ciphers/">Codes &amp; Ciphers</a>
+    </div>
+    <div class="nav-group" role="group" aria-label="Class">
+      <a href="schedule/?v=day-picker-2">Weekly schedule</a>
+      <a href="class/">Our class</a>
+      <a href="gallery/">Gallery</a>
+    </div>
   </nav>
   <div class="banner">
     <picture>

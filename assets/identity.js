@@ -223,3 +223,9 @@
   document.querySelectorAll("[data-domain-attribution]").forEach(node => { node.textContent = "— " + quotes[state.last].speaker + " · " + quotes[state.last].work; });
   try { sessionStorage.setItem(key, JSON.stringify(state)); } catch {}
 })();
+/* Phones show the site sections as a scrollable pill row: bring the current one into view. */
+(() => {
+  const nav = typeof document.querySelector === "function" && document.querySelector('nav[aria-label="Site sections"]');
+  const current = nav && nav.querySelector('[aria-current]');
+  if (current && nav.scrollWidth > nav.clientWidth) nav.scrollLeft = current.offsetLeft - (nav.clientWidth - current.offsetWidth) / 2;
+})();
