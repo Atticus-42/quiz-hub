@@ -42,8 +42,8 @@ function answerAll(api, correct = () => true) {
   api.finishQuiz();
 }
 
-test('data: 14 graded exams, no student answers or scores, essays and the garbled EW item left out with reasons', () => {
-  assert.equal(source.exams.length, 14);
+test('data: 15 graded exams, no student answers or scores, essays and the garbled EW item left out with reasons', () => {
+  assert.equal(source.exams.length, 15);
   assert.doesNotMatch(raw, /studentAnswer|PASSED|DID NOT PASS|score \d/i);
   for (const exam of source.exams) for (const q of exam.questions) {
     const fields = Object.keys(q).sort().join();
@@ -54,8 +54,8 @@ test('data: 14 graded exams, no student answers or scores, essays and the garble
   const diag = source.exams.find(exam => exam.key === 'gradeddiag');
   assert.deepEqual(diag.skipped.map(item => item.n), [71, 72, 73]);
   assert.deepEqual(source.exams.find(exam => exam.key === 'gradedew').skipped.map(item => item.n), [26]);
-  assert.equal(source.exams.reduce((sum, exam) => sum + exam.itemCount, 0), 488);
-  assert.equal(data.questions.size, 484);
+  assert.equal(source.exams.reduce((sum, exam) => sum + exam.itemCount, 0), 538);
+  assert.equal(data.questions.size, 534);
   assert.ok(source.exams.find(exam => exam.key === 'gradedartillery').questions[0].stem.endsWith('"Defeated" according to the slide?'));
 });
 
@@ -96,7 +96,7 @@ test('placement: lesson and module pages carry their graded exams; qids follow <
   const expected = {
     coalition: ['gradedcoalition'], signaljoint: ['gradedjoint'], signal: ['gradedcombined'], isr: ['gradedisr'], fieldartillery: ['gradedartillery'],
     armyops: ['gradedarmyops'], leadershipattributes: ['gradedmla'], modulethree: ['gradedssi', 'gradedcoalition', 'gradedjoint', 'gradedcombined'],
-    combined: ['gradedma2', 'gradedisr', 'gradedartillery', 'gradedarmyops'], moduleone: ['gradedma1', 'gradedmla'], modulefive: ['gradedc2'], modulesix: ['gradedew'], moduleseven: ['gradedcyber'],
+    combined: ['gradedma2', 'gradedisr', 'gradedartillery', 'gradedarmyops'], moduleone: ['gradedma1', 'gradedmla'], modulefive: ['gradedc2'], modulesix: ['gradedew'], moduleseven: ['gradedcyber'], moduleeight: ['gradedsigplan'],
   };
   assert.deepEqual(Object.fromEntries([...data.pages].map(([key, page]) => [key, page.exams.map(exam => exam.key)])), expected);
   for (const [key, page] of data.pages) {

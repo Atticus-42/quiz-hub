@@ -38,7 +38,7 @@ The whole site is published from this repository with GitHub Pages at https://at
   | Supporting | Army Operations | `armyops` | `/quiz-hub/army-operations/` |
   | Supporting | Intelligence Cycle | `intcycle` | `/quiz-hub/intelligence-cycle/` |
 
-- **Comprehensive Exam Reviewer** (`/quiz-hub/comprehensive-reviewer/`): the class's 14 graded exams, each as a quiz, plus a mixed set. The same questions appear as the **Actual Exam** category (beside Easy, Medium and Hard) on the matching lesson and module exam pages; they are never sent to the class history. Data in `data/actual-exams.json` (stem and key only, no student answers); placement, multiple-choice rules and qids (`<examKey>-a-NN`) in [docs/actual-exam-reviewer.md](docs/actual-exam-reviewer.md).
+- **Comprehensive Exam Reviewer** (`/quiz-hub/comprehensive-reviewer/`): the class's 15 graded exams, each as a quiz, plus a mixed set. The same questions appear as the **Actual Exam** category (beside Easy, Medium and Hard) on the matching lesson and module exam pages; they are never sent to the class history. Data in `data/actual-exams.json` (stem and key only, no student answers); placement, multiple-choice rules and qids (`<examKey>-a-NN`) in [docs/actual-exam-reviewer.md](docs/actual-exam-reviewer.md).
 - **Instructor view** (`/quiz-hub/instructor/`): question analysis.
 - **Reviewer 101** (`/quiz-hub/reviewer/`): lesson briefings, recall checks, worked Philippine Army classroom scenarios and source-backed practice steps.
 - **Study Library** (`/quiz-hub/library/`): searchable lesson and manual records, connected reviewers and an in-site PDF reader. Quiz references link to the catalogue and jump to the cited PDF page when the source and pagination match.

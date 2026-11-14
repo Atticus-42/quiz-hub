@@ -1,6 +1,6 @@
 # Actual Exam category and the Comprehensive Exam Reviewer
 
-Questions from the class's 14 graded exams (SOAC 52-2026), for reviewing before the Comprehensive Exam.
+Questions from the class's 15 graded exams (SOAC 52-2026), for reviewing before the Comprehensive Exam.
 
 - Data: `data/actual-exams.json`. Each question has only `n` (its number on the graded exam), `stem` and `key`.
   Student answers, names, scores and pass marks are not recorded. The build and the tests reject any `studentAnswer`.
@@ -16,20 +16,21 @@ Every exam is its own quiz at `comprehensive-reviewer/<slug>/`. All exams togeth
 
 | # | Graded exam (date) | Items used | Lesson page | Module exam page |
 | --- | --- | --- | --- | --- |
-| 01 | Module Exam on Advanced Electronic Warfare Operations (12 Nov 2026) | 49 of 50 | none | Module 6 Exam (`modulesix`) |
-| 02 | Module Exam on Advanced Cyberspace Operations (30 Oct 2026) | 40 | none | Module 7 Exam (`moduleseven`) |
-| 03 | Module Exam on Advanced C2 Communications (28 Oct 2026; the portal title reads "ommunications") | 35 | none | Module 5 Exam (`modulefive`) |
-| 04 | Module Exam on Signal Support Integration (7 Oct 2026) | 40 | none | Module 4 Exam (`modulethree`) |
-| 05 | Exam on Signal Support in Coalition Operations (7 Oct 2026) | 13 | Coalition (`coalition`) | Module 4 Exam |
-| 06 | Exam on Signal Support in Joint Operations (5 Oct 2026) | 30 | Joint (`signaljoint`) | Module 4 Exam |
-| 07 | Exam on Signal Support in Combined Arms Operations (3 Oct 2026) | 30 | Combined Arms (`signal`) | Module 4 Exam |
-| 08 | Module Assessment 2 (2 Oct 2026) | 50 | none | Combined Practice Exam, Module 2 (`combined`) |
-| 09 | Exam on ISR Operations (1 Oct 2026) | 22 | ISR (`isr`) | Combined Practice Exam |
-| 10 | Exam on Introduction to Artillery Operations (1 Oct 2026) | 20 | Field Artillery (`fieldartillery`) | Combined Practice Exam |
-| 11 | Exam on Army Operations (29 Sep 2026) | 20 | Army Operations (`armyops`) | Combined Practice Exam |
-| 12 | Module Assessment 1 (26 Sep 2026) | 45 | none | Module 1 Exam (`moduleone`) |
-| 13 | Exam on Military Leadership Attributes (23 Sep 2026) | 20 | Military Leadership Attributes (`leadershipattributes`) | Module 1 Exam |
-| 14 | Diagnostic Examination, SOAC 52-2026 (19 Sep 2026) | 70 of 73 | none (mixed topics) | none: reviewer only |
+| 01 | Module Exam on Signal Planning (13 Nov 2026) | 50 | none | Module 8 Exam (`moduleeight`) |
+| 02 | Module Exam on Advanced Electronic Warfare Operations (12 Nov 2026) | 49 of 50 | none | Module 6 Exam (`modulesix`) |
+| 03 | Module Exam on Advanced Cyberspace Operations (30 Oct 2026) | 40 | none | Module 7 Exam (`moduleseven`) |
+| 04 | Module Exam on Advanced C2 Communications (28 Oct 2026; the portal title reads "ommunications") | 35 | none | Module 5 Exam (`modulefive`) |
+| 05 | Module Exam on Signal Support Integration (7 Oct 2026) | 40 | none | Module 4 Exam (`modulethree`) |
+| 06 | Exam on Signal Support in Coalition Operations (7 Oct 2026) | 13 | Coalition (`coalition`) | Module 4 Exam |
+| 07 | Exam on Signal Support in Joint Operations (5 Oct 2026) | 30 | Joint (`signaljoint`) | Module 4 Exam |
+| 08 | Exam on Signal Support in Combined Arms Operations (3 Oct 2026) | 30 | Combined Arms (`signal`) | Module 4 Exam |
+| 09 | Module Assessment 2 (2 Oct 2026) | 50 | none | Combined Practice Exam, Module 2 (`combined`) |
+| 10 | Exam on ISR Operations (1 Oct 2026) | 22 | ISR (`isr`) | Combined Practice Exam |
+| 11 | Exam on Introduction to Artillery Operations (1 Oct 2026) | 20 | Field Artillery (`fieldartillery`) | Combined Practice Exam |
+| 12 | Exam on Army Operations (29 Sep 2026) | 20 | Army Operations (`armyops`) | Combined Practice Exam |
+| 13 | Module Assessment 1 (26 Sep 2026) | 45 | none | Module 1 Exam (`moduleone`) |
+| 14 | Exam on Military Leadership Attributes (23 Sep 2026) | 20 | Military Leadership Attributes (`leadershipattributes`) | Module 1 Exam |
+| 15 | Diagnostic Examination, SOAC 52-2026 (19 Sep 2026) | 70 of 73 | none (mixed topics) | none: reviewer only |
 
 Placement rules:
 - A lesson exam goes on its lesson page and its module exam page.
@@ -40,15 +41,15 @@ Placement rules:
   would be unreliable (for example, the fires effects in Module Assessment 2 are taught in both Field Artillery and
   Army Operations).
 - The Diagnostic Examination spans every module, so it appears only on the reviewer and in the mixed set.
-- Armor, the Module 3, Module 8 and the remaining Module 1/5/6/7 lesson pages have no graded exam of their own.
+- Armor, the Module 3 lesson pages and the remaining Module 1/5/6/7/8 lesson pages have no graded exam of their own.
   Their module exam page carries the module's graded exam, where one exists.
 
 On a page that draws on several exams, a question repeated with the same stem and key is asked once. For
 example, Module Assessment 2 reuses Field Artillery items. A lesson page serves its whole Actual Exam bank. A
 module exam page and the mixed set draw 50 at a time, unseen questions first. The mixed page also offers the
-full set (441 distinct questions) in one sitting.
+full set (491 distinct questions) in one sitting.
 
-## Questions left out (4 of 488)
+## Questions left out (4 of 538)
 
 - Diagnostic Q71–Q73 are essays. The portal shows no answer key.
 - EW module exam Q26: the export marks a garbled character in the stated frequency. The recorded key
@@ -89,7 +90,7 @@ The portal showed no answer choices, so the build makes each item multiple choic
 ## Identity, citations and class history
 
 - **qid:** `<examKey>-a-<NN>`, where NN is the question's number on the graded exam. Example: `gradedisr-a-07`.
-  These ids are permanent. Exam keys: `gradedew`, `gradedcyber`, `gradedc2`, `gradedssi`, `gradedcoalition`,
+  These ids are permanent. Exam keys: `gradedsigplan`, `gradedew`, `gradedcyber`, `gradedc2`, `gradedssi`, `gradedcoalition`,
   `gradedjoint`, `gradedcombined`, `gradedma2`, `gradedisr`, `gradedartillery`, `gradedarmyops`, `gradedma1`,
   `gradedmla`, `gradeddiag`.
 - **Device progress:** keyed by graded exam (`mastery-quiz:progress:<examKey>:actual`), so the record is shared by

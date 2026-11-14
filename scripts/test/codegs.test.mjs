@@ -28,6 +28,7 @@ const TABS = {
   datacomms: 'Data Communications Planning History',
   c4istarplanning: 'C4ISTAR Communications Planning History',
   signalplanning: 'Signal Planning Process History',
+  gradedsigplan: 'Graded Signal Planning History',
   gradedew: 'Graded EW Operations History',
   gradedcyber: 'Graded Cyberspace Operations History',
   gradedc2: 'Graded C2 Communications History',

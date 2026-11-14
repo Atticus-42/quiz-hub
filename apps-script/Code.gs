@@ -62,6 +62,7 @@ var LESSONS = {
   signalplanning: 'Signal Planning Process History',
   // Comprehensive Exam Reviewer (Actual Exam): one tab per graded exam page, plus the mixed set. Actual Exam
   // attempts on lesson pages are stored in that lesson's own tab with mode 'actual'.
+  gradedsigplan: 'Graded Signal Planning History',
   gradedew: 'Graded EW Operations History',
   gradedcyber: 'Graded Cyberspace Operations History',
   gradedc2: 'Graded C2 Communications History',
