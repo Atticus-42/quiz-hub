@@ -23,3 +23,92 @@
 .org-chart-viewport::-webkit-scrollbar{height:12px}
 .org-chart-viewport::-webkit-scrollbar-track{background:#e8e3d6}
 .org-chart-viewport::-webkit-scrollbar-thumb{background:var(--branch,#343b31);border:2px solid #e8e3d6;border-radius:6px}
+
+/* Interactive layer: clickable boxes, hierarchy trail, detail panel, source buttons. */
+.org-trail ol{list-style:none;display:flex;flex-wrap:wrap;gap:.2rem .5rem;padding:0;margin:.2rem 0 1rem;font:12px/1.6 monospace}
+.org-trail li+li:before{content:"›";margin-right:.5rem;color:var(--branch)}
+.org-trail [aria-current]{font-weight:700}
+.org-actions{margin:1.1rem 0 0}
+.org-source-link{display:inline-flex;flex-direction:column;gap:.15rem;padding:.65rem 1rem;border:2px solid #343b31;background:#fffdf5;font-weight:700;text-decoration:none;min-height:44px;box-sizing:border-box;justify-content:center}
+.org-source-link small{font:11px/1.4 monospace;font-weight:400;color:#55594e}
+.org-source-link:hover,.org-btn:hover{background:#eee6d6}
+a.org-source-ref{display:block;text-decoration:none;color:inherit;border-style:solid}
+a.org-source-ref:hover{border-color:var(--branch);background:#eee6d6}
+.org-tree-tools{display:flex;gap:.5rem;margin:-.4rem 0 1rem}
+.org-tree-tools[hidden],.org-js-hint[hidden],.org-trail[hidden]{display:none}
+.org-tree-tools button,.org-list-toggle{font:700 12px/1.2 monospace;padding:.55rem .8rem;min-height:36px;border:1px solid #343b31;background:#fffdf5;color:#343b31;cursor:pointer}
+.org-tree-tools button:hover,.org-list-toggle:hover{background:#eee6d6}
+.org-list-toggle{margin-top:.5rem;position:relative;z-index:2}
+.org-chart-card ul.is-collapsed>li:nth-child(n+7){display:none}
+.org-chart-card{position:relative}
+.org-chart-open{position:relative;z-index:2;display:inline-block;margin-top:.7rem;font:700 12px/1.4 monospace;color:#8e4a25}
+.org-js .org-chart-card[data-node],.org-js .org-chart-parent[data-node]{cursor:pointer}
+.org-js .org-chart-parent[data-node]{position:relative}
+.org-card-btn,.org-li-btn,.org-panel-close,.org-panel-up,.org-panel-kids button{font:inherit;color:inherit;background:none;border:0;padding:0;margin:0;text-align:inherit;cursor:pointer}
+.org-card-btn{display:block;width:100%;line-height:inherit}
+.org-card-btn:after,.org-chart-parent .org-card-btn:after{content:"";position:absolute;inset:0}
+.org-card-btn:focus-visible{outline:none}
+.org-card-btn:focus-visible:after{outline:3px solid #a34c28;outline-offset:2px}
+.org-li-btn{position:relative;z-index:1;display:block;width:100%;text-decoration:underline dotted #8d8878;text-underline-offset:3px}
+.org-li-btn:hover{text-decoration-style:solid;color:#8e4a25}
+.org-li-btn:focus-visible,.org-list-toggle:focus-visible,.org-chart-open:focus-visible,.org-btn:focus-visible,.org-source-link:focus-visible,.org-tree-tools button:focus-visible,.org-panel-close:focus-visible,.org-panel-up:focus-visible,.org-panel-kids button:focus-visible,.org-panel:focus-visible{outline:3px solid #a34c28;outline-offset:2px}
+.org-js .org-chart-card[data-node]:hover,.org-chart-card.is-selected{border-color:var(--branch);box-shadow:inset 0 0 0 1px var(--branch);background:#fffdf5}
+.org-chart-card.is-selected,.org-chart-parent.is-selected .org-chart-emblem{outline:3px solid var(--branch);outline-offset:1px}
+.org-js .org-chart-parent[data-node]:hover .org-chart-emblem{background:#eee6d6}
+/* Hover or focus lights the connector from the box up to its parent. */
+.org-chart-branch:hover:before,.org-chart-branch:hover:after,.org-chart-branch:focus-within:before,.org-chart-branch:focus-within:after,.org-chart-branch:has(.is-selected):before,.org-chart-branch:has(.is-selected):after{border-color:var(--branch)}
+.org-chart-board:has(.org-chart-branch:hover) .org-chart-parent:after,.org-chart-board:has(.org-chart-branch:focus-within) .org-chart-parent:after,.org-chart-board:has(.is-selected) .org-chart-parent:after{border-color:var(--branch)}
+.org-chart-branch:hover:before,.org-chart-branch:focus-within:before,.org-chart-branch:has(.is-selected):before{border-top-width:4px;margin-top:-1px}
+.org-chart-branch:hover:after,.org-chart-branch:focus-within:after,.org-chart-branch:has(.is-selected):after{border-left-width:4px;margin-left:-1px}
+
+.org-panel-backdrop{position:fixed;inset:0;background:#1d231a80;z-index:59}
+.org-panel{position:fixed;top:0;right:0;bottom:0;width:min(440px,92vw);box-sizing:border-box;overflow:auto;overscroll-behavior:contain;background:#fffdf5;border-left:3px solid #343b31;box-shadow:-10px 0 32px #0003;z-index:60;padding:0 1.4rem 2rem;color:#2b3027}
+.org-panel[hidden],.org-panel-backdrop[hidden]{display:none}
+.org-panel-head{position:sticky;top:0;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0 .7rem;background:#fffdf5;border-bottom:1px solid #bcb9a8;z-index:1}
+.org-panel-head .org-overline{margin:0;color:#8e4a25}
+.org-panel-close{font:700 13px/1 monospace;border:1px solid #343b31;padding:.6rem .8rem;min-height:44px;min-width:44px;background:#fffdf5}
+.org-panel-close:hover{background:#eee6d6}
+.org-panel-up{display:block;margin:1rem 0 0;font:12px/1.4 monospace;color:#55594e;text-decoration:underline;min-height:32px}
+.org-panel h3{font-size:1.5rem;line-height:1.2;margin:1rem 0 .3rem}
+.org-panel h3:focus{outline:none}
+.org-panel h4{font:700 11px/1.4 monospace;letter-spacing:.1em;text-transform:uppercase;color:#8e4a25;margin:1.6rem 0 .6rem}
+.org-panel p{font-size:.95rem;line-height:1.55;margin:.6rem 0}
+.org-panel-unit{font:12px/1.5 monospace!important;color:#55594e}
+.org-panel-strength{margin:1rem 0;border-top:1px solid #bcb9a8}
+.org-panel-strength div{display:flex;justify-content:space-between;gap:1rem;padding:.55rem 0;border-bottom:1px solid #d9d3c0}
+.org-panel-strength dt{font-size:.88rem;color:#55594e;flex:none}
+.org-panel-strength dd{margin:0;font-weight:700;text-align:right}
+.org-panel-note{font-size:.82rem!important;color:#55594e}
+.org-panel-kids{list-style:none;margin:0;padding:0;border-top:1px solid #d9d3c0}
+.org-panel-kids button{display:flex;width:100%;justify-content:space-between;gap:1rem;padding:.65rem .2rem;border-bottom:1px solid #d9d3c0;min-height:44px;box-sizing:border-box;align-items:center}
+.org-panel-kids button:hover{background:#f2ecdc}
+.org-panel-kids b{font:700 12px monospace;color:var(--branch,#28677a);white-space:nowrap}
+.org-panel-drill,.org-panel-sources{display:grid;gap:.6rem;margin-top:1rem}
+.org-panel-sources{margin-top:0}
+.org-btn{display:block;padding:.75rem .9rem;border:1px solid #343b31;background:#fffdf5;color:#2b3027;font-weight:700;text-decoration:none;line-height:1.35;min-height:44px;box-sizing:border-box}
+.org-btn small{display:block;font:11px/1.5 monospace;font-weight:400;color:#55594e}
+.org-btn.is-primary,.org-btn.is-pdf:first-child{border-width:2px}
+.org-btn.is-primary{background:#343b31;color:#fffdf5}
+.org-btn.is-primary:hover{background:#28677a}
+@media (prefers-reduced-motion:no-preference){
+ .org-panel:not([hidden]){animation:org-panel-in .22s ease-out}
+ .org-chart-card,.org-chart-branch:before,.org-chart-branch:after{transition:border-color .15s,box-shadow .15s,background-color .15s}
+}
+@keyframes org-panel-in{from{transform:translateX(28px);opacity:.4}to{transform:none;opacity:1}}
+@keyframes org-sheet-in{from{transform:translateY(28px);opacity:.4}to{transform:none;opacity:1}}
+@media (max-width:800px){
+ .org-panel{top:auto;left:0;right:0;bottom:0;width:auto;max-height:78vh;border-left:0;border-top:3px solid #343b31;border-radius:14px 14px 0 0;padding:0 1rem calc(2rem + env(safe-area-inset-bottom));box-shadow:0 -10px 32px #0004}
+ .org-panel:not([hidden]){animation-name:org-sheet-in}
+ .org-panel-head:before{content:"";position:absolute;top:6px;left:50%;width:44px;height:4px;margin-left:-22px;border-radius:2px;background:#bcb9a8}
+ .org-panel-head{padding-top:1.4rem}
+}
+@media (prefers-reduced-motion:reduce){.org-panel:not([hidden]){animation:none}}
+@media print{.org-panel,.org-panel-backdrop,.org-tree-tools,.org-list-toggle,.org-chart-open{display:none!important}.org-chart-card ul.is-collapsed>li:nth-child(n+7){display:list-item}}
+/* The site-wide button:hover rule is more specific than these classes; restate the hover states here. */
+.org-card-btn,.org-li-btn{min-height:0;border-radius:0}
+.org-li-btn{padding:.1rem 0}
+html .org-card-btn:hover:not(:disabled),html .org-li-btn:hover:not(:disabled),html .org-panel-up:hover:not(:disabled){background:none;color:inherit}
+html .org-li-btn:hover:not(:disabled){color:#8e4a25}
+html .org-panel-up:hover:not(:disabled){color:#28677a}
+html .org-tree-tools button:hover:not(:disabled),html .org-list-toggle:hover:not(:disabled),html .org-panel-close:hover:not(:disabled){background:#eee6d6;color:#343b31}
+html .org-panel-kids button:hover:not(:disabled){background:#f2ecdc;color:inherit}

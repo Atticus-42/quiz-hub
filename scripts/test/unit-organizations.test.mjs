@@ -149,3 +149,117 @@ test('organization charts scroll inside their frame on small screens instead of 
  assert.match(css,/\.org-chart-viewport\{[^}]*overflow-x:auto/);
  assert.match(css,/\.org-chart-branches\{justify-content:safe center\}/);
 });
+
+// ---- Excerpt source PDFs and the interactive layer ----
+import { readdirSync } from 'node:fs';
+import { inflateSync } from 'node:zlib';
+const escHtml = s => String(s).replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('"', '&quot;');
+const pdfPages = buffer => (buffer.toString('latin1').match(/\/Type\s*\/Page(?![a-zA-Z])/g) || []).length;
+const pdfText = buffer => {
+ const raw = buffer.toString('latin1');
+ let text = raw;
+ const re = /stream\r?\n/g; let m;
+ while ((m = re.exec(raw))) {
+  const end = raw.indexOf('endstream', m.index + 7); if (end < 0) break;
+  try { text += inflateSync(Buffer.from(raw.slice(m.index + m[0].length, end), 'latin1')).toString('latin1'); } catch { /* not a Flate stream */ }
+ }
+ return text;
+};
+
+test('every TOE citation opens an excerpt PDF at a page inside the file', () => {
+ const data = loadOrganizations(root);
+ const cache = new Map();
+ let checked = 0;
+ for (const group of data) for (const source of group.sources.filter(s => s.toe)) {
+  assert.equal(source.pdf, 'sources/' + group.id + '.pdf', group.id);
+  assert.ok(Number.isInteger(source.pdfPage) && source.pdfPage >= 2, group.id + ': page 1 is the cover');
+  if (!cache.has(source.pdf)) cache.set(source.pdf, readFileSync(root + 'library/unit-organization/' + source.pdf));
+  assert.ok(source.pdfPage <= pdfPages(cache.get(source.pdf)), group.id + ': pdfPage within the page count');
+  checked++;
+ }
+ assert.ok(checked >= 30);
+});
+
+test('excerpt PDFs: only the cited units, no equipment files, no metadata, cover states the omission', () => {
+ const dir = root + 'library/unit-organization/sources/';
+ const ids = new Set(loadOrganizations(root).map(g => g.id));
+ const files = readdirSync(dir);
+ assert.ok(files.length >= 10);
+ for (const name of files) {
+  assert.match(name, /^[a-z0-9-]+\.pdf$/);
+  assert.ok(ids.has(name.slice(0, -4)), 'unexpected file ' + name);
+  assert.doesNotMatch(name, /toe|table-of-equipment|equipment|\bte\b/i);
+  const buffer = readFileSync(dir + name);
+  assert.ok(buffer.length < 3 * 1024 * 1024, name + ' stays under 3 MB');
+  assert.equal(buffer.subarray(0, 5).toString(), '%PDF-');
+  assert.doesNotMatch(buffer.toString('latin1'), /\/(Author|Creator|Producer)\s*\([^)\s]/, name + ' carries no author or tool metadata');
+  const text = pdfText(buffer);
+  assert.match(text, /Equipment tables omitted/, name);
+  assert.doesNotMatch(text, /APPROVED AFP TABLE OF EQUIPMENT/i, name);
+ }
+ // Every group that cites the TO has an excerpt, and every excerpt is cited.
+ const cited = new Set(loadOrganizations(root).filter(g => g.sources.some(s => s.toe)).map(g => g.id + '.pdf'));
+ assert.deepEqual([...cited].sort(), files.slice().sort());
+});
+
+test('excerpt PDFs are not listed in the Library', () => {
+ for (const file of ['library/index.html', 'data/library.json', 'data/library-index.json']) {
+  if (!existsSync(root + file)) continue;
+  assert.doesNotMatch(readFileSync(root + file, 'utf8'), /unit-organization\/sources|sources\/[a-z0-9-]+\.pdf/, file);
+ }
+ const ids = new Set(loadOrganizations(root).map(g => g.id + '.pdf'));
+ for (const name of readdirSync(root + 'library/files')) assert.ok(!ids.has(name), name + ' must not be in the Library');
+});
+
+test('chart page carries the detail panel, node paths, source links and drill-down trail', () => {
+ let output; renderOrganizations(root, (...args) => { output = args; }, escHtml);
+ const html = output[5];
+ assert.match(html, /id="org-panel" role="dialog"/);
+ assert.match(html, /aria-labelledby="org-panel-title"/);
+ assert.match(html, /id="org-panel-close"/);
+ assert.match(output[6].scripts, /unit-organizations\.js/);
+ assert.match(html, /data-node="r\.1"/);
+ assert.match(html, /class="org-source-link" href="sources\/signal\.pdf#page=3"/);
+ assert.match(html, /<a class="org-source-ref" href="sources\/command-signal-battalion\.pdf#page=2"/);
+ const json = /<script type="application\/json" id="org-data">([^<]+)<\/script>/.exec(html);
+ assert.ok(json);
+ const panel = JSON.parse(json[1]);
+ assert.equal(panel.parent['command-signal-battalion'], 'signal');
+ assert.equal(panel.parent.infantry, 'infantry-battalion');
+ assert.equal(panel.groups.signal.nodes.r.kids.length, 6);
+ assert.ok(panel.groups.signal.sources.some(s => s.kind === 'excerpt' && /^sources\/signal\.pdf#page=\d+$/.test(s.href)));
+ assert.ok(panel.groups.signal.sources.some(s => s.kind === 'library' && /^\.\.\/files\/pam-6-0102\.pdf#page=16$/.test(s.href)));
+ // Static drill-down links and breadcrumbs work without JavaScript.
+ assert.match(html, /<a class="org-chart-open" href="#command-signal-battalion">/);
+ assert.match(html, /data-trail="infantry"[^>]*><ol><li><a href="#infantry-division">[^]*?<a href="#infantry-battalion">/);
+});
+
+test('every chart link points at an existing formation and every box has a node entry', () => {
+ const groups = loadOrganizations(root);
+ const ids = new Set(groups.map(g => g.id));
+ const walk = n => [n, ...(n.children || []).flatMap(walk)];
+ for (const g of groups) for (const n of walk(g.tree)) if (n.chart) assert.ok(ids.has(n.chart) && n.chart !== g.id, n.title);
+ let output; renderOrganizations(root, (...args) => { output = args; }, escHtml);
+ const panel = JSON.parse(/id="org-data">([^<]+)</.exec(output[5])[1]);
+ for (const g of groups) {
+  const nodes = panel.groups[g.id].nodes;
+  const start = output[5].indexOf('id="' + g.id + '" aria-labelledby');
+  const section = output[5].slice(start, output[5].indexOf('</section>', start));
+  for (const [, path] of section.matchAll(/data-node="(r[0-9.]*)"/g)) assert.ok(nodes[path], g.id + ' ' + path);
+ }
+});
+
+test('interactive script handles Escape, focus return, hash routes, expand state and reduced motion', () => {
+ const js = readFileSync(root + 'assets/unit-organizations.js', 'utf8');
+ const css = readFileSync(root + 'assets/unit-organizations.css', 'utf8');
+ assert.match(js, /'Escape'/);
+ assert.match(js, /aria-expanded/);
+ assert.match(js, /prefers-reduced-motion: reduce/);
+ assert.match(js, /lastTrigger/);
+ assert.match(js, /hashchange/);
+ assert.match(js, /aria-modal/);
+ assert.match(css, /\.org-panel\{[^}]*position:fixed/);
+ assert.match(css, /@media \(max-width:800px\)\{[^@]*\.org-panel\{top:auto/);
+ assert.match(css, /prefers-reduced-motion:reduce/);
+ assert.match(css, /\.org-chart-viewport\{[^}]*overflow-x:auto/);
+});
