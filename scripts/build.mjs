@@ -590,7 +590,7 @@ export function actualSection(actual, { all = false } = {}) {
   return [
     '          <section id="actual-block" class="actual-block" aria-labelledby="actual-heading">',
     `            <h3 id="actual-heading" class="actual-heading"><span class="actual-badge">${escapeHtml(ACTUAL_LABEL)}</span> <span>${escapeHtml(ACTUAL_NOTE)}</span></h3>`,
-    `            <p id="actual-note" class="actual-note">${escapeHtml(`A separate category from Easy, Medium and Hard: ${actual.count} questions from ${from}. Each keeps the exam's question and answer key; the other choices are answer keys of other graded-exam questions. Unseen questions come first. Saved to the class history as Actual Exam attempts.`)}</p>`,
+    `            <p id="actual-note" class="actual-note">${escapeHtml(`A separate category from Easy, Medium and Hard: ${actual.count} questions from ${from}. Each keeps the exam's question and answer key; the other choices are plausible same-topic options, each with a short reason why it is wrong. Unseen questions come first. Saved to the class history as Actual Exam attempts.`)}</p>`,
     '            <div class="mode-list actual-list" role="group" aria-labelledby="actual-heading">',
     ...button('mode-actual', all ? 'Mixed set' : ACTUAL_LABEL, `${per}.${all ? ' Questions from all graded exams, unseen first.' : ''}`),
     ...(all && actual.full ? button('mode-actual-all', 'Full set', `All ${actual.full} questions from every graded exam in one sitting.`) : []),
@@ -1377,7 +1377,7 @@ function renderActualPages(root, engine, contours, actual, lessons, { base, endp
   const heroSvg = readFileSync(join(root, 'src', 'actual', 'hero.svg'), 'utf8').replace(/\r\n/g, '\n').trimEnd();
   const byKey = new Map(lessons.map(lesson => [lesson.key, lesson]));
   const pages = {};
-  const warning = 'Each question keeps the exam’s stem and answer key. The portal showed no answer choices, so the other choices are answer keys of other graded-exam questions. Study the complete lessons as well.';
+  const warning = 'Each question keeps the exam’s stem and answer key. The portal showed no answer choices, so the other choices are plausible same-topic options; after you answer, an explanation and a reason for each wrong choice appear. Study the complete lessons as well.';
   actual.perExam.forEach(({ exam, bank, count, attempt, exams }, index) => {
     const number = String(index + 1).padStart(2, '0');
     const also = exam.pages.map(key => byKey.get(key).name);
