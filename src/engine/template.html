@@ -1329,7 +1329,8 @@
     // ----- Device-local progress -----
     // This browser only, anonymous: for each lesson and difficulty one entry maps a question's qid to 's' (seen,
     // last answered correctly) or 'm' (last answered wrongly). No name, score or answer is stored and nothing is
-    // ever sent. Every storage access is wrapped in try/catch; without storage the quiz uses a plain shuffle.
+    // ever sent. Actual Exam records instead store the last-seen time, shared by exam owner on every page.
+    // Every storage access is wrapped in try/catch; without storage the quiz uses a plain shuffle.
     var PROGRESS_PREFIX = 'mastery-quiz:progress:';
     var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emha]-[0-9]{2,4}$/;
 
@@ -1374,7 +1375,9 @@
         var data = JSON.parse(storage.getItem(progressKey(lessonKey, mode)) || '{}');
         if (data && typeof data === 'object' && !Array.isArray(data)) {
           Object.keys(data).forEach(function (qid) {
-            if (PROGRESS_QID.test(qid) && (data[qid] === 's' || data[qid] === 'm')) clean[qid] = data[qid];
+            var value = data[qid];
+            if (PROGRESS_QID.test(qid) && (value === 's' || value === 'm' ||
+                (mode === ACTUAL && Number.isFinite(value) && value > 0))) clean[qid] = value;
           });
         }
       } catch (error) {
@@ -1390,6 +1393,7 @@
     }
 
     function recordProgress(question, mode, correct) {
+      if (mode === ACTUAL) return recordActualProgress([question]);
       var storage = deviceStorage();
       if (!storage) return false;
       var lessonKey = progressOwner(question);
@@ -1397,6 +1401,28 @@
       progress[question.qid] = correct ? 's' : 'm';
       try {
         storage.setItem(progressKey(lessonKey, mode), JSON.stringify(progress));
+        return true;
+      } catch (error) {
+        return false;
+      }
+    }
+
+    // A set counts as taken when its first answer is selected, even if it is later abandoned.
+    // Batch by owner so mixed sets use the same keys as the individual exam and lesson pages.
+    function recordActualProgress(questions) {
+      var storage = deviceStorage();
+      if (!storage) return false;
+      var records = {};
+      var now = Date.now();
+      questions.forEach(function (question) {
+        var owner = progressOwner(question);
+        if (!records[owner]) records[owner] = readProgress(owner, ACTUAL);
+        records[owner][question.qid] = now;
+      });
+      try {
+        Object.keys(records).forEach(function (owner) {
+          storage.setItem(progressKey(owner, ACTUAL), JSON.stringify(records[owner]));
+        });
         return true;
       } catch (error) {
         return false;
@@ -1445,14 +1471,27 @@
       return { mode: mode, practice: false, questions: questions, current: 0, responses: blankResponses(questions) };
     }
 
-    // An Actual Exam attempt: unseen questions first, then missed, then the rest, each group shuffled, cut to `size`
+    // An Actual Exam attempt: unseen first, then least recently seen (random ties), cut to `size`.
     // (the page's attempt length by default; the mixed reviewer set also offers its full length).
     function createActualAttempt(banks, random, progress, size) {
       var bank = banks && Array.isArray(banks.actual) ? banks.actual : [];
       if (!ACTUAL_CONFIG || !bank.length) throw new Error('Unknown difficulty: ' + ACTUAL);
       var length = Number.isInteger(size) && size > 0 ? Math.min(size, bank.length) : ACTUAL_CONFIG.attempt;
-      var questions = prioritize(bank, progress, random).slice(0, length);
-      return { mode: ACTUAL, practice: false, size: length, questions: questions, current: 0, responses: blankResponses(questions) };
+      if (typeof random !== 'function') random = Math.random;
+      function seenTime(question) {
+        var record = progress && progress[progressOwner(question)];
+        var value = record && record[question.qid];
+        // Legacy s/m records are seen, with unknown (oldest) recency.
+        return value === 's' || value === 'm' ? 0 : typeof value === 'number' ? value : -1;
+      }
+      var unseen = bank.filter(function (question) { return seenTime(question) === -1; }).length;
+      var questions = shuffleQuestions(bank, random).sort(function (a, b) {
+        return seenTime(a) - seenTime(b);
+      }).slice(0, length);
+      var notice = unseen >= length ? '' : unseen === 0
+        ? 'You have seen all ' + bank.length + ' questions; repeats start now.'
+        : 'Only ' + unseen + ' of ' + bank.length + ' questions are unseen; these come first, then repeats start.';
+      return { mode: ACTUAL, practice: false, size: length, questions: questions, current: 0, responses: blankResponses(questions), notice: notice };
     }
 
     // A practice attempt asks only the given questions (reshuffled; answer choices keep their order).
@@ -1944,6 +1983,7 @@
       ui.quizProgress.setAttribute('max', String(total));
       ui.quizProgress.setAttribute('value', String(done));
       ui.quizStatus.textContent = 'Question ' + (index + 1) + ' of ' + total + '. ' + done + ' of ' + total + ' answers checked.';
+      if (attempt.notice) ui.quizStatus.textContent += ' ' + attempt.notice;
       ui.questionHeading.textContent = 'Question ' + (index + 1) + ' of ' + total;
       // Decorative (aria-hidden) echoes of the above: the rail's big question number and the segmented progress.
       if (ui.qIndexNum) ui.qIndexNum.textContent = pad(index + 1);
@@ -2195,6 +2235,10 @@
         return false;
       }
       response.selected = index;
+      if (attempt.mode === ACTUAL) {
+        recordActualProgress(attempt.progressStarted ? [question] : attempt.questions);
+        attempt.progressStarted = true;
+      }
       ui.radios.forEach(function (radio, radioIndex) { radio.checked = radioIndex === index; });
       applyOptionStates(question, response);
       hideValidation();

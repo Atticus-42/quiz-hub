@@ -59,6 +59,10 @@ await test('[actual exam] graded-exam questions: schema, keys among options, no 
   const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/actual-exams.test.mjs')], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stdout + result.stderr);
 });
+await test('[actual exam progress] unseen sets, abandoned answers, shared state and oldest repeats', () => {
+  const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/actual-progress.test.mjs')], { encoding: 'utf8' });
+  assert.equal(result.status, 0, result.stdout + result.stderr);
+});
 await test('[choices] confirmed giveaway distractors and module option uniqueness', () => {
   const result = spawnSync(process.execPath, ['--test', join(ROOT, 'scripts/test/distractor-quality.test.mjs')], { encoding: 'utf8' });
   assert.equal(result.status, 0, result.stdout + result.stderr);
