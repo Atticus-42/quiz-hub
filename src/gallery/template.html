@@ -138,6 +138,14 @@
     'use strict';
     // Show the first 12 photos; the rest wait behind a button (all are visible without scripts).
     var PAGE = 12;
+    // Shuffle the order on every visit (Fisher-Yates); without scripts the data order is kept.
+    var grid = document.getElementById('gallery-grid');
+    var list = Array.prototype.slice.call(grid.querySelectorAll('.gallery-item'));
+    for (var k = list.length - 1; k > 0; k--) {
+      var r = Math.floor(Math.random() * (k + 1));
+      var tmp = list[k]; list[k] = list[r]; list[r] = tmp;
+    }
+    for (var m = 0; m < list.length; m++) grid.appendChild(list[m]);
     var items = document.querySelectorAll('.gallery-item');
     var more = document.getElementById('gallery-more');
     var shown = Math.min(PAGE, items.length);
