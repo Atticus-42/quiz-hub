@@ -1005,13 +1005,13 @@ export function loadGallery(root = ROOT) {
 export function renderGallery(template, contours, data, { base = '' } = {}) {
   const items = data.photos.map(photo => {
     const media = photo.type === 'video'
-      ? `          <video class="gallery-video" controls${photo.muted ? ' muted' : ''}${photo.loop ? ' loop' : ''} preload="none" playsinline poster="../${escapeHtml(photo.poster)}" width="${photo.width}" height="${photo.height}" style="--ratio: ${photo.width} / ${photo.height}; object-position: ${photo.focus}" aria-label="${escapeHtml(photo.alt)}">
+      ? `          <video class="gallery-video" controls muted${photo.loop ? ' loop' : ''} preload="none" playsinline poster="../${escapeHtml(photo.poster)}" width="${photo.width}" height="${photo.height}" style="--ratio: ${photo.width} / ${photo.height}; object-position: ${photo.focus}" aria-label="${escapeHtml(photo.alt)}">
             <source src="../${escapeHtml(photo.src)}" type="video/mp4">
             <a href="../${escapeHtml(photo.src)}">Download the video</a>
           </video>`
       : [
         `          <a class="gallery-open" href="../${escapeHtml(photo.src1600)}" data-caption="${escapeHtml(photo.caption)}">`,
-        `            <img src="../${escapeHtml(photo.src800)}" srcset="../${escapeHtml(photo.src800)} 800w, ../${escapeHtml(photo.src1600)} 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="${photo.width}" height="${photo.height}" style="--ratio: ${photo.width} / ${photo.height}; --tile: ${photo.height > photo.width ? '4 / 5' : '4 / 3'}; object-position: ${photo.focus}" loading="lazy" decoding="async" alt="${escapeHtml(photo.alt)}">`,
+        `            <img src="../${escapeHtml(photo.src800)}" srcset="../${escapeHtml(photo.src800)} 800w, ../${escapeHtml(photo.src1600)} 1600w" sizes="(min-width: 760px) 48vw, 100vw" width="${photo.width}" height="${photo.height}" loading="lazy" decoding="async" alt="${escapeHtml(photo.alt)}">`,
         '          </a>',
       ].join('\n');
     return [

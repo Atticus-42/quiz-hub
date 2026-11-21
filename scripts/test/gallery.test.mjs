@@ -47,7 +47,7 @@ test('gallery page renders every photo as a lazy, sized, srcset image linking to
   assert.match(html, /<dialog class="lightbox"/);
 });
 
-test('gallery videos are listed with files, posters and lazy controls', () => {
+test('gallery videos are listed with files, posters and muted inline controls', () => {
   const videos = data.photos.filter(item => item.type === 'video');
   assert.ok(videos.length >= 1);
   const tags = [...html.matchAll(/<video ([^>]+)>/g)];
@@ -64,7 +64,7 @@ test('gallery videos are listed with files, posters and lazy controls', () => {
     assert.match(attrs, /(?:^| )playsinline(?: |$)/);
     assert.ok(attrs.includes(`poster="../${video.poster}"`), video.id + ' poster attribute');
     if (video.loop) assert.match(attrs, /(?:^| )loop(?: |$)/);
-    if (video.muted) assert.match(attrs, /(?:^| )muted(?: |$)/);
+    assert.match(attrs, /(?:^| )muted(?: |$)/);
     assert.ok(html.includes(`<source src="../${video.src}" type="video/mp4">`), video.id + ' source');
   });
 });
@@ -86,22 +86,11 @@ test('no stray originals: gallery assets are only processed jpg pairs, mp4 video
   assert.ok(files.every(name => /-(800|1600)\.jpg$|-poster\.jpg$|\.mp4$/.test(name)), files.join(', '));
 });
 
-test('every gallery item has a valid focus point and the grid crops around it to a 4:5 or 4:3 tile', () => {
+test('the gallery displays full photo frames at thumbnail size', () => {
   const valid = /^(\d{1,3}(?:\.\d)?)% (\d{1,3}(?:\.\d)?)%$/;
   for (const item of data.photos) {
     const m = valid.exec(item.focus || '');
     assert.ok(m && Number(m[1]) <= 100 && Number(m[2]) <= 100, `${item.id}: focus "${item.focus}" must be "X% Y%" within 0-100`);
   }
-  const photos = data.photos.filter(item => item.type !== 'video');
-  const imgs = [...html.matchAll(/<a class="gallery-open" href="[^"]+"[^>]*>\s*<img ([^>]+)>/g)];
-  assert.equal(imgs.length, photos.length);
-  imgs.forEach(([, attrs], index) => {
-    const photo = photos[index];
-    assert.ok(attrs.includes(`object-position: ${photo.focus}`), `${photo.id}: img renders object-position ${photo.focus}`);
-    assert.ok(attrs.includes(`--tile: ${photo.height > photo.width ? '4 / 5' : '4 / 3'}`), `${photo.id}: tile aspect follows orientation`);
-  });
-  for (const video of data.photos.filter(item => item.type === 'video')) {
-    assert.ok(html.includes(`object-position: ${video.focus}`), `${video.id}: video renders object-position`);
-  }
-  assert.match(html, /\.gallery-open img \{[^}]*aspect-ratio: var\(--tile, 4 \/ 3\)[^}]*object-fit: cover/);
+  assert.match(html, /\.gallery-open img \{[^}]*width: 100%; height: auto;[^}]*object-fit: contain/);
 });

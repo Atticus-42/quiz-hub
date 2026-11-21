@@ -14,9 +14,8 @@
        GALLERY PAGE. Masthead, then the photos as captioned plates in a
        responsive grid (one column on phones, two on wide screens). Each
        plate links to the full-size image; scripts/build.mjs fills the
-       grid from data/gallery.json. Thumbnails crop to a 4:5 (portrait) or
-       4:3 (landscape) tile around each photo's "focus" point, which sits
-       on the faces, so faces always stay in view. Tokens: src/shared/base.css above.
+       grid from data/gallery.json. Every thumbnail preserves the frame
+       so portrait and group photos keep their faces. Tokens: src/shared/base.css above.
        ===================================================================== */
     .hero, main { position: relative; z-index: 1; }
     .hero { color: var(--color-text); }
@@ -45,7 +44,7 @@
     .gallery-item { margin: 0; padding: 0; break-inside: avoid; page-break-inside: avoid; }
     .gallery-figure { margin: 0; padding: 0; }
     .gallery-open { display: block; padding: 0; border: 0; background: none; color: inherit; text-decoration: none; cursor: zoom-in; }
-    .gallery-open img { display: block; width: 100%; height: auto; aspect-ratio: var(--tile, 4 / 3); object-fit: cover; object-position: 50% 30%; filter: none; border-radius: 0; }
+    .gallery-open img { display: block; width: 100%; height: auto; max-height: 44rem; object-fit: contain; filter: none; border-radius: 0; }
     .gallery-video { display: block; width: 100%; height: auto; aspect-ratio: var(--ratio, 4 / 3); max-height: 36rem; object-fit: contain; background: #000; border-radius: 0; }
     .gallery-open:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
     .gallery-figure figcaption { margin: 0; padding: var(--space-2) 0; border-top: 1px solid var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-text); }
@@ -54,12 +53,16 @@
     .gallery-more button:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
     @media (min-width: 760px) { .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } }
 
-    .lightbox { width: min(96vw, 1600px); max-width: none; max-height: 96vh; margin: auto; padding: var(--space-3); border: 1px solid var(--color-text); background: var(--color-paper); color: var(--color-text); }
+    .lightbox { box-sizing: border-box; width: min(96vw, 1600px); max-width: none; max-height: 96dvh; margin: auto; padding: var(--space-3); border: 1px solid var(--color-text); background: var(--color-paper); color: var(--color-text); }
     .lightbox::backdrop { background: rgba(0, 0, 0, 0.82); }
-    .lightbox img { display: block; width: 100%; height: auto; max-height: calc(96vh - 9rem); object-fit: contain; filter: none; border-radius: 0; }
+    .lightbox-viewport { display: flex; width: 100%; height: min(72dvh, 64rem); overflow: auto; overscroll-behavior: contain; background: var(--color-ink, #202216); }
+    .lightbox img { display: block; flex: none; margin: auto; max-width: none; max-height: none; object-fit: contain; filter: none; border-radius: 0; }
     .lightbox p { margin: var(--space-2) 0 0; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
-    .lightbox-close { display: inline-flex; align-items: center; min-height: 44px; margin-top: var(--space-2); padding: 0 var(--space-4); border: 1px solid var(--color-text); background: var(--color-paper); color: var(--color-text); font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer; }
-    .lightbox-close:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; }
+    .lightbox-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-2); }
+    .lightbox-actions button { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 var(--space-3); border: 1px solid var(--color-text); background: var(--color-paper); color: var(--color-text); font: inherit; cursor: pointer; }
+    .lightbox-actions button:disabled { opacity: 0.5; cursor: default; }
+    .lightbox-actions button:focus-visible, .lightbox-viewport:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; }
+    .lightbox-close { margin-inline-start: auto; }
 
     @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; row-gap: var(--space-4); padding-block: var(--space-5); }
@@ -125,10 +128,17 @@
     <p class="gallery-more" id="gallery-more" hidden><button type="button" id="gallery-more-button">Show more</button></p>
   </main>
 
-  <dialog class="lightbox" id="lightbox" aria-label="Photo, full size">
-    <img id="lightbox-img" src="" alt="">
+  <dialog class="lightbox" id="lightbox" aria-label="Photo viewer">
+    <div class="lightbox-viewport" id="lightbox-viewport" role="region" aria-label="Photo, scroll to pan when zoomed" tabindex="0">
+      <img id="lightbox-img" alt="">
+    </div>
     <p id="lightbox-caption"></p>
-    <button type="button" class="lightbox-close" id="lightbox-close">Close</button>
+    <div class="lightbox-actions" aria-label="Photo controls" role="group">
+      <button type="button" id="lightbox-zoom-out" aria-label="Zoom out" disabled>−</button>
+      <button type="button" id="lightbox-fit" aria-label="Reset zoom to fit the photo" disabled>Fit</button>
+      <button type="button" id="lightbox-zoom-in" aria-label="Zoom in" disabled>+</button>
+      <button type="button" class="lightbox-close" id="lightbox-close">Close</button>
+    </div>
   </dialog>
 
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
@@ -159,32 +169,104 @@
         var first = shown;
         shown = Math.min(shown + PAGE, items.length);
         sync();
-        var link = items[first].querySelector('.gallery-open');
+        var link = items[first].querySelector('.gallery-open, .gallery-video');
         if (link) link.focus();
       });
     }
-    // Progressive enhancement: without scripts (or <dialog>) each photo is a plain link to the full-size image.
     var box = document.getElementById('lightbox');
-    if (!box || typeof box.showModal !== 'function') return;
+    var videoStates = new Map();
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    function syncVideo(video, state) {
+      var eligible = state.visible && !document.hidden && !box.open && !reducedMotion.matches;
+      if (eligible === state.eligible) return;
+      state.eligible = eligible;
+      if (eligible) {
+        video.play().catch(function () { /* Native controls remain available if autoplay is blocked. */ });
+      } else if (!video.paused) {
+        video.pause();
+      }
+    }
+
+    function syncVideos() {
+      videoStates.forEach(function (state, video) { syncVideo(video, state); });
+    }
+
+    if ('IntersectionObserver' in window) {
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var state = videoStates.get(entry.target);
+          state.visible = entry.isIntersecting && entry.intersectionRatio >= 0.25;
+          syncVideo(entry.target, state);
+        });
+      }, { threshold: 0.25 });
+      grid.querySelectorAll('.gallery-video').forEach(function (video) {
+        videoStates.set(video, { visible: false, eligible: false });
+        observer.observe(video);
+      });
+      document.addEventListener('visibilitychange', syncVideos);
+      reducedMotion.addEventListener('change', syncVideos);
+    }
+
+    // The full-size image link still works without dialog support.
+    if (typeof box.showModal !== 'function') return;
     var img = document.getElementById('lightbox-img');
+    var viewport = document.getElementById('lightbox-viewport');
     var caption = document.getElementById('lightbox-caption');
+    var zoomOut = document.getElementById('lightbox-zoom-out');
+    var zoomIn = document.getElementById('lightbox-zoom-in');
+    var fit = document.getElementById('lightbox-fit');
+    var close = document.getElementById('lightbox-close');
+    var levels = [1, 1.5, 2, 3, 4];
+    var zoom = 0;
     var opener = null;
-    var links = document.querySelectorAll('.gallery-open');
-    for (var i = 0; i < links.length; i++) {
-      links[i].addEventListener('click', function (event) {
+
+    function setZoom(index) {
+      var centerX = (viewport.scrollLeft + viewport.clientWidth / 2) / (viewport.scrollWidth || 1);
+      var centerY = (viewport.scrollTop + viewport.clientHeight / 2) / (viewport.scrollHeight || 1);
+      zoom = index;
+      var loaded = img.naturalWidth > 0;
+      if (loaded) {
+        var fitScale = Math.min(viewport.offsetWidth / img.naturalWidth, viewport.offsetHeight / img.naturalHeight, 1);
+        var scale = fitScale * levels[zoom];
+        img.style.width = (img.naturalWidth * scale) + 'px';
+        img.style.height = (img.naturalHeight * scale) + 'px';
+        viewport.scrollLeft = viewport.scrollWidth * centerX - viewport.clientWidth / 2;
+        viewport.scrollTop = viewport.scrollHeight * centerY - viewport.clientHeight / 2;
+      }
+      zoomOut.disabled = !loaded || zoom === 0;
+      zoomIn.disabled = !loaded || zoom === levels.length - 1;
+      fit.disabled = !loaded || zoom === 0;
+      fit.textContent = zoom === 0 ? 'Fit' : (levels[zoom] * 100) + '%';
+    }
+
+    img.addEventListener('load', function () { if (box.open) setZoom(zoom); });
+    window.addEventListener('resize', function () { if (box.open) setZoom(zoom); });
+    zoomOut.addEventListener('click', function () { setZoom(zoom - 1); if (zoomOut.disabled) zoomIn.focus(); });
+    zoomIn.addEventListener('click', function () { setZoom(zoom + 1); if (zoomIn.disabled) zoomOut.focus(); });
+    fit.addEventListener('click', function () { setZoom(0); zoomIn.focus(); });
+    grid.querySelectorAll('.gallery-open').forEach(function (link) {
+      link.addEventListener('click', function (event) {
+        if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
         event.preventDefault();
         opener = this;
-        var photo = this.querySelector('img');
-        img.setAttribute('src', this.getAttribute('href'));
-        img.setAttribute('alt', photo.getAttribute('alt'));
+        img.alt = this.querySelector('img').alt;
+        img.src = this.href;
         caption.textContent = this.getAttribute('data-caption');
         box.showModal();
-        document.getElementById('lightbox-close').focus();
+        setZoom(0);
+        syncVideos();
+        close.focus();
       });
-    }
-    document.getElementById('lightbox-close').addEventListener('click', function () { box.close(); });
+    });
+    close.addEventListener('click', function () { box.close(); });
     box.addEventListener('click', function (event) { if (event.target === box) box.close(); });
-    box.addEventListener('close', function () { img.removeAttribute('src'); if (opener) opener.focus(); });
+    box.addEventListener('close', function () {
+      img.removeAttribute('src');
+      img.removeAttribute('style');
+      if (opener) opener.focus();
+      syncVideos();
+    });
   })();
   </script>
 </body>
