@@ -48,9 +48,10 @@ test('week 8 includes all training rows and 21 menus, and both future weeks reac
  assert.equal(exam.uniform,'PHILARPAT');assert.equal(exam.venue,'Mabini Hall');
  const monday=week.days[0].blocks.find(b=>b.kind==='lecture');
  assert.equal(monday.activity,'Cont’n MDMP');assert.equal(monday.instructor,'MAJ PEREZ / MAJ PANDI');assert.equal(monday.uniform,'SGOU');
- const feed=loadSchedule(ROOT,undefined,{allDays:true});assert.equal(feed.days.length,21);assert.equal(feed.week.end,'2026-11-15');
+ const feed=loadSchedule(ROOT,undefined,{allDays:true});assert.equal(feed.days.length,28);assert.equal(feed.week.end,'2026-11-22');
  assert.deepEqual(feed.days.slice(7,14),loadSchedule(ROOT,join(ROOT,'data/schedules/2026-11-02_2026-11-08.json')).days);
- assert.deepEqual(feed.days.slice(14),week.days);
+ assert.deepEqual(feed.days.slice(14,21),week.days);
+ assert.deepEqual(feed.days.slice(21),loadSchedule(ROOT,join(ROOT,'data/schedules/2026-11-16_2026-11-22.json')).days);
  assert.deepEqual(week.days.map(day=>day.blocks.filter(block=>block.menu).length),[3,3,3,3,3,3,3]);
  assert.deepEqual(week.days.flatMap(day=>day.blocks.filter(block=>block.menu&&!block.time).map(block=>[day.date,block.activity])),[
   ['2026-11-12','Morning Mess'],['2026-11-12','Evening Mess'],
@@ -75,9 +76,10 @@ test('week 8 includes all training rows and 21 menus, and both future weeks reac
   assert.equal(config.days[0],start);
   assert.equal(new Date(config.days[0]).getUTCDay(),1);
   assert.equal(new Date(config.days[6]).getUTCDay(),0);
-  assert.equal(config.activityOnly,true);
+  assert.equal(config.activityOnly,start !== '2026-11-16');
   assert.ok(pages['schedule/index.html'].includes(`href="../schedule-${start}/"`));
  }
  assert.match(pages['schedule-2026-12-14/index.html'],/id="day-2026-12-16"[\s\S]*Closing Ceremony of 3TP CY 2026/);
  assert.match(pages['schedule-2027-01-04/index.html'],/id="day-2027-01-10"[\s\S]*No activities have been published for this date/);
 });
+
