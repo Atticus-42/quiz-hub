@@ -2,7 +2,9 @@
 
 Questions from the class's 15 graded exams (SOAC 52-2026), for reviewing before the Comprehensive Exam.
 
-- Data: `data/actual-exams.json`. Each question has only `n` (its number on the graded exam), `stem` and `key`.
+- Data: `data/actual-exams.json`. Each question has `n` (its number on the graded exam), `stem`, `key`, three hand-chosen `distractors`
+  (none for true/false keys), an `explanation` of why the key is right and `why`, one line per distractor saying why
+  it is wrong (in distractor order).
   Student answers, names, scores and pass marks are not recorded. The build and the tests reject any `studentAnswer`.
 - Code: `scripts/actual-exams.mjs` (loading, validation, multiple-choice generation, page placement),
   `scripts/build.mjs` (`actualSection`, `renderActualPage`, `renderActualPages`, `renderReviewerIndex`),
@@ -70,22 +72,23 @@ Exam titles are cleaned for display. `portalTitle` keeps the original wording.
 
 ## Multiple choice
 
-The portal showed no answer choices, so the build makes each item multiple choice:
+The portal showed no answer choices, so every item is made multiple choice from stored data:
 
-- **Choices:** the key plus three distractors taken from other questions' answer keys. Candidates are ranked by
-  closeness: same exam first, then same module, then any exam. Within that order, candidates of the same answer
-  type rank higher: short term, phrase, sentence or number, with similar length.
-- **Seeded selection:** the build picks among the closest seven, seeded by the question's qid. The same data always
-  builds identical pages.
-- **Key position:** balanced across each exam's questions (each letter within one), in a seeded order.
-- **Excluded distractors:**
-  - near-duplicates of the key: case, plural or punctuation variants, an acronym, a subset of the key's words, or
-    most words shared ("Signal Intelligence" and "Signals Intelligence (SIGINT)");
-  - keys of questions whose stem is nearly the same.
-- **Two-option items:** true/false keys get two choices. The current exams contain none.
-- **Ordering:** the site keeps authored choice order and shuffles the question order. Unseen questions come first,
-  as in every other mode.
-- **Explanation:** each item states that the key is the recorded answer and where the other choices came from.
+- **Choices:** the key plus the question's three stored `distractors`: same kind as the key, drawn from the same
+  exam's keys or the lesson material when they fit and clearly wrong, otherwise authored. No choice is pulled from an
+  unrelated question. True/false keys get two choices (the current exams contain none).
+- **Seeded order:** the three distractors are shuffled by the question's qid and the key goes in a position balanced
+  across each exam's questions. The same data always builds identical pages.
+- **Feedback:** the Note holds the `explanation`; an "Other choices" list gives each wrong option with its `why`
+  line (the built question carries `rationales`, parallel to `options`, `null` for the answer); References still cite
+  the graded exam and question number.
+- **Grounding:** explanations were written from the course material (lessons, reviewers, field manuals and PAMs in
+  `library/files`, and the lesson banks). Where no source could be found, a careful general-knowledge explanation was
+  used. The data keeps the recorded keys unchanged, including ones that look contestable.
+- **Duplicates:** an identical stem and key reused in another exam carries the same text in each exam.
+- **Ordering:** the site keeps the built choice order and shuffles the question order. Unseen questions come first.
+- **Tests:** every question must have an explanation, one `why` line per distractor, and distractors distinct from the
+  key and from each other.
 
 ## Identity, citations and class history
 

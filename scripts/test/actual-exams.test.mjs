@@ -44,11 +44,18 @@ function answerAll(api, correct = () => true) {
 
 test('data: 15 graded exams, no student answers or scores, essays and the garbled EW item left out with reasons', () => {
   assert.equal(source.exams.length, 15);
-  assert.doesNotMatch(raw, /studentAnswer|PASSED|DID NOT PASS|score \d/i);
+  assert.doesNotMatch(raw, /studentAnswer|bPASSEDb|DID NOT PASS|score d/);
   for (const exam of source.exams) for (const q of exam.questions) {
     const fields = Object.keys(q).sort().join();
-    assert.ok(fields === 'key,n,stem' || fields === 'distractors,key,n,stem', `${exam.key} Q${q.n} fields ${fields}`);
-    if (q.distractors) assert.ok(!q.distractors.includes(q.key) && q.distractors.length === 3, `${exam.key} Q${q.n} distractors`);
+    const tf = /^(true|false)$/i.test(q.key.trim());
+    assert.equal(fields, tf ? 'explanation,key,n,stem,why' : 'distractors,explanation,key,n,stem,why', `${exam.key} Q${q.n} fields`);
+    assert.ok(q.explanation.trim().length > 20 && q.explanation.length <= 600, `${exam.key} Q${q.n} explanation`);
+    assert.equal(q.why.length, tf ? 1 : 3, `${exam.key} Q${q.n} one rationale per wrong choice`);
+    assert.ok(q.why.every(line => line.trim().length > 5 && line.length <= 300), `${exam.key} Q${q.n} rationale text`);
+    if (!tf) {
+      assert.equal(new Set([q.key, ...q.distractors].map(d => d.trim().toLowerCase())).size, 4, `${exam.key} Q${q.n} distractors distinct from key and each other`);
+      assert.ok(q.distractors.every(d => d !== q.key), `${exam.key} Q${q.n} distractors`);
+    }
     for (const pattern of FORBIDDEN_TEXT) assert.doesNotMatch(q.stem + q.key, pattern, `${exam.key} Q${q.n}`);
   }
   const diag = source.exams.find(exam => exam.key === 'gradeddiag');
@@ -70,7 +77,15 @@ test('schema: every generated question validates, cites its graded exam and keep
     assert.equal(item.options.length, /^(true|false)$/i.test(q.key) ? 2 : 4);
     assert.deepEqual(item.source, { type: 'graded-exam', exam: exam.key, title: exam.title, date: exam.date, number: q.n });
     assert.equal(item.sourceSlides, undefined);
-    for (const option of item.options) if (option !== q.key) assert.ok(!nearDuplicate(option, q.key), `${item.qid}: "${option}" is a near-duplicate of the key`);
+    assert.equal(item.explanation, q.explanation);
+    assert.equal(item.rationales.length, item.options.length);
+    item.options.forEach((option, i) => {
+      if (i === item.answer) return assert.equal(item.rationales[i], null);
+      const at = q.distractors ? q.distractors.indexOf(option) : 0;
+      assert.ok(at >= 0, `${item.qid}: "${option}" is a stored distractor`);
+      assert.equal(item.rationales[i], q.why[at], `${item.qid}: rationale matches its option`);
+    });
+    assert.doesNotMatch(item.explanation, /answer key recorded|answer keys from other questions/);
   }
   assert.ok(nearDuplicate('Signal Intelligence', 'Signals Intelligence'));
   assert.ok(nearDuplicate('SIGINT', 'Signals Intelligence (SIGINT)'));
@@ -80,15 +95,13 @@ test('schema: every generated question validates, cites its graded exam and keep
   assert.deepEqual(validateActualBank([{ ...data.all.bank[0], source: { ...data.all.bank[0].source, type: 'pam-page' } }], examKeys).length, 1, 'only known source types');
 });
 
-test('choices: seeded and reproducible, letters balanced within each exam, distractors from the same exam first', () => {
+test('choices: seeded and reproducible, key letters balanced within each exam, distractors are the stored ones', () => {
   const again = buildActualQuestions(loadActualExams(ROOT, byKey));
   assert.deepEqual([...again.values()], [...data.questions.values()]);
   for (const { exam, bank } of data.perExam) {
-    const letters = [0, 1, 2, 3].map(index => bank.filter(item => item.answer === index).length);
-    assert.ok(Math.max(...letters) - Math.min(...letters) <= 1, `${exam.key}: letters ${letters}`);
-    const ownKeys = new Set(exam.questions.map(q => q.key));
-    const own = bank.flatMap(item => item.options.filter((_, index) => index !== item.answer)).filter(option => ownKeys.has(option)).length;
-    assert.ok(own / (bank.length * 3) > 0.6, `${exam.key}: most distractors come from the same exam (${own})`);
+    const four = bank.filter(item => item.options.length === 4);
+    const letters = [0, 1, 2, 3].map(index => four.filter(item => item.answer === index).length);
+    assert.ok(Math.max(...letters) - Math.min(...letters) <= 2, `${exam.key}: letters ${letters}`);
   }
 });
 

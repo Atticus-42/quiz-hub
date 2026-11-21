@@ -423,6 +423,8 @@
     .explanation > .section-label { grid-column: 1; grid-row: 1 / span 2; }
     .section-label { margin: 0; font-family: var(--font-mono); font-size: var(--text-label); font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-text); }
     .explanation > .section-label { padding-top: 0.2rem; border-top: 3px solid var(--lesson-accent); align-self: start; white-space: nowrap; }
+    .wrong-choices { margin: 0; padding: 0; list-style: none; max-width: 68ch; font-size: var(--text-body); line-height: 1.5; }
+    .wrong-choice { margin: 0 0 var(--space-2); }
     .explanation-text { margin: 0; max-width: 68ch; font-size: var(--text-body); line-height: 1.55; }
     .explanation-references { margin-top: var(--space-3); background: var(--color-paper); }
     .source-ref, .library-source { margin: 0; max-width: 68ch; font-size: var(--text-ui); line-height: 1.55; color: var(--color-muted); overflow-wrap: anywhere; }
@@ -1181,6 +1183,7 @@
         var options = question.options;
         if (!Array.isArray(options) || options.length < 2 || options.length > 4 || options.some(function (option) { return typeof option !== 'string' || !option.trim(); })) errors.push(at + 'options must contain two to four nonempty strings');
         if (!Number.isInteger(question.answer) || !Array.isArray(options) || question.answer < 0 || question.answer >= options.length) errors.push(at + 'answer must index one of the options');
+        if (!Array.isArray(question.rationales) || !Array.isArray(options) || question.rationales.length !== options.length || question.rationales.some(function (line, i) { return i === question.answer ? line !== null : typeof line !== 'string' || !line.trim(); })) errors.push(at + 'rationales must hold null for the answer and one nonempty line for each wrong option');
         var source = question.source;
         if (!source || SOURCE_TYPES.indexOf(source.type) === -1 || source.exam !== question.examKey || typeof source.title !== 'string' || typeof source.date !== 'string' || !Number.isInteger(source.number)) errors.push(at + 'source must be { type: "graded-exam", exam, title, date, number }');
       });
@@ -2111,6 +2114,20 @@
         make('p', 'explanation-text', note)
       );
       block.appendChild(noteBlock);
+      // Actual Exam questions explain each wrong choice (rationales parallel to options; null for the answer).
+      if (Array.isArray(question.rationales)) {
+        var wrongBlock = make('div', 'explanation explanation-wrong');
+        wrongBlock.appendChild(make('p', 'section-label', 'Other choices'));
+        var wrongList = make('ul', 'wrong-choices');
+        question.rationales.forEach(function (line, i) {
+          if (typeof line !== 'string' || i === question.answer) return;
+          var item = make('li', 'wrong-choice');
+          item.append(make('strong', null, String.fromCharCode(65 + i) + '. ' + question.options[i] + ' '), document.createTextNode('— ' + line));
+          wrongList.appendChild(item);
+        });
+        wrongBlock.appendChild(wrongList);
+        block.appendChild(wrongBlock);
+      }
       if (SOURCE_REF && Array.isArray(question.sourceSlides) && question.sourceSlides.length) {
         references.push('Lesson reference: ' + SOURCE_REF.label + ' ' + question.sourceSlides.join(', '));
       }

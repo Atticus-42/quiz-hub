@@ -2,12 +2,10 @@
 // beside Easy, Medium and Hard on the matching lesson and module exam pages, and on the Comprehensive Exam
 // Reviewer (comprehensive-reviewer/), which lists every graded exam as its own quiz plus a mixed set.
 //
-// The portal showed only each question's stem and answer key, so the build turns every item into a multiple-choice
-// question: the key plus three distractors taken from the answer keys of other questions, preferring the same exam
-// and a key of similar type and length, then the same module (true/false keys become two-option items). Every
-// choice is seeded by the question's qid, so the same data always builds the same page. Near-duplicates of the key
-// (case, plural, punctuation, an acronym or a subset of its words) and keys of questions with the same stem are never
-// used as distractors. Questions cite their graded exam (source type "graded-exam"), never a lesson page.
+// The portal showed only each question's stem and answer key, so every item carries three fixed, hand-chosen
+// distractors of the same kind as the key (true/false keys become two-option items), a short explanation of why the key
+// is right and one line per distractor on why it is wrong. Choice order is seeded by the question's qid, so the same
+// data always builds the same page. Questions cite their graded exam (source type "graded-exam"), never a lesson page.
 //
 // qids: "<examKey>-a-<NN>", NN being the question's number on the graded exam. Permanent; never renumbered.
 // Actual-exam attempts post to the class history like the other modes: mode "actual", qids <examKey>-a-NN (apps-script/Code.gs v8).
@@ -123,14 +121,18 @@ export function loadActualExams(root, lessonsByKey) {
       numbers.add(item.n);
     }
     for (const q of exam.questions) {
+      const tf = /^(true|false)$/i.test(String(q.key).trim());
       const fields = Object.keys(q).sort().join();
-      if (fields !== 'key,n,stem' && fields !== 'distractors,key,n,stem') fail(`${where} Q${q.n}: a question holds only n, stem, key and optional distractors`);
+      if (fields !== (tf ? 'explanation,key,n,stem,why' : 'distractors,explanation,key,n,stem,why')) fail(`${where} Q${q.n}: a question holds only n, stem, key, explanation, why${tf ? '' : ' and distractors'}`);
       if (typeof q.stem !== 'string' || !q.stem.trim() || typeof q.key !== 'string' || !q.key.trim()) fail(`${where} Q${q.n}: stem and key must be nonempty`);
-      if (q.distractors !== undefined) {
+      if (typeof q.explanation !== 'string' || !q.explanation.trim()) fail(`${where} Q${q.n}: explanation must be nonempty`);
+      const wrong = tf ? 1 : 3;
+      if (!Array.isArray(q.why) || q.why.length !== wrong || q.why.some(d => typeof d !== 'string' || !d.trim())) fail(`${where} Q${q.n}: why must hold ${wrong} nonempty line(s), one per wrong choice`);
+      if (!tf) {
         const list = q.distractors;
         if (!Array.isArray(list) || list.length !== 3 || list.some(d => typeof d !== 'string' || !d.trim())) fail(`${where} Q${q.n}: distractors must be three nonempty strings`);
         const all = [q.key, ...list].map(d => d.trim().toLowerCase());
-        if (new Set(all).size !== 4 || list.some(d => nearDuplicate(d, q.key))) fail(`${where} Q${q.n}: distractors must differ from each other and from the key`);
+        if (new Set(all).size !== 4) fail(`${where} Q${q.n}: distractors must differ from each other and from the key`);
       }
       for (const pattern of FORBIDDEN_TEXT) if (pattern.test(q.stem + ' ' + q.key)) fail(`${where} Q${q.n}: contains forbidden text ${pattern}`);
     }
@@ -158,42 +160,18 @@ export function buildActualQuestions(exams) {
       const key = item.q.key;
       let options;
       let answer;
+      let rationales;
       if (item.cls === 'tf') {
         options = ['True', 'False'];
         answer = /^true$/i.test(key.trim()) ? 0 : 1;
-      } else if (item.q.distractors) {
-        // Hand-written distractors for keys the pool cannot match well (numbers and values).
-        answer = positions[index];
-        options = shuffle(item.q.distractors.slice(), random);
-        options.splice(answer, 0, key);
+        rationales = options.map((_, i) => (i === answer ? null : item.q.why[0]));
       } else {
-        const keyLength = key.length;
-        const candidates = [];
-        const seen = [];
-        for (const other of items) {
-          if (other === item) continue;
-          const text = other.q.key;
-          if (other.cls === 'tf' || nearDuplicate(text, key) || sameStem(other.q.stem, item.q.stem)) continue;
-          if (seen.some(prior => prior.toLowerCase() === text.toLowerCase())) continue;
-          seen.push(text);
-          const cost = Math.abs(Math.log(text.length / keyLength))
-            + (other.cls === item.cls ? 0 : 1)
-            + (other.exam === exam ? 0 : other.exam.module === exam.module ? 0.75 : 2.5);
-          candidates.push({ text, cost });
-        }
-        candidates.sort((a, b) => a.cost - b.cost || a.text.localeCompare(b.text));
-        // A seeded pick among the closest few, so similar keys do not always meet the same three distractors.
-        const near = shuffle(candidates.slice(0, 7), random).concat(candidates.slice(7));
-        const chosen = [];
-        for (const candidate of near) {
-          if (chosen.some(prior => nearDuplicate(prior, candidate.text))) continue;
-          chosen.push(candidate.text);
-          if (chosen.length === 3) break;
-        }
-        if (chosen.length < 3) throw new Error(`${qid}: fewer than three distinct distractors`);
         answer = positions[index];
-        options = shuffle(chosen, random);
+        const order = shuffle([0, 1, 2], random);
+        options = order.map(i => item.q.distractors[i]);
+        rationales = order.map(i => item.q.why[i]);
         options.splice(answer, 0, key);
+        rationales.splice(answer, 0, null);
       }
       out.set(qid, {
         qid,
@@ -204,9 +182,8 @@ export function buildActualQuestions(exams) {
         prompt: item.q.stem,
         options,
         answer,
-        explanation: item.q.distractors
-          ? `This is the answer key recorded for question ${item.q.n} of the graded exam. The exam portal showed only the question and its key; the other choices are plausible values of the same kind, written so the item can be practised as multiple choice.`
-          : `This is the answer key recorded for question ${item.q.n} of the graded exam. The exam portal showed only the question and its key; the other choices are answer keys from other questions in the class’s graded exams, added so the item can be practised as multiple choice.`,
+        explanation: item.q.explanation,
+        rationales,
         source: { type: 'graded-exam', exam: exam.key, title: exam.title, date: exam.date, number: item.q.n },
       });
     });
@@ -273,6 +250,8 @@ export function validateActualBank(bank, examKeys) {
     if (!Array.isArray(options) || options.length < 2 || options.length > 4 || options.some(option => typeof option !== 'string' || !option.trim())) errors.push(at + 'options must contain two to four nonempty strings');
     else if (new Set(options.map(option => option.toLowerCase())).size !== options.length) errors.push(at + 'options must be distinct');
     if (!Number.isInteger(question.answer) || !Array.isArray(options) || question.answer < 0 || question.answer >= options.length) errors.push(at + 'answer must index one of the options');
+    if (!Array.isArray(question.rationales) || !Array.isArray(options) || question.rationales.length !== options.length
+      || question.rationales.some((line, i) => (i === question.answer ? line !== null : typeof line !== 'string' || !line.trim()))) errors.push(at + 'rationales must hold null for the answer and one nonempty line for each wrong option');
     const source = question.source;
     if (!source || !SOURCE_TYPES.includes(source.type) || source.exam !== question.examKey || typeof source.title !== 'string' || !DATE.test(source.date ?? '') || !Number.isInteger(source.number)) {
       errors.push(at + 'source must be { type: "graded-exam", exam, title, date, number }');
