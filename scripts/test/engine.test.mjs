@@ -1209,7 +1209,9 @@ export async function engineSuite(lesson) {
     }
     const preloads = [...builtHtml.matchAll(/<link\b[^>]*>/gi)].map(m => m[0]);
     assert.ok(preloads.length >= 2 && preloads.every(tag => /^<link rel="icon" type="image\/png" href="\.\.\/assets\/favicons\/crest-[a-z]+\.png">$/.test(tag) || ['<link rel="stylesheet" href="../assets/identity.css">','<link rel="stylesheet" href="../assets/ui-polish.css">','<link rel="stylesheet" href="../assets/site-index.css">','<link rel="icon" type="image/png" href="../assets/bandwidth-brothers-colored.png">'].includes(tag) || /^<link rel="preload" href="\.\.\/assets\/fonts\/[\w-]+\.woff2" as="font" type="font\/woff2" crossorigin>$/.test(tag)), 'only font preloads, same-origin');
-    for (const [, target] of withoutFontPreloads(builtHtml).matchAll(/\bhref\s*=\s*"([^"]*)"/gi)) {
+    // Shared section links are checked across every page by site-navigation.test.mjs.
+    const pageLinks = builtHtml.replace(/<nav class="site-tabs wrap"[^>]*>[\s\S]*?<\/nav>/, '');
+    for (const [, target] of withoutFontPreloads(pageLinks).matchAll(/\bhref\s*=\s*"([^"]*)"/gi)) {
       assert.ok(target.startsWith('#') || target === '../' || target === '../assets/identity.css' || target === hubHref || /^\.\.\/reviewer\/(?:#[\w-]+|[a-z0-9]+\/)$/.test(target), `unexpected href ${target}`);
     }
     const { rules } = parseCss(css);

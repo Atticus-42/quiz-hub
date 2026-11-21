@@ -181,7 +181,7 @@ export async function instructorSuite({ lessons }) {
 
   await T('the page links back to the hub, uses only the endpoint, is not indexed, and embeds every lesson question once', () => {
     assert.match(builtHtml, /<meta name="robots" content="noindex">/);
-    assert.deepEqual([...withoutFontPreloads(builtHtml).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../assets/identity.css', '../', '../']);
+    assert.deepEqual([...withoutFontPreloads(builtHtml.replace(/<nav class="site-tabs wrap"[^>]*>[\s\S]*?<\/nav>/, '')).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../assets/identity.css', '../', '../']);
     const urls = [...builtHtml.matchAll(/https?:\/\/[^\s"'<>)]+/g)].map(m => m[0]);
     assert.ok(urls.every(url => url.startsWith('https://script.google.com/')), urls.join(' '));
     assert.doesNotMatch(builtHtml, /id="item-data"/, 'the question text is no longer embedded');
@@ -422,7 +422,7 @@ export async function classSuite() {
     assert.match(html, /grid-template-columns: repeat\(auto-fill, minmax\(min\(100%, 14rem\), 1fr\)\)/, 'cards reflow to one column on phones');
     assert.match(html, /\.table-wrap \{ max-width: 100%; overflow-x: auto; \}/);
     assert.match(html, /body \{[^}]*overflow-wrap: anywhere;/);
-      assert.deepEqual([...withoutFontPreloads(html).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../assets/identity.css', '../', '../', '../schedule/?v=day-picker-2', '../gallery/']);
+      assert.deepEqual([...withoutFontPreloads(html.replace(/<nav class="site-tabs wrap"[^>]*>[\s\S]*?<\/nav>/, '')).matchAll(/\bhref="([^"]*)"/g)].map(m => m[1]), ['../assets/identity.css', '../', '../', '../schedule/?v=day-picker-2', '../gallery/']);
       assert.match(html, /<a class="hub-link" id="schedule-link" href="\.\.\/schedule\/\?v=day-picker-2">This week's schedule /);
     assert.doesNotMatch(withoutShareMeta(html), /https?:\/\//);
   });

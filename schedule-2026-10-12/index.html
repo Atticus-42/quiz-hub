@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Bandwidth Brothers, SOAC 52 - 2026: this week's training schedule.">
+  <meta name="description" content="Bandwidth Brothers, SOAC 52 - 2026: training schedule for 12–18 Oct 2026, with times, instructors, venues, uniforms and menus.">
   <meta name="referrer" content="no-referrer">
-  <title>Weekly training schedule · SOAC 52 - 2026 · Bandwidth Brothers</title>
+  <title>Weekly training schedule · 12–18 Oct 2026 · SOAC 52 - 2026 · Bandwidth Brothers</title>
   <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-Regular-Latin1.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../assets/fonts/IBMPlexSansCondensed-SemiBold-Latin1.woff2" as="font" type="font/woff2" crossorigin>
   <style>
@@ -346,6 +346,22 @@
     .nn-foot { grid-column: 2; margin: 0; font-size: var(--text-meta); }
     .nn-foot a { display: inline-flex; align-items: center; min-height: 44px; }
 
+    /* Upcoming activities */
+    .schedule-activities { margin: var(--space-5) 0; padding: var(--space-4) 0; border-top: 1px solid var(--color-rule); }
+    .schedule-activities h2 { margin: 0 0 var(--space-3); font-size: 1.375rem; }
+    .schedule-activities ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr)); gap: var(--space-3); list-style: none; margin: 0; padding: 0; }
+    .schedule-activities li { padding: var(--space-3); background: var(--color-sunken); border-top: 2px solid var(--color-signal); break-inside: avoid; }
+    .schedule-activities p { margin: 0; }
+    .schedule-activities .activity-date { color: var(--color-signal-text); }
+    .schedule-activities .activity-date a { display: inline-flex; align-items: center; min-height: 44px; }
+    .schedule-activities .activity-title { margin-top: var(--space-1); font-weight: 700; }
+    .schedule-activities .activity-detail { margin-top: var(--space-1); color: var(--color-muted); }
+
+    .activity-calendar { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2); margin: var(--space-4) 0; }
+    .activity-calendar select { font: inherit; min-height: 44px; max-width: 100%; }
+    .day-activities { margin: var(--space-3) 0; padding: var(--space-2) 0; }
+    .day-activities ul { margin-top: var(--space-2); }
+
     /* Day links */
     .week-nav { padding: var(--space-4) 0; border-top: 1px solid var(--color-text); }
     .week-nav ul { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
@@ -359,6 +375,9 @@
     .week-nav a.is-selected { background: var(--color-olive-dark); border-color: var(--color-olive-dark); color: var(--color-paper); }
     .week-nav a[aria-current="date"] { outline: 2px solid var(--color-signal); outline-offset: 2px; }
     .legend { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin: 0 0 var(--space-5); font-size: var(--text-meta); color: var(--color-muted); }
+    .schedule-weeks { display: flex; flex-wrap: wrap; gap: var(--space-2); margin: 0 0 var(--space-4); }
+    .schedule-weeks a { display: inline-flex; align-items: center; min-height: 44px; padding: 0 var(--space-2); border: 1px solid var(--color-rule); font-size: var(--text-meta); }
+    .schedule-weeks a[aria-current="page"] { background: var(--color-selected); border-color: var(--color-accent); font-weight: 700; }
     .legend span { display: inline-flex; align-items: center; gap: var(--space-2); }
     .legend i { display: inline-block; width: 0.875rem; height: 0.875rem; border: 1px solid var(--color-rule); border-left-width: 4px; }
     .legend .key-lecture { border-left-color: var(--color-accent); background: var(--color-selected); }
@@ -456,23 +475,56 @@
       .note { margin-top: 1.5mm; max-width: none; font-size: 6pt; color: #333; }
     }
   </style>
+<link rel="stylesheet" href="../assets/identity.css">
+<link rel="stylesheet" href="../assets/ui-polish.css">
+<link rel="icon" type="image/png" href="../assets/favicons/crest-colored.png">
+  <meta property="og:site_name" content="Bandwidth Brothers · SOAC 52 - 2026">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Weekly training schedule · 12–18 Oct 2026 · SOAC 52 - 2026 · Bandwidth Brothers">
+  <meta property="og:description" content="Bandwidth Brothers, SOAC 52 - 2026: training schedule for 12–18 Oct 2026, with times, instructors, venues, uniforms and menus.">
+  <meta property="og:url" content="https://atticus-42.github.io/quiz-hub/schedule-2026-10-12/">
+  <meta property="og:image" content="https://atticus-42.github.io/quiz-hub/assets/banner-1600.jpg">
+  <meta property="og:image:width" content="1600">
+  <meta property="og:image:height" content="900">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#2e3418">
+<link rel="stylesheet" href="../assets/site-index.css">
 </head>
-<body>
+<body><div class="identity-ribbon" role="region" aria-label="Class identity"><a href="../" class="identity-home"><img data-class-crest src="../assets/bandwidth-brothers-colored-400.webp" width="48" height="48" alt="Bandwidth Brothers crest"><span>Bandwidth Brothers<small>SOAC 52–26</small></span></a><span class="identity-edition">The crest collection <span data-crest-label>Original</span></span></div>
   <div class="topo" aria-hidden="true">
     <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false"><g class="contours" fill="none" stroke-linejoin="round" stroke-linecap="round"><path d="M233 0l12 9 9 5 11 8 5 2 8 6 3 1 9 6 12 6 4 1 9 4 11 2 10-1 9-6 3-5 3-3 6-13 5-16 1-6"/><path d="M204 0l11 8 23 20 5 3 20 19 8 6 25 25 6 8 8 8 18 25 9 16 5 7 9 18 2 2 6 11 9 14 6 8 12 12 7 6 5 3 12 6 16 4 12-1 10-5 3-5 2-8-1-12-3-10-2-3-7-16-6-10-2-5-8-12-2-5-5-7-9-18-2-6-4-8-2-8-2-4-3-12 0-4-3-15 0-9-1-4 0-42"/><path d="M181 0l0 1 5 3 12 10 24 23 6 4 14 14 12 15 8 8 3 5 8 9 15 22 2 5 5 7 9 18 2 2 14 29 6 10 2 5 3 4 4 9 18 25 14 14 19 14 18 9 6 2 18 5 14 2 20 0 20-5 9-4 8-8 5-8 2-7 0-12-2-11-3-9-6-13-8-15-5-7-2-5-8-11-8-14-3-3-5-8-2-5-5-7-9-18-2-2-3-8-6-12-5-14 0-2-1-1 0-3-3-8 0-4-3-12 0-4-2-9 0-7-1-4 0-12-1-2"/><path d="M160 0l17 14 8 8 2 1 34 34 28 35 12 18 2 5 2 2 10 17 8 16 1 4 13 26 2 6 10 20 3 4 7 14 15 22 20 20 8 6 13 8 19 9 8 3 28 7 16 2 32 0 8-1 16-3 19-8 6-4 10-10 3-5 4-12 0-12-5-20-2-6-5-10-20-33-22-31-18-28-2-5-5-7-12-24-1-4-4-8-1-5-2-3-5-20-1-1 0-3-3-12-3-26"/><path d="M140 0l8 7 6 4 12 11 36 36 10 12 3 5 4 4 5 8 6 7 10 17 5 7 2 5 2 2 4 9 4 6 2 6 5 9 0 2 9 18 2 7 5 10 2 6 17 36 15 24 13 15 6 6 11 9 9 6 13 7 16 7 11 4 3 0 26 7 24 3 8 0 4 1 20 0 4-1 12 0 20-3 20-6 20-10 7-5 8-10 5-10 2-6 1-10-1-4 0-5-3-11-2-4-2-7-8-15-11-18-23-33-8-10-7-11-5-6-1-3-3-3-6-9-1-3-2-2-5-9-2-2-2-5-3-4-11-22-7-20-3-6-5-19-1-9-2-8-1-14M966 0l1 1 3 0 20 5 8 0 4 1 16-1 8-2 9-4" class="major"/><path d="M122 0l19 17 2 1 8 8 8 6 9 9 6 8 19 20 3 5 12 15 11 17 5 8 6 12 2 2 6 14 2 2 8 19 0 2 3 5 4 12 4 8 10 28 10 23 2 3 2 6 5 8 2 5 15 21 14 14 6 5 3 1 6 5 5 2 2 2 14 7 2 0 5 3 8 2 6 3 3 0 32 8 4 0 3 1 24 3 8 0 4 1 36 0 4-1 20-1 8-2 9-1 19-5 6-2 10-5 4-1 6-3 6-5 3-1 14-15 5-9 3-16-1-12-3-12-3-5 0-2-2-5-7-13-15-23-8-10-6-9-7-8-17-24-7-8-12-18-3-3-4-8-6-8-1-3-6-9-11-22-5-14-2-3-1-5-1-1 0-3-2-4-4-16-1-9-2-7-1-10M918 0l8 5 16 8 32 14 12 3 8 3 20 4 24 0 18-5 2-2 7-4 9-9 4-7 2-2 3-8"/><path d="M103 0l7 6 5 3 14 13 2 1 34 34 19 23 1 3 8 10 13 20 4 9 3 4 8 16 11 26 3 10 2 4 2 8 5 12 3 12 2 4 6 20 6 16 3 5 0 2 2 5 6 12 11 17 4 5 13 13 9 8 17 10 4 1 10 5 14 4 4 2 3 0 1 1 20 5 4 0 12 3 5 0 3 1 24 3 8 0 4 1 20 0 4 1 36-1 4-1 8 0 23-3 6-2 3 0 20-5 20-7 21-11 3-3 6-4 9-9 7-11 0-2 4-13 0-12-4-16-1-1-2-7-6-12-5-7-1-3-3-3-1-3-11-15-7-8-9-13-10-11-7-10-6-6-9-13-4-4-6-8-16-23-19-33-12-28 0-3-1-1-8-31 0-6-1-3 0-4-1-2M887 0l1 0 6 5 3 1 3 3 3 1 11 8 9 5 2 2 5 2 4 3 16 8 2 2 16 8 19 8 2 0 20 8 3 0 22 6 12 1 3 1 17 0 16-4 9-5 7-6 1-3 6-9 3-11 2-4 3-16 1-14M0 454l9-11 7-14 0-2 2-5 1-8 0-16-3-11 0-3-7-16-9-14"/><path d="M84 0l11 8 18 16 8 6 25 25 22 27 19 28 21 42 10 30 2 4 3 12 2 4 7 27 0 3 8 28 0 2 1 1 0 3 2 4 4 14 2 3 7 17 2 2 5 9 8 9 10 9 13 9 12 6 4 1 5 3 2 0 5 2 12 3 4 2 8 1 16 4 4 0 8 2 12 1 3 1 5 0 12 2 8 0 4 1 8 0 4 1 16 0 4 1 44 0 4-1 12 0 12-2 8 0 16-3 4 0 24-6 3 0 26-9 2 0 28-14 11-9 10-10 3-4 5-9 3-9 0-18-3-13-8-17-4-7-2-2-1-3-4-6-4-4-3-5-3-3-1-3-9-11-22-25-4-6-15-16-7-10-5-5-6-9-16-20-3-6-3-3-1-3-8-12-13-26-4-10-5-16-5-20 0-4-2-7 0-7M861 0l9 7 11 7 3 3 11 7 3 3 4 2 3 3 13 8 11 8 14 8 7 5 5 2 7 5 42 21 20 7 6 3 8 2 3 2 5 1 1 1 3 0 4 2 50 13 3 0 19 5 4 0 16 4 8 0 3-1 1-2 0-4-4-16 0-4-6-28-5-40 0-8-2-12 0-8-1-6M1200 140l-10-2-4 0-12-3-7 0-2 1 0 6 2 8 0 3 1 1 3 12 2 4 3 9 0 2 8 22 0 2 7 17 0 2 2 3 7 20M0 490l2-2 5-2 8-6 19-18 6-8 9-16 2-8 2-4 1-8 0-16-4-16-4-9-13-21-15-18-18-18"/><path d="M64 0l11 7 6 6 13 9 37 36 13 15 7 10 4 4 13 19 2 5 4 7 2 2 3 6 1 4 2 4 2 2 5 14 2 3 1 5 1 1 2 7 2 4 3 12 1 1 0 3 8 32 0 4 4 20 1 12 2 8 2 20 2 8 0 4 4 15 0 3 2 6 8 17 6 8 10 9 11 7 13 6 7 2 1 1 31 8 9 1 8 2 32 4 8 0 4 1 8 0 16 2 40 1 4 1 40 0 4-1 16 0 4-1 8 0 4-1 17-1 3-1 12-1 8-2 4 0 12-3 3 0 6-2 3 0 8-3 28-8 26-11 6-4 10-5 12-9 11-12 1-3 2-2 2-4 3-8 0-4 1-3 0-13-3-12-3-8-6-12-6-8-4-7-7-8-6-9-5-5 0-1-21-22-4-6-24-25-1-2-8-8-6-8-10-11-9-13-7-8-4-7-8-11-2-5-7-11-9-18 0-2-4-9-7-24 0-4-3-16 0-6M837 0l8 7 3 1 14 12 12 8 14 12 3 1 3 3 5 3 4 4 8 5 3 3 9 6 10 8 9 5 11 8 3 1 3 3 3 1 12 8 52 26 4 1 16 8 5 2 2 0 9 5 6 2 22 11 4 3 5 2 2 2 20 13 6 5 14 14 10 12 1 3 8 10 14 23 9 18 2 2 15 31M1164 0l4 17 0 3 4 14 4 10 0 2 1 1 7 17 2 2 5 9 9 12M0 517l15-7 24-14 15-13 13-13 5-6 12-18 5-10 6-22 0-12-4-16-11-18-14-17-9-9-15-12-8-8-5-3-12-10-6-6-5-3-6-5"/><path d="M44 0l27 19 6 6 10 7 27 26 24 29 4 7 8 11 2 5 7 11 9 18 0 2 8 19 0 3 2 7 2 4 3 12 0 4 3 12 2 16 0 8 1 4 0 32-1 4-1 16-2 8-1 9-7 22-9 16-8 7-6 3-4 1-8 0-8-1-16-5-8-4-6-2-26-13-12-8-5-2-2-2-9-5-2-2-3-1-19-12-3-3-14-8-3-3-6-3M540 0l1 2 0 8 2 15 2 6 0 3 2 4 5 18 16 32 2 2 5 9 18 24 16 18 1 2 13 13 4 6 56 56 3 4 12 12 20 28 6 12 4 14 1 6 0 12-1 6-3 6-1 4-9 12-13 12-9 5-7 5-16 8-4 1-5 3-2 0-9 4-24 7-4 2-32 8-4 0-11 3-9 1-8 2-32 4-8 0-16 2-16 0-4 1-96 0-4-1-32 0-4-1-24 0-4-1-36-1-4-1-8 0-4-1-8 0-4-1-8 0-4-1-8 0-12-2-12 0-4-1-17 1-7 2-7 3-9 6-6 6-46 56-17 17-8 6-18 16-12 9-9 5-2 2-32 16-16 5M813 0l8 7 3 1 11 9 28 23 18 16 10 7 6 6 13 9 16 14 20 14 9 5 2 2 20 13 9 4 4 3 32 16 6 2 47 24 2 2 11 6 12 8 9 8 5 3 24 24 10 12 8 12 3 3 1 3 2 2 5 9 2 2 10 17 21 40M1187 0l1 6 2 4 5 16 5 11" class="major"/><path d="M21 0l2 2 3 1 20 13 8 6 4 4 13 9 10 10 3 2 25 26 10 12 1 3 8 10 15 27 9 19 2 6 4 16 2 5 3 15 2 16 0 24-3 16 0 4-2 5 0 2-8 19-5 6-11 10-10 5-8 2-12 1-16-2-8-2-4-2-16-5-10-4-34-17-12-8-6-3M561 0l0 10 2 16 5 20 1 1 5 15 8 16 2 2 1 3 7 12 3 3 12 17 6 6 11 14 41 41 8 6 38 36 8 6 6 6 4 6 16 17 7 11 2 2 7 14 0 2 2 4 2 8 1 12-3 16-4 8-10 13-23 17-8 3-9 5-2 0-5 3-24 9-12 3-4 2-20 5-12 4-8 2-4 0-28 7-4 0-32 6-32 4-8 0-16 2-12 0-4 1-20 0-4 1-36 0-4 1-40 0-4 1-24 0-4 1-16 0-4 1-12 0-4 1-20 1-3 1-6 0-3 1-20 2-12 3-4 0-8 2-1 1-7 1-4 2-14 4-26 13-12 8-3 1-8 7-24 17-20 17-20 14-4 4-9 5-11 8-5 2-12 8-8 3-9 5-2 0-13 6-22 6M789 0l0 1 5 3 16 14 10 7 13 12 14 11 34 32 14 11 10 10 23 19 3 1 3 3 12 8 3 3 3 1 2 2 9 5 2 2 5 2 4 3 9 4 10 6 16 7 19 10 6 2 38 20 27 18 12 10 22 22 19 25 8 13 8 11 2 5 4 7 2 2 24 47"/><path d="M0 233l15 8 38 15 3 0 14 4 8 1 16 0 12-3 5-2 10-7 6-6 9-18 4-15 1-8 0-16-2-16-2-8 0-3-1-1-3-12-2-4-2-7-2-3-4-10-3-4-7-14-8-12-8-9-1-3-8-8 0-1-30-29-5-3-9-8-11-7-3-3-30-18M585 0l-1 18 2 16 5 18 2 3 2 7 8 16 14 21 3 3 6 9 8 8 6 8 17 17 8 6 16 15 23 19 9 6 20 17 5 3 4 4 5 3 12 10 22 22 5 6 10 15 7 16 2 8 1 8 0 12-5 19-10 14-6 6-18 13-17 8-16 6-24 7-4 2-10 3-3 0-29 8-3 0-27 7-3 0-6 2-3 0-20 5-4 0-7 2-9 1-8 2-4 0-8 2-48 6-8 0-12 2-12 0-4 1-12 0-4 1-12 0-4 1-16 0-4 1-32 1-4 1-32 2-12 2-8 0-9 2-11 1-8 2-4 0-12 3-4 0-32 8-4 2-12 3-16 6-33 16-31 19-24 17-16 10-10 8-3 1-6 5-5 2-16 11-23 12-13 6-4 1-5 3-11 3-4 2-7 1-1 1-14 3M761 0l17 12 23 20 8 6 28 27 2 1 58 59 3 2 8 8 10 7 4 4 8 6 20 13 5 2 2 2 18 9 13 5 3 2 11 4 8 4 4 1 14 7 13 5 18 9 2 2 11 6 14 9 16 13 27 27 1 2 4 4 3 5 3 3 11 16 17 28 2 5 6 10 24 49"/><path d="M618 0l-2 3 0 2-2 5-2 12 0 12 2 8 0 4 2 5 0 2 8 19 2 2 5 9 2 2 7 11 14 17 17 17 8 6 11 10 20 14 10 8 3 1 3 3 8 4 11 8 12 7 3 1 2 2 9 5 2 2 5 2 7 5 14 8 3 3 9 6 15 14 8 11 4 7 7 17 4 20 0 20-1 8-3 12-4 10-8 12-13 13-9 6-19 9-18 5-4 2-3 0-1 1-24 6-4 0-24 6-4 0-15 4-9 1-20 5-4 0-6 2-3 0-11 3-4 0-16 4-4 0-2 1-3 0-7 2-4 0-12 3-4 0-8 2-16 2-20 4-20 2-3 1-17 1-12 2-8 0-24 3-12 0-4 1-8 0-3 1-9 0-12 2-8 0-40 5-3 1-4 0-2 1-11 1-16 4-4 0-8 2-1 1-3 0-16 4-4 2-3 0-1 1-2 0-10 4-17 5-3 2-14 5-42 21-17 10-2 2-11 6-25 17-39 25-11 6-2 2-5 2-4 3-22 11-17 6-3 2-2 0-4 2-18 5-3 0-7 2-4 0-2 1M726 0l25 16 3 3 4 2 33 27 25 25 6 8 15 16 11 15 12 14 8 12 10 12 20 20 7 6 15 9 26 12 9 3 2 0 9 4 28 8 10 4 2 0 1 1 18 6 3 2 16 6 18 9 32 22 26 26 1 3 12 14 11 16 7 12 1 3 2 2 4 7 11 22 7 17 8 16 7 17 2 3 6 16 1 1M0 212l10 5 8 3 32 9 8 1 12 0 8-1 4-1 13-6 10-10 4-6 1-4 2-3 0-3 3-10 0-20-3-18-3-10-3-8-9-18-9-15-19-24-14-14-23-19-11-7-2-2-9-5-2-2-8-4M1172 800l-9-14-2-5-4-4-4-6-11-11-8-3-8 0-5 3-5 6-9 16-7 18"/><path d="M672 16l-6 2-10 6-5 10-1 4 0 12 3 12 5 12 3 4 1 3 18 22 6 6 6 4 5 5 9 6 3 3 9 6 5 2 2 2 5 2 4 3 6 3 22 8 16 4 16 0 7-2 3-2 5-5 2-10 0-4-3-11 0-3-11-22-18-24-21-21-6-5-9-6-3-3-9-6-3-1-2-2-16-8-19-6-5 0-4-1-10 1M0 190l2 0 8 3 20 5 16 1 12-2 12-5 11-12 4-14 1-8-1-12-5-19-7-15-11-18-12-15-14-14-6-4-5-5-1 0-9-8-14-9-1 0M1200 510l-9-24-11-36-2-4-6-20-2-4-9-27-3-5-1-4-5-10-7-17-8-15-11-18-9-13-6-6-1-2-23-23-9-6-3-3-9-6-5-2-2-2-18-9-7-2-12-5-24-6-4 0-2-1-14-2-8 0-4-1-16 0-19 3-12 5-3 2-10 10-7 17-3 12 0 4-3 12 0 4-2 8 0 4-3 11 0 3-4 14-4 9 0 2-6 12-9 11-8 7-6 4-3 1-2 2-4 1-10 5-3 0-27 7-4 0-8 2-36 4-8 2-28 3-20 4-17 2-7 2-4 0-12 3-4 0-28 6-4 0-12 3-4 0-7 2-9 1-12 3-4 0-32 6-12 1-8 2-64 8-8 0-16 2-3 1-6 0-3 1-28 3-8 2-4 0-7 2-9 1-16 4-4 0-10 3-3 0-7 2-4 2-16 4-1 1-11 3-9 4-2 0-9 4-4 1-23 10-22 11-15 9-12 6-7 5-5 2-8 5-3 3-14 8-35 24-5 2-18 12-5 2-12 8-18 9-16 6-3 2-22 7-3 0-6 2-4 0-8 2-6 0M1200 674l0-2-8-19 0-2-7-14-5-7-4-5-10-9-8-5-12-6-12-3-8-1-12 0-8 2-4 0-10 4-12 8-8 9-9 18-7 28-2 16-1 20-1 4 0 12-1 4 0 12-1 4-1 20-1 3-1 13-2 8 0 4-2 10"/><path d="M0 161l18 2 8-1 7-2 9-7 4-7 2-8-1-12-4-12-9-16-2-2-1-3-5-6-14-14-12-9M1007 800l1-6 1-1 0-3 2-8 0-4 2-8 1-16 1-4 0-8 1-4 0-28 1-4 0-28-1-4 0-36 1-4 0-20 3-24 3-12 3-8 4-8 7-8 11-10 17-7 1-1 2 0 10-4 16-4 1-1 11-3 20-10 12-12 7-16 3-16 0-16-1-4-1-16-2-8 0-4-5-20-3-7 0-3-15-35-2-2-2-5-12-18-19-22-12-10-7-5-9-5-2-2-10-5-16-5-4-2-4 0-12-3-20 0-16 3-13 6-6 5-3 1-2 2-6 8-9 16-3 8-3 12-2 4-10 40-7 16-3 4-1 3-7 8-5 3-3 3-13 6-10 3-22 3-96 3-4 1-20 1-12 2-8 0-16 2-8 2-11 1-9 2-4 0-12 3-16 2-7 2-9 1-16 4-4 0-8 2-3 0-6 2-3 0-8 2-4 0-12 3-4 0-8 2-4 0-8 2-4 0-32 6-20 2-8 2-12 1-8 2-12 1-8 2-16 2-12 3-3 0-6 2-3 0-27 7-3 0-14 4-16 6-8 2-24 9-5 3-2 0-5 3-11 4-18 9-10 6-9 4-4 3-5 2-2 2-26 15-82 56-42 24-2 0-5 3-24 9-24 5-14 1" class="major"/><path d="M1008 312l6-1 17 1 15 5 4 3 5 2 9 6 11 10 13 16 2 5 6 9 4 10 6 20 1 8 0 20-3 12-7 13-5 6-11 8-15 6-3 0-6 2-7 1-8 0-4 1-16 0-4-1-8 0-20-4-7-3-8-7-4-6-2-7-1-1-3-16-1-8 0-16-1-4 1-8 0-16 3-19 1-1 3-12 6-12 5-7 6-6 6-4 4-2 10-3M976 800l3-10 2-4 2-8 2-16 2-8 0-8 2-16 0-52-1-4 0-12-1-4-1-20-2-12 0-8-4-32-2-8-2-18-1-2-1-12-5-24-1-9-4-15-4-10-5-6-5-4-16-7-24-6-4 0-2-1-3 0-15-4-4 0-12-3-4 0-2-1-10-1-20-4-16-2-8 0-12-2-12 0-4-1-56 0-4 1-20 1-40 5-8 2-16 2-12 3-4 0-12 3-3 0-6 2-3 0-16 4-4 0-11 3-3 0-6 2-4 0-16 4-4 0-16 4-4 0-16 4-4 0-28 6-4 0-12 3-9 1-7 2-4 0-20 5-3 0-6 2-3 0-40 11-4 2-20 6-9 4-2 0-5 3-14 5-22 11-8 3-2 2-26 13-12 7-53 35-15 12-17 12-4 4-8 5-9 8-9 6-8 7-18 12-6 5-5 2-12 8-18 9-10 4-11 3-13 2-18 0"/><path d="M948 800l2-6 4-8 8-32 3-24 0-12 1-4-1-40-1-4 0-8-3-23-2-9 0-4-4-16-1-8-9-30-2-3-2-7-5-11-8-15-11-15-14-14-5-3-10-8-26-13-4-1-5-3-15-4-4-2-3 0-1-1-20-5-4 0-12-3-5 0-11-2-20-1-4-1-36 0-4 1-12 0-4 1-16 1-3 1-6 0-15 3-4 0-8 2-4 0-32 7-4 0-15 4-3 0-26 7-3 0-35 9-3 0-30 8-3 0-14 4-4 0-14 4-3 0-27 7-4 2-28 7-1 1-15 4-3 2-17 5-9 4-2 0-5 3-14 5-50 25-24 15-5 2-11 8-7 4-3 3-11 7-3 3-9 6-12 10-16 15-8 6-25 25-6 8-8 8-17 24-6 13-3 12 0 8 3 12 11 16 12 12 8 6"/><path d="M919 800l4-6 8-16 5-14 0-2 1-1 0-3 4-16 3-24 0-36-1-4 0-12-2-16-3-12 0-4-2-6 0-3-5-19-2-4 0-3-2-3-3-10-8-16-1-4-14-21-13-16-17-14-13-9-9-4-12-7-7-3-14-4-6-3-36-8-16-2-8 0-4-1-44 0-4 1-8 0-32 4-24 5-4 0-15 4-3 0-58 15-4 2-44 12-7 3-3 0-10 4-32 9-7 3-3 0-6 3-8 2-4 2-3 0-3 2-34 12-3 2-5 1-8 4-4 1-16 8-4 1-2 2-6 2-10 5-6 4-20 10-12 8-5 2-19 14-3 1-8 7-13 9-29 28-17 20-14 25-5 19 0 16 2 8 5 12 9 13 6 7 17 14 1 0"/><path d="M889 800l1-2 6-6 6-9 11-22 7-25 0-3 2-7 1-16 1-4 0-24-1-4 0-8-3-24-7-28-2-4-2-8-2-4-2-7-5-9-1-4-10-17-15-19-12-12-15-11-17-11-8-3-9-5-2 0-9-4-13-4-35-7-8-1-12 0-4-1-28 0-4 1-9 0-3 1-16 1-8 2-16 2-36 9-3 0-1 1-20 5-7 3-3 0-10 4-14 4-6 3-8 2-3 2-5 1-1 1-18 6-3 2-10 4-7 2-5 3-4 1-10 5-14 5-5 3-2 0-9 5-26 11-2 2-8 3-12 7-4 1-15 9-5 2-4 3-9 4-2 2-9 5-2 2-3 1-24 16-3 3-12 8-12 10-18 18-1 3-8 9-4 6-6 12-4 12-1 16 3 12 5 10 5 6 13 12 13 7 15 6 3 0 1 1 16 3 12 0 8 1 4-1 12 0 16-2 3-1 6 0 7-2 4 0 8-2 12-1 16-3 24-1 4-1 12 0 4 1 12 0 3 1 6 0 3 1 12 1 12 3 4 0 42 11 3 0 7 3 12 3 5 2 2 0"/><path d="M852 800l12-8 16-17 7-12 1-3 2-2 1-4 5-10 0-3 6-23 2-16 0-28-3-24-4-16 0-3-1-1 0-2-4-10-2-8-3-5-9-20-12-18-5-6-18-18-21-15-5-2-12-7-17-6-3-2-3 0-4-2-12-3-4 0-7-2-3 0-2-1-16-1-4-1-36 0-4 1-16 1-20 4-4 0-19 5-3 0-25 8-3 0-14 6-8 2-1 1-34 14-32 16-9 6-8 4-7 5-5 2-13 9-3 3-6 3-9 8-3 1-17 14-8 8-2 1-6 7-4 3-19 23-8 16-1 6 0 11 3 6 10 10 6 3 4 1 5 3 2 0 9 4 13 4 2 0 23 8 2 0 1 1 3 0 4 2 8 2 3 2 5 1 1 1 18 6 1 1 8 2 8 4 20 7 5 3 2 0 29 12 10 3 3 2 18 6 1 1 5 1 3 2 8 3 32 10" class="major"/><path d="M789 800l17-3 4-2 9-3 2 0 14-7 12-9 9-9 9-11 5-10 2-2 4-10 3-12 2-4 0-4 2-8 1-8 0-32-3-19-2-6-1-7-2-4-4-14-13-26-12-17-14-15-15-11-3-3-12-7-21-10-23-7-33-5-32 0-4 1-16 1-8 2-9 1-31 8-1 1-11 3-9 4-2 0-5 3-14 5-2 2-8 3-15 9-5 2-33 24-17 17-9 12-8 15-4 14-1 8 1 8 3 12 13 20 14 14 11 9 22 15 16 9 7 5 9 4 4 3 16 8 6 2 14 7 6 2 10 5 7 2 3 2 10 3 4 2 37 11 3 0 20 5 16 2"/><path d="M664 535l-8 1-14 4-4 2-16 5-25 12-2 2-14 8-3 3-9 6-18 18-4 5-8 13-2 6-2 3 0 3-2 4-1 8 0 12 3 12 3 8 4 8 2 2 1 3 3 3 3 5 22 22 5 3 12 10 17 11 12 6 2 2 9 4 6 4 16 6 10 5 8 3 2 0 1 1 5 1 4 2 18 5 3 0 11 3 4 0 8 2 16 1 4 1 20 0 16-2 16-4 19-8 6-4 11-9 6-6 11-16 7-16 5-20 1-8 0-24-2-16-7-25-2-3-4-11-8-14-2-2-7-11-18-18-7-6-14-9-16-8-7-2-4-2-13-4-3 0-12-3-16-2-28 0-24 3-6 2"/><path d="M672 550l-22 6-8 3-24 12-18 13-16 17-7 12-4 9-2 8-1 12 1 8 4 15 10 18 3 3 3 5 22 22 5 3 3 3 3 1 6 5 3 1 3 3 10 5 2 2 6 3 4 1 9 5 23 8 27 7 13 2 8 0 4 1 20-1 14-2 20-7 6-3 13-9 11-12 1-3 6-9 7-18 3-21-1-20-2-13-2-7-5-12 0-2-7-14-2-2-1-3-3-3-6-9-15-15-2-1-4-4-18-11-21-9-3 0-1-1-12-3-16-2-32 0-8 2-10 1"/><path d="M688 567l-14 3-4 2-14 4-2 2-7 3-15 10-16 17-8 16 0 3-2 7 0 12 1 8 8 19 12 17 6 6 16 13 17 11 8 3 9 5 2 0 9 4 16 4 1 1 23 3 12 0 16-2 16-5 4-2 14-10 9-10 6-9 5-14 3-18-1-16-1-7-1-1-3-12-6-13-13-19-10-10-3-1-10-8-15-8-10-4-11-3-13-2-28 0-6 1"/><path d="M696 591l-1 1-3 0-10 3-13 6-3 3-5 3-8 8-2 3-4 8-3 12 0 8 2 8 0 3 4 9 9 13 12 11 7 5 20 10 8 3 8 2 16 2 8 0 16-3 9-4 12-9 5-6 5-9 4-15-1-16-3-11-2-3-2-6-6-9-11-12-15-10-18-7-5 0-12-2-18 1" class="major"/></g></svg>
   </div>
-  <div class="strip">
+  <div class="strip" role="region" aria-label="Page context">
     <div class="wrap strip-inner">
       <p>For training purposes<span class="sep" aria-hidden="true">·</span>SOAC 52 - 2026<span class="sep" aria-hidden="true">·</span>Bandwidth Brothers</p>
       <p class="strip-ref">Weekly training schedule</p>
     </div>
   </div>
+  <nav class="site-tabs wrap" aria-label="Site sections">
+    <div class="nav-group" role="group" aria-label="Study">
+      <a href="../"><span>Practice exams</span></a>
+      <a href="../reviewer/"><span>Reviewer</span></a>
+      <a href="../comprehensive-reviewer/"><span>Exam Reviewer</span></a>
+      <a href="../library/"><span>Library</span></a>
+    </div>
+    <div class="nav-group" role="group" aria-label="Reference">
+      <a href="../library/unit-organization/"><span>Unit Organization</span></a>
+      <a href="../how-to/"><span>How To</span></a>
+      <a href="../los-radios/"><span>LOS Radios</span></a>
+      <a class="cipher-tab" id="cipher-tab" href="../codes-ciphers/">Codes &amp; Ciphers</a>
+    </div>
+    <div class="nav-group" role="group" aria-label="Class">
+      <a href="../schedule/?v=day-picker-2" aria-current="page">Weekly schedule</a>
+      <a href="../class/">Our class</a>
+      <a href="../gallery/">Gallery</a>
+    </div>
+  </nav>
   <header class="hero">
     <div class="wrap hero-bar">
       <p class="hero-links">
         <a class="hub-link" href="../"><span aria-hidden="true">&#8592;</span> All quizzes</a>
         <a class="hub-link" href="../class/">Our class <span aria-hidden="true">&#8594;</span></a>
-        <a class="hub-link" href="../schedule/">Current schedule <span aria-hidden="true">&#8594;</span></a>
+        <a class="hub-link" href="../schedule-2026-10-12/">12–18 Oct schedule <span aria-hidden="true">&#8594;</span></a>
       </p>
       <p class="fig-line label" aria-hidden="true">Annex C — Weekly training schedule, SOAC 52 - 2026</p>
     </div>
@@ -506,7 +558,143 @@
       <p class="nn-foot" id="nn-foot"><a id="nn-jump" href="#week">Go to today</a></p>
     </section>
 
-    <nav class="week-nav" aria-label="Days of the week">
+    <section class="schedule-activities" aria-labelledby="schedule-activities-title">
+      <h2 id="schedule-activities-title">Upcoming activities</h2>
+      <ul role="list">
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-09/#day-2026-11-11">11–13 Nov 2026</a></p>
+  <p class="activity-title">In-House Training</p>
+  <p class="activity-detail">Tactical Radio Operation and Maintenance under Mission Command Training.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-16/#day-2026-11-16">16 Nov 2026 · 0800–1700</a></p>
+  <p class="activity-title">Issuance of Unified Plan to BCC</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-16/#day-2026-11-16">16–26 Nov 2026</a></p>
+  <p class="activity-title">BCC JOPP</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-16/#day-2026-11-16">16–20 Nov 2026</a></p>
+  <p class="activity-title">Integrated Signal Operation Exercise (ISOPEX)</p>
+  <p class="activity-detail">3TP 2026.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-23/#day-2026-11-24">24–29 Nov 2026</a></p>
+  <p class="activity-title">HIKWS BP 2</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-23/#day-2026-11-25">25 Nov 2026 · 0800–1700</a></p>
+  <p class="activity-title">Hauling of Sustainment Students</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-23/#day-2026-11-26">26 Nov 2026 · 0800</a></p>
+  <p class="activity-title">Issuance of JTF/Div Plan to SOC</p>
+  <p class="activity-detail">Brigade MDMP.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-23/#day-2026-11-28">28 Nov 2026 · 0900–1200</a></p>
+  <p class="activity-title">DMA Brief</p>
+  <p class="activity-detail">Brigade MDMP.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-23/#day-2026-11-29">29 Nov 2026 · 0800–1700</a></p>
+  <p class="activity-title">Hauling of Students from Other WFS / Orientation / Task Organization</p>
+  <p class="activity-detail">Pre-CAPEX activity.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-23/#day-2026-11-29">29 Nov 2026 · 1300–1600</a></p>
+  <p class="activity-title">COA Development Brief</p>
+  <p class="activity-detail">Brigade MDMP.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-30/#day-2026-11-30">30 Nov – 02 Dec 2026</a></p>
+  <p class="activity-title">Pre-CAPEX</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-30/#day-2026-11-30">30 Nov 2026 · 1300–1600</a></p>
+  <p class="activity-title">COA Analysis and Wargaming</p>
+  <p class="activity-detail">Brigade MDMP.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-30/#day-2026-12-01">01 Dec 2026 · 1500–1700</a></p>
+  <p class="activity-title">COA Comparison and Decision Brief</p>
+  <p class="activity-detail">Brigade MDMP.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-30/#day-2026-12-02">02 Dec 2026 · 1300</a></p>
+  <p class="activity-title">OPORD Brief</p>
+  <p class="activity-detail">Brigade MDMP.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-30/#day-2026-12-02">02 Dec 2026 · 1700</a></p>
+  <p class="activity-title">Submission of Bde OPORD to ECG</p>
+  <p class="activity-detail">Brigade MDMP.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-30/#day-2026-12-03">03 Dec 2026 · 0800</a></p>
+  <p class="activity-title">Issuance of Bde OPORD from SOC</p>
+  <p class="activity-detail">Bn MDMP / Battle Period 3.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-30/#day-2026-12-03">03 Dec 2026 · 0800</a></p>
+  <p class="activity-title">Issuance of FRAG O from IS</p>
+  <p class="activity-detail">Bn MDMP / Battle Period 3.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-30/#day-2026-12-04">04–10 Dec 2026</a></p>
+  <p class="activity-title">Parallel Planning Bde to Pltn</p>
+  <p class="activity-detail">Battle Period 3.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-11-30/#day-2026-12-04">04–10 Dec 2026</a></p>
+  <p class="activity-title">Parallel Planning Bn to Pltn</p>
+  <p class="activity-detail">CAPEX.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-12-07/#day-2026-12-11">11 Dec 2026</a></p>
+  <p class="activity-title">Assault Time Bivouacs (Vic Borreo)</p>
+  <p class="activity-detail">Battle Period 3.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-12-07/#day-2026-12-11">11 Dec 2026</a></p>
+  <p class="activity-title">Decentralized ROC</p>
+  <p class="activity-detail">Bn MDMP / Battle Period 3.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-12-07/#day-2026-12-12">12 Dec 2026</a></p>
+  <p class="activity-title">Victory March AAR</p>
+  <p class="activity-detail">Battle Period 3.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-12-07/#day-2026-12-12">12 Dec 2026 · 1000</a></p>
+  <p class="activity-title">Closing Ceremony CAPEX / Impression</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-12-07/#day-2026-12-13">13–15 Dec 2026</a></p>
+  <p class="activity-title">Student Out-processing / School Recognition</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-12-14/#day-2026-12-16">16 Dec 2026 · 0900 · Tentative</a></p>
+  <p class="activity-title">Closing Ceremony of 3TP CY 2026</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2026-12-14/#day-2026-12-16">Immediately after graduation through 3 Jan 2027</a></p>
+  <p class="activity-title">Breakthrough!</p>
+  <p class="activity-detail">Combined Christmas and New Year’s break.</p>
+</li>
+<li>
+  <p class="label activity-date"><a href="../schedule-2027-01-04/#day-2027-01-04">4 Jan 2027</a></p>
+  <p class="activity-title">Return To Unit</p>
+</li>
+<li>
+  <p class="label activity-date">TBAL</p>
+  <p class="activity-title">Signal School Christmas Party 2026</p>
+</li>
+  </ul>
+    </section>
+
+    <nav class="schedule-weeks" aria-label="Available weeks"><a href="../schedule/?week=2026-10-26">26 Oct – 01 Nov 2026</a><a href="../schedule-2026-11-02/">02–08 Nov 2026</a><a href="../schedule-2026-11-09/">09–15 Nov 2026</a><a href="../schedule-2026-11-16/">16–22 Nov 2026</a><a href="../schedule-2026-11-23/">23–29 Nov 2026</a><a href="../schedule-2026-11-30/">30 Nov – 06 Dec 2026</a><a href="../schedule-2026-12-07/">07–13 Dec 2026</a><a href="../schedule-2026-12-14/">14–20 Dec 2026</a><a href="../schedule-2026-12-21/">21–27 Dec 2026</a><a href="../schedule-2026-12-28/">28 Dec 2026 – 03 Jan 2027</a><a href="../schedule-2027-01-04/">04–10 Jan 2027</a></nav><nav class="week-nav" aria-label="Days of the week">
       <ul>
           <li><a href="#day-2026-10-12" data-date="2026-10-12"><span>Mon</span> <span class="mono">12</span></a></li>
           <li><a href="#day-2026-10-13" data-date="2026-10-13"><span>Tue</span> <span class="mono">13</span></a></li>
@@ -517,6 +705,65 @@
           <li><a href="#day-2026-10-18" data-date="2026-10-18"><span>Sun</span> <span class="mono">18</span></a></li>
       </ul>
     </nav>
+    <div class="activity-calendar" id="activity-calendar" hidden>
+      <label for="activity-date-picker">Jump to an activity date</label>
+      <select id="activity-date-picker">
+        <option value="">Choose a date</option>
+        <option value="2026-11-11">11 Nov 2026</option>
+<option value="2026-11-12">12 Nov 2026</option>
+<option value="2026-11-13">13 Nov 2026</option>
+<option value="2026-11-16">16 Nov 2026</option>
+<option value="2026-11-17">17 Nov 2026</option>
+<option value="2026-11-18">18 Nov 2026</option>
+<option value="2026-11-19">19 Nov 2026</option>
+<option value="2026-11-20">20 Nov 2026</option>
+<option value="2026-11-21">21 Nov 2026</option>
+<option value="2026-11-22">22 Nov 2026</option>
+<option value="2026-11-23">23 Nov 2026</option>
+<option value="2026-11-24">24 Nov 2026</option>
+<option value="2026-11-25">25 Nov 2026</option>
+<option value="2026-11-26">26 Nov 2026</option>
+<option value="2026-11-27">27 Nov 2026</option>
+<option value="2026-11-28">28 Nov 2026</option>
+<option value="2026-11-29">29 Nov 2026</option>
+<option value="2026-11-30">30 Nov 2026</option>
+<option value="2026-12-01">01 Dec 2026</option>
+<option value="2026-12-02">02 Dec 2026</option>
+<option value="2026-12-03">03 Dec 2026</option>
+<option value="2026-12-04">04 Dec 2026</option>
+<option value="2026-12-05">05 Dec 2026</option>
+<option value="2026-12-06">06 Dec 2026</option>
+<option value="2026-12-07">07 Dec 2026</option>
+<option value="2026-12-08">08 Dec 2026</option>
+<option value="2026-12-09">09 Dec 2026</option>
+<option value="2026-12-10">10 Dec 2026</option>
+<option value="2026-12-11">11 Dec 2026</option>
+<option value="2026-12-12">12 Dec 2026</option>
+<option value="2026-12-13">13 Dec 2026</option>
+<option value="2026-12-14">14 Dec 2026</option>
+<option value="2026-12-15">15 Dec 2026</option>
+<option value="2026-12-16">16 Dec 2026</option>
+<option value="2026-12-17">17 Dec 2026</option>
+<option value="2026-12-18">18 Dec 2026</option>
+<option value="2026-12-19">19 Dec 2026</option>
+<option value="2026-12-20">20 Dec 2026</option>
+<option value="2026-12-21">21 Dec 2026</option>
+<option value="2026-12-22">22 Dec 2026</option>
+<option value="2026-12-23">23 Dec 2026</option>
+<option value="2026-12-24">24 Dec 2026</option>
+<option value="2026-12-25">25 Dec 2026</option>
+<option value="2026-12-26">26 Dec 2026</option>
+<option value="2026-12-27">27 Dec 2026</option>
+<option value="2026-12-28">28 Dec 2026</option>
+<option value="2026-12-29">29 Dec 2026</option>
+<option value="2026-12-30">30 Dec 2026</option>
+<option value="2026-12-31">31 Dec 2026</option>
+<option value="2027-01-01">01 Jan 2027</option>
+<option value="2027-01-02">02 Jan 2027</option>
+<option value="2027-01-03">03 Jan 2027</option>
+<option value="2027-01-04">04 Jan 2027</option>
+      </select>
+    </div>
     <p class="label">Choose a day to view its schedule.</p>
     <p class="legend" aria-hidden="true"><span><i class="key-lecture"></i>Lecture</span><span><i class="key-exam"></i>Exam or assessment</span><span><i></i>Routine</span></p>
 
@@ -1217,7 +1464,7 @@
 
   <footer class="site-footer wrap"><p class="colophon"><span>Mastery Quizzes · Bandwidth Brothers</span><span>For training purposes · SOAC 52 - 2026</span></p></footer>
 
-  <script type="application/json" id="schedule-data">{"start":"2026-10-12","end":"2026-10-18","range":"12–18 Oct 2026","days":["2026-10-12","2026-10-13","2026-10-14","2026-10-15","2026-10-16","2026-10-17","2026-10-18"]}</script>
+  <script type="application/json" id="schedule-data">{"start":"2026-10-12","end":"2026-10-18","range":"12–18 Oct 2026","days":["2026-10-12","2026-10-13","2026-10-14","2026-10-15","2026-10-16","2026-10-17","2026-10-18"],"weeks":[{"start":"2026-10-26","end":"2026-11-01"},{"start":"2026-11-02","end":"2026-11-08"},{"start":"2026-11-09","end":"2026-11-15"},{"start":"2026-11-16","end":"2026-11-22"},{"start":"2026-11-23","end":"2026-11-29"},{"start":"2026-11-30","end":"2026-12-06"},{"start":"2026-12-07","end":"2026-12-13"},{"start":"2026-12-14","end":"2026-12-20"},{"start":"2026-12-21","end":"2026-12-27"},{"start":"2026-12-28","end":"2027-01-03"},{"start":"2027-01-04","end":"2027-01-10"}],"activityOnly":false}</script>
   <script>
   (function () {
     'use strict';
@@ -1329,7 +1576,7 @@
       var nextList = byId('nn-next-list');
       nowList.replaceChildren();
       nextList.replaceChildren();
-      panel.hidden = false;
+      panel.hidden = config.activityOnly === true;
       byId('nn-now').hidden = !s.inWeek;
       byId('nn-foot').hidden = !s.inWeek;
       if (s.inWeek) {
@@ -1362,10 +1609,27 @@
     }(document.body));
 
     var selectedDay = null;
+    var selectableDates = config.days;
+    var activityPicker = byId('activity-date-picker');
+    if (activityPicker && activityPicker.children.length > 1) {
+      byId('activity-calendar').hidden = false;
+      activityPicker.addEventListener('change', function () {
+        if (activityPicker.value) window.location.hash = 'day-' + activityPicker.value;
+      });
+    }
     function selectDay(day) {
-      if (config.days.indexOf(day) === -1) return;
+      if (selectableDates.indexOf(day) === -1) {
+        if (!/^\d{4}-\d{2}-\d{2}$/.test(day) || !window.location) return;
+        var week = (config.weeks || []).find(function (entry) { return day >= entry.start && day <= entry.end; });
+        if (week && week.start !== config.start) {
+          window.location.replace('../schedule-' + week.start + '/' + window.location.search + '#day-' + day);
+        }
+        return;
+      }
       selectedDay = day;
-      config.days.forEach(function (date) { byId('day-' + date).hidden = date !== day; });
+      if (activityPicker) activityPicker.value = day;
+      byId('now-next').hidden = config.activityOnly === true;
+      selectableDates.forEach(function (date) { byId('day-' + date).hidden = date !== day; });
       navLinks.forEach(function (link) {
         var selected = link.getAttribute('data-date') === day;
         link.classList.toggle('is-selected', selected);
@@ -1388,7 +1652,9 @@
     var fixed = fixedNow();
     var current = update(fixed && !isNaN(fixed.getTime()) ? fixed : new Date());
     var hashDay = ((window.location && window.location.hash) || '').replace(/^#day-/, '');
-    selectDay(config.days.indexOf(hashDay) !== -1 ? hashDay : current.inWeek ? current.today : config.days[0]);
+    if (selectableDates.indexOf(current.today) !== -1) selectDay(current.today);
+    else selectDay(config.days[0]);
+    if (hashDay) selectDay(hashDay);
     if (typeof window.addEventListener === 'function') window.addEventListener('hashchange', function () {
       var day = ((window.location && window.location.hash) || '').replace(/^#day-/, '');
       selectDay(day);
@@ -1397,5 +1663,8 @@
     window.__schedule = { localDate: localDate, state: state, update: update, selectDay: selectDay, initial: current };
   }());
   </script>
+<nav class="site-index" aria-label="Site index"><details><summary>Site index <small>Find anything</small></summary><div class="site-index-grid"><div><h2>Practice exams</h2><ul><li><a class="main" href="../">Exam hub (all modules)</a></li><li><a class="main" href="../module-1-exam/">Module 1 Exam</a></li><li><a class="main" href="../module-3-exam/">Module 4 Exam</a></li><li><a class="main" href="../module-5-exam/">Module 5 Exam</a></li><li><a class="main" href="../module-6-exam/">Module 6 Exam</a></li><li><a class="main" href="../module-7-exam/">Module 7 Exam</a></li><li><a class="main" href="../module-8-exam/">Module 8 Exam</a></li></ul></div><div><h2>Comprehensive Exam Reviewer</h2><ul><li><a class="main" href="../comprehensive-reviewer/">Actual Exam: all graded exams</a></li><li><a class="main" href="../comprehensive-reviewer/all/">All graded exams, mixed</a></li></ul></div><div class="si-lessons"><h2>Lessons by module</h2><ul><li><a class="main" href="../reviewer/">All Reviewer lessons</a></li></ul><div class="si-modules"><details class="si-module"><summary>Module 1 <span>Leadership</span> <small>7</small></summary><ul class="si-rows"><li class="si-row"><span class="si-name">Military Leadership Attributes</span><span class="si-links"><a href="../military-leadership-attributes/" aria-label="Military Leadership Attributes quiz">Quiz</a><a href="../reviewer/leadershipattributes/" aria-label="Military Leadership Attributes reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Military Leadership Competencies</span><span class="si-links"><a href="../military-leadership-competencies/" aria-label="Military Leadership Competencies quiz">Quiz</a><a href="../reviewer/leadershipcompetencies/" aria-label="Military Leadership Competencies reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Company Management</span><span class="si-links"><a href="../company-management/" aria-label="Company Management quiz">Quiz</a><a href="../reviewer/companymanagement/" aria-label="Company Management reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Mission Command</span><span class="si-links"><a href="../mission-command/" aria-label="Mission Command quiz">Quiz</a><a href="../reviewer/missioncommand/" aria-label="Mission Command reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Ethical and Transformational Leadership</span><span class="si-links"><a href="../ethical-transformational-leadership/" aria-label="Ethical and Transformational Leadership quiz">Quiz</a><a href="../reviewer/ethicalleadership/" aria-label="Ethical and Transformational Leadership reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">NCO Empowerment</span><span class="si-links"><a href="../nco-empowerment/" aria-label="NCO Empowerment quiz">Quiz</a><a href="../reviewer/ncoempowerment/" aria-label="NCO Empowerment reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Effective Communication 2</span><span class="si-links"><a href="../effective-communication-2/" aria-label="Effective Communication 2 quiz">Quiz</a><a href="../reviewer/effectivecommunication/" aria-label="Effective Communication 2 reviewer">Reviewer</a></span></li></ul></details><details class="si-module"><summary>Module 2 <span>Army Operating Concept</span> <small>4</small></summary><ul class="si-rows"><li class="si-row"><span class="si-name">Combined Practice Exam</span><span class="si-links"><a href="../combined/" aria-label="Combined Practice Exam quiz">Quiz</a></span></li><li class="si-row"><span class="si-name">Field Artillery Operations</span><span class="si-links"><a href="../field-artillery/" aria-label="Field Artillery Operations quiz">Quiz</a><a href="../reviewer/fieldartillery/" aria-label="Field Artillery Operations reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Armor Operations</span><span class="si-links"><a href="../armor/" aria-label="Armor Operations quiz">Quiz</a><a href="../reviewer/armor/" aria-label="Armor Operations reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">ISR Operations</span><span class="si-links"><a href="../isr/" aria-label="ISR Operations quiz">Quiz</a><a href="../reviewer/isr/" aria-label="ISR Operations reviewer">Reviewer</a></span></li></ul></details><details class="si-module"><summary>Module 3 <span>Battalion/Brigade Operations Planning</span> <small>3</small></summary><ul class="si-rows"><li class="si-row"><span class="si-name">Module 3 Planning Exam</span><span class="si-links"><a href="../module-3-planning-exam/" aria-label="Module 3 Planning Exam quiz">Quiz</a></span></li><li class="si-row"><span class="si-name">Troop Leading Procedure (TLP)</span><span class="si-links"><a href="../troop-leading-procedure/" aria-label="Troop Leading Procedure (TLP) quiz">Quiz</a><a href="../reviewer/tlp/" aria-label="Troop Leading Procedure (TLP) reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Military Decision-Making Process (MDMP)</span><span class="si-links"><a href="../military-decision-making-process/" aria-label="Military Decision-Making Process (MDMP) quiz">Quiz</a><a href="../reviewer/mdmp/" aria-label="Military Decision-Making Process (MDMP) reviewer">Reviewer</a></span></li></ul></details><details class="si-module"><summary>Module 4 <span>Signal Support Integration</span> <small>3</small></summary><ul class="si-rows"><li class="si-row"><span class="si-name">Signal Support in Combined Arms Operations</span><span class="si-links"><a href="../signal-support/" aria-label="Signal Support in Combined Arms Operations quiz">Quiz</a><a href="../reviewer/signal/" aria-label="Signal Support in Combined Arms Operations reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Signal Support in Joint Operations</span><span class="si-links"><a href="../joint-signal/" aria-label="Signal Support in Joint Operations quiz">Quiz</a><a href="../reviewer/signaljoint/" aria-label="Signal Support in Joint Operations reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Signal Support in Coalition Operations</span><span class="si-links"><a href="../coalition-signal/" aria-label="Signal Support in Coalition Operations quiz">Quiz</a><a href="../reviewer/coalition/" aria-label="Signal Support in Coalition Operations reviewer">Reviewer</a></span></li></ul></details><details class="si-module"><summary>Module 5 <span>Advanced C2 Communications</span> <small>4</small></summary><ul class="si-rows"><li class="si-row"><span class="si-name">MANET C4ISTAR Planning</span><span class="si-links"><a href="../manet-c4istar-planning/" aria-label="MANET C4ISTAR Planning quiz">Quiz</a><a href="../reviewer/manet/" aria-label="MANET C4ISTAR Planning reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">C4ISTAR Sensors Integration</span><span class="si-links"><a href="../c4istar-sensors-integration/" aria-label="C4ISTAR Sensors Integration quiz">Quiz</a><a href="../reviewer/sensors/" aria-label="C4ISTAR Sensors Integration reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">C4ISTAR Weapon System Integration</span><span class="si-links"><a href="../c4istar-weapon-system-integration/" aria-label="C4ISTAR Weapon System Integration quiz">Quiz</a><a href="../reviewer/weapons/" aria-label="C4ISTAR Weapon System Integration reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Signal Propagation (Mobile Apps/RF Clouds)</span><span class="si-links"><a href="../signal-propagation/" aria-label="Signal Propagation (Mobile Apps/RF Clouds) quiz">Quiz</a><a href="../reviewer/propagation/" aria-label="Signal Propagation (Mobile Apps/RF Clouds) reviewer">Reviewer</a></span></li></ul></details><details class="si-module"><summary>Module 6 <span>Advanced Electronic Warfare Operations</span> <small>4</small></summary><ul class="si-rows"><li class="si-row"><span class="si-name">Signals Intelligence (SIGINT)</span><span class="si-links"><a href="../signals-intelligence/" aria-label="Signals Intelligence (SIGINT) quiz">Quiz</a><a href="../reviewer/sigint/" aria-label="Signals Intelligence (SIGINT) reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Electronic Intelligence (ELINT)</span><span class="si-links"><a href="../electronic-intelligence/" aria-label="Electronic Intelligence (ELINT) quiz">Quiz</a><a href="../reviewer/elint/" aria-label="Electronic Intelligence (ELINT) reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Radio Direction Finding</span><span class="si-links"><a href="../radio-direction-finding/" aria-label="Radio Direction Finding quiz">Quiz</a><a href="../reviewer/rdf/" aria-label="Radio Direction Finding reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Electronic Counter-Countermeasures (ECCM)</span><span class="si-links"><a href="../electronic-counter-countermeasures/" aria-label="Electronic Counter-Countermeasures (ECCM) quiz">Quiz</a><a href="../reviewer/eccm/" aria-label="Electronic Counter-Countermeasures (ECCM) reviewer">Reviewer</a></span></li></ul></details><details class="si-module"><summary>Module 7 <span>Advanced Cyberspace Operations</span> <small>4</small></summary><ul class="si-rows"><li class="si-row"><span class="si-name">NIST Framework</span><span class="si-links"><a href="../nist-framework/" aria-label="NIST Framework quiz">Quiz</a><a href="../reviewer/nist/" aria-label="NIST Framework reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Zero Trust</span><span class="si-links"><a href="../zero-trust/" aria-label="Zero Trust quiz">Quiz</a><a href="../reviewer/zerotrust/" aria-label="Zero Trust reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">LOE3 GSOMIA Compliance</span><span class="si-links"><a href="../gsomia-compliance/" aria-label="LOE3 GSOMIA Compliance quiz">Quiz</a><a href="../reviewer/gsomia/" aria-label="LOE3 GSOMIA Compliance reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Cyber Risk Assessment</span><span class="si-links"><a href="../cyber-risk-assessment/" aria-label="Cyber Risk Assessment quiz">Quiz</a><a href="../reviewer/cyberrisk/" aria-label="Cyber Risk Assessment reviewer">Reviewer</a></span></li></ul></details><details class="si-module"><summary>Module 8 <span>Signal Planning</span> <small>6</small></summary><ul class="si-rows"><li class="si-row"><span class="si-name">CEOI / CESI Management</span><span class="si-links"><a href="../ceoi-cesi-management/" aria-label="CEOI / CESI Management quiz">Quiz</a><a href="../reviewer/ceoicesi/" aria-label="CEOI / CESI Management reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Signal Estimate</span><span class="si-links"><a href="../signal-estimate/" aria-label="Signal Estimate quiz">Quiz</a><a href="../reviewer/signalestimate/" aria-label="Signal Estimate reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Voice Communications Planning</span><span class="si-links"><a href="../voice-communications-planning/" aria-label="Voice Communications Planning quiz">Quiz</a><a href="../reviewer/voicecomms/" aria-label="Voice Communications Planning reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Data Communications Planning</span><span class="si-links"><a href="../data-communications-planning/" aria-label="Data Communications Planning quiz">Quiz</a><a href="../reviewer/datacomms/" aria-label="Data Communications Planning reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">C4ISTAR Communications Planning</span><span class="si-links"><a href="../c4istar-communications-planning/" aria-label="C4ISTAR Communications Planning quiz">Quiz</a><a href="../reviewer/c4istarplanning/" aria-label="C4ISTAR Communications Planning reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Signal Planning Process</span><span class="si-links"><a href="../signal-planning-process/" aria-label="Signal Planning Process quiz">Quiz</a><a href="../reviewer/signalplanning/" aria-label="Signal Planning Process reviewer">Reviewer</a></span></li></ul></details><details class="si-module"><summary>Supporting Lessons <small>2</small></summary><ul class="si-rows"><li class="si-row"><span class="si-name">Army Operations</span><span class="si-links"><a href="../army-operations/" aria-label="Army Operations quiz">Quiz</a><a href="../reviewer/armyops/" aria-label="Army Operations reviewer">Reviewer</a></span></li><li class="si-row"><span class="si-name">Intelligence Cycle</span><span class="si-links"><a href="../intelligence-cycle/" aria-label="Intelligence Cycle quiz">Quiz</a><a href="../reviewer/intcycle/" aria-label="Intelligence Cycle reviewer">Reviewer</a></span></li></ul></details></div></div><div><h2>Library</h2><ul><li><a class="main" href="../library/">Library: lessons, manuals, sources</a></li><li><a class="main" href="../library/unit-organization/">Unit Organization</a></li></ul></div><div><h2>How To guides</h2><ul><li><a class="main" href="../how-to/">All How To guides</a></li><li><a class="main" href="../how-to/how-to-check-repeater-channel-pair/">Check a repeater channel pair</a></li><li><a class="main" href="../how-to/how-to-conduct-radio-check/">Conduct a two-station radio check</a></li><li><a class="main" href="../how-to/how-to-configure-rf5800v-scan/">Configure an RF-5800V scan list</a></li><li><a class="main" href="../how-to/how-to-connect-windows-radio-rndis/">Connect a Windows PC to a radio over USB</a></li><li><a class="main" href="../how-to/how-to-plot-radio-link-profile/">Plot a radio link in Radio Mobile</a></li><li><a class="main" href="../how-to/how-to-program-fixed-frequency-preset/">Program a fixed-frequency radio channel</a></li><li><a class="main" href="../how-to/how-to-program-rf5800v-net/">Program an RF-5800V voice net</a></li><li><a class="main" href="../how-to/how-to-set-up-two-radio-retransmit/">Set up a two-radio repeater</a></li><li><a class="main" href="../how-to/how-to-size-a-half-wave-dipole/">Size a half-wave dipole</a></li><li><a class="main" href="../how-to/how-to-test-tactical-chat-link/">Send a test message over a radio data link</a></li><li><a class="main" href="../how-to/how-to-transfer-cpa-radio-plan/">Transfer a CPA plan to an RF-7800V</a></li></ul></div><div><h2>Radio and codes</h2><ul><li><a class="main" href="../los-radios/">LOS Radios</a></li><li><a class="main" href="../codes-ciphers/">Codes &amp; Ciphers</a></li></ul></div><div><h2>Schedule, class, instructor</h2><ul><li><a class="main" href="../schedule/?v=day-picker-2">Weekly schedule (current week)</a></li><li><a class="main" href="../schedule-2026-10-12/">Week of 12–18 Oct 2026</a></li><li><a class="main" href="../schedule-2026-11-02/">Week of 02–08 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-09/">Week of 09–15 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-16/">Week of 16–22 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-23/">Week of 23–29 Nov 2026</a></li><li><a class="main" href="../schedule-2026-11-30/">Week of 30 Nov – 06 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-07/">Week of 07–13 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-14/">Week of 14–20 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-21/">Week of 21–27 Dec 2026</a></li><li><a class="main" href="../schedule-2026-12-28/">Week of 28 Dec 2026 – 03 Jan 2027</a></li><li><a class="main" href="../schedule-2027-01-04/">Week of 04–10 Jan 2027</a></li><li><a class="main" href="../class/">Our class</a></li><li><a class="main" href="../gallery/">Gallery</a></li><li><a class="main" href="../instructor/">Instructor view</a></li></ul></div></div></details></nav>
+<aside class="domain-seal" aria-label="Site signature"><img class="domain-sigil" src="../assets/domain-void-hand-320.webp" width="160" height="221" alt="" loading="lazy" decoding="async"><span><small>WITHIN THE DOMAIN EXPANSION OF</small><strong>1LT INTOY, &#39;22</strong><em data-domain-quote>“You see, but you do not observe.”</em><cite data-domain-attribution>— Sherlock Holmes · A Scandal in Bohemia · Arthur Conan Doyle</cite></span></aside>
+<script src="../assets/identity.js" defer></script>
 </body>
 </html>

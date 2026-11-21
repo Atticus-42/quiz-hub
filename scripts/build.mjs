@@ -1273,6 +1273,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   const { modules, lessons } = loadLessons(root);
   const contours = readFileSync(join(root, 'src', 'engine', 'contours.svg'), 'utf8');
   const base = readFileSync(join(root, 'src', 'shared', 'base.css'), 'utf8');
+  const siteTabs = readFileSync(join(root, 'src', 'shared', 'site-tabs.html'), 'utf8');
   const engine = readFileSync(join(root, 'src', 'engine', 'template.html'), 'utf8').replace(/\r\n/g, '\n');
   const study = loadStudy(root, lessons);
   const actual = actualExamData(root, lessons);
@@ -1304,6 +1305,8 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
       .replace('<nav class="week-nav"', `<nav class="schedule-weeks" aria-label="Available weeks">${links}</nav><nav class="week-nav"`);
   };
   for (const data of weekPages) pages[`schedule-${data.week.start}/index.html`] = renderWeek(data);
+  // Keep already-published archived weeks reproducible, too.
+  pages['schedule-2026-10-12/index.html'] = renderWeek(loadSchedule(root, join(root, 'data', 'schedules', '2026-10-12_2026-10-18.json')));
   const rollover = `<script>(function(){if(!window.location||location.hash||new URLSearchParams(location.search).get('week')==='${activeSchedule.week.start}')return;const weeks=${scriptJson(weeks.slice(1))};const today=(window.__SCHEDULE_NOW||new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Manila',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())).slice(0,10);const week=weeks.find(w=>today>=w.start&&today<=w.end);if(week)location.replace('../schedule-'+week.start+'/'+location.search+'#day-'+today);})();</script>`;
   pages['schedule/index.html'] = pages[`schedule-${activeSchedule.week.start}/index.html`].replace('</body>', rollover + '</body>');
   pages['instructor/index.html'] = renderInstructor(readFileSync(join(root, 'src', 'instructor', 'template.html'), 'utf8').replace(/\r\n/g, '\n'), contours, modules, lessons, { endpoint, base });
@@ -1327,7 +1330,8 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
   for (const [path, source] of Object.entries(pages)) {
     const up = '../'.repeat(path.split('/').length - 1);
     const favicon = ({reviewer:'anime',library:'bronze','how-to':'jungle','los-radios':'neon','codes-ciphers':'red',schedule:'philippines',class:'comic',gallery:'comic',instructor:'realistic'})[path.split('/')[0]] || 'colored';
-    let html = source.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/identity.css">\n</head>');
+    let html = source.replace('<!-- SITE_TABS -->', () => renderSiteTabs(siteTabs, path));
+    html = html.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/identity.css">\n</head>');
     html = html.replace('</head>', '<link rel="stylesheet" href="' + up + 'assets/ui-polish.css">\n</head>');
     html = html.replace('</head>', '<link rel="icon" type="image/png" href="' + up + 'assets/favicons/crest-' + favicon + '.png">\n</head>');
     if (!source.includes('class="study-masthead"')) {
@@ -1350,6 +1354,22 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
     }
   }
   return pages;
+}
+
+// One authored partial for every section, with URLs relative to the generated page.
+function renderSiteTabs(partial, path) {
+  const up = '../'.repeat(path.split('/').length - 1);
+  const section = path.split('/')[0];
+  const current = path.startsWith('library/unit-organization/') ? 'library/unit-organization/'
+    : section === 'instructor' ? 'class/'
+    : section.startsWith('schedule') ? 'schedule/'
+    : ['reviewer', 'comprehensive-reviewer', 'library', 'how-to', 'los-radios', 'codes-ciphers', 'class', 'gallery'].includes(section) ? section + '/'
+    : './';
+  return partial.replace(/href="([^"]+)"/g, (_, href) => {
+    const target = href.split('?')[0];
+    const relative = target === './' ? (up || './') : up + href;
+    return `href="${relative}"${target === current ? ' aria-current="page"' : ''}`;
+  }).trimEnd();
 }
 
 // The Comprehensive Exam Reviewer's quiz pages: one per graded exam and the mixed set.

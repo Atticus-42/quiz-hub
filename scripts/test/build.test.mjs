@@ -94,7 +94,7 @@ export async function buildSuite({ lessons, modules }) {
 
   await T('every committed page is a fresh build (run node scripts/build.mjs), with the real endpoint written once per page', () => {
     const pages = build({ write: false });
-    const scheduleWeeks = ['2026-10-26', '2026-11-02', '2026-11-09', '2026-11-16', '2026-11-23', '2026-11-30',
+    const scheduleWeeks = ['2026-10-12', '2026-10-26', '2026-11-02', '2026-11-09', '2026-11-16', '2026-11-23', '2026-11-30',
       '2026-12-07', '2026-12-14', '2026-12-21', '2026-12-28', '2027-01-04'];
     const expectedPages = ['index.html', 'class/index.html', 'gallery/index.html', 'schedule/index.html',
       ...scheduleWeeks.map(start => `schedule-${start}/index.html`),
