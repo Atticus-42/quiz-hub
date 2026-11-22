@@ -1,6 +1,51 @@
 # Actual Exam category and the Comprehensive Exam Reviewer
 
-Questions from the class's 15 graded exams (SOAC 52-2026), for reviewing before the Comprehensive Exam.
+Questions from the class's 15 graded exams (SOAC 52-2026), plus lesson-bank questions covering every numbered POI lesson without its own graded lesson exam.
+
+## Comprehensive topic coverage
+
+Only `comprehensive-reviewer/all/` combines the two sources. Individual graded-exam pages are unchanged.
+
+- **Mixed set:** 50 questions: 30 Actual Exam questions and 20 Reviewer questions. Reviewer lessons are selected round-robin, one question per topic before revisiting a topic. The next topic cursor is stored on this device after the first answer, including abandoned sets; untouched draws do not advance it. All 27 no-exam lessons are reachable within `ceil(27 / 20) = 2` consecutive activated sets. Final question order is shuffled.
+- **Full set:** all 491 distinct Actual Exam questions only.
+- **Topic coverage set:** 81 Reviewer questions, three medium/hard questions from each of the 27 no-exam lessons, in one sitting. Retakes keep the selected kind of set.
+- Reviewer selection uses all difficulties in Mixed sets: unseen first, then missed, then seen, preferring medium/hard within each priority group. Coverage sets use medium/hard only. Each question keeps its original explanation and any rationales, and displays `Reviewer question · <Lesson title> (no graded exam)` rather than Actual Exam.
+- Reviewer qids are the original lesson qids. Progress reads and writes `mastery-quiz:progress:<lessonKey>:<difficulty>`, shared with lesson pages. Activating a set marks its reviewer questions seen; checking an answer updates the lesson's seen/missed flag. Reset on the mixed page also clears these shared records and the topic cursor. With storage unavailable, quizzes still run but rotation/progress cannot survive reload.
+- All three kinds of attempts save under `lesson: "gradedall", mode: "actual"`; item provenance does not change the attempt's history filter. Reviewer item ids keep their lesson and difficulty (`<lessonKey>:<difficulty>:<qid>`). The existing v8 endpoint still saves scores; its graded-only item validator skips item analysis for mixed/coverage payloads until updated to accept reviewer identities.
+
+**Graded lesson exams (Actual only):** Coalition (`coalition`); Signal Support in Joint Operations (`signaljoint`); Signal Support in Combined Arms Operations (`signal`); ISR (`isr`); Field Artillery (`fieldartillery`); Army Operations (`armyops`); Military Leadership Attributes (`leadershipattributes`). The Actual bank also includes graded module exams/assessments for Modules 1, 2, 4, 5, 6, 7 and 8, and the Diagnostic Examination (listed below).
+
+**Reviewer banks, no graded lesson exam (27):**
+
+- Military Leadership Competencies (`leadershipcompetencies`)
+- Company Management (`companymanagement`)
+- Mission Command (`missioncommand`)
+- Ethical and Transformational Leadership (`ethicalleadership`)
+- NCO Empowerment (`ncoempowerment`)
+- Effective Communication 2 (`effectivecommunication`)
+- Armor Operations (`armor`)
+- Troop Leading Procedure (`tlp`)
+- Military Decision-Making Process (`mdmp`)
+- MANET C4ISTAR Planning (`manet`)
+- C4ISTAR Sensors Integration (`sensors`)
+- C4ISTAR Weapon System Integration (`weapons`)
+- Signal Propagation (`propagation`)
+- Signals Intelligence (`sigint`)
+- Electronic Intelligence (`elint`)
+- Radio Direction Finding (`rdf`)
+- Electronic Counter-Countermeasures (`eccm`)
+- NIST Framework (`nist`)
+- Zero Trust (`zerotrust`)
+- LOE3 GSOMIA Compliance (`gsomia`)
+- Cyber Risk Assessment (`cyberrisk`)
+- CEOI / CESI Management (`ceoicesi`)
+- Signal Estimate (`signalestimate`)
+- Voice Communications Planning (`voicecomms`)
+- Data Communications Planning (`datacomms`)
+- C4ISTAR Communications Planning (`c4istarplanning`)
+- Signal Planning Process (`signalplanning`)
+
+The reviewer list is derived from `lesson.json` membership in Modules 1–8, excluding graded lesson owners, module/combined exam pages, pools and templates. Supporting Lessons (`supplemental`, including `intcycle`) supply no reviewer questions. Army Operations remains available through its existing graded exam only.
 
 - Data: `data/actual-exams.json`. Each question has `n` (its number on the graded exam), `stem`, `key`, three hand-chosen `distractors`
   (none for true/false keys), an `explanation` of why the key is right and `why`, one line per distractor saying why
@@ -48,8 +93,8 @@ Placement rules:
 
 On a page that draws on several exams, a question repeated with the same stem and key is asked once. For
 example, Module Assessment 2 reuses Field Artillery items. A lesson page serves its whole Actual Exam bank. A
-module exam page and the mixed set draw 50 at a time, unseen questions first. The mixed page also offers the
-full set (491 distinct questions) in one sitting.
+module exam page draws up to 50 Actual questions at a time, unseen questions first. The mixed page offers the
+three sets described above, including the full Actual bank (491 distinct questions) in one sitting.
 
 ## Questions left out (4 of 538)
 
@@ -96,11 +141,11 @@ The portal showed no answer choices, so every item is made multiple choice from 
   These ids are permanent. Exam keys: `gradedsigplan`, `gradedew`, `gradedcyber`, `gradedc2`, `gradedssi`, `gradedcoalition`,
   `gradedjoint`, `gradedcombined`, `gradedma2`, `gradedisr`, `gradedartillery`, `gradedarmyops`, `gradedma1`,
   `gradedmla`, `gradeddiag`.
-- **Device progress:** keyed by graded exam (`mastery-quiz:progress:<examKey>:actual`), so the record is shared by
+- **Actual device progress:** keyed by graded exam (`mastery-quiz:progress:<examKey>:actual`), so the record is shared by
   every page that asks the exam.
-- **Citations:** each question carries `source: { type: "graded-exam", exam, title, date, number }`. Feedback cites
+- **Actual citations:** each graded question carries `source: { type: "graded-exam", exam, title, date, number }`. Feedback cites
   "SOAC 52-2026 graded exam: <title>, <date> · question N". It never cites a lesson slide or PDF page. Both the build
-  and the engine reject any source type that is not listed.
+  and the engine reject any source type that is not listed in the Actual bank. Reviewer items use a separate bank with `source.type: "reviewer-bank"` and their own lesson provenance.
 - **Class history:** Actual Exam attempts post to the same Apps Script endpoint as Easy/Medium/Hard, with
   `mode: "actual"`. Lesson and module pages post under their own key; each reviewer page posts under its graded
   exam key (`gradedisr`, ...) and the mixed set under `gradedall`. Item ids are `<examKey>:actual:<examKey>-a-NN`.

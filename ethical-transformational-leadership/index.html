@@ -1700,7 +1700,7 @@
     // Whose device record a question belongs to: its graded exam (shared by every page that asks it), the pool
     // exam's source lesson, or this lesson.
     function progressOwner(question) {
-      return question && question.examKey ? question.examKey : POOL ? question.lessonKey : HISTORY_LESSON;
+      return question && question.examKey ? question.examKey : question && question.source && question.source.type === 'reviewer-bank' ? question.lessonKey : POOL ? question.lessonKey : HISTORY_LESSON;
     }
 
     // The graded exams behind this page's Actual Exam bank.
@@ -1752,10 +1752,17 @@
     function loadProgress(mode) {
       var progress = {};
       (mode === ACTUAL ? actualOwners() : progressLessons()).forEach(function (lessonKey) { progress[lessonKey] = readProgress(lessonKey, mode); });
+      if (mode === ACTUAL && ACTUAL_CONFIG && ACTUAL_CONFIG.reviewer) {
+        ACTUAL_CONFIG.reviewer.lessons.forEach(function (lesson) {
+          progress[lesson.key] = {};
+          MODES.forEach(function (difficulty) { Object.assign(progress[lesson.key], readProgress(lesson.key, difficulty)); });
+        });
+      }
       return progress;
     }
 
     function recordProgress(question, mode, correct) {
+      if (mode === ACTUAL && question.source && question.source.type === 'reviewer-bank') return recordProgress(question, question.difficulty, correct);
       if (mode === ACTUAL) return recordActualProgress([question]);
       var storage = deviceStorage();
       if (!storage) return false;
@@ -1778,6 +1785,12 @@
       var records = {};
       var now = Date.now();
       questions.forEach(function (question) {
+        if (question.source && question.source.type === 'reviewer-bank') {
+          // The lesson record is shared, including its missed flag until this question is checked.
+          var prior = readProgress(question.lessonKey, question.difficulty);
+          if (!prior[question.qid]) recordProgress(question, question.difficulty, true);
+          return;
+        }
         var owner = progressOwner(question);
         if (!records[owner]) records[owner] = readProgress(owner, ACTUAL);
         records[owner][question.qid] = now;
@@ -1802,6 +1815,12 @@
           MODES.forEach(function (mode) { keys.push(progressKey(lessonKey, mode)); });
         });
         actualOwners().forEach(function (examKey) { keys.push(progressKey(examKey, ACTUAL)); });
+        if (ACTUAL_CONFIG && ACTUAL_CONFIG.reviewer) {
+          ACTUAL_CONFIG.reviewer.lessons.forEach(function (lesson) {
+            MODES.forEach(function (mode) { keys.push(progressKey(lesson.key, mode)); });
+          });
+          keys.push(reviewerCursorKey());
+        }
         keys.forEach(function (key) { storage.removeItem(key); });
         return true;
       } catch (error) {
@@ -1839,7 +1858,10 @@
     function createActualAttempt(banks, random, progress, size) {
       var bank = banks && Array.isArray(banks.actual) ? banks.actual : [];
       if (!ACTUAL_CONFIG || !bank.length) throw new Error('Unknown difficulty: ' + ACTUAL);
-      var length = Number.isInteger(size) && size > 0 ? Math.min(size, bank.length) : ACTUAL_CONFIG.attempt;
+      var reviewer = ACTUAL_CONFIG.reviewer;
+      var coverage = size === 'coverage';
+      var mixed = reviewer && !coverage && (size == null || size === ACTUAL_CONFIG.attempt);
+      var length = mixed ? ACTUAL_CONFIG.attempt - reviewer.mixed : Number.isInteger(size) && size > 0 ? Math.min(size, bank.length) : ACTUAL_CONFIG.attempt;
       if (typeof random !== 'function') random = Math.random;
       function seenTime(question) {
         var record = progress && progress[progressOwner(question)];
@@ -1854,7 +1876,36 @@
       var notice = unseen >= length ? '' : unseen === 0
         ? 'You have seen all ' + bank.length + ' questions; repeats start now.'
         : 'Only ' + unseen + ' of ' + bank.length + ' questions are unseen; these come first, then repeats start.';
-      return { mode: ACTUAL, practice: false, size: length, questions: questions, current: 0, responses: blankResponses(questions), notice: notice };
+      var nextCursor;
+      if (reviewer && (mixed || coverage)) {
+        var cursor = readReviewerCursor();
+        var reviewerQuestions = [];
+        var slots = coverage ? reviewer.lessons.length * reviewer.perLesson : reviewer.mixed;
+        for (var slot = 0; slot < slots; slot++) {
+          var topic = reviewer.lessons[(coverage ? slot : cursor + slot) % reviewer.lessons.length];
+          var candidates = reviewer.bank.filter(function (q) {
+            return q.lessonKey === topic.key && reviewerQuestions.indexOf(q) === -1 && (!coverage || q.difficulty !== 'easy');
+          });
+          // Unseen/missed/seen priority first; medium/hard preferred within each class, random ties.
+          candidates = shuffleQuestions(candidates, random).sort(function (a, b) {
+            return priorityClass(a, progress) - priorityClass(b, progress) || Number(a.difficulty === 'easy') - Number(b.difficulty === 'easy');
+          });
+          if (candidates.length) reviewerQuestions.push(candidates[0]);
+        }
+        questions = shuffleQuestions((coverage ? [] : questions).concat(reviewerQuestions), random);
+        if (mixed) nextCursor = (cursor + reviewer.mixed) % reviewer.lessons.length;
+        notice = coverage ? '' : '30 Actual Exam + 20 Reviewer questions. Topics rotate after your first answer. Unseen first within each source/topic; final order shuffled.';
+      }
+      return { mode: ACTUAL, practice: false, size: coverage ? 'coverage' : mixed ? ACTUAL_CONFIG.attempt : length, nextReviewerCursor: nextCursor, questions: questions, current: 0, responses: blankResponses(questions), notice: notice };
+    }
+
+    function reviewerCursorKey() { return 'mastery-quiz:reviewer:' + HISTORY_LESSON + ':cursor'; }
+    function readReviewerCursor() {
+      try {
+        var storage = deviceStorage();
+        var value = Number(storage && storage.getItem(reviewerCursorKey()));
+        return Number.isSafeInteger(value) && value >= 0 ? value % ACTUAL_CONFIG.reviewer.lessons.length : 0;
+      } catch (error) { return 0; }
     }
 
     // A practice attempt asks only the given questions (reshuffled; answer choices keep their order).
@@ -1867,6 +1918,7 @@
     // Stable question id for the instructor's item analysis: <lessonKey>:<mode>:<qid>. A pool exam
     // reports the source lesson's id, so a question counts the same wherever it was asked.
     function itemId(question, mode) {
+      if (question.source && question.source.type === 'reviewer-bank') return question.lessonKey + ':' + question.difficulty + ':' + question.qid;
       // Actual Exam questions are owned by their graded exam: <examKey>:actual:<examKey>-a-NN.
       if (mode === ACTUAL && question.examKey) return question.examKey + ':' + mode + ':' + question.qid;
       return (POOL ? question.lessonKey : HISTORY_LESSON) + ':' + mode + ':' + question.qid;
@@ -2046,7 +2098,7 @@
         medium: byId('mode-medium'),
         hard: byId('mode-hard')
       },
-      actualButtons: [byId('mode-actual'), byId('mode-actual-all')].filter(Boolean),
+      actualButtons: [byId('mode-actual'), byId('mode-actual-all'), byId('mode-topic-coverage')].filter(Boolean),
       soundToggle: byId('btn-sound'),
       soundState: byId('sound-state'),
       reviewerLink: byId('reviewer-link'),
@@ -2137,6 +2189,7 @@
 
     // "Topic: ...", or for a graded-exam question the exam and its question number.
     function questionTopic(question) {
+      if (question.source && question.source.type === 'reviewer-bank') return 'Reviewer question · ' + question.source.title + ' (no graded exam)';
       if (question.source && question.source.type === 'graded-exam') return 'Actual Exam · ' + question.source.title + ' · question ' + question.source.number;
       return TEXT.topicNoun + ': ' + question.category;
     }
@@ -2539,6 +2592,9 @@
         references.push(alt.label + ' · ' + altNoun(alt, item.pages.length) + ' ' + item.pages.join(', '));
       });
       var graded = question.source && question.source.type === 'graded-exam';
+      if (question.source && question.source.type === 'reviewer-bank') {
+        references.push('Reviewer bank: ' + question.source.title + ' (' + question.difficulty + ')' + (question.source.sourceSlides && question.source.sourceSlides.length ? ' · lesson pages ' + question.source.sourceSlides.join(', ') : ''));
+      }
       if (graded) references.push('SOAC 52-2026 graded exam: ' + question.source.title + ', ' + displayDate(question.source.date) + ' · question ' + question.source.number);
       if (references.length) {
         var referenceBlock = make('div', 'explanation explanation-references');
@@ -2600,6 +2656,9 @@
       response.selected = index;
       if (attempt.mode === ACTUAL) {
         recordActualProgress(attempt.progressStarted ? [question] : attempt.questions);
+        if (!attempt.progressStarted && Number.isInteger(attempt.nextReviewerCursor)) {
+          try { var storage = deviceStorage(); if (storage) storage.setItem(reviewerCursorKey(), String(attempt.nextReviewerCursor)); } catch (error) { /* Device storage is optional. */ }
+        }
         attempt.progressStarted = true;
       }
       ui.radios.forEach(function (radio, radioIndex) { radio.checked = radioIndex === index; });
@@ -3222,7 +3281,7 @@
         ui.modeButtons[mode].addEventListener('click', function () { startQuiz(mode); });
       });
       ui.actualButtons.forEach(function (button) {
-        button.addEventListener('click', function () { startQuiz(ACTUAL, button.id === 'mode-actual-all' && ACTUAL_CONFIG.full ? ACTUAL_CONFIG.full : ACTUAL_CONFIG.attempt); });
+        button.addEventListener('click', function () { startQuiz(ACTUAL, button.id === 'mode-topic-coverage' ? 'coverage' : button.id === 'mode-actual-all' && ACTUAL_CONFIG.full ? ACTUAL_CONFIG.full : ACTUAL_CONFIG.attempt); });
       });
       ui.btnCheck.addEventListener('click', checkAnswer);
       ui.btnPrev.addEventListener('click', function () { if (state.attempt) goToQuestion(state.attempt.current - 1); });

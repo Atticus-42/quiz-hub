@@ -21,7 +21,7 @@ function answer(api) {
   const q = api.getState().attempt.questions[0];
   assert.equal(api.selectAnswer(q.answer), true);
 }
-const ids = api => api.getState().attempt.questions.map(q => q.qid);
+const ids = api => Array.from(api.getState().attempt.questions, q => q.qid);
 
 test('several 50-question sets survive reload and abandonment; unseen precede oldest repeats', () => {
   const storage = new FakeStorage();
@@ -29,7 +29,7 @@ test('several 50-question sets survive reload and abandonment; unseen precede ol
   let total;
   for (let round = 0; round < 12; round++) {
     now = 1000 + round;
-    const { api, app } = open(mixed, storage);
+    const { api, app } = open('module-3-exam/index.html', storage);
     const bank = api.getActualBank();
     total = bank.length;
     const unseen = bank.filter(q => !taken.has(q.qid));
@@ -40,7 +40,7 @@ test('several 50-question sets survive reload and abandonment; unseen precede ol
     assert.equal(fresh.length, Math.min(50, unseen.length), 'no repeats while 50 unseen remain');
     assert.deepEqual(picked.slice(0, fresh.length), fresh, 'unseen come before repeats');
     const repeats = picked.slice(fresh.length);
-    const oldest = bank.filter(q => taken.has(q.qid)).map(q => taken.get(q.qid)).sort((a, b) => a - b).slice(0, repeats.length);
+    const oldest = Array.from(bank.filter(q => taken.has(q.qid)), q => taken.get(q.qid)).sort((a, b) => a - b).slice(0, repeats.length);
     assert.deepEqual(repeats.map(qid => taken.get(qid)), oldest, 'fill from least recently seen');
     if (unseen.length < 50) assert.match(app.document.getElementById('quiz-status').textContent, /repeats|seen all/i);
     // Selecting even one answer activates this set; no Check, Finish, or unload is required.
@@ -63,7 +63,8 @@ test('an untouched draw stays unseen; an answered exam set shares progress with 
     const progress = api.loadProgress('actual');
     assert.ok(examIds.every(qid => progress.gradedisr[qid]), `${path} reads the exam owner's progress`);
     const unseen = api.getActualBank().filter(q => !examIds.includes(q.qid));
-    assert.equal(ids(api).filter(qid => !examIds.includes(qid)).length, Math.min(50, unseen.length));
+    const actual = api.getState().attempt.questions.filter(q => q.source.type === 'graded-exam');
+    assert.equal(actual.filter(q => !examIds.includes(q.qid)).length, Math.min(path === mixed ? 30 : 50, unseen.length));
   }
   assert.equal(exam.api.resetProgress(), true);
   assert.deepEqual(Object.keys(open(mixed, storage).api.loadProgress('actual').gradedisr), []);
@@ -85,6 +86,49 @@ test('legacy actual s/m records remain seen; new answer times update immediately
   const first = new Set(ids(api));
   const next = open(mixed, storage);
   assert.ok(ids(next.api).every(qid => !first.has(qid)), 'older legacy entries precede the just-answered set');
+});
+
+test('reviewer topic rotation survives reload and covers all topics within ceil(topics/20) sets', () => {
+  const storage = new FakeStorage();
+  const reached = new Set();
+  const taken = new Set();
+  const initial = open(mixed, storage);
+  const topics = initial.api.actualConfig.reviewer.lessons;
+  const untouched = ids(initial.api);
+  assert.deepEqual(ids(open(mixed, storage).api), untouched, 'untouched draw does not advance rotation');
+  for (let round = 0; round < Math.ceil(topics.length / 20); round++) {
+    const { api } = open(mixed, storage);
+    const reviewer = api.getState().attempt.questions.filter(q => q.source.type === 'reviewer-bank');
+    assert.equal(reviewer.length, 20);
+    assert.equal(new Set(reviewer.map(q => q.lessonKey)).size, 20);
+    reviewer.forEach(q => { reached.add(q.lessonKey); assert.ok(!taken.has(q.qid)); taken.add(q.qid); });
+    answer(api);
+  }
+  assert.deepEqual([...reached].sort(), Array.from(topics, l => l.key).sort());
+});
+
+test('reviewer unseen-first shares lesson difficulty progress in both directions', () => {
+  const storage = new FakeStorage();
+  const initial = open(mixed, storage);
+  const reviewer = initial.api.actualConfig.reviewer;
+  const topic = reviewer.lessons[0];
+  const own = reviewer.bank.filter(q => q.lessonKey === topic.key);
+  for (const mode of ['easy', 'medium', 'hard']) {
+    storage.setItem(`mastery-quiz:progress:${topic.key}:${mode}`, JSON.stringify(Object.fromEntries(own.filter(q => q.difficulty === mode).map(q => [q.qid, 's']))));
+  }
+  const fresh = own.find(q => q.difficulty === 'medium');
+  const key = `mastery-quiz:progress:${topic.key}:medium`;
+  const record = JSON.parse(storage.getItem(key));
+  delete record[fresh.qid];
+  storage.setItem(key, JSON.stringify(record));
+  const { api } = open(mixed, storage);
+  assert.ok(ids(api).includes(fresh.qid), 'lesson-seen items yield to the unseen medium item');
+  answer(api);
+  assert.equal(JSON.parse(storage.getItem(key))[fresh.qid], 's', 'activated mixed set writes the lesson record');
+  const app = runPage(withEndpoint(pages['armor/index.html'], ''), { globals: { localStorage: storage } });
+  const armor = api.getState().attempt.questions.find(q => q.lessonKey === 'armor');
+  assert.ok(armor);
+  assert.equal(app.window.__quiz.loadProgress(armor.difficulty).armor[armor.qid], 's');
 });
 
 test('each later answer refreshes recency before finishing an unfinished set', () => {

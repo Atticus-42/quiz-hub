@@ -608,7 +608,8 @@ export async function engineSuite(lesson) {
     assert.equal(code.match(/localStorage/g)?.length, 1, 'device storage is reached in exactly one place');
     assert.match(code, /function deviceStorage\(\) \{\s*try \{\s*var storage = window\.localStorage;/, 'that place is guarded by try/catch');
     const storageCalls = code.match(/storage\.(?:getItem|setItem|removeItem)\(/g) ?? [];
-    assert.equal(storageCalls.length, 4, 'one read, lesson-answer and actual-set writes, one removal');
+    assert.equal(storageCalls.length, 6, 'progress and reviewer-cursor reads, lesson-answer/actual-set/cursor writes, one removal');
+    assert.match(code, /return 'mastery-quiz:reviewer:' \+ HISTORY_LESSON \+ ':cursor'/, 'the additional device record holds only the topic cursor');
     assert.doesNotMatch(code, /\.innerHTML|\.outerHTML|insertAdjacentHTML|document\.write/, 'remote strings must never be parsed as HTML');
     assert.doesNotMatch(code, /\breplaceChildren\b/, 'the app avoids the Safari 14+ replaceChildren API');
     assert.equal(builtHtml.split('var HISTORY_ENDPOINT =').length - 1, 1, 'HISTORY_ENDPOINT is declared exactly once');

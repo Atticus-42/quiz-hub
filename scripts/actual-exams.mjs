@@ -21,6 +21,24 @@ export const REVIEWER_SLUG = 'comprehensive-reviewer';
 export const REVIEWER_TITLE = 'Comprehensive Exam Reviewer';
 // The largest Actual Exam attempt on a module page and on the mixed set; lesson and single-exam pages serve all.
 export const ACTUAL_DRAW = 50;
+export const GRADED_LESSONS = ['coalition', 'signaljoint', 'signal', 'isr', 'fieldartillery', 'armyops', 'leadershipattributes'];
+
+// Only numbered POI lesson pages without their own graded lesson exam. Module exams are never topics.
+export function uncoveredLessons(lessons) {
+  return lessons.filter(lesson => /^module-[1-8]$/.test(lesson.module) && !lesson.pool && lesson.order !== 0
+    && !lesson.key.startsWith('module') && lesson.key !== 'combined' && !lesson.key.startsWith('_')
+    && !GRADED_LESSONS.includes(lesson.key));
+}
+
+function reviewerData(lessons) {
+  const uncovered = uncoveredLessons(lessons);
+  const bank = uncovered.flatMap(lesson => ['medium', 'hard', 'easy'].flatMap(mode => lesson.banks[mode].map(item => {
+    const { sourceSlides, sourceAlt, ...question } = item;
+    return { ...question, lessonKey: lesson.key, category: lesson.name,
+      source: { type: 'reviewer-bank', lesson: lesson.key, title: lesson.name, difficulty: mode, sourceSlides, sourceAlt } };
+  })));
+  return { lessons: uncovered.map(lesson => ({ key: lesson.key, title: lesson.name })), bank, mixed: 20, perLesson: 3 };
+}
 const EXAM_KEY = /^[a-z][a-z0-9]{1,23}$/;
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const DATE = /^\d{4}-\d{2}-\d{2}$/;
@@ -226,7 +244,7 @@ export function actualExamData(root, lessons) {
     return { exam, bank, ...summary([exam], bank, 0) };
   });
   const allBank = pageBank(exams.flatMap(ofExam));
-  const all = { bank: allBank, ...summary(exams, allBank, ACTUAL_DRAW), full: allBank.length };
+  const all = { bank: allBank, ...summary(exams, allBank, ACTUAL_DRAW), full: allBank.length, reviewer: reviewerData(lessons) };
   return { exams, questions, pages, perExam, all };
 }
 

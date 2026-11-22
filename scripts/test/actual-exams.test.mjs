@@ -16,6 +16,7 @@ const source = JSON.parse(raw);
 const pages = build({ write: false });
 const examKeys = new Set(data.exams.map(exam => exam.key));
 const ok = { body: { ok: true, rows: [] } };
+const uncovered = lessons.filter(l => /^module-[1-8]$/.test(l.module) && !l.pool && l.order !== 0 && !['coalition', 'signaljoint', 'signal', 'isr', 'fieldartillery', 'armyops', 'leadershipattributes'].includes(l.key));
 
 function start(html, { fetch, storage, button = 'mode-actual' } = {}) {
   const app = runPage(html, { fetch, globals: storage ? { localStorage: storage } : {} });
@@ -41,6 +42,53 @@ function answerAll(api, correct = () => true) {
   }
   api.finishQuiz();
 }
+
+test('mixed reviewer includes every uncovered POI bank with original identities and feedback', () => {
+  assert.equal(uncovered.length, 27);
+  assert.deepEqual(data.all.reviewer.lessons.map(l => l.key), uncovered.map(l => l.key));
+  for (const lesson of uncovered) for (const mode of MODES) for (const original of lesson.banks[mode]) {
+    const q = data.all.reviewer.bank.find(q => q.qid === original.qid);
+    assert.ok(q, original.qid);
+    assert.equal(q.lessonKey, lesson.key);
+    assert.equal(q.difficulty, mode);
+    assert.equal(q.source.type, 'reviewer-bank');
+    assert.equal(q.explanation, original.explanation);
+    assert.deepEqual(q.rationales, original.rationales);
+  }
+  assert.ok(data.all.reviewer.bank.every(q => uncovered.some(l => l.key === q.lessonKey)));
+});
+
+test('mixed draw and topic coverage label their sources, retain history mode and retake size', async () => {
+  const fetch = fakeFetch(() => ok);
+  const { app, api } = start(withEndpoint(pages[`${REVIEWER_SLUG}/all/index.html`], TEST_ENDPOINT), { fetch });
+  const mixed = api.getState().attempt.questions;
+  assert.equal(mixed.filter(q => q.source.type === 'graded-exam').length, 30);
+  assert.equal(mixed.filter(q => q.source.type === 'reviewer-bank').length, 20);
+  assert.equal(new Set(mixed.filter(q => q.lessonKey).map(q => q.lessonKey)).size, 20);
+  for (let i = 0; i < mixed.length; i++) {
+    api.goToQuestion(i);
+    const label = app.document.getElementById('question-category').textContent;
+    assert.match(label, mixed[i].source.type === 'reviewer-bank' ? /^Reviewer question · .+ \(no graded exam\)$/ : /^Actual Exam · /);
+    api.selectAnswer(mixed[i].answer);
+    api.checkAnswer();
+  }
+  answerAll(api);
+  await api.whenSettled();
+  const body = JSON.parse(fetch.calls.find(c => c.method === 'POST').body);
+  assert.equal(body.mode, 'actual');
+  assert.equal(body.lesson, 'gradedall');
+  assert.equal(body.total, 50);
+  assert.equal(api.getState().submission.status, 'saved');
+  api.resetToDifficulty();
+  app.document.getElementById('mode-topic-coverage').click();
+  const coverage = api.getState().attempt.questions;
+  assert.equal(coverage.length, 3 * uncovered.length);
+  assert.ok(coverage.every(q => q.source.type === 'reviewer-bank' && ['medium', 'hard'].includes(q.difficulty)));
+  for (const l of uncovered) assert.equal(coverage.filter(q => q.lessonKey === l.key).length, 3);
+  answerAll(api);
+  assert.equal(api.retakeQuiz(), true);
+  assert.equal(api.getState().attempt.questions.length, coverage.length);
+});
 
 test('data: 15 graded exams, no student answers or scores, essays and the garbled EW item left out with reasons', () => {
   assert.equal(source.exams.length, 15);
