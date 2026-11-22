@@ -1,0 +1,259 @@
+{
+ "lesson": "manet",
+ "title": "MANET C4ISTAR Planning",
+ "source": "lesson-manet-c4istar-planning.pdf (3. MANET C4ISTAR Planning); reviewer-manet-c4istar-planning.pdf",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following defines a mobile ad hoc network (MANET)?",
+   "key": "A continuously self-configuring, infrastructure-less network of mobile devices connected without wires",
+   "distractors": [
+    "A fixed network of wired exchanges managed through centralized administration",
+    "A network of mobile terminals that relays all traffic through a single fixed ground hub",
+    "A permanent wireless backbone built from fixed relay sites and licensed links"
+   ],
+   "explanation": "The lesson defines a MANET as a continuously self-configuring, infrastructure-less network of mobile devices connected without wires.",
+   "why": [
+    "A MANET has no established infrastructure or centralized administration.",
+    "A MANET is infrastructure-less; it does not depend on a single fixed hub.",
+    "A MANET is a temporary network of mobile nodes, not a permanent backbone."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-manet-c4istar-planning.pdf p.11"
+  },
+  {
+   "n": 2,
+   "stem": "It is the MANET feature in which traffic is broadcast so that all nodes are informed through parallel transmission, so the network does not need to be rebuilt when something goes wrong.",
+   "key": "Concurrent flooding",
+   "distractors": [
+    "Frequency hopping",
+    "Dynamic number of members in the net",
+    "Quality of service"
+   ],
+   "explanation": "In the lesson's hop diagrams, concurrent flooding broadcasts traffic in parallel so every node is informed and no rebuild is needed.",
+   "why": [
+    "Frequency hopping is a separate feature listed for resisting jamming and interference.",
+    "This feature lets nodes join or leave the net; it does not describe broadcast in parallel.",
+    "Quality of service is a separate listed feature concerning service levels."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-manet-c4istar-planning.pdf p.17-19"
+  },
+  {
+   "n": 3,
+   "stem": "Which list gives the four steps of corrective maintenance in order?",
+   "key": "Fault identification, fault isolation, fault repair, fault verification (including BIT)",
+   "distractors": [
+    "Fault identification, fault repair, fault isolation, fault verification (including BIT)",
+    "Fault isolation, fault identification, fault repair, fault verification (including BIT)",
+    "Fault identification, fault isolation, fault verification (including BIT), fault repair"
+   ],
+   "explanation": "The lesson's four steps are fault identification, fault isolation, fault repair and fault verification, including built-in test.",
+   "why": [
+    "The fault is isolated before it is repaired.",
+    "Identification comes first: what is the problem?",
+    "Verification, including BIT, comes after the repair."
+   ],
+   "pattern": "list",
+   "ref": "lesson-manet-c4istar-planning.pdf p.27"
+  },
+  {
+   "n": 4,
+   "stem": "Which of the following is NOT a main MANET feature shown in the lesson?",
+   "key": "Fixed number of members in the net",
+   "distractors": [
+    "Self-forming and self-healing",
+    "Frequency hopping",
+    "Support for unicast, multicast and broadcast"
+   ],
+   "explanation": "The lesson lists a dynamic number of members in the net as a main feature, not a fixed number.",
+   "why": [
+    "Self-forming and self-healing is the first main feature listed.",
+    "Frequency hopping is a listed main feature.",
+    "Supporting unicast, multicast and broadcast is a listed main feature."
+   ],
+   "pattern": "not",
+   "ref": "lesson-manet-c4istar-planning.pdf p.12"
+  },
+  {
+   "n": 5,
+   "stem": "Which of the following describes the over-the-air security built into all E-LynX configurations?",
+   "key": "Frequency hopping with embedded TRANSEC",
+   "distractors": [
+    "SNMP version 3 between the radio and the management station",
+    "A 150 Hz tone modulated with the audio signal",
+    "Separate operator-level and secure-level passwords"
+   ],
+   "explanation": "Over-the-air security rests on frequency hopping and TRANSEC; management security rests on SNMP(v3).",
+   "why": [
+    "SNMP(v3) secures management traffic, not the over-the-air link.",
+    "The 150 Hz tone is a setting the operator can turn on or off, not a security feature.",
+    "Password levels protect access to radio functions, not the over-the-air link."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-manet-c4istar-planning.pdf p.30"
+  },
+  {
+   "n": 6,
+   "stem": "It is the Nodes Information parameter that measures the received signal quality between the remote node and the local node.",
+   "key": "SNR (Signal to Noise Ratio)",
+   "distractors": [
+    "RSSI (Received Signal Strength)",
+    "Dist",
+    "D.Rate"
+   ],
+   "explanation": "SNR measures received signal quality; RSSI measures strength, Dist measures distance and D.Rate the received data rate.",
+   "why": [
+    "RSSI is the received signal strength, not signal quality relative to noise.",
+    "Dist is the distance between the remote node and the local node.",
+    "D.Rate is the data rate received from the remote node and is available on WMA only."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-manet-c4istar-planning.pdf p.56"
+  },
+  {
+   "n": 7,
+   "stem": "A technician wants to check communication from one E-LynX radio to another radio, or to an IP host, using the Network menu. Which function is used?",
+   "key": "IP Ping",
+   "distractors": [
+    "Self Information",
+    "Groups Information",
+    "Zeroize Stats"
+   ],
+   "explanation": "IP Ping lets the technician check communication with another radio or an IP host. Ping must be re-enabled each time the device is turned on.",
+   "why": [
+    "Self Information shows details of the local radio such as MAC and IP addresses.",
+    "Groups Information shows group voice names for the main menu.",
+    "Zeroize Stats only clears the statistics gathered by the Net Performance test."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-manet-c4istar-planning.pdf p.54, p.66"
+  },
+  {
+   "n": 8,
+   "stem": "A technician sends packets of a set size at a set interval to a remote node ID and compares the Sent and Recv counts to judge the quality of the network. Which option is being used?",
+   "key": "Net Performance",
+   "distractors": [
+    "Nodes Information",
+    "Transceiver Allocation",
+    "Restore Parameters"
+   ],
+   "explanation": "Net Performance checks network quality by sending data packets and counting how many were sent and received.",
+   "why": [
+    "Nodes Information shows RSSI, distance, SNR and data rate per node; it does not send test packets.",
+    "Transceiver Allocation selects which waveforms are active in each transceiver.",
+    "Restore Parameters reloads the operational parameters last loaded to the device."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-manet-c4istar-planning.pdf p.67"
+  },
+  {
+   "n": 9,
+   "stem": "A radio has suffered a technical fault. Which Operation Mode option is used as the maintenance mode for recovering from it?",
+   "key": "OTP (One Time Programmable)",
+   "distractors": [
+    "MTP (Multi Time Programmable)",
+    "Node ID",
+    "Net Performance"
+   ],
+   "explanation": "Slide 68: the operation mode option selects between OTP and MTP; OTP is used as the maintenance mode for recovering from a technical fault, while MTP returns the radio to normal operation.",
+   "why": [
+    "MTP is the mode used to return to normal operation.",
+    "The node ID is a unique configuration parameter given to each transceiver, not an operation mode.",
+    "Net Performance is a network-quality test, not an operation mode."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-manet-c4istar-planning.pdf p.68"
+  },
+  {
+   "n": 10,
+   "stem": "Which of the following describes the operator level of the PSWD menu?",
+   "key": "It includes loading of operational parameters and selection of various global radio set parameters",
+   "distractors": [
+    "It includes the loading of software updates",
+    "It displays the connection of the nodes in the network",
+    "It enables testing of the RX and TX paths, including the vehicular adapter"
+   ],
+   "explanation": "The PSWD menu has an operator level for operational parameters and a secure level for software updates.",
+   "why": [
+    "That describes the secure level.",
+    "That describes Nodes Information in the Network menu.",
+    "That describes the Test menu."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-manet-c4istar-planning.pdf p.60"
+  },
+  {
+   "n": 11,
+   "stem": "It is the waveform that offers compatibility with the NATO waveform, is non-encrypted, and carries an analog voice session.",
+   "key": "STANAG 4204",
+   "distractors": [
+    "CNR",
+    "Wideband (WB)",
+    "Wideband Mobile Ad-hoc (WMA) High Capacity (HC)"
+   ],
+   "explanation": "STANAG 4204 is the NATO-compatible, non-encrypted analog voice waveform. The CNR waveform is the encrypted legacy-compatible one.",
+   "why": [
+    "CNR offers compatibility with Elbit legacy systems and is encrypted.",
+    "WB is a TRANSEC-protected frequency-hopping waveform, not a non-encrypted NATO-compatible one.",
+    "WMA HC is an automated self-forming, self-healing IP network, not a non-encrypted analog waveform."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-manet-c4istar-planning.pdf p.35-36"
+  },
+  {
+   "n": 12,
+   "stem": "A unit is issued a single channel hand held soldier radio with 5 W output power, including a GPS antenna and a handset. Which E-LynX unit is this?",
+   "key": "MCTR 7200HH",
+   "distractors": [
+    "MCTR 7200HH VS50-VA",
+    "H-250 handset",
+    "G-10N key fill device"
+   ],
+   "explanation": "The MCTR 7200HH is the single channel hand held soldier radio with 5 W output power.",
+   "why": [
+    "The VS50-VA is a single channel vehicular adapter with 50 W output.",
+    "The H-250 is the external handset that connects through the audio connector.",
+    "The G-10N is the key fill device used to load keys into radios."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-manet-c4istar-planning.pdf p.38, p.44-46"
+  },
+  {
+   "n": 13,
+   "stem": "After a radio is repaired, a technician confirms that it functions again, including the built-in test. Which step of corrective maintenance is this?",
+   "key": "Fault verification",
+   "distractors": [
+    "Fault identification",
+    "Fault isolation",
+    "Fault repair"
+   ],
+   "explanation": "Fault verification, including BIT, confirms the repaired function and is the fourth step of corrective maintenance.",
+   "why": [
+    "Identification asks what the problem is before any work begins.",
+    "Isolation narrows down where the fault is before repair.",
+    "Repair is the corrective work itself; the check afterward is verification."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-manet-c4istar-planning.pdf p.27"
+  },
+  {
+   "n": 14,
+   "stem": "Which of the following is a general safety precaution for MANET radio preventive maintenance?",
+   "key": "Use only the designated or recommended tools to perform maintenance tasks",
+   "distractors": [
+    "Clean the equipment only after the maintenance actions are finished",
+    "Wet the cloth with strong solvent when dirt is hard to remove",
+    "Skip the visual inspection when the radio powers up normally"
+   ],
+   "explanation": "General safety precautions include using only designated tools, wearing protective gloves when needed, and a visual inspection of the radio and cables.",
+   "why": [
+    "The lesson requires cleaning the equipment before maintenance actions.",
+    "The lesson says to dampen the cloth with mild soap and water.",
+    "The lesson calls for visual inspection of the radio, cables and pins."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-manet-c4istar-planning.pdf p.25-26"
+  }
+ ]
+}

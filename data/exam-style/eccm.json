@@ -1,0 +1,277 @@
+{
+ "lesson": "eccm",
+ "title": "Electronic Counter-Countermeasures (ECCM)",
+ "source": "Electronic Counter-Countermeasures (ECCM) deck, 3 Nov 2026 (PAM 3-0702-01, FM 3-12)",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following defines Electronic Protection (EP) as quoted from PAM 3-0702-01?",
+   "key": "It safeguards personnel, facilities and equipment from the effects of spectrum emissions, whether friendly, adversary or natural",
+   "distractors": [
+    "It attacks the enemy's use of the electromagnetic spectrum",
+    "It searches for, intercepts and locates enemy emitters for the commander",
+    "It safeguards equipment only from adversary jamming"
+   ],
+   "explanation": "EP safeguards personnel, facilities and equipment from the effects of emissions in the spectrum, including friendly, adversary or natural interference.",
+   "why": [
+    "That is Electronic Attack, the new name for ECM.",
+    "That is the ES role, not EP.",
+    "EP covers friendly and natural interference too, not only adversary jamming."
+   ],
+   "pattern": "defines",
+   "ref": "ECCM deck slides 7, 25"
+  },
+  {
+   "n": 2,
+   "stem": "Which statement matches ECM and ECCM in the terminology used in the deck?",
+   "key": "ECM is now called Electronic Attack, and ECCM is now called Electronic Protection",
+   "distractors": [
+    "ECM is now called Electronic Protection, and ECCM is now called Electronic Attack",
+    "ECM is now called Electronic Support, and ECCM is now called Electronic Protection",
+    "ECM is now called Electronic Attack, and ECCM is now called Electronic Support"
+   ],
+   "explanation": "Slide 6 states that ECM is now Electronic Attack and ECCM is now Electronic Protection.",
+   "why": [
+    "That swaps the two terms.",
+    "ECM is Electronic Attack, not Electronic Support.",
+    "ECCM is Electronic Protection, not Electronic Support."
+   ],
+   "pattern": "defines",
+   "ref": "ECCM deck slide 6"
+  },
+  {
+   "n": 3,
+   "stem": "Which of the following describes frequency hopping?",
+   "key": "The radio jumps channels many times per second in a pattern only friendly radios know",
+   "distractors": [
+    "The signal is spread so that it is harder to detect and jam",
+    "A long, coded pulse is squeezed on receive for range detail and anti-jam margin",
+    "A second antenna spots jamming arriving from the side so the radar ignores it"
+   ],
+   "explanation": "A hopping radio jumps channels many times per second in a pattern only friendly radios know, so a spot jammer hits only a few hops and error correction recovers the rest.",
+   "why": [
+    "That is spread spectrum.",
+    "That is pulse compression, a radar technique.",
+    "That is sidelobe blanking, a radar technique."
+   ],
+   "pattern": "defines",
+   "ref": "ECCM deck slide 13"
+  },
+  {
+   "n": 4,
+   "stem": "Which of the following describes what encryption protects?",
+   "key": "WHAT you say, so the enemy hears gibberish",
+   "distractors": [
+    "WHETHER your message gets through despite jamming",
+    "WHERE your transmitter is, so direction finding cannot locate it",
+    "WHEN your station transmits, so that no pattern forms"
+   ],
+   "explanation": "Encryption protects what you say; anti-jam measures protect whether it gets through, and encryption does not hide location.",
+   "why": [
+    "That is the job of anti-jam measures.",
+    "The deck states that encryption does not hide location.",
+    "Varying the routine, not encryption, breaks up patterns."
+   ],
+   "pattern": "defines",
+   "ref": "ECCM deck slide 14"
+  },
+  {
+   "n": 5,
+   "stem": "It is the EP measure that protects equipment from damaging energy and jamming through shielding, filtering and grounding.",
+   "key": "Hardening",
+   "distractors": [
+    "Spectrum management",
+    "Emission control",
+    "Frequency hopping"
+   ],
+   "explanation": "Hardening protects equipment through shielding, filtering and grounding, checked on every setup through cable shielding, connectors and grounding.",
+   "why": [
+    "Spectrum management keeps our own emitters from jamming each other through assigned frequencies.",
+    "Emission control governs what may transmit under given conditions.",
+    "Frequency hopping jumps channels in a pattern only friendly radios know."
+   ],
+   "pattern": "definition",
+   "ref": "ECCM deck slides 7, 20"
+  },
+  {
+   "n": 6,
+   "stem": "It is the effect in which a weapon switches to guide on a jamming source, so the jammer becomes a target.",
+   "key": "Home-on-jam",
+   "distractors": [
+    "Sidelobe blanking",
+    "Frequency agility",
+    "Spoofing"
+   ],
+   "explanation": "Some weapons can switch to guiding on a jamming source, which is why a strong emitter, jammer or radio can be located and struck.",
+   "why": [
+    "Sidelobe blanking is a radar technique that ignores jamming arriving from the side.",
+    "Frequency agility is a radar technique that changes frequency pulse to pulse.",
+    "Spoofing feeds a receiver a wrong position or time."
+   ],
+   "pattern": "definition",
+   "ref": "ECCM deck slide 22"
+  },
+  {
+   "n": 7,
+   "stem": "It is the radar technique in which a second antenna spots jamming arriving from the side, so the radar ignores it.",
+   "key": "Sidelobe blanking",
+   "distractors": [
+    "Frequency agility",
+    "Pulse compression",
+    "Low-probability-of-intercept"
+   ],
+   "explanation": "Sidelobe blanking uses a second antenna to spot jamming that arrives from the side.",
+   "why": [
+    "Frequency agility changes frequency from pulse to pulse.",
+    "Pulse compression squeezes a long, coded pulse on receive.",
+    "Low-probability-of-intercept uses low-power, wideband waveforms that are hard for ES to detect."
+   ],
+   "pattern": "definition",
+   "ref": "ECCM deck slide 21"
+  },
+  {
+   "n": 8,
+   "stem": "A battalion is at risk of attack, so it limits transmissions and watches power levels. Which EMCON level is this?",
+   "key": "EMCON 2, YELLOW",
+   "distractors": [
+    "EMCON 1, GREEN",
+    "EMCON 3, AMBER",
+    "EMCON 4, RED"
+   ],
+   "explanation": "EMCON 2 YELLOW applies when there is a risk of attack, with limited transmissions and watched power levels.",
+   "why": [
+    "EMCON 1 GREEN is normal operation with no hostile activity.",
+    "EMCON 3 AMBER is the field baseline, with encryption, hopping and directional antennas and unencrypted systems off.",
+    "EMCON 4 RED applies once an attack has occurred."
+   ],
+   "pattern": "scenario",
+   "ref": "ECCM deck slide 12"
+  },
+  {
+   "n": 9,
+   "stem": "Attacks are under way, and the commander orders the most restrictive level, isolating compromised systems. Which EMCON level is this?",
+   "key": "EMCON 5, BLACK",
+   "distractors": [
+    "EMCON 4, RED",
+    "EMCON 3, AMBER",
+    "EMCON 2, YELLOW"
+   ],
+   "explanation": "EMCON 5 BLACK is for attacks under way and isolates compromised systems.",
+   "why": [
+    "EMCON 4 RED applies after an attack has occurred, with non-essential emitters off and alternates used.",
+    "EMCON 3 AMBER is the field baseline, not the most restrictive level.",
+    "EMCON 2 YELLOW only limits transmissions when there is a risk of attack."
+   ],
+   "pattern": "scenario",
+   "ref": "ECCM deck slide 12"
+  },
+  {
+   "n": 10,
+   "stem": "A platoon's net fills with static. The signaller disconnects the antenna and the noise drops. What does the lesson say this suggests?",
+   "key": "The source is outside the radio",
+   "distractors": [
+    "The radio, its cables or its power should be suspected",
+    "Terrain or direction is involved",
+    "Enemy jamming is confirmed"
+   ],
+   "explanation": "If the noise drops when the antenna is disconnected, the source is outside the radio; the cause still has to be worked out among jamming, interference and terrain.",
+   "why": [
+    "That is the conclusion when the noise stays with the antenna disconnected.",
+    "That conclusion comes from the move-or-turn check, not the antenna test.",
+    "An outside source could still be friendly interference, so jamming is not confirmed."
+   ],
+   "pattern": "scenario",
+   "ref": "ECCM deck slide 15"
+  },
+  {
+   "n": 11,
+   "stem": "A convoy's GPS shows a wrong time and a speed reading while the vehicles are halted. Which GPS threat does this suggest?",
+   "key": "Spoofing",
+   "distractors": [
+    "Jamming",
+    "Home-on-jam",
+    "A compatibility failure among own emitters"
+   ],
+   "explanation": "Wrong time and speed while stationary are spoofing red flags; spoofing gives a wrong fix that looks right.",
+   "why": [
+    "Jamming gives no fix at all rather than a wrong one.",
+    "Home-on-jam is a weapon guiding on a jamming source.",
+    "A compatibility failure concerns friendly emitters interfering with each other."
+   ],
+   "pattern": "scenario",
+   "ref": "ECCM deck slide 19"
+  },
+  {
+   "n": 12,
+   "stem": "A signaller keeps sending radio checks just for comfort when nothing needs reporting. Which radio-discipline rule is being broken?",
+   "key": "Transmit only when needed",
+   "distractors": [
+    "Use the lowest power that works",
+    "Keep transmissions short",
+    "Vary your routine"
+   ],
+   "explanation": "The deck's rule to transmit only when needed rules out chatter and radio checks for comfort.",
+   "why": [
+    "Lowest power concerns the range of enemy DF.",
+    "Short transmissions concern message length, not whether to transmit.",
+    "Varying the routine concerns fixed report times and patterns."
+   ],
+   "pattern": "scenario",
+   "ref": "ECCM deck slide 9"
+  },
+  {
+   "n": 13,
+   "stem": "Which list contains the five EP measures?",
+   "key": "Hardening, encryption, frequency hopping, emission control, spectrum management",
+   "distractors": [
+    "Hardening, encryption, frequency hopping, terrain masking, spectrum management",
+    "Hardening, encryption, radio discipline, emission control, spectrum management",
+    "Shielding, encryption, frequency hopping, emission control, PACE"
+   ],
+   "explanation": "The five EP measures are hardening, encryption, frequency hopping, emission control and spectrum management.",
+   "why": [
+    "Terrain masking is a field practice, not one of the five measures.",
+    "Radio discipline is a field practice, not one of the five measures.",
+    "Shielding is part of hardening and PACE is a continuity plan; neither is a named measure."
+   ],
+   "pattern": "list",
+   "ref": "ECCM deck slide 7"
+  },
+  {
+   "n": 14,
+   "stem": "Which list gives the seven lines of the generic interference report?",
+   "key": "WHO, WHEN, WHERE, FREQUENCY / NET, WHAT, EFFECT, ACTIONS",
+   "distractors": [
+    "WHO, WHEN, WHERE, FREQUENCY / NET, WHY, EFFECT, ACTIONS",
+    "WHO, WHEN, WHERE, POWER, WHAT, EFFECT, ACTIONS",
+    "WHO, WHAT, WHERE, FREQUENCY / NET, CAUSE, EFFECT, ACTIONS"
+   ],
+   "explanation": "The deck's generic training report has seven lines: WHO, WHEN, WHERE, FREQUENCY / NET, WHAT, EFFECT and ACTIONS.",
+   "why": [
+    "WHY is not a line; the cause is left unresolved in the report.",
+    "POWER is not a line; FREQUENCY / NET is.",
+    "CAUSE is not a line, and WHEN is missing."
+   ],
+   "pattern": "list",
+   "ref": "ECCM deck slide 17"
+  },
+  {
+   "n": 15,
+   "stem": "Which of the following is NOT one of the four possible causes of sudden static in the ice breaker?",
+   "key": "Hardening",
+   "distractors": [
+    "Enemy jamming",
+    "Equipment fault",
+    "Terrain and distance"
+   ],
+   "explanation": "The four possible causes are enemy jamming, friendly interference, equipment fault, and terrain and distance. Hardening is an EP measure, not a cause.",
+   "why": [
+    "Enemy jamming is one of the four causes.",
+    "Equipment fault is one of the four causes.",
+    "Terrain and distance is one of the four causes."
+   ],
+   "pattern": "not",
+   "ref": "ECCM deck slide 4"
+  }
+ ]
+}

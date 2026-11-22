@@ -1,0 +1,259 @@
+{
+ "lesson": "nist",
+ "title": "NIST Framework",
+ "source": "1. NIST Framework.pdf",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following describes the NIST Cybersecurity Framework?",
+   "key": "A voluntary, risk-based playbook, not a checklist",
+   "distractors": [
+    "A mandatory law that applies a one-size compliance audit",
+    "A product catalogue of tools every organization must buy",
+    "A technical control standard for critical-infrastructure operators only"
+   ],
+   "explanation": "The lesson describes the CSF as a voluntary, risk-based playbook, not a checklist, and as a common language that describes outcomes to achieve rather than products to buy.",
+   "why": [
+    "The scope slide states the Framework is not a mandatory law or a one-size compliance audit.",
+    "The Framework is not a product, tool or specific technical control; it describes outcomes.",
+    "It applies to any organization regardless of sector, size or maturity, not only critical infrastructure."
+   ],
+   "pattern": "defines",
+   "ref": "1. NIST Framework.pdf p.7-8"
+  },
+  {
+   "n": 2,
+   "stem": "It is the Function that establishes and monitors the cyber risk strategy, covering organizational context, roles and policy oversight.",
+   "key": "Govern",
+   "distractors": [
+    "Identify",
+    "Protect",
+    "Recover"
+   ],
+   "explanation": "GOVERN covers strategy, roles, policy and oversight, including risk appetite and cyber supply-chain risk management (C-SCRM).",
+   "why": [
+    "Identify is about knowing your assets, risks and priorities.",
+    "Protect puts safeguards in place to reduce likelihood.",
+    "Recover restores capability and captures lessons."
+   ],
+   "pattern": "definition",
+   "ref": "1. NIST Framework.pdf p.10-11"
+  },
+  {
+   "n": 3,
+   "stem": "Which of the following defines the RESPOND Function?",
+   "key": "Act on confirmed incidents by containing, analysing and communicating",
+   "distractors": [
+    "Find trouble quickly through continuous monitoring and baselines",
+    "Restore and improve by executing the recovery plan",
+    "Put safeguards in place through access control and training"
+   ],
+   "explanation": "RESPOND acts on confirmed incidents: incident management and triage, analysis, reporting and communication, and containment and mitigation.",
+   "why": [
+    "That is DETECT, which finds events and anomalies.",
+    "That is RECOVER, which restores capability and verifies a return to normal operations.",
+    "That is PROTECT, which adds safeguards that reduce likelihood."
+   ],
+   "pattern": "defines",
+   "ref": "1. NIST Framework.pdf p.12"
+  },
+  {
+   "n": 4,
+   "stem": "A signal unit establishes baselines for its network and correlates adverse events to spot anomalies. This describes which Function?",
+   "key": "Detect",
+   "distractors": [
+    "Identify",
+    "Protect",
+    "Respond"
+   ],
+   "explanation": "DETECT finds events and anomalies fast through continuous monitoring, adverse-event analysis and correlation, and baselines.",
+   "why": [
+    "Identify covers asset management and risk assessment, not monitoring for anomalies.",
+    "Protect covers safeguards such as access control, training and encryption.",
+    "Respond acts on incidents that are already confirmed."
+   ],
+   "pattern": "scenario",
+   "ref": "1. NIST Framework.pdf p.12"
+  },
+  {
+   "n": 5,
+   "stem": "It is the CSF component, a hierarchy of Functions, Categories and Subcategories, that describes the cybersecurity outcomes to pursue.",
+   "key": "The Core",
+   "distractors": [
+    "Profiles",
+    "Tiers",
+    "The Target Profile"
+   ],
+   "explanation": "The Core is the \"what to do\": a hierarchy of Functions, Categories and Subcategories, independent of any specific technology.",
+   "why": [
+    "Profiles show where you stand: Current and Target.",
+    "Tiers gauge how rigorously risk management is practised.",
+    "The Target Profile is one kind of Profile, the desired state."
+   ],
+   "pattern": "definition",
+   "ref": "1. NIST Framework.pdf p.13"
+  },
+  {
+   "n": 6,
+   "stem": "A unit records the outcomes it achieves today, defines the state it wants, and turns the gap into a prioritised action plan. Which CSF component does this describe?",
+   "key": "Profiles",
+   "distractors": [
+    "The Core",
+    "Implementation Tiers",
+    "The Functions"
+   ],
+   "explanation": "A Current Profile captures today's posture and a Target Profile the desired state; the gap becomes the prioritised action plan.",
+   "why": [
+    "The Core lists outcomes (the what) but does not measure a unit's gap.",
+    "Tiers gauge how disciplined and adaptive risk management is, from Partial to Adaptive.",
+    "The Functions are part of the Core, not the gap-measuring tool."
+   ],
+   "pattern": "scenario",
+   "ref": "1. NIST Framework.pdf p.13"
+  },
+  {
+   "n": 7,
+   "stem": "Which list contains the four Implementation Tiers in order?",
+   "key": "Partial, Risk Informed, Repeatable, Adaptive",
+   "distractors": [
+    "Partial, Repeatable, Risk Informed, Adaptive",
+    "Reactive, Risk Informed, Repeatable, Adaptive",
+    "Partial, Risk Informed, Repeatable, Optimized"
+   ],
+   "explanation": "The Tiers run 1 Partial, 2 Risk Informed, 3 Repeatable, 4 Adaptive, with increasing rigour, agility and integration.",
+   "why": [
+    "Repeatable (formal, consistently applied policy) comes after Risk Informed, not before it.",
+    "Tier 1 is named Partial, not Reactive.",
+    "Tier 4 is named Adaptive, not Optimized."
+   ],
+   "pattern": "list",
+   "ref": "1. NIST Framework.pdf p.14"
+  },
+  {
+   "n": 8,
+   "stem": "A unit applies formal policies consistently and updates them as threats change. Which Implementation Tier does this describe?",
+   "key": "Repeatable",
+   "distractors": [
+    "Partial",
+    "Risk Informed",
+    "Adaptive"
+   ],
+   "explanation": "Tier 3, Repeatable, means formal policies that are consistently applied and updated as threats change.",
+   "why": [
+    "Partial is ad hoc, reactive risk management handled case by case.",
+    "Risk Informed means practices are approved by management but not yet organization-wide policy.",
+    "Adaptive means continuous improvement where lessons and threat intelligence reshape defenses."
+   ],
+   "pattern": "scenario",
+   "ref": "1. NIST Framework.pdf p.14"
+  },
+  {
+   "n": 9,
+   "stem": "Which list gives the first three steps of applying the Framework, in order?",
+   "key": "Prioritize and scope, Orient, Create a Current Profile",
+   "distractors": [
+    "Orient, Prioritize and scope, Create a Current Profile",
+    "Prioritize and scope, Create a Current Profile, Orient",
+    "Prioritize and scope, Orient, Conduct a risk assessment"
+   ],
+   "explanation": "The seven steps begin with Prioritize and scope, then Orient, then Create a Current Profile; Conduct a risk assessment is step 4.",
+   "why": [
+    "Scope comes first, before orienting to assets and threats.",
+    "Orient (assets, threats, regulatory drivers) precedes the Current Profile.",
+    "The risk assessment is step 4, after the Current Profile."
+   ],
+   "pattern": "list",
+   "ref": "1. NIST Framework.pdf p.15"
+  },
+  {
+   "n": 10,
+   "stem": "It is the step of applying the Framework in which the likelihood and impact of key risks are judged.",
+   "key": "Conduct a risk assessment",
+   "distractors": [
+    "Orient",
+    "Create a Target Profile",
+    "Analyze gaps and prioritize"
+   ],
+   "explanation": "Step 4, Conduct a risk assessment, judges the likelihood and impact of key risks.",
+   "why": [
+    "Orient identifies assets, threats and regulatory drivers.",
+    "Create a Target Profile defines the desired outcomes for the mission.",
+    "Analyze gaps compares profiles to build a prioritized action plan."
+   ],
+   "pattern": "definition",
+   "ref": "1. NIST Framework.pdf p.15"
+  },
+  {
+   "n": 11,
+   "stem": "Which of the following is NOT a quality of the NIST Cybersecurity Framework as presented in the lesson?",
+   "key": "A mandatory one-size compliance audit",
+   "distractors": [
+    "Risk-based",
+    "Technology-neutral",
+    "Interoperable"
+   ],
+   "explanation": "Slide 7 lists the Framework as risk-based, technology-neutral, interoperable and a shared language. Slide 8 states it is not a mandatory law or a one-size compliance audit.",
+   "why": [
+    "Risk-based is a listed quality: effort is prioritised by likelihood and impact.",
+    "Technology-neutral is a listed quality: it works across any sector, mission or size of unit.",
+    "Interoperable is a listed quality: it maps to ISO 27001, COBIT and other control catalogues."
+   ],
+   "pattern": "not",
+   "ref": "1. NIST Framework.pdf p.7-8"
+  },
+  {
+   "n": 12,
+   "stem": "Which of the following defines the NICTEF?",
+   "key": "The country's overarching roadmap for ICT development, issued by the DICT",
+   "distractors": [
+    "The U.S. framework of six Functions, Profiles and Tiers for managing cyber risk",
+    "The National Cybersecurity Plan that sets cyber policy for units",
+    "The earlier Philippine Digital Strategy that it replaces"
+   ],
+   "explanation": "The National ICT Ecosystem Framework is the DICT-issued overarching roadmap for ICT development. It succeeds the Philippine Digital Strategy.",
+   "why": [
+    "That describes the NIST CSF, which is the operational method.",
+    "The National Cybersecurity Plan is a separate policy document that sits beside NICTEF.",
+    "The Philippine Digital Strategy is what NICTEF succeeds, not what it is."
+   ],
+   "pattern": "defines",
+   "ref": "1. NIST Framework.pdf p.18"
+  },
+  {
+   "n": 13,
+   "stem": "Which NICTEF framework element consists of the physical and logical components that provide secure connectivity between users, their devices and the platform they access?",
+   "key": "Infostructure/Infrastructure",
+   "distractors": [
+    "Human Capital",
+    "Platforms",
+    "Affordable Access and Devices"
+   ],
+   "explanation": "Slide 22 defines Infostructure/Infrastructure as the physical and logical components that provide secure connectivity between the users, their devices and the platform they are accessing.",
+   "why": [
+    "Human Capital is the individuals (talents and skills) who use the applications, services, content and data.",
+    "Platforms are the apps, services and content/data solutions that users access.",
+    "Affordable Access and Devices are the interfaces (phones, laptops, internet cafes) through which humans access services."
+   ],
+   "pattern": "scenario",
+   "ref": "1. NIST Framework.pdf p.22"
+  },
+  {
+   "n": 14,
+   "stem": "Which of the following correctly relates NICTEF to the NIST CSF 2.0?",
+   "key": "NICTEF supplies the what and why; the CSF supplies the how",
+   "distractors": [
+    "NICTEF supplies the how; the CSF supplies the what and why",
+    "Both supply the how, at national and unit level respectively",
+    "The CSF replaces NICTEF as the national ICT direction"
+   ],
+   "explanation": "NICTEF sets the national direction (the WHAT and WHY) while the NIST CSF gives units a repeatable method (the HOW) to deliver the outcomes.",
+   "why": [
+    "This reverses the roles; the CSF is the operational method.",
+    "NICTEF is strategic direction, not an operational how.",
+    "The CSF complements NICTEF; it does not replace the national direction."
+   ],
+   "pattern": "defines",
+   "ref": "1. NIST Framework.pdf p.26"
+  }
+ ]
+}

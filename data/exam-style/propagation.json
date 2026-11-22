@@ -1,0 +1,241 @@
+{
+ "lesson": "propagation",
+ "title": "Signal Propagation (Mobile Apps/RF Clouds)",
+ "source": "lesson-signal-propagation.pdf (SOAC v6 propagation study, 54 slides)",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following defines the fade margin reported in the Radio Mobile link checks?",
+   "key": "The signal level in dB above the receiver threshold",
+   "distractors": [
+    "The signal level at the receiver in dBm",
+    "The share of the Fresnel zone left clear by terrain",
+    "The power lost in the line between radio and antenna"
+   ],
+   "explanation": "The study reports every link as a margin above the -119 dBm threshold; for example the weakest link, Daraga to Relay Alpha, holds +35.8 dB.",
+   "why": [
+    "That is the RX level, a separate figure on the same link slide.",
+    "That is the Fresnel figure, also reported separately.",
+    "That is the line loss, recorded at 0.5 dB, not a margin."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-signal-propagation.pdf slides 15, 29, 35"
+  },
+  {
+   "n": 2,
+   "stem": "Which combination matches the Radio Mobile settings recorded for the study?",
+   "key": "Longley-Rice (ITM) on SRTM-3 90 m terrain data with a 10 km plot radius",
+   "distractors": [
+    "Egli on SRTM-3 90 m terrain data with a 10 km plot radius",
+    "Longley-Rice (ITM) on SRTM-3 90 m terrain data with a 30 km plot radius",
+    "Longley-Rice (ITM) on 30 m terrain data with a 10 km plot radius"
+   ],
+   "explanation": "Slide 15 records the Longley-Rice model (ITM, k = 4/3), SRTM-3 90 m DEM terrain data and a 10 km plot radius per station.",
+   "why": [
+    "Egli is the model used for the cellular CloudRF plots, not the Radio Mobile plots.",
+    "The recorded plot radius is 10 km per station, not 30 km.",
+    "The recorded terrain data is the SRTM-3 90 m DEM, not 30 m data."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-signal-propagation.pdf slide 15"
+  },
+  {
+   "n": 3,
+   "stem": "Which of the following describes Relay Alpha?",
+   "key": "A 10 W retransmission site on Pocdol high ground, 931 m above sea level with a 6 m mast",
+   "distractors": [
+    "A 5 W base station on the lower Mayon slopes with a 30 m mast",
+    "A 10 W HF NVIS station beside Brigade HQ in Legazpi City",
+    "A cellular tower on the coastal highway modelled in CloudRF"
+   ],
+   "explanation": "Relay Alpha is emplaced at 51P XQ 01711 40097 on Pocdol high ground, 931 m ground elevation with a 6 m mast, as a 10 W retransmission site.",
+   "why": [
+    "Mayon's 6 km Permanent Danger Zone allows no relay sites, and Relay Alpha is not a 5 W base.",
+    "HF NVIS is the alternate means in PACE, not the relay.",
+    "CloudRF was used for cellular towers, not for the VHF relay."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-signal-propagation.pdf slides 3, 46"
+  },
+  {
+   "n": 4,
+   "stem": "Which combination matches the CloudRF inputs recorded for the cellular exports?",
+   "key": "Egli, 780 MHz, 20 W with 12 dBi at 30 m, handset at 1.5 m",
+   "distractors": [
+    "Longley-Rice, 780 MHz, 20 W with 12 dBi at 30 m, handset at 1.5 m",
+    "Egli, 40-59 MHz, 5 W with 4 dBi at 6 m, handset at 2 m",
+    "Egli, 780 MHz, 10 W with 4 dBi at 6 m, handset at 1.5 m"
+   ],
+   "explanation": "Slides 37-38 record Egli at 780 MHz, 20 W, a 12 dBi transmit antenna at 30 m AGL and a 1.5 m receive height for the cellular exports.",
+   "why": [
+    "Longley-Rice is the Radio Mobile model; the cellular exports use Egli.",
+    "40-59 MHz, 5 W, 4 dBi at 6 m and a 2 m handset are the Radio Mobile handheld-net settings, not the cellular inputs.",
+    "The cellular transmit power is 20 W with 12 dBi at 30 m; 10 W and 4 dBi at 6 m are the relay and HQ settings."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-signal-propagation.pdf slide 37-38"
+  },
+  {
+   "n": 5,
+   "stem": "Which of the following is supported about the cellular comparison on a common map extent?",
+   "key": "The same extent supports comparison but does not establish complete service coverage",
+   "distractors": [
+    "The 51% corridor figure proves complete coverage by all three networks",
+    "The 12 key towers represent every CellMapper tower in the AO",
+    "The model inputs describe the operators' verified equipment and service"
+   ],
+   "explanation": "The slide says the common map extent supports comparison and does not establish complete service coverage, and that the inputs describe the exports, not verified equipment.",
+   "why": [
+    "Only 51% of the corridor is covered by the 12 modelled towers.",
+    "The other CellMapper towers were not run because of the credit cap.",
+    "Slide 38 says the model inputs describe the exports, not the operators' equipment."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-signal-propagation.pdf slides 37-38, 42"
+  },
+  {
+   "n": 6,
+   "stem": "It is corridor land with no plotted signal or only the weakest Radio Mobile classes, shown as red hatch.",
+   "key": "A dead spot",
+   "distractors": [
+    "A Fresnel zone",
+    "A radio basin",
+    "A plot radius"
+   ],
+   "explanation": "The study maps three dead spots; DS-1 is 179 km2 across the Daraga-Castilla seam.",
+   "why": [
+    "The Fresnel zone describes clearance around the direct path.",
+    "A radio basin is a connected area of coverage; the study joins two basins into one brigade net.",
+    "The plot radius is the 10 km extent computed per station."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-signal-propagation.pdf slide 44"
+  },
+  {
+   "n": 7,
+   "stem": "It is the setting recorded as -119 dBm (0.25 microvolt sensitivity) in the Radio Mobile setup.",
+   "key": "Receiver threshold",
+   "distractors": [
+    "Transmit power",
+    "Line loss",
+    "Fade margin"
+   ],
+   "explanation": "The setup slide lists the RX threshold as -119 dBm; link margins are measured above it.",
+   "why": [
+    "Transmit power was 5 W for stations and 10 W for the relay.",
+    "Line loss was recorded as 0.5 dB.",
+    "Fade margin is computed above the threshold, not set as a threshold."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-signal-propagation.pdf slide 15"
+  },
+  {
+   "n": 8,
+   "stem": "A planner raises the HQ mast from 2 m to 30 m and sees the margin move only from 35.2 to 35.9 dB. What does the study conclude about mast height at 40-59 MHz?",
+   "key": "Mast height barely matters at these frequencies",
+   "distractors": [
+    "Mast height is the main way to cross the Pocdol range",
+    "Every base station should be raised to the maximum mast height",
+    "Taller masts are needed for the Daraga link to close"
+   ],
+   "explanation": "The study states that mast height barely matters at 40-59 MHz and that height does not cross the Pocdol range; the relay does.",
+   "why": [
+    "The recommendation says height does not cross the Pocdol range; the relay does.",
+    "At 6 m the links already close, so maximum masts are not needed.",
+    "Every one of the 12 links already closes at planned heights."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-signal-propagation.pdf slides 51, 53"
+  },
+  {
+   "n": 9,
+   "stem": "After Relay Alpha is added, the 179 km2 DS-1 dead spot shrinks to about what area?",
+   "key": "15 km2",
+   "distractors": [
+    "6 km2",
+    "14 km2",
+    "81 km2"
+   ],
+   "explanation": "The before-and-after slide shows DS-1 falling from 179 km2 to 15 km2, with corridor coverage rising from 81% to 96%.",
+   "why": [
+    "6 km2 is the area of DS-2 at Sto. Domingo.",
+    "14 km2 is the area of DS-3 at Oas / Ligao.",
+    "81 is the before-relay corridor percentage, not an area."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-signal-propagation.pdf slides 44, 49"
+  },
+  {
+   "n": 10,
+   "stem": "A signal officer reads the scorecard of the 12 planned links for the one with the least room for worsening conditions. Which link is it?",
+   "key": "Daraga to Relay Alpha, 28.4 km at +35.8 dB",
+   "distractors": [
+    "Legazpi City TOC to Relay Alpha, 27.1 km at +57.2 dB",
+    "Relay Alpha to Casiguran, 18.6 km at +67.0 dB",
+    "Sorsogon City to Bacon District, 5.1 km at +54.8 dB"
+   ],
+   "explanation": "The Daraga to Relay Alpha link has the smallest fade margin, +35.8 dB, though it still closes.",
+   "why": [
+    "That link is longer than most but holds +57.2 dB.",
+    "That link holds +67.0 dB, well above the weakest.",
+    "That link holds +54.8 dB, well above the weakest."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-signal-propagation.pdf slides 29, 35"
+  },
+  {
+   "n": 11,
+   "stem": "Handhelds are used inside buildings in Legazpi City and Sorsogon City, the densest LGUs. What does the study advise?",
+   "key": "Expect a 10-20 dB loss and use vehicle or base sets for C2 there",
+   "distractors": [
+    "Raise handheld masts to 30 m to recover the loss",
+    "Move classified traffic to cellular in the towns",
+    "Rely on Relay Alpha's 10 W retransmission alone for building coverage"
+   ],
+   "explanation": "The planning factors say handhelds lose 10-20 dB inside buildings, so vehicle or base sets should be used for C2 in dense urban clutter.",
+   "why": [
+    "Mast height barely matters at these frequencies, and handhelds do not use 30 m masts.",
+    "Cellular is a contingency means only and never for classified traffic.",
+    "The relay serves the Daraga-Castilla gap, not in-building loss."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-signal-propagation.pdf slides 9, 37, 51"
+  },
+  {
+   "n": 12,
+   "stem": "Which list gives the PACE plan of the study's communications architecture in order?",
+   "key": "VHF FM net via Relay Alpha; HF NVIS; cellular with encrypted apps; SATCOM terminal or runner",
+   "distractors": [
+    "VHF FM net via Relay Alpha; cellular with encrypted apps; HF NVIS; SATCOM terminal or runner",
+    "HF NVIS; VHF FM net via Relay Alpha; cellular with encrypted apps; SATCOM terminal or runner",
+    "VHF FM net via Relay Alpha; HF NVIS; SATCOM terminal or runner; cellular with encrypted apps"
+   ],
+   "explanation": "Primary is the VHF FM net via Relay Alpha, Alternate HF NVIS, Contingency cellular with encrypted apps, and Emergency a SATCOM terminal or runner.",
+   "why": [
+    "Cellular is the contingency, so it follows HF NVIS.",
+    "The relay net is the primary, ahead of HF NVIS.",
+    "SATCOM or runner is the emergency, last in the plan."
+   ],
+   "pattern": "list",
+   "ref": "lesson-signal-propagation.pdf slide 52"
+  },
+  {
+   "n": 13,
+   "stem": "Which of the following is NOT one of the three dead spots mapped in the study?",
+   "key": "Bacon District, near Relay Alpha",
+   "distractors": [
+    "The Daraga-Castilla seam on the Manito slopes",
+    "Sto. Domingo / Mayon SE",
+    "Oas / Ligao NW ridge"
+   ],
+   "explanation": "The study maps DS-1 at the Daraga-Castilla seam, DS-2 at Sto. Domingo / Mayon SE and DS-3 at Oas / Ligao NW. Bacon District is a Sorsogon unit reached by Relay Alpha.",
+   "why": [
+    "That is DS-1, the largest dead spot.",
+    "That is DS-2.",
+    "That is DS-3."
+   ],
+   "pattern": "not",
+   "ref": "lesson-signal-propagation.pdf slides 44, 53"
+  }
+ ]
+}

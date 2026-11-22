@@ -1,0 +1,223 @@
+{
+ "lesson": "c4istarplanning",
+ "title": "C4ISTAR Communications Planning",
+ "source": "lesson-c4istar-communications-planning.pdf (2. IMM C4ISTAR Communication Planning)",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following defines Software-Defined Radios (SDRs) under C4ISTAR Communications Technologies?",
+   "key": "Radios that can be reconfigured through software to operate on different frequencies and protocols",
+   "distractors": [
+    "Multi-band radios with encryption for secure voice and data communication",
+    "Networks based on Internet Protocol that allow efficient and flexible data transmission",
+    "Communication equipment built into military vehicles for seamless coordination"
+   ],
+   "explanation": "The slides describe SDRs as radios that can be reconfigured through software to operate on different frequencies and protocols.",
+   "why": [
+    "This describes Secure Radios (multi-band VHF, UHF, HF with encryption).",
+    "This describes IP-Based Networks under network-centric communication.",
+    "This describes Vehicle Communication Systems."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-c4istar-communications-planning.pdf slide 25"
+  },
+  {
+   "n": 2,
+   "stem": "Which of the following defines Secure Radios under C4ISTAR Communications Technologies?",
+   "key": "Multi-band radios (VHF, UHF, HF) with encryption for secure voice and data communication",
+   "distractors": [
+    "Ruggedized smartphones, tablets and laptops designed for field conditions",
+    "Facilities equipped with advanced display systems, communication links and real-time data analytics",
+    "Platforms for situational awareness, mission planning and operational coordination"
+   ],
+   "explanation": "Slide 25 lists Secure Radios as multi-band radios (VHF, UHF, HF) with encryption for secure voice and data.",
+   "why": [
+    "This describes Ruggedized Devices under mobility and field technologies.",
+    "This describes Integrated Command Consoles in command and control centers.",
+    "This describes Tactical Command Systems under battle management systems."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-c4istar-communications-planning.pdf slide 25"
+  },
+  {
+   "n": 3,
+   "stem": "Which of the following defines communications interoperability within the C4ISTAR framework?",
+   "key": "The ability of various communication systems and devices to work together seamlessly, enabling different entities to exchange information effectively",
+   "distractors": [
+    "The ability of systems to accommodate the needs of operations from a small tactical one to a large strategic mission",
+    "The protection of information against unauthorized access to maintain operational integrity",
+    "The ability of systems to function effectively under adverse conditions or during high-stress situations"
+   ],
+   "explanation": "Slide 42 defines interoperability as the ability of various communication systems and devices to work together seamlessly so entities can exchange information effectively.",
+   "why": [
+    "This describes scalability, one of the aspects of interoperability.",
+    "This describes security, another aspect.",
+    "This describes reliability, another aspect."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-c4istar-communications-planning.pdf slide 42"
+  },
+  {
+   "n": 4,
+   "stem": "It is the interoperability aspect that establishes common standards and protocols so that different systems and devices can understand and process information compatibly.",
+   "key": "Standardization",
+   "distractors": [
+    "Integration",
+    "Reliability",
+    "Scalability"
+   ],
+   "explanation": "Slide 42 lists standardization as establishing common standards and protocols for compatible processing of information.",
+   "why": [
+    "Integration is about systems working together, often through middleware or interface standards.",
+    "Reliability is about functioning under adverse conditions or high stress.",
+    "Scalability is about accommodating different operational scenarios, small or large."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-c4istar-communications-planning.pdf slide 42"
+  },
+  {
+   "n": 5,
+   "stem": "It is the requirement area that covers communication towers, command centers and data centers, plus regular maintenance and timely repairs of equipment.",
+   "key": "Infrastructure and Maintenance",
+   "distractors": [
+    "Training and Capacity Building",
+    "Operational Requirements",
+    "Budget and Resource Allocation"
+   ],
+   "explanation": "Slide 18 pairs infrastructure development (towers, command centers, data centers) with maintenance and support (regular maintenance and timely repairs).",
+   "why": [
+    "Training and Capacity Building covers personnel training and simulations and exercises.",
+    "Operational Requirements covers real-time communication and field operations.",
+    "Budget and Resource Allocation covers funding and resource management."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-c4istar-communications-planning.pdf slide 18"
+  },
+  {
+   "n": 6,
+   "stem": "A unit conducts regular exercises to test its communication plans under simulated combat and operational conditions. This describes which requirement category?",
+   "key": "Training and Capacity Building",
+   "distractors": [
+    "Coordination and Command Structures",
+    "Operational Requirements",
+    "Adaptation to Emerging Threats"
+   ],
+   "explanation": "Slide 17 lists simulations and exercises, which test communication plans and systems under simulated conditions, under Training and Capacity Building.",
+   "why": [
+    "Coordination and Command Structures covers clear protocols and joint operations.",
+    "Operational Requirements covers real-time data exchange and field operations.",
+    "Adaptation to Emerging Threats covers threat assessment and innovation."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-c4istar-communications-planning.pdf slide 17"
+  },
+  {
+   "n": 7,
+   "stem": "A planner continuously assesses and adapts communication strategies to address new threats and vulnerabilities and keeps abreast of technological advances. This describes which requirement category?",
+   "key": "Adaptation to Emerging Threats",
+   "distractors": [
+    "Disaster Response and Management",
+    "Legal and Ethical Compliance",
+    "Security and Encryption"
+   ],
+   "explanation": "Slide 22 lists threat assessment (continuous assessment and adaptation) and innovation under Adaptation to Emerging Threats.",
+   "why": [
+    "Disaster Response and Management covers emergency communications during disasters.",
+    "Legal and Ethical Compliance covers regulations and ethics.",
+    "Security and Encryption covers secure communications and cybersecurity."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-c4istar-communications-planning.pdf slide 22"
+  },
+  {
+   "n": 8,
+   "stem": "A facility houses command, communications and intelligence functions in one place to streamline operations. This describes which command and control technology?",
+   "key": "Integrated Tactical Operations Centers (TOCs)",
+   "distractors": [
+    "Battle Management Systems",
+    "Integrated Command Consoles",
+    "Database Systems"
+   ],
+   "explanation": "Slide 29 describes Integrated TOCs as centralized facilities housing command, communications and intelligence functions.",
+   "why": [
+    "Battle Management Systems are tactical command systems for situational awareness, mission planning and coordination.",
+    "Integrated Command Consoles are display systems with communication links and real-time analytics within command and control centers.",
+    "Database Systems store, manage and access operational data and intelligence."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-c4istar-communications-planning.pdf slide 29"
+  },
+  {
+   "n": 9,
+   "stem": "A system overlays digital information onto the real-world environment for better situational understanding. This describes which situational awareness tool?",
+   "key": "Augmented Reality (AR)",
+   "distractors": [
+    "Geospatial Information Systems (GIS)",
+    "Analytical Software",
+    "Ruggedized Devices"
+   ],
+   "explanation": "Slide 39 lists Augmented Reality as systems that overlay digital information onto the real-world environment.",
+   "why": [
+    "GIS is for visualizing and analyzing geographical data.",
+    "Analytical Software processes and analyzes intelligence data.",
+    "Ruggedized Devices are smartphones, tablets and laptops built for field conditions."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-c4istar-communications-planning.pdf slide 39"
+  },
+  {
+   "n": 10,
+   "stem": "Which list contains the five key aspects of communications interoperability?",
+   "key": "Standardization, integration, reliability, security and scalability",
+   "distractors": [
+    "Standardization, integration, reliability, security and encryption",
+    "Modernization, integration, reliability, security and scalability",
+    "Standardization, interoperability, reliability, training and scalability"
+   ],
+   "explanation": "Slides 42 to 44 give standardization, integration, reliability, security and scalability.",
+   "why": [
+    "Encryption is a security technology, not one of the five aspects.",
+    "Modernization is a requirement under integration of systems and technologies, not an interoperability aspect.",
+    "Interoperability is the whole topic, and training is a requirement category, not an aspect."
+   ],
+   "pattern": "list",
+   "ref": "lesson-c4istar-communications-planning.pdf slide 42"
+  },
+  {
+   "n": 11,
+   "stem": "Which list contains the two items under the Training and Capacity Building requirements?",
+   "key": "Personnel training; simulations and exercises",
+   "distractors": [
+    "Personnel training; infrastructure development",
+    "Funding; simulations and exercises",
+    "Clear protocols; simulations and exercises"
+   ],
+   "explanation": "Slide 17 lists personnel training and simulations and exercises.",
+   "why": [
+    "Infrastructure development belongs to Infrastructure and Maintenance.",
+    "Funding belongs to Budget and Resource Allocation.",
+    "Clear protocols belong to Coordination and Command Structures."
+   ],
+   "pattern": "list",
+   "ref": "lesson-c4istar-communications-planning.pdf slide 17"
+  },
+  {
+   "n": 12,
+   "stem": "Which of the following is NOT a requirement category under C4ISTAR Communications Planning Requirements?",
+   "key": "Situational Awareness Tools",
+   "distractors": [
+    "Budget and Resource Allocation",
+    "Legal and Ethical Compliance",
+    "Disaster Response and Management"
+   ],
+   "explanation": "Slides 15-24 list the requirement categories, including Budget and Resource Allocation (21), Disaster Response and Management (23) and Legal and Ethical Compliance (24). Situational Awareness Tools is a communications technology category (slide 39).",
+   "why": [
+    "Budget and Resource Allocation is a requirement category (slide 21).",
+    "Legal and Ethical Compliance is a requirement category (slide 24).",
+    "Disaster Response and Management is a requirement category (slide 23)."
+   ],
+   "pattern": "not",
+   "ref": "lesson-c4istar-communications-planning.pdf slide 15-24, 39"
+  }
+ ]
+}

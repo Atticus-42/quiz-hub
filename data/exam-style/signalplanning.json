@@ -1,0 +1,223 @@
+{
+ "lesson": "signalplanning",
+ "title": "Signal Planning Process",
+ "source": "signal-planning-process-handout.pdf",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following defines the signal planning process?",
+   "key": "A series of logical steps that ensures all aspects of signal support operations are systematically addressed",
+   "distractors": [
+    "An orderly and logical examination of all factors, known or assumed, that may affect the signal support mission",
+    "A design for a future or anticipated operation that is a framework to adapt rather than a script to follow",
+    "A staff section's continuous assessment of whether current operations are going as intended"
+   ],
+   "explanation": "PAM 6-0102 (para 0304) defines it as a series of logical steps done in conjunction with the MDMP, and with TLP for small units.",
+   "why": [
+    "This defines the signal estimate.",
+    "This describes a plan (PAM 3-00 para 0613).",
+    "This defines a running estimate."
+   ],
+   "pattern": "defines",
+   "ref": "signal-planning-process-handout.pdf p.2"
+  },
+  {
+   "n": 2,
+   "stem": "Which list contains the seven steps of the signal planning process in PAM 6-0102, in order?",
+   "key": "Develop requirements; determine available resources; develop priorities; develop recovery procedures; prepare a tentative plan; finalize the plan; publish plans and orders",
+   "distractors": [
+    "Develop requirements; determine available resources; develop recovery procedures; develop priorities; prepare a tentative plan; finalize the plan; publish plans and orders",
+    "Determine available resources; develop requirements; develop priorities; develop recovery procedures; prepare a tentative plan; finalize the plan; publish plans and orders",
+    "Develop requirements; determine available resources; develop priorities; develop recovery procedures; finalize the plan; prepare a tentative plan; publish plans and orders"
+   ],
+   "explanation": "Paras 0305 to 0314 give: develop requirements, determine available resources, develop priorities, develop recovery procedures, prepare a tentative plan, finalize the plan, then publish plans and orders.",
+   "why": [
+    "Priorities (step 3) come before recovery procedures (step 4).",
+    "Requirements come first; resources are compared against them.",
+    "The plan is first prepared as a tentative plan, then finalized."
+   ],
+   "pattern": "list",
+   "ref": "signal-planning-process-handout.pdf p.7"
+  },
+  {
+   "n": 3,
+   "stem": "The signal planner compares requirements with capabilities and, because resources fall short, ranks support by supportability and importance to the mission. This describes which step of the signal planning process?",
+   "key": "Develop priorities",
+   "distractors": [
+    "Determine available resources",
+    "Develop recovery procedures",
+    "Prepare a tentative plan"
+   ],
+   "explanation": "Step 3 (0310) compares requirements with capabilities and sets priorities by signal supportability and importance to the mission when resources are not enough.",
+   "why": [
+    "Step 2 keeps the chart of equipment, personnel and funds.",
+    "Step 4 plans for interrupted connectivity, EW, cyberattacks and compromised frequencies.",
+    "Step 5 builds the communication concept with PACE, siting and alternate routing."
+   ],
+   "pattern": "scenario",
+   "ref": "signal-planning-process-handout.pdf p.7"
+  },
+  {
+   "n": 4,
+   "stem": "A planner checks that the plan is practical, follows the priorities set earlier, a site survey and propagation check were made, and signal coverage and gaps are known. This describes which step?",
+   "key": "Finalize the plan",
+   "distractors": [
+    "Prepare a tentative plan",
+    "Publish plans and orders",
+    "Develop priorities"
+   ],
+   "explanation": "Step 6 (0313) is a checklist on the whole plan: requirements met, practical, resources adequate, priorities followed, areas of responsibility set, site survey and propagation done, coverage and gaps known, security in place.",
+   "why": [
+    "Step 5 produces the tentative plan; the checks happen when it is finalized.",
+    "Step 7 prepares the plans and orders, the C4S annex and its appendices and tabs.",
+    "Step 3 sets the priorities the final check refers back to."
+   ],
+   "pattern": "scenario",
+   "ref": "signal-planning-process-handout.pdf p.7-8"
+  },
+  {
+   "n": 5,
+   "stem": "It is the most complex step of the signal planning process, producing the communication concept with PACE, allocation of resources, siting of C4S centers, security measures, and interconnections and alternate routing.",
+   "key": "Prepare a tentative plan",
+   "distractors": [
+    "Finalize the plan",
+    "Develop recovery procedures",
+    "Determine available resources"
+   ],
+   "explanation": "Step 5 (0312) is described as the most complex step; its five elements make up the communication concept.",
+   "why": [
+    "Finalizing checks the plan rather than building the concept.",
+    "Recovery procedures cover the four threats to communications.",
+    "Determining resources charts equipment, personnel and funds."
+   ],
+   "pattern": "definition",
+   "ref": "signal-planning-process-handout.pdf p.7, 9"
+  },
+  {
+   "n": 6,
+   "stem": "It is the C4S annex to the operation order, prepared by the S6 with its appendices and tabs.",
+   "key": "Annex H (Signal)",
+   "distractors": [
+    "Annex C",
+    "Appendix 12 (Cyberspace Electromagnetic Activities)",
+    "Paragraph 5 (Command and Signal)"
+   ],
+   "explanation": "The S6 prepares Annex H (Signal), the C4S annex, with appendices and tabs (PAM 3-0201 para 0229e; PAM 6-0102 para 0314).",
+   "why": [
+    "The S6 only contributes to Annex C, together with the S3 and S2.",
+    "The S6 contributes to Appendix 12 with the S3 and S2; it is not the signal annex.",
+    "Paragraph 5 of the base order summarizes the signal plan for the unit; it is not the annex."
+   ],
+   "pattern": "definition",
+   "ref": "signal-planning-process-handout.pdf p.11"
+  },
+  {
+   "n": 7,
+   "stem": "Which of the following describes PACE in the communication concept?",
+   "key": "Primary, alternate, contingency and emergency means, each different from and independent of the others",
+   "distractors": [
+    "Priority, availability, coverage and equipment, ranked for the whole unit",
+    "Primary, alternate, coordinated and emergency means that share a common route",
+    "Plan, assess, coordinate and execute"
+   ],
+   "explanation": "PACE is built for each critical requirement; each means should be different and independent so the loss of one does not take down the next.",
+   "why": [
+    "PACE is not about ranking and is built per critical requirement, not for the whole unit.",
+    "The C in PACE is contingency, and the means must be independent, not share a route.",
+    "These words do not describe PACE."
+   ],
+   "pattern": "defines",
+   "ref": "signal-planning-process-handout.pdf p.9"
+  },
+  {
+   "n": 8,
+   "stem": "On a battalion command net, VHF FM combat net radio is normal, an HF manpack is ready to take over, and a messenger is the last resort. A commercial cellular or satellite phone is slower or less capable but works. Which PACE level is the phone?",
+   "key": "Contingency",
+   "distractors": [
+    "Primary",
+    "Alternate",
+    "Emergency"
+   ],
+   "explanation": "In the handout's example the contingency means is special purpose communication, such as commercial cellular or a satellite phone, used under COMSEC policy.",
+   "why": [
+    "The primary is the VHF FM combat net radio.",
+    "The alternate is the HF manpack.",
+    "The emergency means is the messenger, liaison officer or visual signal."
+   ],
+   "pattern": "scenario",
+   "ref": "signal-planning-process-handout.pdf p.9"
+  },
+  {
+   "n": 9,
+   "stem": "Which of the following describes the recovery measures the plan must include for cyberattacks (PAM 6-0102 0311)?",
+   "key": "Monitoring of the PA network, including mobile ad-hoc networks, and CSIRT and first-responder procedures",
+   "distractors": [
+    "Redundant communication, equipment repair and replacement, and on-site technical support",
+    "Countermeasures and counter-countermeasures against jamming and interception",
+    "Procedures to change frequencies quickly when equipment falls into enemy hands"
+   ],
+   "explanation": "For cyberattacks the plan includes monitoring of the PA network, including mobile ad-hoc networks, and CSIRT and first-responder procedures.",
+   "why": [
+    "This covers interrupted connectivity.",
+    "This covers electronic warfare.",
+    "This covers compromised frequencies."
+   ],
+   "pattern": "defines",
+   "ref": "signal-planning-process-handout.pdf p.7"
+  },
+  {
+   "n": 10,
+   "stem": "Which list contains the five principles of signal operations in PAM 6-0102 (paras 0209 to 0213)?",
+   "key": "Operations focused, interoperable, redundant, scalable, secured",
+   "distractors": [
+    "Operations focused, interoperable, redundant, scalable, survivable",
+    "Reliable, survivable, flexible, interoperable, secured",
+    "Command responsibility, advance provision, redundant, scalable, secured"
+   ],
+   "explanation": "PAM 6-0102 gives operations focused, interoperable, redundant, scalable and secured. Reliable, survivable and flexible are PAM 6-00 principles.",
+   "why": [
+    "Survivable is a PAM 6-00 principle (para 0202), not one of the five.",
+    "Reliable, survivable and flexible are PAM 6-00 principles, and operations focused, redundant and scalable are missing.",
+    "Command responsibility and advance provision are PAM 6-00 (0201) principles."
+   ],
+   "pattern": "list",
+   "ref": "signal-planning-process-handout.pdf p.3"
+  },
+  {
+   "n": 11,
+   "stem": "Which of the following is NOT one of the five sources of signal requirements (PAM 6-0102 0305)?",
+   "key": "The resources the unit currently has available",
+   "distractors": [
+    "Commander's guidance or intent",
+    "Standard operating procedures",
+    "The CEOI and CESI"
+   ],
+   "explanation": "The five sources are the commander's guidance or intent, staff guidance, higher, subordinate and adjacent units, SOPs, and the CEOI and CESI. Available resources are determined in the next step, after requirements.",
+   "why": [
+    "Commander's guidance or intent is a listed source.",
+    "Standard operating procedures are a listed source.",
+    "The CEOI and CESI are a listed source."
+   ],
+   "pattern": "not",
+   "ref": "signal-planning-process-handout.pdf p.6-7"
+  },
+  {
+   "n": 12,
+   "stem": "A Signal platoon leader alerts operators and starts battery charging, equipment checks and loading. This describes which step of troop leading procedures (TLP)?",
+   "key": "Issue a warning order",
+   "distractors": [
+    "Receive the mission",
+    "Make a tentative plan",
+    "Initiate movement"
+   ],
+   "explanation": "TLP step 2, Issue a warning order, has the platoon leader alert operators and start battery charging, equipment checks and loading.",
+   "why": [
+    "Step 1 reads the battalion order and Annex H and identifies the platoon's nets, sites and tasks.",
+    "Step 3 covers requirements, resources, priorities, PACE and site plan.",
+    "Step 4 moves teams to relay or retrans sites early if needed."
+   ],
+   "pattern": "scenario",
+   "ref": "signal-planning-process-handout.pdf p.4-5"
+  }
+ ]
+}

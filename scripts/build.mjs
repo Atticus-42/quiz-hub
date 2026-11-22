@@ -589,12 +589,12 @@ export function actualSection(actual, { all = false } = {}) {
   ];
   return [
     '          <section id="actual-block" class="actual-block" aria-labelledby="actual-heading">',
-    `            <h3 id="actual-heading" class="actual-heading"><span class="actual-badge">${escapeHtml(all ? 'Actual Exam + Reviewer' : ACTUAL_LABEL)}</span> <span>${escapeHtml(all ? 'Graded exams and no-exam POI lesson banks' : ACTUAL_NOTE)}</span></h3>`,
-    `            <p id="actual-note" class="actual-note">${escapeHtml(all ? 'Choose a mixed set, the full Actual Exam bank, or a sweep of every no-exam topic. Reviewer items keep their lesson explanations and share unseen-first progress with their lesson pages. All three sets use the existing Actual Exam score history category; each item is labelled by its source.' : `A separate category from Easy, Medium and Hard: ${actual.count} questions from ${from}. Each keeps the exam's question and answer key; the other choices are plausible same-topic options, each with a short reason why it is wrong. Unseen questions come first. Saved to the class history as Actual Exam attempts.`)}</p>`,
+    `            <h3 id="actual-heading" class="actual-heading"><span class="actual-badge">${escapeHtml(all ? 'Actual Exam + Exam-style practice' : ACTUAL_LABEL)}</span> <span>${escapeHtml(all ? 'Graded exams and exam-style practice' : ACTUAL_NOTE)}</span></h3>`,
+    `            <p id="actual-note" class="actual-note">${escapeHtml(all ? 'Choose a mixed set, the full Actual Exam bank, or a sweep of every no-exam topic. Exam-style practice uses fixed choices, explanations and references, with unseen-first progress saved on this device. All three sets use the existing Actual Exam score history category; each item is labelled by its source.' : `A separate category from Easy, Medium and Hard: ${actual.count} questions from ${from}. Each keeps the exam's question and answer key; the other choices are plausible same-topic options, each with a short reason why it is wrong. Unseen questions come first. Saved to the class history as Actual Exam attempts.`)}</p>`,
     '            <div class="mode-list actual-list" role="group" aria-labelledby="actual-heading">',
-    ...button('mode-actual', all ? 'Mixed set' : ACTUAL_LABEL, all ? '50 questions: 30 Actual Exam + 20 Reviewer questions from rotating no-exam topics. Unseen first within each source/topic; final order shuffled.' : `${per}.`),
+    ...button('mode-actual', all ? 'Mixed set' : ACTUAL_LABEL, all ? '50 questions: 30 Actual Exam + 20 exam-style practice questions from rotating no-exam topics. Unseen first within each source/topic; final order shuffled.' : `${per}.`),
     ...(all && actual.full ? button('mode-actual-all', 'Full set', `All ${actual.full} questions from every graded exam in one sitting.`) : []),
-    ...(all && actual.reviewer ? button('mode-topic-coverage', 'Topic coverage set', `${actual.reviewer.perLesson * actual.reviewer.lessons.length} Reviewer questions: 3 medium/hard questions per no-exam lesson, all in one sitting.`) : []),
+    ...(all && actual.reviewer ? button('mode-topic-coverage', 'Topic coverage set', `${actual.reviewer.bank.length} exam-style questions covering the ${actual.reviewer.lessons.length} topics with no graded exam, all in one sitting.`) : []),
     '            </div>',
     '          </section>',
   ].join('\n');
@@ -1399,7 +1399,7 @@ function renderActualPages(root, engine, contours, actual, lessons, { base, endp
     lede: reviewerIntro(actual, lessons),
     actual: all, categoryOrder: actual.exams.map(exam => exam.title),
     ref: `${REVIEWER_TITLE} · Mixed set`,
-    meta: { source: 'Ref. SOAC 52-2026 graded exams and POI lesson banks', rows: [['Questions', `Mixed 50 · full Actual ${all.full} · topic coverage ${all.reviewer.perLesson * all.reviewer.lessons.length}`], ['Exams', String(actual.exams.length)], ['Source', 'Actual Exam + labelled Reviewer questions']] },
+    meta: { source: 'Ref. SOAC 52-2026 graded exams and exam-style practice', rows: [['Questions', `Mixed 50 · full Actual ${all.full} · topic coverage ${all.reviewer.bank.length}`], ['Exams', String(actual.exams.length)], ['Source', 'Actual Exam + labelled exam-style practice']] },
   }, { base, endpoint });
   return pages;
 }
@@ -1407,7 +1407,7 @@ function renderActualPages(root, engine, contours, actual, lessons, { base, endp
 // comprehensive-reviewer/: every graded exam as its own quiz, the mixed set, and where each exam appears.
 function reviewerIntro(actual, lessons) {
   const graded = lessons.filter(lesson => !lesson.pool && lesson.order !== 0 && actual.pages.has(lesson.key)).map(lesson => lesson.name);
-  return `Mixed set: 30 Actual Exam questions from all ${actual.exams.length} graded exams + 20 Reviewer questions from rotating no-exam lessons. Unseen questions are selected first within each source/topic, preferring medium/hard reviewer questions; the final order is shuffled. Topics rotate after your first answer so all ${actual.all.reviewer.lessons.length} no-exam lessons are reachable within two consecutive sets. Full set: all ${actual.all.full} Actual Exam questions only. Topic coverage set: 3 medium/hard Reviewer questions per no-exam lesson (${3 * actual.all.reviewer.lessons.length} total). Graded lesson exams: ${graded.join('; ')}. Graded module exams also cover Modules 1, 2, 4, 5, 6, 7 and 8, plus the Diagnostic Examination. Reviewer banks (no graded lesson exam): ${actual.all.reviewer.lessons.map(lesson => lesson.title).join('; ')}. Supporting Lessons are excluded from the reviewer banks. Attempts keep the existing Actual Exam history category; individual Reviewer questions are labelled separately.`;
+  return `Mixed set: 30 Actual Exam questions from all ${actual.exams.length} graded exams + 20 exam-style practice questions from rotating no-exam lessons. Unseen questions are selected first within each source/topic; the final order is shuffled. Topics rotate after your first answer so all ${actual.all.reviewer.lessons.length} no-exam lessons are reachable within two consecutive sets. Full set: all ${actual.all.full} Actual Exam questions only. Topic coverage set: ${actual.all.reviewer.bank.length} exam-style questions covering the ${actual.all.reviewer.lessons.length} topics with no graded exam, all in one sitting. Graded lesson exams: ${graded.join('; ')}. Graded module exams also cover Modules 1, 2, 4, 5, 6, 7 and 8, plus the Diagnostic Examination. Exam-style practice (no graded lesson exam): ${actual.all.reviewer.lessons.map(lesson => lesson.title).join('; ')}. Supporting Lessons are excluded from the exam-style practice. Attempts keep the existing Actual Exam history category; individual exam-style questions are labelled separately.`;
 }
 
 function renderReviewerIndex(render, actual, lessons) {
@@ -1423,13 +1423,13 @@ function renderReviewerIndex(render, actual, lessons) {
       '<a class="study-cta graded-start" href="' + exam.slug + '/" aria-describedby="graded-' + exam.key + '">Take this exam <span aria-hidden="true">→</span></a></div></li>';
   };
   const body = '<div class="graded-layout">' +
-    '<section class="graded-mixed" aria-labelledby="mixed-heading"><p class="actual-badge">Actual Exam + Reviewer</p><h2 id="mixed-heading">All POI topics, mixed</h2><p>' + e(reviewerIntro(actual, lessons)) + '</p><a class="study-cta graded-start" href="all/">Start the mixed set <span aria-hidden="true">→</span></a></section>' +
+    '<section class="graded-mixed" aria-labelledby="mixed-heading"><p class="actual-badge">Actual Exam + Exam-style practice</p><h2 id="mixed-heading">All POI topics, mixed</h2><p>' + e(reviewerIntro(actual, lessons)) + '</p><a class="study-cta graded-start" href="all/">Start the mixed set <span aria-hidden="true">→</span></a></section>' +
     '<section class="reviewer-module" aria-labelledby="graded-heading"><div class="module-heading"><div><p class="study-eyebrow">' + e(ACTUAL_NOTE) + '</p><h2 id="graded-heading">The graded exams</h2></div><p class="study-chip">' + actual.exams.length + ' exams · ' + total + ' questions</p></div>' +
     '<ol class="graded-list">' + actual.exams.map(card).join('') + '</ol></section>' +
     '<section class="reviewer-module graded-notes" aria-labelledby="notes-heading"><h2 id="notes-heading">How these questions were prepared</h2><ul>' +
     '<li>The exam portal’s review screen showed each question and its answer key, but not the answer choices. Here every item is multiple choice: the key plus three other answer keys from the same exam where possible (similar type and length), otherwise from the same module. True/false items keep two choices.</li>' +
     '<li>Questions and keys are as recorded, except quote marks and apostrophes the export had garbled, which are restored. No student answers, names or scores are kept.</li>' +
-    '<li>Each question cites its graded exam, not a lesson page. Actual Exam attempts are saved to the class history as Actual Exam.</li>' +
+    '<li>Actual questions cite their graded exam; exam-style practice cites its lesson reference. Actual Exam attempts are saved to the class history as Actual Exam.</li>' +
     '<li>Left out (' + skipped.length + '): ' + skipped.map(item => e(item.exam.title + ', question ' + item.n + ': ' + item.reason)).join(' ') + '</li>' +
     '</ul></section></div>';
   render(REVIEWER_SLUG + '/index.html', 1, 'exam-reviewer', REVIEWER_TITLE, 'Practise with the questions from our real, graded exams before the Comprehensive Exam.', body, {

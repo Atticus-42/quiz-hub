@@ -1,0 +1,259 @@
+{
+ "lesson": "sensors",
+ "title": "C4ISTAR Sensors Integration",
+ "source": "lesson-c4istar-sensors-integration.pdf (4. C4ISTAR Sensors Integration); c4istar-sensors-handout.pdf (Student Handout 5.4)",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following defines C4ISTAR?",
+   "key": "A system of systems that integrates and shortens the Sensors, Decision-Makers, and Shooters Loop",
+   "distractors": [
+    "A fixed backbone for voice and data communication that extends to brigades",
+    "A technical document that describes a system's interfaces and communication rules",
+    "The process of combining applications so that different systems function as one uninterrupted system"
+   ],
+   "explanation": "PAM 6-0001 describes C4ISTAR as a system of systems that integrates and shortens the sensor, decision-maker and shooter loop.",
+   "why": [
+    "That describes the PA's fixed communications (BONTEX and PANET), not C4ISTAR.",
+    "That describes an Interface Control Document.",
+    "That defines integration, not C4ISTAR."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-c4istar-sensors-integration.pdf p.6; c4istar-sensors-handout.pdf p.1"
+  },
+  {
+   "n": 2,
+   "stem": "It is a component that detects and collects data from the environment.",
+   "key": "Sensor",
+   "distractors": [
+    "Decision-maker",
+    "Shooter",
+    "Ground control system"
+   ],
+   "explanation": "The glossary defines a sensor as a component that detects and collects data from the environment.",
+   "why": [
+    "The decision-maker analyzes the data, assesses the situation and decides.",
+    "The shooter executes the decision.",
+    "The ground control system links the sensor by radio frequency to the command post; it is not the collecting component."
+   ],
+   "pattern": "definition",
+   "ref": "c4istar-sensors-handout.pdf p.2"
+  },
+  {
+   "n": 3,
+   "stem": "Which of the following is NOT one of the five sensor types currently fielded in the PA C4ISTAR systems?",
+   "key": "Blue Force Tracking (BFT) system",
+   "distractors": [
+    "Sniper fire location detector",
+    "Thermal imager",
+    "Small unmanned ground vehicle (SUGV)"
+   ],
+   "explanation": "Slide 10 lists the five PA C4ISTAR sensor types: sniper fire location detector, thermal imager, ground-based radio direction finding systems, UAS and SUGV. A Blue Force Tracking system is a data system, not a sensor type.",
+   "why": [
+    "The sniper fire location detector is one of the five sensor types.",
+    "The thermal imager is one of the five sensor types.",
+    "The SUGV is one of the five sensor types."
+   ],
+   "pattern": "list",
+   "ref": "lesson-c4istar-sensors-integration.pdf p.10"
+  },
+  {
+   "n": 4,
+   "stem": "A reconnaissance team needs a portable, battery-operated device for long-range observation. Which sensor fits?",
+   "key": "Thermal imager",
+   "distractors": [
+    "Sniper fire location detector",
+    "Ground-based radio direction finding system",
+    "Small unmanned ground vehicle"
+   ],
+   "explanation": "The thermal imager is the portable, battery-operated device for long-range observation by recon teams or forward observers.",
+   "why": [
+    "It detects and locates the source of sniper fire in real time.",
+    "It finds the direction of a radio source.",
+    "It is a modular platform that carries payloads."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-c4istar-sensors-integration.pdf p.10"
+  },
+  {
+   "n": 5,
+   "stem": "A squad needs a modular platform that plugs in multiple payloads, reduces the soldiers' direct exposure to hazards, and delivers squad-level situational awareness. Which sensor fits?",
+   "key": "Small unmanned ground vehicle (SUGV)",
+   "distractors": [
+    "Unmanned aerial system (UAS)",
+    "Ground-based radio direction finding system",
+    "Sniper fire location detector"
+   ],
+   "explanation": "The SUGV is the modular platform that reduces exposure to hazards and delivers squad-level situational awareness.",
+   "why": [
+    "A UAS is a light air vehicle carrying sensor payloads for remote sensing and mapping.",
+    "It finds the direction of a radio source; it is not a modular platform.",
+    "It detects and locates the source of sniper fire."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-c4istar-sensors-integration.pdf p.10"
+  },
+  {
+   "n": 6,
+   "stem": "Which of the following describes ground-based radio direction finding systems?",
+   "key": "They find the direction of a radio source to help locate a transmitter",
+   "distractors": [
+    "They detect and locate the source of sniper fire in real time",
+    "They are light air vehicles that carry sensor payloads for remote sensing and mapping",
+    "They are portable, battery-operated devices for long-range observation"
+   ],
+   "explanation": "Ground-based RDF systems give the direction of a radio source; two or more measurements locate an unknown transmitter or vehicle.",
+   "why": [
+    "That describes the sniper fire location detector.",
+    "That describes unmanned aerial systems.",
+    "That describes the thermal imager."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-c4istar-sensors-integration.pdf p.10; c4istar-sensors-handout.pdf p.2"
+  },
+  {
+   "n": 7,
+   "stem": "It is the technical document describing a system's interfaces and communication rules, telling integrators how to connect sensors to the rest of C4ISTAR and confirm compatibility.",
+   "key": "Interface Control Document (ICD)",
+   "distractors": [
+    "NATO Interoperability Standards and Profiles (NISP)",
+    "Interoperability Points (IOP)",
+    "Open architecture"
+   ],
+   "explanation": "The ICD describes a system's interfaces and communication rules so integrators can connect sensors and confirm compatibility.",
+   "why": [
+    "NISP prescribes the technical standards for interoperability across an alliance.",
+    "IOP are the connection points where networks need a defined protocol stack.",
+    "Open architecture lets new sensors be added as add-ons; it is not a document."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-c4istar-sensors-integration.pdf p.16"
+  },
+  {
+   "n": 8,
+   "stem": "A planner wants new sensors and capabilities added onto the existing system as add-ons, keeping integration and future upgrades cheaper and faster. Which concept is this?",
+   "key": "Open architecture",
+   "distractors": [
+    "Interoperability points (IOP)",
+    "Interface Control Document (ICD)",
+    "NATO Interoperability Standards and Profiles (NISP)"
+   ],
+   "explanation": "Open architecture lets new sensors be added as add-ons, which keeps integration and upgrades cheaper and faster.",
+   "why": [
+    "IOP standardize the connection points between networks rather than enabling add-ons.",
+    "The ICD documents interfaces; it does not itself allow add-ons.",
+    "NISP prescribes technical standards across an alliance."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-c4istar-sensors-integration.pdf p.16"
+  },
+  {
+   "n": 9,
+   "stem": "Which of the following is NOT a constraint every integration effort must account for?",
+   "key": "Ammunition supply",
+   "distractors": [
+    "Cybersecurity",
+    "Legacy integration",
+    "Data overload"
+   ],
+   "explanation": "The listed constraints are interoperability, cybersecurity, complexity, cost, legacy integration, data overload, environmental factors and human factors.",
+   "why": [
+    "Cybersecurity is listed: more interconnected sensors mean a bigger attack surface.",
+    "Legacy integration is listed: older systems may not be compatible with new sensors.",
+    "Data overload is listed: ISR sources can generate more data than operators can process."
+   ],
+   "pattern": "not",
+   "ref": "lesson-c4istar-sensors-integration.pdf p.18"
+  },
+  {
+   "n": 10,
+   "stem": "ISR sources are producing more data than the operators in the operations center can process without good data management and analysis tools. Which constraint is this?",
+   "key": "Data overload",
+   "distractors": [
+    "Complexity",
+    "Interoperability",
+    "Human factors"
+   ],
+   "explanation": "Data overload is the constraint in which ISR sources generate more data than operators can process without data management tools.",
+   "why": [
+    "Complexity concerns many components, networks and technologies that make reliability and training a constant task.",
+    "Interoperability concerns different vendors' protocols and standards.",
+    "Human factors concern operator training, situational awareness and human error."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-c4istar-sensors-integration.pdf p.18"
+  },
+  {
+   "n": 11,
+   "stem": "In the Marawi Crisis, the existing radio network could carry voice only, not the data a Blue Force Tracking system needed. What lesson does the session draw from this integration gap?",
+   "key": "Integration must be proven before contact, not improvised during it",
+   "distractors": [
+    "Sensors should be integrated only after contact begins, to fit the actual situation",
+    "Commercial drones are more reliable than the PA's fielded sensors",
+    "A voice network alone is enough to support Blue Force Tracking"
+   ],
+   "explanation": "Marawi showed that integration must be tested and sustainable beforehand; a second SMVRS had to be stood up for data.",
+   "why": [
+    "The lesson says the opposite: integration must be proven before contact.",
+    "The lesson cites commercial drone use at Marawi but draws no such comparison.",
+    "The case shows that a voice-only network could not carry BFT data."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-c4istar-sensors-integration.pdf p.20; c4istar-sensors-handout.pdf p.5"
+  },
+  {
+   "n": 12,
+   "stem": "Which of the following describes the Army Intelligence Regiment's responsibility in sensor integration?",
+   "key": "Installation, operation and maintenance of the ISTAR core systems, meaning the sensors themselves",
+   "distractors": [
+    "Installation, operation and maintenance of the core C4 systems as the C4ISTAR Capability Champion",
+    "End-user hardware operation and preventive maintenance",
+    "Evaluating and validating technical systems and platforms at depot level"
+   ],
+   "explanation": "AIR is responsible for IOM of the ISTAR core systems, the sensors themselves; ASR handles the core C4 systems and coordinates with AIR.",
+   "why": [
+    "That is the responsibility of the Army Signal Regiment.",
+    "These stay with the using unit.",
+    "That is the task of the depot-level and level-4 repair facilities."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-c4istar-sensors-integration.pdf p.27, p.29"
+  },
+  {
+   "n": 13,
+   "stem": "It is the ability of architecturally different software, systems and processes to speak the same language through real-time data exchange.",
+   "key": "Interoperability",
+   "distractors": [
+    "Integration",
+    "Redundancy",
+    "Operational testing"
+   ],
+   "explanation": "The lesson defines interoperability as speaking the same language through real-time data exchange, in contrast to integration.",
+   "why": [
+    "Integration is combining applications so systems function as one uninterrupted system.",
+    "Redundancy is built in so the failure of one piece of equipment does not compromise the system.",
+    "Operational testing is regular testing that finds vulnerabilities or malfunctions before a sensor is trusted in the field."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-c4istar-sensors-integration.pdf p.28; c4istar-sensors-handout.pdf p.6"
+  },
+  {
+   "n": 14,
+   "stem": "Which list contains the testing and design requirements the lesson sets for newly integrated sensors?",
+   "key": "Regular operational testing, redundancy, EMI and RF shielding, modular design",
+   "distractors": [
+    "Regular operational testing, encryption, EMI and RF shielding, modular design",
+    "Regular operational testing, redundancy, bandwidth expansion, modular design",
+    "Periodic inspection, redundancy, EMI and RF shielding, open procurement"
+   ],
+   "explanation": "PAM 6-0001 calls for regular operational testing, built-in redundancy, EMI and RF shielding, and modular design.",
+   "why": [
+    "Encryption is not on the list; redundancy is.",
+    "Bandwidth expansion is not on the list; shielding against EMI and RF threats is.",
+    "The list calls for regular operational testing and modular design, not open procurement."
+   ],
+   "pattern": "list",
+   "ref": "lesson-c4istar-sensors-integration.pdf p.29"
+  }
+ ]
+}

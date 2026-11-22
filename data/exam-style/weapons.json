@@ -1,0 +1,241 @@
+{
+ "lesson": "weapons",
+ "title": "C4ISTAR Weapon System Integration",
+ "source": "lesson-c4istar-weapon-system-integration.pdf (5. C4ISTAR Weapon System Integration); reviewer-c4istar-weapon-system-integration.pdf",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which list contains the seven key components of C4ISTAR in order?",
+   "key": "Command and Control, Communications, Computer, Intelligence, Surveillance, Target Acquisition, Reconnaissance",
+   "distractors": [
+    "Command and Control, Communications, Computer, Intelligence, Surveillance, Technology, Reconnaissance",
+    "Command and Control, Communications, Coordination, Intelligence, Surveillance, Target Acquisition, Reconnaissance",
+    "Command and Control, Communications, Computer, Interoperability, Surveillance, Target Acquisition, Reconnaissance"
+   ],
+   "explanation": "Slide 6: C4ISTAR comprises command and control, communications, computer, intelligence, surveillance, target acquisition and reconnaissance.",
+   "why": [
+    "Technology is not a C4ISTAR component; the sixth component is Target Acquisition.",
+    "Coordination is not a C4ISTAR component; the third component is Computer.",
+    "Interoperability is a principle of integration, not a C4ISTAR component; the fourth component is Intelligence."
+   ],
+   "pattern": "list",
+   "ref": "lesson-c4istar-weapon-system-integration.pdf p.6"
+  },
+  {
+   "n": 2,
+   "stem": "Which of the following defines target acquisition?",
+   "key": "Detecting, locating and identifying a target with sufficient accuracy and detail to permit effective weapons employment",
+   "distractors": [
+    "The systematic observation of areas, persons, activities or objects using visual, electronic, photographic or aural means",
+    "Obtaining information about an adversary's activities and resources or about an area through visual observation or other detection",
+    "Converting collected information into useful knowledge for commanders through the intelligence cycle"
+   ],
+   "explanation": "Target acquisition links information collection to the ability to produce effects against identified targets.",
+   "why": [
+    "That defines surveillance.",
+    "That defines reconnaissance.",
+    "That describes the intelligence component."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-c4istar-weapon-system-integration.pdf p.12"
+  },
+  {
+   "n": 3,
+   "stem": "It is the core framework of C4ISTAR, bringing together networks, people, processes and command posts to support decision-making and mission accomplishment.",
+   "key": "Command and Control",
+   "distractors": [
+    "Communications",
+    "Computers",
+    "Intelligence"
+   ],
+   "explanation": "The lesson calls command and control the core framework of C4ISTAR, combining authority and responsibility with the systems that collect, process and disseminate information.",
+   "why": [
+    "Communications provides the reliable links for orders, coordination and feedback.",
+    "Computers enable processing, storage, networking and rapid transmission of information.",
+    "Intelligence converts collected information into knowledge for commanders."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-c4istar-weapon-system-integration.pdf p.7"
+  },
+  {
+   "n": 4,
+   "stem": "A unit has moved from traditional combat-net radios toward IP-based radios and computer networks, so it now sends e-mail, GPS coordinates, images and video as well as voice. Which C4ISTAR component does this describe?",
+   "key": "Computers",
+   "distractors": [
+    "Communications",
+    "Command and Control",
+    "Surveillance"
+   ],
+   "explanation": "The Computers component enables processing, storage, networking and rapid transmission, now carrying more than voice.",
+   "why": [
+    "Communications supplies the links; the processing, storage and networking shift belongs to computers.",
+    "Command and control is the framework of authority, systems and command posts.",
+    "Surveillance is the systematic observation of areas, persons or objects."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-c4istar-weapon-system-integration.pdf p.9"
+  },
+  {
+   "n": 5,
+   "stem": "Which of the following defines interoperability between C4ISTAR and weapon systems?",
+   "key": "The ability of heterogeneous sensors, networks, command-and-control systems and shooters to connect, exchange usable information and operate together toward a common objective",
+   "distractors": [
+    "The use of identical internal technology across every sensor, network and weapon platform",
+    "Unrestricted connectivity between every system on the network",
+    "The ability of each weapon platform to operate independently when links fail"
+   ],
+   "explanation": "The lesson defines it as heterogeneous systems connecting, exchanging usable information and operating together toward a common mission objective.",
+   "why": [
+    "Interoperability does not require every system to be the same.",
+    "The lesson states that interoperability does not mean unrestricted connectivity.",
+    "Independent operation is not the definition; interoperability is about working together."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-c4istar-weapon-system-integration.pdf p.15, p.24-25"
+  },
+  {
+   "n": 6,
+   "stem": "Which of the following is NOT a principle of interoperability between C4ISTAR and weapon systems?",
+   "key": "Identical internal technology in every system",
+   "distractors": [
+    "Open architecture",
+    "Standardized Service Interoperability Points (SIOP)",
+    "Interface Control Documents (ICD)"
+   ],
+   "explanation": "The lesson says different systems do not need identical internal technology; what matters is that the connection points are standardized.",
+   "why": [
+    "Open architecture is the sixth listed principle.",
+    "SIOP is the third listed principle.",
+    "ICD is the fourth listed principle."
+   ],
+   "pattern": "not",
+   "ref": "lesson-c4istar-weapon-system-integration.pdf p.16-17"
+  },
+  {
+   "n": 7,
+   "stem": "It is a focal point within an architecture where distinct systems providing the same service can interoperate.",
+   "key": "Service Interoperability Point (SIOP)",
+   "distractors": [
+    "Interoperability Point (IOP)",
+    "Interface Control Document (ICD)",
+    "NATO Interoperability Standards and Profiles (NISP)"
+   ],
+   "explanation": "The lesson defines a Service Interoperability Point as a focal point where distinct systems providing the same service can interoperate.",
+   "why": [
+    "An IOP is a point where different networks connect with a defined protocol stack.",
+    "The ICD describes interfaces and communication rules; it is a document, not a focal point.",
+    "NISP is used as a model for technical standards and profiles."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-c4istar-weapon-system-integration.pdf p.19"
+  },
+  {
+   "n": 8,
+   "stem": "Before connecting a sensor, data link, C2 system or weapon platform, an organization needs to know what information is exchanged, how it is formatted, what interface carries it and how the receiving system interprets it. Which document provides this?",
+   "key": "Interface Control Document (ICD)",
+   "distractors": [
+    "Interoperability Point (IOP)",
+    "Service Interoperability Point (SIOP)",
+    "NATO Interoperability Standards and Profiles (NISP)"
+   ],
+   "explanation": "The ICD describes the system interfaces and communication rules needed to connect systems and ensure compatibility.",
+   "why": [
+    "An IOP is where networks connect, not a document of exchange rules.",
+    "A SIOP is a focal point for systems providing the same service.",
+    "NISP is a model for standards and profiles, not a per-interface document."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-c4istar-weapon-system-integration.pdf p.20"
+  },
+  {
+   "n": 9,
+   "stem": "A briefer explains the TACOMS concept: the entire protocol stack is defined where different networks connect, while the internal network technologies may differ. Which principle of interoperability is being described?",
+   "key": "Interoperability through defined Interoperability Points (IOP)",
+   "distractors": [
+    "Standardized Service Interoperability Points (SIOP)",
+    "Open architecture",
+    "Common standards and interoperability profiles"
+   ],
+   "explanation": "The C4ISTAR manual uses TACOMS to explain IOP: standardized connection points, with internal technologies free to differ.",
+   "why": [
+    "SIOP concerns systems providing the same service, not the whole protocol stack at network connections.",
+    "Open architecture concerns adding capabilities to existing systems through common standards.",
+    "Standards and profiles, modeled on NISP, reduce integration time and risk."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-c4istar-weapon-system-integration.pdf p.17"
+  },
+  {
+   "n": 10,
+   "stem": "Which of the following describes the open architecture principle?",
+   "key": "It facilitates system modification and data exchange and allows new capabilities to be added to existing systems instead of replacing the architecture",
+   "distractors": [
+    "It provides a standardized, scalable and extensible framework through which diverse systems and devices can communicate",
+    "It treats seamless communications across satellite, combat-net radio, cellular and Wi-Fi as a prerequisite",
+    "It reduces integration time and risk by using NATO standards and profiles as a model"
+   ],
+   "explanation": "The PA C4ISTAR Architectural Framework uses open architecture so capabilities can be added without replacing the whole architecture.",
+   "why": [
+    "That describes standardized networking and data exchange through TCP/IP.",
+    "That describes seamless interconnectivity through multiple communication media.",
+    "That describes common standards and interoperability profiles."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-c4istar-weapon-system-integration.pdf p.22"
+  },
+  {
+   "n": 11,
+   "stem": "An officer reminds the staff that interoperability does not mean unrestricted connectivity, citing authentication, authorization, encryption and network segmentation. Which principle of interoperability is this?",
+   "key": "Security must accompany interoperability",
+   "distractors": [
+    "Seamless interconnectivity through multiple communication media",
+    "Standardized networking and data exchange",
+    "Common standards and interoperability profiles"
+   ],
+   "explanation": "The eighth principle protects confidentiality, integrity and availability as information moves through C4ISTAR networks.",
+   "why": [
+    "This principle concerns links across satellite, radio, cellular and Wi-Fi, not protecting information.",
+    "This principle concerns TCP/IP and tactical data links.",
+    "This principle concerns NISP-style standards that reduce integration time and risk."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-c4istar-weapon-system-integration.pdf p.24"
+  },
+  {
+   "n": 12,
+   "stem": "It is the process that provides a systematic approach to the targeting process, helping commanders make informed decisions and optimize the use of resources.",
+   "key": "Decide, Detect, Deliver, and Assess (D3A)",
+   "distractors": [
+    "Observe, Orient, Decide, and Act (OODA)",
+    "Planning and Direction, Collection, Processing and Exploitation, Analysis and Production, Dissemination and Integration",
+    "Sensor, Decision-Maker and Shooter loop"
+   ],
+   "explanation": "The lesson presents D3A as the systematic approach to the targeting process used during execution.",
+   "why": [
+    "The OODA loop is the C2 process that D3A reinforces, not the targeting methodology.",
+    "That is the intelligence cycle.",
+    "That loop describes roles in information flow, not the targeting process."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-c4istar-weapon-system-integration.pdf p.27, p.29"
+  },
+  {
+   "n": 13,
+   "stem": "Which list gives the intelligence cycle as described for the Intelligence component, in order?",
+   "key": "Planning and Direction, Collection, Processing and Exploitation, Analysis and Production, Dissemination and Integration",
+   "distractors": [
+    "Planning and Direction, Processing and Exploitation, Collection, Analysis and Production, Dissemination and Integration",
+    "Collection, Planning and Direction, Processing and Exploitation, Analysis and Production, Dissemination and Integration",
+    "Planning and Direction, Collection, Analysis and Production, Processing and Exploitation, Dissemination and Integration"
+   ],
+   "explanation": "The manual's intelligence cycle runs from planning and direction through collection, processing and exploitation, analysis and production, to dissemination and integration.",
+   "why": [
+    "Collection comes before processing and exploitation.",
+    "Planning and Direction is the first phase.",
+    "Processing and exploitation comes before analysis and production."
+   ],
+   "pattern": "list",
+   "ref": "lesson-c4istar-weapon-system-integration.pdf p.10"
+  }
+ ]
+}

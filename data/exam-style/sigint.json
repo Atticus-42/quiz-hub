@@ -1,0 +1,259 @@
+{
+ "lesson": "sigint",
+ "title": "Signals Intelligence (SIGINT)",
+ "source": "lesson-signals-intelligence.pdf",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following defines SIGINT?",
+   "key": "Intelligence gathering by interception of signals, whether communications between people or electronic signals not directly used in communication",
+   "distractors": [
+    "Intelligence gathering from people through interviews, debriefing and direct contact with sources",
+    "Intelligence gathering from imagery taken by aerial and satellite sensors over the area of operations",
+    "Intelligence gathering from openly available publications, broadcasts and public records"
+   ],
+   "explanation": "The lesson defines SIGINT as intelligence gathering by interception of signals, either communications (COMINT) between people or electronic (ELINT) signals not directly used in communication.",
+   "why": [
+    "That describes human-source intelligence, not interception of signals.",
+    "That describes imagery intelligence; SIGINT works from intercepted signals, not images.",
+    "SIGINT is not built from open publications; it intercepts communications and electronic signals."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-signals-intelligence.pdf slide 13"
+  },
+  {
+   "n": 2,
+   "stem": "Which of the following describes Communication Intelligence (COMINT)?",
+   "key": "Dealing with messages or voice information derived from the interception of foreign communication",
+   "distractors": [
+    "Gathering intelligence by use of electronic sensors and various electronic surveillance systems",
+    "Converting collected SIGINT data into intelligence through analysis",
+    "Providing real time intelligence to the infantry brigades and battalions in support of AFP missions"
+   ],
+   "explanation": "COMINT deals with messages or voice information derived from interception of foreign communication, and can reveal who is transmitting, location, text and voice.",
+   "why": [
+    "That is the lesson's description of ELINT, the other SIGINT category.",
+    "That describes the Analysis step of the SIGINT cycle, not a category of SIGINT.",
+    "That is the general objective of the PA SIGINT program, not the meaning of COMINT."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-signals-intelligence.pdf slide 15"
+  },
+  {
+   "n": 3,
+   "stem": "Which of the following describes Electronic Intelligence (ELINT)?",
+   "key": "Intelligence gathering by use of electronic sensors and various electronic surveillance systems",
+   "distractors": [
+    "Dealing with messages or voice information derived from the interception of foreign communication",
+    "Using cryptanalysis to decipher messages and traffic analysis to re-integrate information",
+    "Monitoring enemy activities and locating their estimated locations with a receiver and bearing processor"
+   ],
+   "explanation": "ELINT is intelligence gathering by electronic sensors and electronic surveillance systems, as opposed to COMINT, which deals with messages and voice.",
+   "why": [
+    "That is COMINT, the other SIGINT category.",
+    "Cryptanalysis and traffic analysis are described as part of SIGINT in general because sensitive information is often encrypted, not as the definition of ELINT.",
+    "That describes the Radio Direction Finder System, a SIGINT capability of Army units."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-signals-intelligence.pdf slide 14"
+  },
+  {
+   "n": 4,
+   "stem": "Which of the following defines intelligence?",
+   "key": "The product resulting from the collection, evaluation, analysis and integration of all available information on foreign nations or areas of operations that is significant to military planning",
+   "distractors": [
+    "The gathering of raw information from every available source without evaluation or analysis",
+    "The interception of signals, whether communications between people or electronic emissions",
+    "The timely production of information for those who need to know only"
+   ],
+   "explanation": "Intelligence is the product of collection, evaluation, analysis and integration of all available information that is immediately or potentially significant to military planning and operations.",
+   "why": [
+    "Raw information is only the input; intelligence is the product after evaluation, analysis and integration.",
+    "That is the definition of SIGINT, one kind of intelligence gathering.",
+    "That describes dissemination, the last step of the SIGINT cycle."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-signals-intelligence.pdf slide 12"
+  },
+  {
+   "n": 5,
+   "stem": "It is the SIGINT cycle step in which operators must understand the mission and the direction needs in order to plan and apply appropriate collection mechanisms.",
+   "key": "Requirements",
+   "distractors": [
+    "Collection",
+    "Processing/Exploitation",
+    "Dissemination"
+   ],
+   "explanation": "Requirements is the first step: operators must understand the mission and direction needs so they can plan and apply appropriate collection mechanisms.",
+   "why": [
+    "Collection is the proper procedure of gathering information, which follows once requirements are understood.",
+    "Processing/Exploitation deals with intercepted traffic and the estimated direction of the enemy.",
+    "Dissemination is the timely production of intelligence to those who need to know only."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-signals-intelligence.pdf slide 22"
+  },
+  {
+   "n": 6,
+   "stem": "It is the SIGINT cycle step that converts collected SIGINT data into intelligence.",
+   "key": "Analysis",
+   "distractors": [
+    "Collection",
+    "Processing/Exploitation",
+    "Requirements"
+   ],
+   "explanation": "Analysis is defined as converting collected SIGINT data into intelligence.",
+   "why": [
+    "Collection is the proper procedure of gathering information, not the conversion into intelligence.",
+    "Processing/Exploitation covers intercepted communication traffic and the estimated direction of the enemy.",
+    "Requirements is about understanding the mission and direction needs before collecting."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-signals-intelligence.pdf slide 22"
+  },
+  {
+   "n": 7,
+   "stem": "This SIGINT capability of Army units, made up of a Doppler antenna and a radio receiver and bearing processor, is used for radio communication transmission countermeasures to monitor enemy activities and locate their estimated locations.",
+   "key": "Radio Direction Finder System (RDF)",
+   "distractors": [
+    "Communication Intelligence (COMINT)",
+    "Electronic Intelligence (ELINT)",
+    "Cryptanalysis"
+   ],
+   "explanation": "Slide 17: the Radio Direction Finder System, with a Doppler antenna and a radio receiver and bearing processor, is used for radio communication transmission countermeasures to monitor enemy activities and locate their estimated locations.",
+   "why": [
+    "COMINT is a SIGINT category dealing with messages or voice from intercepted communication, not this antenna-and-processor system.",
+    "ELINT is a SIGINT category using electronic sensors and surveillance systems, not this antenna-and-processor system.",
+    "Cryptanalysis is a technique for deciphering encrypted messages, not a direction-finding system."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-signals-intelligence.pdf slide 17"
+  },
+  {
+   "n": 8,
+   "stem": "A SIGINT team reports the intercepted communication traffic and the estimated direction of the enemy to its section leader. Which step of the SIGINT cycle is being performed?",
+   "key": "Processing/Exploitation",
+   "distractors": [
+    "Analysis",
+    "Collection",
+    "Dissemination"
+   ],
+   "explanation": "Processing/Exploitation is the step that handles intercepted communication traffic and the estimated direction of the enemy.",
+   "why": [
+    "Analysis converts the collected data into intelligence, a later step.",
+    "Collection is gathering the information in the first place.",
+    "Dissemination is timely production of intelligence for those who need to know."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-signals-intelligence.pdf slide 22"
+  },
+  {
+   "n": 9,
+   "stem": "A SIGINT section sends its finished intelligence promptly, but only to the units that need to know it. Which step of the SIGINT cycle does this describe?",
+   "key": "Dissemination",
+   "distractors": [
+    "Requirements",
+    "Collection",
+    "Analysis"
+   ],
+   "explanation": "Dissemination is the timely production of intelligence to those who need to know only.",
+   "why": [
+    "Requirements means understanding the mission and direction needs.",
+    "Collection is the proper procedure of gathering information.",
+    "Analysis converts collected data into intelligence before it is sent out."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-signals-intelligence.pdf slide 22"
+  },
+  {
+   "n": 10,
+   "stem": "Analysts cannot ask the sender of an intercepted message what it meant. Which statement from the lesson does this reflect?",
+   "key": "SIGINT cannot be clarified from the source",
+   "distractors": [
+    "SIGINT involves cryptanalysis to decipher encrypted messages",
+    "If security is compromised, the enemy can counter with disinformation or deception",
+    "SIGINT is accurate, timely and relevant"
+   ],
+   "explanation": "Slide 20 lists as a disadvantage that SIGINT cannot be clarified from the source: the sender of an intercept cannot be asked what it meant.",
+   "why": [
+    "Cryptanalysis is a technique described on slide 13 for encrypted messages, not a statement about asking the sender.",
+    "This disadvantage concerns enemy deception after a security compromise, not asking the sender.",
+    "These are the advantages of SIGINT, not a limitation."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-signals-intelligence.pdf slide 20"
+  },
+  {
+   "n": 11,
+   "stem": "A unit learns that the enemy knows how its intercept effort works and is now feeding it false traffic. Which disadvantage of SIGINT does this describe?",
+   "key": "If security is compromised, the enemy can counter the government efforts with disinformation or deception",
+   "distractors": [
+    "SIGINT cannot be clarified from the source",
+    "SIGINT sometimes cannot stand alone without substantiation from other intelligence disciplines",
+    "SIGINT is accurate, timely and relevant"
+   ],
+   "explanation": "Slide 20: if security is compromised, the enemy can counter the government's efforts with disinformation or deception.",
+   "why": [
+    "This disadvantage is about being unable to ask the sender what a message meant.",
+    "This disadvantage is about needing substantiation from other disciplines, not enemy deception.",
+    "These are the advantages of SIGINT, not a disadvantage."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-signals-intelligence.pdf slide 20"
+  },
+  {
+   "n": 12,
+   "stem": "Which list contains the three advantages of SIGINT?",
+   "key": "Accurate, Timely, Relevant",
+   "distractors": [
+    "Accurate, Timely, Complete",
+    "Accurate, Secure, Relevant",
+    "Timely, Relevant, Verified"
+   ],
+   "explanation": "The lesson lists SIGINT's advantages as Accurate, Timely and Relevant.",
+   "why": [
+    "Complete is not one of the three advantages.",
+    "Secure is not one of the listed advantages; security appears among the disadvantages.",
+    "Verified is not an advantage in the lesson, and Accurate is missing."
+   ],
+   "pattern": "list",
+   "ref": "lesson-signals-intelligence.pdf slide 19"
+  },
+  {
+   "n": 13,
+   "stem": "Which of the following is NOT a step of the SIGINT cycle?",
+   "key": "Cryptanalysis",
+   "distractors": [
+    "Collection",
+    "Analysis",
+    "Dissemination"
+   ],
+   "explanation": "The cycle steps are Requirements, Collection, Processing/Exploitation, Analysis and Dissemination. Cryptanalysis is mentioned as a technique used in SIGINT, not as a cycle step.",
+   "why": [
+    "Collection is the second step of the cycle.",
+    "Analysis is the fourth step of the cycle.",
+    "Dissemination is the last step of the cycle."
+   ],
+   "pattern": "not",
+   "ref": "lesson-signals-intelligence.pdf slides 13, 22"
+  },
+  {
+   "n": 14,
+   "stem": "Which of the following is NOT something COMINT is capable of revealing?",
+   "key": "Jamming",
+   "distractors": [
+    "Who is transmitting",
+    "Text interception",
+    "Voice interception"
+   ],
+   "explanation": "COMINT can reveal who is transmitting, location, text interception and voice interception. Jamming is listed among ELINT's capabilities.",
+   "why": [
+    "Who is transmitting is a listed COMINT capability.",
+    "Text interception is a listed COMINT capability.",
+    "Voice interception is a listed COMINT capability."
+   ],
+   "pattern": "not",
+   "ref": "lesson-signals-intelligence.pdf slides 14-15"
+  }
+ ]
+}

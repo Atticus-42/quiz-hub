@@ -1,0 +1,259 @@
+{
+ "lesson": "cyberrisk",
+ "title": "Cyber Risk Assessment",
+ "source": "4. Cyber Risk Assessment.pdf",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following defines Integrity in the CIA Triad?",
+   "key": "Data must be authentic and reliable; any attempt to alter it must be detectable",
+   "distractors": [
+    "Only those with authorized access can obtain the information",
+    "Data and systems must be accessible and functional whenever needed",
+    "The likelihood that a threat exploits a vulnerability, combined with its impact"
+   ],
+   "explanation": "Integrity means data must be authentic and reliable and any attempt to alter it must be detectable.",
+   "why": [
+    "That defines Confidentiality.",
+    "That defines Availability.",
+    "That defines Risk, which is a separate key concept from the CIA Triad."
+   ],
+   "pattern": "defines",
+   "ref": "4. Cyber Risk Assessment.pdf p.15"
+  },
+  {
+   "n": 2,
+   "stem": "It is a weakness in the security posture that a threat can exploit.",
+   "key": "Vulnerability",
+   "distractors": [
+    "Threat",
+    "Asset",
+    "Risk"
+   ],
+   "explanation": "The key risk concepts define a vulnerability as a weakness in the security posture that a threat can exploit.",
+   "why": [
+    "A threat is a potential cause of an unwanted incident.",
+    "An asset is anything of value to the unit.",
+    "Risk is the likelihood a threat exploits a vulnerability, combined with impact."
+   ],
+   "pattern": "definition",
+   "ref": "4. Cyber Risk Assessment.pdf p.16"
+  },
+  {
+   "n": 3,
+   "stem": "During a risk assessment, a team lists classified data, command and control systems and communication networks as items of value to the unit. Which key risk concept does this list represent?",
+   "key": "Asset",
+   "distractors": [
+    "Threat",
+    "Vulnerability",
+    "Risk"
+   ],
+   "explanation": "An asset is anything of value to the unit, such as classified data, C2 systems and communication networks.",
+   "why": [
+    "Threats are causes of unwanted incidents, such as state-sponsored actors or insiders.",
+    "Vulnerabilities are weaknesses in the security posture.",
+    "Risk combines likelihood of exploitation with mission impact."
+   ],
+   "pattern": "scenario",
+   "ref": "4. Cyber Risk Assessment.pdf p.16"
+  },
+  {
+   "n": 4,
+   "stem": "Which of the following defines a Threat in a Cyber Risk Assessment?",
+   "key": "A potential cause of an unwanted incident, such as state-sponsored actors, criminals, insiders or natural disasters",
+   "distractors": [
+    "A weakness in the security posture that can be exploited",
+    "Anything of value to the unit, such as classified data and communication networks",
+    "The likelihood of exploitation combined with its impact on the mission"
+   ],
+   "explanation": "A threat is a potential cause of an unwanted incident, and the lesson's examples include state-sponsored actors, criminals, insiders and natural disasters.",
+   "why": [
+    "That defines a vulnerability.",
+    "That defines an asset.",
+    "That defines risk."
+   ],
+   "pattern": "defines",
+   "ref": "4. Cyber Risk Assessment.pdf p.16"
+  },
+  {
+   "n": 5,
+   "stem": "Which list contains the six phases of the Risk Management Process in order?",
+   "key": "Preparation, Identification, Containment, Eradication, Recovery, Assessment and Review",
+   "distractors": [
+    "Preparation, Identification, Eradication, Containment, Recovery, Assessment and Review",
+    "Identification, Preparation, Containment, Eradication, Recovery, Assessment and Review",
+    "Preparation, Identification, Containment, Eradication, Assessment and Review, Recovery"
+   ],
+   "explanation": "The three periods hold six phases: Pre-incident (Preparation, Identification), During (Containment, Eradication) and Post (Recovery, Assessment and Review).",
+   "why": [
+    "Containment (limiting damage) comes before Eradication.",
+    "Preparation is Phase 1 and precedes Identification.",
+    "Recovery is Phase 5 and Assessment and Review is Phase 6."
+   ],
+   "pattern": "list",
+   "ref": "4. Cyber Risk Assessment.pdf p.18"
+  },
+  {
+   "n": 6,
+   "stem": "It is the phase described as the most important phase of the incident response process, determining the success of the CIRT by ensuring readiness of people, tools and procedures.",
+   "key": "Preparation",
+   "distractors": [
+    "Identification",
+    "Containment",
+    "Assessment and Review"
+   ],
+   "explanation": "Phase 1, Preparation, is the most important phase because it ensures the readiness of people, tools and procedures.",
+   "why": [
+    "Identification is crucial because early detection determines impact, but it is not called the most important.",
+    "Containment controls the situation and limits damage.",
+    "Assessment and Review is the last phase and produces documentation."
+   ],
+   "pattern": "definition",
+   "ref": "4. Cyber Risk Assessment.pdf p.19"
+  },
+  {
+   "n": 7,
+   "stem": "The CSIRT removes all components and symptoms of an incident and then validates the result to prevent recurrence. Which phase is this?",
+   "key": "Eradication",
+   "distractors": [
+    "Containment",
+    "Recovery",
+    "Identification"
+   ],
+   "explanation": "In Eradication all components and symptoms of the incident are removed, then validation prevents recurrence.",
+   "why": [
+    "Containment limits the extent of damage and stops spread.",
+    "Recovery restores data and systems to a healthy working state.",
+    "Identification detects and identifies the incident early."
+   ],
+   "pattern": "scenario",
+   "ref": "4. Cyber Risk Assessment.pdf p.22"
+  },
+  {
+   "n": 8,
+   "stem": "The CIRT prepares the After Activity Report and Special Report for submission to Higher Headquarters and the PA Cyber Battle Staff. Which phase is this?",
+   "key": "Assessment and Review",
+   "distractors": [
+    "Recovery",
+    "Eradication",
+    "Preparation"
+   ],
+   "explanation": "In Phase 6, Assessment and Review, the CIRT prepares documentation such as the After Activity Report and Special Report.",
+   "why": [
+    "Recovery restores data and systems for normal unit operations.",
+    "Eradication removes the incident's components and validates.",
+    "Preparation readies people, tools and procedures before an incident."
+   ],
+   "pattern": "scenario",
+   "ref": "4. Cyber Risk Assessment.pdf p.24"
+  },
+  {
+   "n": 9,
+   "stem": "Who conducts the Cyber Risk Assessment on a PAMU's respective sub-units and offices?",
+   "key": "Territorial Signal Battalions, through its CSIRT",
+   "distractors": [
+    "The SR, PA",
+    "The PA Cyber Battle Staff",
+    "The unit's ISO/ISNCO"
+   ],
+   "explanation": "Page 14: the SR, PA conducts the CRA for PAMUs and General/Personal/Special Staff offices, while Territorial Signal Battalions (through their CSIRT) conduct it on the respective PAMU sub-units and offices.",
+   "why": [
+    "The SR, PA conducts the CRA for the PAMUs themselves and the staff offices, not their sub-units.",
+    "The PA Cyber Battle Staff receives reports; it is not named as the CRA conductor.",
+    "The ISO/ISNCO is a designated unit cyber person assessed under the People element, not the CRA conductor."
+   ],
+   "pattern": "defines",
+   "ref": "4. Cyber Risk Assessment.pdf p.14"
+  },
+  {
+   "n": 10,
+   "stem": "A unit keeps an up-to-date inventory of all devices connected to PANET so attackers cannot exploit unknown or unprotected systems. Which SANS control is this?",
+   "key": "Inventory of Authorized and Unauthorized Devices",
+   "distractors": [
+    "Inventory of Authorized and Unauthorized Software",
+    "Secure Configurations for Hardware and Software",
+    "Wireless Device Control"
+   ],
+   "explanation": "Control 1 maintains an up-to-date inventory of all devices connected to PANET.",
+   "why": [
+    "Control 2 tracks authorized software and installations.",
+    "Control 3 builds secure standard images for workstations, laptops, servers and mobile devices.",
+    "Control 7 allows only authorized wireless devices and scans for rogue access points."
+   ],
+   "pattern": "scenario",
+   "ref": "4. Cyber Risk Assessment.pdf p.25"
+  },
+  {
+   "n": 11,
+   "stem": "A unit disables dormant accounts and immediately revokes the access of separated personnel to stop impersonation. Which SANS control is this?",
+   "key": "Account Monitoring and Control",
+   "distractors": [
+    "Controlled Use of Administrative Privileges",
+    "Controlled Access Based on the Need to Know",
+    "Data Loss Prevention"
+   ],
+   "explanation": "Control 16, Account Monitoring and Control, disables dormant accounts and revokes access of separated personnel.",
+   "why": [
+    "Control 12 protects and validates administrative accounts and enforces robust passwords.",
+    "Control 15 classifies data by impact of exposure and restricts non-public data to authenticated users.",
+    "Control 17 monitors data movement across network boundaries to stop unauthorized transfer."
+   ],
+   "pattern": "scenario",
+   "ref": "4. Cyber Risk Assessment.pdf p.28"
+  },
+  {
+   "n": 12,
+   "stem": "Which list contains the three elements of the People-Process-Technology (PPT) Framework?",
+   "key": "People, Process, Technology",
+   "distractors": [
+    "People, Policy, Technology",
+    "People, Process, Training",
+    "Personnel, Procedures, Technology"
+   ],
+   "explanation": "The CRA evaluates a unit's cybersecurity posture against criteria grouped under People, Process and Technology.",
+   "why": [
+    "Policy is a part of the Process element, not an element on its own.",
+    "Training is assessed under People and Process but is not an element.",
+    "The framework names People and Process, not Personnel and Procedures."
+   ],
+   "pattern": "list",
+   "ref": "4. Cyber Risk Assessment.pdf p.29"
+  },
+  {
+   "n": 13,
+   "stem": "Which of the following is NOT one of the SANS 20 Critical Security Controls listed in the lesson?",
+   "key": "Assessment and Review",
+   "distractors": [
+    "Boundary Defense",
+    "Data Recovery Capability",
+    "Penetration Tests and Red Team Exercises"
+   ],
+   "explanation": "Pages 25-28 list the 20 controls, including Boundary Defense (13), Data Recovery Capability (8) and Penetration Tests and Red Team Exercises (20). Assessment and Review is phase 6 of the incident response process, not a control.",
+   "why": [
+    "Control 13 in the list.",
+    "Control 8 in the list.",
+    "Control 20 in the list."
+   ],
+   "pattern": "not",
+   "ref": "4. Cyber Risk Assessment.pdf p.18, 25-28"
+  },
+  {
+   "n": 14,
+   "stem": "Under the lesson's cyber risk scale, which percentage range is classified as MEDIUM?",
+   "key": "11% to 50%",
+   "distractors": [
+    "1% to 10%",
+    "51% to 100%",
+    "21% to 60%"
+   ],
+   "explanation": "The risk scale gives HIGH as 51% to 100%, MEDIUM as 11% to 50% and LOW as 1% to 10%.",
+   "why": [
+    "1% to 10% is LOW.",
+    "51% to 100% is HIGH.",
+    "The scale has no 21% to 60% band."
+   ],
+   "pattern": "defines",
+   "ref": "4. Cyber Risk Assessment.pdf p.30"
+  }
+ ]
+}

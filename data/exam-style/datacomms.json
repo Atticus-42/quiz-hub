@@ -1,0 +1,223 @@
+{
+ "lesson": "datacomms",
+ "title": "Data Communications Planning",
+ "source": "lesson-data-communications-planning.pdf",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following describes Sustain in the Connect, Sustain, Recover framework (PAM 6-0102 0144)?",
+   "key": "Keeping the connectivity going through the operation",
+   "distractors": [
+    "Providing connectivity for all Army units",
+    "Repairing and restoring connectivity when it is attacked or destroyed",
+    "Expanding or shrinking the network by phase"
+   ],
+   "explanation": "The handout gives Connect as connectivity for all Army units, Sustain as keeping it going through the operation, and Recover as repairing and restoring it when attacked or destroyed.",
+   "why": [
+    "This is Connect.",
+    "This is Recover.",
+    "This is the scalability principle, not the Sustain part of the framework."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-data-communications-planning.pdf p.2"
+  },
+  {
+   "n": 2,
+   "stem": "It is a statement of who must exchange what information, with whom, how quickly, how securely and over what terrain.",
+   "key": "A data transmission requirement",
+   "distractors": [
+    "A commander's critical information requirement (CCIR)",
+    "A signal estimate",
+    "A recovery procedure"
+   ],
+   "explanation": "Part 2 defines a data transmission requirement this way and adds that requirements come from the mission and the commander, not from the equipment on hand.",
+   "why": [
+    "CCIRs are how commanders express their information needs and generate PIR, FFIR and EEFI.",
+    "The signal estimate examines all factors affecting the signal mission.",
+    "A recovery procedure states how service is restored after failure."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-data-communications-planning.pdf p.3"
+  },
+  {
+   "n": 3,
+   "stem": "Which of the following defines the principle of Scalable (PAM 6-0102 0212)?",
+   "key": "The network expands or shrinks by phase",
+   "distractors": [
+    "Multiple paths, backups, self-healing and data replication",
+    "Units within the Army and other services can talk to each other",
+    "COMSEC policy governs every service"
+   ],
+   "explanation": "Scalable means the network expands or shrinks by phase of the operation.",
+   "why": [
+    "This describes Redundant.",
+    "This describes Interoperable.",
+    "This describes Secured."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-data-communications-planning.pdf p.3"
+  },
+  {
+   "n": 4,
+   "stem": "A plan gives a critical link several independent paths, backups and self-healing so that one failure does not stop it. This describes which principle?",
+   "key": "Redundant",
+   "distractors": [
+    "Interoperable",
+    "Scalable",
+    "Operations-focused"
+   ],
+   "explanation": "The Redundant principle (0211) calls for multiple paths, backups, self-healing and data replication.",
+   "why": [
+    "Interoperable concerns units and services being able to talk to each other.",
+    "Scalable concerns the network expanding or shrinking by phase.",
+    "Operations-focused means communications must never limit the commander's mission."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-data-communications-planning.pdf p.3"
+  },
+  {
+   "n": 5,
+   "stem": "A planner assumes the newest technology will always be the best choice for the link. Which principle corrects this?",
+   "key": "Appropriate technology",
+   "distractors": [
+    "Reliability first",
+    "Survivability",
+    "Interoperable"
+   ],
+   "explanation": "PAM 6-00 (0203) states that the newest technology is not necessarily the best choice.",
+   "why": [
+    "Reliability first says reliability is paramount and speed can outweigh security by conditions.",
+    "Survivability means losing one part must not disrupt the whole system.",
+    "Interoperable means units within the Army and other services can talk to each other."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-data-communications-planning.pdf p.3"
+  },
+  {
+   "n": 6,
+   "stem": "A cyberattack is detected and the incident response plan must be executed. This describes which of the four deployable signal teams?",
+   "key": "Cyber security incident response team",
+   "distractors": [
+    "TOC team",
+    "C3 restoration team",
+    "Network recovery team"
+   ],
+   "explanation": "The four teams that execute recovery (0143, 0228 to 0231) are the TOC team, the C3 restoration team, the network recovery team and the cyber security incident response team, which owns the incident response plan.",
+   "why": [
+    "The TOC team handles the TOC deployment plan and the mobile command center.",
+    "The C3 restoration team restores command and control communications.",
+    "The network recovery team restores the network; the incident response plan belongs to the cyber security incident response team."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-data-communications-planning.pdf p.10"
+  },
+  {
+   "n": 7,
+   "stem": "It is the secured, managed intranet carrying administrative and mission-critical information systems, with its primary hub at the PA communications center, Fort Bonifacio.",
+   "key": "PANET",
+   "distractors": [
+    "BONTEX",
+    "AFP FCS",
+    "DBTOCS"
+   ],
+   "explanation": "PANET (Philippine Army Network) is the secured, managed intranet carrying administrative and mission-critical systems (PAM 6-00 0414).",
+   "why": [
+    "BONTEX is the telephone exchange linking Army units to HPA and GHQ.",
+    "The AFP FCS is the transmission superhighway between switches, run by GHQ-AFP.",
+    "DBTOCS extends fixed communications down to brigades."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-data-communications-planning.pdf p.6"
+  },
+  {
+   "n": 8,
+   "stem": "Which of the following describes the HADR radio net (PAM 6-0102 0323 to 0326)?",
+   "key": "It is separate from the secured operational net and treated as unclassified and unsecured",
+   "distractors": [
+    "It is a secured sub-net of the operational net, protected by ciphertext and double talk",
+    "It is a sovereign network kept by each nation, with points of integration",
+    "It is an extension of the vigilance net reserved for joint operations"
+   ],
+   "explanation": "The HADR radio net must be separate from the secured operational net and is treated as unclassified and unsecured; connecting it to the secured net is a listed planning error.",
+   "why": [
+    "Connecting it to the secured net is a planning error; it stays separate.",
+    "Sovereign national networks describe coalition operations.",
+    "The vigilance net is for emergencies in joint operations, not for the HADR net."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-data-communications-planning.pdf p.11"
+  },
+  {
+   "n": 9,
+   "stem": "Which list contains the four sub-systems of C4S (PAM 6-00 0401)?",
+   "key": "Communications, electronics, information and cyber",
+   "distractors": [
+    "Command, control, communications and cyber",
+    "Communications, computers, information and cyber",
+    "Communications, electronics, intelligence and cyber"
+   ],
+   "explanation": "C4S has four sub-systems: communications, electronics, information and cyber.",
+   "why": [
+    "Command and control are the C2 in the C4S name, not sub-systems.",
+    "Computers are not one of the four sub-systems; electronics is.",
+    "Information, not intelligence, is the third sub-system."
+   ],
+   "pattern": "list",
+   "ref": "lesson-data-communications-planning.pdf p.2"
+  },
+  {
+   "n": 10,
+   "stem": "Which list contains the three operating environments the data plan must consider (0115 to 0118)?",
+   "key": "Physical, cyberspace and electromagnetic spectrum",
+   "distractors": [
+    "Physical, logical and people",
+    "Physical, cyberspace and information",
+    "Cyberspace, electromagnetic spectrum and civil"
+   ],
+   "explanation": "The handout lists the physical, cyberspace and electromagnetic spectrum environments.",
+   "why": [
+    "Physical, logical and people are the domains within cyberspace.",
+    "Information is not one of the three operating environments listed.",
+    "Civil is a mission variable, not an operating environment, and the physical environment is omitted."
+   ],
+   "pattern": "list",
+   "ref": "lesson-data-communications-planning.pdf p.2"
+  },
+  {
+   "n": 11,
+   "stem": "Which of the following is NOT one of the seven command and control requirements the infrastructure must support (PAM 6-00 0211)?",
+   "key": "Survivability",
+   "distractors": [
+    "Common operational picture",
+    "Collaborative planning",
+    "Apportionment of resources"
+   ],
+   "explanation": "The seven requirements are common operational picture, collaborative planning, centralized command with decentralized execution, intelligence and operations integration, apportionment of resources, information push and pull, and security. Survivability is a principle (PAM 6-00 0202a).",
+   "why": [
+    "The common operational picture is a listed requirement.",
+    "Collaborative planning is a listed requirement.",
+    "Apportionment of resources is a listed requirement."
+   ],
+   "pattern": "not",
+   "ref": "lesson-data-communications-planning.pdf p.3-4"
+  },
+  {
+   "n": 12,
+   "stem": "In the lesson's supplementary worked example, how is a link carrying voice and data sized?",
+   "key": "Add the voice bandwidth to the other data and include a margin of at least 25 percent for peaks and overhead",
+   "distractors": [
+    "Size the link for the data only and let voice use whatever is left",
+    "Size each link for one call at a time, with no margin for peaks",
+    "Use uncompressed voice on all satellite links to avoid delay"
+   ],
+   "explanation": "Section 5.3 (supplementary, rough planning figures): voice (calls times kbps) is added to the other data, then a margin of at least 25 percent is applied, as in (450 + 400) x 1.25, about 1,060 kbps.",
+   "why": [
+    "Sizing for data only is listed as a common planning error because voice quality fails at peak.",
+    "The example sizes for the number of simultaneous calls plus data, with a margin, not one call at a time.",
+    "The lesson says a satellite link carrying voice needs a compressed codec and a priority rule."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-data-communications-planning.pdf p.13"
+  }
+ ]
+}

@@ -1,0 +1,277 @@
+{
+ "lesson": "elint",
+ "title": "Electronic Intelligence (ELINT)",
+ "source": "Electronic Intelligence (ELINT) deck, 3 Nov 2026 (PAM 3-0702-01)",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following defines ELINT?",
+   "key": "A SIGINT sub-discipline dedicated to collecting and analysing non-communication signals",
+   "distractors": [
+    "A SIGINT sub-discipline dedicated to collecting and analysing voice and data messages",
+    "An EW function dedicated to searching, intercepting and locating emitters for the commander",
+    "An EW function dedicated to attacking enemy radars so that friendly forces can operate"
+   ],
+   "explanation": "The deck quotes PAM 3-0702-01: ELINT is a SIGINT sub-discipline for the collection and technical analysis of non-communication electromagnetic signals.",
+   "why": [
+    "Voice and data messages belong to COMINT, not ELINT.",
+    "Searching, intercepting and locating for the commander is the ES role within EW, not an ELINT definition.",
+    "Attacking radars is Electronic Attack (EA), not ELINT."
+   ],
+   "pattern": "defines",
+   "ref": "ELINT deck slide 5"
+  },
+  {
+   "n": 2,
+   "stem": "Which of the following describes the Adversary Electronic Order of Battle?",
+   "key": "The location, frequency and characteristics of hostile radios and weapon-guidance radars, used to drive targeting and plan countermeasures",
+   "distractors": [
+    "A catalogue of the unit's own radios, radars, data links and navigation aids, used to prevent mutual interference and protect OPSEC",
+    "A catalogue of civilian and commercial emitters, used to avoid hitting civilians and to stay within telecom agreements",
+    "A growing record set of every intercept, kept as a mugshot book of enemy radars"
+   ],
+   "explanation": "The Adversary EOB holds hostile radios and weapon-guidance radars and is used to drive targeting and plan countermeasures; ELINT's main job is to fill and update it.",
+   "why": [
+    "That is the Friendly EOB.",
+    "That is the Neutral EOB.",
+    "That is the signature library, which feeds the EOB rather than being an EOB."
+   ],
+   "pattern": "defines",
+   "ref": "ELINT deck slides 9, 20"
+  },
+  {
+   "n": 3,
+   "stem": "Which of the following describes ES when the lesson compares it with ELINT?",
+   "key": "The backup camera: real time, perishable and owned by the tactical commander",
+   "distractors": [
+    "The black-box recorder: deliberate, long-term and owned by intelligence channels",
+    "The targeting board: where the commander matches emitters with responses",
+    "The signature library: a growing record of every intercept"
+   ],
+   "explanation": "The deck calls ES the commander's backup camera and ELINT the intelligence black-box recorder; the same receiver serves a different purpose.",
+   "why": [
+    "That describes ELINT, not ES.",
+    "The targeting board is the decision forum that uses ES data, not ES itself.",
+    "The signature library is where ELINT and ES records are kept, not a description of ES."
+   ],
+   "pattern": "defines",
+   "ref": "ELINT deck slide 8"
+  },
+  {
+   "n": 4,
+   "stem": "Which of the following describes the one-way advantage?",
+   "key": "The receiver needs only the outbound trip of the pulse, so a radar can usually be detected from beyond its own range",
+   "distractors": [
+    "The radar needs only the weak echo back, so it can detect our post from beyond our receiver's range",
+    "The time between the outgoing pulse and its returning echo gives the range to the target",
+    "A passive receiver emits nothing, so its site can never be given away"
+   ],
+   "explanation": "A radar needs its weak echo over a two-way trip, while the ES receiver needs only the outbound trip, so it can usually detect the radar from farther than the radar can see.",
+   "why": [
+    "That reverses the advantage; it is the receiver, not the radar, that benefits from the one-way trip.",
+    "That is the radar sequence of pulse out, echo back, time equals range.",
+    "The deck warns that our own radios, vehicles and lights can still give a site away."
+   ],
+   "pattern": "defines",
+   "ref": "ELINT deck slides 10-11"
+  },
+  {
+   "n": 5,
+   "stem": "It is the fingerprint parameter that gives the number of pulses a radar sends each second, equal to 1 divided by the PRI.",
+   "key": "Pulse repetition frequency (PRF)",
+   "distractors": [
+    "Pulse width (PW)",
+    "Pulse repetition interval (PRI)",
+    "Carrier frequency (Ft)"
+   ],
+   "explanation": "PRF is pulses per second and equals 1 divided by PRI, so a PRI of 1 ms is a PRF of 1 kHz.",
+   "why": [
+    "PW is how long each individual pulse lasts.",
+    "PRI is the time between pulses, the reciprocal of PRF.",
+    "Ft is the carrier frequency, which tells you the band."
+   ],
+   "pattern": "definition",
+   "ref": "ELINT deck slide 13"
+  },
+  {
+   "n": 6,
+   "stem": "It is the growing reference of enemy radars to which every intercept adds a record, like a mugshot book.",
+   "key": "The signature library",
+   "distractors": [
+    "The targeting board",
+    "The waterfall display",
+    "The Neutral EOB"
+   ],
+   "explanation": "Each new intercept is recorded in the signature library, which is validated and shared to feed the EOB.",
+   "why": [
+    "The targeting board is where the commander decides how to respond to identified emitters.",
+    "The waterfall display shows signals over time; it is not a record set.",
+    "The Neutral EOB catalogues civilian and commercial emitters."
+   ],
+   "pattern": "definition",
+   "ref": "ELINT deck slide 20"
+  },
+  {
+   "n": 7,
+   "stem": "An ES team sees a waterfall trace that is a steady line staying on at one position. Which source does the lesson read this as?",
+   "key": "A beacon or radio left on",
+   "distractors": [
+    "Someone talking",
+    "Data traffic",
+    "A rotating radar"
+   ],
+   "explanation": "Slide 4 reads a steady line as a beacon or radio left on. Irregular bursts are someone talking, wideband bursts are data traffic, and evenly spaced short hits are a rotating radar.",
+   "why": [
+    "Talking appears as irregular bursts, not a steady line.",
+    "Data traffic appears as many short wideband bursts, not a steady line.",
+    "A rotating radar appears as short, evenly spaced hits, not a steady line."
+   ],
+   "pattern": "scenario",
+   "ref": "ELINT deck slide 4"
+  },
+  {
+   "n": 8,
+   "stem": "An ES operator sees a radar whose beam holds steady on a target, with a higher PRF and a shorter PW. Which reading does the lesson give?",
+   "key": "Track: the radar is following a target",
+   "distractors": [
+    "Search: the radar is looking around the area",
+    "Circular scan: a 360° sweep of the whole area",
+    "Sector scan: sweeping back and forth over an area of interest"
+   ],
+   "explanation": "Slide 16 reads a steady beam on the target with a higher PRF and a shorter PW as track.",
+   "why": [
+    "Search is a rotating or sector scan with a lower PRF and a longer PW.",
+    "A circular scan sweeps all round; it is not a steady beam on one target.",
+    "A sector scan moves back and forth; it is not a steady beam on one target."
+   ],
+   "pattern": "scenario",
+   "ref": "ELINT deck slide 15-16"
+  },
+  {
+   "n": 9,
+   "stem": "At 0312H an ES team notes that an emitter has switched from sweeping the area to a steady beam with a higher PRF. What does the lesson say the team should do?",
+   "key": "Report the switch from search to track immediately",
+   "distractors": [
+    "Hold the report until a second fix is obtained",
+    "Wait for the signature library to confirm the identity first",
+    "File the change in the log and report it at the end of the shift"
+   ],
+   "explanation": "A switch from search to track on the same emitter is reported immediately.",
+   "why": [
+    "The lesson attaches no such delay to the switch report.",
+    "Identity can stay tentative while the behaviour change is reported.",
+    "A change in intent is time-sensitive and is not held for the end of the shift."
+   ],
+   "pattern": "scenario",
+   "ref": "ELINT deck slide 16"
+  },
+  {
+   "n": 10,
+   "stem": "An ES squad logs a radar that detects incoming shells and computes where the gun fired from. Which ground emitter is this?",
+   "key": "Weapon-locating radar",
+   "distractors": [
+    "Ground-surveillance radar",
+    "Coastal radar",
+    "Short-range air-surveillance radar"
+   ],
+   "explanation": "The weapon-locating radar detects incoming shells and computes the gun position, so it is a threat to our artillery.",
+   "why": [
+    "Ground-surveillance radar detects people and vehicles moving at range.",
+    "Coastal radar raises the question of whether a contact is friendly, civil or foreign.",
+    "Short-range air-surveillance radar threatens helicopters and drones."
+   ],
+   "pattern": "scenario",
+   "ref": "ELINT deck slide 18"
+  },
+  {
+   "n": 11,
+   "stem": "An ES squad logs a new emitter at 9.41 GHz. In which NATO band does this place it?",
+   "key": "I-band (8 to 10 GHz)",
+   "distractors": [
+    "J-band (10 to 20 GHz)",
+    "K-band (above 20 GHz)",
+    "H-band (below 8 GHz)"
+   ],
+   "explanation": "The carrier frequency tells you the band, and I-band runs from 8 to 10 GHz, which includes 9.41 GHz.",
+   "why": [
+    "J-band starts at 10 GHz, above this emitter.",
+    "K-band starts at 20 GHz, well above this emitter.",
+    "H-band lies below 8 GHz, under this emitter."
+   ],
+   "pattern": "scenario",
+   "ref": "ELINT deck slides 13, 17"
+  },
+  {
+   "n": 12,
+   "stem": "Which list gives the five steps of the ES and ELINT process in order?",
+   "key": "Search and Detect; Locate and Track; Analyse; Evaluate; Collate and Report",
+   "distractors": [
+    "Search and Detect; Locate and Track; Evaluate; Analyse; Collate and Report",
+    "Locate and Track; Search and Detect; Analyse; Evaluate; Collate and Report",
+    "Search and Detect; Analyse; Locate and Track; Evaluate; Collate and Report"
+   ],
+   "explanation": "The deck orders the steps as Search and Detect, Locate and Track, Analyse, Evaluate, then Collate and Report.",
+   "why": [
+    "Evaluate cannot come before Analyse: a signature must be measured before it is matched.",
+    "A radar must be found before it can be located and tracked.",
+    "Locate and Track comes before the fingerprint is analysed."
+   ],
+   "pattern": "list",
+   "ref": "ELINT deck slide 19"
+  },
+  {
+   "n": 13,
+   "stem": "Which list contains the three Electronic Orders of Battle named in PAM 3-0702-01 as taught in this lesson?",
+   "key": "Friendly, Adversary and Neutral",
+   "distractors": [
+    "Friendly, Adversary and Allied",
+    "Friendly, Hostile and Civil",
+    "Adversary, Neutral and Coalition"
+   ],
+   "explanation": "Slides 9 and 24 name the Friendly, Adversary and Neutral EOBs; Neutral covers civilian and commercial emitters.",
+   "why": [
+    "Allied is not one of the three EOBs; the third is Neutral.",
+    "Hostile and Civil are not the EOB names; they are Adversary and Neutral.",
+    "Coalition is not an EOB, and the Friendly EOB is omitted."
+   ],
+   "pattern": "list",
+   "ref": "ELINT deck slide 9, 24"
+  },
+  {
+   "n": 14,
+   "stem": "Which of the following is NOT one of the radar fingerprint parameters in the lesson?",
+   "key": "Receiver sensitivity",
+   "distractors": [
+    "Polarization",
+    "Beamwidth",
+    "Pulse width"
+   ],
+   "explanation": "The fingerprint covers carrier frequency, scan, PW, beamwidth, PRI/PRF, polarization, and modulation and bandwidth. Receiver sensitivity is a property of the listening equipment, not of the radar.",
+   "why": [
+    "Polarization, the orientation of the wave, is a fingerprint parameter.",
+    "Beamwidth is a fingerprint parameter.",
+    "Pulse width is a fingerprint parameter."
+   ],
+   "pattern": "not",
+   "ref": "ELINT deck slides 12-13"
+  },
+  {
+   "n": 15,
+   "stem": "Which statement about ELINT is NOT supported by the lesson?",
+   "key": "ELINT is owned by the tactical commander for real-time threat warning",
+   "distractors": [
+    "ELINT sits within SIGINT beside COMINT",
+    "ELINT's main job is filling and updating the Adversary EOB",
+    "ELINT examines radars, beacons and sensors"
+   ],
+   "explanation": "Ownership by the tactical commander for real-time, perishable warning describes ES. ELINT is the black-box recorder owned by intelligence channels.",
+   "why": [
+    "The deck places ELINT in SIGINT, the intelligence arm, beside COMINT.",
+    "Filling and updating the Adversary EOB is ELINT's main job.",
+    "The deck pairs ELINT with radars, beacons and sensors."
+   ],
+   "pattern": "not",
+   "ref": "ELINT deck slides 6-9, 24"
+  }
+ ]
+}

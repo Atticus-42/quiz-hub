@@ -98,7 +98,7 @@ test('reviewer topic rotation survives reload and covers all topics within ceil(
   assert.deepEqual(ids(open(mixed, storage).api), untouched, 'untouched draw does not advance rotation');
   for (let round = 0; round < Math.ceil(topics.length / 20); round++) {
     const { api } = open(mixed, storage);
-    const reviewer = api.getState().attempt.questions.filter(q => q.source.type === 'reviewer-bank');
+    const reviewer = api.getState().attempt.questions.filter(q => q.source.type === 'exam-style');
     assert.equal(reviewer.length, 20);
     assert.equal(new Set(reviewer.map(q => q.lessonKey)).size, 20);
     reviewer.forEach(q => { reached.add(q.lessonKey); assert.ok(!taken.has(q.qid)); taken.add(q.qid); });
@@ -107,28 +107,35 @@ test('reviewer topic rotation survives reload and covers all topics within ceil(
   assert.deepEqual([...reached].sort(), Array.from(topics, l => l.key).sort());
 });
 
-test('reviewer unseen-first shares lesson difficulty progress in both directions', () => {
+test('exam-style unseen-first persists across mixed/coverage reloads, preserves missed flags and resets', () => {
   const storage = new FakeStorage();
   const initial = open(mixed, storage);
   const reviewer = initial.api.actualConfig.reviewer;
   const topic = reviewer.lessons[0];
   const own = reviewer.bank.filter(q => q.lessonKey === topic.key);
-  for (const mode of ['easy', 'medium', 'hard']) {
-    storage.setItem(`mastery-quiz:progress:${topic.key}:${mode}`, JSON.stringify(Object.fromEntries(own.filter(q => q.difficulty === mode).map(q => [q.qid, 's']))));
-  }
-  const fresh = own.find(q => q.difficulty === 'medium');
-  const key = `mastery-quiz:progress:${topic.key}:medium`;
-  const record = JSON.parse(storage.getItem(key));
+  const key = 'mastery-quiz:progress:' + topic.key + ':exam';
+  const record = Object.fromEntries(own.map(q => [q.qid, 's']));
+  const fresh = own[0];
   delete record[fresh.qid];
   storage.setItem(key, JSON.stringify(record));
   const { api } = open(mixed, storage);
-  assert.ok(ids(api).includes(fresh.qid), 'lesson-seen items yield to the unseen medium item');
-  answer(api);
-  assert.equal(JSON.parse(storage.getItem(key))[fresh.qid], 's', 'activated mixed set writes the lesson record');
-  const app = runPage(withEndpoint(pages['armor/index.html'], ''), { globals: { localStorage: storage } });
-  const armor = api.getState().attempt.questions.find(q => q.lessonKey === 'armor');
-  assert.ok(armor);
-  assert.equal(app.window.__quiz.loadProgress(armor.difficulty).armor[armor.qid], 's');
+  assert.ok(ids(api).includes(fresh.qid), 'seen items yield to the unseen exam-style item');
+  const index = api.getState().attempt.questions.findIndex(q => q.qid === fresh.qid);
+  for (let i = 0; i <= index; i++) {
+    assert.equal(api.goToQuestion(i), true);
+    const question = api.getState().attempt.questions[i];
+    assert.equal(api.selectAnswer(i === index ? (fresh.answer + 1) % 4 : question.answer), true);
+    assert.equal(api.checkAnswer(), true);
+  }
+  assert.equal(JSON.parse(storage.getItem(key))[fresh.qid], 'm');
+  const next = open(mixed, storage);
+  assert.equal(next.api.loadProgress('actual')[topic.key][fresh.qid], 'm');
+  next.api.resetToDifficulty();
+  next.app.document.getElementById('mode-topic-coverage').click();
+  answer(next.api);
+  assert.equal(JSON.parse(storage.getItem(key))[fresh.qid], 'm', 'activation preserves missed flag');
+  assert.equal(next.api.resetProgress(), true);
+  assert.equal(storage.getItem(key), null);
 });
 
 test('each later answer refreshes recency before finishing an unfinished set', () => {

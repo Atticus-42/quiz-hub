@@ -1,0 +1,259 @@
+{
+ "lesson": "rdf",
+ "title": "Radio Direction Finding",
+ "source": "lesson-radio-direction-finding.pdf",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following defines Direction of Arrival (DOA)?",
+   "key": "The azimuthal angle indicating the direction from which the RF signal is arriving relative to the RDF system",
+   "distractors": [
+    "The difference in arrival times of an RF signal at multiple spatially separated antennas",
+    "The phase difference between signals received at two or more separate antennas",
+    "The distance from the RDF system to the RF source along the signal path"
+   ],
+   "explanation": "DOA is defined as the azimuthal angle indicating the direction from which the RF signal arrives relative to the RDF system.",
+   "why": [
+    "That is the quantity compared in the TDOA method, not the DOA itself.",
+    "That is the quantity compared in phase comparison, a method used to find the DOA.",
+    "DOA is an angle, not a distance."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-radio-direction-finding.pdf slide 30"
+  },
+  {
+   "n": 2,
+   "stem": "Which of the following describes Phase Comparison (Differential RDF)?",
+   "key": "It compares the phase of the signal received at two or more separate antennas to determine the direction of the RF source",
+   "distractors": [
+    "It uses the difference in arrival times of the RF signal at multiple spatially separated antennas",
+    "It combines bearings from several sites to fix the position of the source",
+    "It integrates directional information into command and control systems"
+   ],
+   "explanation": "Phase comparison measures the phase difference between signals at different antennas and uses it to determine the direction of the RF source.",
+   "why": [
+    "That is Time Difference of Arrival (TDOA).",
+    "Triangulation is a training concept, not the phase comparison method.",
+    "Integration with command and control is an RDF concept, not a measurement method."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-radio-direction-finding.pdf slide 27"
+  },
+  {
+   "n": 3,
+   "stem": "Which of the following describes Time Difference of Arrival (TDOA)?",
+   "key": "It uses the difference in arrival times of the RF signal at multiple spatially separated antennas",
+   "distractors": [
+    "It compares the phase of the signal received at two or more separate antennas",
+    "It reads the azimuthal angle from which the signal arrives relative to the RDF system",
+    "It locates distress beacons used by aircraft, ships and individuals"
+   ],
+   "explanation": "TDOA methods use the differences in the times the RF signal reaches multiple spatially separated antennas.",
+   "why": [
+    "That is Phase Comparison.",
+    "That is the definition of DOA, the result, not the TDOA method.",
+    "That is a role of RDF (emergency beacons), not a measurement method."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-radio-direction-finding.pdf slide 28"
+  },
+  {
+   "n": 4,
+   "stem": "Which of the following describes the civilian applications of RDFs?",
+   "key": "Spectrum monitoring, identifying sources of interference, and locating emergency distress signals",
+   "distractors": [
+    "Locating enemy communication centers, radar installations and other electronic emissions",
+    "Intercepting tactical radios, satellite communications and radar signals for reconnaissance",
+    "Determining the direction of radio beacons to aid marine and aviation navigation only"
+   ],
+   "explanation": "Civilian applications are spectrum monitoring, identifying sources of interference and locating emergency distress signals from aircraft, ships or beacons.",
+   "why": [
+    "That is the military application.",
+    "That is the military communications source category.",
+    "Navigation is a separate role, and the word 'only' leaves out the other civilian uses."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-radio-direction-finding.pdf slide 13"
+  },
+  {
+   "n": 5,
+   "stem": "It is the method in which RDF systems use the phase differences of signals received at different antenna pairs or elements to determine the DOA.",
+   "key": "Interferometric techniques",
+   "distractors": [
+    "Time Difference of Arrival (TDOA)",
+    "Signal triangulation",
+    "Direction of Arrival (DOA) measurement"
+   ],
+   "explanation": "Interferometric RDF compares phase differences between antenna pairs or elements to accurately determine the azimuth of the RF source.",
+   "why": [
+    "TDOA compares arrival times, not phase differences.",
+    "Triangulation is mentioned as a training concept, not as an interferometric method.",
+    "DOA is the result being measured, not a method."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-radio-direction-finding.pdf slide 29"
+  },
+  {
+   "n": 6,
+   "stem": "It is the RDF role in which signals are located to guide responders to survivors or downed aircraft in remote or inaccessible areas.",
+   "key": "Search and Rescue",
+   "distractors": [
+    "Navigation and Positioning",
+    "Monitoring and Surveillance",
+    "Border Surveillance"
+   ],
+   "explanation": "Slide 15: in search and rescue, RDFs pinpoint distress signals to guide responders to survivors or downed aircraft in remote or inaccessible areas.",
+   "why": [
+    "Navigation and Positioning uses the direction of radio beacons to establish position.",
+    "Monitoring and Surveillance covers border security, law enforcement and spectrum enforcement.",
+    "Border Surveillance detects unauthorized signals near the borders."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-radio-direction-finding.pdf slide 15"
+  },
+  {
+   "n": 7,
+   "stem": "It is the RDF role historically used in marine and aviation to determine the direction of radio beacons without relying on visual landmarks or GPS.",
+   "key": "Navigation and Positioning",
+   "distractors": [
+    "Search and Rescue",
+    "Monitoring and Surveillance",
+    "Locating RF Sources"
+   ],
+   "explanation": "Navigation and Positioning helps establish position from the direction of radio beacons or signals.",
+   "why": [
+    "Search and Rescue pinpoints distress signals.",
+    "Monitoring and Surveillance deals with unauthorized transmissions and regulations.",
+    "Locating RF Sources covers finding military and civilian emitters."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-radio-direction-finding.pdf slide 14"
+  },
+  {
+   "n": 8,
+   "stem": "A government agency uses RDF to detect unauthorized transmissions and enforce radio spectrum regulations. Which role of RDFs is this?",
+   "key": "Monitoring and Surveillance",
+   "distractors": [
+    "Navigation and Positioning",
+    "Search and Rescue",
+    "Training and Capability Development"
+   ],
+   "explanation": "Monitoring and Surveillance covers border security, law enforcement and intelligence use, including detecting unauthorized transmissions and enforcing spectrum regulations.",
+   "why": [
+    "Navigation and Positioning concerns direction to radio beacons.",
+    "Search and Rescue concerns distress signals.",
+    "Training and Capability Development concerns maintaining proficiency in RDF operations."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-radio-direction-finding.pdf slide 16"
+  },
+  {
+   "n": 9,
+   "stem": "A radar installation emits distinctive RF signals, and the Army uses RDF to locate it and identify enemy radar sites. Which category of RF source is this?",
+   "key": "Radar systems",
+   "distractors": [
+    "Military communications",
+    "Civilian communications",
+    "Emergency beacons"
+   ],
+   "explanation": "Radar installations emit distinctive RF signals that RDFs can detect and locate to identify enemy radar sites.",
+   "why": [
+    "Military communications are tactical radios and satellite communications.",
+    "Civilian communications are broadcast stations and cellular networks.",
+    "Emergency beacons are distress transmitters used by aircraft, ships and individuals."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-radio-direction-finding.pdf slide 18"
+  },
+  {
+   "n": 10,
+   "stem": "Army personnel use RDF to detect and locate radio signals coming from unauthorized or suspicious sources near the country's borders. Which RDF concept does this describe?",
+   "key": "Border Surveillance",
+   "distractors": [
+    "Communication Monitoring",
+    "Intelligence Gathering",
+    "Search and Rescue"
+   ],
+   "explanation": "Border Surveillance uses RDF to detect and locate signals from unauthorized or suspicious sources near borders.",
+   "why": [
+    "Communication Monitoring analyzes transmissions within the operational area and secures military communications.",
+    "Intelligence Gathering intercepts and locates enemy communication signals.",
+    "Search and Rescue locates distress signals from downed aircraft or stranded personnel."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-radio-direction-finding.pdf slide 23"
+  },
+  {
+   "n": 11,
+   "stem": "A signal officer explains that RDF information is fed into the Army's broader systems so operations can be coordinated and resources managed from real-time intelligence. Which RDF concept is this?",
+   "key": "Integration with Command and Control Systems",
+   "distractors": [
+    "Communication Monitoring",
+    "Training and Capability Development",
+    "Intelligence Gathering"
+   ],
+   "explanation": "RDF is integrated into command and control systems to coordinate operations, manage resources and respond rapidly based on real-time intelligence.",
+   "why": [
+    "Communication Monitoring detects and analyzes transmissions in the operational area.",
+    "Training and Capability Development maintains proficiency in RDF principles and equipment.",
+    "Intelligence Gathering intercepts and locates enemy signals about movements and intentions."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-radio-direction-finding.pdf slide 26"
+  },
+  {
+   "n": 12,
+   "stem": "Which list contains the three methods used in RDF to determine direction of arrival (DOA)?",
+   "key": "Phase comparison, Time Difference of Arrival, Interferometric techniques",
+   "distractors": [
+    "Phase comparison, Time Difference of Arrival, Signal triangulation",
+    "Time Difference of Arrival, Interferometric techniques, Spectrum monitoring",
+    "Phase comparison, Interferometric techniques, Bearing processing"
+   ],
+   "explanation": "The lesson names Phase Comparison, Time Difference of Arrival and Interferometric Techniques as DOA methods.",
+   "why": [
+    "Triangulation is a training concept, not a DOA method.",
+    "Spectrum monitoring is an application, not a method.",
+    "Bearing processing is not one of the named methods; TDOA is missing."
+   ],
+   "pattern": "list",
+   "ref": "lesson-radio-direction-finding.pdf slides 27-29"
+  },
+  {
+   "n": 13,
+   "stem": "Which list contains the four RDF roles taught in the lesson?",
+   "key": "Locating RF Sources, Navigation and Positioning, Search and Rescue, Monitoring and Surveillance",
+   "distractors": [
+    "Locating RF Sources, Navigation and Positioning, Search and Rescue, Border Surveillance",
+    "Locating RF Sources, Navigation and Positioning, Training, Monitoring and Surveillance",
+    "Locating RF Sources, Communication Monitoring, Search and Rescue, Monitoring and Surveillance"
+   ],
+   "explanation": "The roles are Locating RF Sources, Navigation and Positioning, Search and Rescue, and Monitoring and Surveillance.",
+   "why": [
+    "Border Surveillance is an RDF concept, not one of the four roles.",
+    "Training is an RDF concept, and Search and Rescue is missing.",
+    "Communication Monitoring is an RDF concept, and Navigation and Positioning is missing."
+   ],
+   "pattern": "list",
+   "ref": "lesson-radio-direction-finding.pdf slides 13-16"
+  },
+  {
+   "n": 14,
+   "stem": "Which of the following is NOT a category of RF source named in the lesson?",
+   "key": "Time Difference of Arrival (TDOA)",
+   "distractors": [
+    "Military communications",
+    "Radar systems",
+    "Emergency beacons"
+   ],
+   "explanation": "Slides 17-20 name military communications, radar systems, civilian communications and emergency beacons as RF sources. TDOA is a method for determining direction of arrival (slide 28), not an RF source.",
+   "why": [
+    "Military communications is a named RF source (slide 17).",
+    "Radar systems is a named RF source (slide 18).",
+    "Emergency beacons is a named RF source (slide 20)."
+   ],
+   "pattern": "not",
+   "ref": "lesson-radio-direction-finding.pdf slide 17-20, 28"
+  }
+ ]
+}

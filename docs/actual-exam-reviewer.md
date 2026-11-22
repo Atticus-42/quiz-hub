@@ -1,21 +1,21 @@
 # Actual Exam category and the Comprehensive Exam Reviewer
 
-Questions from the class's 15 graded exams (SOAC 52-2026), plus lesson-bank questions covering every numbered POI lesson without its own graded lesson exam.
+Questions from the class's 15 graded exams (SOAC 52-2026), plus exam-style recall questions covering every numbered POI lesson without its own graded lesson exam.
 
 ## Comprehensive topic coverage
 
 Only `comprehensive-reviewer/all/` combines the two sources. Individual graded-exam pages are unchanged.
 
-- **Mixed set:** 50 questions: 30 Actual Exam questions and 20 Reviewer questions. Reviewer lessons are selected round-robin, one question per topic before revisiting a topic. The next topic cursor is stored on this device after the first answer, including abandoned sets; untouched draws do not advance it. All 27 no-exam lessons are reachable within `ceil(27 / 20) = 2` consecutive activated sets. Final question order is shuffled.
+- **Mixed set:** 50 questions: 30 Actual Exam questions and 20 exam-style practice questions. Exam-style lessons are selected round-robin, one question per topic before revisiting a topic. The next topic cursor is stored on this device after the first answer, including abandoned sets; untouched draws do not advance it. All 27 no-exam lessons are reachable within `ceil(27 / 20) = 2` consecutive activated sets. Final question order is shuffled.
 - **Full set:** all 491 distinct Actual Exam questions only.
-- **Topic coverage set:** 81 Reviewer questions, three medium/hard questions from each of the 27 no-exam lessons, in one sitting. Retakes keep the selected kind of set.
-- Reviewer selection uses all difficulties in Mixed sets: unseen first, then missed, then seen, preferring medium/hard within each priority group. Coverage sets use medium/hard only. Each question keeps its original explanation and any rationales, and displays `Reviewer question · <Lesson title> (no graded exam)` rather than Actual Exam.
-- Reviewer qids are the original lesson qids. Progress reads and writes `mastery-quiz:progress:<lessonKey>:<difficulty>`, shared with lesson pages. Activating a set marks its reviewer questions seen; checking an answer updates the lesson's seen/missed flag. Reset on the mixed page also clears these shared records and the topic cursor. With storage unavailable, quizzes still run but rotation/progress cannot survive reload.
-- All three kinds of attempts save under `lesson: "gradedall", mode: "actual"`; item provenance does not change the attempt's history filter. Reviewer item ids keep their lesson and difficulty (`<lessonKey>:<difficulty>:<qid>`). The existing v8 endpoint still saves scores; its graded-only item validator skips item analysis for mixed/coverage payloads until updated to accept reviewer identities.
+- **Topic coverage set:** all exam-style questions from the 27 no-exam lessons (the exact count is derived from the files at build time and shown on the page), in one sitting. Retakes keep the selected kind of set.
+- Exam-style selection uses unseen first, then missed, then seen within each rotating topic. Coverage includes every exam-style question, shuffled together. Fixed distractors, seeded choice order and balanced key positions reuse the Actual Exam MC builder. NOTE contains the explanation; Other choices pairs each distractor with its why. Labels read `Exam-style practice · <Lesson title> (no graded exam)`; REFERENCES reads `Exam-style practice · <lesson title> · <ref>`. Lesson pages keep their own banks unchanged.
+- Exam-style qids are `<lessonKey>-x-NN`, using the stored `n` padded to at least two digits, independent of array order and bank count. Keep stored numbers stable to preserve progress. Item/history identity is `<lessonKey>:exam:<lessonKey>-x-NN`. Device progress uses `mastery-quiz:progress:<lessonKey>:exam`, separate from lesson-page difficulty banks. Activating a set marks its exam-style questions seen; checking an answer updates seen/missed. Reset clears these records and the topic cursor. Without storage, progress and rotation cannot survive reload.
+- All three kinds of attempts save under `lesson: "gradedall", mode: "actual"`; item provenance does not change the attempt's history filter. Exam-style item ids keep their lesson and `exam` difficulty. The existing v8 endpoint still saves scores; its graded-only item validator skips item analysis for mixed/coverage payloads until updated to accept reviewer identities.
 
 **Graded lesson exams (Actual only):** Coalition (`coalition`); Signal Support in Joint Operations (`signaljoint`); Signal Support in Combined Arms Operations (`signal`); ISR (`isr`); Field Artillery (`fieldartillery`); Army Operations (`armyops`); Military Leadership Attributes (`leadershipattributes`). The Actual bank also includes graded module exams/assessments for Modules 1, 2, 4, 5, 6, 7 and 8, and the Diagnostic Examination (listed below).
 
-**Reviewer banks, no graded lesson exam (27):**
+**Exam-style practice, no graded lesson exam (27):**
 
 - Military Leadership Competencies (`leadershipcompetencies`)
 - Company Management (`companymanagement`)
@@ -45,12 +45,13 @@ Only `comprehensive-reviewer/all/` combines the two sources. Individual graded-e
 - C4ISTAR Communications Planning (`c4istarplanning`)
 - Signal Planning Process (`signalplanning`)
 
-The reviewer list is derived from `lesson.json` membership in Modules 1–8, excluding graded lesson owners, module/combined exam pages, pools and templates. Supporting Lessons (`supplemental`, including `intcycle`) supply no reviewer questions. Army Operations remains available through its existing graded exam only.
+The reviewer list is derived from `lesson.json` membership in Modules 1–8, excluding graded lesson owners, module/combined exam pages, pools and templates. Supporting Lessons (`supplemental`, including `intcycle`) supply no exam-style questions. Army Operations remains available through its existing graded exam only.
 
 - Data: `data/actual-exams.json`. Each question has `n` (its number on the graded exam), `stem`, `key`, three hand-chosen `distractors`
   (none for true/false keys), an `explanation` of why the key is right and `why`, one line per distractor saying why
   it is wrong (in distractor order).
   Student answers, names, scores and pass marks are not recorded. The build and the tests reject any `studentAnswer`.
+- Exam-style data: `data/exam-style/<lessonKey>.json`, with `{lesson,title,source,questions}`; each question holds `{n,stem,key,distractors,explanation,why,pattern,ref}`. Build validation rejects malformed schema, duplicate numbers, empty text, anything other than three distinct distractors and three why lines, and stems duplicating Actual Exam stems (case, whitespace and punctuation normalized). Counts are never hardcoded.
 - Code: `scripts/actual-exams.mjs` (loading, validation, multiple-choice generation, page placement),
   `scripts/build.mjs` (`actualSection`, `renderActualPage`, `renderActualPages`, `renderReviewerIndex`),
   and the quiz engine (`src/engine/template.html`: the `actual` category).
@@ -145,7 +146,7 @@ The portal showed no answer choices, so every item is made multiple choice from 
   every page that asks the exam.
 - **Actual citations:** each graded question carries `source: { type: "graded-exam", exam, title, date, number }`. Feedback cites
   "SOAC 52-2026 graded exam: <title>, <date> · question N". It never cites a lesson slide or PDF page. Both the build
-  and the engine reject any source type that is not listed in the Actual bank. Reviewer items use a separate bank with `source.type: "reviewer-bank"` and their own lesson provenance.
+  and the engine reject any source type that is not listed in the Actual bank. Exam-style items use a separate bank with `source.type: "exam-style"`, lesson title and `ref`.
 - **Class history:** Actual Exam attempts post to the same Apps Script endpoint as Easy/Medium/Hard, with
   `mode: "actual"`. Lesson and module pages post under their own key; each reviewer page posts under its graded
   exam key (`gradedisr`, ...) and the mixed set under `gradedall`. Item ids are `<examKey>:actual:<examKey>-a-NN`.

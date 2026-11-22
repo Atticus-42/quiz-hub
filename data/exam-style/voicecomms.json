@@ -1,0 +1,223 @@
+{
+ "lesson": "voicecomms",
+ "title": "Voice Communications Planning",
+ "source": "lesson-voice-communications-planning.pdf",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following describes why voice communication matters, according to PAM 6-0102 (0134)?",
+   "key": "It remains the bedrock of tactical communication despite computer networks and satellite communication",
+   "distractors": [
+    "It has replaced computer networks as the main means of tactical data exchange",
+    "It is the only means that works beyond line of sight",
+    "It is the least vulnerable means to interception and jamming"
+   ],
+   "explanation": "PAM 6-0102 (0134) states that despite computer networks and satellite communication, voice communication remains the bedrock of tactical communication.",
+   "why": [
+    "The manual says voice remains the bedrock; it does not say voice replaced data networks.",
+    "HF can reach over the horizon, and other means exist; voice is not the only one that does.",
+    "Voice radio is exposed to interception and jamming, which is why the plan includes protective measures."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-voice-communications-planning.pdf p.1"
+  },
+  {
+   "n": 2,
+   "stem": "It is what PAM 6-00 (0205) calls the voice of command, because it carries the commander's information down to lower commands and units.",
+   "key": "The communications system",
+   "distractors": [
+    "The signal estimate",
+    "The CEOI",
+    "The vigilance net"
+   ],
+   "explanation": "PAM 6-00 (0205) calls the communications system the voice of command because it carries the commander's information to lower commands and units.",
+   "why": [
+    "The signal estimate is an examination of factors affecting the signal mission.",
+    "The CEOI gives operating instructions (what to do); it is not called the voice of command.",
+    "The vigilance net is a net reserved for emergency and exigent situations."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-voice-communications-planning.pdf p.1"
+  },
+  {
+   "n": 3,
+   "stem": "Which of the following defines the vigilance net?",
+   "key": "A net reserved for emergency and exigent situations and used in joint operations, which is less secure and open to eavesdropping",
+   "distractors": [
+    "A separate net treated as unclassified and unsecured that connects the many entities in a disaster response",
+    "A net on which each nation keeps its own sovereign network, with defined points of integration",
+    "A net reserved for routine administrative traffic between a unit headquarters and its elements"
+   ],
+   "explanation": "PAM 6-0102 (0316) describes the vigilance net as reserved for emergency and exigent situations and used in joint operations; because it is less secure, users rely on ciphertext and double talk.",
+   "why": [
+    "This describes the disaster response net, which is kept separate from the Army's secured operational net.",
+    "This describes the coalition arrangement of sovereign national networks.",
+    "The vigilance net is for emergencies, not routine administrative traffic."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-voice-communications-planning.pdf p.4"
+  },
+  {
+   "n": 4,
+   "stem": "Two handheld radios loaded with a unit's operational frequencies are captured in an ambush. This describes which recovery concern the plan must address (PAM 6-0102 0311)?",
+   "key": "Compromised frequencies",
+   "distractors": [
+    "Interrupted connectivity",
+    "Cyberattack on the network",
+    "Electronic warfare jamming"
+   ],
+   "explanation": "PAM 6-0102 (0311d) says radios may fall into enemy hands, so the plan must include procedures to change frequencies quickly.",
+   "why": [
+    "Interrupted connectivity concerns faults or damaged equipment, not captured radios.",
+    "A cyberattack needs the cyber response team; captured radios are a frequency compromise.",
+    "Jamming is disruption of the net, not capture of equipment holding frequencies."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-voice-communications-planning.pdf p.4-5"
+  },
+  {
+   "n": 5,
+   "stem": "A manual sample plan names a Harris handheld VHF radio as the primary means, a Harris manpack radio as the alternate and a messenger as the last resort. In PACE, the messenger is which level?",
+   "key": "Emergency",
+   "distractors": [
+    "Contingency",
+    "Primary",
+    "Alternate"
+   ],
+   "explanation": "PAM 6-0102 (0312a) sample plan: handheld VHF primary, manpack alternate, and a messenger as the emergency means.",
+   "why": [
+    "Contingency is the level between the alternate and the emergency means.",
+    "The primary is the handheld radio.",
+    "The alternate is the manpack radio."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-voice-communications-planning.pdf p.4"
+  },
+  {
+   "n": 6,
+   "stem": "A signal team must visit brigades, battalions and companies to repair UHF commercial radios, program radios and give refresher training. This describes which facility?",
+   "key": "Signal mobile maintenance and repair team (SMMART)",
+   "distractors": [
+    "Signal maintenance and training facility (SMTF)",
+    "Deployable brigade tactical operations center system (DBTOCS)",
+    "Combat net radio (CNR) system"
+   ],
+   "explanation": "The SMMART does level 1 to 2 repairs of UHF commercial radios, radio programming and refresher training, and visits brigades, battalions and companies.",
+   "why": [
+    "The SMTF is the fixed facility that repairs tactical HF and VHF radios up to level 3.",
+    "DBTOCS extends fixed communications to brigades; it is not a maintenance team.",
+    "The CNR system is a radio network, not a maintenance facility."
+   ],
+   "pattern": "scenario",
+   "ref": "lesson-voice-communications-planning.pdf p.5-6"
+  },
+  {
+   "n": 7,
+   "stem": "Which of the following defines fixed communications in the voice handout?",
+   "key": "BONTEX, PANET, the AFP fixed communications system and DBTOCS, which extends fixed communications to brigades",
+   "distractors": [
+    "HF, VHF and UHF radios and combat net radio using radio over IP and ad-hoc networks",
+    "Commercial video-conferencing, cellular phones and satellite phones",
+    "Messengers, liaison officers and pre-arranged visual signals"
+   ],
+   "explanation": "PAM 6-0102 (0133) lists the fixed means as BONTEX, PANET, the AFP fixed communications system, with DBTOCS extending fixed communications to brigades.",
+   "why": [
+    "These are the tactical (mobile) means.",
+    "These are the special purpose means, used with prudence and within COMSEC policy.",
+    "These are emergency fallbacks, not a category of communication means."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-voice-communications-planning.pdf p.2"
+  },
+  {
+   "n": 8,
+   "stem": "It is the band covering 3 to 30 MHz, used for long-distance ground communication, with a 20 W manpack fielded.",
+   "key": "HF/SSB",
+   "distractors": [
+    "VHF/FM",
+    "UHF/FM",
+    "Commercial cellular"
+   ],
+   "explanation": "PAM 6-00 (glossary and 0514) gives HF/SSB as 3 to 30 MHz for long-distance ground communication, with a 20 W manpack fielded.",
+   "why": [
+    "VHF/FM is 30 to 80 MHz, for short-distance communication, with a 5 W handheld fielded.",
+    "UHF/FM is 403 to 433 MHz, for internal communications.",
+    "Commercial cellular is a special purpose means, not an HF band."
+   ],
+   "pattern": "definition",
+   "ref": "lesson-voice-communications-planning.pdf p.3"
+  },
+  {
+   "n": 9,
+   "stem": "Which list contains the three categories of communications means in PAM 6-0102 (0132 to 0135)?",
+   "key": "Fixed, tactical (mobile) and special purpose",
+   "distractors": [
+    "Fixed, tactical and strategic",
+    "Primary, alternate and contingency",
+    "Tactical, commercial and special purpose"
+   ],
+   "explanation": "Communications are fixed, mobile (tactical) and special purpose.",
+   "why": [
+    "Strategic is a level of command, not a category of means.",
+    "Primary, alternate and contingency are PACE levels.",
+    "Commercial services fall under special purpose; they are not a separate category."
+   ],
+   "pattern": "list",
+   "ref": "lesson-voice-communications-planning.pdf p.2"
+  },
+  {
+   "n": 10,
+   "stem": "Which list contains the three resource areas the planner keeps an up-to-date chart of (PAM 6-0102 0306 to 0309)?",
+   "key": "Equipment, personnel and funds",
+   "distractors": [
+    "Equipment, personnel and facilities",
+    "Equipment, frequencies and funds",
+    "Personnel, funds and training"
+   ],
+   "explanation": "The planner charts C4S equipment (0307), personnel (0308) and funds (0309).",
+   "why": [
+    "Facilities are support facilities of the fixed system, not a charted resource area.",
+    "Frequencies are managed through the CEOI and spectrum management, not charted as a resource area.",
+    "Training status is part of the personnel chart, not a separate area, and equipment is omitted."
+   ],
+   "pattern": "list",
+   "ref": "lesson-voice-communications-planning.pdf p.5"
+  },
+  {
+   "n": 11,
+   "stem": "Which of the following is NOT one of the sources of voice requirements in PAM 6-0102 (0305)?",
+   "key": "The enemy's signal capabilities",
+   "distractors": [
+    "Standard operating procedures (SOPs)",
+    "The CEOI and CESI",
+    "Guidance from higher, subordinate and adjacent headquarters"
+   ],
+   "explanation": "The sources are the commander's guidance, staff guidance, higher, subordinate and adjacent headquarters, SOPs, and the CEOI and CESI. Enemy signal capabilities is the E in METAL, a factor of the estimate.",
+   "why": [
+    "SOPs are a listed source.",
+    "The CEOI and CESI are a listed source.",
+    "Guidance from higher, subordinate and adjacent headquarters is a listed source."
+   ],
+   "pattern": "not",
+   "ref": "lesson-voice-communications-planning.pdf p.1"
+  },
+  {
+   "n": 12,
+   "stem": "Which means is the primary means on the strategic-to-operational headquarters link (PAM 6-00 0406)?",
+   "key": "AFP FCS",
+   "distractors": [
+    "HF/SSB",
+    "Commercial landline",
+    "Mobile communications"
+   ],
+   "explanation": "The 0406 table gives the AFP FCS, with the Army providing drop and insert to major camps, as primary between strategic and operational headquarters. HF/SSB is secondary and commercial landline is tertiary.",
+   "why": [
+    "HF/SSB is the secondary means on this link.",
+    "Commercial landline is the tertiary means on this link.",
+    "Mobile communications are a tertiary option only if funds permit."
+   ],
+   "pattern": "defines",
+   "ref": "lesson-voice-communications-planning.pdf p.3"
+  }
+ ]
+}

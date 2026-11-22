@@ -30,14 +30,44 @@ export function uncoveredLessons(lessons) {
     && !GRADED_LESSONS.includes(lesson.key));
 }
 
-function reviewerData(lessons) {
+export function examStyleQid(lesson, n) {
+  return `${lesson.key}-x-${String(n).padStart(2, '0')}`;
+}
+
+const normalizedStem = text => text.normalize('NFKC').toLowerCase().replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+export function validateExamStyle(data, lessonKey, actualExams) {
+  const fail = message => { throw new Error(`exam-style/${lessonKey}: ${message}`); };
+  if (!data || typeof data !== 'object' || Object.keys(data).sort().join() !== 'lesson,questions,source,title') fail('expected lesson, title, source and questions');
+  if (data.lesson !== lessonKey) fail('lesson must match its file name');
+  for (const field of ['title', 'source']) if (typeof data[field] !== 'string' || !data[field].trim()) fail(`${field} must be nonempty`);
+  if (!Array.isArray(data.questions) || !data.questions.length) fail('questions must be nonempty');
+  const actualStems = new Set(actualExams.flatMap(exam => exam.questions.map(q => normalizedStem(q.stem))));
+  const numbers = new Set();
+  for (const q of data.questions) {
+    if (!q || Object.keys(q).sort().join() !== 'distractors,explanation,key,n,pattern,ref,stem,why') fail('invalid question schema');
+    if (!Number.isInteger(q.n) || q.n < 1 || q.n > 9999 || numbers.has(q.n)) fail('question numbers must be unique positive integers up to 9999');
+    numbers.add(q.n);
+    for (const field of ['stem', 'key', 'explanation', 'pattern', 'ref']) if (typeof q[field] !== 'string' || !q[field].trim()) fail(`Q${q.n}: ${field} must be nonempty`);
+    for (const field of ['distractors', 'why']) if (!Array.isArray(q[field]) || q[field].length !== 3 || q[field].some(v => typeof v !== 'string' || !v.trim())) fail(`Q${q.n}: ${field} must hold three nonempty strings`);
+    if (new Set([q.key, ...q.distractors].map(v => v.trim().toLowerCase())).size !== 4) fail(`Q${q.n}: distractors must differ from key and each other`);
+    if (actualStems.has(normalizedStem(q.stem))) fail(`Q${q.n}: stem duplicates an actual-exams stem`);
+  }
+  return data;
+}
+
+function reviewerData(root, lessons, actualExams) {
   const uncovered = uncoveredLessons(lessons);
-  const bank = uncovered.flatMap(lesson => ['medium', 'hard', 'easy'].flatMap(mode => lesson.banks[mode].map(item => {
-    const { sourceSlides, sourceAlt, ...question } = item;
-    return { ...question, lessonKey: lesson.key, category: lesson.name,
-      source: { type: 'reviewer-bank', lesson: lesson.key, title: lesson.name, difficulty: mode, sourceSlides, sourceAlt } };
-  })));
-  return { lessons: uncovered.map(lesson => ({ key: lesson.key, title: lesson.name })), bank, mixed: 20, perLesson: 3 };
+  const sources = uncovered.map(lesson => {
+    const data = validateExamStyle(JSON.parse(readFileSync(join(root, 'data', 'exam-style', `${lesson.key}.json`), 'utf8')), lesson.key, actualExams);
+    return { ...data, key: lesson.key };
+  });
+  const questions = buildActualQuestions(sources, examStyleQid);
+  const bank = sources.flatMap(lesson => lesson.questions.map(q => {
+    const { examKey, ...question } = questions.get(examStyleQid(lesson, q.n));
+    return { ...question, lessonKey: lesson.key, difficulty: 'exam',
+      source: { type: 'exam-style', lesson: lesson.key, title: lesson.title, ref: q.ref, number: q.n } };
+  }));
+  return { lessons: sources.map(lesson => ({ key: lesson.key, title: lesson.title })), bank, mixed: 20 };
 }
 const EXAM_KEY = /^[a-z][a-z0-9]{1,23}$/;
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -165,15 +195,15 @@ export function actualQid(exam, n) {
   return `${exam.key}-${ACTUAL_LETTER}-${String(n).padStart(2, '0')}`;
 }
 
-export function buildActualQuestions(exams) {
-  const items = exams.flatMap(exam => exam.questions.map(q => ({ exam, q, cls: answerClass(q.key) })));
+export function buildActualQuestions(exams, qidFor = actualQid) {
+  const items = exams.flatMap(exam => exam.questions.map(q => ({ exam, q, cls: q.distractors ? 'mc' : answerClass(q.key) })));
   const out = new Map();
   for (const exam of exams) {
     const own = items.filter(item => item.exam === exam);
     // Balanced key positions: each letter used equally often (within one) across the exam, in a seeded order.
     const positions = shuffle(own.map((_, index) => index % 4), seeded(`${exam.key}:positions`));
     own.forEach((item, index) => {
-      const qid = actualQid(exam, item.q.n);
+      const qid = qidFor(exam, item.q.n);
       const random = seeded(qid);
       const key = item.q.key;
       let options;
@@ -244,7 +274,7 @@ export function actualExamData(root, lessons) {
     return { exam, bank, ...summary([exam], bank, 0) };
   });
   const allBank = pageBank(exams.flatMap(ofExam));
-  const all = { bank: allBank, ...summary(exams, allBank, ACTUAL_DRAW), full: allBank.length, reviewer: reviewerData(lessons) };
+  const all = { bank: allBank, ...summary(exams, allBank, ACTUAL_DRAW), full: allBank.length, reviewer: reviewerData(root, lessons, exams) };
   return { exams, questions, pages, perExam, all };
 }
 

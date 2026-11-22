@@ -1697,12 +1697,12 @@
     // ever sent. Actual Exam records instead store the last-seen time, shared by exam owner on every page.
     // Every storage access is wrapped in try/catch; without storage the quiz uses a plain shuffle.
     var PROGRESS_PREFIX = 'mastery-quiz:progress:';
-    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emha]-[0-9]{2,4}$/;
+    var PROGRESS_QID = /^[a-z][a-z0-9]{1,23}-[emhax]-[0-9]{2,4}$/;
 
     // Whose device record a question belongs to: its graded exam (shared by every page that asks it), the pool
     // exam's source lesson, or this lesson.
     function progressOwner(question) {
-      return question && question.examKey ? question.examKey : question && question.source && question.source.type === 'reviewer-bank' ? question.lessonKey : POOL ? question.lessonKey : HISTORY_LESSON;
+      return question && question.examKey ? question.examKey : question && question.source && question.source.type === 'exam-style' ? question.lessonKey : POOL ? question.lessonKey : HISTORY_LESSON;
     }
 
     // The graded exams behind this page's Actual Exam bank.
@@ -1757,14 +1757,14 @@
       if (mode === ACTUAL && ACTUAL_CONFIG && ACTUAL_CONFIG.reviewer) {
         ACTUAL_CONFIG.reviewer.lessons.forEach(function (lesson) {
           progress[lesson.key] = {};
-          MODES.forEach(function (difficulty) { Object.assign(progress[lesson.key], readProgress(lesson.key, difficulty)); });
+          Object.assign(progress[lesson.key], readProgress(lesson.key, 'exam'));
         });
       }
       return progress;
     }
 
     function recordProgress(question, mode, correct) {
-      if (mode === ACTUAL && question.source && question.source.type === 'reviewer-bank') return recordProgress(question, question.difficulty, correct);
+      if (mode === ACTUAL && question.source && question.source.type === 'exam-style') return recordProgress(question, question.difficulty, correct);
       if (mode === ACTUAL) return recordActualProgress([question]);
       var storage = deviceStorage();
       if (!storage) return false;
@@ -1787,7 +1787,7 @@
       var records = {};
       var now = Date.now();
       questions.forEach(function (question) {
-        if (question.source && question.source.type === 'reviewer-bank') {
+        if (question.source && question.source.type === 'exam-style') {
           // The lesson record is shared, including its missed flag until this question is checked.
           var prior = readProgress(question.lessonKey, question.difficulty);
           if (!prior[question.qid]) recordProgress(question, question.difficulty, true);
@@ -1819,7 +1819,7 @@
         actualOwners().forEach(function (examKey) { keys.push(progressKey(examKey, ACTUAL)); });
         if (ACTUAL_CONFIG && ACTUAL_CONFIG.reviewer) {
           ACTUAL_CONFIG.reviewer.lessons.forEach(function (lesson) {
-            MODES.forEach(function (mode) { keys.push(progressKey(lesson.key, mode)); });
+            keys.push(progressKey(lesson.key, 'exam'));
           });
           keys.push(reviewerCursorKey());
         }
@@ -1881,22 +1881,22 @@
       var nextCursor;
       if (reviewer && (mixed || coverage)) {
         var cursor = readReviewerCursor();
-        var reviewerQuestions = [];
-        var slots = coverage ? reviewer.lessons.length * reviewer.perLesson : reviewer.mixed;
+        var reviewerQuestions = coverage ? Array.prototype.slice.call(reviewer.bank) : [];
+        var slots = coverage ? 0 : reviewer.mixed;
         for (var slot = 0; slot < slots; slot++) {
           var topic = reviewer.lessons[(coverage ? slot : cursor + slot) % reviewer.lessons.length];
           var candidates = reviewer.bank.filter(function (q) {
-            return q.lessonKey === topic.key && reviewerQuestions.indexOf(q) === -1 && (!coverage || q.difficulty !== 'easy');
+            return q.lessonKey === topic.key && reviewerQuestions.indexOf(q) === -1;
           });
-          // Unseen/missed/seen priority first; medium/hard preferred within each class, random ties.
+          // Unseen/missed/seen priority within each topic, random ties.
           candidates = shuffleQuestions(candidates, random).sort(function (a, b) {
-            return priorityClass(a, progress) - priorityClass(b, progress) || Number(a.difficulty === 'easy') - Number(b.difficulty === 'easy');
+            return priorityClass(a, progress) - priorityClass(b, progress);
           });
           if (candidates.length) reviewerQuestions.push(candidates[0]);
         }
         questions = shuffleQuestions((coverage ? [] : questions).concat(reviewerQuestions), random);
         if (mixed) nextCursor = (cursor + reviewer.mixed) % reviewer.lessons.length;
-        notice = coverage ? '' : '30 Actual Exam + 20 Reviewer questions. Topics rotate after your first answer. Unseen first within each source/topic; final order shuffled.';
+        notice = coverage ? '' : '30 Actual Exam + 20 exam-style practice questions. Topics rotate after your first answer. Unseen first within each source/topic; final order shuffled.';
       }
       return { mode: ACTUAL, practice: false, size: coverage ? 'coverage' : mixed ? ACTUAL_CONFIG.attempt : length, nextReviewerCursor: nextCursor, questions: questions, current: 0, responses: blankResponses(questions), notice: notice };
     }
@@ -1920,7 +1920,7 @@
     // Stable question id for the instructor's item analysis: <lessonKey>:<mode>:<qid>. A pool exam
     // reports the source lesson's id, so a question counts the same wherever it was asked.
     function itemId(question, mode) {
-      if (question.source && question.source.type === 'reviewer-bank') return question.lessonKey + ':' + question.difficulty + ':' + question.qid;
+      if (question.source && question.source.type === 'exam-style') return question.lessonKey + ':' + question.difficulty + ':' + question.qid;
       // Actual Exam questions are owned by their graded exam: <examKey>:actual:<examKey>-a-NN.
       if (mode === ACTUAL && question.examKey) return question.examKey + ':' + mode + ':' + question.qid;
       return (POOL ? question.lessonKey : HISTORY_LESSON) + ':' + mode + ':' + question.qid;
@@ -2191,7 +2191,7 @@
 
     // "Topic: ...", or for a graded-exam question the exam and its question number.
     function questionTopic(question) {
-      if (question.source && question.source.type === 'reviewer-bank') return 'Reviewer question · ' + question.source.title + ' (no graded exam)';
+      if (question.source && question.source.type === 'exam-style') return 'Exam-style practice · ' + question.source.title + ' (no graded exam)';
       if (question.source && question.source.type === 'graded-exam') return 'Actual Exam · ' + question.source.title + ' · question ' + question.source.number;
       return TEXT.topicNoun + ': ' + question.category;
     }
@@ -2594,8 +2594,8 @@
         references.push(alt.label + ' · ' + altNoun(alt, item.pages.length) + ' ' + item.pages.join(', '));
       });
       var graded = question.source && question.source.type === 'graded-exam';
-      if (question.source && question.source.type === 'reviewer-bank') {
-        references.push('Reviewer bank: ' + question.source.title + ' (' + question.difficulty + ')' + (question.source.sourceSlides && question.source.sourceSlides.length ? ' · lesson pages ' + question.source.sourceSlides.join(', ') : ''));
+      if (question.source && question.source.type === 'exam-style') {
+        references.push('Exam-style practice · ' + question.source.title + ' · ' + question.source.ref);
       }
       if (graded) references.push('SOAC 52-2026 graded exam: ' + question.source.title + ', ' + displayDate(question.source.date) + ' · question ' + question.source.number);
       if (references.length) {

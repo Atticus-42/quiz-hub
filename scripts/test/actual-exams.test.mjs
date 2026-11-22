@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { ROOT, build, loadLessons, MODES } from '../build.mjs';
-import { ACTUAL_DRAW, REVIEWER_SLUG, actualExamData, buildActualQuestions, loadActualExams, nearDuplicate, tokens, validateActualBank, FORBIDDEN_TEXT } from '../actual-exams.mjs';
+import { ACTUAL_DRAW, REVIEWER_SLUG, actualExamData, buildActualQuestions, loadActualExams, nearDuplicate, tokens, validateActualBank, FORBIDDEN_TEXT, validateExamStyle, examStyleQid } from '../actual-exams.mjs';
 import { runPage, findAll, hasClass, withEndpoint, fakeFetch, TEST_ENDPOINT, FakeStorage, plain, seededRandom } from './harness.mjs';
 
 const { lessons } = loadLessons();
@@ -43,19 +43,49 @@ function answerAll(api, correct = () => true) {
   api.finishQuiz();
 }
 
-test('mixed reviewer includes every uncovered POI bank with original identities and feedback', () => {
+test('exam-style banks preserve stored identities, fixed feedback and balanced seeded choices', () => {
   assert.equal(uncovered.length, 27);
   assert.deepEqual(data.all.reviewer.lessons.map(l => l.key), uncovered.map(l => l.key));
-  for (const lesson of uncovered) for (const mode of MODES) for (const original of lesson.banks[mode]) {
-    const q = data.all.reviewer.bank.find(q => q.qid === original.qid);
-    assert.ok(q, original.qid);
-    assert.equal(q.lessonKey, lesson.key);
-    assert.equal(q.difficulty, mode);
-    assert.equal(q.source.type, 'reviewer-bank');
-    assert.equal(q.explanation, original.explanation);
-    assert.deepEqual(q.rationales, original.rationales);
+  let total = 0;
+  for (const lesson of uncovered) {
+    const original = JSON.parse(readFileSync(join(ROOT, 'data/exam-style', lesson.key + '.json'), 'utf8'));
+    total += original.questions.length;
+    const own = data.all.reviewer.bank.filter(q => q.lessonKey === lesson.key);
+    const positions = [0, 1, 2, 3].map(i => own.filter(q => q.answer === i).length);
+    assert.ok(Math.max(...positions) - Math.min(...positions) <= 1);
+    for (const item of original.questions) {
+      const q = own.find(q => q.qid === lesson.key + '-x-' + String(item.n).padStart(2, '0'));
+      assert.ok(q);
+      assert.equal(q.difficulty, 'exam');
+      assert.equal(q.source.type, 'exam-style');
+      assert.equal(q.source.ref, item.ref);
+      assert.equal(q.explanation, item.explanation);
+      assert.equal(q.options[q.answer], item.key);
+      item.distractors.forEach((d, i) => assert.equal(q.rationales[q.options.indexOf(d)], item.why[i]));
+    }
   }
-  assert.ok(data.all.reviewer.bank.every(q => uncovered.some(l => l.key === q.lessonKey)));
+  assert.equal(data.all.reviewer.bank.length, total);
+  assert.deepEqual(actualExamData(ROOT, lessons).all.reviewer.bank, data.all.reviewer.bank);
+  assert.equal(examStyleQid({ key: 'armor' }, 7), 'armor-x-07');
+});
+
+test('exam-style validator rejects malformed schema, choices, feedback and actual duplicate stems', () => {
+  const lesson = uncovered[0];
+  const original = JSON.parse(readFileSync(join(ROOT, 'data/exam-style', lesson.key + '.json'), 'utf8'));
+  for (const mutate of [
+    d => { d.lesson = 'wrong'; },
+    d => { d.questions[0].extra = true; },
+    d => { d.questions[0].distractors[0] = d.questions[0].key; },
+    d => { d.questions[0].distractors[1] = d.questions[0].distractors[0]; },
+    d => { d.questions[0].why.pop(); },
+    d => { d.questions[0].explanation = ' '; },
+    d => { d.questions[0].stem = source.exams[0].questions[0].stem.toUpperCase(); },
+    d => { d.questions[1].n = d.questions[0].n; },
+  ]) {
+    const bad = structuredClone(original);
+    mutate(bad);
+    assert.throws(() => validateExamStyle(bad, lesson.key, source.exams), /exam-style/);
+  }
 });
 
 test('mixed draw and topic coverage label their sources, retain history mode and retake size', async () => {
@@ -63,14 +93,20 @@ test('mixed draw and topic coverage label their sources, retain history mode and
   const { app, api } = start(withEndpoint(pages[`${REVIEWER_SLUG}/all/index.html`], TEST_ENDPOINT), { fetch });
   const mixed = api.getState().attempt.questions;
   assert.equal(mixed.filter(q => q.source.type === 'graded-exam').length, 30);
-  assert.equal(mixed.filter(q => q.source.type === 'reviewer-bank').length, 20);
+  assert.equal(mixed.filter(q => q.source.type === 'exam-style').length, 20);
   assert.equal(new Set(mixed.filter(q => q.lessonKey).map(q => q.lessonKey)).size, 20);
   for (let i = 0; i < mixed.length; i++) {
     api.goToQuestion(i);
     const label = app.document.getElementById('question-category').textContent;
-    assert.match(label, mixed[i].source.type === 'reviewer-bank' ? /^Reviewer question · .+ \(no graded exam\)$/ : /^Actual Exam · /);
+    assert.match(label, mixed[i].source.type === 'exam-style' ? /^Exam-style practice · .+ \(no graded exam\)$/ : /^Actual Exam · /);
     api.selectAnswer(mixed[i].answer);
     api.checkAnswer();
+    if (mixed[i].source.type === 'exam-style') {
+      const feedback = app.document.getElementById('answer-feedback').textContent;
+      assert.ok(feedback.includes(mixed[i].explanation));
+      assert.ok(feedback.includes('Other choices'));
+      assert.ok(feedback.includes('Exam-style practice · ' + mixed[i].source.title + ' · ' + mixed[i].source.ref));
+    }
   }
   answerAll(api);
   await api.whenSettled();
@@ -78,13 +114,14 @@ test('mixed draw and topic coverage label their sources, retain history mode and
   assert.equal(body.mode, 'actual');
   assert.equal(body.lesson, 'gradedall');
   assert.equal(body.total, 50);
+  assert.equal(body.asked.filter(id => /^[a-z]+:exam:[a-z]+-x-[0-9]{2,4}$/.test(id)).length, 20);
   assert.equal(api.getState().submission.status, 'saved');
   api.resetToDifficulty();
   app.document.getElementById('mode-topic-coverage').click();
   const coverage = api.getState().attempt.questions;
-  assert.equal(coverage.length, 3 * uncovered.length);
-  assert.ok(coverage.every(q => q.source.type === 'reviewer-bank' && ['medium', 'hard'].includes(q.difficulty)));
-  for (const l of uncovered) assert.equal(coverage.filter(q => q.lessonKey === l.key).length, 3);
+  assert.equal(coverage.length, data.all.reviewer.bank.length);
+  assert.ok(coverage.every(q => q.source.type === 'exam-style' && q.difficulty === 'exam'));
+  for (const l of uncovered) assert.equal(coverage.filter(q => q.lessonKey === l.key).length, data.all.reviewer.bank.filter(q => q.lessonKey === l.key).length);
   answerAll(api);
   assert.equal(api.retakeQuiz(), true);
   assert.equal(api.getState().attempt.questions.length, coverage.length);

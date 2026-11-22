@@ -1,0 +1,259 @@
+{
+ "lesson": "zerotrust",
+ "title": "Zero Trust",
+ "source": "2. Zero Trust.pptx",
+ "questions": [
+  {
+   "n": 1,
+   "stem": "Which of the following defines Zero Trust (ZT)?",
+   "key": "A set of cybersecurity paradigms that moves defenses from static, network-based perimeters to focus on users, assets and resources",
+   "distractors": [
+    "An enterprise cybersecurity plan built on zero trust concepts, component relationships and access policies",
+    "The network infrastructure and operational policies in place as a product of the ZTA plan",
+    "A perimeter model that grants trust based on physical or network location"
+   ],
+   "explanation": "Zero Trust is a set of cybersecurity paradigms; no implicit trust is granted based on physical or network location or on asset ownership.",
+   "why": [
+    "That defines the Zero Trust Architecture (ZTA), the plan.",
+    "That defines the ZT Enterprise, the result of the ZTA plan.",
+    "Zero Trust rejects implicit trust by location or ownership."
+   ],
+   "pattern": "defines",
+   "ref": "2. Zero Trust.pptx slide 19"
+  },
+  {
+   "n": 2,
+   "stem": "It is the enterprise cybersecurity plan built on zero trust concepts, component relationships, workflow planning and access policies.",
+   "key": "Zero Trust Architecture (ZTA)",
+   "distractors": [
+    "Zero Trust (ZT)",
+    "Zero Trust Enterprise",
+    "Software-Defined Perimeter"
+   ],
+   "explanation": "The slide separates the concept (ZT), the plan (ZTA) and the result (ZT Enterprise).",
+   "why": [
+    "ZT is the concept of minimizing uncertainty in access decisions.",
+    "The ZT Enterprise is the resulting infrastructure and policies, not the plan.",
+    "SDP is a deployment approach, not the plan itself."
+   ],
+   "pattern": "definition",
+   "ref": "2. Zero Trust.pptx slide 19"
+  },
+  {
+   "n": 3,
+   "stem": "Which list contains the three principles of the Zero Trust Framework?",
+   "key": "Assume breach, verify explicitly, least privilege",
+   "distractors": [
+    "Assume breach, verify explicitly, maximum access",
+    "Trust location, verify explicitly, least privilege",
+    "Assume breach, verify once, least privilege"
+   ],
+   "explanation": "The framework slide gives three principles: assume breach, verify explicitly and least privilege.",
+   "why": [
+    "Least privilege grants only the minimum access needed, not maximum access.",
+    "Trust is never granted implicitly by location.",
+    "Authentication and authorization are done per session, not once."
+   ],
+   "pattern": "list",
+   "ref": "2. Zero Trust.pptx slide 20"
+  },
+  {
+   "n": 4,
+   "stem": "A unit grants access to a resource for one session only, so the next request must be authorized again. Which tenet does this describe?",
+   "key": "Access is granted on a per-session basis",
+   "distractors": [
+    "Access is determined by dynamic policy (identity, device, behavior)",
+    "All communication is secured regardless of location",
+    "Authentication and authorization are dynamic and strictly enforced"
+   ],
+   "explanation": "Tenet 3 says access is granted on a per-session basis.",
+   "why": [
+    "Tenet 4 concerns policy built from identity, device and behavior.",
+    "Tenet 2 concerns securing communication wherever it occurs.",
+    "Tenet 6 concerns dynamic, strictly enforced authentication and authorization."
+   ],
+   "pattern": "scenario",
+   "ref": "2. Zero Trust.pptx slide 21"
+  },
+  {
+   "n": 5,
+   "stem": "Which of the following is NOT one of the seven tenets of Zero Trust?",
+   "key": "Devices inside the internal network are trusted by default",
+   "distractors": [
+    "All data sources and computing services are resources",
+    "The enterprise monitors the integrity and posture of all assets",
+    "Collect and use data to continually improve security posture"
+   ],
+   "explanation": "Zero Trust grants no implicit trust by location, so trusting internal devices by default is not a tenet.",
+   "why": [
+    "Tenet 1 states all data sources and computing services are resources.",
+    "Tenet 5 states the enterprise monitors integrity and posture of all assets.",
+    "Tenet 7 states data is collected to continually improve posture."
+   ],
+   "pattern": "not",
+   "ref": "2. Zero Trust.pptx slide 21"
+  },
+  {
+   "n": 6,
+   "stem": "Which of the following defines the Policy Enforcement Point (PEP)?",
+   "key": "It enables, monitors and terminates the connection between the subject and the resource",
+   "distractors": [
+    "It grants, denies or revokes access using enterprise policy and a trust algorithm",
+    "It establishes or shuts down the communication path and issues session credentials",
+    "It is the enterprise resource sitting inside the implicit trust zone"
+   ],
+   "explanation": "The PEP enforces: it enables, monitors and terminates the connection, and nothing reaches a resource except through a PEP.",
+   "why": [
+    "That is the Policy Engine (PE), which decides.",
+    "That is the Policy Administrator (PA), which executes.",
+    "The resource is what the PEP protects; it is not the PEP."
+   ],
+   "pattern": "defines",
+   "ref": "2. Zero Trust.pptx slide 22"
+  },
+  {
+   "n": 7,
+   "stem": "A component establishes the communication path between a subject and a resource, issues session credentials and configures the PEP. Which component is this?",
+   "key": "Policy Administrator (PA)",
+   "distractors": [
+    "Policy Engine (PE)",
+    "Policy Enforcement Point (PEP)",
+    "Enterprise resource"
+   ],
+   "explanation": "The PA executes the decision: it establishes or shuts down the path, issues session credentials and configures the PEP.",
+   "why": [
+    "The PE makes the decision to grant, deny or revoke.",
+    "The PEP enforces the connection between subject and resource.",
+    "The resource is the asset being accessed."
+   ],
+   "pattern": "scenario",
+   "ref": "2. Zero Trust.pptx slide 22"
+  },
+  {
+   "n": 8,
+   "stem": "It is the component that grants, denies or revokes access using enterprise policy and inputs fed to a trust algorithm.",
+   "key": "Policy Engine (PE)",
+   "distractors": [
+    "Policy Administrator (PA)",
+    "Policy Enforcement Point (PEP)",
+    "Subject or system"
+   ],
+   "explanation": "The PE decides, using enterprise policy plus inputs such as CDM, threat intelligence and logs in a trust algorithm.",
+   "why": [
+    "The PA executes the decision by setting up or shutting down the path.",
+    "The PEP enforces the connection.",
+    "The subject or system is the party requesting access, not the decision-maker."
+   ],
+   "pattern": "definition",
+   "ref": "2. Zero Trust.pptx slide 22"
+  },
+  {
+   "n": 9,
+   "stem": "A unit places resources on protected segments behind gateways such as NGFWs and smart switches that act as PEPs. Which deployment approach is this?",
+   "key": "Micro-segmentation",
+   "distractors": [
+    "Enhanced identity governance",
+    "Software-defined perimeter (SDP)",
+    "Reporting-only deployment"
+   ],
+   "explanation": "In micro-segmentation, resources sit on protected segments behind gateways acting as PEPs, shielding them from unauthorized access and discovery.",
+   "why": [
+    "Enhanced identity governance makes the identity of actors the key driver of policy.",
+    "SDP has the network infrastructure itself implement ZT, with the PA acting as network controller.",
+    "Reporting-only mode is a migration step, not a deployment approach."
+   ],
+   "pattern": "scenario",
+   "ref": "2. Zero Trust.pptx slide 23"
+  },
+  {
+   "n": 10,
+   "stem": "Which of the following defines the software-defined perimeter (SDP) approach?",
+   "key": "The network infrastructure itself implements ZT, with the PA acting as network controller reconfiguring paths per the PE's decisions",
+   "distractors": [
+    "Identity of actors is the key driver of policy, with device and environment refining confidence",
+    "Resources are placed on protected segments behind gateways acting as PEPs",
+    "Stored traffic, scans and policies are protected with the most restrictive policies"
+   ],
+   "explanation": "In SDP the infrastructure implements ZT through SDN or overlay networks; the PA acts as the network controller.",
+   "why": [
+    "That defines enhanced identity governance.",
+    "That defines micro-segmentation.",
+    "That is guidance for the threat of storing network information, not a deployment approach."
+   ],
+   "pattern": "defines",
+   "ref": "2. Zero Trust.pptx slide 23"
+  },
+  {
+   "n": 11,
+   "stem": "A compromised or misconfigured PE approves access it should not. Which ZTA threat is this?",
+   "key": "Subversion of the decision process",
+   "distractors": [
+    "Denial of service / disruption",
+    "Stolen credentials / insider threat",
+    "Storage of network information"
+   ],
+   "explanation": "The slide lists subversion of the decision process: a compromised or misconfigured PE/PA can approve what it should not.",
+   "why": [
+    "Disruption concerns PE/PA/PEP becoming mission-critical choke points.",
+    "Stolen credentials concern abuse of valid accounts, addressed by MFA and contextual trust.",
+    "Storage of network information concerns stored traffic, scans and policies as reconnaissance material."
+   ],
+   "pattern": "scenario",
+   "ref": "2. Zero Trust.pptx slide 24"
+  },
+  {
+   "n": 12,
+   "stem": "Which of the following defines the lesson's guidance on the network visibility threat?",
+   "key": "Encrypted traffic cannot all be inspected, so analyze metadata and apply machine learning to spot malicious flows",
+   "distractors": [
+    "Configure, monitor, log and audit all changes to the PE and PA",
+    "Replicate the PE, PA and PEP and host them in resilient, secured environments",
+    "Use MFA and contextual trust algorithms to detect abnormal access patterns"
+   ],
+   "explanation": "For network visibility the lesson advises analyzing metadata and applying machine learning because encrypted traffic cannot all be inspected.",
+   "why": [
+    "That is the answer to subversion of the decision process.",
+    "That is the answer to denial of service and disruption.",
+    "That is the answer to stolen credentials and insider threat."
+   ],
+   "pattern": "defines",
+   "ref": "2. Zero Trust.pptx slide 24"
+  },
+  {
+   "n": 13,
+   "stem": "Which list gives the first three steps of migrating to a ZTA, in order?",
+   "key": "Identify actors, identify assets, identify key processes",
+   "distractors": [
+    "Identify assets, identify actors, identify key processes",
+    "Identify actors, identify key processes, formulate policies",
+    "Identify actors, identify assets, formulate policies"
+   ],
+   "explanation": "The seven migration steps start with identify actors, identify assets and identify key processes, then formulate policies, identify solutions, deploy and monitor, and expand.",
+   "why": [
+    "Actors are identified before assets.",
+    "Assets are inventoried before key processes are ranked.",
+    "Key processes are identified before policies are formulated."
+   ],
+   "pattern": "list",
+   "ref": "2. Zero Trust.pptx slide 25"
+  },
+  {
+   "n": 14,
+   "stem": "A unit runs its new policies in reporting-only mode and tunes them against real traffic. Which migration step is this?",
+   "key": "Deploy and monitor",
+   "distractors": [
+    "Identify solutions",
+    "Formulate policies",
+    "Expand the ZTA"
+   ],
+   "explanation": "Step 6, Deploy and monitor, operates in reporting-only mode first and tunes policies against real traffic.",
+   "why": [
+    "Identify solutions evaluates candidate tools against the workflow, assets and environment.",
+    "Formulate policies sets criteria or confidence-level weights for the workflow's resources.",
+    "Expand the ZTA refines and then takes on the next workflow."
+   ],
+   "pattern": "scenario",
+   "ref": "2. Zero Trust.pptx slide 25"
+  }
+ ]
+}
