@@ -9,15 +9,15 @@
       "ep purpose and the ecm duel",
       "objective"
     ],
-    "prompt": "In current terminology used in the deck, ECCM is known as which term?",
+    "prompt": "Which term has replaced ECCM in the deck's terminology?",
     "options": [
       "Electronic Protection",
       "Electronic Attack",
       "Electronic Support",
-      "Electronic Warfare Operations"
+      "Electronic Masking"
     ],
     "answer": 0,
-    "explanation": "Slide 6 states that ECM is now called Electronic Attack and ECCM is now called Electronic Protection. Electronic Attack is the closest distractor, but it names the enemy's side of the duel rather than the protection of our own systems.",
+    "explanation": "Slide 6: ECM is now Electronic Attack and ECCM is now Electronic Protection, which keeps our systems working anyway.",
     "sourceSlides": [
       6
     ]
@@ -32,15 +32,15 @@
       "ep purpose and the ecm duel",
       "situational"
     ],
-    "prompt": "In a Signal School discussion, the enemy's countermeasure effort is described as an attempt to take away our use of the radio spectrum. Which label does the deck give that effort?",
+    "prompt": "ECM, which attacks our use of the spectrum, is now called which term?",
     "options": [
-      "ECM, now called Electronic Attack",
-      "ECCM, now called Electronic Protection",
-      "ECM, now called Electronic Protection",
-      "ECCM, now called Electronic Attack"
+      "Electronic Intelligence",
+      "Electronic Attack",
+      "Electronic Protection",
+      "Electronic Support"
     ],
-    "answer": 0,
-    "explanation": "Slide 6 says ECM, now Electronic Attack, attacks our use of the spectrum. The option naming ECCM is the closest distractor, but ECCM, now Electronic Protection, is our side of the duel and keeps our systems working anyway.",
+    "answer": 1,
+    "explanation": "Slide 6: ECM (now Electronic Attack) attacks our use of the spectrum.",
     "sourceSlides": [
       6
     ]
@@ -55,15 +55,15 @@
       "ep purpose and the ecm duel",
       "situational"
     ],
-    "prompt": "A rifle company commander says Electronic Protection is someone else's job. According to the deck, who applies EP?",
+    "prompt": "Who applies Electronic Protection, according to the deck?",
     "options": [
-      "The Signal units that run the radios",
-      "Every unit does, not just EW units",
-      "The commanders, who direct it through the S6",
-      "The EW cell, which applies it for the company"
+      "Only the electronic warfare company",
+      "Only units equipped with jammers",
+      "Only signal units",
+      "Every unit, not just EW units"
     ],
-    "answer": 1,
-    "explanation": "Slides 7 and 24 state that every unit does EP, not just EW units, and that PAM 3-0702-01 and FM 3-12 require it. The EW cell option is the closest distractor, but the deck treats EP as every soldier's job rather than a specialist task.",
+    "answer": 3,
+    "explanation": "Slides 7 and 24: every unit does EP, not just EW units; PAM 3-0702-01 and FM 3-12 require it.",
     "sourceSlides": [
       7,
       24
@@ -79,15 +79,15 @@
       "enemy questions and radio discipline",
       "objective"
     ],
-    "prompt": "Direction finding answers which of the three questions the enemy asks about your signals?",
+    "prompt": "Direction finding answers which of the enemy's three questions?",
     "options": [
-      "Can I JAM you?",
-      "Can I FIND you?",
       "Can I READ you?",
-      "Can I SPOOF you?"
+      "Can I HIT you?",
+      "Can I JAM you?",
+      "Can I FIND you?"
     ],
-    "answer": 1,
-    "explanation": "Slide 8 pairs \"Can I FIND you?\" with direction finding, which locates your transmitter. \"Can I READ you?\" is the closest distractor, but that question concerns intercept exploiting what you say, not locating the transmitter.",
+    "answer": 3,
+    "explanation": "Slide 8: direction finding locates your transmitter, which answers 'Can I FIND you?'",
     "sourceSlides": [
       8
     ]
@@ -102,15 +102,15 @@
       "enemy questions and radio discipline",
       "situational"
     ],
-    "prompt": "A signaller keeps making radio checks just for comfort, although nothing needs reporting. Which radio-discipline rule is being broken?",
+    "prompt": "Pre-planning the message and using brevity codes support which radio-discipline rule?",
     "options": [
-      "Use the lowest power that works",
-      "Keep transmissions short",
+      "Vary your routine",
+      "Lowest power that works",
       "Transmit only when needed",
-      "Vary your routine"
+      "Short transmissions"
     ],
-    "answer": 2,
-    "explanation": "Slide 9 lists \"transmit only when needed\" and specifically rules out chatter and radio checks for comfort. Keeping transmissions short is the closest distractor, but it governs how long each message runs, not whether a message should be sent.",
+    "answer": 3,
+    "explanation": "Slide 9: short transmissions - pre-plan the message and use brevity codes.",
     "sourceSlides": [
       9
     ]
@@ -125,15 +125,15 @@
       "enemy questions and radio discipline",
       "objective"
     ],
-    "prompt": "What reason does the lesson give for using the lowest power that works?",
+    "prompt": "Why does the lesson tell units to use the lowest power that works?",
     "options": [
-      "Less power makes the message harder to read",
-      "Less power stops a spot jammer hitting the channel",
       "Less power gives enemy direction finding less range",
-      "Less power lets the radio hop faster"
+      "Less power increases the number of hops per second",
+      "Less power makes the encryption stronger",
+      "Less power lets the radio ignore sidelobe jamming"
     ],
-    "answer": 2,
-    "explanation": "Slide 9 explains that less power means less range for enemy DF. Making the message harder to read is the closest distractor, but that is the job of encryption (Slide 8), not of power.",
+    "answer": 0,
+    "explanation": "Slide 9: lowest power that works - less power, less range for enemy DF.",
     "sourceSlides": [
       8,
       9
@@ -149,15 +149,15 @@
       "masking, blending and emission risk",
       "situational"
     ],
-    "prompt": "A company signal detachment can place its command post antenna on the hilltop or on the reverse slope. Which site does the lesson prefer, and why?",
+    "prompt": "Where should a command post place its antenna to avoid enemy DF and jamming?",
     "options": [
-      "On the hilltop, because wide coverage outweighs the risk",
-      "On the hilltop, because a camouflage net hides the signal",
-      "On the ridge crest, because a skyline antenna is harder to find",
-      "On the reverse slope, because terrain blocks enemy DF and jamming"
+      "On the hilltop, for the widest coverage",
+      "On the reverse slope, with terrain between the antenna and the enemy",
+      "On the skyline, with the antenna raised",
+      "On the forward slope, facing the enemy"
     ],
-    "answer": 3,
-    "explanation": "Slide 10 says terrain between the antenna and the enemy blocks his DF and jamming, and that hilltops are easy to DF and easy to jam. The ridge-crest option is the closest distractor, but Slide 9 asks for antennas off skylines, so a crest is the opposite of the advice.",
+    "answer": 1,
+    "explanation": "Slide 10: terrain between us and the enemy blocks his DF and jamming; avoid hilltops for CPs and use the reverse slope.",
     "sourceSlides": [
       9,
       10
@@ -173,15 +173,15 @@
       "masking, blending and emission risk",
       "objective"
     ],
-    "prompt": "What does the phrase \"hide a needle among needles\" ask a unit to do with its emissions?",
+    "prompt": "'Hide a needle among needles' means that a unit should:",
     "options": [
-      "Send reports at fixed times so the traffic looks routine",
-      "Move to a quiet part of the spectrum where no one else transmits",
       "Use the spectrum as nearby users do, so military signals do not stand out",
-      "Use the highest power available so other signals mask it"
+      "Transmit in many short bursts on different frequencies",
+      "Use many radios at low power in one place",
+      "Place several decoy antennas around the command post"
     ],
-    "answer": 2,
-    "explanation": "Slide 11 says to use the spectrum the way the people around you use it, because odd military signals stand out in a quiet area. Moving to a quiet band is the closest distractor, but that is the opposite of blending in.",
+    "answer": 0,
+    "explanation": "Slide 11: use the spectrum the way the people around you use it; odd military signals stand out in a quiet area.",
     "sourceSlides": [
       11
     ]
@@ -196,15 +196,15 @@
       "masking, blending and emission risk",
       "objective"
     ],
-    "prompt": "In the lesson, what is meant by \"home-on-jam\"?",
+    "prompt": "'The jammer becomes a target' describes which effect?",
     "options": [
-      "A jammer that homes in on a frequency-hopping radio",
-      "A radar ignoring jamming that arrives from the side",
-      "A radio returning to its home channel after being jammed",
-      "A weapon switching to guide on a jamming source"
+      "Home-on-jam",
+      "Spoofing",
+      "Sidelobe blanking",
+      "Spread spectrum"
     ],
-    "answer": 3,
-    "explanation": "Slide 22 explains that some weapons can switch to guiding on a jamming source, so the jammer becomes a target. The sidelobe option is the closest distractor, but ignoring side jamming is the radar technique of sidelobe blanking on Slide 21.",
+    "answer": 0,
+    "explanation": "Slide 22: some weapons can switch to guiding on a jamming source, so a jammer can be located and struck.",
     "sourceSlides": [
       21,
       22
@@ -220,15 +220,15 @@
       "emcon levels",
       "objective"
     ],
-    "prompt": "Which EMCON level does the deck mark as the field baseline?",
+    "prompt": "Which EMCON level is the recommended field baseline?",
     "options": [
+      "EMCON 4, RED",
       "EMCON 3, AMBER",
       "EMCON 1, GREEN",
-      "EMCON 2, YELLOW",
-      "EMCON 4, RED"
+      "EMCON 2, YELLOW"
     ],
-    "answer": 0,
-    "explanation": "Slides 12 and 25 mark EMCON 3 AMBER as the field baseline, requiring encryption, hopping and directional antennas with unencrypted systems off. EMCON 2 YELLOW is the closest distractor, but it only limits transmissions and watches power levels.",
+    "answer": 1,
+    "explanation": "Slides 12 and 25: EMCON 3, AMBER is the field baseline - encrypt, hop, use directional antennas and turn unencrypted systems off.",
     "sourceSlides": [
       12,
       25
@@ -244,15 +244,15 @@
       "emcon levels",
       "situational"
     ],
-    "prompt": "A battalion is operating normally with no hostile activity, and encryption is on. Which EMCON level describes this state?",
+    "prompt": "EMCON 1, GREEN means which of the following?",
     "options": [
-      "EMCON 2, YELLOW",
-      "EMCON 3, AMBER",
-      "EMCON 4, RED",
-      "EMCON 1, GREEN"
+      "No hostile activity; normal operations with encryption on",
+      "Attack has occurred; non-essential emitters off",
+      "Risk identified; encrypt, hop and use directional antennas",
+      "Risk of attack; limit transmissions and watch power levels"
     ],
-    "answer": 3,
-    "explanation": "Slide 12 defines EMCON 1 GREEN as no hostile activity, with normal operations and encryption on. EMCON 2 YELLOW is the closest distractor, but it applies when there is a risk of attack and transmissions are limited.",
+    "answer": 0,
+    "explanation": "Slide 12: EMCON 1, GREEN is no hostile activity, with normal operations and encryption on.",
     "sourceSlides": [
       12
     ]
@@ -267,15 +267,15 @@
       "emcon levels",
       "objective"
     ],
-    "prompt": "What does EMCON stand for in the lesson's list of EP measures?",
+    "prompt": "In the list of EP measures, EMCON stands for:",
     "options": [
-      "Emitter control",
+      "Electromagnetic containment",
+      "Emergency communications",
       "Emission control",
-      "Emission clearance",
-      "Spectrum control"
+      "Encrypted mode control"
     ],
-    "answer": 1,
-    "explanation": "Slide 7 lists emission control among the five EP measures, and Slide 12 sets out the EMCON levels that apply it. Spectrum control is the closest distractor, but the measure listed beside emission control is spectrum management, which is a separate EP measure.",
+    "answer": 2,
+    "explanation": "Slides 7 and 12: emission control (EMCON) is one of the five EP measures.",
     "sourceSlides": [
       7,
       12
@@ -291,15 +291,15 @@
       "hopping, encryption and anti-jam",
       "situational"
     ],
-    "prompt": "In a classroom illustration, only 6 of 40 hops land in a spot jammer's channel. What lets the link recover the hops that were hit?",
+    "prompt": "What recovers the hops that a spot jammer hits?",
     "options": [
-      "Encryption of the message",
-      "Raised transmit power",
-      "A directional antenna",
-      "Error correction"
+      "Brevity codes",
+      "Encryption",
+      "Error correction",
+      "Spread spectrum"
     ],
-    "answer": 3,
-    "explanation": "Slide 13 shows a spot jammer hitting only a few hops and states that error correction recovers the rest. Encryption is the closest distractor, but Slide 14 says encryption protects what is said and does not stop jamming.",
+    "answer": 2,
+    "explanation": "Slide 13: a spot jammer hits only a few hops, and error correction recovers the rest (6 of 40 hops in the illustration).",
     "sourceSlides": [
       13,
       14
@@ -315,15 +315,15 @@
       "hopping, encryption and anti-jam",
       "objective"
     ],
-    "prompt": "According to the encryption versus anti-jam slide, what does encryption protect?",
+    "prompt": "Which of the following does encryption NOT do, according to the slide?",
     "options": [
-      "What you say, so the enemy hears gibberish",
-      "Whether the message gets through jamming",
-      "Where the transmitter is located",
-      "The equipment from damaging energy"
+      "Protect what you say",
+      "Hide the content of your message from intercept",
+      "Make the enemy hear gibberish instead of your plan",
+      "Stop the enemy from jamming the link"
     ],
-    "answer": 0,
-    "explanation": "Slide 14 says encryption protects WHAT you say, so the enemy hears gibberish instead of your plan. Whether the message gets through is the closest distractor, but that is what anti-jam measures protect, and encryption does not stop jamming.",
+    "answer": 3,
+    "explanation": "Slide 14: encryption protects WHAT you say; it does NOT stop jamming and does NOT hide your location.",
     "sourceSlides": [
       14
     ]
@@ -338,15 +338,15 @@
       "recognize, react and report",
       "situational"
     ],
-    "prompt": "At 0215H a platoon's radio fills with loud static, and the signaller finds a loose antenna connector. Which of the ice breaker's four possible causes does this show?",
+    "prompt": "Loud static is traced to a loose antenna connector. Which of the ice breaker's four possible causes is this?",
     "options": [
-      "Equipment fault",
-      "Enemy jamming",
       "Friendly interference",
+      "Enemy jamming",
+      "Equipment fault",
       "Terrain and distance"
     ],
-    "answer": 0,
-    "explanation": "Slide 4 lists a loose antenna, bad cable, low battery or wrong setting as an equipment fault. Enemy jamming is the closest distractor because it also produces static, but the loose connector points to a fault and the slide says to diagnose before blaming the enemy.",
+    "answer": 2,
+    "explanation": "Slide 4: equipment faults include a loose antenna, bad cable, low battery or wrong setting.",
     "sourceSlides": [
       4
     ]
@@ -361,15 +361,15 @@
       "recognize, react and report",
       "situational"
     ],
-    "prompt": "A section's net fills with noise and the leader suspects jamming. What is the first step of the lesson's reaction sequence?",
+    "prompt": "Which is the first step of the reaction sequence when jamming is suspected?",
     "options": [
-      "Check the antenna, cables, battery, settings and fills",
-      "Adjust the antenna or change to the alternate frequency",
+      "Report to higher headquarters",
+      "Adjust power and antenna",
       "Keep operating and do not announce it in the clear",
-      "Report to higher headquarters by an alternate means"
+      "Check the equipment"
     ],
     "answer": 2,
-    "explanation": "Slide 16 makes keep operating step 1, so the enemy is not shown that he succeeded. Checking equipment is the closest distractor, but it is step 2 and is carried out while the section keeps operating.",
+    "explanation": "Slide 16: step 1 is keep operating; never announce in the clear that you are jammed.",
     "sourceSlides": [
       16
     ]
@@ -384,15 +384,15 @@
       "recognize, react and report",
       "situational"
     ],
-    "prompt": "A signaller drafting an interference report must state what the mission lost, such as voice, data or position. Which report line is that?",
+    "prompt": "Which line of the interference report states what the mission lost?",
     "options": [
-      "WHAT",
       "ACTIONS",
-      "FREQUENCY / NET",
+      "WHERE",
+      "WHAT",
       "EFFECT"
     ],
     "answer": 3,
-    "explanation": "Slide 17 defines EFFECT as what the mission lost: voice, data or position. WHAT is the closest distractor, but it records the type of interference, such as noise, tones, voice or false signals.",
+    "explanation": "Slide 17: EFFECT is what the mission lost - voice, data, position; WHAT is the type of interference.",
     "sourceSlides": [
       17
     ]
@@ -407,15 +407,15 @@
       "pace and gps protection",
       "objective"
     ],
-    "prompt": "What does PACE stand for?",
+    "prompt": "What does the C in PACE stand for?",
     "options": [
-      "Primary, Auxiliary, Contingency, Emergency",
-      "Primary, Alternate, Contingency, Emergency",
-      "Priority, Alternate, Contingency, Emergency",
-      "Primary, Alternate, Contingency, Evacuation"
+      "Compatibility",
+      "Contingency",
+      "Cover",
+      "Command"
     ],
     "answer": 1,
-    "explanation": "Slide 18 expands PACE as Primary, Alternate, Contingency, Emergency. The Auxiliary version is the closest distractor, but the plan's second step is the alternate means, such as an HF radio or another net.",
+    "explanation": "Slide 18: PACE is Primary, Alternate, Contingency, Emergency.",
     "sourceSlides": [
       18
     ]
@@ -430,15 +430,15 @@
       "pace and gps protection",
       "situational"
     ],
-    "prompt": "A convoy's GPS shows a speed reading while the vehicles are halted. Which GPS threat does this red flag suggest?",
+    "prompt": "Jamming means no fix. What does spoofing give?",
     "options": [
-      "Spoofing",
-      "Jamming",
-      "Terrain masking",
-      "Co-site interference"
+      "A wrong fix that looks right",
+      "A delayed fix that corrects itself",
+      "No fix at all",
+      "A frozen position that is plainly wrong"
     ],
     "answer": 0,
-    "explanation": "Slide 19 lists speed while stationary, along with position jumps and wrong time, as a spoofing red flag. Jamming is the closest distractor, but Slide 19 says jamming gives no fix at all rather than a wrong fix that looks right.",
+    "explanation": "Slide 19: jamming means no fix; spoofing is a wrong fix that looks right.",
     "sourceSlides": [
       19
     ]
@@ -453,15 +453,15 @@
       "hardening, compatibility and sensor eccm",
       "situational"
     ],
-    "prompt": "A radar crew explains that its set changes its operating channel from one pulse to the next, much like a hopping radio. Which sensor ECCM technique is this?",
+    "prompt": "Which sensor ECCM technique changes frequency from pulse to pulse, like a hopping radio?",
     "options": [
-      "Pulse compression",
+      "Low-probability-of-intercept",
       "Sidelobe blanking",
       "Frequency agility",
-      "Low-probability-of-intercept waveforms"
+      "Pulse compression"
     ],
     "answer": 2,
-    "explanation": "Slide 21 describes frequency agility as the radar changing frequency pulse to pulse, like a hopping radio. Pulse compression is the closest distractor, but it squeezes a long, coded pulse on receive for range detail and anti-jam margin.",
+    "explanation": "Slide 21: frequency agility - the radar changes frequency pulse to pulse, like a hopping radio.",
     "sourceSlides": [
       21
     ]
@@ -476,15 +476,15 @@
       "hardening, compatibility and sensor eccm",
       "objective"
     ],
-    "prompt": "Shielding, filtering, grounding and bonding are examples of which EP measure?",
+    "prompt": "According to PAM 3-0702-01 (para 0110a), hardening protects equipment from what?",
     "options": [
-      "Spectrum management",
-      "Hardening",
-      "Emission control",
-      "Encryption"
+      "Unauthorized use of frequencies",
+      "Damaging energy and jamming",
+      "Spoofing of position and time",
+      "Direction finding and interception"
     ],
     "answer": 1,
-    "explanation": "Slide 20 defines hardening as protecting equipment from damaging energy and jamming through measures such as shielding, filtering and grounding. Spectrum management is the closest distractor, but it belongs to compatibility, which keeps our own emitters from jamming each other.",
+    "explanation": "Slide 20: hardening protects equipment from damaging energy and jamming through shielding, filtering, grounding, bonding, attenuating and blanking.",
     "sourceSlides": [
       20
     ]
@@ -499,15 +499,15 @@
       "hardening, compatibility and sensor eccm",
       "situational"
     ],
-    "prompt": "A convoy's counter-RCIED jammer is blanking the convoy's own radio net. Which EP concern does this describe?",
+    "prompt": "Which EP measure keeps our own emitters from jamming each other?",
     "options": [
-      "Hardening of the radio sets",
-      "Encryption of the convoy net",
-      "Compatibility among own emitters",
-      "Terrain masking of the antennas"
+      "Encryption",
+      "Spectrum management",
+      "Hardening",
+      "Emission control"
     ],
-    "answer": 2,
-    "explanation": "Slide 20 says C-RCIED jammers must not blind the convoy net, which is the compatibility concern of keeping our own emitters from jamming each other. Hardening is the closest distractor, but it protects equipment from damaging energy rather than managing friendly emitters.",
+    "answer": 1,
+    "explanation": "Slide 20: compatibility keeps our own emitters from jamming each other, through spectrum management (PAM 0110e).",
     "sourceSlides": [
       20
     ]

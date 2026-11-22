@@ -7,15 +7,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "What does the CIA triad describe?",
+    "prompt": "In the CIA Triad, what do the letters stand for?",
     "options": [
-      "Connectivity, inventory and authentication",
-      "Compliance, intelligence and attribution",
-      "Confidentiality, integrity and availability",
-      "Classification, inspection and administration"
+      "Cybersecurity, Intelligence and Assessment",
+      "Communication, Information and Authentication",
+      "Confidentiality, Integrity and Availability",
+      "Confidentiality, Intelligence and Accountability"
     ],
     "answer": 2,
-    "explanation": "CIA describes protection against unauthorized disclosure or alteration and loss of availability.",
+    "explanation": "Page 15: cybersecurity protects the three pillars of information, the CIA Triad - Confidentiality, Integrity and Availability.",
     "sourceSlides": [
       15
     ]
@@ -28,15 +28,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "What is an asset in the lesson's risk terminology?",
+    "prompt": "Anything of value to the unit, such as classified data, command and control systems and communication networks, is called a(n):",
     "options": [
-      "A likelihood estimate with no object of concern",
-      "Only a hostile event that has already occurred",
-      "Only a weakness in a software application",
-      "An organizational resource or item that has value"
+      "Vulnerability",
+      "Threat",
+      "Risk",
+      "Asset"
     ],
     "answer": 3,
-    "explanation": "An asset has value; threats and vulnerabilities are different elements of risk analysis.",
+    "explanation": "Page 16 defines an asset as anything of value to the unit: classified data, command and control systems and communication networks.",
     "sourceSlides": [
       16
     ]
@@ -49,15 +49,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "Which term describes a weakness that may be exploited?",
+    "prompt": "State-sponsored actors, criminals, insiders and natural disasters are examples of which key risk concept?",
     "options": [
-      "Recovery outcome",
+      "Risk",
+      "Threat",
       "Asset",
-      "Vulnerability",
-      "Mission objective"
+      "Vulnerability"
     ],
-    "answer": 2,
-    "explanation": "A vulnerability is a weakness; a threat is a potential cause of harm involving such weaknesses.",
+    "answer": 1,
+    "explanation": "Page 16: a threat is a potential cause of an unwanted incident, such as state-sponsored actors, criminals, insiders or natural disasters.",
     "sourceSlides": [
       16
     ]
@@ -70,15 +70,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "Which pair is central to assessing risk?",
+    "prompt": "How does the lesson define risk?",
     "options": [
-      "Threat severity and control maturity",
-      "Asset value and remediation cost",
-      "Vulnerability count and detection speed",
-      "Likelihood and mission impact"
+      "A weakness in the security posture that a threat can exploit, together with its cost",
+      "Anything of value to the unit, combined with the likelihood that it is lost",
+      "A potential cause of an unwanted incident, together with the assets it affects",
+      "The likelihood that a threat exploits a vulnerability, combined with its impact on the mission"
     ],
     "answer": 3,
-    "explanation": "Risk considers how likely harm is and what consequences it would have for the mission.",
+    "explanation": "Page 16: risk is the likelihood that a threat exploits a vulnerability, combined with its impact on the mission.",
     "sourceSlides": [
       16
     ]
@@ -91,15 +91,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "Which threat primarily aims to prevent legitimate service use?",
+    "prompt": "Which cyber threat aims to overwhelm systems with traffic so that they become unavailable?",
     "options": [
-      "Routine inventory reconciliation",
-      "Approved software maintenance",
-      "Denial of service",
-      "Authorized backup restoration"
+      "Advanced Persistent Threats",
+      "Malware and viruses",
+      "Data breaches and leaks",
+      "Denial-of-Service (DoS) attacks"
     ],
-    "answer": 2,
-    "explanation": "Denial of service attacks availability by disrupting legitimate access to services.",
+    "answer": 3,
+    "explanation": "Page 17: DoS attacks overwhelm systems with traffic, making them unavailable and disrupting critical military functions.",
     "sourceSlides": [
       17
     ]
@@ -112,15 +112,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "Which phase establishes response people, tools and procedures?",
+    "prompt": "Which phase comes first in the Risk Management Process?",
     "options": [
-      "Recovery",
+      "Containment",
       "Preparation",
-      "Eradication",
-      "Assessment and review"
+      "Recovery",
+      "Identification"
     ],
     "answer": 1,
-    "explanation": "Preparation establishes capabilities before an incident; it is not the same as restoring affected services.",
+    "explanation": "Page 18: Phase 1 is Preparation, the first of six phases in the Pre-Cyber Incident period.",
     "sourceSlides": [
       18,
       19
@@ -134,15 +134,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "Which phase recognizes and establishes that an incident may be occurring?",
+    "prompt": "In which phase does early detection of a cyber incident determine its impact and gravity?",
     "options": [
-      "Normalization",
+      "Preparation",
       "Identification",
-      "Disposal",
-      "Procurement"
+      "Recovery",
+      "Containment"
     ],
     "answer": 1,
-    "explanation": "Identification concerns recognizing and establishing the incident so a response can proceed.",
+    "explanation": "Page 20: in the Identification phase the ability to detect and identify an incident early determines its impact and gravity, since time is essential.",
     "sourceSlides": [
       20
     ]
@@ -155,15 +155,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "How do containment and eradication differ?",
+    "prompt": "What is the objective of the Containment phase?",
     "options": [
-      "Assign job titles versus publish public announcements",
-      "Restore files versus approve annual purchases",
-      "Collect invoices versus update organization charts",
-      "Limit spread versus remove the cause or malicious components"
+      "To control the situation and limit the extent of the damage so the incident does not spread",
+      "To remove all components and symptoms of the incident and validate the result",
+      "To restore data and systems to a healthy working state for normal operations",
+      "To prepare the documentation submitted to Higher Headquarters after the incident"
     ],
-    "answer": 3,
-    "explanation": "Containment limits damage; eradication removes the incident's malicious components or cause and checks removal.",
+    "answer": 0,
+    "explanation": "Page 21: the objective of Containment is to control the situation and limit the damage so the incident does not spread to other systems and assets.",
     "sourceSlides": [
       21,
       22
@@ -177,15 +177,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "What is the purpose of recovery?",
+    "prompt": "Which phase covers the steps required to restore data and systems to a healthy working state?",
     "options": [
-      "Erase the need for incident documentation",
-      "Restore healthy operation and monitor it",
-      "Replace every prevention control with a backup",
-      "Skip verification once equipment powers on"
+      "Eradication",
+      "Recovery",
+      "Containment",
+      "Assessment and Review"
     ],
     "answer": 1,
-    "explanation": "Recovery restores affected operations safely and includes continued monitoring.",
+    "explanation": "Page 23: the Recovery phase restores data and systems to a healthy working state, allowing normal unit operations.",
     "sourceSlides": [
       23
     ]
@@ -198,15 +198,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "What should assessment and review produce?",
+    "prompt": "Which documents does the CIRT prepare in the Assessment and Review phase?",
     "options": [
-      "Documented lessons and improvements",
-      "Deletion of all incident records",
-      "An automatic guarantee against recurrence",
-      "A replacement for all earlier response phases"
+      "Risk Register and Special Report",
+      "Incident Response Plan and Special Report",
+      "After Activity Report and Special Report",
+      "After Activity Report and Vulnerability Scan Report"
     ],
-    "answer": 0,
-    "explanation": "Post-incident review captures what happened and what should improve, including after-action reporting.",
+    "answer": 2,
+    "explanation": "Page 24: the CIRT prepares the After Activity Report and Special Report for Higher Headquarters and the PA Cyber Battle Staff.",
     "sourceSlides": [
       24
     ]
@@ -219,15 +219,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "What baseline question do hardware and software inventories answer most directly?",
+    "prompt": "Which SANS control keeps a list of authorized software per system and tracks installations to detect unauthorized or malicious programs?",
     "options": [
-      "Which network services need additional vulnerability testing and patch priorities",
-      "Which accounts require privilege changes for specific administrative tasks",
-      "Which configuration values meet the organization's approved hardening baseline",
-      "Which devices and programs are authorized and present"
+      "Malware Defenses",
+      "Inventory of Authorized and Unauthorized Devices",
+      "Secure Configurations for Hardware and Software",
+      "Inventory of Authorized and Unauthorized Software"
     ],
     "answer": 3,
-    "explanation": "Inventories provide a baseline for identifying unauthorized devices and software.",
+    "explanation": "Page 25: control 2 keeps a list of authorized software per system and tracks installations.",
     "sourceSlides": [
       25
     ]
@@ -240,15 +240,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "Which pairing fits secure configuration and vulnerability management?",
+    "prompt": "Which SANS control builds, validates and maintains secure standard images for workstations, laptops, servers and mobile devices?",
     "options": [
-      "Identical passwords and disabled maintenance",
-      "Default settings and one-time visual inspection",
-      "Unrestricted installs and no patch records",
-      "Approved baselines and continuing assessment/remediation"
+      "Malware Defenses",
+      "Secure Configurations for Network Devices",
+      "Secure Configurations for Hardware and Software",
+      "Application Software Security"
     ],
-    "answer": 3,
-    "explanation": "Secure baselines and continuing vulnerability correction are distinct, complementary controls.",
+    "answer": 2,
+    "explanation": "Page 25: control 3, Secure Configurations for Hardware and Software, covers secure standard images for all workstations, laptops, servers and mobile devices.",
     "sourceSlides": [
       25,
       26
@@ -262,15 +262,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "Why should backup restoration be tested?",
+    "prompt": "Which SANS control backs up all systems at least weekly and regularly tests restoration?",
     "options": [
-      "To make every recovery exercise a live outage",
-      "To verify that saved data can actually be recovered",
-      "To avoid retaining any approved backup copies",
-      "To prove no prevention controls are needed"
+      "Data Recovery Capability",
+      "Incident Response and Management",
+      "Malware Defenses",
+      "Data Loss Prevention"
     ],
-    "answer": 1,
-    "explanation": "A backup's existence does not prove its usefulness; restoration tests check recoverability.",
+    "answer": 0,
+    "explanation": "Page 26: control 8, Data Recovery Capability, automatically backs up all systems at least weekly and regularly tests restoration.",
     "sourceSlides": [
       26
     ]
@@ -283,15 +283,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "What is the purpose of administrative privilege control?",
+    "prompt": "Which SANS control protects and validates administrative accounts and enforces robust passwords?",
     "options": [
-      "Replace individual accounts with a shared account",
-      "Limit elevated capabilities to authorized need",
-      "Give all users permanent administrator rights",
-      "Remove records of privileged actions"
+      "Controlled Use of Administrative Privileges",
+      "Controlled Access Based on the Need to Know",
+      "Security Skills Assessment and Training",
+      "Account Monitoring and Control"
     ],
-    "answer": 1,
-    "explanation": "Administrative privilege controls reduce unnecessary powerful access and support accountability.",
+    "answer": 0,
+    "explanation": "Page 27: control 12 protects and validates administrative accounts and enforces robust passwords.",
     "sourceSlides": [
       27
     ]
@@ -304,15 +304,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "What do centralized logs and account monitoring support?",
+    "prompt": "Which SANS control generates standardized logs on dedicated servers and reviews them regularly to uncover attacks?",
     "options": [
-      "Detection and review of unusual or unauthorized activity",
-      "A substitute for every access restriction",
-      "Permanent exemption from incident response",
-      "Automatic approval of all dormant accounts"
+      "Account Monitoring and Control",
+      "Data Loss Prevention",
+      "Maintenance, Monitoring, and Analysis of Audit Logs",
+      "Incident Response and Management"
     ],
-    "answer": 0,
-    "explanation": "Logs and account monitoring supply evidence and help identify inappropriate activity.",
+    "answer": 2,
+    "explanation": "Page 27: control 14 generates standardized logs on dedicated servers and reviews them regularly to uncover attacks.",
     "sourceSlides": [
       27,
       28
@@ -326,15 +326,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "Which PPT element includes personnel competence and awareness?",
+    "prompt": "Cyber training and awareness of personnel fall under which element of the PPT Framework?",
     "options": [
+      "Technology",
       "People",
-      "Technology exclusively",
-      "Transmission speed",
-      "Process exclusively"
+      "Infrastructure",
+      "Process"
     ],
-    "answer": 0,
-    "explanation": "The People element includes training, awareness and personnel assigned security responsibilities.",
+    "answer": 1,
+    "explanation": "Page 29: People covers cyber training and awareness, designated ISO/ISNCO and certified CIRT personnel, and password discipline.",
     "sourceSlides": [
       29
     ]
@@ -347,15 +347,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "Which PPT element includes backup policies and approved procedures?",
+    "prompt": "Data back-up and recovery, policies and authorized communication platforms are assessed under which PPT element?",
     "options": [
-      "Building dimensions",
-      "People exclusively",
       "Process",
-      "Technology exclusively"
+      "People",
+      "Technology",
+      "Infrastructure"
     ],
-    "answer": 2,
-    "explanation": "Process concerns how security activities are governed and performed through procedures and policies.",
+    "answer": 0,
+    "explanation": "Page 29: Process covers how ICT is used, maintained and governed, including data back-up and recovery, policies and authorized platforms.",
     "sourceSlides": [
       29
     ]
@@ -368,15 +368,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "Which PPT element includes licensed, updated software and maintained equipment?",
+    "prompt": "It is the PPT element that covers compliance of hardware and software, such as licensed and updated operating systems.",
     "options": [
-      "People exclusively",
-      "Process exclusively",
-      "Technology",
-      "Staff seniority"
+      "Infrastructure",
+      "People",
+      "Process",
+      "Technology"
     ],
-    "answer": 2,
-    "explanation": "Technology addresses the technical condition and authorized status of hardware and software.",
+    "answer": 3,
+    "explanation": "Page 29: Technology covers licensed and updated operating systems and applications, no unauthorized software and regular maintenance of ICT equipment.",
     "sourceSlides": [
       29
     ]
@@ -389,15 +389,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "Under the lesson's scale, a whole-number score of 10% belongs to which band?",
+    "prompt": "Under the lesson's risk scale, which range is classified as LOW?",
     "options": [
-      "Low",
-      "High",
-      "Medium",
-      "Critical"
+      "1% to 10%",
+      "11% to 50%",
+      "1% to 25%",
+      "0% to 10%"
     ],
     "answer": 0,
-    "explanation": "The classroom scale defines Low as 1–10%, Medium as 11–50% and High as 51–100%.",
+    "explanation": "Page 30: HIGH is 51% to 100%, MEDIUM is 11% to 50% and LOW is 1% to 10%.",
     "sourceSlides": [
       30
     ]
@@ -410,15 +410,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "Which operation combines the three weighted element results in the lesson?",
+    "prompt": "How is the Overall Cybersecurity Posture computed in the lesson?",
     "options": [
-      "Add People, Process and Technology results",
-      "Use only the highest raw percentage",
-      "Subtract Technology from People and ignore Process",
-      "Multiply all three raw percentages together"
+      "The highest of the People, Process and Technology results",
+      "People x Process x Technology",
+      "People + Process + Technology",
+      "The average of the People and Technology results only"
     ],
-    "answer": 0,
-    "explanation": "The slide gives overall posture as the sum of People, Process and Technology element results.",
+    "answer": 2,
+    "explanation": "Page 30: Overall Cybersecurity Posture is the sum of the People, Process and Technology results.",
     "sourceSlides": [
       30
     ]

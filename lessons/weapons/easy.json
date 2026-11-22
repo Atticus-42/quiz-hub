@@ -7,17 +7,17 @@
     "tags": [
       "system components"
     ],
-    "prompt": "Which combination forms the C2 system described?",
+    "prompt": "Which of the following defines surveillance in C4ISTAR?",
     "options": [
-      "Only radios and their replacement batteries",
-      "Only weapon platforms and spare components",
-      "Networks, people, processes and command posts",
-      "Only sensors and their transport cases"
+      "The systematic observation of areas, persons, activities, objects or domains using visual, electronic, photographic, aural or other means",
+      "Obtaining information about an adversary's activities and resources or about an area through visual observation or other detection",
+      "Detecting, locating and identifying a target with sufficient accuracy and detail to permit effective weapons employment",
+      "Converting collected information into useful knowledge for commanders through the intelligence cycle"
     ],
-    "answer": 2,
-    "explanation": "C2 includes organizational and human elements as well as technical infrastructure.",
+    "answer": 0,
+    "explanation": "Surveillance is the systematic observation of areas, persons, activities, objects or domains, and it contributes to situational awareness. The other options define reconnaissance, target acquisition and intelligence.",
     "sourceSlides": [
-      7
+      11
     ]
   },
   {
@@ -28,15 +28,15 @@
     "tags": [
       "system components"
     ],
-    "prompt": "What is the communications component's role?",
+    "prompt": "It is the C4ISTAR component that provides the reliable links for commanders to issue orders, coordinate forces and receive feedback.",
     "options": [
-      "Replace all command authority with transmission speed",
-      "Provide links for orders, coordination and feedback",
-      "Convert every observation into finished intelligence alone",
-      "Determine every sensor's physical sensing capability"
+      "Computers",
+      "Communications",
+      "Command and Control",
+      "Surveillance"
     ],
     "answer": 1,
-    "explanation": "Communications carries information between participants; it does not itself supply authority or analysis.",
+    "explanation": "Communications provides the reliable links, using radio, satellite, microwave or wired means depending on distance, terrain and environment.",
     "sourceSlides": [
       8
     ]
@@ -49,17 +49,17 @@
     "tags": [
       "system components"
     ],
-    "prompt": "Which capability is associated with computers?",
+    "prompt": "It is the C4ISTAR component that converts collected information into useful knowledge for commanders.",
     "options": [
-      "Replacing all communication media with paper",
-      "Guaranteeing every received report is accurate",
-      "Processing, storing and sharing information",
-      "Granting command authority by physical possession"
+      "Surveillance",
+      "Reconnaissance",
+      "Target Acquisition",
+      "Intelligence"
     ],
-    "answer": 2,
-    "explanation": "Computers support information handling, including processing, storage and networked exchange.",
+    "answer": 3,
+    "explanation": "Intelligence converts collected information into knowledge for commanders; the manual describes it through the intelligence cycle.",
     "sourceSlides": [
-      9
+      10
     ]
   },
   {
@@ -70,19 +70,17 @@
     "tags": [
       "system components"
     ],
-    "prompt": "Which distinction is correct?",
+    "prompt": "Which technologies does the lesson list for communications, with the appropriate means depending on distance, terrain and other environmental factors?",
     "options": [
-      "Intelligence is only raw sensing; surveillance is only purchasing",
-      "Reconnaissance always replaces every information-analysis step",
-      "Intelligence interprets information; surveillance systematically observes",
-      "Surveillance and intelligence are identical names for storage"
+      "Radio, satellite, microwave and wired communications",
+      "Radio, satellite, laser and courier communications",
+      "Radio, cellular, laser and courier communications",
+      "Satellite, microwave, courier and visual signal communications"
     ],
-    "answer": 2,
-    "explanation": "The source distinguishes collecting observations from converting information into useful knowledge.",
+    "answer": 0,
+    "explanation": "The lesson ranges from radio, satellite and microwave to wired communications.",
     "sourceSlides": [
-      10,
-      11,
-      13
+      8
     ]
   },
   {
@@ -93,15 +91,15 @@
     "tags": [
       "information and authority"
     ],
-    "prompt": "What does command include?",
+    "prompt": "Command is described as the commander's authority and responsibility to do what?",
     "options": [
-      "Authority and responsibility to direct forces and resources",
-      "Automatic permission granted by a working network link",
-      "A technical setting available to every sensor operator",
-      "Only the movement of data between computers"
+      "Collect, process, display and store information",
+      "Detect, locate and identify targets",
+      "Observe areas, persons and objects",
+      "Direct forces and employ resources"
     ],
-    "answer": 0,
-    "explanation": "Command is an authority and responsibility, not a property conferred by technical connectivity.",
+    "answer": 3,
+    "explanation": "Command is the authority and responsibility to direct forces and employ resources. Control covers the activities and systems that collect, process, display, store and disseminate information.",
     "sourceSlides": [
       7
     ]
@@ -114,15 +112,15 @@
     "tags": [
       "information and authority"
     ],
-    "prompt": "What does the combined system aim to support?",
+    "prompt": "In the lesson, what does COP stand for?",
     "options": [
-      "Situational awareness and a Common Operational Picture",
-      "An equipment list disconnected from its users",
-      "A collection of mutually unreadable information feeds",
-      "The elimination of all decisions by responsible people"
+      "Common Operational Picture",
+      "Command Operations Plan",
+      "Communications Output Product",
+      "Combined Operational Priority"
     ],
     "answer": 0,
-    "explanation": "The integrated capabilities support shared understanding and informed decisions.",
+    "explanation": "The ultimate product of the integrated components is situational awareness and a Common Operational Picture.",
     "sourceSlides": [
       14
     ]
@@ -135,17 +133,17 @@
     "tags": [
       "information and authority"
     ],
-    "prompt": "What role does feedback have in the conceptual loop?",
+    "prompt": "In the slide on how the components work as one system, which element is responsible for \"understand, decide, direct and coordinate\"?",
     "options": [
-      "End all further observation after an initial decision",
-      "Replace every authorized process with raw data",
-      "Inform decision-makers as conditions change",
-      "Guarantee that the original decision never needs review"
+      "Sensors / ISTAR",
+      "Communications and Computers",
+      "Command and Control",
+      "Forces / Shooters"
     ],
     "answer": 2,
-    "explanation": "The source includes information returning to decision-makers as the environment changes.",
+    "explanation": "Sensors detect and collect, communications and computers transmit and process, command and control decides and directs, and forces act.",
     "sourceSlides": [
-      25
+      14
     ]
   },
   {
@@ -156,17 +154,17 @@
     "tags": [
       "information and authority"
     ],
-    "prompt": "How does the lesson distinguish target acquisition conceptually?",
+    "prompt": "In the sensors, decision-makers and shooters model, what do shooters do besides executing the plans?",
     "options": [
-      "An automatic authorization to act on an unverified report",
-      "A procurement process for buying communications equipment",
-      "Detection, location and identification with sufficient detail",
-      "Any observation regardless of accuracy or identification"
+      "Collect information about the target, location and situation",
+      "Develop the plans and decisions",
+      "Provide information back to the decision-makers",
+      "Set the standards for interfaces and profiles"
     ],
     "answer": 2,
-    "explanation": "The definition emphasizes adequate information detail; it is not itself authorization or an employment procedure.",
+    "explanation": "Shooters execute the plans while providing information back to decision-makers as the operational environment changes.",
     "sourceSlides": [
-      12
+      25
     ]
   },
   {
@@ -177,17 +175,17 @@
     "tags": [
       "interoperability principles"
     ],
-    "prompt": "What is standardized at Interoperability Points?",
+    "prompt": "How many principles of interoperability between C4ISTAR and weapon systems does the lesson list?",
     "options": [
-      "The internal equipment layout of each participating network",
-      "The interfaces where different networks connect",
-      "The national operating procedures used within each organization",
-      "The organization-wide application architecture behind each network boundary"
+      "Five",
+      "Seven",
+      "Eight",
+      "Ten"
     ],
-    "answer": 1,
-    "explanation": "The IOP concept permits internal differences while defining compatible connection points.",
+    "answer": 2,
+    "explanation": "The lesson lists eight principles, from defined Interoperability Points to security accompanying interoperability.",
     "sourceSlides": [
-      17
+      16
     ]
   },
   {
@@ -198,15 +196,15 @@
     "tags": [
       "interoperability principles"
     ],
-    "prompt": "What scope does interoperability include?",
+    "prompt": "Which model does the C4ISTAR manual use for establishing technical standards and profiles?",
     "options": [
-      "Equipment only, with no organizational requirements",
-      "People, processes, technology and information systems",
-      "Only the number of connected cables",
-      "Only identical software brand names"
+      "Interface Control Document (ICD) approach",
+      "TACOMS interoperability concept",
+      "NATO Interoperability Standards and Profiles (NISP)",
+      "Decide, Detect, Deliver, Assess (D3A) process"
     ],
-    "answer": 1,
-    "explanation": "The lesson explicitly extends interoperability beyond equipment to people and processes.",
+    "answer": 2,
+    "explanation": "The manual uses the NISP as a model for technical standards and profiles; the ICD and TACOMS are covered under other principles.",
     "sourceSlides": [
       18
     ]
@@ -219,17 +217,17 @@
     "tags": [
       "interoperability principles"
     ],
-    "prompt": "Which definition most specifically identifies a Service Interoperability Point in the lesson?",
+    "prompt": "Which of the following describes the Interface Control Document (ICD)?",
     "options": [
-      "A defined point for same-service interoperability",
-      "A defined interface for connecting different network protocol stacks",
-      "A technical document describing exchanged message formats and rules",
-      "A common profile prescribing standards across interoperating systems"
+      "It describes the system interfaces and communication rules needed to connect systems",
+      "It is a focal point where distinct systems providing the same service can interoperate",
+      "It defines the entire protocol stack where different networks connect",
+      "It is a framework through which diverse systems and devices can communicate"
     ],
     "answer": 0,
-    "explanation": "A SIOP concerns interoperability of a service at a defined architectural point.",
+    "explanation": "The ICD describes the system interfaces and communication rules needed to connect systems and ensure compatibility.",
     "sourceSlides": [
-      19
+      20
     ]
   },
   {
@@ -240,17 +238,18 @@
     "tags": [
       "interoperability principles"
     ],
-    "prompt": "What does an ICD describe?",
+    "prompt": "Which of the following is principle 5 of interoperability between C4ISTAR and weapon systems?",
     "options": [
-      "Only a history of the equipment's public advertising",
-      "Only the budget spent on replacement parts",
-      "Only the organization chart of the supplier",
-      "Interface and information-exchange rules"
+      "Open architecture across the whole framework",
+      "Standardized networking and data exchange of information",
+      "Security must accompany all interoperability",
+      "Seamless interconnectivity through multiple media"
     ],
     "answer": 3,
-    "explanation": "An Interface Control Document defines how systems exchange and interpret information.",
+    "explanation": "Principle 5 is seamless interconnectivity; open architecture is 6, standardized networking and data exchange is 7 and security is 8.",
     "sourceSlides": [
-      20
+      16,
+      21
     ]
   },
   {
@@ -261,15 +260,15 @@
     "tags": [
       "architecture and security"
     ],
-    "prompt": "Which benefit is associated with open architecture?",
+    "prompt": "Which advantage of open architecture does the lesson identify as major?",
     "options": [
-      "Automatic compatibility without defined standards",
-      "Unrestricted access to every information resource",
-      "Mandatory replacement of the whole system for every change",
-      "Adding capabilities to existing systems"
+      "New capabilities can be added to existing systems without replacing the architecture",
+      "Different systems must all use identical internal technologies and protocols in the architecture",
+      "All users gain unrestricted access to every network and data source in the Army",
+      "Interface control documents are no longer needed once the systems connect to each other"
     ],
-    "answer": 3,
-    "explanation": "Open architecture supports extensions using agreed interfaces and standards.",
+    "answer": 0,
+    "explanation": "The major advantage is adding new capabilities to existing systems rather than replacing the entire architecture.",
     "sourceSlides": [
       22
     ]
@@ -282,15 +281,15 @@
     "tags": [
       "architecture and security"
     ],
-    "prompt": "What does TCP/IP contribute in the lesson?",
+    "prompt": "Which of the following describes TCP/IP in the lesson?",
     "options": [
-      "A guarantee that all information is current and correct",
-      "A replacement for every authorization decision",
-      "Automatic agreement on the meaning of every data field",
-      "A standardized framework for network communication"
+      "A document describing the information exchanged and the interface rules",
+      "A focal point where distinct systems providing the same service interoperate",
+      "A model for establishing technical standards and profiles for the Army",
+      "A standardized, scalable, reliable, flexible and extensible framework for communication"
     ],
     "answer": 3,
-    "explanation": "TCP/IP supports diverse systems communicating; application meaning and authorization require more than transport.",
+    "explanation": "The lesson calls TCP/IP a standardized, interoperable, scalable, reliable, flexible and extensible framework through which diverse systems communicate.",
     "sourceSlides": [
       23
     ]
@@ -303,15 +302,15 @@
     "tags": [
       "architecture and security"
     ],
-    "prompt": "Which three security properties are emphasized?",
+    "prompt": "Which list gives the three properties the manual emphasizes protecting as information moves through C4ISTAR networks?",
     "options": [
+      "Confidentiality, integrity and accountability",
       "Confidentiality, integrity and availability",
-      "Capacity, invoice value and age",
-      "Connectivity, inspection and altitude",
-      "Classification, installation and appearance"
+      "Capacity, integrity and availability",
+      "Confidentiality, interoperability and availability"
     ],
-    "answer": 0,
-    "explanation": "The lesson requires protecting CIA as information moves across integrated systems.",
+    "answer": 1,
+    "explanation": "Security accompanying interoperability protects confidentiality, integrity and availability.",
     "sourceSlides": [
       24
     ]
@@ -324,15 +323,15 @@
     "tags": [
       "architecture and security"
     ],
-    "prompt": "Does interoperability mean unrestricted connectivity?",
+    "prompt": "Which of the following is a security measure named in the lesson?",
     "options": [
-      "No; it prohibits any exchange between different systems",
-      "Yes; encryption removes all recipient restrictions",
-      "Yes; every connected user needs every data source",
-      "No; access and other security controls still apply"
+      "Open architecture",
+      "Interoperability profiles",
+      "Common operational picture",
+      "Network segmentation"
     ],
     "answer": 3,
-    "explanation": "Interoperability enables appropriate exchange while retaining authentication, authorization and other safeguards.",
+    "explanation": "The lesson names authentication, authorization, encryption, network segmentation, secure protocols and access controls.",
     "sourceSlides": [
       24
     ]
@@ -345,7 +344,7 @@
     "tags": [
       "configuration concepts and evolution"
     ],
-    "prompt": "Which four elements appear in the architectural framework?",
+    "prompt": "Which list gives the four underlying components of the PA-C4ISTAR Architectural Framework?",
     "options": [
       "Equipment topology, software versions, interface standards and test schedules",
       "Core processes, operational environment, actors and information structure",
@@ -353,7 +352,7 @@
       "Information sources, communication media, processing tools and distribution channels"
     ],
     "answer": 1,
-    "explanation": "The framework relates processes and actors to their environment and information structure.",
+    "explanation": "The framework relates the PA core processes, the operational environment, the actors and the information structure.",
     "sourceSlides": [
       29
     ]
@@ -366,17 +365,16 @@
     "tags": [
       "configuration concepts and evolution"
     ],
-    "prompt": "Which expansion of OODA is used?",
+    "prompt": "In the PA-C4ISTAR framework, the C2 process is described as which loop, reinforced by the D3A methodology?",
     "options": [
       "Orient, Obtain, Deliver, Analyze",
-      "Observe, Orient, Decide, Act",
       "Observe, Order, Discard, Archive",
+      "Observe, Orient, Decide, Act (OODA)",
       "Operate, Organize, Deploy, Approve"
     ],
-    "answer": 1,
-    "explanation": "The presentation identifies the OODA loop as a conceptual C2 process.",
+    "answer": 2,
+    "explanation": "The framework shows the OODA loop, reinforced with the D3A methodology.",
     "sourceSlides": [
-      27,
       29
     ]
   },
@@ -388,17 +386,17 @@
     "tags": [
       "configuration concepts and evolution"
     ],
-    "prompt": "What does D3A stand for in the presentation?",
+    "prompt": "It is the framework that emphasizes the integration of the developed C4ISTAR platforms so that their reach is maximized to provide COP and SA.",
     "options": [
-      "Decide, Detect, Deliver, Assess",
-      "Discuss, Design, Document, Approve",
-      "Direct, Deploy, Duplicate, Authorize",
-      "Detect, Decode, Delete, Archive"
+      "PA C4ISTAR Architectural Framework",
+      "AFP C4ISTAR System Framework",
+      "D3A process",
+      "OODA loop"
     ],
-    "answer": 0,
-    "explanation": "D3A is identified as Decide, Detect, Deliver and Assess; this question checks terminology only.",
+    "answer": 1,
+    "explanation": "The AFP C4ISTAR System Framework emphasizes integrating the developed platforms to maximize reach.",
     "sourceSlides": [
-      27
+      26
     ]
   },
   {
@@ -409,23 +407,17 @@
     "tags": [
       "configuration concepts and evolution"
     ],
-    "prompt": "What broad development pattern do the historical slides illustrate?",
+    "prompt": "Which PA-C4ISTAR milestone pushed PANET connectivity to the brigade level using VPN technology?",
     "options": [
-      "A single purchase permanently completing every capability",
-      "Unchanging systems with no later enhancements",
-      "Only equipment replacement without information integration",
-      "Progressive expansion and integration of capabilities"
+      "VDSI",
+      "DBTOCS",
+      "PAWAN",
+      "BFTS"
     ],
-    "answer": 3,
-    "explanation": "The milestones show successive projects, network expansion and capability integration rather than a one-time finished system.",
+    "answer": 1,
+    "explanation": "The milestones slide describes DBTOCS as pushing PANET connectivity to the brigade level using VPN technology.",
     "sourceSlides": [
-      30,
-      31,
-      32,
-      33,
-      34,
-      35,
-      36
+      34
     ]
   }
 ]

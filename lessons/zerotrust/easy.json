@@ -7,15 +7,15 @@
     "tags": [
       "concept and seven tenets"
     ],
-    "prompt": "What is the central change described by Zero Trust?",
+    "prompt": "It is the concept of minimizing uncertainty in enforcing accurate, least-privilege, per-request access decisions in a network viewed as compromised.",
     "options": [
-      "Focus on resources rather than implicit perimeter trust",
-      "Focus on larger perimeter firewalls alone",
-      "Authorize all users once they enter the building",
-      "Trust every organization-owned device automatically"
+      "Zero Trust Architecture (ZTA)",
+      "Zero Trust (ZT)",
+      "Zero Trust Enterprise",
+      "Policy Decision Point (PDP)"
     ],
-    "answer": 0,
-    "explanation": "Zero Trust removes automatic trust based on location or ownership and evaluates access to resources.",
+    "answer": 1,
+    "explanation": "The lesson distinguishes three terms: ZT is the concept, the ZTA is the plan built on it, and the ZT Enterprise is the result.",
     "sourceSlides": [
       19
     ]
@@ -28,15 +28,15 @@
     "tags": [
       "concept and seven tenets"
     ],
-    "prompt": "What distinguishes ZTA from the Zero Trust concept?",
+    "prompt": "It is the network infrastructure, physical and virtual, and the operational policies in place as a product of the ZTA plan.",
     "options": [
-      "ZTA is a specific commercial appliance",
-      "ZTA is the enterprise architecture plan",
-      "ZTA is a permanent approval for trusted users",
-      "ZTA is the physical network cable layout only"
+      "Zero Trust (ZT)",
+      "Zero Trust Architecture (ZTA)",
+      "Zero Trust Framework",
+      "Zero Trust Enterprise"
     ],
-    "answer": 1,
-    "explanation": "The lesson distinguishes the concept, the architecture plan built on it, and the resulting enterprise implementation.",
+    "answer": 3,
+    "explanation": "The Zero Trust Enterprise is the result of the ZTA plan. The ZTA is the plan itself and ZT is the concept.",
     "sourceSlides": [
       19
     ]
@@ -49,15 +49,15 @@
     "tags": [
       "concept and seven tenets"
     ],
-    "prompt": "What does 'assume breach' mean in the lesson?",
+    "prompt": "Which principle of the Zero Trust Framework means operating as if an attacker is already present inside the network?",
     "options": [
-      "Plan as if an attacker may already be inside",
-      "Ignore protections outside the perimeter",
-      "Disable all services permanently",
-      "Declare every staff member an attacker"
+      "Verify explicitly",
+      "Assume breach",
+      "Least privilege",
+      "Implicit trust"
     ],
-    "answer": 0,
-    "explanation": "Assume breach is a design stance that limits reliance on internal location as evidence of safety.",
+    "answer": 1,
+    "explanation": "Assume breach is the first of the three principles; the others are verify explicitly and least privilege.",
     "sourceSlides": [
       20
     ]
@@ -70,15 +70,15 @@
     "tags": [
       "concept and seven tenets"
     ],
-    "prompt": "What does least privilege require?",
+    "prompt": "It is the principle that every subject and device is authenticated and authorized, per session.",
     "options": [
-      "Only the access needed for the task",
-      "All access held by the user's supervisor",
-      "The same access for every account",
-      "Permanent access to every internal resource"
+      "Assume breach",
+      "Least privilege",
+      "Continuous diagnostics",
+      "Verify explicitly"
     ],
-    "answer": 0,
-    "explanation": "Least privilege limits permissions to the legitimate need instead of granting broad access by default.",
+    "answer": 3,
+    "explanation": "Verify explicitly means authenticating and authorizing every subject and device, per session.",
     "sourceSlides": [
       20,
       21
@@ -92,15 +92,15 @@
     "tags": [
       "concept and seven tenets"
     ],
-    "prompt": "Which statement is one of the seven tenets?",
+    "prompt": "Which of the following is tenet 5 of the seven tenets of Zero Trust in the NIST SP 800-207 list?",
     "options": [
-      "Collect telemetry only after a breach",
-      "Ownership establishes permanent trust",
-      "Secure communications regardless of location",
-      "Internal traffic needs no protection"
+      "All data sources and computing services are resources",
+      "All communication is secured regardless of location",
+      "Collect and use data to continually improve security posture",
+      "The enterprise monitors the integrity and posture of all assets"
     ],
-    "answer": 2,
-    "explanation": "The tenets require secure communications even inside organizational networks; internal location is not a security exemption.",
+    "answer": 3,
+    "explanation": "Tenet 5 is the monitoring of integrity and posture of all assets. Tenet 1 is resources, tenet 2 is secured communication and tenet 7 is collecting data to improve posture.",
     "sourceSlides": [
       21
     ]
@@ -113,15 +113,15 @@
     "tags": [
       "policy components"
     ],
-    "prompt": "Which component makes the access decision?",
+    "prompt": "Which two components make up the Policy Decision Point (PDP)?",
     "options": [
-      "Policy Administrator",
-      "Enterprise Resource",
-      "Policy Engine",
-      "Policy Enforcement Point"
+      "Policy Engine and Policy Administrator",
+      "Policy Administrator and Policy Enforcement Point",
+      "Policy Engine and Policy Enforcement Point",
+      "Policy Enforcement Point and the enterprise resource"
     ],
-    "answer": 2,
-    "explanation": "The Policy Engine evaluates policy and relevant inputs to grant, deny or revoke access.",
+    "answer": 0,
+    "explanation": "The PDP is the control-plane pairing of the Policy Engine (PE) and the Policy Administrator (PA). The PEP is separate.",
     "sourceSlides": [
       22
     ]
@@ -134,15 +134,15 @@
     "tags": [
       "policy components"
     ],
-    "prompt": "Which component executes the Policy Engine's decision by configuring the access path?",
+    "prompt": "Besides enterprise policy, which inputs does the Policy Engine feed to its trust algorithm?",
     "options": [
-      "Threat intelligence feed",
-      "Policy Administrator",
-      "Subject account",
-      "Policy Engine"
+      "CDM, threat intelligence and logs",
+      "Subject passwords, VPN profiles and licences",
+      "Firewall rules, switch configurations and subnet plans",
+      "Asset purchase records, rosters and warranty data"
     ],
-    "answer": 1,
-    "explanation": "The Policy Administrator establishes or shuts down the communication path and configures the enforcement point.",
+    "answer": 0,
+    "explanation": "The PE grants, denies or revokes access using enterprise policy plus inputs such as CDM, threat intel and logs.",
     "sourceSlides": [
       22
     ]
@@ -155,15 +155,15 @@
     "tags": [
       "policy components"
     ],
-    "prompt": "Which component enables, monitors and terminates the resource connection?",
+    "prompt": "Which of the following is true of the Policy Enforcement Point (PEP) in a ZTA?",
     "options": [
-      "Policy Enforcement Point",
-      "Policy Engine alone",
-      "Asset inventory alone",
-      "Organizational chart"
+      "It decides access using the trust algorithm",
+      "It issues session credentials to the subject",
+      "It stores enterprise policy for the Policy Engine",
+      "Nothing reaches a resource except through it"
     ],
-    "answer": 0,
-    "explanation": "The PEP enforces access at the connection between the subject and the resource.",
+    "answer": 3,
+    "explanation": "The slide states that nothing reaches a resource except through a PEP. Deciding belongs to the PE and credentials to the PA.",
     "sourceSlides": [
       22
     ]
@@ -176,15 +176,15 @@
     "tags": [
       "policy components"
     ],
-    "prompt": "Which two components form the Policy Decision Point?",
+    "prompt": "Which logical component configures the PEP?",
     "options": [
-      "Policy Engine and Policy Administrator",
-      "Policy Administrator and application database",
-      "Threat feed and network cable",
-      "Policy Enforcement Point and user account"
+      "Policy Administrator",
+      "Policy Engine",
+      "Enterprise resource",
+      "Trust algorithm"
     ],
     "answer": 0,
-    "explanation": "The diagram groups the Policy Engine and Policy Administrator as the Policy Decision Point.",
+    "explanation": "The PA executes the decision: it establishes or shuts down the path, issues session credentials and configures the PEP.",
     "sourceSlides": [
       22
     ]
@@ -197,15 +197,15 @@
     "tags": [
       "policy components"
     ],
-    "prompt": "Which information can inform the Policy Engine's decision?",
+    "prompt": "On the logical-components slide, in which plane do the PE and PA sit?",
     "options": [
-      "Only the requester's office location",
-      "Device posture, policy and logs",
-      "Only the network address prefix",
-      "Only the asset's purchase receipt"
+      "The data plane",
+      "The implicit trust zone",
+      "The untrusted zone",
+      "The control plane"
     ],
-    "answer": 1,
-    "explanation": "The engine uses enterprise policy and context such as telemetry, posture and threat information, rather than one location cue.",
+    "answer": 3,
+    "explanation": "The PE and PA form the policy decision point in the control plane.",
     "sourceSlides": [
       22
     ]
@@ -218,15 +218,15 @@
     "tags": [
       "deployment approaches"
     ],
-    "prompt": "Which approach makes actor identity a key policy driver?",
+    "prompt": "It is the approach in which the identity of actors is the key driver of policy, with device and environment refining the confidence level.",
     "options": [
-      "Unrestricted internal routing",
-      "Static perimeter trust",
+      "Micro-segmentation",
       "Enhanced identity governance",
-      "Micro-segmentation alone"
+      "Software-defined perimeter (SDP)",
+      "Continuous diagnostics and mitigation (CDM)"
     ],
-    "answer": 2,
-    "explanation": "Enhanced identity governance emphasizes actor identity and privileges, refined by device and environmental context.",
+    "answer": 1,
+    "explanation": "In enhanced identity governance the access privileges of the subject decide, and device and environment refine the confidence level.",
     "sourceSlides": [
       23
     ]
@@ -239,15 +239,15 @@
     "tags": [
       "deployment approaches"
     ],
-    "prompt": "Which approach places resources behind protected segments and enforcement gateways?",
+    "prompt": "Which devices act as PEPs in the micro-segmentation approach?",
     "options": [
-      "Broad internal trust",
-      "Asset ownership exemption",
-      "Single shared account access",
-      "Micro-segmentation"
+      "Routers, hubs and repeaters",
+      "Policy engines and trust algorithms",
+      "NGFWs, smart switches and host agents",
+      "Password vaults and key servers"
     ],
-    "answer": 3,
-    "explanation": "Micro-segmentation limits access around resources through enforcement components such as gateways and agents.",
+    "answer": 2,
+    "explanation": "Micro-segmentation puts resources on protected segments behind gateways such as NGFWs, smart switches and host agents acting as PEPs.",
     "sourceSlides": [
       23
     ]
@@ -260,15 +260,15 @@
     "tags": [
       "deployment approaches"
     ],
-    "prompt": "In the lesson's deployment-approach descriptions, which approach uses the Policy Administrator as a network controller to reconfigure access paths?",
+    "prompt": "In the software-defined perimeter approach, what does the Policy Administrator act as?",
     "options": [
-      "Software-defined perimeter",
-      "Enhanced identity governance",
-      "Microsegmentation",
-      "Device-agent/gateway deployment"
+      "The network controller",
+      "The policy enforcement gateway",
+      "The identity provider",
+      "The trust algorithm"
     ],
     "answer": 0,
-    "explanation": "A software-defined perimeter can use the Policy Administrator as a network controller to implement decisions.",
+    "explanation": "In SDP the network infrastructure implements ZT, with the PA acting as network controller and reconfiguring paths per the PE's decisions.",
     "sourceSlides": [
       23
     ]
@@ -281,15 +281,15 @@
     "tags": [
       "deployment approaches"
     ],
-    "prompt": "How should the three approaches be understood?",
+    "prompt": "How many approaches to building a ZTA does the lesson present?",
     "options": [
-      "They are necessarily mutually exclusive",
-      "They can be combined in an architecture",
-      "They replace all access policies",
-      "They are three mandatory product brands"
+      "Two",
+      "Three",
+      "Four",
+      "Seven"
     ],
     "answer": 1,
-    "explanation": "The lesson describes approaches that a solution may blend according to its resources and environment.",
+    "explanation": "The lesson gives three approaches: enhanced identity governance, micro-segmentation and software-defined perimeter. Seven is the number of tenets.",
     "sourceSlides": [
       23
     ]
@@ -302,15 +302,15 @@
     "tags": [
       "deployment approaches"
     ],
-    "prompt": "Which environment is specifically associated with identity-governance approaches in the lesson?",
+    "prompt": "Which environments does the lesson associate with enhanced identity governance?",
     "options": [
-      "Only disconnected paper records",
-      "Cloud services and BYOD",
-      "Only identical organization-owned desktops",
-      "Only networks without authentication"
+      "Closed networks of identical issued laptops",
+      "Air-gapped networks without remote users",
+      "Open networks, BYOD and cloud/SaaS",
+      "Networks that use physical location as proof of trust"
     ],
-    "answer": 1,
-    "explanation": "Identity-centered policy is useful in open, BYOD and cloud environments where location alone cannot establish trust.",
+    "answer": 2,
+    "explanation": "Enhanced identity governance suits open networks, BYOD and cloud/SaaS.",
     "sourceSlides": [
       23
     ]
@@ -323,15 +323,15 @@
     "tags": [
       "threats and limitations"
     ],
-    "prompt": "What is the most direct risk to the Policy Engine's decision-making function if that component is compromised?",
+    "prompt": "Which ZTA threat makes the PE, PA and PEP mission-critical choke points?",
     "options": [
-      "It can establish access paths incorrectly",
-      "It can enforce boundary rules incorrectly",
-      "It can collect posture information incorrectly",
-      "It can authorize access incorrectly"
+      "Subversion of the decision process",
+      "Network visibility",
+      "Proprietary formats and NPEs",
+      "Denial of service or disruption"
     ],
     "answer": 3,
-    "explanation": "Compromise of decision components can subvert the access process itself, making configuration protection and auditing important.",
+    "explanation": "When the PE, PA and PEP are choke points, an outage blocks access: the lesson lists this as denial of service or disruption.",
     "sourceSlides": [
       24
     ]
@@ -344,15 +344,15 @@
     "tags": [
       "threats and limitations"
     ],
-    "prompt": "What concern arises when PE, PA or PEP services become unavailable?",
+    "prompt": "Which ZTA threat do MFA and contextual trust algorithms help address?",
     "options": [
-      "Access disruption at critical control points",
-      "Automatic elimination of all cyber risk",
-      "Permanent recovery of deleted information",
-      "Guaranteed rejection of every malicious action"
+      "Stolen credentials or insider threat",
+      "Network visibility",
+      "Storage of network information",
+      "Denial of service or disruption"
     ],
     "answer": 0,
-    "explanation": "The components can become critical dependencies, so the lesson calls for resilient and secured deployment.",
+    "explanation": "MFA and contextual trust algorithms detect abnormal access patterns, which addresses stolen credentials and insider threat.",
     "sourceSlides": [
       24
     ]
@@ -365,15 +365,15 @@
     "tags": [
       "threats and limitations"
     ],
-    "prompt": "Why must stored scans, policies and network information be protected?",
+    "prompt": "Stored traffic, scans and policies are described as reconnaissance gold. Which ZTA threat is this?",
     "options": [
-      "They replace the need for access monitoring",
-      "They can reveal valuable reconnaissance information",
-      "They cannot influence security decisions",
-      "They are harmless because they are not passwords"
+      "Subversion of the decision process",
+      "Storage of network information",
+      "Stolen credentials or insider threat",
+      "Denial of service or disruption"
     ],
     "answer": 1,
-    "explanation": "Stored security information can expose an environment's structure and controls even when it is not a credential.",
+    "explanation": "The lesson says stored traffic, scans and policies should be protected with the most restrictive policies.",
     "sourceSlides": [
       24
     ]
@@ -386,15 +386,15 @@
     "tags": [
       "threats and limitations"
     ],
-    "prompt": "Which risk can proprietary formats introduce?",
+    "prompt": "Which risks does the lesson attach to proprietary formats and NPEs?",
     "options": [
-      "Automatic universal interoperability",
-      "Guaranteed portability of all policies",
-      "Elimination of provider dependence",
-      "Vendor lock-in"
+      "Subversion of the PE by a misconfiguration",
+      "Encrypted traffic that cannot all be inspected",
+      "Vendor lock-in and weaker authentication of automated agents",
+      "Credential theft through insider abuse"
     ],
-    "answer": 3,
-    "explanation": "Proprietary formats can constrain migration and integration, so provider evaluation should consider more than advertised capability.",
+    "answer": 2,
+    "explanation": "Proprietary formats cause vendor lock-in, and automated agents may have weaker authentication, so providers should be evaluated holistically.",
     "sourceSlides": [
       24
     ]
@@ -407,15 +407,15 @@
     "tags": [
       "threats and limitations"
     ],
-    "prompt": "Which statement about Zero Trust and stolen credentials is sound?",
+    "prompt": "Which ZTA threat arises because encrypted traffic cannot all be inspected?",
     "options": [
-      "Network location becomes sufficient proof of safety",
-      "MFA removes every insider threat",
-      "Zero Trust guarantees credentials cannot be stolen",
-      "Contextual controls can reduce the risk"
+      "Denial of service or disruption",
+      "Storage of network information",
+      "Network visibility",
+      "Subversion of the decision process"
     ],
-    "answer": 3,
-    "explanation": "Controls can limit misuse, but no architecture makes stolen credentials or insider threats impossible.",
+    "answer": 2,
+    "explanation": "The lesson names network visibility as the threat and suggests analyzing metadata and applying machine learning to spot malicious flows.",
     "sourceSlides": [
       24
     ]
@@ -428,15 +428,15 @@
     "tags": [
       "migration and application"
     ],
-    "prompt": "What is the first migration step listed in the lesson?",
+    "prompt": "Which migration step catalogs subjects, such as users, admins and non-person entities?",
     "options": [
-      "Purchase all candidate tools",
-      "Disable the existing architecture",
       "Identify actors",
-      "Expand every workflow immediately"
+      "Identify assets",
+      "Identify key processes",
+      "Formulate policies"
     ],
-    "answer": 2,
-    "explanation": "Migration starts by knowing the subjects, including users, administrators and non-person entities.",
+    "answer": 0,
+    "explanation": "Step 1 is to identify actors, which includes service accounts as non-person entities.",
     "sourceSlides": [
       25
     ]
@@ -449,15 +449,15 @@
     "tags": [
       "migration and application"
     ],
-    "prompt": "What belongs in the asset inventory?",
+    "prompt": "It is the migration step that sets criteria or confidence-level weights for the candidate workflow's resources.",
     "options": [
-      "Only devices already listed in procurement",
-      "Only systems with a current vendor warranty",
-      "Only equipment located at headquarters",
-      "Hardware, virtual assets and shadow IT"
+      "Identify solutions",
+      "Identify key processes",
+      "Formulate policies",
+      "Deploy and monitor"
     ],
-    "answer": 3,
-    "explanation": "The lesson includes virtual assets and shadow IT because unrecorded resources still affect access decisions and risk.",
+    "answer": 2,
+    "explanation": "Step 4, formulate policies, sets the criteria or confidence-level weights for the workflow's resources.",
     "sourceSlides": [
       25
     ]
@@ -470,15 +470,15 @@
     "tags": [
       "migration and application"
     ],
-    "prompt": "What type of workflow is suggested for an initial pilot?",
+    "prompt": "Which migration step ranks business processes and risks and starts with a low-risk workflow?",
     "options": [
-      "The entire enterprise at once",
-      "A mission-critical workflow without review",
-      "A low-risk workflow",
-      "An unknown workflow without an owner"
+      "Identify key processes",
+      "Identify assets",
+      "Identify solutions",
+      "Expand the ZTA"
     ],
-    "answer": 2,
-    "explanation": "An incremental pilot lets the team learn and tune policies before expanding the architecture.",
+    "answer": 0,
+    "explanation": "Step 3, identify key processes, ranks processes and risks and begins with a low-risk workflow.",
     "sourceSlides": [
       25
     ]
@@ -491,15 +491,15 @@
     "tags": [
       "migration and application"
     ],
-    "prompt": "Why begin deployment in reporting-only mode?",
+    "prompt": "What is the last of the seven steps in migrating to a ZTA?",
     "options": [
-      "Guarantee all malicious requests are blocked",
-      "Replace explicit authorization permanently",
-      "Avoid gathering any operating evidence",
-      "Observe real traffic and tune policies"
+      "Deploy and monitor",
+      "Expand the ZTA",
+      "Identify solutions",
+      "Formulate policies"
     ],
-    "answer": 3,
-    "explanation": "Reporting-only observation helps detect policy mistakes before enforcement disrupts legitimate work.",
+    "answer": 1,
+    "explanation": "Step 7 refines, then takes on the next workflow, and reevaluates whenever the mission changes.",
     "sourceSlides": [
       25
     ]
@@ -512,15 +512,15 @@
     "tags": [
       "migration and application"
     ],
-    "prompt": "What kind of access should a partner receive under the lesson's approach?",
+    "prompt": "Which applicability card says to place PEPs in front of command networks and transmission systems?",
     "options": [
-      "An exception from device and identity checks",
-      "All internal access after one successful login",
-      "Per-session access limited to legitimate need",
-      "Broad permanent access because of affiliation"
+      "Assume the network is hostile",
+      "Enable remote and coalition access",
+      "Secure tactical networks",
+      "Continuous monitoring"
     ],
     "answer": 2,
-    "explanation": "Partner status does not justify blanket trust; authorization remains contextual and limited.",
+    "explanation": "Secure tactical networks places PEPs in front of command networks and transmission systems so no resource is reachable without one.",
     "sourceSlides": [
       26
     ]

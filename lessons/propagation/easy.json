@@ -9,15 +9,15 @@
       "model inputs and coverage",
       "objective"
     ],
-    "prompt": "Which modeled setting accounts for energy lost between the radio and antenna?",
+    "prompt": "It is the Radio Mobile input recorded as 0.5 dB for both the LGP and relay transmitters.",
     "options": [
-      "Receiver sensitivity",
-      "Antenna height",
-      "Feed-line loss",
+      "Antenna gain",
+      "Receiver threshold",
+      "Line loss",
       "Plot radius"
     ],
     "answer": 2,
-    "explanation": "Feed-line loss is modeled separately from antenna gain and terrain.",
+    "explanation": "Slides 15-16 record a 0.5 dB line loss for both the LGP and relay transmitters; antenna gain is 4 dBi.",
     "sourceSlides": [
       15,
       16
@@ -33,15 +33,15 @@
       "model inputs and coverage",
       "objective"
     ],
-    "prompt": "What does antenna height above ground describe?",
+    "prompt": "What antenna height is recorded for both the LGP transmitter and the relay transmitter in Radio Mobile?",
     "options": [
-      "Vertical distance above local ground",
-      "The terrain's elevation above sea level",
-      "The station's height above the receiver",
-      "The distance to the edge of the plot"
+      "6 m",
+      "2 m",
+      "10 m",
+      "30 m"
     ],
     "answer": 0,
-    "explanation": "A mast height measures the antenna relative to local ground. Terrain elevation is a separate quantity.",
+    "explanation": "Slide 16 records a 6 m antenna height for both the LGP and relay transmitters; handhelds are modelled at 2 m.",
     "sourceSlides": [
       15,
       16
@@ -57,17 +57,16 @@
       "model inputs and coverage",
       "objective"
     ],
-    "prompt": "What does a composite radio coverage plot combine?",
+    "prompt": "How many station plots make up the overall composite radio coverage?",
     "options": [
-      "The equipment inventories for all stations",
-      "Point-to-point margins into one average",
-      "All measured receiver readings from a field survey",
-      "Predicted footprints from several stations"
+      "Five",
+      "Eight",
+      "Twelve",
+      "Nine"
     ],
     "answer": 3,
-    "explanation": "The composite draws from individual station predictions to show their collective footprint.",
+    "explanation": "Slide 19 shows the overall coverage from all nine stations at 5 W; twelve is the number of planned links.",
     "sourceSlides": [
-      17,
       19
     ]
   },
@@ -81,18 +80,17 @@
       "model inputs and coverage",
       "objective"
     ],
-    "prompt": "Which setting limits the area a single-station footprint evaluates?",
+    "prompt": "What plot radius is used for each station in Radio Mobile?",
     "options": [
-      "Receiver threshold",
-      "Plot radius",
-      "Antenna gain",
-      "Feed-line loss"
+      "5 km",
+      "8 km",
+      "10 km",
+      "20 km"
     ],
-    "answer": 1,
-    "explanation": "The radius bounds the modeled footprint around the transmitter.",
+    "answer": 2,
+    "explanation": "Slide 15 gives a 10 km plot radius per station; 8 km is the width of the study corridor around the links (slide 44).",
     "sourceSlides": [
-      15,
-      19
+      15
     ]
   },
   {
@@ -105,17 +103,17 @@
       "link profiles and margins",
       "objective"
     ],
-    "prompt": "What does fade margin compare in the Radio Mobile outputs?",
+    "prompt": "What is the weakest fade margin among the 12 planned links?",
     "options": [
-      "Transmit power and the antenna height",
-      "Plot radius and path distance",
-      "Ground elevation and receiver gain",
-      "Receive level and receiver threshold"
+      "20.0 dB",
+      "53.2 dB",
+      "57.2 dB",
+      "35.8 dB"
     ],
     "answer": 3,
-    "explanation": "The margin expresses how far predicted receive power is above the threshold.",
+    "explanation": "Slides 15 and 35 give every link a margin from 35.8 to 79.3 dB above the -119 dBm threshold.",
     "sourceSlides": [
-      23,
+      15,
       35
     ]
   },
@@ -129,18 +127,17 @@
       "link profiles and margins",
       "objective"
     ],
-    "prompt": "Which item is evidence of an optically obstructed path in the examples?",
+    "prompt": "Of the 12 planned links, how many close through terrain in the path?",
     "options": [
-      "The received signal has a negative dBm value",
-      "The receiver falls within the plot radius",
-      "Terrain crosses the direct path",
-      "The antenna heights differ"
+      "Four",
+      "Eight",
+      "Ten",
+      "Twelve"
     ],
-    "answer": 2,
-    "explanation": "The profile can show terrain intersecting the straight path even when the model predicts a working radio link.",
+    "answer": 1,
+    "explanation": "Slide 35's title reads 'All 12 links close, 8 of them through terrain'.",
     "sourceSlides": [
-      23,
-      27
+      35
     ]
   },
   {
@@ -153,17 +150,16 @@
       "link profiles and margins",
       "objective"
     ],
-    "prompt": "What can explain a modeled link closing despite terrain in the direct path?",
+    "prompt": "At 40-59 MHz, why does every link still hold its margin although no path keeps 60% Fresnel clearance?",
     "options": [
-      "A larger plotting window",
-      "Diffraction over the obstruction",
-      "A change in the display legend",
-      "A different map projection"
+      "The signal reflects back from the clouds",
+      "The terrain data removes the ridges from the model",
+      "The transmit power is raised to 10 W on every link",
+      "The signal bends over the ridges"
     ],
-    "answer": 1,
-    "explanation": "Diffraction can permit modeled signal propagation despite loss from the obstruction.",
+    "answer": 3,
+    "explanation": "Slide 35 says no path keeps the 60% Fresnel clearance a microwave link would need, but at 40-59 MHz the signal bends over the ridges.",
     "sourceSlides": [
-      23,
       35
     ]
   },
@@ -177,15 +173,15 @@
       "link profiles and margins",
       "objective"
     ],
-    "prompt": "What distinction do the optical LOS and Fresnel observations illustrate?",
+    "prompt": "Which Radio Mobile link description applies when the path is optically clear but the Fresnel zone is only partly clear?",
     "options": [
-      "A clear centerline can coexist with limited clearance around it",
-      "An optical path automatically has full Fresnel clearance",
-      "Fresnel clearance and receive level report the same quantity",
-      "Fresnel clearance establishes which transmitter is active"
+      "Optical LOS - Fresnel zone partly clear",
+      "Terrain in path - closes by diffraction",
+      "Optical LOS - Fresnel zone fully clear",
+      "Terrain in path - fade margin below threshold"
     ],
     "answer": 0,
-    "explanation": "Fresnel clearance considers space around the centerline, so the two observations are distinct.",
+    "explanation": "Slides 27 and 35 label some links 'Optical LOS - Fresnel zone partly clear' and others 'Terrain in path - closes by diffraction'.",
     "sourceSlides": [
       27,
       35
@@ -201,15 +197,15 @@
       "cellular modeling",
       "objective"
     ],
-    "prompt": "What role does CellMapper play in the example cellular workflow?",
+    "prompt": "Which tool is used to locate the Smart, Globe and DITO towers in the AO?",
     "options": [
-      "Identify candidate cellular tower locations",
-      "Compute all coverage predictions",
-      "Measure the actual phone reception at every site",
-      "Validate the final radio network"
+      "CloudRF",
+      "Radio Mobile",
+      "Google Earth Pro",
+      "CellMapper"
     ],
-    "answer": 0,
-    "explanation": "CellMapper provides candidate locations. CloudRF uses selected towers and assumptions to produce estimates.",
+    "answer": 3,
+    "explanation": "Slide 37: CellMapper locates the Smart (515-03), Globe (515-02) and DITO (515-66) towers.",
     "sourceSlides": [
       37
     ]
@@ -224,18 +220,17 @@
       "cellular modeling",
       "objective"
     ],
-    "prompt": "What is CloudRF used to produce in the example?",
+    "prompt": "How many key CellMapper towers were run in CloudRF, and how many per network?",
     "options": [
-      "Confirmed commercial service records",
-      "Field logs of completed calls",
-      "A point-to-point VHF network inventory",
-      "Modeled cellular footprints"
+      "12 towers, 4 per network",
+      "22 towers, 8 per network",
+      "9 towers, 3 per network",
+      "12 towers, 6 per network"
     ],
-    "answer": 3,
-    "explanation": "CloudRF predicts coverage using model inputs supplied for selected towers.",
+    "answer": 0,
+    "explanation": "Slide 37 shows 12 key CellMapper towers run in CloudRF, 4 per network.",
     "sourceSlides": [
-      37,
-      38
+      37
     ]
   },
   {
@@ -248,15 +243,15 @@
       "cellular modeling",
       "objective"
     ],
-    "prompt": "How should the values in a saved cellular model be described?",
+    "prompt": "What do the recorded cellular model inputs describe?",
     "options": [
-      "Verified specifications for the carrier network",
-      "Inputs used for that model run",
-      "Measured receive levels at every map pixel",
-      "Confirmed values for all towers in the area"
+      "The supplied exports, not the operators' verified equipment or service",
+      "The operators' verified tower equipment",
+      "The service actually measured in the field",
+      "The handset radios issued to units"
     ],
-    "answer": 1,
-    "explanation": "The deck identifies the recorded settings as model inputs and distinguishes them from operator-verified equipment or service.",
+    "answer": 0,
+    "explanation": "Slide 38 says model inputs describe these exports, not the operators' verified equipment or service.",
     "sourceSlides": [
       38
     ]
@@ -271,15 +266,15 @@
       "cellular modeling",
       "objective"
     ],
-    "prompt": "What does a common map extent improve when comparing carrier outputs?",
+    "prompt": "According to the common map extent slide, what does the same map extent support?",
     "options": [
-      "Knowledge of which carrier has verified service",
-      "Coverage completeness beyond all modeled sites",
-      "Visual comparison across the same geographic area",
-      "Certainty that every carrier uses identical equipment"
+      "A complete picture of service coverage",
+      "Confirmation of each operator's tower equipment",
+      "A measurement of handset signal strength",
+      "A comparison between the carriers' coverage"
     ],
-    "answer": 2,
-    "explanation": "A common viewing area supports like-area comparison of the selected model results.",
+    "answer": 3,
+    "explanation": "Slide 42: the same map extent supports comparison, but it does not establish complete service coverage.",
     "sourceSlides": [
       42
     ]
@@ -294,15 +289,15 @@
       "dead spots and relays",
       "objective"
     ],
-    "prompt": "What does the dead-spot hatch represent in the example?",
+    "prompt": "How many dead spots are mapped in the study?",
     "options": [
-      "Every point with a failed field radio check",
-      "No plotted signal or the weakest predicted classes within the study corridor",
-      "Every area outside the study corridor",
-      "All places below average tower height"
+      "Two",
+      "Four",
+      "Three",
+      "Five"
     ],
-    "answer": 1,
-    "explanation": "The hatch is defined from the model output and a specified corridor.",
+    "answer": 2,
+    "explanation": "Slide 44 maps three dead spots: DS-1, DS-2 and DS-3.",
     "sourceSlides": [
       44
     ]
@@ -317,15 +312,15 @@
       "dead spots and relays",
       "objective"
     ],
-    "prompt": "What should a candidate relay be able to reach to bridge a gap between networks?",
+    "prompt": "Relay Alpha's links to the stations it serves are at what level of fade margin?",
     "options": [
-      "Required stations on both sides",
-      "Only the closest user",
-      "Only the control station",
-      "Any station inside its modeled area"
+      "Four of six at 20 dB or better",
+      "Five of six at 20 dB or better",
+      "All six at 20 dB or better",
+      "None above 20 dB"
     ],
-    "answer": 0,
-    "explanation": "A relay must connect the relevant endpoints on both sides of the gap.",
+    "answer": 2,
+    "explanation": "Slides 46 and 48 show 6 of 6 relay links at or above 20 dB.",
     "sourceSlides": [
       46,
       48
@@ -341,15 +336,15 @@
       "dead spots and relays",
       "objective"
     ],
-    "prompt": "Which practical relay consideration is checked separately from predicted link strength?",
+    "prompt": "What access is recorded at the Relay Alpha site?",
     "options": [
-      "Receiver sensitivity",
-      "Fresnel clearance",
-      "Site access",
-      "Predicted margin"
+      "A helicopter pad on the ridge",
+      "A road and cleared compound beside the site",
+      "A foot trail from Daraga",
+      "A boat landing near Bacon"
     ],
-    "answer": 2,
-    "explanation": "The site review considers whether crews can reach the candidate location.",
+    "answer": 1,
+    "explanation": "Slide 47 lists the access as a road and cleared compound beside the site.",
     "sourceSlides": [
       47
     ]
@@ -364,15 +359,15 @@
       "dead spots and relays",
       "objective"
     ],
-    "prompt": "What does a before-and-after map comparison show about a proposed relay?",
+    "prompt": "After Relay Alpha is added, usable VHF in the corridor rises from 81% to what?",
     "options": [
-      "Which field checks have already succeeded",
-      "Which carrier owns the highest tower",
-      "How much time the relay crew spent traveling",
-      "How modeled usable coverage changes with the relay included"
+      "96%",
+      "75%",
+      "91%",
+      "100%"
     ],
-    "answer": 3,
-    "explanation": "The two maps help compare the modeled footprint with and without the relay.",
+    "answer": 0,
+    "explanation": "Slide 49 shows corridor coverage with usable VHF going from 81% to 96%.",
     "sourceSlides": [
       49
     ]
@@ -387,15 +382,15 @@
       "validation and decisions",
       "objective"
     ],
-    "prompt": "What turns a modeled link prediction into field evidence?",
+    "prompt": "Which validation step does the final slide recommend to turn model results into field evidence?",
     "options": [
-      "Exporting the same map twice",
-      "Using a higher-resolution display",
-      "Increasing the legend's contrast",
-      "Radio checks on the planned link"
+      "Replacing the relay with a SATCOM terminal",
+      "Radio checks on all 12 links",
+      "Rerunning CloudRF on the remaining towers",
+      "Raising every mast to 30 m"
     ],
-    "answer": 3,
-    "explanation": "A field radio check verifies behavior under actual operating conditions.",
+    "answer": 1,
+    "explanation": "Slide 53 recommends radio checks on all 12 links, followed by updating the plots.",
     "sourceSlides": [
       53
     ]
@@ -410,15 +405,15 @@
       "validation and decisions",
       "objective"
     ],
-    "prompt": "What should planners check before proposing a taller mast?",
+    "prompt": "What antenna height is modelled for the unit handhelds?",
     "options": [
-      "Whether the existing tower looks small on the map",
-      "Whether the modeled link or coverage meaningfully improves",
-      "Whether the plot legend shows a weak color somewhere",
-      "Whether other sites use the same antenna model"
+      "1.8 m",
+      "2 m",
+      "6 m",
+      "4 m"
     ],
     "answer": 1,
-    "explanation": "Height changes should be assessed against their effect on the intended path or coverage objective.",
+    "explanation": "Slide 51 lists unit stations at 2 m, handheld height as modelled; 1.8 m is the dismounted height.",
     "sourceSlides": [
       51
     ]
@@ -433,15 +428,15 @@
       "validation and decisions",
       "objective"
     ],
-    "prompt": "What purpose does PACE serve in the recommendations?",
+    "prompt": "In the PACE plan, which means is the Alternate?",
     "options": [
-      "Provide ordered communications alternatives if the preferred means fails",
-      "Compute a revised receiver threshold",
-      "Extend the plot radius of the primary station",
-      "Verify the carrier's equipment inputs"
+      "Cellular with encrypted apps",
+      "HF NVIS voice/data",
+      "SATCOM terminal or runner",
+      "VHF FM net via Relay Alpha"
     ],
-    "answer": 0,
-    "explanation": "PACE organizes primary, alternate, contingency and emergency communications means.",
+    "answer": 1,
+    "explanation": "Slide 52 lists the VHF FM net via Relay Alpha as Primary, HF NVIS as Alternate, cellular as Contingency and SATCOM or runner as Emergency.",
     "sourceSlides": [
       52
     ]
@@ -456,15 +451,15 @@
       "validation and decisions",
       "objective"
     ],
-    "prompt": "What should happen to the prediction after field checks expose a difference?",
+    "prompt": "Which road network is to be reconnoitred for relay access?",
     "options": [
-      "Discard the field results because the model came first",
-      "Hide the affected layer and keep the recommendation",
-      "Update the plots and assumptions with field findings",
-      "Increase the legend's usable area without reanalysis"
+      "The coastal road",
+      "The Legazpi-Daraga highway",
+      "BacMan geothermal roads",
+      "The Pocdol foot trails"
     ],
     "answer": 2,
-    "explanation": "The study recommends testing the links and updating the plots.",
+    "explanation": "Slide 53 recommends a recon of relay access over the BacMan geothermal roads; the coastal road is mentioned for cellular coverage.",
     "sourceSlides": [
       53
     ]

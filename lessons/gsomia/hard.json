@@ -7,15 +7,15 @@
     "tags": [
       "agreement and governance"
     ],
-    "prompt": "Two partners use different release rules. A shared project deadline is near. Which conclusion is defensible?",
+    "prompt": "Two partner nations work under agreements with different specific principles. Which statement fits the lesson?",
     "options": [
-      "Assume the common project gives everyone equal access",
-      "Treat the deadline as automatic permission to release",
-      "Resolve the applicable release rules before sharing files",
-      "Use the less restrictive rule because cooperation is the goal"
+      "The agreement with fewer principles overrides the other agreement",
+      "Both partners must follow whichever classification list is stricter",
+      "Core principles apply only to the originating nation",
+      "Core principles are general; specific terms follow the agreement"
     ],
-    "answer": 2,
-    "explanation": "Cooperation does not settle conflicting release authority; the governing arrangements must be confirmed.",
+    "answer": 3,
+    "explanation": "Slide 20 says specific principles can vary depending on the agreement and the nations involved, while generally accepted core principles are listed.",
     "sourceSlides": [
       20,
       25,
@@ -30,18 +30,19 @@
     "tags": [
       "agreement and governance"
     ],
-    "prompt": "A transfer is confidential and unaltered, but delivered to an unauthorized partner. How should it be judged?",
+    "prompt": "A file is shared with a partner entity that is not on the authorized list, and the exchange is not recorded. Which principle group is breached?",
     "options": [
-      "Cryptographic success did not establish authorized sharing",
-      "Encryption alone makes the transfer fully compliant",
-      "Partner familiarity outweighs the agreed release process",
-      "Integrity protection removes recipient restrictions"
+      "Training and Awareness",
+      "Review and Improvement",
+      "Incident Management and Response",
+      "Information Sharing Protocols"
     ],
-    "answer": 0,
-    "explanation": "Protecting data technically is different from authorizing its disclosure to a particular entity.",
+    "answer": 3,
+    "explanation": "Slides 24 and 36: controlled sharing means information goes only to authorized entities through established protocols, with the exchange documented.",
     "sourceSlides": [
       23,
-      24
+      24,
+      36
     ]
   },
   {
@@ -52,15 +53,15 @@
     "tags": [
       "agreement and governance"
     ],
-    "prompt": "A unit passes an audit, then introduces a new information-sharing service. Which inference is weakest?",
+    "prompt": "After passing an audit, a unit adds a new information-sharing service. Which step fits Review and Improvement?",
     "options": [
-      "The change may require revised protection measures",
-      "Updated procedures may need staff communication",
-      "The earlier audit proves the new service is compliant",
-      "The new service should enter ongoing review"
+      "Take no action, since the audit has already been passed",
+      "Review and update its procedures for the new service",
+      "Wait for the next external review before changing anything",
+      "Keep the old procedures until a breach exposes a gap"
     ],
-    "answer": 2,
-    "explanation": "An audit addresses assessed conditions; it does not automatically validate later changes.",
+    "answer": 1,
+    "explanation": "Slides 29 and 46 call for regular reviews and updates of policies to reflect changes in practices, technology, and threats.",
     "sourceSlides": [
       29,
       40,
@@ -75,15 +76,15 @@
     "tags": [
       "agreement and governance"
     ],
-    "prompt": "A policy was revised but most staff use an obsolete copy. Which evidence best demonstrates correction?",
+    "prompt": "A policy was revised, yet most staff still work from an obsolete copy. Which measure addresses this?",
     "options": [
-      "A count of how many old copies were originally printed",
-      "A promise that future users will find it somehow",
-      "The date the new file was saved on one laptop",
-      "Controlled current copies and verified staff adoption"
+      "Keep records current and train staff on the revised procedure",
+      "Raise the classification level of the obsolete copy and withdraw it",
+      "Order an external review of the obsolete copy only",
+      "Restrict access to the new policy through RBAC"
     ],
-    "answer": 3,
-    "explanation": "Effective governance requires implemented, understood procedures, not merely creation of a newer document.",
+    "answer": 0,
+    "explanation": "Slides 41 and 46: documentation must be up to date and accessible, and policy updates are put into practice through training.",
     "sourceSlides": [
       25,
       41,
@@ -98,15 +99,15 @@
     "tags": [
       "agreement and governance"
     ],
-    "prompt": "A report was changed without authorization, yet nobody outside the unit read it. Which assessment is best?",
+    "prompt": "A report was altered without authorization, but no one outside the unit read it. Which assessment is correct?",
     "options": [
-      "No security issue exists unless outsiders read it",
-      "The change is acceptable if the original author is absent",
-      "All confidentiality controls must therefore have failed",
-      "An integrity issue remains despite no known disclosure"
+      "Confidentiality was compromised, although integrity held",
+      "Neither principle was compromised in this case",
+      "Integrity was compromised, although confidentiality held",
+      "Both principles were compromised in this case"
     ],
-    "answer": 3,
-    "explanation": "Integrity and confidentiality are distinct; lack of known disclosure does not excuse unauthorized modification.",
+    "answer": 2,
+    "explanation": "Slide 23: integrity concerns unauthorized alterations or tampering, while confidentiality concerns disclosure to unauthorized parties.",
     "sourceSlides": [
       23,
       25
@@ -120,15 +121,15 @@
     "tags": [
       "classification and handling"
     ],
-    "prompt": "A reviewer suggests removing markings to make a file easier to share. Why is this unsound?",
+    "prompt": "A colleague wants to strip the classification markings from a file before sending it to a partner. Which objection fits the lesson?",
     "options": [
-      "The document's sensitivity is re-evaluated when it enters the partner's approved format",
-      "Removing markings cannot itself authorize disclosure of the file",
-      "The authorized transfer channel can supply handling permissions previously conveyed by the marking",
-      "The receiver's clearance can replace the release check when visible markings are removed"
+      "Markings only name the unit that produced the file",
+      "Markings show the handling and access requirements",
+      "Markings matter only while the file is in transit",
+      "Markings can be added again after the partner receives it"
     ],
     "answer": 1,
-    "explanation": "Markings communicate requirements; altering them does not independently authorize a change in protection or release.",
+    "explanation": "Slide 30 says classified information must be properly marked with its level to indicate handling and access requirements.",
     "sourceSlides": [
       21,
       30,
@@ -143,15 +144,15 @@
     "tags": [
       "classification and handling"
     ],
-    "prompt": "A storage migration is complete, but old media remain readable in a disposal pile. What is the unresolved risk?",
+    "prompt": "Old storage media are still readable in a disposal pile after a migration is finished. What risk is unresolved?",
     "options": [
-      "The new storage cannot function until the old drives are reused",
-      "The transfer records are irrelevant once the new copy opens",
-      "Information can still be recovered from the old copies",
-      "The classification of all new files has automatically increased"
+      "Unauthorized alteration of the records stored on them",
+      "Loss of the audit trail for the migration",
+      "Unauthorized recovery of classified information",
+      "Delayed incident reporting by the staff"
     ],
     "answer": 2,
-    "explanation": "Protection spans the information lifecycle, including old copies and media after migration.",
+    "explanation": "Slide 32 requires secure destruction to prevent unauthorized recovery; Slide 31 covers secure storage.",
     "sourceSlides": [
       31,
       32
@@ -165,15 +166,15 @@
     "tags": [
       "classification and handling"
     ],
-    "prompt": "A file uses approved encryption, but visitors can open the logged-in terminal. Which assessment fits?",
+    "prompt": "Approved encryption protects a file, yet visitors can open the logged-in terminal. Which assessment fits?",
     "options": [
-      "Encryption compensates for all local access weaknesses",
-      "The only remaining issue is transmission bandwidth",
-      "The file is safe because its network packets are unreadable",
-      "Physical and access controls still leave exposure"
+      "The file is fully protected because the encryption is approved",
+      "Only role-based access has failed, not physical access",
+      "Only the classification marking is deficient on the file",
+      "Transmission is protected, but physical access is not"
     ],
     "answer": 3,
-    "explanation": "Security measures must work together; protected transmission cannot compensate for uncontrolled endpoint access.",
+    "explanation": "Slides 37 and 45: encryption protects transmission, while physical access control restricts who can reach the areas and systems.",
     "sourceSlides": [
       31,
       37,
@@ -188,19 +189,19 @@
     "tags": [
       "classification and handling"
     ],
-    "prompt": "An archive contains records with different handling requirements. Which design principle is strongest?",
+    "prompt": "An archive holds records with different handling requirements. Which design is strongest?",
     "options": [
-      "Apply appropriate controls to each information category",
-      "Use the least restrictive category for the entire archive",
-      "Erase the distinctions to simplify staff training",
-      "Allow each user to choose the category before opening"
+      "Mark each record and apply the handling its level requires",
+      "Apply the lowest handling requirement to every record in the archive",
+      "Apply handling only when records are transmitted out",
+      "Leave marking to the recipient of each record"
     ],
     "answer": 0,
-    "explanation": "Classification and handling requirements must remain meaningful across storage, retrieval and access decisions.",
+    "explanation": "Slides 30 and 31: information is marked with its classification level and handled according to established procedures.",
     "sourceSlides": [
       21,
-      31,
-      41
+      30,
+      31
     ]
   },
   {
@@ -211,15 +212,15 @@
     "tags": [
       "classification and handling"
     ],
-    "prompt": "A disposal checklist is signed, but no one can show how recovery was prevented. What should assurance examine?",
+    "prompt": "A disposal checklist is signed off, yet no one can show how recovery was prevented. What should assurance check?",
     "options": [
-      "Whether the deleted files had convenient short names",
-      "Only whether the storage room now looks less crowded",
-      "Only whether the signature is written in blue ink",
-      "Whether the approved disposal process was actually effective"
+      "Whether a senior officer signed the checklist before disposal",
+      "Whether the records were marked before they were disposed of",
+      "Whether the disposal date matched the planned schedule",
+      "Whether the method actually prevents unauthorized recovery"
     ],
     "answer": 3,
-    "explanation": "A completed checklist is not sufficient evidence if the substantive disposal objective remains unverified.",
+    "explanation": "Slides 32 and 40: secure destruction exists to prevent unauthorized recovery, and audits check compliance and identify weaknesses.",
     "sourceSlides": [
       32,
       40
@@ -233,15 +234,15 @@
     "tags": [
       "access and sharing"
     ],
-    "prompt": "A senior, cleared partner liaison has broad system access but no duty requiring a particular file. Which rule controls?",
+    "prompt": "A senior partner liaison with a clearance has broad access but no duty needing a certain file. Which rule applies?",
     "options": [
-      "Verify the recipient’s need-to-know and release authority",
-      "Use the liaison's clearance and partner status",
-      "Apply existing account permissions and protected-channel approval",
-      "Use assignment to the joint team as authority"
+      "Seniority overrides need to know for a cleared liaison officer",
+      "Partner status grants access to all shared files",
+      "Need to know and role limits apply whatever the seniority",
+      "A clearance alone is sufficient for access to the file"
     ],
-    "answer": 0,
-    "explanation": "Identity, clearance, duty and authorized sharing are separate conditions; broad technical access is not blanket permission.",
+    "answer": 2,
+    "explanation": "Slides 22 and 34: access requires clearance and a legitimate need to know, limited by role to the information necessary for duties.",
     "sourceSlides": [
       22,
       34,
@@ -256,15 +257,15 @@
     "tags": [
       "access and sharing"
     ],
-    "prompt": "Role permissions are correct, but shared accounts prevent attributing accesses. What remains deficient?",
+    "prompt": "Role permissions are correct, but shared accounts hide who opened what. Which control is deficient?",
     "options": [
-      "The number of roles listed in the organization chart",
-      "The physical dimensions of the storage equipment",
-      "Accountability supported by meaningful access records",
-      "The existence of a common subject heading for files"
+      "Access monitoring through audit trails",
+      "Role-based access limiting each person to their duties",
+      "Background checks for the people handling the files",
+      "Secure disposal of the files at the end of their use"
     ],
-    "answer": 2,
-    "explanation": "Appropriate permissions do not by themselves establish who performed an access; records must support accountability.",
+    "answer": 0,
+    "explanation": "Slide 35 says audit trails must show who accessed information, when, and why, which shared accounts defeat.",
     "sourceSlides": [
       34,
       35
@@ -278,15 +279,15 @@
     "tags": [
       "access and sharing"
     ],
-    "prompt": "A sharing log names the recipient but omits authorization and purpose. Which improvement is most useful?",
+    "prompt": "A sharing log lists the recipient but not the authorization or purpose. What should be added?",
     "options": [
-      "Record enough context to establish legitimate exchange",
-      "Replace the recipient field with the sender's nickname",
-      "Keep only the file size because it is objective",
-      "Remove timestamps to simplify future reviews"
+      "The recipient's clearance level and rank, for every exchange",
+      "The transmission channel and time, for every exchange",
+      "The authorization and purpose of each exchange",
+      "Nothing, since audit trails already cover the exchange"
     ],
-    "answer": 0,
-    "explanation": "Exchange records should support a review of authorized access and legitimate purpose, not merely count transfers.",
+    "answer": 2,
+    "explanation": "Slides 26, 35, and 36: sharing must be authorized and documented, and accurate records of exchanges and access are kept.",
     "sourceSlides": [
       26,
       35,
@@ -301,15 +302,15 @@
     "tags": [
       "access and sharing"
     ],
-    "prompt": "Vetting, role controls and monitoring are proposed as alternatives. Which design is better supported?",
+    "prompt": "Vetting, role controls, and monitoring are proposed as alternatives. Which design is better supported?",
     "options": [
-      "Choose vetting and eliminate all later access reviews",
-      "Use them as complementary layers addressing different risks",
-      "Choose job titles and remove personnel suitability checks",
-      "Choose logging and give all users unrestricted permissions"
+      "All three together, as layers of access control",
+      "Vetting alone, since cleared people can be trusted",
+      "Role controls alone, since monitoring is redundant",
+      "Monitoring alone, since it catches misuse afterward"
     ],
-    "answer": 1,
-    "explanation": "The lesson's controls address suitability, authorized duties and observed activity; none alone covers all three.",
+    "answer": 0,
+    "explanation": "Slides 33, 34, and 35 list background checks, role-based access, and access monitoring as separate, complementary guidelines.",
     "sourceSlides": [
       33,
       34,
@@ -324,15 +325,15 @@
     "tags": [
       "access and sharing"
     ],
-    "prompt": "A temporary assignment ends, but access and training records still reflect it. Which response best closes the gap?",
+    "prompt": "When a temporary assignment ends, access and training records still show it. What closes the gap?",
     "options": [
-      "Assume prior training supplies a permanent need-to-know",
-      "Delete the training record and retain the extra permissions",
-      "Align permissions with current responsibilities",
-      "Leave temporary rights active until the next promotion"
+      "Remove the role-based access and update the records",
+      "Keep the access in case the assignment returns later",
+      "Keep the access but add monitoring of the account",
+      "Leave the records unchanged as a matter of history"
     ],
-    "answer": 2,
-    "explanation": "Access should follow current roles and legitimate need; records and guidance must remain aligned with duties.",
+    "answer": 0,
+    "explanation": "Slides 22, 34, and 42: access follows current duties under role-based control, and training is tailored to current roles.",
     "sourceSlides": [
       22,
       34,
@@ -347,15 +348,15 @@
     "tags": [
       "incident response and assurance"
     ],
-    "prompt": "Evidence suggests exposure, but the affected data set is still uncertain. Which response avoids both delay and overclaiming?",
+    "prompt": "Evidence suggests exposure, but the affected data is not yet known. Which response avoids delay and overclaiming?",
     "options": [
-      "Delete uncertain evidence so the report appears consistent",
-      "Report facts and uncertainty promptly",
-      "Announce a confirmed breach of every system without evidence",
-      "Wait for absolute certainty before alerting any authority"
+      "Wait until the full extent is confirmed before making any report",
+      "Report the suspected compromise now and document what is known",
+      "Report that all classified information was compromised",
+      "Document it internally and report it at the next audit"
     ],
     "answer": 1,
-    "explanation": "Prompt reporting can state uncertainty accurately; containment and investigation refine the facts.",
+    "explanation": "Slides 27, 38, and 39: suspected breaches are reported immediately, and the nature of the breach, affected information, and actions are documented.",
     "sourceSlides": [
       27,
       38,
@@ -370,15 +371,15 @@
     "tags": [
       "incident response and assurance"
     ],
-    "prompt": "Recovery succeeds, but the root cause remains unexplained. Which closure decision is best?",
+    "prompt": "A system is recovered, but the cause of the incident is unexplained. Which closure decision is best?",
     "options": [
-      "Retain corrective follow-up and investigate the underlying cause",
-      "Declare recovery proof that no procedural problem existed",
-      "Remove incident records to avoid revisiting the event",
-      "Cancel the next audit because service has been restored"
+      "Close the incident, because recovery has already succeeded",
+      "Close it and rely on the next audit to find the cause",
+      "Close it and retrain all personnel only",
+      "Continue forensic analysis before closing the incident"
     ],
-    "answer": 0,
-    "explanation": "Service restoration and prevention of recurrence are different objectives; lessons learned require causal follow-up.",
+    "answer": 3,
+    "explanation": "Slides 39 and 46: forensic analysis determines the cause and prevents future occurrences, and findings feed continuous improvement.",
     "sourceSlides": [
       38,
       39,
@@ -393,15 +394,15 @@
     "tags": [
       "incident response and assurance"
     ],
-    "prompt": "An audit repeatedly finds the same handling errors despite annual briefings. What should change?",
+    "prompt": "Audits keep finding the same handling errors despite yearly briefings. What should change?",
     "options": [
-      "Increase attendance counts without examining actual practice",
-      "Assume repeated errors prove training can never help",
-      "Replace the finding with a statement that everyone was briefed",
-      "Use role-focused remediation and verify changed behavior"
+      "Repeat the same briefing more often throughout the year",
+      "Tailor training to roles and update the procedures",
+      "Replace the external auditors with internal ones",
+      "Reduce the logging of access to the information"
     ],
-    "answer": 3,
-    "explanation": "Repeated failures call for targeted correction and evidence of effectiveness, not attendance alone.",
+    "answer": 1,
+    "explanation": "Slides 40, 42, and 46: audits identify weaknesses, training is tailored to roles, and feedback is used to improve security measures.",
     "sourceSlides": [
       40,
       42,
@@ -416,15 +417,15 @@
     "tags": [
       "incident response and assurance"
     ],
-    "prompt": "Network controls are strong but staff avoid reporting mistakes for fear of embarrassment. What weakness remains?",
+    "prompt": "Network controls are strong, but staff avoid reporting mistakes for fear of embarrassment. What weakness remains?",
     "options": [
-      "The strength of encryption guarantees immediate reporting",
-      "Security culture may delay detection and response",
-      "Physical locks alone resolve reluctance to report",
-      "The system has no risk because tools are installed"
+      "Network security, since the firewalls are already in place",
+      "The security culture that technical controls cannot supply",
+      "Physical security of the facility entrance",
+      "Marking of the classification levels on files"
     ],
     "answer": 1,
-    "explanation": "A security-conscious culture supports timely reporting; technical controls cannot substitute for it.",
+    "explanation": "Slides 43 and 44: awareness initiatives promote a culture of security that supports reporting, while network security covers the technical controls.",
     "sourceSlides": [
       43,
       44,
@@ -439,15 +440,15 @@
     "tags": [
       "incident response and assurance"
     ],
-    "prompt": "Which result best demonstrates a complete improvement loop after an incident?",
+    "prompt": "Which outcome shows a full improvement loop after a security incident?",
     "options": [
-      "The team purchases a tool unrelated to the identified cause",
-      "Implemented, verified corrective controls",
-      "A new policy is announced but nobody checks its use",
-      "An incident report is filed without assigned corrective action"
+      "The incident is reported, closed, and filed for the annual audit",
+      "The incident is contained and all staff are briefed once more",
+      "Cause fixed, procedures updated, and a later audit confirms it",
+      "The incident is documented and the next audit is postponed"
     ],
-    "answer": 1,
-    "explanation": "The lesson links incident lessons, audits, policy updates and follow-up into continuing security improvement.",
+    "answer": 2,
+    "explanation": "Slides 29, 39, 40, and 46: forensic analysis finds the cause, policies are updated using feedback, and audits confirm compliance.",
     "sourceSlides": [
       29,
       39,

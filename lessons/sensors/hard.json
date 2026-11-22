@@ -7,19 +7,17 @@
     "tags": [
       "concept and information quality"
     ],
-    "prompt": "A project measures success only by the number of installed sensors. Which evidence better addresses its purpose?",
+    "prompt": "A planner assigns 'thinks' to the Sensor and 'sees' to the Decision-Maker. Which pairing is correct?",
     "options": [
-      "The average length of equipment model names",
-      "The total number of identical shipping cartons",
-      "The number of feeds regardless of interpretation",
-      "Useful information reaching its intended users"
+      "Sensor thinks; Decision-Maker sees; Shooter acts",
+      "Sensor sees; Decision-Maker acts; Shooter thinks",
+      "Sensor sees; Decision-Maker thinks; Shooter acts",
+      "Sensor acts; Decision-Maker thinks; Shooter sees"
     ],
-    "answer": 3,
-    "explanation": "The system-of-systems objective concerns information supporting understanding, not an equipment count alone.",
+    "answer": 2,
+    "explanation": "Page 7: the Sensor sees, the Decision-Maker thinks, and the Shooter acts.",
     "sourceSlides": [
-      6,
-      7,
-      9
+      7
     ]
   },
   {
@@ -30,18 +28,18 @@
     "tags": [
       "concept and information quality"
     ],
-    "prompt": "A faster feed contains contradictory observations. What is the sound conclusion?",
+    "prompt": "A team gets a sensor feed into the COP so that different systems function as one. Which term fits, and what then proves it works?",
     "options": [
-      "Contradiction disappears when more displays are installed",
-      "A sensor reading automatically overrides every other source",
-      "Fast delivery does not establish accuracy",
-      "Lower latency guarantees every observation is accurate"
+      "Interoperability; the ICD proves it works under real operational conditions",
+      "Integration; testing proves it keeps working under real conditions",
+      "Integration; shielding proves it works",
+      "Interoperability; redundancy proves it works"
     ],
-    "answer": 2,
-    "explanation": "Timeliness is valuable, but useful situational understanding still depends on data quality and interpretation.",
+    "answer": 1,
+    "explanation": "Pages 9 and 28: integration combines systems to function as one; interoperability is proven through testing under real conditions.",
     "sourceSlides": [
-      7,
-      18
+      9,
+      28
     ]
   },
   {
@@ -52,18 +50,17 @@
     "tags": [
       "concept and information quality"
     ],
-    "prompt": "An interface displays every raw observation equally, obscuring what users need. What is the strongest criticism?",
+    "prompt": "Which of the following is NOT a benefit the lesson attributes to integrated sensor data in the COP?",
     "options": [
-      "It proves every sensor is physically defective",
-      "It eliminates all human-factor concerns by showing everything",
-      "Available data is not necessarily usable insight",
-      "It is necessarily superior because it contains more records"
+      "Accurate counterfire against enemy firing positions",
+      "Efficient logistics",
+      "Collaborative planning",
+      "Spectrum licensing for civilian broadcasters"
     ],
-    "answer": 2,
-    "explanation": "Information management must support relevant understanding; indiscriminate volume can hinder it.",
+    "answer": 3,
+    "explanation": "Page 9 lists situational awareness, focused intelligence, collaborative planning, mobility and flexibility, efficient logistics and accurate counterfire.",
     "sourceSlides": [
-      9,
-      18
+      9
     ]
   },
   {
@@ -74,17 +71,16 @@
     "tags": [
       "concept and information quality"
     ],
-    "prompt": "An integration team proposes removing human responsibility because data flows automatically. What remains?",
+    "prompt": "A team says integration removes the need for end users to maintain equipment. Which statement corrects this?",
     "options": [
-      "No responsibility after the network connection succeeds",
-      "Decision authority and assigned responsibilities",
-      "Automatic authority for any sensor-generated instruction",
-      "Only the manufacturer's marketing responsibility"
+      "ASR handles all maintenance, including end-user operation and preventive maintenance of equipment",
+      "End-user hardware operation and preventive maintenance stay with the using unit",
+      "AIR handles end-user operation of all sensors",
+      "Integration transfers all maintenance to depot-level facilities"
     ],
     "answer": 1,
-    "explanation": "Automation does not remove the distinct roles and responsibilities described by the lesson.",
+    "explanation": "Page 27: ASR handles installation, repair and maintenance, but end-user operation and preventive maintenance stay with the using unit.",
     "sourceSlides": [
-      7,
       27
     ]
   },
@@ -96,18 +92,17 @@
     "tags": [
       "sensor types and roles"
     ],
-    "prompt": "A sensor name matches the task, but its environmental limits are unknown. What is justified?",
+    "prompt": "A UAS and an SUGV are both listed as mobile or remote platforms. What do they do for fixed sensors?",
     "options": [
-      "Treat all sensors within the category as interchangeable",
-      "Assume the category name guarantees all required performance",
-      "Choose solely by the device's popularity",
-      "Assess suitability under the expected conditions"
+      "Replace fixed sensors in the loop and the decision-maker",
+      "Relay sensor data to GHQ over BONTEX",
+      "Carry other sensors to where fixed ones can't reach",
+      "Provide the decision-maker's analysis"
     ],
-    "answer": 3,
-    "explanation": "A general capability description is not proof of performance under particular conditions.",
+    "answer": 2,
+    "explanation": "Page 15: UAS and SUGV carry other sensors to where fixed ones cannot reach.",
     "sourceSlides": [
-      10,
-      18
+      15
     ]
   },
   {
@@ -118,15 +113,15 @@
     "tags": [
       "sensor types and roles"
     ],
-    "prompt": "Two RDF observations are available, but neither has an uncertainty estimate. What should not be claimed?",
+    "prompt": "How many RDF measurements does the lesson say are needed to locate an unknown transmitter or vehicle?",
     "options": [
-      "That measurement quality matters to interpretation",
-      "That the observations provide directional information",
-      "That further validation may improve confidence",
-      "A guaranteed exact location from the bearings alone"
+      "One",
+      "Two or more",
+      "Exactly three",
+      "Four or more"
     ],
-    "answer": 3,
-    "explanation": "Multiple bearings help estimate position but do not justify an uncertainty-free claim.",
+    "answer": 1,
+    "explanation": "Page 10: two or more measurements locate an unknown transmitter or vehicle.",
     "sourceSlides": [
       10
     ]
@@ -139,18 +134,17 @@
     "tags": [
       "sensor types and roles"
     ],
-    "prompt": "Two platforms carry similar sensors but use different output interfaces. Which inference is invalid?",
+    "prompt": "Which pairing of sensor and user is correct?",
     "options": [
-      "Similar sensing roles guarantee plug-and-play integration",
-      "The receiving application may require adaptation",
-      "Interface documentation is relevant to compatibility",
-      "Payload capability and data compatibility are distinct"
+      "Thermal Imager: reconnaissance teams or forward observers",
+      "Sniper Fire Location Detector: reconnaissance teams for long-range observation",
+      "SUGV: forward observers for remote sensing and mapping",
+      "Ground-Based RDF: squads for squad-level SA"
     ],
     "answer": 0,
-    "explanation": "Functional similarity of sensors does not establish compatibility of their outputs or interfaces.",
+    "explanation": "Page 10 describes the Thermal Imager as used for long-range observation by recon teams or forward observers.",
     "sourceSlides": [
-      10,
-      16
+      10
     ]
   },
   {
@@ -161,18 +155,17 @@
     "tags": [
       "sensor types and roles"
     ],
-    "prompt": "A remote platform reduces exposure but adds operator training and maintenance needs. How should it be assessed?",
+    "prompt": "Which grouping of sensors by job is correct?",
     "options": [
-      "Compare acquisition cost with the existing platform's purchase cost",
-      "Rate exposure reduction using the platform's demonstrated technical performance",
-      "Use the current staffing plan to set the acceptance threshold",
-      "Consider the benefit alongside new support requirements"
+      "Optical Observation: UAS carrying payloads; Acoustic / RF Detection: Sniper Fire Location Detector, Thermal Imager and SUGV",
+      "Optical Observation: Thermal Imager; Acoustic / RF Detection: UAS and SUGV",
+      "Optical Observation: Thermal Imager; Acoustic / RF Detection: Sniper Fire Location Detector and Ground-Based RDF",
+      "Optical Observation: SUGV; Acoustic / RF Detection: Ground-Based RDF and Thermal Imager"
     ],
-    "answer": 3,
-    "explanation": "Capabilities have benefits and constraints; the lesson includes complexity, cost and human factors.",
+    "answer": 2,
+    "explanation": "Page 15 groups the Thermal Imager under Optical Observation, and the sniper fire detector and Ground-Based RDF under Acoustic / RF Detection.",
     "sourceSlides": [
-      10,
-      18
+      15
     ]
   },
   {
@@ -183,18 +176,17 @@
     "tags": [
       "interoperability and requirements"
     ],
-    "prompt": "Systems comply with the same network protocol but interpret fields differently. What remains unresolved?",
+    "prompt": "Which pairing of term and definition is correct?",
     "options": [
-      "Whether their cases have matching dimensions",
-      "Information meaning and interface compatibility",
-      "Whether the protocol names are spelled identically",
-      "Whether both systems use electricity"
+      "NISP: describes a system's interfaces and communication rules",
+      "ICD: describes a system's interfaces and communication rules",
+      "IOP: prescribes technical standards across an alliance",
+      "Open architecture: defines the connection points between national networks"
     ],
     "answer": 1,
-    "explanation": "Transport compatibility does not guarantee that exchanged information has the same meaning to both systems.",
+    "explanation": "Page 16: the ICD describes interfaces and communication rules; NISP prescribes alliance standards; IOP are connection points; open architecture allows add-ons.",
     "sourceSlides": [
-      16,
-      28
+      16
     ]
   },
   {
@@ -205,18 +197,17 @@
     "tags": [
       "interoperability and requirements"
     ],
-    "prompt": "An open-architecture proposal omits access control because interfaces are 'open.' What is wrong?",
+    "prompt": "Which list gives the three media of communication a sensor may ride on?",
     "options": [
-      "Access control applies only to closed proprietary systems",
-      "Open interfaces do not authorize unrestricted access",
-      "Open architecture requires publishing every protected record",
-      "Standards automatically provide all needed authorization"
+      "Fixed, mobile, and satellite communication",
+      "Tactical, strategic, and special purpose communication",
+      "Fixed, tactical, and commercial communication",
+      "Fixed, tactical, and special purpose communication"
     ],
-    "answer": 1,
-    "explanation": "Architectural openness supports integration; security and authorized access remain separate requirements.",
+    "answer": 3,
+    "explanation": "Page 17 lists fixed communication, tactical communication and special purpose communication.",
     "sourceSlides": [
-      16,
-      18
+      17
     ]
   },
   {
@@ -227,18 +218,17 @@
     "tags": [
       "interoperability and requirements"
     ],
-    "prompt": "A supplier provides a complete ICD but no test results. What can acceptance reasonably conclude?",
+    "prompt": "Cellular and satellite phones belong to which medium, and what guides their use?",
     "options": [
-      "An ICD makes environmental testing irrelevant",
-      "Documentation proves every implementation matches the interface",
-      "A written standard guarantees no implementation defects",
-      "Documented requirements, not verified behavior"
+      "Tactical communication, used on the move without restriction",
+      "Fixed communication, used as the backbone up to GHQ",
+      "Special purpose communication, used with utmost prudence guided by COMSEC policy",
+      "Special purpose communication, used as the bedrock of tactical voice on the move"
     ],
-    "answer": 3,
-    "explanation": "An ICD defines expected behavior; tests supply evidence that implementations satisfy it.",
+    "answer": 2,
+    "explanation": "Page 17 places videoconferencing, cellular and satellite phones under special purpose communication, used with utmost prudence guided by COMSEC policy.",
     "sourceSlides": [
-      16,
-      29
+      17
     ]
   },
   {
@@ -249,19 +239,17 @@
     "tags": [
       "interoperability and requirements"
     ],
-    "prompt": "Local delivery succeeds while higher-level users receive unusable data. Which acceptance boundary is needed?",
+    "prompt": "Which description matches PANET?",
     "options": [
-      "Only the supplier's internal production test",
-      "Only the first radio hop's connection indicator",
-      "End-to-end delivery and interpretation",
-      "Only a successful sensor power-on test"
+      "A telephone exchange up to GHQ",
+      "Combat net radio using ROIP and ad-hoc networks",
+      "Commercial devices for routine or administrative traffic and videoconferencing",
+      "A secured, managed Army intranet extended to brigades through DBTOCS"
     ],
-    "answer": 2,
-    "explanation": "Acceptance should follow the information to its intended users, not stop at an intermediate connection.",
+    "answer": 3,
+    "explanation": "Page 17: PANET is the secured, managed intranet extended to brigades through DBTOCS; BONTEX is the telephone exchange.",
     "sourceSlides": [
-      15,
-      17,
-      28
+      17
     ]
   },
   {
@@ -272,17 +260,16 @@
     "tags": [
       "context and constraints"
     ],
-    "prompt": "A demonstration passes, but its license and support expire before planned use. Which risk is underestimated?",
+    "prompt": "In the Marawi case, what could the existing SMVRS carry, and what was done about data?",
     "options": [
-      "Sustainment across the intended service period",
-      "The ability to photograph the prototype",
-      "The number of icons on the display",
-      "The existence of a technical demonstration"
+      "Data only; a second SMVRS was stood up for voice",
+      "Voice and data; a license was needed for the BFT",
+      "Voice only; a second SMVRS was stood up for data",
+      "Voice only; the drone network carried the data"
     ],
-    "answer": 0,
-    "explanation": "Readiness must last through intended use; a temporary demonstration can hide continuing dependencies.",
+    "answer": 2,
+    "explanation": "Page 20: the existing radio network (SMVRS) could carry voice only, so a second SMVRS was stood up for data.",
     "sourceSlides": [
-      18,
       20
     ]
   },
@@ -294,17 +281,16 @@
     "tags": [
       "context and constraints"
     ],
-    "prompt": "A design works domestically but is proposed unchanged for a coalition exercise. What must be revisited?",
+    "prompt": "Which description matches Coalition Operations as an operational context?",
     "options": [
-      "Partner standards, authorization and exchange requirements",
-      "Whether every internal network must be discarded",
-      "Whether a domestic test proves every partner interface",
-      "Only the spelling of participating nations' names"
+      "Interoperability with partner-nation systems on different standards",
+      "A secure, robust, reliable network linking leaders and soldiers across a dispersed battlespace",
+      "PA sensors feeding the ground-defense portion of the AFP Joint C4ISTAR",
+      "A COP shared across Major Services"
     ],
     "answer": 0,
-    "explanation": "Different partners and contexts require verification of their particular integration arrangements.",
+    "explanation": "Page 19 describes coalition operations as interoperability with partner-nation systems on different standards.",
     "sourceSlides": [
-      18,
       19
     ]
   },
@@ -316,17 +302,17 @@
     "tags": [
       "context and constraints"
     ],
-    "prompt": "More redundancy is proposed, but it increases cost and operator complexity. What is the best review approach?",
+    "prompt": "Which pairing of operational context and what integration must deliver is correct?",
     "options": [
-      "Ignore personnel and budget because only hardware matters",
-      "Balance resilience and support constraints",
-      "Assume more components always improve overall reliability",
-      "Reject redundancy in every resource-constrained system"
+      "Joint Operations: interoperability with partner-nation systems on different standards",
+      "Combined Arms Operations: a secure, robust, reliable network linking leaders and soldiers across a dispersed battlespace",
+      "Coalition Operations: sensors feeding the ground-defense portion of the AFP Joint C4ISTAR",
+      "Joint Operations: a secure, robust network linking leaders and soldiers only within one battalion, without sensor-fed SA for commanders"
     ],
     "answer": 1,
-    "explanation": "The lesson treats cost, complexity and human factors alongside reliability, requiring balanced assessment.",
+    "explanation": "Page 19 pairs Combined Arms Operations with a secure, robust, reliable network and sensor-fed SA.",
     "sourceSlides": [
-      18
+      19
     ]
   },
   {
@@ -337,18 +323,17 @@
     "tags": [
       "context and constraints"
     ],
-    "prompt": "A shielded device works in one test. Which claim exceeds the evidence?",
+    "prompt": "Which pairing of constraint and meaning is correct?",
     "options": [
-      "Further representative testing can strengthen confidence",
-      "It performed adequately under the tested conditions",
-      "It is immune to every electromagnetic disturbance",
-      "Shielding is one part of the protective design"
+      "Cost: developing, deploying, and maintaining sensor capability is expensive and must fit budget constraints",
+      "Data overload: older systems may not be compatible with new sensors and backward compatibility must be engineered in",
+      "Legacy integration: ISR sources generate more data than operators can process",
+      "Human factors: urban, desert and mountainous terrain affect reliability"
     ],
-    "answer": 2,
-    "explanation": "Protection and testing reduce risk; one result does not demonstrate immunity to all conditions.",
+    "answer": 0,
+    "explanation": "Page 18 lists cost as the expense of developing, deploying and maintaining sensor capability within budget constraints.",
     "sourceSlides": [
-      18,
-      29
+      18
     ]
   },
   {
@@ -359,15 +344,15 @@
     "tags": [
       "integration responsibilities and testing"
     ],
-    "prompt": "A fault spans sensor hardware, communications and user procedures. Which response fits the responsibilities described?",
+    "prompt": "Which statement about the ASR and the AIR is correct?",
     "options": [
-      "Coordinate AIR, ASR and users according to their roles",
-      "Assume shared responsibility means nobody owns any action",
-      "Assign everything to the user and exclude technical support",
-      "Assign everything to a vendor without institutional coordination"
+      "ASR installs, repairs and maintains C4ISTAR hardware and software in coordination with AIR",
+      "AIR installs, repairs and maintains all C4 hardware and software in coordination with ASR",
+      "ASR owns the ISTAR sensors while AIR owns the core C4 systems",
+      "ASR and AIR share end-user preventive maintenance"
     ],
     "answer": 0,
-    "explanation": "The lesson specifies complementary responsibilities; a cross-system fault requires coordination rather than a gap in ownership.",
+    "explanation": "Page 27: ASR handles installation, repair and maintenance of C4ISTAR hardware and software in coordination with AIR, which owns the ISTAR core systems.",
     "sourceSlides": [
       27
     ]
@@ -380,15 +365,15 @@
     "tags": [
       "integration responsibilities and testing"
     ],
-    "prompt": "An integration is declared interoperable solely because cables are connected. What evidence is missing?",
+    "prompt": "Which sequence matches 'combining applications as one system', 'proving data exchange under real conditions' and 'surviving one equipment failure'?",
     "options": [
-      "Correct usable information exchange under relevant conditions",
-      "Conformance of the physical connections to approved installation drawings",
-      "Matching data-rate specifications and the selected communication protocol family",
-      "Separate functional acceptance records for the connected hardware components"
+      "Integration, interoperability, redundancy",
+      "Interoperability, integration, redundancy",
+      "Integration, redundancy, interoperability",
+      "Redundancy, integration, interoperability"
     ],
     "answer": 0,
-    "explanation": "Interoperability concerns usable exchange between different systems; physical connection alone is insufficient evidence.",
+    "explanation": "Pages 28-29: integration combines systems, interoperability is proven under real conditions, and redundancy prevents one failure from compromising the system.",
     "sourceSlides": [
       28,
       29
@@ -402,15 +387,15 @@
     "tags": [
       "integration responsibilities and testing"
     ],
-    "prompt": "Two redundant components depend on the same untested support service. What should the review question?",
+    "prompt": "Which pairing of design requirement and purpose is correct?",
     "options": [
-      "Whether redundancy removes all system-level dependencies",
-      "Whether the shared dependency defeats the resilience objective",
-      "Whether identical labels guarantee independent operation",
-      "Whether component count alone proves availability"
+      "Redundancy: components replaced or upgraded without affecting the whole system",
+      "EMI shielding: failure of one piece of equipment does not compromise the system",
+      "Regular testing: protection against EMP",
+      "Modular design: components replaced or upgraded without affecting the whole system"
     ],
-    "answer": 1,
-    "explanation": "Redundancy should prevent a single failure compromising the system; shared dependencies need evaluation.",
+    "answer": 3,
+    "explanation": "Page 29: modular design allows components to be replaced or upgraded without affecting the whole system.",
     "sourceSlides": [
       29
     ]
@@ -423,17 +408,16 @@
     "tags": [
       "integration responsibilities and testing"
     ],
-    "prompt": "Tests expose a malfunction, but no team tracks correction or retesting. What is incomplete?",
+    "prompt": "Which statement about regular operational testing is correct?",
     "options": [
-      "The initial requirements-definition and scoping work",
-      "The baseline inventory and configuration-description record",
-      "The validation and responsibility loop",
-      "The acquisition and installation-acceptance process"
+      "It is performed only after a sensor has failed in contact and is reviewed in the after-action review by the using unit",
+      "It replaces the need for redundancy and shielding",
+      "It is done once at acceptance by the using unit",
+      "It must identify and address vulnerabilities or malfunctions before a sensor is trusted in the field"
     ],
-    "answer": 2,
-    "explanation": "Testing must lead to assigned correction and verification; discovering a problem alone does not establish readiness.",
+    "answer": 3,
+    "explanation": "Page 29: regular operational testing must identify and address vulnerabilities or malfunctions before a sensor is trusted in the field.",
     "sourceSlides": [
-      27,
       29
     ]
   }

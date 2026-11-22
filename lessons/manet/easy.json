@@ -7,15 +7,15 @@
     "tags": [
       "network concepts"
     ],
-    "prompt": "What distinguishes a MANET?",
+    "prompt": "In the lesson, what does the abbreviation MANET stand for?",
     "options": [
-      "A self-configuring mobile wireless network",
-      "Every node requires a permanent wired exchange",
-      "All communication depends on a public cellular tower",
-      "Only one immovable device may transmit"
+      "Military area network for engagement tasks",
+      "Managed access network for E-LynX terminals",
+      "Mobile analog network for emergency transmission",
+      "Mobile ad hoc network"
     ],
-    "answer": 0,
-    "explanation": "The lesson defines MANET as a self-configuring wireless network without established infrastructure.",
+    "answer": 3,
+    "explanation": "Page 11 states that MANET stands for mobile ad hoc network.",
     "sourceSlides": [
       11
     ]
@@ -28,15 +28,15 @@
     "tags": [
       "network concepts"
     ],
-    "prompt": "What does self-healing mean in this context?",
+    "prompt": "A MANET has a dynamic number of what, according to its main features?",
     "options": [
-      "Adapting connectivity when links or members change",
-      "Removing all need for network planning",
-      "Guaranteeing unlimited range between all nodes",
-      "Repairing damaged physical connectors automatically"
+      "Members in the net",
+      "Frequencies in the plan",
+      "Fixed relay sites",
+      "Voice groups per radio"
     ],
     "answer": 0,
-    "explanation": "Self-healing concerns network adaptation, not physical repair or guaranteed connectivity.",
+    "explanation": "Page 12 lists a dynamic number of members in the net among the main features of a MANET.",
     "sourceSlides": [
       12
     ]
@@ -49,18 +49,17 @@
     "tags": [
       "network concepts"
     ],
-    "prompt": "Which delivery type addresses an all-informed audience?",
+    "prompt": "Which delivery types does a MANET support, according to its main features?",
     "options": [
-      "Unicast",
-      "Offline archiving",
-      "Local storage",
-      "Broadcast"
+      "Unicast and broadcast only",
+      "Unicast, multicast and broadcast",
+      "Multicast and simulcast",
+      "Point-to-point and trunked"
     ],
-    "answer": 3,
-    "explanation": "Broadcast distributes traffic broadly, unlike unicast to an individual destination.",
+    "answer": 1,
+    "explanation": "Page 12 lists support for unicast, multicast and broadcast among the main MANET features.",
     "sourceSlides": [
-      12,
-      17
+      12
     ]
   },
   {
@@ -71,18 +70,17 @@
     "tags": [
       "network concepts"
     ],
-    "prompt": "Why is quality of service relevant?",
+    "prompt": "Which of the following is listed among the challenges of modern tactical communication?",
     "options": [
-      "Every traffic type has identical service requirements",
-      "It removes the need to consider user demand",
-      "Different traffic competes for limited network resources",
-      "It makes all link interference physically impossible"
+      "Reducing the data capacity per network",
+      "Limiting the number of voice groups per hertz",
+      "Dealing with electronic warfare",
+      "Avoiding any link with harsh conditions"
     ],
     "answer": 2,
-    "explanation": "QoS helps manage competing service requirements under capacity and link constraints.",
+    "explanation": "Page 9 lists adapting to harsh link conditions, dealing with electronic warfare and facing interference from other transmitters.",
     "sourceSlides": [
-      9,
-      12
+      9
     ]
   },
   {
@@ -93,15 +91,15 @@
     "tags": [
       "capabilities and security"
     ],
-    "prompt": "Which services are identified among the E-LynX capabilities?",
+    "prompt": "Which services does the E-LynX provide simultaneously through its narrow and wide band waveforms?",
     "options": [
-      "Voice, data and Blue Force Tracking",
-      "Only television reception for public broadcasts",
-      "Only file storage with no network exchange",
-      "Only analog voice without any data support"
+      "Voice, video and electronic attack",
+      "Data, telemetry and radar tracking",
+      "Voice, text and satellite relay",
+      "Voice, data and Blue Force Tracking"
     ],
-    "answer": 0,
-    "explanation": "The lesson lists simultaneous voice, data and BFT among the system's capabilities.",
+    "answer": 3,
+    "explanation": "Page 28 lists simultaneous voice, data and Blue Force Tracking services via narrow and wide band waveforms.",
     "sourceSlides": [
       28
     ]
@@ -114,15 +112,15 @@
     "tags": [
       "capabilities and security"
     ],
-    "prompt": "What protects radio-management exchanges in the lesson?",
+    "prompt": "Management security in the E-LynX is based on which protocol?",
     "options": [
-      "SNMPv3 confidentiality and authentication",
-      "The color of the radio's display screen",
-      "Removal of all management access records",
-      "An unrestricted shared management account"
+      "SNMP version 3",
+      "Embedded TRANSEC",
+      "Frequency hopping",
+      "Anti-tamper and erase"
     ],
     "answer": 0,
-    "explanation": "The lesson identifies SNMPv3 as providing confidentiality and authentication for management traffic.",
+    "explanation": "Page 30 states that management security is based on SNMP (v3), supporting confidentiality and authentication.",
     "sourceSlides": [
       30
     ]
@@ -135,17 +133,16 @@
     "tags": [
       "capabilities and security"
     ],
-    "prompt": "Which waveform distinction is stated in the lesson?",
+    "prompt": "Which waveform is compatible with Elbit legacy systems and carries encrypted analog and digital voice?",
     "options": [
-      "Neither supports any form of voice service",
-      "STANAG 4204 is clear; CNR supports encrypted voice",
-      "STANAG 4204 is encrypted; CNR is clear-only",
-      "Both are described as clear-only data waveforms"
+      "CNR",
+      "STANAG 4204",
+      "NB",
+      "WMA-HC"
     ],
-    "answer": 1,
-    "explanation": "These are the source's waveform characteristics, not a claim that all interoperability is encrypted.",
+    "answer": 0,
+    "explanation": "Page 36 lists compatibility with Elbit legacy systems, encryption and analog and digital voice for the CNR waveform.",
     "sourceSlides": [
-      35,
       36
     ]
   },
@@ -157,15 +154,15 @@
     "tags": [
       "capabilities and security"
     ],
-    "prompt": "What role does frequency hopping have in the lesson?",
+    "prompt": "Which built-in information security capability allows the radio to protect itself against tampering and to erase its keys?",
     "options": [
-      "A method for increasing battery capacity indefinitely",
-      "A guarantee that all receivers hear every message",
-      "A replacement for every access-control requirement",
-      "Contributing to transmission protection"
+      "SNMP version 3",
+      "Frequency hopping",
+      "Anti-tamper and erase abilities",
+      "Keys management and loading"
     ],
-    "answer": 3,
-    "explanation": "Frequency hopping contributes to protection but does not guarantee delivery or replace other controls.",
+    "answer": 2,
+    "explanation": "Page 30 lists anti-tamper and erase abilities among the built-in security capabilities of all E-LynX configurations.",
     "sourceSlides": [
       30
     ]
@@ -178,15 +175,15 @@
     "tags": [
       "equipment and maintenance"
     ],
-    "prompt": "What should a visual inspection include?",
+    "prompt": "During the preventive maintenance visual inspection, cables are inspected for which conditions?",
     "options": [
-      "Software versions, installed waveform files and approved operating presets",
-      "Node identity, network membership and reported service statistics",
-      "Connectors, casing, controls and cable condition",
-      "Battery status, receiver quality and packet delivery rate"
+      "Corrosion and bent pins",
+      "Fraying, cuts and broken insulation",
+      "Cracks and other external damage",
+      "Rough action and interference of buttons"
     ],
-    "answer": 2,
-    "explanation": "The source checks damage, corrosion, pins, controls, casing and damaged cable insulation.",
+    "answer": 1,
+    "explanation": "Page 25 gives fraying, cuts and broken insulation for cables; the other options belong to connectors, the radio body and buttons.",
     "sourceSlides": [
       25
     ]
@@ -199,15 +196,15 @@
     "tags": [
       "equipment and maintenance"
     ],
-    "prompt": "Which cleaning method is described?",
+    "prompt": "If dirt is difficult to remove during cleaning, what is the cloth dampened with?",
     "options": [
-      "A soft cloth with an alcohol-based cleaner applied to every exterior surface",
-      "A damp cloth followed by a heated-air cycle to dry the equipment",
-      "Compressed-air cleaning followed by an oiled wipe over the exterior components",
-      "A soft clean cloth, with mild soap and water when needed"
+      "Alcohol-based solvent",
+      "Fuel or oil",
+      "A wire brush with water",
+      "Mild soap and water"
     ],
     "answer": 3,
-    "explanation": "The source describes gentle cleaning; practical maintenance must follow approved equipment instructions.",
+    "explanation": "Page 26 states that, if dirt is difficult to remove, the cloth is dampened with mild soap and water.",
     "sourceSlides": [
       26
     ]
@@ -220,15 +217,15 @@
     "tags": [
       "equipment and maintenance"
     ],
-    "prompt": "Which sequence matches the troubleshooting model?",
+    "prompt": "In the four-step fault procedure, fault identification is followed by which step?",
     "options": [
-      "Isolate, publish, procure, classify",
-      "Verify, replace everything, ignore, store",
-      "Identify, isolate, repair, verify",
-      "Repair, discard evidence, guess, deploy"
+      "Fault repair",
+      "Fault isolation",
+      "Fault verification",
+      "Preventive inspection"
     ],
-    "answer": 2,
-    "explanation": "The four steps are fault identification, fault isolation, repair and repair verification including BIT.",
+    "answer": 1,
+    "explanation": "Page 27 shows the four steps in order: fault identification, fault isolation, fault repair, repair verification.",
     "sourceSlides": [
       27
     ]
@@ -241,15 +238,15 @@
     "tags": [
       "equipment and maintenance"
     ],
-    "prompt": "What is the vehicular adapter's general role?",
+    "prompt": "What does the VS50-VA vehicular adapter provide for one RT-7200 unit?",
     "options": [
-      "Mechanical support, power and control for the radio",
-      "Replacing all radio networking software with paper records",
-      "Removing all need for approved vehicle installation",
-      "Turning the handheld into a satellite without other equipment"
+      "Antenna tuning, key loading and encryption",
+      "Battery charging, GPS and data storage",
+      "Mechanical support, power and control functions",
+      "Audio amplification and intercom only"
     ],
-    "answer": 0,
-    "explanation": "The adapter provides support, power and control; its presence does not establish every system capability.",
+    "answer": 2,
+    "explanation": "Page 47 states that the adapter provides mechanical support, power and control functions for one RT-7200 unit.",
     "sourceSlides": [
       47
     ]
@@ -262,17 +259,16 @@
     "tags": [
       "diagnostics and configuration"
     ],
-    "prompt": "What does the network menu help a technician inspect?",
+    "prompt": "Which Self Information detail is the Node ID set by the operator to identify each radio?",
     "options": [
-      "Personnel promotion recommendations",
-      "Node and network-interface information",
-      "Public website advertising statistics",
-      "Vehicle fuel consumption forecasts"
+      "MAC SPEC",
+      "Red IP",
+      "MAC",
+      "Red EX 0"
     ],
-    "answer": 1,
-    "explanation": "The network menu exposes node and interface information used in authorized diagnostics.",
+    "answer": 2,
+    "explanation": "Page 55 describes MAC as the Node ID set by the operator to identify each radio.",
     "sourceSlides": [
-      54,
       55
     ]
   },
@@ -284,15 +280,15 @@
     "tags": [
       "diagnostics and configuration"
     ],
-    "prompt": "Which measurement expresses received signal quality relative to noise?",
+    "prompt": "Which Nodes Information parameter shows the distance between the remote node and the local node?",
     "options": [
-      "Node identifier",
-      "Elapsed operating time",
-      "RSSI alone",
-      "SNR"
+      "RSSI",
+      "Dist",
+      "SNR",
+      "D.Rate"
     ],
-    "answer": 3,
-    "explanation": "SNR is signal-to-noise ratio; RSSI describes received signal strength rather than that ratio.",
+    "answer": 1,
+    "explanation": "Page 56 describes Dist as the distance between the remote node and the local node.",
     "sourceSlides": [
       56
     ]
@@ -305,15 +301,15 @@
     "tags": [
       "diagnostics and configuration"
     ],
-    "prompt": "What is a purpose of the Test menu?",
+    "prompt": "Which menu enables testing of the RX and TX paths, including the vehicular adapter?",
     "options": [
-      "Automatically approve every maintenance action",
-      "Check RX/TX paths and view diagnostic information",
-      "Replace personnel authorization for protected settings",
-      "Determine a user's military rank from voice traffic"
+      "Test",
+      "Network",
+      "Password (PSWD)",
+      "Self Information"
     ],
-    "answer": 1,
-    "explanation": "The source describes tests of receive/transmit paths and views of versions, counters and network performance.",
+    "answer": 0,
+    "explanation": "Page 58 states that the Test menu enables testing of the RX and TX paths including the vehicular adapter.",
     "sourceSlides": [
       58
     ]
@@ -326,15 +322,15 @@
     "tags": [
       "diagnostics and configuration"
     ],
-    "prompt": "Why are protected configuration levels used?",
+    "prompt": "Which level of the PSWD menu includes the loading of software updates?",
     "options": [
-      "Protected menus eliminate all human error",
-      "Different functions require controlled access",
-      "Passwords increase antenna range directly",
-      "Every user should share every maintenance privilege"
+      "Secure level",
+      "Operator level",
+      "Network level",
+      "Test level"
     ],
-    "answer": 1,
-    "explanation": "The lesson separates operator and secure-level functions to control access to configuration activities.",
+    "answer": 0,
+    "explanation": "Page 60 states that the operator level covers operational parameters and the secure level covers software updates.",
     "sourceSlides": [
       60
     ]
@@ -347,18 +343,17 @@
     "tags": [
       "integration and assurance"
     ],
-    "prompt": "What role does the integrator serve?",
+    "prompt": "Which type of routing is shown with the Integrator in the lesson?",
     "options": [
-      "Supply unlimited capacity without a radio link",
-      "Make every legacy system natively identical",
-      "Connect different communication services and systems",
-      "Replace all information security requirements"
+      "Fixed-route switching",
+      "Source routing",
+      "Dynamic routing",
+      "Circuit-switched routing"
     ],
     "answer": 2,
-    "explanation": "The integrator connects services across legacy and newer systems; compatibility still needs verification.",
+    "explanation": "Page 71 shows dynamic routing with the Integrator.",
     "sourceSlides": [
-      69,
-      70
+      71
     ]
   },
   {
@@ -369,15 +364,15 @@
     "tags": [
       "integration and assurance"
     ],
-    "prompt": "Which practice is emphasized for integration?",
+    "prompt": "Which list gives the best practices shown for the Integrator?",
     "options": [
-      "Forward every traffic type everywhere by default",
-      "Remove all separation between unrelated services",
-      "Assume security is unnecessary on internal links",
-      "Limit unnecessary traffic and prevent traffic leakage"
+      "Allow traffic leaking, security, reduce traffic",
+      "Deny traffic leaking, security, increase traffic",
+      "Deny traffic leaking, redundancy, reduce traffic",
+      "Deny traffic leaking, security, reduce traffic"
     ],
     "answer": 3,
-    "explanation": "The source highlights reduced traffic, security and preventing leakage across integration boundaries.",
+    "explanation": "Page 70 lists best practices, deny traffic leaking, security and reduce traffic, for the Integrator.",
     "sourceSlides": [
       70
     ]
@@ -390,17 +385,16 @@
     "tags": [
       "integration and assurance"
     ],
-    "prompt": "Why distinguish voice integration from data integration?",
+    "prompt": "Which integration is presented separately from voice integration in the lesson?",
     "options": [
-      "Voice and data always use identical application paths",
-      "Working voice proves all video and position data arrive",
-      "Success for one service does not establish the other",
-      "Only data needs a receiving application"
+      "Key-fill integration",
+      "Waveform integration",
+      "Power integration",
+      "Data, positions and video integration"
     ],
-    "answer": 2,
-    "explanation": "The lesson treats services separately; each required service needs appropriate integration and verification.",
+    "answer": 3,
+    "explanation": "Pages 72 and 73 present data, positions and video integration separately from voice integration.",
     "sourceSlides": [
-      69,
       72,
       73
     ]
@@ -413,18 +407,17 @@
     "tags": [
       "integration and assurance"
     ],
-    "prompt": "What provides evidence after a network repair?",
+    "prompt": "Which step of the four-step fault procedure includes the built-in test (BIT)?",
     "options": [
-      "A replacement part's unopened packaging",
-      "Verification tests and observed service results",
-      "The technician's confidence without measurements",
-      "A photograph of the equipment label alone"
+      "Fault identification",
+      "Fault verification",
+      "Fault isolation",
+      "Fault repair"
     ],
     "answer": 1,
-    "explanation": "Repair verification should demonstrate the relevant network or service behavior, not just a completed action.",
+    "explanation": "Page 27 shows repair verification, including BIT, as the fourth step.",
     "sourceSlides": [
-      27,
-      67
+      27
     ]
   }
 ]

@@ -7,15 +7,15 @@
     "tags": [
       "agreement and governance"
     ],
-    "prompt": "A partner asks for a protected file during a rehearsal, but staff cannot confirm that the specific transfer has been authorized. What should they do first?",
+    "prompt": "Which statement describes the Controlled Sharing guideline?",
     "options": [
-      "Verify that the proposed release is authorized under the applicable process.",
-      "Send it to the partner and record the authorization later.",
-      "Use an approved channel and assume that the request is enough authority.",
-      "Send the file to a previously approved recipient from the same organization."
+      "Share with any partner nation as long as its staff hold a clearance",
+      "Share it first and document the exchange afterward",
+      "Share it through the originating unit only",
+      "Share with partner nations only through authorized entities"
     ],
-    "answer": 0,
-    "explanation": "The lesson requires controlled sharing with authorized entities through a documented process.",
+    "answer": 3,
+    "explanation": "Slide 36 says to follow protocols for sharing classified information with partner nations, ensuring it is shared only with authorized entities.",
     "sourceSlides": [
       20,
       26,
@@ -30,15 +30,15 @@
     "tags": [
       "agreement and governance"
     ],
-    "prompt": "A recipient says protection is entirely the sender's responsibility. Which correction fits the lesson?",
+    "prompt": "Which pairing of GSOMIA principle and sub-heading is correct?",
     "options": [
-      "Only the original classifier has any responsibility",
-      "Both parties have protection and accountability duties",
-      "Recipients acquire ownership and may ignore conditions",
-      "Security obligations end as soon as delivery succeeds"
+      "Compliance and Accountability: Trust Building and Shared Responsibilities",
+      "Mutual Trust and Cooperation: Adherence to Standards and Accountability",
+      "Mutual Trust and Cooperation: Trust Building and Shared Responsibilities",
+      "Information Sharing Protocols: Trust Building and Controlled Sharing"
     ],
-    "answer": 1,
-    "explanation": "Shared responsibility and accountability continue across an authorized information exchange.",
+    "answer": 2,
+    "explanation": "Slide 24 gives Trust Building and Shared Responsibilities under Mutual Trust and Cooperation; Slide 25 gives Adherence to Standards and Accountability under Compliance and Accountability.",
     "sourceSlides": [
       24,
       25
@@ -52,15 +52,15 @@
     "tags": [
       "agreement and governance"
     ],
-    "prompt": "A file remains secret but its content is changed without authorization. Which property is directly affected?",
+    "prompt": "Which pairing of GSOMIA principle and listed measure is correct?",
     "options": [
-      "Integrity",
-      "Confidentiality",
-      "Storage efficiency",
-      "Physical availability only"
+      "Confidentiality: Data Accuracy",
+      "Integrity: Information Security",
+      "Compliance: Information Security",
+      "Integrity: Data Accuracy"
     ],
-    "answer": 0,
-    "explanation": "Unauthorized alteration compromises integrity even when no disclosure has been established.",
+    "answer": 3,
+    "explanation": "Slide 23 lists Information Security under Confidentiality and Data Accuracy under Integrity.",
     "sourceSlides": [
       23
     ]
@@ -73,15 +73,15 @@
     "tags": [
       "agreement and governance"
     ],
-    "prompt": "An audit identifies repeated confusion in a handling procedure. What is the appropriate follow-up?",
+    "prompt": "Audit feedback is used to update policies and procedures under which guideline?",
     "options": [
-      "Archive the finding without changing the confusing step",
-      "Cancel future audits because this one found a problem",
-      "Correct the confusing procedure and communicate the revised handling requirements",
-      "Treat every user as authorized to improvise procedures"
+      "Compliance and auditing",
+      "Access monitoring",
+      "Continuous improvement",
+      "Incident management"
     ],
     "answer": 2,
-    "explanation": "Review findings should feed improvements and clear guidance, rather than remain unused records.",
+    "explanation": "Slide 46 under Continuous Improvement says to incorporate feedback from audits, incident reports, and personnel; Slide 29 gives the matching principle.",
     "sourceSlides": [
       29,
       46
@@ -95,15 +95,15 @@
     "tags": [
       "agreement and governance"
     ],
-    "prompt": "Staff cannot find the current security procedure among several versions. What addresses the governance problem?",
+    "prompt": "Keeping detailed, up-to-date and accessible records of security policies, procedures, and compliance efforts is which guideline?",
     "options": [
-      "Maintain controlled, current procedures for authorized staff",
-      "Allow each employee to choose a preferred old version",
-      "Publish every protected compliance record on the internet",
-      "Delete all procedures so staff can rely on memory"
+      "Documentation",
+      "Compliance checks",
+      "External reviews",
+      "Access monitoring"
     ],
     "answer": 0,
-    "explanation": "Current, accessible documentation supports consistent compliance; access still follows authorization.",
+    "explanation": "Slide 41 lists Documentation: keep detailed records of security policies, procedures, and compliance efforts, up to date and accessible.",
     "sourceSlides": [
       41
     ]
@@ -116,15 +116,15 @@
     "tags": [
       "classification and handling"
     ],
-    "prompt": "A document is copied into a new format. Which handling issue must remain visible?",
+    "prompt": "Which statement matches the Classification Levels guideline?",
     "options": [
-      "The original author's identity and the file-creation timestamp",
-      "The conversion application's version and output format settings",
-      "Its applicable classification and handling markings",
-      "The document's existing filename and internal reference number"
+      "Establish levels based on the rank of the person receiving the information",
+      "Define clear levels, such as Top Secret, Secret, Confidential, Unclassified",
+      "Limit classification to Top Secret and Secret only",
+      "Mark information only when sharing with partners"
     ],
-    "answer": 2,
-    "explanation": "A format change does not remove sensitivity or the need to convey applicable handling requirements.",
+    "answer": 1,
+    "explanation": "Slide 30 says to define clear classification levels, for example Top Secret, Secret, Confidential, and Unclassified, based on sensitivity and impact.",
     "sourceSlides": [
       21,
       30
@@ -138,15 +138,15 @@
     "tags": [
       "classification and handling"
     ],
-    "prompt": "An approved store is full and an employee proposes a personal cloud account. What is the best response?",
+    "prompt": "Under Information Classification and Handling, which of the following belongs to Handling Procedures?",
     "options": [
-      "Send the file to several colleagues for safekeeping",
-      "Use the account and remove classification markings",
-      "Use the personal account if its password is long",
-      "Arrange secure storage through an authorized channel before proceeding"
+      "Secure storage",
+      "Role-based access",
+      "Forensic analysis",
+      "External reviews"
     ],
-    "answer": 3,
-    "explanation": "Capacity pressure does not justify moving protected information outside authorized storage arrangements.",
+    "answer": 0,
+    "explanation": "Slide 31 lists secure storage and transmission protocols as the handling procedures.",
     "sourceSlides": [
       31
     ]
@@ -159,15 +159,15 @@
     "tags": [
       "classification and handling"
     ],
-    "prompt": "A discarded drive still contains recoverable protected files. Which control failed?",
+    "prompt": "A drive holding recoverable classified files is thrown away. Which guideline was not followed?",
     "options": [
-      "Role-specific instruction scheduling only",
-      "Document classification terminology only",
-      "Partner liaison appointment procedures",
-      "Secure disposal"
+      "Marking information with its level",
+      "Transmission protocols for sharing",
+      "Background checks and clearances",
+      "Destruction of information"
     ],
     "answer": 3,
-    "explanation": "Disposal must prevent information recovery; deleting an index or discarding a readable medium is insufficient.",
+    "explanation": "Slide 32 requires the secure destruction of classified information so that it cannot be recovered without authorization.",
     "sourceSlides": [
       32
     ]
@@ -180,15 +180,15 @@
     "tags": [
       "classification and handling"
     ],
-    "prompt": "A colleague offers an encrypted consumer app not approved for the information. What is missing?",
+    "prompt": "A colleague proposes sending classified material through an unapproved consumer app. Which guideline is ignored?",
     "options": [
-      "A personal assurance that the encryption sounds strong",
-      "More recipients to confirm the message arrived",
-      "Authorization for that channel and handling method",
-      "A larger icon for the application on the phone"
+      "Secure storage: physical and electronic security",
+      "Secure transmission: encryption and secure channels",
+      "Marking information: showing the classification level",
+      "Destruction of information: preventing recovery"
     ],
-    "answer": 2,
-    "explanation": "Encryption is one safeguard, not evidence that a channel is authorized for a specific information exchange.",
+    "answer": 1,
+    "explanation": "Slide 37 requires encryption and secure channels such as encrypted email or secure messaging systems for transmitting classified information.",
     "sourceSlides": [
       31,
       37
@@ -202,15 +202,15 @@
     "tags": [
       "classification and handling"
     ],
-    "prompt": "A visitor reaches an unattended room containing protected files. Which improvement directly addresses this gap?",
+    "prompt": "A visitor walks unchallenged into a room where classified files are kept. Which guideline addresses this gap?",
     "options": [
-      "Ask staff to stop marking documents as sensitive",
-      "Increase network bandwidth to the room's computers",
-      "Control and monitor authorized facility access",
-      "Change the files' folder names without restricting entry"
+      "Network security: firewalls and intrusion detection systems",
+      "Physical security: restrict access to storage areas",
+      "Access monitoring: reviewing access logs",
+      "Awareness initiatives: promoting a security culture"
     ],
-    "answer": 2,
-    "explanation": "The scenario exposes a physical access failure; network capacity or naming changes do not correct it.",
+    "answer": 1,
+    "explanation": "Slide 45 says to restrict physical access to areas where sensitive information is stored or processed, with controlled access and monitoring.",
     "sourceSlides": [
       45
     ]
@@ -223,15 +223,15 @@
     "tags": [
       "access and sharing"
     ],
-    "prompt": "A cleared officer requests a file unrelated to assigned duties. What should determine access?",
+    "prompt": "A cleared officer requests a file unrelated to assigned duties. Which further condition decides access?",
     "options": [
-      "Whether the file is small enough to email",
-      "Whether a legitimate need-to-know exists",
-      "Whether the officer has worked there longer",
-      "Whether the officer is interested in the topic"
+      "Seniority of the officer",
+      "Approval of the partner nation",
+      "A signed acknowledgment of the agreement",
+      "A legitimate need to know"
     ],
-    "answer": 1,
-    "explanation": "Clearance is necessary where applicable, but it does not establish a need-to-know for every file.",
+    "answer": 3,
+    "explanation": "Slides 22 and 33 limit access to those with appropriate clearance and a legitimate need to know; clearance alone is not enough.",
     "sourceSlides": [
       22,
       33
@@ -245,15 +245,15 @@
     "tags": [
       "access and sharing"
     ],
-    "prompt": "An employee changes duties but retains the former role's permissions. Which action fits role-based access?",
+    "prompt": "An employee changes duties but keeps the former role's permissions. Which action fits role-based access?",
     "options": [
-      "Disable access logging so old permissions are less visible",
-      "Review permissions against the new duties",
-      "Give every colleague the same permissions for fairness",
-      "Keep all earlier permissions as a reward for experience"
+      "Keep the old permissions in case the officer needs them again later",
+      "Limit access to the information necessary for the new duties",
+      "Add the new permissions without removing the old ones",
+      "Grant access by clearance level alone"
     ],
     "answer": 1,
-    "explanation": "Role-based permissions must reflect current responsibilities rather than accumulate indefinitely.",
+    "explanation": "Slide 34 says role-based access controls give individuals only the information necessary for their duties.",
     "sourceSlides": [
       34
     ]
@@ -266,15 +266,15 @@
     "tags": [
       "access and sharing"
     ],
-    "prompt": "Reviewers see an unusual sequence of file accesses. What evidence is most useful initially?",
+    "prompt": "Which record would show reviewers who opened a classified file, when, and why?",
     "options": [
-      "Current user-clearance records and the approved project-access roster",
-      "Access logs identifying users, times and purposes",
-      "The file's classification marking and approved storage configuration",
-      "The account's authentication settings and latest security-training record"
+      "The audit trail of access logs",
+      "The background check file",
+      "The classification marking",
+      "The role-specific training record"
     ],
-    "answer": 1,
-    "explanation": "Logs allow reviewers to examine the access pattern and establish facts without assuming wrongdoing from a pattern alone.",
+    "answer": 0,
+    "explanation": "Slide 35 says audit trails log who accessed classified information, when, and for what purpose, and are reviewed for anomalies.",
     "sourceSlides": [
       35
     ]
@@ -287,15 +287,15 @@
     "tags": [
       "access and sharing"
     ],
-    "prompt": "An authorized partner asks for an undocumented side-channel transfer. Which response fits the lesson?",
+    "prompt": "An authorized partner asks for a side-channel transfer that will not be documented. Which response fits the lesson?",
     "options": [
-      "Approve the transfer because the partner is familiar",
-      "Ask the partner to rename the file before receipt",
-      "Send it without records if no money changes hands",
-      "Use the authorized exchange process and record it"
+      "Proceed, because the partner is an authorized entity of the agreement",
+      "Proceed and document the transfer afterward",
+      "Decline until the transfer is authorized and documented",
+      "Proceed if the side channel is encrypted"
     ],
-    "answer": 3,
-    "explanation": "Recipient authorization does not waive secure exchange procedures or documentation requirements.",
+    "answer": 2,
+    "explanation": "Slide 36 requires that all information-sharing activities are authorized and documented according to GSOMIA guidelines.",
     "sourceSlides": [
       26,
       36
@@ -309,15 +309,15 @@
     "tags": [
       "access and sharing"
     ],
-    "prompt": "A vetted employee has unexplained accesses outside normal duties. What is justified?",
+    "prompt": "A vetted employee shows unexplained accesses outside normal duties. Which measure detects such anomalies?",
     "options": [
-      "Review the accesses under established procedures",
-      "Dismiss the concern because vetting guarantees safety",
-      "Conclude guilt without reviewing any evidence",
-      "Delete the logs to protect the person's reputation"
+      "Regular review of access logs",
+      "A repeat of the background check at each access",
+      "Physical access control at the work area",
+      "Encryption of each file during storage"
     ],
     "answer": 0,
-    "explanation": "Vetting and continuing monitoring are complementary; unusual access requires an evidence-based review.",
+    "explanation": "Slide 35 says to regularly review access logs for anomalies; Slide 33 background checks happen before access is granted.",
     "sourceSlides": [
       33,
       35
@@ -331,15 +331,15 @@
     "tags": [
       "incident response and assurance"
     ],
-    "prompt": "A user may have sent a protected file to the wrong recipient. What should happen next?",
+    "prompt": "A protected file may have gone to the wrong recipient. What is the next step?",
     "options": [
-      "Wait until the recipient publicly posts the information",
-      "Ask unrelated colleagues to forward the file for comparison",
-      "Delete all messages and assume the issue is resolved",
-      "Report the suspected compromise through the required channel"
+      "Wait for the next scheduled audit before reporting it",
+      "Ask the recipient to delete it and say nothing",
+      "Report it immediately to the relevant authorities",
+      "Report it only if the recipient confirms misuse"
     ],
-    "answer": 3,
-    "explanation": "The reporting obligation in the lesson includes suspected compromise; response should follow the established process.",
+    "answer": 2,
+    "explanation": "Slides 27 and 38 require immediate notification of any breach or suspected breach to the relevant authorities.",
     "sourceSlides": [
       27,
       38
@@ -353,15 +353,15 @@
     "tags": [
       "incident response and assurance"
     ],
-    "prompt": "An incident report lists only 'something went wrong.' What should be added?",
+    "prompt": "An incident report says only that something went wrong. What must the documentation include?",
     "options": [
-      "Speculation presented as confirmed attribution",
-      "A claim that no investigation is necessary",
-      "Known nature, affected information and actions taken",
-      "Unrelated personnel gossip from the previous year"
+      "The nature of the breach, the affected information, and actions taken",
+      "The names and ranks of everyone who handled the file recently, with their units",
+      "The classification level of the agreement",
+      "The cost of the replacement system"
     ],
-    "answer": 2,
-    "explanation": "The lesson calls for useful incident documentation, distinguishing known facts from unsupported speculation.",
+    "answer": 0,
+    "explanation": "Slide 38 under Incident Documentation lists the nature of the breach, the affected information, and the actions taken.",
     "sourceSlides": [
       38,
       39
@@ -375,15 +375,15 @@
     "tags": [
       "incident response and assurance"
     ],
-    "prompt": "Containment has stopped further exposure. What remains important?",
+    "prompt": "Which pair of measures falls under Incident Response?",
     "options": [
-      "Erase all evidence because exposure has stopped",
-      "Investigate the cause and manage recovery",
-      "Resume every service without checking protection",
-      "Close the incident before documenting actions"
+      "Incident reporting; incident documentation and notification",
+      "Compliance checks; external reviews",
+      "Security training; awareness initiatives",
+      "Containment and recovery; forensic analysis"
     ],
-    "answer": 1,
-    "explanation": "Containment is not the end of response; root-cause analysis and controlled recovery remain necessary.",
+    "answer": 3,
+    "explanation": "Slide 39 lists containment and recovery to mitigate impact and forensic analysis to find the cause under Incident Response.",
     "sourceSlides": [
       39
     ]
@@ -396,15 +396,15 @@
     "tags": [
       "incident response and assurance"
     ],
-    "prompt": "An external review finds a recurring control failure. What completes the assurance cycle?",
+    "prompt": "A third-party review reveals a recurring control failure. What closes the assurance cycle?",
     "options": [
-      "Track corrective action and verify the improvement",
-      "Stop independent reviews to avoid future findings",
-      "Replace evidence with a favorable verbal assurance",
-      "File the report and assume the risk disappeared"
+      "Repeat the audit before any change is made to anything",
+      "Update policies and procedures using the findings",
+      "File the report as documentation only",
+      "Retrain only the auditors"
     ],
-    "answer": 0,
-    "explanation": "Audit findings should lead to implemented and checked improvements, not merely a completed report.",
+    "answer": 1,
+    "explanation": "Slide 40 has external reviews give independent evaluations, and Slide 46 says to use their feedback to improve security measures.",
     "sourceSlides": [
       40,
       46
@@ -418,15 +418,15 @@
     "tags": [
       "incident response and assurance"
     ],
-    "prompt": "A security program buys tools but staff still mishandle information. What is missing?",
+    "prompt": "A program buys security tools but staff still mishandle information. What is missing?",
     "options": [
-      "A rule that technical controls eliminate human duties",
-      "A policy of hiding every incident from the workforce",
-      "A decision to exempt nontechnical staff from procedures",
-      "Role-specific training and a security-conscious culture"
+      "More firewalls and intrusion detection systems on the network",
+      "Stronger encryption of stored files",
+      "Regular role-specific training and awareness initiatives",
+      "Stricter physical access to the building"
     ],
-    "answer": 3,
-    "explanation": "The lesson combines technical measures with trained personnel and a culture that supports secure behavior.",
+    "answer": 2,
+    "explanation": "Slides 42 and 43 call for regular, role-specific training and awareness initiatives that build a culture of security; Slide 44 covers the technical tools.",
     "sourceSlides": [
       42,
       43,

@@ -7,15 +7,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "An unauthorized reader views a file without changing it. Which property is directly compromised?",
+    "prompt": "Only those with authorized access can obtain the information. Which pillar of the CIA Triad is this?",
     "options": [
+      "Integrity",
+      "Availability",
       "Confidentiality",
-      "Integrity alone",
-      "Processing speed",
-      "Availability alone"
+      "Accountability"
     ],
-    "answer": 0,
-    "explanation": "Unauthorized disclosure directly affects confidentiality, even if the file remains unchanged and available.",
+    "answer": 2,
+    "explanation": "Page 15: confidentiality means only those with authorized access can obtain the information.",
     "sourceSlides": [
       15
     ]
@@ -28,15 +28,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "A report is secretly modified while access remains available. Which concern is primary?",
+    "prompt": "Which pillar of the CIA Triad means that data and systems must be accessible and functional whenever needed?",
     "options": [
-      "Availability alone",
       "Integrity",
-      "Storage capacity",
-      "Physical durability"
+      "Confidentiality",
+      "Accountability",
+      "Availability"
     ],
-    "answer": 1,
-    "explanation": "Integrity concerns unauthorized changes to information; availability does not establish correctness.",
+    "answer": 3,
+    "explanation": "Page 15: availability means data and systems must be accessible and functional whenever needed.",
     "sourceSlides": [
       15
     ]
@@ -49,15 +49,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "A workstation holds valuable records, has missing updates and faces malware exposure. Which mapping is correct?",
+    "prompt": "Records, an unpatched operating system and malware are best matched to which key risk terms?",
     "options": [
-      "Records: asset; missing updates: vulnerability; malware: threat",
-      "Records: threat; missing updates: asset; malware: vulnerability",
-      "All three are interchangeable names for the same incident",
-      "Records: vulnerability; missing updates: threat; malware: asset"
+      "Asset, threat, vulnerability",
+      "Asset, vulnerability, threat",
+      "Threat, asset, vulnerability",
+      "Vulnerability, threat, asset"
     ],
-    "answer": 0,
-    "explanation": "Assets, vulnerabilities and threats describe different parts of the risk situation.",
+    "answer": 1,
+    "explanation": "Page 16: records are of value (asset), a missing update is a weakness (vulnerability) and malware is a potential cause of an unwanted incident (threat).",
     "sourceSlides": [
       16,
       17
@@ -71,15 +71,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "Two weaknesses have equal likelihood but different mission consequences. What should the assessment consider?",
+    "prompt": "Which statement describes what risk assessment does, according to page 16?",
     "options": [
-      "Only whether their technical names are similar",
-      "Treat them as equal because likelihood matches",
-      "Their different impacts as well as likelihood",
-      "Only how long the affected staff have served"
+      "Identifies vulnerabilities, then replaces every affected system immediately",
+      "Identifies assets, then ranks them by purchase cost and age",
+      "Identifies threats, then removes every asset exposed to them",
+      "Identifies assets, threats and vulnerabilities, then prioritizes cost-effective actions to reduce the risk"
     ],
-    "answer": 2,
-    "explanation": "Equal likelihood does not imply equal risk when consequences for the mission differ.",
+    "answer": 3,
+    "explanation": "Page 16: risk assessment identifies the assets, the threats against them and the vulnerabilities that expose them, then prioritizes cost-effective actions to reduce the risk.",
     "sourceSlides": [
       16
     ]
@@ -92,15 +92,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "An adversary maintains organized, persistent access over time. Which lesson term best fits?",
+    "prompt": "Which cyber threat is described as sophisticated, persistent attacks by state-sponsored or highly organized groups, often targeting critical infrastructure?",
     "options": [
-      "Authorized change management",
-      "Routine backup verification",
-      "Advanced persistent threat",
-      "Physical inventory reconciliation"
+      "Data breaches and leaks",
+      "Malware and viruses",
+      "Denial-of-Service (DoS) attacks",
+      "Advanced Persistent Threats (APTs)"
     ],
-    "answer": 2,
-    "explanation": "The lesson distinguishes persistent organized threats from routine maintenance and authorized controls.",
+    "answer": 3,
+    "explanation": "Page 17 lists APTs as sophisticated and persistent attacks launched by state-sponsored or highly organized groups.",
     "sourceSlides": [
       17
     ]
@@ -113,15 +113,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "A unit appoints response staff and rehearses procedures before any incident. Which phase is illustrated?",
+    "prompt": "Which pair of phases falls in the During-Cyber Incident period?",
     "options": [
-      "Recovery",
-      "Preparation",
-      "Eradication",
-      "Containment"
+      "Recovery and Assessment and Review",
+      "Containment and Eradication",
+      "Identification and Containment",
+      "Preparation and Identification"
     ],
     "answer": 1,
-    "explanation": "Pre-incident readiness activities belong to preparation, even when they simulate later phases.",
+    "explanation": "Page 18: Pre-Incident has Preparation and Identification; During Incident has Containment and Eradication; Post Incident has Recovery and Assessment and Review.",
     "sourceSlides": [
       19,
       20
@@ -135,15 +135,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "An approved responder isolates an affected machine to limit spread. Which objective is being pursued?",
+    "prompt": "A malware-infected workstation is isolated so the infection does not spread. Which phase of the Risk Management Process is being performed?",
     "options": [
-      "Long-term procurement",
-      "Final lessons reporting",
-      "Personnel classification",
-      "Containment"
+      "Identification",
+      "Containment",
+      "Recovery",
+      "Eradication"
     ],
-    "answer": 3,
-    "explanation": "Isolation in the stated response context limits further spread; it does not itself prove eradication.",
+    "answer": 1,
+    "explanation": "Pages 21 and 36: isolating the affected workstation limits the damage, which is the Containment objective.",
     "sourceSlides": [
       21
     ]
@@ -156,15 +156,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "Malicious components have been removed. Why should services not simply be assumed healthy?",
+    "prompt": "Which teams are involved in the Recovery phase?",
     "options": [
-      "Recovery must verify restored operation and monitor it",
-      "Service health is unrelated to incident response",
-      "Every incident necessarily requires replacing the entire network",
-      "Removal means all backup procedures should stop"
+      "Blue, Purple and Red Teams, with the PA Cyber Battle Staff and other PA CIRTs monitoring progress",
+      "The Blue Team alone, with the CSIRT validating the results",
+      "The Red Team alone, reporting to Higher Headquarters",
+      "The Purple Team alone, with the Territorial Signal Battalions monitoring"
     ],
     "answer": 0,
-    "explanation": "Eradication and recovery are distinct; removal must be followed by controlled restoration and observation.",
+    "explanation": "Page 23: in Recovery the Blue, Purple and Red Teams are involved while the PA Cyber Battle Staff and other PA CIRTs continue to monitor.",
     "sourceSlides": [
       22,
       23
@@ -178,15 +178,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "A team restores service but records no cause, action or lesson. Which phase is deficient?",
+    "prompt": "To whom is the After Activity Report submitted in the Assessment and Review phase?",
     "options": [
-      "Software licensing",
-      "Traffic forwarding",
-      "Assessment and review",
-      "Preparation alone"
+      "The Territorial Signal Battalions and the Blue Team only",
+      "Higher Headquarters and the PA Cyber Battle Staff, and for awareness of other PA CIRTs",
+      "Higher Headquarters and the Red Team only",
+      "The PAMU sub-units and the CSIRT that handled the incident"
     ],
-    "answer": 2,
-    "explanation": "Review needs useful documentation to support learning and improved future response.",
+    "answer": 1,
+    "explanation": "Page 24: the documentation goes to Higher Headquarters and the PA Cyber Battle Staff, and for the awareness of other PA CIRTs.",
     "sourceSlides": [
       24
     ]
@@ -199,15 +199,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "A Philippine Army classroom team has staffed and rehearsed its response plan. It now receives the first indications of a possible cyber incident. Which phase should its next work demonstrate?",
+    "prompt": "Which phase comes immediately after Eradication?",
     "options": [
-      "Preparation, by assigning response roles for future incidents.",
-      "Identification, by determining whether the indications represent an incident.",
-      "Recovery, by returning affected systems to normal operation.",
-      "Assessment and review, by recording completed response actions."
+      "Identification",
+      "Assessment and Review",
+      "Recovery",
+      "Containment"
     ],
-    "answer": 1,
-    "explanation": "Preparation readies the team. Identification evaluates early signs to recognize an incident.",
+    "answer": 2,
+    "explanation": "Page 18: the order is Preparation, Identification, Containment, Eradication, Recovery, Assessment and Review.",
     "sourceSlides": [
       19,
       20,
@@ -222,15 +222,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "A team hardens operating systems but ignores its custom web application and unauthorized Wi-Fi. Which areas remain?",
+    "prompt": "Which SANS control allows only wireless devices with an authorized configuration, security profile and documented owner, and scans for rogue access points?",
     "options": [
-      "Hardware inventory and administrative privilege management",
-      "Application security and wireless access control",
-      "Malware defense and data backup recovery",
-      "Host configuration and log collection management"
+      "Boundary Defense",
+      "Secure Configurations for Network Devices",
+      "Application Software Security",
+      "Wireless Device Control"
     ],
-    "answer": 1,
-    "explanation": "The lesson separately includes application security and wireless access control, beyond host hardening.",
+    "answer": 3,
+    "explanation": "Page 26: control 7, Wireless Device Control, allows only authorized wireless devices and scans for rogue access points.",
     "sourceSlides": [
       25,
       26
@@ -244,15 +244,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "A network allows unused services and default device configurations. Which controls address these findings?",
+    "prompt": "Which SANS control blocks traffic that is not explicitly allowed and limits remote access to legitimate users and services?",
     "options": [
-      "Service/protocol restriction and network-device configuration",
-      "Vulnerability scanning and audit-log management",
-      "Application security and wireless access control",
-      "Administrative privileges and malware defense"
+      "Secure Configurations for Network Devices",
+      "Boundary Defense",
+      "Limitation and Control of Network Ports, Protocols, and Services",
+      "Controlled Access Based on the Need to Know"
     ],
-    "answer": 0,
-    "explanation": "The legacy control list separately addresses secure network devices and limiting ports, protocols and services.",
+    "answer": 2,
+    "explanation": "Page 27: control 11 blocks traffic not explicitly allowed and limits remote access to legitimate users and services.",
     "sourceSlides": [
       26,
       27
@@ -266,15 +266,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "A perimeter device exists, but internal access is broad and outbound activity is unreviewed. What is missing?",
+    "prompt": "Which SANS control uses firewalls, proxies and DMZ perimeter networks and filters inbound and outbound traffic?",
     "options": [
-      "A larger device label at the perimeter",
-      "Permission to treat all internal traffic as trusted",
-      "Layered boundary protection and need-to-know restrictions",
-      "A rule that only incoming traffic can create risk"
+      "Boundary Defense",
+      "Limitation and Control of Network Ports, Protocols, and Services",
+      "Controlled Access Based on the Need to Know",
+      "Secure Network Engineering"
     ],
-    "answer": 2,
-    "explanation": "Boundary defense addresses traffic in both directions; need-to-know limits inappropriate internal access.",
+    "answer": 0,
+    "explanation": "Page 27: control 13, Boundary Defense, establishes multi-layered defenses and filters inbound and outbound traffic.",
     "sourceSlides": [
       27
     ]
@@ -287,15 +287,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "Departed staff retain active accounts and sensitive files can leave without controls. Which pair applies?",
+    "prompt": "Which SANS control monitors the movement of data across network boundaries, electronically and physically, to stop unauthorized transfer?",
     "options": [
-      "Backup testing and equipment painting",
-      "Procurement planning and room booking",
-      "Display management and print formatting",
-      "Account management and data-loss prevention"
+      "Data Loss Prevention",
+      "Account Monitoring and Control",
+      "Controlled Access Based on the Need to Know",
+      "Boundary Defense"
     ],
-    "answer": 3,
-    "explanation": "The lesson includes account monitoring and controls on unauthorized movement of sensitive information.",
+    "answer": 0,
+    "explanation": "Page 28: control 17, Data Loss Prevention, monitors data movement across network boundaries to stop unauthorized transfer.",
     "sourceSlides": [
       28
     ]
@@ -308,15 +308,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "A unit buys tools but never trains responders or exercises its defenses. Which gap remains?",
+    "prompt": "Which SANS control finds knowledge gaps and fills them with training mapped to each role?",
     "options": [
-      "Skills development, response management and authorized testing",
-      "Asset discovery, configuration baselines and automated vulnerability scanning",
-      "Account inventory, privileged-access controls and network boundary management",
-      "Data classification, encryption requirements and backup retention schedules"
+      "Incident Response and Management",
+      "Penetration Tests and Red Team Exercises",
+      "Security Skills Assessment and Training",
+      "Application Software Security"
     ],
-    "answer": 0,
-    "explanation": "The controls include skills, incident-response capability, secure engineering and authorized tests of readiness.",
+    "answer": 2,
+    "explanation": "Page 26: control 9 finds knowledge gaps and fills them with appropriate training mapped to each role.",
     "sourceSlides": [
       26,
       28
@@ -330,15 +330,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "Security officers are appointed but have not been trained. Which PPT issue is most direct?",
+    "prompt": "Which of the following is assessed under the People element of the PPT Framework?",
     "options": [
-      "Network cable length",
-      "People capability",
-      "Process storage capacity",
-      "Technology licensing only"
+      "Authorized communication platforms",
+      "Designation of ISO/ISNCO and certified CIRT personnel",
+      "Regular maintenance of ICT equipment",
+      "Licensed and updated operating systems"
     ],
     "answer": 1,
-    "explanation": "Appointment alone does not establish the personnel competence assessed under People.",
+    "explanation": "Page 29: People covers training and awareness, designation of ISO/ISNCO and certified CIRT personnel, and password discipline.",
     "sourceSlides": [
       29
     ]
@@ -351,15 +351,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "Backups exist, but no approved restoration procedure or assigned responsibility exists. Which element needs attention?",
+    "prompt": "Which of the following is NOT assessed under the Technology element of the PPT Framework?",
     "options": [
-      "Technology exclusively",
-      "Equipment color coding",
-      "People age profile",
-      "Process"
+      "Authorized communication platforms",
+      "Licensed and updated operating systems and applications",
+      "No unauthorized software",
+      "Regular maintenance of ICT equipment"
     ],
-    "answer": 3,
-    "explanation": "A procedure and defined responsibility make recovery repeatable; possessing backup technology is not enough.",
+    "answer": 0,
+    "explanation": "Page 29: authorized communication platforms belong to Process; Technology covers licensed software, no unauthorized software and ICT maintenance.",
     "sourceSlides": [
       29
     ]
@@ -372,15 +372,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "The classroom scale gives a unit 11%. What classification follows?",
+    "prompt": "A unit receives an overall cybersecurity risk score of 48%. Which classification follows from the lecture's scale?",
     "options": [
-      "No risk",
-      "High",
-      "Low",
-      "Medium"
+      "Critical Risk",
+      "Low Risk",
+      "High Risk",
+      "Medium Risk"
     ],
     "answer": 3,
-    "explanation": "Eleven percent is the lower boundary of the lesson's Medium range, not the upper end of Low.",
+    "explanation": "Pages 30 and 38: MEDIUM is 11% to 50%, so 48% is Medium Risk; the scale has no 'Critical' band.",
     "sourceSlides": [
       30
     ]
@@ -393,15 +393,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "Using the stated formula, Risk Output is 40% and Points Allocated is 50. What is the weighted result?",
+    "prompt": "Using Risk Output x Points Allocated / 100, what is the result for a Risk Output of 40 and 50 points allocated?",
     "options": [
-      "40 points",
-      "50 points",
       "20 points",
-      "90 points"
+      "10 points",
+      "90 points",
+      "2,000 points"
     ],
-    "answer": 2,
-    "explanation": "Apply the supplied values directly: 40 × 50 / 100 = 20 points; do not infer additional weights.",
+    "answer": 0,
+    "explanation": "Page 30: 40 x 50 / 100 = 20 points.",
     "sourceSlides": [
       30
     ]
@@ -414,15 +414,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "An exercise supplies weighted results of 12, 18 and 9 points. What sum follows the lesson's formula?",
+    "prompt": "Which pairing correctly gives the points allocated per risk output in the lesson's formula?",
     "options": [
-      "3 points",
-      "216 points",
-      "18 points",
-      "39 points"
+      "High = 40, Medium = 50, Low = 10",
+      "High = 50, Medium = 10, Low = 40",
+      "High = 50, Medium = 40, Low = 10",
+      "High = 10, Medium = 40, Low = 50"
     ],
-    "answer": 3,
-    "explanation": "Overall posture is the sum of the supplied weighted element results: 12 + 18 + 9 = 39.",
+    "answer": 2,
+    "explanation": "Page 30: in the per-element formula, High = 50 points, Medium = 40 points and Low = 10 points.",
     "sourceSlides": [
       30
     ]

@@ -9,15 +9,15 @@
       "develop requirements",
       "application"
     ],
-    "prompt": "Commander guidance prioritizes an essential service, but staff and subordinate input identify a conflicting shared dependency. How should the planner reconcile the inputs?",
+    "prompt": "A signal planner collects information from the commander, the staff, adjacent units, SOPs and the CEOI/CESI. Which step of the process is this?",
     "options": [
-      "Identify the dependency and propose ways to preserve the priority",
-      "Ignore the dependency because the commander named a priority",
-      "Let the first requesting staff section assign all resources",
-      "Assume the adjacent unit can supply the service without coordination"
+      "Determine available resources and shortfalls",
+      "Develop priorities for the requirements",
+      "Prepare a tentative plan for the unit",
+      "Develop signal and C4S requirements"
     ],
-    "answer": 0,
-    "explanation": "The planner uses command intent and user requirements to develop supportable options for decision.",
+    "answer": 3,
+    "explanation": "Step 1 obtains and evaluates all information on the support and capabilities the unit needs from these sources (para 0305).",
     "sourceSlides": [
       27,
       28
@@ -33,15 +33,15 @@
       "develop requirements",
       "application"
     ],
-    "prompt": "A prior SOP covers the usual setup, but the new operation has a different priority and an adjacent user. What should the planner do?",
+    "prompt": "While developing requirements, a planner asks the S3, S2 and S4 what they need from signal support. Which source of requirements is this?",
     "options": [
-      "Apply every SOP provision unchanged and omit coordination",
-      "Discard established instructions because one requirement changed",
-      "Apply relevant SOPs and confirm new needs with command and users",
-      "Treat the adjacent user as a reserve equipment resource"
+      "Commander's guidance or intent",
+      "Higher, subordinate and adjacent units",
+      "Staff guidance",
+      "CEOI and CESI"
     ],
     "answer": 2,
-    "explanation": "SOP reduces routine work while commander and cross-unit guidance identify current requirements.",
+    "explanation": "The other staff officers are the users of signal support, so asking them is the staff guidance source.",
     "sourceSlides": [
       27,
       28
@@ -57,15 +57,15 @@
       "develop requirements",
       "application"
     ],
-    "prompt": "An initial support concept is based entirely on higher headquarters guidance. A subordinate reports a critical local requirement. What is the best next step?",
+    "prompt": "A planner produces a list showing who needs what, where and when. Which step's key output is this?",
     "options": [
-      "Reject it because only higher headquarters can identify requirements",
-      "Validate the need against higher intent and shared dependencies",
-      "Replace higher guidance with the subordinate request",
-      "Route the request directly to publication without analysis"
+      "Step 2, determine available resources and shortfalls",
+      "Step 3, develop priorities among requirements",
+      "Step 5, prepare a tentative signal plan",
+      "Step 1, develop signal and C4S requirements"
     ],
-    "answer": 1,
-    "explanation": "Requirements development draws on all relevant levels and users.",
+    "answer": 3,
+    "explanation": "Handout p. 7: the key output of Step 1 is the list of requirements (who needs what, where, when).",
     "sourceSlides": [
       27,
       28
@@ -81,15 +81,15 @@
       "develop requirements",
       "application"
     ],
-    "prompt": "A staff team wants signal requirements developed only after the rest of planning is complete. Why should signal staff participate sooner?",
+    "prompt": "At receipt of mission, the S6 updates the C4S running estimate and gathers the higher OPORD, Annex H and CEOI/CESI. Which signal planning step does this feed?",
     "options": [
-      "Signal staff can then publish without any commander decision",
-      "Early participation allows a fixed plan regardless of unit needs",
-      "Signal planning becomes independent of the operations concept",
-      "Align signal requirements with MDMP or TLP decisions"
+      "Prepare a tentative plan",
+      "Develop priorities",
+      "Publish the plans and orders",
+      "Develop requirements"
     ],
     "answer": 3,
-    "explanation": "The doctrine calls for signal planning alongside the applicable operational planning process.",
+    "explanation": "Handout p. 4: MDMP step 1, receipt of mission, feeds develop requirements.",
     "sourceSlides": [
       27,
       28
@@ -105,15 +105,15 @@
       "resources and priorities",
       "application"
     ],
-    "prompt": "Two equipment sets are on hand, but only one is serviceable and no uncommitted trained operator can run it. What capacity can the planner promise immediately?",
+    "prompt": "A planner finds ten radios authorized, eight on hand and six serviceable. Which figure shows what can actually be used?",
     "options": [
-      "Two operating sets because both are on hand",
-      "Only capacity supported by both ready equipment and available qualified personnel",
-      "One operating set because the asset passes inspection",
-      "One fully supported set if a future operator is assumed without qualification"
+      "Six serviceable",
+      "Ten authorized",
+      "Eight on hand",
+      "Four unserviceable"
     ],
-    "answer": 1,
-    "explanation": "Equipment and personnel readiness are distinct requirements for executable support.",
+    "answer": 0,
+    "explanation": "The equipment line separates authorized, on hand, serviceable and unserviceable; only serviceable assets can be employed (para 0307).",
     "sourceSlides": [
       28,
       29
@@ -129,15 +129,15 @@
       "resources and priorities",
       "application"
     ],
-    "prompt": "A high-priority service needs the same team as a lower-priority request. A supportable alternate can satisfy the lower-priority request. What allocation fits?",
+    "prompt": "When resources fall short, the planner ranks requirements by supportability and importance to the mission. What is the key output of this step?",
     "options": [
-      "Give the team to the priority request and verify the alternate",
-      "Give both requests the same team for the same period",
-      "Assign the team to the lower priority because an alternate exists",
-      "Drop the higher priority to maintain the original staffing chart"
+      "Resource status and shortfalls",
+      "A list of requirements",
+      "Recovery and contingency measures",
+      "Prioritized requirements"
     ],
-    "answer": 0,
-    "explanation": "The priority decision aligns available capability with importance and supportability.",
+    "answer": 3,
+    "explanation": "Handout p. 7: the key output of Step 3 is prioritized requirements.",
     "sourceSlides": [
       28,
       29
@@ -153,15 +153,15 @@
       "resources and priorities",
       "application"
     ],
-    "prompt": "A new fund restriction affects two possible approaches. How should priorities be revisited?",
+    "prompt": "Which step of the process has resource status and shortfalls as its key output?",
     "options": [
-      "Retain the same priorities and assume funds will return",
-      "Choose the lowest-cost option even if it cannot meet the key requirement",
-      "Increase authorized equipment strength on the chart without changing actual resources",
-      "Reassess feasibility and protect the highest-priority services"
+      "Develop priorities for the unit",
+      "Develop recovery procedures for the unit",
+      "Determine available resources",
+      "Prepare a tentative plan for the unit"
     ],
-    "answer": 3,
-    "explanation": "A funding change affects supportability, so requirements should be compared with current capability again.",
+    "answer": 2,
+    "explanation": "Handout p. 7: Step 2 keeps an up-to-date chart of equipment, personnel and funds, giving resource status and shortfalls.",
     "sourceSlides": [
       28,
       29
@@ -177,15 +177,15 @@
       "resources and priorities",
       "application"
     ],
-    "prompt": "A reserve device could meet a critical request, but staffing is unclear and maintenance support is limited. What should be checked before assigning it?",
+    "prompt": "A planner assigns a reserve radio set after checking only the equipment line. Which two resource areas were skipped?",
     "options": [
-      "Only whether the device appears on the authorized list",
-      "Only whether the request arrived first",
-      "Device readiness, trained staffing and ongoing support",
-      "Whether a draft publication already mentions the device"
+      "Equipment and funds",
+      "Personnel and funds",
+      "Equipment and personnel",
+      "Funds and priorities"
     ],
-    "answer": 2,
-    "explanation": "Resource allocation must account for equipment, personnel and funds together.",
+    "answer": 1,
+    "explanation": "Step 2 tracks equipment, personnel and funds together; operators and money are needed as well as the set.",
     "sourceSlides": [
       28,
       29
@@ -201,15 +201,15 @@
       "recovery procedures",
       "application"
     ],
-    "prompt": "The plan identifies ordinary equipment failure and a separate suspected cyber event. What is an appropriate recovery design?",
+    "prompt": "A plan covers equipment faults and a suspected cyber event. Which pair of measures does the recovery table give?",
     "options": [
-      "Use the same hardware replacement procedure as the only response in both cases",
-      "Change frequencies for every service interruption without assessing its cause",
-      "Provide redundancy and technical restoration for faults, with monitoring and responder procedures for cyber incidents",
-      "Handle both through a revised publication list"
+      "Countermeasures against jamming for the faults; frequency changes for the cyber event",
+      "PA network monitoring for the faults; on-site technical support for the cyber event",
+      "Redundancy and repair for the faults; PA network monitoring and CSIRT for the cyber event",
+      "Frequency changes for the faults; redundancy and repair for the cyber event"
     ],
     "answer": 2,
-    "explanation": "The manual identifies distinct contingencies that can require different response and recovery provisions.",
+    "explanation": "The table pairs interrupted connectivity with redundancy, repair and technical support, and cyberattacks with PA network monitoring and CSIRT procedures.",
     "sourceSlides": [
       29
     ]
@@ -224,15 +224,15 @@
       "recovery procedures",
       "application"
     ],
-    "prompt": "A backup restores connectivity after a hardware failure, but the primary equipment still needs repair. What should recovery provisions cover?",
+    "prompt": "A backup restores service after a hardware failure while the primary is being repaired. Which recovery measures are in use?",
     "options": [
-      "Only moving users permanently onto the backup",
-      "Maintain service and arrange primary equipment repair",
-      "Only reporting the restoration while removing repair from the plan",
-      "A new site survey in place of technical support"
+      "Countermeasures and counter-countermeasures against jamming and interception",
+      "Redundant communication, and equipment repair and replacement",
+      "Procedures to change frequencies quickly and efficiently",
+      "Monitoring of the PA network, CSIRT and first-responder procedures"
     ],
     "answer": 1,
-    "explanation": "Redundancy maintains support while repair and replacement restore capability.",
+    "explanation": "Interrupted connectivity is answered by redundancy, repair and replacement, and on-site technical support (para 0311).",
     "sourceSlides": [
       29
     ]
@@ -247,15 +247,15 @@
       "recovery procedures",
       "application"
     ],
-    "prompt": "The team plans a frequency change for confirmed compromise, but the fallback relies on the same compromised assignment. What should it correct?",
+    "prompt": "A recovery plan covers interrupted connectivity, jamming and cyberattack but not captured radios. Which concern is missing?",
     "options": [
-      "Keep the fallback unchanged because it has a different label",
-      "Treat the compromised assignment as available until every other means fails",
-      "Remove all fallback arrangements and retain the original assignment",
-      "Coordinate a fallback on an uncompromised assignment"
+      "Interrupted connectivity",
+      "Compromised frequencies",
+      "Electronic warfare",
+      "Cyberattacks"
     ],
-    "answer": 3,
-    "explanation": "A recovery procedure needs a workable way to move away from the compromised frequency.",
+    "answer": 1,
+    "explanation": "The four concerns in para 0311 are interrupted connectivity, EW, cyberattacks and compromised frequencies; captured equipment falls under the last.",
     "sourceSlides": [
       29
     ]
@@ -270,15 +270,15 @@
       "recovery procedures",
       "application"
     ],
-    "prompt": "A contingency annex names cyber incident responders but never says how an event would be detected or referred. What is missing?",
+    "prompt": "A plan names CSIRT and first-responder procedures but no network monitoring. Which recovery concern is incomplete?",
     "options": [
-      "Monitoring and a responder referral process",
-      "An extra facility coordinate for every responder",
-      "A comparison of facility access routes",
-      "A revised table of authorized equipment"
+      "Cyberattacks",
+      "Electronic warfare",
+      "Interrupted connectivity",
+      "Compromised frequencies"
     ],
     "answer": 0,
-    "explanation": "Naming responders alone leaves detection and activation unaddressed.",
+    "explanation": "The cyberattack provision pairs monitoring of the PA network, including mobile ad-hoc networks, with CSIRT and first-responder procedures.",
     "sourceSlides": [
       29
     ]
@@ -293,15 +293,15 @@
       "tentative plan",
       "application"
     ],
-    "prompt": "A proposed alternate uses the same interconnection as the primary. How can the tentative design better address a failure of that interconnection?",
+    "prompt": "A planner shows how nets connect to higher and adjacent units but gives no route if a link or site is lost. Which element of the concept is incomplete?",
     "options": [
-      "Rename the alternate so users can tell the entries apart",
-      "Record both as independent because they have different purposes",
-      "Leave the alternate dependent on the same connection and schedule extra inventory checks",
-      "Plan an alternate route that avoids the shared dependency and allocate support to it"
+      "General concept with PACE for each critical link",
+      "Interconnections and alternate routing",
+      "Allocation of resources to the requirements",
+      "Security measures for the network and sites"
     ],
-    "answer": 3,
-    "explanation": "Alternate routing should offer a usable path around the assumed failure.",
+    "answer": 1,
+    "explanation": "Element e of para 0312 covers both interconnections and the alternate route if a link or site is lost.",
     "sourceSlides": [
       29
     ]
@@ -316,15 +316,15 @@
       "tentative plan",
       "application"
     ],
-    "prompt": "A site offers the best propagation but cannot be reached reliably and is hard to sustain. How should the tentative siting decision proceed?",
+    "prompt": "A planner picks the site with the best propagation but ignores access and logistics. Which element of the communication concept is weak?",
     "options": [
-      "Select the top propagation result and assess support after installation",
-      "Choose the most accessible site without checking coverage",
-      "Compare usable alternatives across propagation, access and sustainment",
-      "Report the best site as validated before reconnaissance"
+      "Siting of C4S centers and facilities",
+      "Allocation of resources",
+      "Security measures",
+      "Interconnections and alternate routing"
     ],
-    "answer": 2,
-    "explanation": "A tentative site recommendation should account for the full set of operational and support factors.",
+    "answer": 0,
+    "explanation": "Siting weighs propagation together with accessibility and logistics, among other factors (para 0312c).",
     "sourceSlides": [
       29
     ]
@@ -339,15 +339,15 @@
       "tentative plan",
       "application"
     ],
-    "prompt": "Two PACE means compete for the same portable equipment and can be needed at the same time. What must change in the tentative plan?",
+    "prompt": "A concept lists primary and alternate means but never says when users switch. Which element is incomplete?",
     "options": [
-      "Revise allocations or select a feasible alternate means",
-      "Retain both allocations because they appear in different sections",
-      "Assign the device to whichever user calls first during execution",
-      "List the equipment as reserve to remove the conflict from the chart"
+      "General concept with PACE",
+      "Allocation of resources",
+      "Siting of C4S centers and facilities",
+      "Security measures"
     ],
     "answer": 0,
-    "explanation": "Resource allocation has to reflect how and when the proposed means can actually be used.",
+    "explanation": "Handout p. 9: for each critical link the PACE element asks for the four means and when users switch.",
     "sourceSlides": [
       29
     ]
@@ -362,15 +362,15 @@
       "tentative plan",
       "application"
     ],
-    "prompt": "A site layout would improve access but introduces a security concern affecting the interconnections. What belongs in the tentative design?",
+    "prompt": "A draft has PACE, resource allocation, sites and alternate routing but no COMSEC or emission control. Which of the five elements is missing?",
     "options": [
-      "Keep the layout and postpone all security consideration until after publication",
-      "Reconsider the layout and specify security measures alongside the routing plan",
-      "Remove alternate routing to simplify the map without assessing the concern",
-      "Choose another site without considering the interconnection requirement"
+      "Interconnections and alternate routing",
+      "Siting of C4S centers and facilities",
+      "Security measures",
+      "General concept with PACE"
     ],
-    "answer": 1,
-    "explanation": "The tentative plan includes facility placement, interconnections, alternate routes and security.",
+    "answer": 2,
+    "explanation": "Element d lists COMSEC, EEFIs, site security and emission control.",
     "sourceSlides": [
       29
     ]
@@ -385,15 +385,15 @@
       "final checks and publication",
       "application"
     ],
-    "prompt": "The tentative plan is complete. Reconnaissance then changes a site and propagation reveals a new coverage gap. What should happen before publication?",
+    "prompt": "After reconnaissance moves a site and propagation shows a new coverage gap, which step's checks apply before the plan is published?",
     "options": [
-      "Publish the tentative draft and attach the new findings without revising it",
-      "Revise siting and coverage, then verify ownership and feasibility",
-      "Keep the initial site because its position is already in the diagrams",
-      "Transfer responsibility to an adjacent unit without coordination"
+      "Develop priorities",
+      "Prepare a tentative plan",
+      "Finalize the plan",
+      "Publish the plans and orders"
     ],
-    "answer": 1,
-    "explanation": "Finalization integrates survey evidence and checks the complete plan against priorities and execution needs.",
+    "answer": 2,
+    "explanation": "Step 6 checks that the site survey and propagation check were made and that coverage and gaps are known (para 0313).",
     "sourceSlides": [
       29,
       30
@@ -409,15 +409,15 @@
       "final checks and publication",
       "application"
     ],
-    "prompt": "A facility is verified, but the plan assigns its coverage gap to another team without resources. What final check matters most?",
+    "prompt": "A facility's coverage gap is assigned to no team. Which Step 6 check fails?",
     "options": [
-      "Verify only that the coordinates match the survey",
-      "Publish because the gap appears on the map",
-      "Review only whether the original request was funded",
-      "Verify who covers the gap and with what resources"
+      "A site survey or reconnaissance and propagation check was made",
+      "Security measures are in place",
+      "The emphasis follows the priorities set in Step 3",
+      "Areas of responsibility of each C4S center and facility are set"
     ],
     "answer": 3,
-    "explanation": "Final review checks responsibilities, coverage gaps and execution resources together.",
+    "explanation": "The coverage gap is known, but no one is responsible for it; the checklist requires areas of responsibility to be set.",
     "sourceSlides": [
       30
     ]
@@ -432,15 +432,15 @@
       "final checks and publication",
       "application"
     ],
-    "prompt": "An annex is ready, but a recommendation still requires command action in the broader order. What publication action fits the manual?",
+    "prompt": "An annex needs a command decision in the wider order. Through whom does the planner coordinate it, and what does the planner prepare?",
     "options": [
-      "Issue the recommendation as binding because it appears in the estimate",
-      "Omit the item from the wider order and rely on oral guidance alone",
-      "Coordinate the decision item through the operations officer and publish approved instructions with supporting material",
-      "Attach the recommendation to an unrelated technical tab and presume approval"
+      "The commander, through the CEOI; Annex C (Operations)",
+      "The adjacent S6, through the SOP; Appendix 12 (Cyberspace Electromagnetic Activities)",
+      "The operations officer, through the signal estimate; Annex H",
+      "The operations officer, through the CEOI; paragraph 3 of the base order only"
     ],
     "answer": 2,
-    "explanation": "Publication includes both coordination of decision items and preparation of the required signal orders or annex.",
+    "explanation": "Paragraph 0314: decision items go to the operations officer in the signal estimate, and the S6 prepares the C4S annex with its appendices and tabs.",
     "sourceSlides": [
       30
     ]
@@ -455,15 +455,15 @@
       "final checks and publication",
       "application"
     ],
-    "prompt": "Users cannot implement a published instruction because the supporting diagram and procedure disagree. What should be corrected?",
+    "prompt": "Users cannot follow an order because its diagrams and instructions disagree. Which Step 7 duty was not done properly?",
     "options": [
-      "Correct both materials to match the approved plan",
-      "Leave the diagram as an independent option without guidance",
-      "Change only the title of the annex",
-      "Ask each user to choose whichever version is easier"
+      "Preparing plans and orders with diagrams and instructions",
+      "Giving the S3 the signal estimate for the unit's plan or order",
+      "Preparing the C4S annex without its appendices and tabs",
+      "Providing the paragraph 5 input to the base order of the unit"
     ],
     "answer": 0,
-    "explanation": "Publication packages the approved plan with consistent diagrams and instructions.",
+    "explanation": "Step 7 prepares plans and orders with diagrams and instructions, so the two must agree.",
     "sourceSlides": [
       30
     ]
@@ -478,15 +478,15 @@
       "develop requirements",
       "application"
     ],
-    "prompt": "The S6 ranks COAs for C4S supportability and recommends through the signal estimate. Which signal planning step and output does the handout pair with this?",
+    "prompt": "At MDMP steps 5-6, the S6 ranks COAs for C4S supportability and recommends through the signal estimate. Which signal planning step and output result?",
     "options": [
       "Prepare a tentative plan, giving a communication concept per COA",
-      "Develop recovery procedures, giving recovery measures",
       "Develop priorities, giving a C4S recommendation and refined priorities",
+      "Develop recovery procedures, giving recovery measures",
       "Finalize the plan, giving Annex H"
     ],
-    "answer": 2,
-    "explanation": "Handout p. 4: MDMP steps 5-6 (comparison and approval) feed 'develop priorities', with a C4S recommendation and refined priorities as output.",
+    "answer": 1,
+    "explanation": "Handout p. 4: MDMP steps 5-6 (comparison and approval) feed develop priorities, with a C4S recommendation and refined priorities as output.",
     "sourceSlides": [
       27,
       28
@@ -508,14 +508,14 @@
       "resources and priorities",
       "application"
     ],
-    "prompt": "A resource chart tracks equipment and personnel but lists funds only for buying radios. What is missing?",
+    "prompt": "The funds line of the resource chart covers the funds for installation, operation and what else?",
     "options": [
-      "Funds for installation, operation and maintenance of C4 systems and administrative needs",
-      "Funds for the enemy's EW countermeasures",
-      "Only the funds for reserve personnel",
-      "The authorized strength of the platoon"
+      "Pay and training courses of reserve personnel in the unit",
+      "Maintenance of C4 systems and administrative needs",
+      "Countermeasures against enemy electronic warfare",
+      "The authorized strength (TO) of the platoon"
     ],
-    "answer": 0,
+    "answer": 1,
     "explanation": "Handout p. 7: the funds line covers installation, operation and maintenance of C4 systems and administrative needs (para 0309).",
     "sourceSlides": [
       28
@@ -537,14 +537,14 @@
       "recovery procedures",
       "application"
     ],
-    "prompt": "During the war game the S6 tests a COA's communication concept. Against what does the handout say it is tested?",
+    "prompt": "During the war game, the S6 tests a COA's communication concept against which four things?",
     "options": [
-      "Funding, rank structure and leave policy",
-      "EW, cyber, terrain and equipment loss",
-      "Only the commander's stated priorities",
-      "Printing and distribution timelines"
+      "Time, funding, personnel and weather",
+      "Enemy intent, friendly COAs, terrain and troops",
+      "Interception, jamming, frequency allocation and funding",
+      "EW, cyber, terrain and equipment loss"
     ],
-    "answer": 1,
+    "answer": 3,
     "explanation": "Handout p. 4: COA analysis tests the concept against EW, cyber, terrain and equipment loss, which feeds recovery procedures.",
     "sourceSlides": [
       29
@@ -566,14 +566,14 @@
       "final checks and publication",
       "application"
     ],
-    "prompt": "A platoon leader gives the final site locations, the net diagram and the recovery procedures to the squad leaders. Which TLP step is the platoon leader on?",
+    "prompt": "Which TLP step has the Signal platoon leader finalize site locations, the net diagram and recovery procedures?",
     "options": [
-      "Issue the order",
-      "Conduct reconnaissance",
-      "Supervise and refine",
-      "Complete the plan"
+      "Step 6, complete the plan",
+      "Step 7, issue the order",
+      "Step 5, conduct reconnaissance",
+      "Step 8, supervise and refine"
     ],
-    "answer": 3,
+    "answer": 0,
     "explanation": "Handout p. 5: TLP Step 6 completes the plan with final site locations, net diagram and recovery procedures; Step 7 briefs operators on nets, call signs, frequencies, PACE and COMSEC.",
     "sourceAlt": {
       "ref": "signal-planning-process-handout",
@@ -592,14 +592,14 @@
       "tentative plan",
       "application"
     ],
-    "prompt": "A concept leaves a valley without coverage and has no relay, retrans or HF fallback. Which test from the handout's concept analysis does it fail?",
+    "prompt": "Which of the handout's concept tests asks whether coverage gaps are covered by relay, retrans, HF or another means?",
     "options": [
-      "The phasing test",
-      "The resources test",
-      "The terrain and weather test",
-      "The requirements test"
+      "Threat of interception and jamming",
+      "Resources of radios, operators and funds",
+      "Phasing of the operation",
+      "Terrain and weather"
     ],
-    "answer": 2,
+    "answer": 3,
     "explanation": "Handout p. 9: the terrain and weather test asks whether coverage gaps are covered by relay, retrans, HF or another means.",
     "sourceSlides": [
       29
@@ -621,12 +621,12 @@
       "tentative plan",
       "application"
     ],
-    "prompt": "A planner writes one PACE plan for the whole battalion. What does the handout say to change?",
+    "prompt": "According to the handout, a PACE plan is built for which of the following?",
     "options": [
-      "Build PACE for each critical communication requirement",
-      "Build PACE for each radio type",
-      "Drop the emergency means for the battalion",
-      "Use a single primary for every net"
+      "Each critical communication requirement",
+      "The unit as a whole, with one plan for all nets",
+      "Each radio type fielded in the battalion",
+      "Each echelon of command in the order of battle"
     ],
     "answer": 0,
     "explanation": "Handout p. 9: build PACE for each critical communication requirement, not for the unit as a whole.",
@@ -650,15 +650,15 @@
       "resources and priorities",
       "application"
     ],
-    "prompt": "In a joint operation another service lacks compatible radios. Which procedures does the handout name?",
+    "prompt": "Which procedures does the handout name for joint operations?",
     "options": [
-      "Separate HADR nets and mobile command centers",
-      "A vigilance net, lending equipment, or embedding radio operators",
-      "Replacing the CEOI for the whole joint force",
-      "Ending all COMSEC controls"
+      "Separate HADR nets and mobile command centers, kept apart from the Army's secured net",
+      "A vigilance net, lending equipment to another service, or embedding radio operators",
+      "Points of integration between the national networks of the coalition partners",
+      "Replacing the CEOI for the whole joint force with a new index and edition"
     ],
     "answer": 1,
-    "explanation": "Handout p. 9: for joint operations use procedures such as the vigilance net, lending equipment or embedding radio operators (PAM 6-0102, paras 0315-0319).",
+    "explanation": "Handout p. 9: for joint operations use the vigilance net, lending equipment or embedding radio operators (PAM 6-0102, paras 0315-0319). The others are HADR and coalition guidance.",
     "sourceSlides": [
       29
     ],
@@ -679,14 +679,14 @@
       "final checks and publication",
       "application"
     ],
-    "prompt": "An author must place the net diagram, CEOI extract and site plan. Where does the handout put them?",
+    "prompt": "Where does the handout's Annex H outline place the net diagram, PACE matrix, CEOI extract and site plan?",
     "options": [
-      "In paragraph 5 of the base order in full",
-      "In paragraph 2, Mission, of Annex H",
-      "In Annex C of the base order",
-      "In the appendices and tabs of Annex H"
+      "In paragraph 3, Execution",
+      "In paragraph 5, Command and Signal",
+      "In the appendices and tabs",
+      "In paragraph 1, Situation"
     ],
-    "answer": 3,
+    "answer": 2,
     "explanation": "Handout p. 11: the net diagram, PACE matrix, CEOI extract and site plan are Annex H appendices and tabs.",
     "sourceSlides": [
       30

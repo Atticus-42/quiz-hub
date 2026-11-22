@@ -9,18 +9,16 @@
       "model inputs and coverage",
       "application"
     ],
-    "prompt": "A planning map has blank areas at plot edges and weak signal classes elsewhere. How should a reviewer classify them before estimating the usable area?",
+    "prompt": "Which two conditions define the red hatch on the dead spot map?",
     "options": [
-      "Separate missing and weak results by corridor rule",
-      "Count both as field-confirmed outages",
-      "Exclude the blanks by silently changing the corridor",
-      "Treat both as strong because the nearby links close"
+      "No plotted signal or only pink and red classes, within 8 km of the 12 links",
+      "Any signal below 20.5, anywhere within the 10 km plot",
+      "No plotted signal only, anywhere on the map",
+      "Only red classes, within 10 km of the relay"
     ],
     "answer": 0,
-    "explanation": "The corridor and plot bounds govern interpretation. A weak result and absence of a result have different evidence.",
+    "explanation": "Slide 44: red hatch is corridor land with no plotted signal or only the weakest (pink and red) classes, within 8 km of the planned links.",
     "sourceSlides": [
-      15,
-      19,
       44
     ]
   },
@@ -34,18 +32,16 @@
       "model inputs and coverage",
       "application"
     ],
-    "prompt": "An updated composite improves after both a relay addition and a threshold change. How should the team measure the relay's contribution?",
+    "prompt": "Which pair of before-and-after figures matches Relay Alpha's effect on the corridor?",
     "options": [
-      "Subtract the two area percentages and attribute all gains to the relay",
-      "Compare the new threshold only with the old antenna gain",
-      "Compare otherwise identical runs with and without the relay",
-      "Average the individual link margins without checking the corridor"
+      "81% to 96% usable VHF, and DS-1 from 179 to 15 km2",
+      "75% to 96% usable VHF, and DS-1 from 179 to 15 km2",
+      "81% to 100% usable VHF, and DS-1 from 179 to 6 km2",
+      "81% to 96% usable VHF, and DS-1 from 179 to 14 km2"
     ],
-    "answer": 2,
-    "explanation": "A controlled before-and-after comparison holds the classification threshold constant.",
+    "answer": 0,
+    "explanation": "Slide 49 gives 81% to 96% usable VHF and DS-1 shrinking from 179 to 15 km2.",
     "sourceSlides": [
-      15,
-      16,
       49
     ]
   },
@@ -59,18 +55,16 @@
       "model inputs and coverage",
       "application"
     ],
-    "prompt": "Two runs claim different mast-height benefits. One also changes receiver height and antenna gain. Which test can settle the height question?",
+    "prompt": "At a 6 m mast, what does the Bde HQ already do, according to the antenna height slide?",
     "options": [
-      "Use the larger benefit because it is more conservative",
-      "Hold all settings constant except the tested mast height",
-      "Drop the receiver threshold from both reports",
-      "Move each transmitter to whichever point has the highest elevation"
+      "Closes only the Albay links",
+      "Matches the 931 m ground height of Relay Alpha",
+      "Clears 20 dB on every link",
+      "Keeps 60% Fresnel clearance on every path"
     ],
-    "answer": 1,
-    "explanation": "A height sensitivity test requires comparable model inputs.",
+    "answer": 2,
+    "explanation": "Slide 51: at 6 m, as modelled in Radio Mobile, the Bde HQ clears 20 dB on every link.",
     "sourceSlides": [
-      15,
-      16,
       51
     ]
   },
@@ -84,19 +78,18 @@
       "model inputs and coverage",
       "application"
     ],
-    "prompt": "Every planned endpoint link closes, but a corridor map still shows an unusable segment. How can both results be true?",
+    "prompt": "All 12 links close, yet 179 km2 of the corridor has no usable plot. How are both statements true?",
     "options": [
-      "The corridor map proves every endpoint check is wrong",
-      "The links certify every point in the corridor regardless of coverage",
-      "A dead spot can exist only if no station has any working link",
-      "Link checks cover endpoints. Maps also cover the areas between them"
+      "The links connect the stations; the gap lies between the Daraga and Castilla clusters",
+      "The links were checked at 10 W but the plots used 5 W",
+      "Every link fails 20 dB in the gap area",
+      "The gap is a cellular result, not a VHF result"
     ],
-    "answer": 3,
-    "explanation": "Path results and area predictions answer distinct questions.",
+    "answer": 0,
+    "explanation": "Slides 19 and 35: the 12 links all close, while slide 19 shows 179 km2 of corridor between Daraga and Castilla with no usable plot.",
     "sourceSlides": [
       19,
-      35,
-      44
+      35
     ]
   },
   {
@@ -109,17 +102,16 @@
       "link profiles and margins",
       "application"
     ],
-    "prompt": "A hypothetical path predicts −96 dBm into a receiver threshold of −109 dBm. A comparable path has 17 dB margin. A planning criterion is 15 dB. Which path falls short?",
+    "prompt": "A link shows +35.8 dB of fade margin against the -119 dBm threshold. About what receive level is that?",
     "options": [
-      "The second, because 17 dB falls below 15 dB",
-      "The first, because it has 13 dB margin",
-      "Both, because a receive level below zero indicates failure",
-      "Neither, because each exceeds the receiver threshold"
+      "-35.8 dBm",
+      "-83 dBm",
+      "-155 dBm",
+      "-62 dBm"
     ],
     "answer": 1,
-    "explanation": "The first has 13 dB of modeled headroom. Clearing the receiver threshold still leaves it below the separate planning criterion.",
+    "explanation": "Slide 29: the Daraga to Relay Alpha link has an Rx level of -83.3 dBm and +35.8 dB of margin.",
     "sourceSlides": [
-      28,
       29,
       35
     ]
@@ -134,18 +126,17 @@
       "link profiles and margins",
       "application"
     ],
-    "prompt": "An obstructed link has a higher margin than a link with optical LOS. What inference fits the study?",
+    "prompt": "Of the Relay Alpha links to the Sorsogon net, which is the longest and what is its margin?",
     "options": [
-      "Clearance is one factor and the modeled margin reflects the full path and equipment assumptions",
-      "The higher-margin path must have clear optical LOS",
-      "The optical path must have used a larger plot radius",
-      "The obstructed link result implies the Fresnel zone is fully clear"
+      "Castilla, 10.33 km at +75.1 dB",
+      "Bacon District, 9.44 km at +65.6 dB",
+      "Sorsogon City, 7.21 km at +79.3 dB",
+      "Casiguran, 18.63 km at +67.0 dB"
     ],
-    "answer": 0,
-    "explanation": "The deck reports optical clearance and predicted margin separately, and some obstructed paths close by diffraction.",
+    "answer": 3,
+    "explanation": "Slide 33 gives the Relay to Casiguran link as 18.63 km with a +67.0 dB fade margin.",
     "sourceSlides": [
-      23,
-      27,
+      33,
       35
     ]
   },
@@ -159,19 +150,18 @@
       "link profiles and margins",
       "application"
     ],
-    "prompt": "A model shows closure through an obstruction and the link is essential. What evidence is strongest for deciding whether to rely on it?",
+    "prompt": "Which Relay Alpha link to a Sorsogon unit has the worst Fresnel value, -1.7 F1?",
     "options": [
-      "A map screenshot showing the line between endpoints",
-      "A visual check that the terrain model labels the ridge",
-      "A larger area plot that still includes both sites",
-      "A targeted field check of that path under the intended configuration"
+      "Sorsogon City, 7.21 km",
+      "Castilla, 10.33 km",
+      "Casiguran, 18.63 km",
+      "Bacon District, 9.44 km"
     ],
     "answer": 3,
-    "explanation": "The profile and margin indicate a prediction. An intended-configuration check tests the result in the field.",
+    "explanation": "Slide 31 gives the Relay to Bacon District link a worst Fresnel value of -1.7 F1, with terrain in path.",
     "sourceSlides": [
-      23,
-      35,
-      53
+      31,
+      35
     ]
   },
   {
@@ -184,17 +174,16 @@
       "link profiles and margins",
       "application"
     ],
-    "prompt": "A planner applies a clearance rule from a different band to reject every working link in the study. What should the review check?",
+    "prompt": "A planner rejects the links for lacking 60% Fresnel clearance. What does the scorecard say?",
     "options": [
-      "Whether the map labels use the same abbreviations",
-      "Whether the path distances are rounded consistently",
-      "Whether the clearance assumption fits the modeled band and whether predicted margin meets the actual criterion",
-      "Whether every station has the same antenna height"
+      "Only the 8 terrain links lack that clearance, and those links all fail the threshold",
+      "All optical LOS links keep it and all others fail",
+      "No path keeps it, yet every link holds 35.8 to 79.3 dB above the threshold",
+      "Every path keeps it once Relay Alpha is used"
     ],
     "answer": 2,
-    "explanation": "The study shows viable modeled links even with limited Fresnel clearance, so band, model and margin criterion matter.",
+    "explanation": "Slide 35: no path keeps the 60% Fresnel clearance a microwave link would need, yet every link holds 35.8 to 79.3 dB above the threshold.",
     "sourceSlides": [
-      27,
       35
     ]
   },
@@ -208,19 +197,19 @@
       "cellular modeling",
       "application"
     ],
-    "prompt": "A comparison ranks one carrier first, but the others had fewer modeled towers. What should accompany the ranking?",
+    "prompt": "Which pairing of operator and marker symbol is correct on the cellular output slides?",
     "options": [
-      "A statement that fewer runs prove the other networks have fewer towers",
-      "A claim that the first carrier has best actual service everywhere",
-      "The tower inputs and assumptions limiting the ranking",
-      "An adjustment based solely on the number of map pins"
+      "SMART penguin, GLOBE rabbit, DITO elephant",
+      "SMART rabbit, GLOBE penguin, DITO elephant",
+      "SMART rabbit, GLOBE elephant, DITO penguin",
+      "SMART elephant, GLOBE penguin, DITO rabbit"
     ],
-    "answer": 2,
-    "explanation": "Different site samples can affect a modeled footprint and limit what a ranking means.",
+    "answer": 1,
+    "explanation": "Slides 39-41 state that SMART uses the rabbit marker, GLOBE the penguin and DITO the elephant.",
     "sourceSlides": [
-      37,
-      38,
-      42
+      39,
+      40,
+      41
     ]
   },
   {
@@ -233,18 +222,17 @@
       "cellular modeling",
       "application"
     ],
-    "prompt": "A screenshot legend lists one receiver threshold while the saved run settings list another. Which value should accompany a reconstruction of that run?",
+    "prompt": "Which pairing of operator and network code is correct in CellMapper?",
     "options": [
-      "The value in the legend because it appears on the map",
-      "Use the saved run value and document the mismatch",
-      "The arithmetic mean of both values",
-      "A third value chosen to match measured service"
+      "Smart 515-02, Globe 515-03, DITO 515-66",
+      "Smart 515-66, Globe 515-02, DITO 515-03",
+      "Smart 515-03, Globe 515-66, DITO 515-02",
+      "Smart 515-03, Globe 515-02, DITO 515-66"
     ],
-    "answer": 1,
-    "explanation": "Reconstruction depends on recorded run settings. The presentation distinguishes saved inputs from map presentation.",
+    "answer": 3,
+    "explanation": "Slide 37 lists Smart (515-03), Globe (515-02) and DITO (515-66).",
     "sourceSlides": [
-      37,
-      38
+      37
     ]
   },
   {
@@ -257,19 +245,18 @@
       "cellular modeling",
       "application"
     ],
-    "prompt": "A planned fallback relies on cellular service in a gap shown outside the compared tower runs. What action produces evidence for that fallback?",
+    "prompt": "Which cellular use rule does the study give?",
     "options": [
-      "Assume the nearest carrier pin proves reception",
-      "Infer service from the total number of operators shown",
-      "Treat the gap as final proof that all cellular options fail",
-      "Test local service and keep an alternative until verified"
+      "Use it as the primary means, with plain apps in towns only",
+      "Use it as the alternate means, with classified traffic allowed on the coastal road",
+      "Use it as the emergency means, with encrypted apps in the Pocdol interior",
+      "Use it as the contingency means with encrypted apps, never for classified traffic"
     ],
     "answer": 3,
-    "explanation": "A sampled cellular model is not a complete inventory or a field service test.",
+    "explanation": "Slide 37: cellular is the CONTINGENCY means only; use encrypted apps and never for classified traffic.",
     "sourceSlides": [
       37,
-      42,
-      53
+      52
     ]
   },
   {
@@ -282,18 +269,17 @@
       "cellular modeling",
       "application"
     ],
-    "prompt": "A reviewer compares a wide-area composite for one carrier with a clipped overlay for another. What must change before drawing an area comparison?",
+    "prompt": "On the CellMapper map, what do the large pins and the small dots show, in order?",
     "options": [
-      "Match study boundaries and document differences in sites",
-      "Use a different legend for each carrier without stating its scale",
-      "Measure the visible number of icons instead of area",
-      "Increase the opacity of the clipped overlay alone"
+      "Towers not run in CloudRF; towers that were run in CloudRF",
+      "Relay sites; dead-spot centres",
+      "Towers run in CloudRF; other CellMapper towers not run",
+      "Smart towers; Globe and DITO towers"
     ],
-    "answer": 0,
-    "explanation": "Shared extent and disclosure of the modeled samples are needed to compare like areas.",
+    "answer": 2,
+    "explanation": "Slide 37: large pins are towers run in CloudRF; small dots are other CellMapper towers that were not run (15-credit cap).",
     "sourceSlides": [
-      37,
-      42
+      37
     ]
   },
   {
@@ -306,18 +292,17 @@
       "dead spots and relays",
       "application"
     ],
-    "prompt": "Candidate A increases corridor coverage but misses one required link. Candidate B meets all required links and yields a smaller area gain. Which finding should lead a recommendation if the required links are decisive?",
+    "prompt": "Which pair matches Relay Alpha's links and its effect on the radio basins?",
     "options": [
-      "Candidate A wins because area gain always outweighs a failed required link",
-      "The options tie because neither achieves both maxima",
-      "Use whichever site gives the highest individual margin",
-      "B meets the required links despite the smaller area gain"
+      "Four of six links at 20 dB or better; basins fall from 2 to 1",
+      "All six links at 20 dB or better; basins fall from 3 to 2",
+      "All six links at 20 dB or better; basins remain at 2",
+      "All six links at 20 dB or better; basins fall from 2 to 1"
     ],
     "answer": 3,
-    "explanation": "The study evaluates both required links and area coverage. The stated link requirement governs this choice.",
+    "explanation": "Slides 46 and 49 give 6 of 6 relay links at 20 dB or better and radio basins going from 2 to 1.",
     "sourceSlides": [
       46,
-      48,
       49
     ]
   },
@@ -331,19 +316,18 @@
       "dead spots and relays",
       "application"
     ],
-    "prompt": "A relay improves communication between endpoints, yet one corridor section stays shaded. What should be reported?",
+    "prompt": "After Relay Alpha, what part of DS-1 remains?",
     "options": [
-      "The endpoint results make the remaining shading irrelevant",
-      "The remaining shading proves the relay connects neither side",
-      "The relay addresses connectivity and leaves an area gap that still needs a plan",
-      "The changed corridor percent proves every mobile can connect"
+      "About 15 km2 at Sto. Domingo",
+      "About 6 km2 on the Manito slopes",
+      "About 15 km2 on the Manito slopes",
+      "About 179 km2 beyond the 10 km plot"
     ],
     "answer": 2,
-    "explanation": "End-to-end connectivity and continuous area coverage are separate outcomes.",
+    "explanation": "Slide 53: Relay Alpha cuts DS-1 from 179 to 15 km2, and the Manito slopes remain (slide 49).",
     "sourceSlides": [
-      44,
-      46,
-      49
+      49,
+      53
     ]
   },
   {
@@ -356,19 +340,17 @@
       "dead spots and relays",
       "application"
     ],
-    "prompt": "The best modeled relay site cannot be reached during validation. How should a replacement be assessed?",
+    "prompt": "Which grid and size match DS-3 at Oas / Ligao NW?",
     "options": [
-      "Check access, rerun link and area analyses, then verify on site",
-      "Transfer the original result to the nearest accessible location",
-      "Pick a lower location without recomputing the required paths",
-      "Report the original site as field verified because the model passed"
+      "51P WQ 55640 66505, 14 km2",
+      "51P WQ 81130 61773, 14 km2",
+      "51P WQ 55640 66505, 6 km2",
+      "51P WQ 92505 45181, 14 km2"
     ],
     "answer": 0,
-    "explanation": "A change of location changes terrain and geometry. The replacement needs its own analysis and validation.",
+    "explanation": "Slide 44 lists DS-3 Oas / Ligao NW at 14 km2, grid 51P WQ 55640 66505.",
     "sourceSlides": [
-      46,
-      47,
-      53
+      44
     ]
   },
   {
@@ -381,18 +363,17 @@
       "dead spots and relays",
       "application"
     ],
-    "prompt": "A map with the relay shows fewer dead spots, but the second map also omits a weak segment from the corridor. What comparison repairs the evidence?",
+    "prompt": "Which dead spot lies outside every station's 10 km plot, with the Pocdol foothills separating the clusters?",
     "options": [
-      "Use the larger coverage figure because it is more recent",
-      "Compare the same corridor using the same usability rule",
-      "Compare only the map colors and omit area figures",
-      "Count the omitted segment as fully covered in both runs"
+      "DS-2",
+      "DS-3",
+      "DS-1",
+      "All three"
     ],
-    "answer": 1,
-    "explanation": "Changing the denominator can create an apparent gain. Use matched extents and classes.",
+    "answer": 2,
+    "explanation": "Slide 44 describes DS-1 (179 km2) as outside every station's 10 km plot, with the Pocdol foothills separating the clusters.",
     "sourceSlides": [
-      44,
-      49
+      44
     ]
   },
   {
@@ -405,17 +386,16 @@
       "validation and decisions",
       "application"
     ],
-    "prompt": "A mast increase barely helps one strong path, while an area gap affects mobile users. What should the team evaluate next?",
+    "prompt": "A planner wants to close the Daraga-Castilla gap by raising masts. Which statement from the study answers this?",
     "options": [
-      "Use that strong path's margin to certify mobile coverage",
-      "Test changes against the mobile coverage gap and verify field performance",
-      "Adopt the taller mast everywhere based on the one path",
-      "Exclude mobile use from the area analysis"
+      "Masts of 30 m close the gap at 5 W",
+      "Height does not cross the Pocdol range; the relay does",
+      "Raising handheld heights to 6 m crosses the range",
+      "The gap closes once HF NVIS replaces VHF"
     ],
     "answer": 1,
-    "explanation": "A sensitivity result for one base link does not answer whether mobile coverage improves.",
+    "explanation": "Slide 53 says height does not cross the Pocdol range; the relay does (slide 51 adds that height is for handheld reach).",
     "sourceSlides": [
-      49,
       51,
       53
     ]
@@ -430,19 +410,17 @@
       "validation and decisions",
       "application"
     ],
-    "prompt": "A validation visit finds cellular fallback unavailable in a modeled usable area. What recommendation should change?",
+    "prompt": "Which PACE assignment is correct for HF NVIS and cellular?",
     "options": [
-      "Leave the plan as written because a prediction exists",
-      "Remove all noncellular means from the plan to simplify it",
-      "Increase predicted coverage by including more towers without further checks",
-      "Revise the local fallback and log conditions for a rerun"
+      "HF NVIS is Contingency; cellular is Alternate",
+      "HF NVIS is Alternate; cellular is Contingency",
+      "HF NVIS is Primary; cellular is Emergency",
+      "HF NVIS is Emergency; cellular is Primary"
     ],
-    "answer": 3,
-    "explanation": "Field evidence should change local fallback guidance and inform a revised prediction.",
+    "answer": 1,
+    "explanation": "Slide 52: Primary is VHF FM via Relay Alpha, Alternate is HF NVIS, Contingency is cellular, Emergency is SATCOM or runner.",
     "sourceSlides": [
-      37,
-      52,
-      53
+      52
     ]
   },
   {
@@ -455,19 +433,17 @@
       "validation and decisions",
       "application"
     ],
-    "prompt": "A team has time to verify only a subset of links first. Several high-margin links are convenient, while a marginal link supports an important relay path. Which should it prioritize?",
+    "prompt": "Across Relay Alpha's links to the Sorsogon units, what range of fade margin is reported?",
     "options": [
-      "The convenient link with the largest margin",
-      "The path appearing first in the slides",
-      "The marginal path needed by an important relay",
-      "The shortest available path regardless of role"
+      "+35.8 to +57.2 dB",
+      "+65.6 to +79.3 dB",
+      "+53.2 to +73.0 dB",
+      "+54.8 to +67.1 dB"
     ],
-    "answer": 2,
-    "explanation": "Priority should reflect uncertainty and the consequence if the required link underperforms.",
+    "answer": 1,
+    "explanation": "Slide 46 lists the Sorsogon units at +65.6 to +79.3 dB, so every relay link clears 20 dB.",
     "sourceSlides": [
-      35,
-      49,
-      53
+      46
     ]
   },
   {
@@ -480,19 +456,17 @@
       "validation and decisions",
       "application"
     ],
-    "prompt": "Checks confirm relay connectivity at planned endpoints, but nobody tested the area where the prediction shows a remaining gap. What statement is supported?",
+    "prompt": "Which description matches the before and after maps?",
     "options": [
-      "The checked endpoint links worked under test conditions and the residual area remains unverified",
-      "The checks validated every point in the corridor",
-      "The residual gap can be removed because the endpoints worked",
-      "All future relay paths using the same model are verified"
+      "Before: nine stations at 5 W, 10 km; after: plus Relay Alpha at 10 W on 6 m",
+      "Before: nine stations at 10 W; after: plus a 5 W relay on 6 m",
+      "Before: twelve stations at 5 W; after: plus Relay Alpha at 10 W on 30 m",
+      "Before: nine stations at 5 W, 8 km; after: plus Relay Alpha at 5 W on 6 m"
     ],
     "answer": 0,
-    "explanation": "Field observations support the tested configurations and locations. The area prediction still needs separate validation.",
+    "explanation": "Slide 49 compares nine station plots (5 W, 10 km) with those plus Relay Alpha (10 W, 6 m).",
     "sourceSlides": [
-      48,
-      49,
-      53
+      49
     ]
   }
 ]

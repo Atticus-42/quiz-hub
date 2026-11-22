@@ -9,15 +9,15 @@
       "model inputs and coverage",
       "application"
     ],
-    "prompt": "Two exported runs used different feed-line losses. What is needed to isolate the effect of mast height?",
+    "prompt": "Which combination matches the recorded transmitter inputs for the LGP and relay stations in the saved captures?",
     "options": [
-      "Average the two receive-level results",
-      "Use the result with the higher antenna gain",
-      "Apply the same overlay color to both exports",
-      "Re-run with common settings except for mast height"
+      "10 W and 5 W, 6 m height, 4 dBi gain, 0.5 dB line loss",
+      "5 W and 10 W, 6 m height, 4 dBi gain, 0.5 dB line loss",
+      "5 W and 10 W, 2 m height, 4 dBi gain, 0.5 dB line loss",
+      "5 W and 10 W, 6 m height, 4 dBi gain, 3 dB line loss"
     ],
-    "answer": 3,
-    "explanation": "A controlled comparison changes only the input being tested.",
+    "answer": 1,
+    "explanation": "Slide 16 records LGP 5 W, relay 10 W, 6 m height, 4 dBi gain and 0.5 dB line loss.",
     "sourceSlides": [
       15,
       16
@@ -33,17 +33,16 @@
       "model inputs and coverage",
       "application"
     ],
-    "prompt": "A team has nine individual coverage maps and wants to show the union of usable areas. What should it prepare?",
+    "prompt": "Overall coverage from the nine station plots is recomputed in what area, and what share is usable VHF?",
     "options": [
-      "A mean of the station-to-station distances",
-      "A composite using a common usability rule",
-      "A table of tower elevations",
-      "An export of the largest single footprint"
+      "A 10 km corridor, 81% usable",
+      "An 8 km corridor, 75% usable",
+      "An 8 km corridor, 81% usable",
+      "An 8 km corridor, 96% usable"
     ],
-    "answer": 1,
-    "explanation": "The composite combines individual footprints under consistent signal-class criteria.",
+    "answer": 2,
+    "explanation": "Slide 19: nine station plots with classes recomputed in the 8 km corridor give 81% usable VHF (yellow or green); 75% is the green class alone.",
     "sourceSlides": [
-      17,
       19
     ]
   },
@@ -57,18 +56,18 @@
       "model inputs and coverage",
       "application"
     ],
-    "prompt": "A location just beyond the configured plot radius is blank. How should the team interpret it?",
+    "prompt": "Which pair correctly gives the Radio Mobile plot radius per station and the width of the study corridor around the links?",
     "options": [
-      "It has no result in that plot and may require a larger run",
-      "It is a measured dead spot",
-      "It is necessarily below receiver threshold",
-      "It is covered by whichever station is closest"
+      "8 km per station; 10 km corridor",
+      "10 km per station; 20 km corridor",
+      "5 km per station; 8 km corridor",
+      "10 km per station; 8 km corridor"
     ],
-    "answer": 0,
-    "explanation": "The plot radius limits the analysis, so an unplotted point needs further evaluation.",
+    "answer": 3,
+    "explanation": "Slide 15 gives a 10 km radius per station, and slide 44 outlines land within 8 km of the 12 planned links.",
     "sourceSlides": [
       15,
-      19
+      44
     ]
   },
   {
@@ -81,18 +80,17 @@
       "model inputs and coverage",
       "application"
     ],
-    "prompt": "A rerun changes receiver threshold and predicted usable area expands. What changed in the comparison?",
+    "prompt": "Which frequency range is used for every Radio Mobile plot?",
     "options": [
-      "The antenna height above ground",
-      "The actual terrain profile",
-      "The cutoff for classifying usable signal",
-      "The locations recorded for modeled transmitters"
+      "30-88 MHz",
+      "225-400 MHz",
+      "780 MHz",
+      "40-59 MHz"
     ],
-    "answer": 2,
-    "explanation": "A changed threshold can reclassify a predicted level without changing the physical path.",
+    "answer": 3,
+    "explanation": "Slide 15 gives 40-59 MHz for every plot; 780 MHz is the cellular model frequency (slide 38).",
     "sourceSlides": [
-      15,
-      16
+      15
     ]
   },
   {
@@ -105,18 +103,17 @@
       "link profiles and margins",
       "application"
     ],
-    "prompt": "A hypothetical prediction is −92 dBm with a threshold of −103 dBm. What is the predicted margin?",
+    "prompt": "A link has a receive level of -65.8 dBm against the -119 dBm threshold. What is its fade margin?",
     "options": [
-      "11 dB",
-      "10 dB",
-      "21 dB",
-      "−195 dB"
+      "35.8 dB",
+      "65.8 dB",
+      "53.2 dB",
+      "184.8 dB"
     ],
-    "answer": 0,
-    "explanation": "Subtract the threshold from the receive level. −92 minus −103 gives 11 dB.",
+    "answer": 2,
+    "explanation": "Slide 24: the LGP to Camalig link has an Rx level of -65.8 dBm and a fade margin of +53.2 dB (-65.8 minus -119).",
     "sourceSlides": [
-      23,
-      35
+      24
     ]
   },
   {
@@ -129,18 +126,18 @@
       "link profiles and margins",
       "application"
     ],
-    "prompt": "A ridge crosses the direct path, but the link result has positive fade margin. What conclusion fits both readings?",
+    "prompt": "Which Albay net link is described as 'Optical LOS - Fresnel zone partly clear'?",
     "options": [
-      "The profile must be wrong because the link closes",
-      "The positive margin proves unobstructed optical LOS",
-      "The ridge has no effect on predicted signal loss",
-      "The model predicts a viable obstructed path under those inputs"
+      "Legazpi to Daraga, 4.32 km",
+      "Legazpi to Camalig, 7.10 km",
+      "Camalig to Guinobatan, 7.18 km",
+      "Ligao to Guinobatan, 6.47 km"
     ],
     "answer": 3,
-    "explanation": "The worked study distinguishes link closure from optical clearance and reports links that close by diffraction.",
+    "explanation": "Slide 27 labels the Ligao to Guinobatan link optical LOS with the Fresnel zone partly clear; the other Albay links close by diffraction (slides 23-26).",
     "sourceSlides": [
       23,
-      35
+      27
     ]
   },
   {
@@ -153,17 +150,16 @@
       "link profiles and margins",
       "application"
     ],
-    "prompt": "An optical path has a clear centerline but some nearby terrain intrudes into the Fresnel zone. How should it be recorded?",
+    "prompt": "How many of the 12 planned links are optical LOS with the Fresnel zone partly clear?",
     "options": [
-      "No optical LOS and full Fresnel clearance",
-      "An unplotted path with no centerline result",
-      "Optical LOS with partial Fresnel clearance",
-      "An optical path with guaranteed link closure"
+      "Two",
+      "Four",
+      "Six",
+      "Eight"
     ],
-    "answer": 2,
-    "explanation": "The straight line and the surrounding Fresnel zone have different clearance conditions.",
+    "answer": 1,
+    "explanation": "Slide 35 shows 8 of the 12 links close through terrain, so the other 4 are optical LOS with the Fresnel zone partly clear.",
     "sourceSlides": [
-      27,
       35
     ]
   },
@@ -177,18 +173,17 @@
       "link profiles and margins",
       "application"
     ],
-    "prompt": "Two candidate links pass the threshold, but one has substantially less predicted headroom. Which deserves earlier validation if both are equally important?",
+    "prompt": "Which statement describes the Albay net links?",
     "options": [
-      "The higher-margin path",
-      "The lower-margin path",
-      "Whichever result appears first in the deck",
-      "The shorter path regardless of margin"
+      "Five long links, all closing by 35 dB or more",
+      "Two links, all closing by 35.8 dB",
+      "Five short links, all closing by 53 dB or more",
+      "Five short links, all closing by 20 dB"
     ],
-    "answer": 1,
-    "explanation": "Lower margin offers less headroom if actual conditions differ from the assumptions.",
+    "answer": 2,
+    "explanation": "Slides 23-27 title the Albay net as five short links that all close by 53 dB or more.",
     "sourceSlides": [
-      28,
-      29
+      23
     ]
   },
   {
@@ -201,18 +196,18 @@
       "cellular modeling",
       "application"
     ],
-    "prompt": "A team wants to compare cellular operators using model exports. Which approach supports comparison?",
+    "prompt": "How many saved models are supplied for each operator?",
     "options": [
-      "Treat every mapped tower as though it was modeled",
-      "Use a common study extent and document inputs and towers included",
-      "Select a different zoom level for each carrier",
-      "Assume the best footprint verifies the best actual service"
+      "Smart 6, Globe 8, DITO 8",
+      "Smart 8, Globe 8, DITO 6",
+      "Smart 8, Globe 6, DITO 8",
+      "Smart 8, Globe 8, DITO 8"
     ],
     "answer": 1,
-    "explanation": "Documented assumptions, selected sites and a common viewing area make the comparison interpretable.",
+    "explanation": "Slides 39-42 show 8 Smart, 8 Globe and 6 DITO saved models, 22 in all.",
     "sourceSlides": [
-      37,
-      38
+      39,
+      42
     ]
   },
   {
@@ -225,18 +220,17 @@
       "cellular modeling",
       "application"
     ],
-    "prompt": "A tower pin has no matching coverage layer. What should the map reviewer check first?",
+    "prompt": "Which operator has only six saved models on the supplied cellular output slides?",
     "options": [
-      "Whether the tower was included in a model run",
-      "Whether the carrier has changed its network name",
-      "Whether the image has full opacity",
-      "Whether the tower has optical LOS to every other tower"
+      "DITO",
+      "Smart",
+      "Globe",
+      "All three have eight"
     ],
     "answer": 0,
-    "explanation": "The exercise distinguishes mapped candidate towers from those with computed predictions.",
+    "explanation": "Slide 41 shows 6 DITO saved models; Smart and Globe have 8 each (slides 39-40).",
     "sourceSlides": [
-      37,
-      42
+      41
     ]
   },
   {
@@ -249,15 +243,15 @@
       "cellular modeling",
       "application"
     ],
-    "prompt": "A reviewer wants the verified antenna height of an operator's tower. What can the model's antenna height establish?",
+    "prompt": "What transmit antenna height is recorded for the cellular models?",
     "options": [
-      "The tower's confirmed installation height",
-      "The antenna height of every nearby station",
-      "The height assumed by the run",
-      "The minimum receiver height for service"
+      "30 m AGL",
+      "6 m AGL",
+      "1.5 m AGL",
+      "20 m AGL"
     ],
-    "answer": 2,
-    "explanation": "The saved model records an input assumption. Operator records or measurement would be separate evidence.",
+    "answer": 0,
+    "explanation": "Slide 38 records a 30 m AGL transmit antenna height; 1.5 m is the receive height.",
     "sourceSlides": [
       38
     ]
@@ -272,18 +266,17 @@
       "cellular modeling",
       "application"
     ],
-    "prompt": "An apparent gap appears in a modeled carrier overlay. Which statement is supported without field evidence?",
+    "prompt": "In the PACE plan, which means is the Emergency?",
     "options": [
-      "The carrier has no active subscribers there",
-      "Every phone will fail to connect there",
-      "The nearest plotted tower is offline",
-      "The modeled runs show no usable service"
+      "HF NVIS voice/data",
+      "SATCOM terminal or runner",
+      "Cellular with encrypted apps",
+      "VHF FM net via Relay Alpha"
     ],
-    "answer": 3,
-    "explanation": "A gap is specific to the selected model results and does not establish actual service conditions.",
+    "answer": 1,
+    "explanation": "Slide 52 lists SATCOM terminal or runner as the Emergency means.",
     "sourceSlides": [
-      37,
-      42
+      52
     ]
   },
   {
@@ -296,18 +289,17 @@
       "dead spots and relays",
       "application"
     ],
-    "prompt": "A candidate relay increases the composite usable area but a small red patch remains. What is the proper description?",
+    "prompt": "Which dead spot is at Sto. Domingo / Mayon SE, where the lower volcano slopes shadow Legazpi's NE sector, and how large is it?",
     "options": [
-      "The relay fully removes the original gap",
-      "The model failed because it still shows any gap",
-      "Usable coverage improves, but a dead spot remains",
-      "The red area confirms hardware failure in the relay"
+      "DS-2, 14 km2",
+      "DS-2, 6 km2",
+      "DS-3, 6 km2",
+      "DS-1, 6 km2"
     ],
-    "answer": 2,
-    "explanation": "The before-and-after comparison can show improvement and remaining gaps together.",
+    "answer": 1,
+    "explanation": "Slide 44 lists DS-2 as Sto. Domingo / Mayon SE at 6 km2; DS-3 Oas / Ligao NW is 14 km2.",
     "sourceSlides": [
-      44,
-      49
+      44
     ]
   },
   {
@@ -320,18 +312,17 @@
       "dead spots and relays",
       "application"
     ],
-    "prompt": "A high candidate site reaches several outlying users but misses the required upstream connection. What should the planner conclude?",
+    "prompt": "Why is Relay Alpha placed on the Pocdol high ground?",
     "options": [
-      "The relay succeeds because it is on high ground",
-      "The site alone cannot bridge the two sides",
-      "The upstream link can be assumed from the downstream links",
-      "Only the downstream coverage area matters"
+      "It is high ground 7 to 19 km from all four Sorsogon units, with links to Bde HQ and Daraga",
+      "It is low ground between Daraga and Camalig, 3 to 5 km from all Albay units",
+      "It is on the Mayon slopes, within direct sight of every station",
+      "It is beside the Bde HQ compound and shares its mast"
     ],
-    "answer": 1,
-    "explanation": "End-to-end usefulness depends on all required relay legs.",
+    "answer": 0,
+    "explanation": "Slide 46 gives the Pocdol (Bacon-Manito) high ground, 7 to 19 km from all four Sorsogon units, reaching Bde HQ and Daraga.",
     "sourceSlides": [
-      46,
-      47
+      46
     ]
   },
   {
@@ -344,18 +335,17 @@
       "dead spots and relays",
       "application"
     ],
-    "prompt": "A map shows two similar relay sites. One appears accessible and the other has uncertain access. What should be done before committing?",
+    "prompt": "What fade margins do the Relay Alpha links to Bde HQ and Daraga show?",
     "options": [
-      "Choose the uncertain site solely because its contour is slightly larger",
-      "Compare only their elevations",
-      "Choose whichever appears nearer the center of the map",
-      "Verify access along with the link results"
+      "+57.2 dB and +35.8 dB",
+      "+35.8 dB and +57.2 dB",
+      "+73.0 dB and +53.2 dB",
+      "+79.3 dB and +54.8 dB"
     ],
-    "answer": 3,
-    "explanation": "A useful relay needs a workable site and acceptable communications links.",
+    "answer": 0,
+    "explanation": "Slide 46: Bde HQ at 27.1 km is +57.2 dB and Daraga at 28.4 km is +35.8 dB.",
     "sourceSlides": [
-      46,
-      47
+      46
     ]
   },
   {
@@ -368,17 +358,16 @@
       "dead spots and relays",
       "application"
     ],
-    "prompt": "What comparison isolates the coverage improvement from adding a relay?",
+    "prompt": "How many radio basins (brigade nets) remain once Relay Alpha is added?",
     "options": [
-      "Compare with and without the relay at one extent and cutoff",
-      "Change the signal classes and plot boundary for the second run",
-      "Show only the relay footprint in both maps",
-      "Use a path-profile screenshot in place of the baseline"
+      "Two",
+      "Three",
+      "None",
+      "One"
     ],
-    "answer": 0,
-    "explanation": "The study's before-and-after comparison uses a shared corridor and classification rule.",
+    "answer": 3,
+    "explanation": "Slide 49 shows radio basins going from 2 to 1 with Relay Alpha.",
     "sourceSlides": [
-      44,
       49
     ]
   },
@@ -392,15 +381,15 @@
       "validation and decisions",
       "application"
     ],
-    "prompt": "A taller mast offers only a small improvement, and the current setup exceeds the planning margin. What is the reasonable next step?",
+    "prompt": "Which antenna heights are recommended for Bde HQ, Relay Alpha and unit handhelds?",
     "options": [
-      "Keep the practical configuration provisionally and verify it in the field",
-      "Adopt the tallest mast solely because it scored higher",
-      "Treat height as immaterial to all future paths",
-      "Replace the model's measured terrain with a flat profile"
+      "Bde HQ and Relay Alpha at 6 m, handhelds at 2 m",
+      "Bde HQ at 30 m, Relay Alpha at 6 m, handhelds at 2 m",
+      "Bde HQ and Relay Alpha at 2 m, handhelds at 6 m",
+      "Bde HQ at 6 m, Relay Alpha at 30 m, handhelds at 2 m"
     ],
     "answer": 0,
-    "explanation": "Choose configuration based on the benefit to the required link and validate the resulting setup.",
+    "explanation": "Slide 53 recommends Bde HQ and Relay Alpha on 6 m masts and unit handhelds at 2 m (slide 51).",
     "sourceSlides": [
       51,
       53
@@ -416,17 +405,16 @@
       "validation and decisions",
       "application"
     ],
-    "prompt": "A revised map leaves a residual gap on an assigned route. What should the recommendation include?",
+    "prompt": "Which transmit powers are recommended for base stations, the repeater and handhelds?",
     "options": [
-      "Treat any coverage improvement as complete resolution",
-      "Remove the gap from the map extent",
-      "Flag the gap and provide a fallback and field check",
-      "Raise the acceptable outage threshold without informing users"
+      "10 W base stations, 5 W repeater, 5 W handhelds",
+      "5 W base stations and repeater, 10 W handhelds",
+      "5 W base stations, 10 W repeater, 5 W handhelds",
+      "10 W for all stations"
     ],
     "answer": 2,
-    "explanation": "A remaining gap calls for a fallback and verification.",
+    "explanation": "Slide 53 recommends 5 W base stations, a 10 W repeater and 5 W Harris handhelds.",
     "sourceSlides": [
-      49,
       53
     ]
   },
@@ -440,18 +428,17 @@
       "validation and decisions",
       "application"
     ],
-    "prompt": "The cellular model is promising in one area but uncertain outside it. How should the case-study plan treat cellular service?",
+    "prompt": "What does the study recommend for DS-2 Sto. Domingo and DS-3 Oas?",
     "options": [
-      "Replace all planned radio links with cellular",
-      "Use it as a contingency where suitable, with other means available",
-      "Assume availability throughout the operating area",
-      "Use tower count alone to choose the communications plan"
+      "Add a second relay at each site",
+      "Use cellular as the primary means",
+      "Move to high ground or use HF NVIS, and report before entering",
+      "Wait for Relay Alpha to cover them"
     ],
-    "answer": 1,
-    "explanation": "The example limits cellular to a contingency because modeled availability is incomplete.",
+    "answer": 2,
+    "explanation": "Slide 53 says to move to high ground or use HF NVIS for DS-2 and DS-3, and to report before entering.",
     "sourceSlides": [
-      37,
-      52
+      53
     ]
   },
   {
@@ -464,16 +451,17 @@
       "validation and decisions",
       "application"
     ],
-    "prompt": "Field checks show a weaker link than expected. Which record supports a useful model revision?",
+    "prompt": "Which statement matches the study's cellular contingency recommendation?",
     "options": [
-      "Only a screenshot of the revised legend",
-      "The measured ground elevation without the test location",
-      "Only a note that the test occurred",
-      "Observed signal, field conditions, and modeled path"
+      "The Pocdol interior and Mayon slopes are covered, but towns are not",
+      "All 12 key towers cover the whole corridor",
+      "Only the Sorsogon towns are covered",
+      "Towns and the coastal road are covered, but the Pocdol interior is not"
     ],
     "answer": 3,
-    "explanation": "Comparing field conditions with model assumptions gives planners a basis for updating the prediction.",
+    "explanation": "Slides 37 and 53: cellular covers towns and the coastal road but not the Pocdol interior, and serves only as the contingency means.",
     "sourceSlides": [
+      37,
       53
     ]
   }

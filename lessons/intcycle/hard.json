@@ -9,21 +9,19 @@
       "processed information",
       "contradictory evidence"
     ],
-    "prompt": "A Philippine Army tabletop team has translated shelter reports and a polished dashboard. Two totals still conflict, but the leader needs an assessment now. Which product is best justified?",
+    "prompt": "A commander receives translated and sorted raw reports that have not yet been interpreted or synthesized. Which statement fits the lesson?",
     "options": [
-      "Deliver the polished dashboard, using its common format as the basis for accepting both totals",
-      "Select the more recent total for the assessment and omit the disagreement to preserve clarity",
-      "Deliver the complete source archive, leaving the leader to determine the meaning of each total",
-      "Provide supported findings, explain the unresolved conflict and limit the conclusion accordingly"
+      "They are processed inputs; analysis and production must still turn them into actionable intelligence",
+      "They are finished intelligence products ready for dissemination to the relevant decision-makers",
+      "They are collection requirements that must return to Planning and Direction before analysis",
+      "They count as intelligence products as soon as they have been translated and sorted"
     ],
-    "answer": 3,
-    "explanation": "The team can interpret the usable information while explicitly retaining the conflict that limits its conclusion. Translation and visualization help prepare and communicate material, but they do not resolve the evidence. A polished dashboard alone would obscure the remaining analytical problem.",
+    "answer": 0,
+    "explanation": "Slides 12 and 13 place translation and sorting in processing, while interpreting and synthesizing into actionable products belongs to Analysis and Production.",
     "sourceSlides": [
-      10,
       12,
       13,
-      19,
-      20
+      17
     ]
   },
   {
@@ -36,20 +34,17 @@
       "evolving needs",
       "assessment revision"
     ],
-    "prompt": "After dissemination, a new bulletin weakens one briefing finding, while the exercise leader asks a related new question. What response best reflects the cycle?",
+    "prompt": "New commander needs reopen the work after a product has been delivered. Which feature of the intelligence cycle does this show?",
     "options": [
-      "Answer the new question first and preserve the old finding until the next scheduled review",
-      "Review the affected finding and refine information requirements for the leader's new question",
-      "Withdraw all earlier findings before checking which conclusions the bulletin actually affects",
-      "Resend the original assessment with a new date because the issue concerns product dissemination"
+      "It is a continuous, dynamic and iterative process",
+      "It is a linear process with no feedback",
+      "It is a single-use process built for one mission",
+      "It is a sequence that ends at dissemination"
     ],
-    "answer": 1,
-    "explanation": "The cycle responds to changing information and requirements, so both the affected finding and the new question deserve review. Withdrawing every finding would exceed what the new evidence establishes. Revisiting relevant work preserves useful understanding while allowing justified changes to the assessment.",
+    "answer": 0,
+    "explanation": "Slide 11 describes the cycle as continuous, dynamic and iterative so that it keeps meeting evolving operational needs.",
     "sourceSlides": [
-      11,
-      12,
-      13,
-      14
+      11
     ]
   },
   {
@@ -62,19 +57,17 @@
       "coverage limitations",
       "confidence"
     ],
-    "prompt": "A briefing combines several reports from the same reported shelters but no data from others. Which conclusion best fits the evidence for a support review?",
+    "prompt": "Which pairing matches the significance of intelligence to the type of operation?",
     "options": [
-      "Assess the reported shelters and state that wider coverage remains an information gap",
-      "Extend the finding to all shelters because repeated reports create a sufficiently large dataset",
-      "Infer stable demand at the missing shelters because no reports describe an increase there",
-      "Withhold every observation until the team can establish a complete picture of all shelters"
+      "Military operations: inform countermeasure strategies; EW operations: predict adversary actions",
+      "Military operations: predict adversary actions; EW operations: inform countermeasure strategies",
+      "Military operations: identify electronic threats; EW operations: optimize mission success",
+      "Military operations: enhance situational awareness only; EW operations: predict adversary actions"
     ],
-    "answer": 0,
-    "explanation": "The available material supports an assessment of the shelters it describes, with a clear limitation on wider coverage. More reports about the same places do not establish knowledge of unreported ones. Useful decision support can state a bounded conclusion without claiming complete certainty.",
+    "answer": 1,
+    "explanation": "Slide 10 gives predicting adversary actions for military operations and informing countermeasure strategies for EW operations.",
     "sourceSlides": [
-      10,
-      13,
-      19
+      10
     ]
   },
   {
@@ -87,17 +80,16 @@
       "priorities",
       "resource allocation"
     ],
-    "prompt": "A short classroom review must explain a specific support gap. Most available files concern a broader background topic, and staff time is limited. What should direct effort?",
+    "prompt": "A staff decides which intelligence activities are most urgent, then distributes personnel and equipment accordingly. Which activities are these, in order?",
     "options": [
-      "Complete the large background review first because the file volume indicates a substantial need",
-      "Divide staff equally among topics so all available folders receive consistent review effort",
-      "Prioritize the specific decision requirement and the information gaps that affect answering it",
-      "Use the background files to draft a recommendation and define the requirement after briefing"
+      "Allocating resources, then prioritizing tasks",
+      "Prioritizing tasks, then allocating resources",
+      "Defining EW intelligence needs, then tasking EW assets",
+      "Directing EW resources, then establishing requirements"
     ],
-    "answer": 2,
-    "explanation": "Planning and direction aligns requirements and resources with mission objectives, so the specific decision need should shape the review. The larger background folder may still contain useful material, but its size does not establish priority or resolve the support question on its own.",
+    "answer": 1,
+    "explanation": "Slide 14 describes prioritizing tasks as determining what is most urgent, and allocating resources as distributing personnel and equipment.",
     "sourceSlides": [
-      12,
       14
     ]
   },
@@ -111,15 +103,15 @@
       "requirement revision",
       "evolving needs"
     ],
-    "prompt": "The leader asks for 'current shelter needs,' but staff disagree whether the decision concerns present demand or likely changes. What should happen before the review expands?",
+    "prompt": "Before collection starts, the staff meets the commander to learn the intelligence needs and assesses the operational environment. Which stage and activity is this?",
     "options": [
-      "Clarify the intended decision with the leader and adjust the information requirements accordingly",
-      "Produce two complete assessments before asking the leader which interpretation meets the need",
-      "Use the interpretation supported by existing slides and record the alternative in an appendix",
-      "Collect all available reports first and let the resulting material determine the briefing question"
+      "Planning and Direction: tasking EW assets to collection units",
+      "Planning and Direction: defining EW intelligence needs",
+      "Collection: surveillance of electronic signals",
+      "Analysis and Production: correlation of intelligence data"
     ],
-    "answer": 0,
-    "explanation": "The ambiguity affects what information and analysis the task requires, making clarification part of planning and direction. Producing two full assessments could consume limited effort without establishing the intended decision. Collaboration should define the need before the team expands its work.",
+    "answer": 1,
+    "explanation": "Slide 14 places commander collaboration and environment assessment under Defining EW Intelligence Needs in Planning and Direction.",
     "sourceSlides": [
       12,
       14
@@ -135,19 +127,18 @@
       "priorities",
       "resource coordination"
     ],
-    "prompt": "A tabletop storm update changes the support concern, but the team has nearly finished an earlier review. Which direction best balances completed work and the changed need?",
+    "prompt": "Which pairing of stage and description is correct?",
     "options": [
-      "Finish the earlier review in full before checking how it relates to the changed support concern",
-      "Discard the earlier review and recreate every dataset before evaluating the new requirements",
-      "Keep the original priorities and ask the audience to infer the effects of the changed concern",
-      "Reassess priorities and retain completed work that still helps answer the changed decision need"
+      "Analysis and Production: interpreting and synthesizing processed data to create actionable intelligence products",
+      "Processing and Exploitation: interpreting and synthesizing processed data to create actionable intelligence products",
+      "Collection: establishing requirements and priorities and directing resources",
+      "Dissemination and Integration: gathering raw data from HUMINT, SIGINT, IMINT and OSINT"
     ],
-    "answer": 3,
-    "explanation": "A changing environment can require revised priorities, while relevant completed work may still support the new decision. The cycle's iterative character does not require abandoning all earlier work. Keeping priorities unchanged, however, could leave the team answering a superseded requirement.",
+    "answer": 0,
+    "explanation": "Slide 13 describes Analysis and Production as interpreting and synthesizing processed data into actionable intelligence products.",
     "sourceSlides": [
-      11,
       12,
-      14
+      13
     ]
   },
   {
@@ -160,19 +151,17 @@
       "mission alignment",
       "collection requirements"
     ],
-    "prompt": "Reviewers discover that a draft cannot answer whether the exercise support gap is changing over time. Which follow-up direction is most useful?",
+    "prompt": "Which activity guides EW assets to collect and process the necessary intelligence and aligns EW efforts with broader operational goals?",
     "options": [
-      "Request more files across subjects so the larger dataset gives the analyst additional context",
-      "Redesign the dashboard so the existing snapshot communicates the possible demand change clearly",
-      "Specify the missing time comparison that the analyst needs to answer the decision question",
-      "Request a firmer recommendation so the product can answer the question with greater confidence"
+      "Tasking EW assets",
+      "Allocating resources",
+      "Prioritizing tasks",
+      "Directing EW resources"
     ],
-    "answer": 2,
-    "explanation": "The discovered gap should become a focused information requirement tied to the decision. A question about change needs a relevant time comparison, consistent with trend analysis. More files or a redesigned display would not necessarily supply the missing basis for that comparison.",
+    "answer": 3,
+    "explanation": "Slide 14 describes Directing EW Resources as guiding EW assets and aligning EW efforts with broader goals and intelligence priorities.",
     "sourceSlides": [
-      12,
-      14,
-      18
+      14
     ]
   },
   {
@@ -185,17 +174,16 @@
       "COMINT",
       "source and medium"
     ],
-    "prompt": "A student classifies a public disaster bulletin as COMINT because it arrived by email, while classifying a recorded authorized interview as ELINT. Which review is best?",
+    "prompt": "A team analyzes radar emissions that carry no communications. Which collection category applies?",
     "options": [
-      "Keep both labels because the delivery network and recording equipment define the source type",
-      "Classify the public bulletin as OSINT and the human source's authorized account as HUMINT",
-      "Classify both as SIGINT because each source became electronic material before staff review",
-      "Classify both as IMINT because a display can show the material as text or other visual content"
+      "ELINT, from non-communication electronic emissions",
+      "COMINT, a subset of SIGINT focused on communication signals",
+      "IMINT, because radar returns are imagery",
+      "OSINT, because radar emissions are openly broadcast"
     ],
-    "answer": 1,
-    "explanation": "The source distinctions concern openly available material and human accounts, rather than the mere presence of email or recording equipment. COMINT and ELINT are SIGINT categories with different subject matter. Electronic handling does not make every digitally stored source a SIGINT input.",
+    "answer": 0,
+    "explanation": "Slide 15 describes ELINT as intelligence from non-communication electronic emissions such as radar.",
     "sourceSlides": [
-      12,
       15
     ]
   },
@@ -210,18 +198,16 @@
       "ELINT",
       "taxonomy limits"
     ],
-    "prompt": "A classroom packet contains translated simulated communications and a sorted table of noncommunication radar emissions. Both are displayed as charts, but neither has been assessed. Which review note correctly addresses source category and stage?",
+    "prompt": "Which pairing of collection method and focus is correct?",
     "options": [
-      "Retain COMINT and ELINT under SIGINT; translation and sorting prepare inputs, but assessment remains",
-      "Retain COMINT and ELINT under SIGINT; their translated and sorted form completes analysis and production",
-      "Reclassify both as IMINT because they appear in charts; retain analysis as the next unfinished task",
-      "Reclassify both as ELINT because they are electronic; translation and sorting complete their assessment"
+      "COMINT: non-communication emissions such as radar; ELINT: communication signals",
+      "SIGINT: non-communication emissions only; COMINT: all electronic signals",
+      "COMINT: communication signals; ELINT: non-communication emissions such as radar",
+      "ELINT: communication signals only; SIGINT: imagery of emitters"
     ],
-    "answer": 0,
-    "explanation": "COMINT and ELINT distinguish communications from noncommunication emissions within SIGINT; chart presentation does not change their source categories. Translation and sorting make inputs usable, but significance still requires analysis. Correct labels alone do not justify treating the prepared packet as a completed assessment.",
+    "answer": 2,
+    "explanation": "Slide 15 describes COMINT as focused on communication signals and ELINT as non-communication emissions.",
     "sourceSlides": [
-      12,
-      13,
       15
     ]
   },
@@ -236,15 +222,15 @@
       "signal analysis",
       "activity boundaries"
     ],
-    "prompt": "An abstract exercise describes repeated monitoring for change, capture of a transmitted signal, and evaluation of its significance as three separate activities. Which review preserves their distinctions?",
+    "prompt": "Which list matches surveillance, interception and signal analysis, in that order, to their stated purposes?",
     "options": [
-      "Use interception for all three activities because each can occur before a final product is written",
-      "Use production for monitoring, collection for capture and dissemination for significance review",
-      "Use surveillance for monitoring, interception for capture and signal analysis for significance review",
-      "Use surveillance for all three activities because monitoring provides context for later understanding"
+      "Detects changes in the electronic environment; enables collection as signals are transmitted; determines nature, origin and significance",
+      "Determines nature, origin and significance; detects changes in the electronic environment; enables collection as signals are transmitted",
+      "Enables collection as signals are transmitted; determines nature, origin and significance; detects changes in the electronic environment",
+      "Detects changes in the electronic environment; determines nature, origin and significance; enables collection as signals are transmitted"
     ],
-    "answer": 2,
-    "explanation": "The source assigns repeated monitoring, signal capture and evaluation different activity meanings. Keeping those labels distinct prevents capture from being mistaken for interpretation or monitoring. The scenario tests conceptual boundaries and does not ask how to conduct any signal collection activity.",
+    "answer": 0,
+    "explanation": "Slide 16 gives these purposes for surveillance, interception and signal analysis respectively.",
     "sourceSlides": [
       16
     ]
@@ -259,19 +245,18 @@
       "collection and analysis",
       "source diversity"
     ],
-    "prompt": "A training image and a public bulletin describe the same shelter issue differently. What does the presence of two collection disciplines establish by itself?",
+    "prompt": "How many stages does the lesson list for the intelligence cycle, and which stage is fourth?",
     "options": [
-      "Prefer the training image because the visible source provides a firmer basis than a written bulletin",
-      "Prefer the public bulletin because publication gives its stated figures a stronger status than imagery",
-      "Treat the two disciplines as mutual validation because their different source types reduce uncertainty",
-      "Recognize different collection inputs and analyze the disagreement before selecting a supported finding"
+      "Five; Processing and Exploitation",
+      "Five; Analysis and Production",
+      "Four; Analysis and Production",
+      "Six; Dissemination and Integration"
     ],
-    "answer": 3,
-    "explanation": "Multiple disciplines provide different inputs, but their presence alone does not decide which account is better supported. The disagreement remains an analytical problem. Neither imagery nor open publication receives automatic precedence from the lesson's description of collection categories and later analysis.",
+    "answer": 1,
+    "explanation": "Slides 12 and 13 list five stages, with Analysis and Production fourth.",
     "sourceSlides": [
       12,
-      13,
-      18
+      13
     ]
   },
   {
@@ -284,20 +269,19 @@
       "translation",
       "stage boundaries"
     ],
-    "prompt": "A team translates reports, standardizes their dates and notices an apparent rise in demand. Which handoff most clearly separates preparation from assessment?",
+    "prompt": "Intercepted signals are decrypted, translated and sorted so that they can be analyzed. Which stage is this, and which follows?",
     "options": [
-      "Hand usable material and the observed pattern to analysis without treating its meaning as settled",
-      "Record the rise as an established finding because the reports now use consistent dates and language",
-      "Send only the final chart to analysis because preparation has already resolved the source context",
-      "Return all material to collection because a pattern cannot be recorded during the processing stage"
+      "Collection, followed by Processing and Exploitation",
+      "Processing and Exploitation, followed by Dissemination and Integration",
+      "Analysis and Production, followed by Dissemination and Integration",
+      "Processing and Exploitation, followed by Analysis and Production"
     ],
-    "answer": 0,
-    "explanation": "Translation and sorting prepare material for analysis, and an observed pattern can be flagged without declaring its meaning settled. The next stage interprets and synthesizes the usable information. Consistent formatting makes a comparison possible but does not complete the assessment of the apparent rise.",
+    "answer": 3,
+    "explanation": "Slides 12 and 17 place decryption, translation and sorting in Processing and Exploitation, which prepares information for Analysis and Production.",
     "sourceSlides": [
       12,
       13,
-      17,
-      18
+      17
     ]
   },
   {
@@ -310,18 +294,16 @@
       "data interpretation",
       "ambiguity"
     ],
-    "prompt": "Two fictional reports use the word 'capacity' differently. Their figures look contradictory after sorting. What preparation best supports a meaningful later comparison?",
+    "prompt": "Which pairing of processing activity and purpose is correct?",
     "options": [
-      "Average the two figures so the analyst receives a single value that is easier to interpret",
-      "Clarify what each capacity figure describes before deciding whether the numbers can be compared",
-      "Use the larger figure so the briefing accounts for the greater apparent support requirement",
-      "Use identical wording for both headings so the figures can enter the same comparison table"
+      "Signal decryption: extracts meaningful information such as patterns or anomalies",
+      "Data interpretation: extracts meaningful information such as patterns or anomalies",
+      "Data interpretation: ensures intercepted signals can be understood and utilized",
+      "Signal decryption: determines the nature, origin and significance of signals"
     ],
     "answer": 1,
-    "explanation": "Processing should preserve usable meaning, so the team needs to clarify what each figure describes before comparing them. Identical wording does not ensure identical concepts. Averaging figures that refer to different things could create a tidy value without resolving the underlying contextual problem.",
+    "explanation": "Slide 17 gives pattern and anomaly extraction as the purpose of data interpretation and accessibility as the purpose of decryption.",
     "sourceSlides": [
-      12,
-      13,
       17
     ]
   },
@@ -335,19 +317,18 @@
       "access",
       "analytical limits"
     ],
-    "prompt": "An authorized classroom decoding demonstration succeeds, but the readable message is incomplete and its significance unclear. Which status should accompany it?",
+    "prompt": "Which goal statement belongs to Analysis and Production rather than to Processing and Exploitation?",
     "options": [
-      "Label it a completed assessment because successful access supplies the basis for accepting its content",
-      "Label it a final recommendation because the accessible content can now be presented to the leader",
-      "Label it an invalid source because processing failed to produce a complete analytical conclusion",
-      "Label it a usable but incomplete input whose meaning still needs interpretation before assessment"
+      "Transform raw electronic warfare data into valuable intelligence that can be used for decision-making and operational planning",
+      "Provide ongoing situational awareness by continuously monitoring electronic signals and communications",
+      "Safeguard EW intelligence to prevent adversaries from gaining insights that could undermine military operations",
+      "Convert processed data into actionable intelligence reports and insights that support operational and strategic decision-making"
     ],
     "answer": 3,
-    "explanation": "Successful access changes the material's usability, not the completeness or significance of its content. The readable message can enter analysis with its limitations visible. Calling it a completed assessment would merge processing with the later interpretation and production needed for decision support.",
+    "explanation": "Slide 18 states the goal of Analysis and Production; the second option is the goal of Processing and Exploitation on slide 17.",
     "sourceSlides": [
-      12,
-      13,
-      17
+      17,
+      18
     ]
   },
   {
@@ -360,17 +341,16 @@
       "trend analysis",
       "method selection"
     ],
-    "prompt": "The leader asks both how shelter demand changed over several days and how it relates to supply requests. Which analytical plan best fits both questions?",
+    "prompt": "An analyst must link separate pieces of data to find relationships and analyze data over time to detect changes. Which techniques fit, in that order?",
     "options": [
-      "Sort once by sender and use that arrangement to explain both the change and the relationship",
-      "Compare only the latest totals so differences in reporting days do not complicate the briefing",
-      "Use trend analysis for change over time and correlation for the relationship between the measures",
-      "Chart each file separately so the briefing can present both subjects without further interpretation"
+      "Trend analysis, then correlation",
+      "Correlation, then trend analysis",
+      "Signal pattern analysis, then correlation",
+      "Correlation, then signal pattern analysis"
     ],
-    "answer": 2,
-    "explanation": "Trend analysis addresses change over time, while correlation examines relationships among pieces of information. The two questions therefore call for different but complementary analytical views. A latest-total snapshot could support current awareness, but it would not by itself answer either requested comparison.",
+    "answer": 1,
+    "explanation": "Slide 18 assigns relationships to correlation and change over time to trend analysis.",
     "sourceSlides": [
-      13,
       18
     ]
   },
@@ -384,19 +364,17 @@
       "comparability",
       "limitations"
     ],
-    "prompt": "A draft calls demand 'steadily rising,' but one day covers fewer shelters than the others. What review response best addresses the conclusion?",
+    "prompt": "Which pairing of analysis technique and purpose is correct?",
     "options": [
-      "Check whether the observations are comparable and qualify the trend if the coverage gap affects it",
-      "Accept the wording because placing the totals in date order establishes a meaningful time trend",
-      "Replace the incomplete day's total with the highest value to represent the possible missing demand",
-      "Retain the wording but remove the dates so the coverage difference does not distract the audience"
+      "Correlation: predicts future developments from historical data trends",
+      "Trend analysis: identifies and classifies signal types, sources and potential threats",
+      "Signal pattern analysis: identifies and classifies signal types, sources and potential threats",
+      "Correlation: infers the source and purpose of electronic signals from their characteristics"
     ],
-    "answer": 0,
-    "explanation": "A claim about change should reflect what the observations can support, including differences that affect comparison. Dates alone do not make the totals equivalent evidence of a steady rise. The team should examine the coverage issue before choosing language stronger than the information permits.",
+    "answer": 2,
+    "explanation": "Slide 18 gives classification of signal types, sources and threats as the purpose of signal pattern analysis.",
     "sourceSlides": [
-      13,
-      18,
-      19
+      18
     ]
   },
   {
@@ -409,19 +387,19 @@
       "causal limits",
       "production"
     ],
-    "prompt": "Shelter demand and supply requests rose together in the exercise dataset. A draft says demand caused every request increase. Which revision best supports a decision?",
+    "prompt": "Which list gives the three analysis techniques shown on the Analysis and Production slide?",
     "options": [
-      "Retain the causal explanation but place its supporting comparison in the appendix for later review",
-      "Omit the relationship because correlation cannot provide useful understanding without proof of cause",
-      "Replace the explanation with a recommendation so the briefing can focus on the decision required",
-      "Report the observed relationship while explaining that this comparison has not established its cause"
+      "Correlation, signal analysis, trend analysis",
+      "Surveillance, correlation, trend analysis",
+      "Correlation, data interpretation, trend analysis",
+      "Correlation, signal pattern analysis, trend analysis"
     ],
     "answer": 3,
-    "explanation": "Correlation can reveal a relevant relationship without establishing that one measure caused all changes in the other. The revision retains useful analysis while limiting the claim to its support. Removing the relationship completely would lose information that may still help the decision-maker understand the issue.",
+    "explanation": "Slide 18 lists correlation, signal pattern analysis and trend analysis; signal analysis (slide 16) and data interpretation (slide 17) belong elsewhere.",
     "sourceSlides": [
-      13,
-      18,
-      19
+      16,
+      17,
+      18
     ]
   },
   {
@@ -434,15 +412,15 @@
       "trend analysis",
       "recurring characteristics"
     ],
-    "prompt": "An artificial signal-label dataset contains recurring shapes across entries but no time sequence. The draft calls this a time trend. Which correction best fits the available data?",
+    "prompt": "Which statement is NOT correct about signal pattern analysis?",
     "options": [
-      "Keep the trend label because recurrence across entries demonstrates change across successive periods",
-      "Describe recurring characteristics as a pattern without claiming that they establish change over time",
-      "Assign dates from the order of entries and use that sequence to analyze a possible time trend",
-      "Discard the dataset because an artificial source cannot support the lesson's pattern-analysis distinction"
+      "It analyzes data over time to detect changes or emerging patterns",
+      "It examines the characteristics and patterns of electronic signals",
+      "It infers the source and purpose of signals",
+      "It identifies and classifies signal types, sources and potential threats"
     ],
-    "answer": 1,
-    "explanation": "Recurring characteristics can support a pattern description, while a trend requires consideration of change over time. Without a time sequence, the stronger label is unsupported. The artificial labels allow conceptual method selection without examining real signals or developing operational collection or exploitation procedures.",
+    "answer": 0,
+    "explanation": "Analyzing data over time describes trend analysis; slide 18 describes signal pattern analysis as the other three statements.",
     "sourceSlides": [
       18
     ]
@@ -458,17 +436,16 @@
       "recommendations",
       "uncertainty"
     ],
-    "prompt": "A short tabletop briefing must recommend further review of a support issue despite an unresolved report conflict. Which structure best supports an informed decision?",
+    "prompt": "Which statement correctly gives the content and purpose of production?",
     "options": [
-      "Present the recommendation with the archive, allowing recipients to reconstruct the supporting analysis",
-      "Present the conflicting totals alone so the audience can choose a recommendation during discussion",
-      "Present supported findings, explain how the conflict limits them and connect a recommendation to that analysis",
-      "Present the strongest conclusion without the conflict so the short briefing gives a clear direction"
+      "Content: sorted data, translations and decrypted signals; purpose: prepare the information for detailed analysis",
+      "Content: summary of findings and analysis; purpose: identify intelligence requirements and set priorities for collection",
+      "Content: tasking orders and resource lists; purpose: ensure resources are used efficiently to meet objectives",
+      "Content: summary of findings, analysis and actionable intelligence; purpose: actionable insights and recommendations to decision-makers"
     ],
-    "answer": 2,
-    "explanation": "A useful product connects findings and analysis to its recommendation while showing a conflict that affects the judgment. A source archive alone does not explain that connection. Clear reasoning lets the recipient understand both the proposed next step and the limits of the assessment supporting it.",
+    "answer": 3,
+    "explanation": "Slide 19 gives the content and purpose of production as the first option.",
     "sourceSlides": [
-      13,
       19
     ]
   },
@@ -482,17 +459,16 @@
       "visualization",
       "integration"
     ],
-    "prompt": "A revised assessment changes a support assumption, but the current dashboard and planning summary still show the old one. Which response best integrates the update?",
+    "prompt": "A C2 display shows EW data in a user-friendly format and is refreshed continuously. Which two processes are at work?",
     "options": [
-      "Update the affected displays and review planning assumptions in light of the revised assessment",
-      "Send the revised file and treat a delivery notification as evidence that the plan has changed",
-      "Update the dashboard's date but keep the old conclusion to preserve consistency across displays",
-      "Archive the revision and leave the planning summary until users request a review of the change"
+      "Data sharing and correlation",
+      "Visualization and data sorting",
+      "Real-time updates and signal analysis",
+      "Visualization and real-time updates"
     ],
-    "answer": 0,
-    "explanation": "Integration requires the revised understanding to inform current situational awareness and plans. Receipt of a file alone does not establish that the changed assumption reached those uses. The affected display and planning summary should reflect the assessment where the revision matters to decisions.",
+    "answer": 3,
+    "explanation": "Slide 20 describes visualization as user-friendly display and real-time updates as continuous updates that keep situational awareness accurate.",
     "sourceSlides": [
-      13,
       20
     ]
   },
@@ -506,19 +482,16 @@
       "assessment limitations",
       "relevant recipients"
     ],
-    "prompt": "An authorized leader needs a short assessment before a discussion. One relevant issue remains uncertain, but supported findings are available. Which delivery best serves the stated need?",
+    "prompt": "Which of the following is the stated purpose of integrating EW-derived intelligence into C2 platforms?",
     "options": [
-      "Wait until the uncertainty disappears even if the assessment arrives after the decision discussion",
-      "Deliver supported findings before the discussion and make the unresolved issue clear to the leader",
-      "Deliver only raw files before the discussion because an unresolved issue prevents useful assessment",
-      "Deliver a firm conclusion before the discussion and omit the unresolved issue from the brief"
+      "It ensures that intelligence efforts are aligned with the objectives of the supported mission",
+      "It provides the raw material necessary for analysis from the gathered sources",
+      "It enables commanders to make informed decisions based on comprehensive and current EW data",
+      "It transforms raw data into insights that can inform decision-making by commanders"
     ],
-    "answer": 1,
-    "explanation": "The product can support the decision in time while accurately communicating its limitation. Timeliness does not justify hiding uncertainty, and an unresolved issue does not erase every supported finding. Sending raw files alone would shift the analytical task back to the recipient.",
+    "answer": 2,
+    "explanation": "Slide 20 states that integration enables commanders to make informed decisions based on comprehensive and current EW data.",
     "sourceSlides": [
-      10,
-      13,
-      19,
       20
     ]
   },
@@ -532,20 +505,17 @@
       "data sharing",
       "decision context"
     ],
-    "prompt": "A clear chart reaches authorized staff, but its caption drops the assessment's limited coverage and staff use it for a wider planning assumption. What correction matters most?",
+    "prompt": "Which statement correctly distinguishes data sharing from real-time updates?",
     "options": [
-      "Increase the chart's resolution so staff can read the same finding more clearly during planning",
-      "Send the chart to more staff so a broader audience can consider the planning assumption it supports",
-      "Restore the coverage limitation and review the wider assumption that relied on the incomplete caption",
-      "Change the chart's colors and retain the assumption because delivery reached authorized staff members"
+      "Data sharing provides continuous updates for accurate situational awareness; real-time updates transmit EW intelligence data to C2 systems",
+      "Data sharing displays EW data in a user-friendly format; real-time updates transmit EW intelligence data to C2 systems",
+      "Data sharing transmits EW intelligence data to C2 systems; real-time updates provide continuous updates for accurate situational awareness",
+      "Data sharing limits access to sensitive EW data to authorized personnel; real-time updates use encrypted channels"
     ],
     "answer": 2,
-    "explanation": "The missing limitation changes what the chart appears to support, so correction should address both the display and its use in planning. Authorized delivery is necessary for appropriate sharing, but it does not ensure the product's analytical meaning survives visualization and integration.",
+    "explanation": "Slide 20 describes data sharing as transmitting EW intelligence data to C2 systems and real-time updates as continuous updates.",
     "sourceSlides": [
-      13,
-      19,
-      20,
-      21
+      20
     ]
   },
   {
@@ -558,15 +528,15 @@
       "threat awareness",
       "secure communication"
     ],
-    "prompt": "An unexpected account requests the full exercise assessment through a familiar-looking message, citing urgency. What response best combines decision support with OPSEC?",
+    "prompt": "A unit lets any staff member open its EW intelligence files. Which principle is it failing to apply?",
     "options": [
-      "Verify the requester's authorization and use the approved route for any assessment sharing permitted",
-      "Send the assessment because the message's familiar appearance provides sufficient evidence of authorization",
-      "Remove the title and send the content so the recipient can meet the urgent stated information need",
-      "Forward the product to a broader group so another participant can decide whether the request is valid"
+      "Information control",
+      "Legal compliance",
+      "Moral standards",
+      "Transparency vs. security"
     ],
     "answer": 0,
-    "explanation": "Threat awareness and authorized access require checking the request rather than relying on its appearance or urgency. Permitted sharing should then use the approved communication route. Removing a title does not resolve whether the account may receive the substantive information in the assessment.",
+    "explanation": "Slide 21 states that information control limits access to sensitive EW data to authorized personnel only.",
     "sourceSlides": [
       21
     ]
@@ -581,17 +551,16 @@
       "civilian harm",
       "information control"
     ],
-    "prompt": "An assessment's reasoning is useful for a public exercise summary, but its source appendix contains unnecessary civilian identifiers. Which handling best fits the lesson?",
+    "prompt": "An EW action is lawful but would harm civilians. Which ethical aspect does it fail to meet?",
     "options": [
-      "Release the complete appendix because explaining the reasoning requires publishing every underlying detail",
-      "Prepare a permitted summary that explains the findings without disclosing unnecessary civilian identifiers",
-      "Withhold the entire summary because the source material contains some details about individual civilians",
-      "Share the appendix informally so a useful explanation can reach readers without a formal release step"
+      "Legal compliance",
+      "Transparency vs. security",
+      "Moral standards",
+      "Information control"
     ],
-    "answer": 1,
-    "explanation": "Ethical handling considers legal compliance, civilian harm and the balance between transparency and security. A permitted summary can explain findings without disclosing unnecessary identifying details. Publishing the whole appendix is not required merely because the assessment should communicate its supporting reasoning.",
+    "answer": 2,
+    "explanation": "Slide 21 lists Moral Standards as avoiding actions that could harm civilians, separate from Legal Compliance.",
     "sourceSlides": [
-      19,
       21
     ]
   },
@@ -605,18 +574,16 @@
       "authorized access",
       "C2 sharing"
     ],
-    "prompt": "A partner in a disaster tabletop needs a general finding, while the detailed assessment has access restrictions. What is the best basis for sharing?",
+    "prompt": "Which list correctly pairs each ethical aspect with its stated requirement, in order: legal compliance, moral standards, transparency vs. security?",
     "options": [
-      "Use the partner's exercise-liaison role as the release basis and send the relevant extract through the usual protected channel",
-      "Use a brief summary's reduced detail as the release basis and route it through the team's approved internal distribution list",
-      "Use the partner's existing system access as the release basis and provide the findings needed for the coordination task",
-      "Confirm what the partner may receive and provide a useful summary through an authorized sharing route"
+      "Avoid harm to civilians; follow national and international laws; balance operational security with transparency in decision-making",
+      "Follow national and international laws; balance operational security with transparency; avoid harm to civilians",
+      "Follow national and international laws; avoid harm to civilians; balance operational security with transparency in decision-making",
+      "Limit access to authorized personnel; avoid harm to civilians; follow national and international laws"
     ],
-    "answer": 3,
-    "explanation": "The lesson supports useful information sharing alongside authorized access and information control. Checking what may be shared allows an appropriate summary to support coordination. Participation alone does not establish permission for every restricted detail, while blanket withholding can miss a permitted way to communicate useful findings.",
+    "answer": 2,
+    "explanation": "Slide 21 gives these requirements for legal compliance, moral standards and transparency vs. security respectively.",
     "sourceSlides": [
-      13,
-      20,
       21
     ]
   }

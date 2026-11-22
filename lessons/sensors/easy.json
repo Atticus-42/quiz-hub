@@ -7,15 +7,15 @@
     "tags": [
       "concept and information quality"
     ],
-    "prompt": "How does the lesson characterize C4ISTAR?",
+    "prompt": "C4ISTAR is a system of systems that integrates and shortens which loop?",
     "options": [
-      "An inventory of unrelated devices",
-      "A replacement for every commander",
-      "A system of systems",
-      "A single stand-alone sensor"
+      "The Planning, Preparation, and Execution Loop",
+      "The Intelligence Cycle",
+      "The Targeting Cycle",
+      "The Sensors, Decision-Makers, and Shooters Loop"
     ],
-    "answer": 2,
-    "explanation": "C4ISTAR combines several capabilities into a connected system supporting situational understanding.",
+    "answer": 3,
+    "explanation": "Page 6 defines C4ISTAR as a system of systems that integrates and shortens the Sensors, Decision-Makers, and Shooters Loop.",
     "sourceSlides": [
       6
     ]
@@ -28,15 +28,15 @@
     "tags": [
       "concept and information quality"
     ],
-    "prompt": "What is the sensor's primary role in the conceptual loop?",
+    "prompt": "In the Sensor, Decision-Maker, Shooter loop, what does the Decision-Maker do?",
     "options": [
-      "Detect and collect information",
-      "Perform every downstream action",
-      "Replace all information analysis",
-      "Authorize every command decision"
+      "Sees: detects and collects data from the environment around the unit",
+      "Thinks: analyzes the data, assesses the situation, and decides",
+      "Acts: executes the decision",
+      "Connects: relays the data to headquarters"
     ],
-    "answer": 0,
-    "explanation": "The sensor collects observations; decision-makers interpret information and decide what to do.",
+    "answer": 1,
+    "explanation": "Page 7 gives the Sensor 'sees', the Decision-Maker 'thinks' and the Shooter 'acts'.",
     "sourceSlides": [
       7
     ]
@@ -49,15 +49,15 @@
     "tags": [
       "concept and information quality"
     ],
-    "prompt": "What does COP stand for?",
+    "prompt": "Integrated sensor data feeds which of the following?",
     "options": [
-      "Central Optical Processor",
-      "Combined Office Protocol",
-      "Common Operational Picture",
-      "Controlled Output Peripheral"
+      "Common Operational Picture (COP)",
+      "Command Post Procedures",
+      "Communications Order of Precedence",
+      "Combined Operations Plan"
     ],
-    "answer": 2,
-    "explanation": "The Common Operational Picture supports shared situational awareness through integrated information.",
+    "answer": 0,
+    "explanation": "Page 9: integrated sensor data feeds the Common Operational Picture (COP).",
     "sourceSlides": [
       9
     ]
@@ -70,17 +70,16 @@
     "tags": [
       "concept and information quality"
     ],
-    "prompt": "What makes integration useful beyond simply owning sensors?",
+    "prompt": "Integration is combining multiple applications so that different software, systems, and processes do what?",
     "options": [
-      "Keeping each sensor's observations permanently isolated",
-      "Connecting their information to the people and systems needing it",
-      "Removing every need for trained operators",
-      "Increasing the number of devices regardless of data use"
+      "Function as one uninterrupted system",
+      "Operate on separate networks",
+      "Share a single vendor's protocol",
+      "Run on the same hardware"
     ],
-    "answer": 1,
-    "explanation": "Integration makes sensor information available and useful downstream, rather than merely collecting it.",
+    "answer": 0,
+    "explanation": "Page 9 describes integration as combining multiple applications so different software, systems, and processes function as one uninterrupted system.",
     "sourceSlides": [
-      7,
       9
     ]
   },
@@ -92,15 +91,15 @@
     "tags": [
       "sensor types and roles"
     ],
-    "prompt": "Which listed sensor locates the source of sniper fire?",
+    "prompt": "Which list contains the five PA C4ISTAR sensor types?",
     "options": [
-      "Sniper Fire Location Detector",
-      "Thermal Imager",
-      "Interface Control Document",
-      "PANET router"
+      "Sniper Fire Location Detector, Thermal Imager, Ground-Based RDF, UAS, and Blue Force Tracking system",
+      "Sniper Fire Location Detector, Thermal Imager, Ground-Based RDF, UAS, and SUGV",
+      "Sniper Fire Location Detector, Thermal Imager, Ground-Based RDF, SUGV, and satellite terminal",
+      "Thermal Imager, Ground-Based RDF, UAS, SUGV, and radar jammer"
     ],
-    "answer": 0,
-    "explanation": "The lesson assigns source-of-fire detection to the Sniper Fire Location Detector.",
+    "answer": 1,
+    "explanation": "Page 10 lists the Sniper Fire Location Detector, Thermal Imager, Ground-Based Radio Direction Finding Systems, UAS and SUGV.",
     "sourceSlides": [
       10
     ]
@@ -113,15 +112,15 @@
     "tags": [
       "sensor types and roles"
     ],
-    "prompt": "Which listed device supports portable long-range optical observation?",
+    "prompt": "Thermal Imagers are used for long-range observation by whom?",
     "options": [
-      "Network switch",
-      "Telephone exchange",
-      "Radio direction finder",
-      "Thermal Imager"
+      "Signal operators or network engineers",
+      "Convoy drivers or medics",
+      "Fire direction teams or air controllers",
+      "Reconnaissance teams or forward observers"
     ],
     "answer": 3,
-    "explanation": "The lesson describes the thermal imager as a portable, battery-powered observation device.",
+    "explanation": "Page 10 describes the Thermal Imager as a portable, battery-operated device for long-range observation by recon teams or forward observers.",
     "sourceSlides": [
       10
     ]
@@ -134,15 +133,15 @@
     "tags": [
       "sensor types and roles"
     ],
-    "prompt": "What does a radio direction-finding observation establish directly?",
+    "prompt": "Two or more measurements from which sensor locate an unknown transmitter or vehicle?",
     "options": [
-      "An automatically exact geographic position",
-      "The identity of every person using the transmitter",
-      "The complete contents of every transmission",
-      "A direction toward a radio source"
+      "Thermal Imager used by reconnaissance teams in the field",
+      "Unmanned Aerial Systems",
+      "Ground-Based Radio Direction Finding Systems",
+      "Small Unmanned Ground Vehicle"
     ],
-    "answer": 3,
-    "explanation": "RDF provides a bearing; locating a source requires additional information and measurements.",
+    "answer": 2,
+    "explanation": "Page 10: ground-based RDF systems find the direction of a radio source, and two or more measurements locate an unknown transmitter or vehicle.",
     "sourceSlides": [
       10
     ]
@@ -155,15 +154,15 @@
     "tags": [
       "sensor types and roles"
     ],
-    "prompt": "Which distinction between UAS and SUGV is correct?",
+    "prompt": "What does SUGV stand for?",
     "options": [
-      "Fixed cable versus satellite orbit",
-      "Telephone exchange versus network router",
-      "Software profile versus paper interface record",
-      "Airborne platform versus ground platform"
+      "Special Unmanned Guidance Vehicle",
+      "Small Unit Ground Vehicle",
+      "Secure Unmanned Gateway Vehicle",
+      "Small Unmanned Ground Vehicle"
     ],
     "answer": 3,
-    "explanation": "Both can carry payloads, but UAS are aerial platforms and SUGVs operate on the ground.",
+    "explanation": "Page 10 lists the Small Unmanned Ground Vehicle (SUGV) as one of the five sensor types.",
     "sourceSlides": [
       10
     ]
@@ -176,15 +175,15 @@
     "tags": [
       "interoperability and requirements"
     ],
-    "prompt": "What is an Interface Control Document used for?",
+    "prompt": "What does ICD stand for in the lesson?",
     "options": [
-      "Defining interfaces and communication rules",
-      "Allocating responsibilities for overall mission information requirements",
-      "Selecting communication media for a particular operating environment",
-      "Specifying the operational testing schedule for integrated sensors"
+      "Integrated Command Directive",
+      "Interface Control Document",
+      "Interoperability Compliance Document",
+      "Interface Configuration Diagram"
     ],
-    "answer": 0,
-    "explanation": "An ICD describes how systems connect and exchange information so compatibility can be assessed.",
+    "answer": 1,
+    "explanation": "Page 16 introduces the Interface Control Document (ICD), which describes a system's interfaces and communication rules.",
     "sourceSlides": [
       16
     ]
@@ -197,15 +196,15 @@
     "tags": [
       "interoperability and requirements"
     ],
-    "prompt": "What does the Interoperability Points concept standardize?",
+    "prompt": "What does NISP stand for?",
     "options": [
-      "Every internal technology in every nation",
-      "Connection points between networks",
-      "Only the color of equipment cases",
-      "Only the rank of network operators"
+      "National Information Security Protocol",
+      "NATO Information Sharing Plan",
+      "Network Interface Standard Procedure",
+      "NATO Interoperability Standards and Profiles"
     ],
-    "answer": 1,
-    "explanation": "The IOP concept permits internal differences while standardizing the interfaces between networks.",
+    "answer": 3,
+    "explanation": "Page 16: NISP prescribes the technical standards needed to achieve interoperability across an alliance.",
     "sourceSlides": [
       16
     ]
@@ -218,15 +217,15 @@
     "tags": [
       "interoperability and requirements"
     ],
-    "prompt": "What advantage does open architecture offer?",
+    "prompt": "Open architecture lets new sensors and capabilities be added onto the existing system as what?",
     "options": [
-      "Adding capabilities without replacing the whole system",
-      "Automatic compatibility without interface work",
-      "Unlimited access to every protected information source",
-      "Elimination of all maintenance requirements"
+      "Replacements",
+      "Add-ons",
+      "Overrides",
+      "Subscriptions"
     ],
-    "answer": 0,
-    "explanation": "Open architecture supports extensions through defined interfaces and standards, not uncontrolled access.",
+    "answer": 1,
+    "explanation": "Page 16: open architecture lets new sensors and capabilities be added as 'add-ons', keeping integration and future upgrades cheaper and faster.",
     "sourceSlides": [
       16
     ]
@@ -239,15 +238,15 @@
     "tags": [
       "interoperability and requirements"
     ],
-    "prompt": "How does the lesson classify PANET and BONTEX?",
+    "prompt": "PANET and BONTEX belong to which medium of communication?",
     "options": [
-      "Sensor payloads",
-      "Fixed communications",
-      "Target classification methods",
-      "Optical observation systems"
+      "Fixed communication",
+      "Tactical communication",
+      "Special purpose communication",
+      "Non-military communication"
     ],
-    "answer": 1,
-    "explanation": "The lesson identifies PANET and BONTEX as part of the fixed communications backbone.",
+    "answer": 0,
+    "explanation": "Page 17 places BONTEX and PANET under fixed communication, the PA's backbone for voice and data up to GHQ.",
     "sourceSlides": [
       17
     ]
@@ -260,15 +259,15 @@
     "tags": [
       "context and constraints"
     ],
-    "prompt": "What is data overload?",
+    "prompt": "Which constraint refers to ISR sources generating more data than operators can process without good data management?",
     "options": [
-      "Too few equipment labels on a storage shelf",
-      "The absence of any sensor observation",
-      "More information than operators can effectively process",
-      "A guarantee that more data always improves understanding"
+      "Cost",
+      "Legacy integration",
+      "Data overload",
+      "Human factors"
     ],
     "answer": 2,
-    "explanation": "Sensor volume can exceed processing capacity; data management and analysis remain necessary.",
+    "explanation": "Page 18 lists data overload: ISR sources can generate more data than operators can process without good data management.",
     "sourceSlides": [
       18
     ]
@@ -281,15 +280,15 @@
     "tags": [
       "context and constraints"
     ],
-    "prompt": "Which group consists of environmental or electromagnetic conditions affecting sensor performance?",
+    "prompt": "Which constraint means that more interconnected sensors create a bigger attack surface for cyber-attacks and espionage?",
     "options": [
-      "Staffing levels, training and operator familiarity",
-      "Funding, procurement lead times and supplier arrangements",
-      "Terrain, temperature and electromagnetic interference",
-      "Message formats, interface profiles and implementation options"
+      "Cost",
+      "Data overload",
+      "Cybersecurity",
+      "Human factors"
     ],
     "answer": 2,
-    "explanation": "The source includes environmental and electromagnetic conditions among integration constraints.",
+    "explanation": "Page 18 lists cybersecurity: more interconnected sensors mean a bigger attack surface for cyber-attacks and espionage.",
     "sourceSlides": [
       18
     ]
@@ -302,15 +301,15 @@
     "tags": [
       "context and constraints"
     ],
-    "prompt": "Which context involves partner-nation interoperability?",
+    "prompt": "Which operational context involves interoperability with partner-nation systems on different standards?",
     "options": [
-      "A single internal office inventory",
-      "A local document-formatting exercise",
-      "An individual device cleaning task",
-      "Coalition operations"
+      "Coalition Operations",
+      "Combined Arms Operations",
+      "Joint Operations",
+      "Humanitarian operations"
     ],
-    "answer": 3,
-    "explanation": "Coalition integration must account for different national systems and standards.",
+    "answer": 0,
+    "explanation": "Page 19 lists coalition operations as interoperability with partner-nation systems on different standards.",
     "sourceSlides": [
       19
     ]
@@ -323,15 +322,15 @@
     "tags": [
       "context and constraints"
     ],
-    "prompt": "What is a key feature of the joint context described?",
+    "prompt": "In Joint Operations, PA sensors feed the ground-defense portion of what?",
     "options": [
-      "Removing the need for every service's information",
-      "Using only one sensor regardless of requirements",
-      "Treating all partner nations as one domestic service",
-      "Sharing the picture across Major Services"
+      "The coalition COP of NATO",
+      "The Army Signal Regiment network",
+      "The PANET backbone",
+      "The AFP Joint C4ISTAR"
     ],
     "answer": 3,
-    "explanation": "The joint context links contributions across Major Services into shared situational awareness.",
+    "explanation": "Page 19: PA sensors feed the ground-defense portion of the AFP Joint C4ISTAR, contributing to a COP shared across Major Services.",
     "sourceSlides": [
       19
     ]
@@ -344,15 +343,15 @@
     "tags": [
       "integration responsibilities and testing"
     ],
-    "prompt": "Which organization is assigned core C4 IOM in the lesson?",
+    "prompt": "What does IOM stand for in the lesson?",
     "options": [
-      "Army Intelligence Regiment alone",
-      "The unit's clerical section exclusively",
-      "Army Signal Regiment",
-      "Every commercial equipment vendor exclusively"
+      "Integration, Operation, and Management",
+      "Installation, Operation, and Maintenance",
+      "Inspection, Orientation, and Monitoring",
+      "Installation, Optimization, and Modernization"
     ],
-    "answer": 2,
-    "explanation": "The lesson assigns core C4 installation, operation and maintenance responsibility to ASR.",
+    "answer": 1,
+    "explanation": "Page 27 assigns the Installation, Operation, and Maintenance (IOM) of core systems to the ASR and AIR.",
     "sourceSlides": [
       27
     ]
@@ -365,15 +364,15 @@
     "tags": [
       "integration responsibilities and testing"
     ],
-    "prompt": "Which organization is assigned ISTAR core-system IOM?",
+    "prompt": "Which organization is responsible for the IOM of core C4 systems?",
     "options": [
-      "The public telephone provider",
       "Army Intelligence Regiment",
-      "The building maintenance contractor",
-      "The library administration office"
+      "Army Engineer Brigade",
+      "Army Signal Regiment",
+      "Army Support Command"
     ],
-    "answer": 1,
-    "explanation": "AIR is assigned the sensor/ISTAR core-system role, coordinating with ASR on integration.",
+    "answer": 2,
+    "explanation": "Page 27: the Army Signal Regiment handles the IOM of core C4 systems, while the Army Intelligence Regiment handles the ISTAR core systems.",
     "sourceSlides": [
       27
     ]
@@ -386,15 +385,15 @@
     "tags": [
       "integration responsibilities and testing"
     ],
-    "prompt": "What does redundancy aim to prevent?",
+    "prompt": "Which design requirement ensures that the failure of one piece of equipment does not compromise the entire system?",
     "options": [
-      "One failure compromising the entire system",
-      "All need for operator training",
-      "Any requirement to test replacement components",
-      "Every possible failure under all conditions"
+      "Modular design",
+      "EMI shielding",
+      "Redundancy",
+      "Regular operational testing"
     ],
-    "answer": 0,
-    "explanation": "Redundancy reduces dependence on a single component; it is not an absolute guarantee.",
+    "answer": 2,
+    "explanation": "Page 29: redundancy must be built in so the failure of one piece of equipment does not compromise the entire system.",
     "sourceSlides": [
       29
     ]
@@ -407,15 +406,15 @@
     "tags": [
       "integration responsibilities and testing"
     ],
-    "prompt": "Why use modular design?",
+    "prompt": "EMI and radio-frequency shielding must protect the sensor against what?",
     "options": [
-      "Avoid defining interfaces between components",
-      "Replace or upgrade components while preserving compatibility",
-      "Make every upgrade require a whole-system replacement",
-      "Eliminate all need for operational validation"
+      "Electronic warfare and other electromagnetic threats, including EMP",
+      "Terrain, extreme temperatures, and environmental factors affecting reliability",
+      "Cyber-attacks and espionage",
+      "Software license expiry"
     ],
-    "answer": 1,
-    "explanation": "Modular design supports manageable upgrades, but compatibility and testing remain requirements.",
+    "answer": 0,
+    "explanation": "Page 29 requires EMI and RF shielding against electronic warfare and other electromagnetic threats, including EMP.",
     "sourceSlides": [
       29
     ]

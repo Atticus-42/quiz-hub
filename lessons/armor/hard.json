@@ -9,18 +9,20 @@
       "armor mission",
       "internal security operations"
     ],
-    "prompt": "A brigade commander in Mindanao wants a force that attacks mounted in protected vehicles, combines fire and maneuver at the decisive time and place, and may also be tasked with ISO in peacetime. Which assessment of armor is accurate?",
+    "prompt": "Which statement is consistent with the doctrinal armor mission?",
     "options": [
-      "Armor fights mounted in armor-protected vehicles, uses controlled fire and maneuver, and may conduct ISO when higher HQ requires",
-      "Armor fights mounted in armor-protected vehicles and uses controlled fire and maneuver, but it is barred from ISO in peacetime",
-      "Armor fights as a pure tank force without other arms, relies on shock effect alone, and conducts ISO only when attached",
-      "Armor fights from protected static positions, relies on massed indirect fire, and conducts ISO only during wartime"
+      "Armor performs reconnaissance and surveillance and provides security for the unit to which it is attached",
+      "Armor closes with and neutralizes enemy forces by fire, maneuver and shock effect in coordination with other arms",
+      "Armor closes with the enemy to destroy or capture him or repel his assault by close combat and counterattack",
+      "Armor conducts ISO activities in peacetime only when it is attached to an infantry unit"
     ],
-    "answer": 0,
-    "explanation": "Page 13 defines armor as a combined arms force fighting mounted in armor-protected vehicles, conducting operations by fire and maneuver combined and controlled; page 14 says it may also conduct ISO, independently or in a task force, in peacetime as required by higher headquarters.",
+    "answer": 1,
+    "explanation": "Page 14 gives the armor mission as closing with and neutralizing enemy forces by fire, maneuver and shock effect in coordination with other arms, with ISO also allowed. The second and third options are the cavalry (page 16) and mechanized infantry (page 18) missions.",
     "sourceSlides": [
       13,
-      14
+      14,
+      16,
+      18
     ]
   },
   {
@@ -32,15 +34,15 @@
       "sub-components of armor",
       "unit missions"
     ],
-    "prompt": "A staff assigns three missions: (1) reconnaissance, surveillance and security; (2) neutralize the enemy by fire, maneuver and shock effect; (3) close with the enemy to destroy or capture him. Which units match, in order?",
+    "prompt": "Which units match, in order, these missions: (1) reconnaissance, surveillance and security; (2) neutralize the enemy by fire, maneuver and shock effect; (3) close with the enemy to destroy or capture him?",
     "options": [
       "Tank, cavalry, mechanized infantry",
-      "Cavalry, tank, mechanized infantry",
       "Mechanized infantry, tank, cavalry",
+      "Cavalry, tank, mechanized infantry",
       "Cavalry, mechanized infantry, tank"
     ],
-    "answer": 1,
-    "explanation": "Pages 16-18 give these three missions.",
+    "answer": 2,
+    "explanation": "Pages 16 to 18 give these three missions to cavalry, tank and mechanized infantry, in that order.",
     "sourceSlides": [
       16,
       17,
@@ -56,15 +58,15 @@
       "armor operation",
       "shock effect"
     ],
-    "prompt": "An S3 argues that armor operations succeed through shock effect alone. Which flaw does the lesson expose?",
+    "prompt": "The armor mission is to neutralize enemy forces by fire, maneuver and shock effect:",
     "options": [
-      "Shock effect should be evaluated as a separate result after fire and maneuver have completed their respective tasks",
-      "Shock effect principally follows from protection and vehicle presence, with coordination treated as a supporting condition",
-      "Shock effect works only with fire and maneuver, combined and controlled, and in coordination with other arms",
-      "Fire and maneuver create armor's initial effect, while shock effect is assessed independently of coordination with supporting arms"
+      "Independently of other arms",
+      "After other arms have closed with the enemy",
+      "In coordination with other arms",
+      "Only in a peacetime environment"
     ],
     "answer": 2,
-    "explanation": "Page 13 says armor operations are conducted by fire and maneuver, combined and controlled to create a preponderance of combat power; page 14 says armor neutralizes the enemy by fire, maneuver and shock effect in coordination with other arms.",
+    "explanation": "Page 14 says armor neutralizes the enemy by fire, maneuver and shock effect in coordination with other arms; page 13 adds that fire and maneuver are combined and controlled.",
     "sourceSlides": [
       13,
       14
@@ -81,15 +83,15 @@
       "communication",
       "mobility"
     ],
-    "prompt": "After an exercise, a Philippine Army armor company is scored: crews survived small arms and machine gun fire, the radio net failed during maneuver, and the vehicles kept pace over varied terrain. Which assessment fits the lesson?",
+    "prompt": "During an exercise, crews survive small arms fire, the radio net fails during maneuver and the vehicles keep pace over varied terrain. Which characteristic of armor was degraded?",
     "options": [
-      "Armor protection was degraded, intensive and flexible communication held, and mobility held",
-      "Armor protection held, intensive and flexible communication held, and mobility was degraded",
-      "Armor protection and mobility were degraded, while intensive and flexible communication held",
-      "Armor protection held, intensive and flexible communication was degraded, and mobility held"
+      "Armor protection",
+      "Intensive and flexible communication",
+      "Mobility",
+      "Flexibility"
     ],
-    "answer": 3,
-    "explanation": "Page 20 names all three characteristics.",
+    "answer": 1,
+    "explanation": "Page 20 lists armor protection, mobility and intensive and flexible communication as characteristics. Only communication, the radio net, failed in the scenario.",
     "sourceSlides": [
       20
     ]
@@ -105,15 +107,15 @@
       "mobility",
       "armor protection"
     ],
-    "prompt": "A planner links vehicle features to characteristics: the 25 mm cannon, the amphibious M113A2 hull, and Level 4 ballistic protection on the Sabrah. Which linkage is correct?",
+    "prompt": "Which characteristics, in order, are shown by these features: the 25 mm cannon, the amphibious M113A2 hull, and Level 4 ballistic protection on the Sabrah?",
     "options": [
-      "Firepower, mobility, armor protection",
       "Mobility, firepower, armor protection",
       "Armor protection, mobility, firepower",
-      "Firepower, armor protection, mobility"
+      "Firepower, armor protection, mobility",
+      "Firepower, mobility, armor protection"
     ],
-    "answer": 0,
-    "explanation": "Pages 20, 73, 75 and 82 support this linkage.",
+    "answer": 3,
+    "explanation": "Page 20 lists the characteristics; the 25 mm cannon (page 75) is firepower, the amphibious hull (page 73) is mobility and Level 4 protection (page 82) is armor protection.",
     "sourceSlides": [
       20,
       73,
@@ -130,15 +132,15 @@
       "dismount team",
       "responsibilities"
     ],
-    "prompt": "During a dismount near an enemy-held barangay, a Philippine Army squad's dismount team moves into a ditch while the AIFV driver waits to be told where to position the vehicle. The carrier team leader and the squad leader each assume the other will decide. Per the dismounting SOPs, who is responsible?",
+    "prompt": "During a dismount, who is responsible for both the maneuver of the dismount team and the positioning of the AV?",
     "options": [
-      "The carrier team leader, who places the AV, while the squad leader controls only the dismount team's maneuver",
-      "The squad leader or platoon leader, who answers for both the dismount team's maneuver and the AV's position",
-      "The driver, who positions the AV on his own initiative, since speed is of the essence during the dismount",
-      "The company first sergeant, as resource manager, who positions all AVs while the squad leaders maneuver"
+      "The carrier team leader",
+      "The driver",
+      "The squad leader or platoon leader",
+      "The company first sergeant"
     ],
-    "answer": 1,
-    "explanation": "Page 31 says the SL or PL is responsible for both the maneuver of the dismount team and the positioning of the AV. The first sergeant appears in the lesson only as a possible resource manager in planning (page 69).",
+    "answer": 2,
+    "explanation": "Page 31 says the SL or PL is responsible for both the maneuver of the dismount team and the positioning of the AV. The first sergeant appears only as a possible resource manager in planning (page 69).",
     "sourceSlides": [
       31,
       69
@@ -153,15 +155,15 @@
       "company organization",
       "AIFV"
     ],
-    "prompt": "A Philippine Army mechanized infantry company commander must know his dismounted strength. Each squad has 9 enlisted, and each squad's carrier team is the normal three-man crew that stays with the AIFV. Counting only the squads, how many soldiers dismount across the company's three platoons?",
+    "prompt": "Each squad in the lesson's chart has 9 enlisted, of whom the three-man carrier team stays with the AIFV. How many squad members dismount in all nine squads of a mechanized infantry company?",
     "options": [
-      "18, since six soldiers in each of the three squads dismount",
-      "81, since every squad member dismounts and leaves the AIFV",
-      "54, since six of nine enlisted dismount in each of nine squads",
-      "72, since only the driver stays and eight soldiers per squad dismount"
+      "18",
+      "27",
+      "81",
+      "54"
     ],
-    "answer": 2,
-    "explanation": "Page 25 gives three squads of 9 enlisted per platoon and page 24 three platoons per company, or nine squads. Page 26 says the carrier team is normally the carrier team leader, gunner and driver, so six per squad dismount: 9 x 6 = 54. Eighteen is the count for one platoon only.",
+    "answer": 3,
+    "explanation": "Page 25 gives three squads of 9 per platoon and page 24 three platoons per company, or nine squads. Page 26 puts three in the carrier team, so six per squad dismount: 9 x 6 = 54.",
     "sourceSlides": [
       24,
       25,
@@ -177,15 +179,15 @@
       "mounted vs dismounted",
       "capabilities"
     ],
-    "prompt": "A platoon must assault unprepared, suppressed defenses, infiltrate along a trail vehicles cannot use, and fix the enemy so tanks can maneuver. Which allocation matches the lesson?",
+    "prompt": "Which allocation fits these tasks, in order: assault unprepared, suppressed defenses; infiltrate enemy positions; fix the enemy to allow maneuver?",
     "options": [
-      "Assault dismounted; infiltrate mounted; fix mounted",
-      "Assault, infiltrate and fix all mounted",
-      "Assault, infiltrate and fix all dismounted",
-      "Assault mounted; infiltrate and fix dismounted"
+      "Mounted, mounted, dismounted",
+      "Mounted, dismounted, dismounted",
+      "Dismounted, mounted, mounted",
+      "Dismounted, dismounted, dismounted"
     ],
-    "answer": 3,
-    "explanation": "Pages 28-29 list the mounted and dismounted capabilities.",
+    "answer": 1,
+    "explanation": "Page 28 lists assaulting unprepared, suppressed defenses as a mounted capability. Page 29 lists infiltrating enemy positions and fixing the enemy to allow maneuver as dismounted capabilities.",
     "sourceSlides": [
       28,
       29
@@ -200,15 +202,15 @@
       "planning considerations",
       "limitations"
     ],
-    "prompt": "A commander says mechanized infantry are tanks with legs and will lead an assault against enemy tanks. Which flaw does the lesson show?",
+    "prompt": "Which statement about the employment of mechanized infantry is correct?",
     "options": [
-      "Mechanized infantry cannot be used against tank units, and AIFVs and APCs are more vulnerable than tanks",
-      "Mechanized infantry may lead because mounted AIFVs can destroy light armor vehicles and maneuver with tanks",
-      "Mechanized infantry can be used against tank units if the infantry dismount and fix the enemy for the assault",
-      "Mechanized infantry lack the firepower to support tanks, so they should be kept out of every armored attack"
+      "It cannot be used against tank units, and AIFVs and APCs are more vulnerable than tanks",
+      "It can be used against tank units if it dismounts to fix the enemy",
+      "It can lead an assault against tank units because AIFVs can maneuver with tanks",
+      "It lacks the firepower to support tanks and is kept out of every armored attack"
     ],
     "answer": 0,
-    "explanation": "Page 69 says mechanized infantry cannot be used against tank units, and page 30 says AIFVs and APCs are more vulnerable than tanks. Destroying light armor vehicles and maneuvering with tanks (page 28) do not extend to fighting tank units.",
+    "explanation": "Page 69 says mechanized infantry cannot be used against tank units, and page 30 says AIFVs and APCs are more vulnerable than tanks. Page 28 lets it maneuver with tanks, which is not the same as fighting tank units.",
     "sourceSlides": [
       28,
       30,
@@ -225,15 +227,15 @@
       "mounting SOP",
       "mount order"
     ],
-    "prompt": "A Philippine Army squad dismounted in order, soldiers 1 to 8, to clear a checkpoint. As they remount, the enemy opens fire from the right of the AIFV. Which drill and boarding sequence follow the lesson?",
+    "prompt": "Eight soldiers dismounted in order 1 to 8. As they remount, the enemy fires from the right. Which drill applies, and who boards first?",
     "options": [
-      "Mount from the right under fire from the right; soldier 1 boards first, one at a time, with cover provided",
-      "Mount from the left under fire from the right; soldier 8 boards first, one at a time, with cover provided",
-      "Mount from the left under fire from the right; all eight rush the door together, since speed is of the essence",
-      "Mount from the right under fire from the left; soldier 8 boards first, one at a time, with cover provided"
+      "Mount from the right (under fire from left); soldier 8",
+      "Mount from the left (under fire from right); soldier 1",
+      "Mount from the left (under fire from right); soldier 8",
+      "Mount from the right (under fire from left); soldier 1"
     ],
-    "answer": 1,
-    "explanation": "Page 50 shows mount from the left (under fire from the right). Page 31 says the first to dismount is the last to mount, so soldier 8 boards first; page 45 requires cover while others mount and moving in one at a time without piling up at the door.",
+    "answer": 2,
+    "explanation": "Page 50 shows mount from the left (under fire from the right). Page 31 says the first to dismount is the last to mount, so soldier 8 boards first, one at a time with cover provided (page 45).",
     "sourceSlides": [
       31,
       45,
@@ -249,15 +251,15 @@
       "mount procedures",
       "mounting SOP"
     ],
-    "prompt": "A Philippine Army platoon sergeant drafts mounting drill cards for: mount, mount from the right, mount from the right (under fire from the left), and mount from the left (under fire from the right). A squad leader checks the cards against the lesson's mounting procedures and SOPs. Which correction is right?",
+    "prompt": "Which list gives all the mounting procedures in the lesson?",
     "options": [
-      "Add mount from the left (under fire from the left); every card must also require cover while others mount and loaded weapons",
-      "Remove the basic mount, as every mount uses one side; every card must also require weapons cleared, muzzles down, inside",
-      "Add mount from the left; every card must also require cover while others mount and weapons cleared, muzzles down, inside",
-      "No card is missing; the four cover every case, and every card must have the first soldier out be the first back in"
+      "Mount; mount from the right; mount from the left",
+      "Mount from the right; mount from the left; mount from the right (under fire from left); mount from the left (under fire from right)",
+      "Mount; mount from the right; mount from the left; mount from the right (under fire from left); mount from the left (under fire from left)",
+      "Mount; mount from the right; mount from the left; mount from the right (under fire from left); mount from the left (under fire from right)"
     ],
-    "answer": 2,
-    "explanation": "Pages 46-50 give five mounting procedures: mount, mount from the right, mount from the left, mount from the right (under fire from the left) and mount from the left (under fire from the right). Page 45 requires cover while others mount and clearing weapons, muzzles down, once inside; page 31 says the first to dismount is the last to mount.",
+    "answer": 3,
+    "explanation": "Pages 46 to 50 give five mounting procedures: mount, mount from the right, mount from the left, mount from the right (under fire from left) and mount from the left (under fire from right).",
     "sourceSlides": [
       31,
       45,
@@ -277,15 +279,15 @@
       "cavalry fundamentals",
       "capabilities"
     ],
-    "prompt": "A brigade commander gives a cavalry troop a zone reconnaissance as flank guard while keeping the main body concentrated for the decisive point. Which fundamentals support this?",
+    "prompt": "Which list contains the fundamentals of cavalry in the lesson?",
     "options": [
-      "Main effort, since cavalry attacks to overrun prepared defenses and so frees the main body to stay in reserve",
-      "Rear security and resupply of the main body, so the brigade's combat power can be spread along its whole flank",
-      "Reserve and counterattack roles, since cavalry must first be reinforced before it can operate as a flank guard",
-      "Economy of force, eyes and ears for situational awareness, and concentration of combat power at the decisive point"
+      "Commander's eyes and ears; main attack; spread of combat power along the whole front",
+      "Rear security; economy of force; resupply of the main body",
+      "Commander's eyes and ears; economy of force; concentration of combat power at the decisive place and time",
+      "Reserve; counterattack; concentration of combat power at the decisive place and time"
     ],
-    "answer": 3,
-    "explanation": "Page 53 calls cavalry the commander's eyes and ears and says it helps him concentrate superior combat power at the decisive time and point; page 54 describes its economy of force role; page 60 lists moving to contact as flank guard as zone reconnaissance, without reinforcement.",
+    "answer": 2,
+    "explanation": "Pages 53 and 54 describe cavalry as the commander's eyes and ears, an economy of force, and a means to concentrate combat power at the decisive time and point.",
     "sourceSlides": [
       53,
       54,
@@ -301,15 +303,15 @@
       "separate cavalry troop",
       "limitations"
     ],
-    "prompt": "A separate cavalry troop with a light brigade must cover a flank through dense forest, steep ridges and a major river, with a stretched supply line. Which statement fits the lesson?",
+    "prompt": "A separate cavalry troop with a light brigade covers a flank through dense forest and a major river. Which statement fits the lesson?",
     "options": [
-      "It works for the brigade commander as a light unit, and high logistics needs and restricted mobility limit it",
-      "It works for the division commander as a heavy unit, and dense forest and rivers do not restrict its mobility",
-      "It works for the brigade commander as a heavy unit, since separate troops are heavy whatever the brigade type",
-      "It works for the division commander as a light unit, and its light design keeps logistics requirements low"
+      "It is a heavy unit working for the division commander, and the terrain does not restrict its mobility",
+      "It is a light unit working for the brigade commander, limited by high logistics needs and restricted mobility",
+      "It is a heavy unit because separate troops are always heavy, whatever the brigade type",
+      "It is a light unit working for the division commander, and its logistics requirements are low"
     ],
-    "answer": 0,
-    "explanation": "Page 58 says the separate troop is part of a separate light or armored brigade, heavy or light according to the brigade, and operates for the brigade commander; page 61 lists high logistics requirements and terrain-restricted mobility.",
+    "answer": 1,
+    "explanation": "Page 58 says the separate troop is heavy or light according to its brigade and operates for the brigade commander; page 61 lists high logistics requirements and terrain-restricted mobility.",
     "sourceSlides": [
       58,
       61
@@ -325,15 +327,15 @@
       "anti-tank fires",
       "CSS"
     ],
-    "prompt": "A Philippine Army tank platoon is attached to an infantry battalion for a several-day operation that includes night attacks against an enemy force with armored vehicles, on a battlefield where NBC agents may be used. Which employment and support plan matches the lesson?",
+    "prompt": "A tank platoon attached to an infantry battalion will fight enemy armor at night, possibly on an NBC battlefield, for several days. Which plan matches the lesson?",
     "options": [
-      "Tanks engage only infantry with direct fire, fight at night with thermal sights, avoid any NBC threat, and draw Classes III, V and IX from infantry trucks",
-      "Tanks engage enemy armor with accurate anti-tank fires, fight at night with thermal sights, operate under NBC threat, and rely on FFSU and division CSS",
-      "Tanks engage enemy armor with accurate anti-tank fires, fight only by day, operate under NBC threat, and draw Classes III, V and IX from infantry trucks",
-      "Tanks engage enemy armor with accurate anti-tank fires, fight at night with thermal sights, avoid any NBC threat, and rely on FFSU and division CSS"
+      "Anti-tank fires, thermal sights at night, avoid an NBC battlefield, support from FFSU and division CSS",
+      "Anti-tank fires, thermal sights at night, operate under NBC, support from FFSU and division CSS",
+      "Anti-tank fires, fight by day only, operate under NBC, Classes III, V and IX from infantry trucks",
+      "Direct fire against infantry only, thermal sights at night, operate under NBC, support from FFSU and division CSS"
     ],
     "answer": 1,
-    "explanation": "Page 66 says tanks support the close fight with accurate anti-tank fires and direct fire, operate on a conventional or NBC battlefield, and use thermal sights to enhance night fighting. Page 68 says they need FFSU and division CSS support because infantry units lack the organic transport for tank Classes III, V and IX.",
+    "explanation": "Page 66 gives tanks anti-tank fires, thermal sights for night fighting and operation on a conventional or NBC battlefield. Page 68 says they rely on the FFSU and division CSS because infantry units lack the transport for Classes III, V and IX.",
     "sourceSlides": [
       66,
       67,
@@ -348,15 +350,15 @@
     "tags": [
       "light tank limitations"
     ],
-    "prompt": "A light tank must fight in extremely close terrain against infantry with anti-armor weapons and antitank mines. Which statement fits the lesson?",
+    "prompt": "Which of the following lists limitations of tanks?",
     "options": [
-      "It matches main battle tank protection and resists mines, but extremely close terrain restricts its mobility",
-      "It lacks main battle tank protection, but close terrain improves its firepower against infantry with anti-armor weapons",
-      "It lacks main battle tank protection, is vulnerable to anti-armor weapons and mines, and close terrain restricts it",
-      "Its armor protects it from small arms, machine guns and anti-armor weapons, so only its mobility is restricted"
+      "Dependent on flatbeds for deployment; high logistics requirements; mobility restricted by dense forest",
+      "Lacks main battle tank protection; vulnerable to anti-armor weapons and mines; mobility and firepower restricted in extremely close terrain",
+      "Vulnerable to small arms fire; needs sufficient time to mount and dismount; restricted to certain avenues of approach",
+      "Cannot use thermal sights at night; limited to a conventional battlefield; dependent on flatbeds for deployment"
     ],
-    "answer": 2,
-    "explanation": "Page 67 says the light tank lacks the protection of a main battle tank and that tanks are vulnerable to infantry with anti-armor weapons and antitank mines; page 68 says mobility and firepower are restricted in extremely close terrain.",
+    "answer": 1,
+    "explanation": "Pages 67 and 68 list the light tank's lack of main battle tank protection, its vulnerability to anti-armor weapons and antitank mines, and restricted mobility and firepower in extremely close terrain. The other lists mix in cavalry or mechanized infantry items or deny tank capabilities.",
     "sourceSlides": [
       67,
       68
@@ -372,15 +374,15 @@
       "weapon range",
       "avenue of approach"
     ],
-    "prompt": "A Philippine Army mechanized infantry company commander's planning checklist reads: where to dismount troops, objective to combat trains distance, Ex-O or First Sergeant as resource manager, and no employment against tank units. Facing a narrow valley road toward an enemy with long-range weapons, he finds two lesson items missing. Which are they?",
+    "prompt": "A mechanized infantry planning checklist has where to dismount troops, objective to combat trains distance, Ex-O or First Sergeant as resource manager, and no use against tank units. Which two items are missing?",
     "options": [
-      "Surface danger zone and SBF positions",
-      "Indirect fire weapon support and distance from main body",
-      "Security operations and cover against enemy air",
-      "Weapon range and avenue of approach restrictions"
+      "Surface danger zone; SBF positions",
+      "Indirect fire weapon support; distance from main body",
+      "Security operations; cover against enemy air",
+      "Weapon range; avenue of approach restrictions"
     ],
     "answer": 3,
-    "explanation": "Page 69 lists six mechanized infantry considerations: where to dismount, weapon range, objective to combat trains distance, Ex-O or First Sergeant as resource manager, avenue of approach restrictions, and no use against tank units. The other pairs come from the cavalry (page 70) and tank (page 71) lists.",
+    "explanation": "Page 69 lists six mechanized infantry considerations, including weapon range and avenue of approach restrictions. The other pairs come from the cavalry (page 70) and tank (page 71) lists.",
     "sourceSlides": [
       69,
       70,
@@ -395,15 +397,15 @@
     "tags": [
       "planning considerations"
     ],
-    "prompt": "A staff matches considerations to units: Ex-O as resource manager and objective-to-combat-trains distance; indirect fire weapon support and distance from main body; surface danger zone and SBF positions. Which units, in order?",
+    "prompt": "Which units match, in order, these planning considerations: (1) Ex-O as resource manager; (2) indirect fire weapon support; (3) surface danger zone?",
     "options": [
-      "Mechanized infantry, cavalry, tank",
       "Cavalry, tank, mechanized infantry",
       "Tank, mechanized infantry, cavalry",
+      "Mechanized infantry, cavalry, tank",
       "Mechanized infantry, tank, cavalry"
     ],
-    "answer": 0,
-    "explanation": "Pages 69-71 list the considerations per unit.",
+    "answer": 2,
+    "explanation": "Pages 69 to 71 list the Ex-O or First Sergeant as resource manager for mechanized infantry, indirect fire weapon support for cavalry and surface danger zone for tanks.",
     "sourceSlides": [
       69,
       70,
@@ -420,15 +422,15 @@
       "cruising range",
       "amphibious"
     ],
-    "prompt": "A Philippine Army task force plans a long road march with M113A2 APCs, Commando V-150S and Simba vehicles, refuelling only when the shortest-ranged vehicle must, and ending at a river with no bridge. Which planning assessment matches the lesson's data sheets?",
+    "prompt": "Which statement about the M113A2, Commando V-150S and Simba data sheets is correct?",
     "options": [
-      "The V-150S's 644 km range sets the refuel point; the Simba (100 kph) outpaces the M113A2 (66 kph); only the M113A2 is fully amphibious",
-      "The M113A2's 482.80 km range sets the refuel point; the Simba (100 kph) outpaces the M113A2 (66 kph); it and the V-150S are amphibious",
-      "The M113A2's 482.80 km range sets the refuel point; the M113A2 (72 kph) outpaces the Simba (66 kph); all three are fully amphibious",
-      "The Simba's 660 km range sets the refuel point; the Simba (100 kph) outpaces the M113A2 (66 kph); the M113A2 and Simba are amphibious"
+      "The M113A2 has the shortest road range (482.80 km); the Simba is the fastest (100 kph)",
+      "The V-150S has the shortest road range (644 km); the Simba is the fastest (100 kph)",
+      "The M113A2 has the shortest road range (482.80 km); the M113A2 is the fastest (66 kph)",
+      "The Simba has the shortest road range (660 km); the V-150S is the fastest (100 kph)"
     ],
-    "answer": 1,
-    "explanation": "Page 73 gives the M113A2 a 482.80 km road range, 66 kph forward speed and a fully amphibious hull (3 mph in water); page 79 gives the V-150S 644 km and a fully amphibious hull; page 80 gives the Simba 100 kph and 660 km and lists no amphibious capability.",
+    "answer": 0,
+    "explanation": "Page 73 gives the M113A2 a 482.80 km range and 66 kph; page 79 gives the V-150S 644 km; page 80 gives the Simba 660 km and 100 kph.",
     "sourceSlides": [
       73,
       79,
@@ -445,15 +447,15 @@
       "M113A2 UTS",
       "25 mm"
     ],
-    "prompt": "A Philippine Army mechanized battalion fields both the AIFV (230 rounds in its EWS, 1,610 stowed) and the M113A2 IFV with the Unmanned Turret System. At a gunnery review, the S3 must state what the two 25 mm systems share and what sets the AIFV apart. Which statement matches the lesson?",
+    "prompt": "Which data are common to the 25 mm cannons of the AIFV and the M113A2 IFV with the Unmanned Turret System?",
     "options": [
-      "Both: HE 1,100 m/s, AP 1,325 m/s, 3,000 m max effective; only the UTS: 260 hp turbocharged 6V53T and direct attack on aircraft up to 1.5 km",
-      "Both: HE 1,325 m/s, AP 1,100 m/s, 6,800 m max effective; only the AIFV: 260 hp turbocharged 6V53T and direct attack on aircraft up to 1.5 km",
-      "Both: HE 1,100 m/s, AP 1,325 m/s, 3,000 m max effective; only the AIFV: 260 hp turbocharged 6V53T and direct attack on aircraft up to 1.5 km",
-      "Both: HE 1,100 m/s, AP 1,325 m/s, 1,700 m max effective; only the AIFV: 212 hp turbocharged 6V53T and direct attack on aircraft up to 2.5 km"
+      "HE 1,325 m/s, AP 1,100 m/s, 3,000 m maximum effective range",
+      "HE 1,100 m/s, AP 1,325 m/s, 3,000 m maximum effective range",
+      "HE 1,100 m/s, AP 1,325 m/s, 6,800 m maximum effective range",
+      "HE 1,100 m/s, AP 1,325 m/s, 1,700 m maximum effective range"
     ],
-    "answer": 2,
-    "explanation": "Pages 75 and 76 give both 25 mm cannons HE 1,100 m/s, AP 1,325 m/s and a 3,000 m maximum effective range (6,800 m is maximum range; 1,700 m is the RCWS, page 74). Page 76 gives only the AIFV the 260 hp turbocharged 6V53T (the UTS uses the M113A2's 212 hp 6V53, page 73) and credits its Oerlikon KBA with downing low-flying aircraft at 2 km and attacking aircraft directly up to 1.5 km.",
+    "answer": 1,
+    "explanation": "Pages 75 and 76 give both 25 mm cannons HE 1,100 m/s, AP 1,325 m/s and a 3,000 m maximum effective range. 6,800 m is a maximum range and 1,700 m is the RCWS (page 74).",
     "sourceSlides": [
       73,
       74,
@@ -471,15 +473,15 @@
       "Mounted Mortar System",
       "Ambulance"
     ],
-    "prompt": "A Philippine Army battalion S4 plans fuel and engines for its M113A2 APC (Ambulance), Mounted Mortar System and Fire Support Vehicle. The MMS's smooth bore, muzzle-loaded, recoiling 81/120 mm mortar, designed from CARDOM combat experience, is laid by an auto-laying Electronic Drive System that may fail. Which assessment matches the lesson?",
+    "prompt": "Which engine and fuel capacity are common to the M113A2 APC (Ambulance), the Mounted Mortar System and the Fire Support Vehicle?",
     "options": [
-      "All use a 260 hp Detroit Diesel 6V53T with 360 L of fuel; the ambulance is fully amphibious; the mortar then lays only by Fire Control System",
-      "All use a 212 hp Detroit Diesel 6V53 with 300 L of fuel; the ambulance is a wheeled vehicle; the mortar then lays manually by back-up handles and optical sight",
-      "All use a 212 hp Detroit Diesel 6V53 with 360 L of fuel; the ambulance carries only casualties; the mortar must then be withdrawn from action until repaired",
-      "All use a 212 hp Detroit Diesel 6V53 with 360 L of fuel; the ambulance is fully amphibious; the mortar then lays manually by back-up handles and optical sight"
+      "260 hp Detroit Diesel 6V53T; 360 L",
+      "212 hp Detroit Diesel 6V53; 360 L",
+      "212 hp Detroit Diesel 6V53; 300 L",
+      "260 hp Detroit Diesel 6V53T; 300 L"
     ],
-    "answer": 3,
-    "explanation": "Pages 77, 78 and 81 give the MMS, ambulance and FSV the M113A2's 212 hp Detroit Diesel 6V53 and 360 L of fuel (page 73); the 260 hp 6V53T is the AIFV (page 76) and 300 L the V-150S (page 79). Page 78 lists the ambulance as a fully amphibious troop or cargo carrier; page 77 says the MMS can be laid manually using back-up handles and an optical sight unit.",
+    "answer": 1,
+    "explanation": "Pages 77, 78 and 81 give these variants the M113A2's 212 hp Detroit Diesel 6V53 and 360 L of fuel (page 73). The 260 hp 6V53T is the AIFV (page 76) and 300 L the V-150S (page 79).",
     "sourceSlides": [
       73,
       76,
@@ -500,15 +502,15 @@
       "V-150S",
       "FSV"
     ],
-    "prompt": "A Philippine Army battalion fields the Commando V-150S and the Fire Support Vehicle, each with a secondary M60 7.62 mm machine gun. The master gunner summarizes both guns. Which entry matches the lesson's data sheets?",
+    "prompt": "The Commando V-150S and the Fire Support Vehicle each carry a secondary M60 7.62 mm machine gun. Which entry is correct?",
     "options": [
-      "Both 1,100 m max effective and 3,725 m max range; V-150S 900 rds/min, FSV 800 rds/min",
-      "Both 1,100 m max effective and 3,725 m max range; V-150S 800 rds/min, FSV 900 rds/min",
-      "Both 1,830 m max effective and 6,800 m max range; both fire 800 rds/min",
-      "V-150S 1,100 m max effective, FSV 1,700 m max effective; both fire 900 rds/min"
+      "Both 1,100 m maximum effective and 3,725 m maximum range; V-150S 800 rds/min, FSV 900 rds/min",
+      "Both 1,100 m maximum effective and 3,725 m maximum range; V-150S 900 rds/min, FSV 800 rds/min",
+      "Both 1,830 m maximum effective and 6,800 m maximum range; both fire 800 rds/min",
+      "V-150S 1,100 m maximum effective, FSV 1,700 m maximum effective; both fire 900 rds/min"
     ],
-    "answer": 0,
-    "explanation": "Page 79: V-150S M60 - 1,100 m effective, 3,725 m max, 900 rds/min. Page 81: FSV M60 - 1,100 m, 3,725 m, 800 rds/min. 1,830/6,800 m belong to the .50 cal M2.",
+    "answer": 1,
+    "explanation": "Page 79 gives the V-150S M60 1,100 m effective, 3,725 m maximum and 900 rds/min. Page 81 gives the FSV M60 1,100 m, 3,725 m and 800 rds/min. The 1,830 and 6,800 m figures belong to the .50 cal M2.",
     "sourceSlides": [
       79,
       81
@@ -524,15 +526,15 @@
       "M113A2",
       "AIFV"
     ],
-    "prompt": "A Philippine Army engineer checks a bridge's load limit for a mechanized column and needs COMBAT weights, not net weights. Which pair is correct?",
+    "prompt": "Which pair gives the COMBAT weights of the M113A2 APC and the AIFV?",
     "options": [
-      "M113A2 APC 9,630 kg; AIFV 11,373 kg",
-      "M113A2 APC 11,070 kg; AIFV 13,687 kg",
-      "M113A2 APC 11,070 kg; AIFV 11,373 kg",
-      "M113A2 APC 9,630 kg; AIFV 13,687 kg"
+      "11,070 kg and 13,687 kg",
+      "9,630 kg and 11,373 kg",
+      "11,070 kg and 11,373 kg",
+      "9,630 kg and 13,687 kg"
     ],
-    "answer": 1,
-    "explanation": "Page 73: M113A2 combat weight 11,070 kg (net 9,630 kg). Page 76: AIFV combat weight 13,687 kg (net 11,373 kg).",
+    "answer": 0,
+    "explanation": "Page 73 gives the M113A2 a combat weight of 11,070 kg (net 9,630 kg). Page 76 gives the AIFV 13,687 kg (net 11,373 kg).",
     "sourceSlides": [
       73,
       76
@@ -548,15 +550,15 @@
       "speed",
       "fuel consumption"
     ],
-    "prompt": "An M113A2 platoon plans a march that includes backing out of a dead-end road, swimming a river and computing fuel. Which data set matches the M113A2 sheet?",
+    "prompt": "Which data set matches the M113A2: forward speed, reverse speed, speed in water and fuel consumption?",
     "options": [
-      "41 kph forward, 14.80 kph reverse, 3 kph in water, 1.4 km per liter",
-      "66 kph forward, 14.80 kph reverse, 6 mph in water, 4.1 km per liter",
-      "66 kph forward, 14.80 kph reverse, 3 mph in water, 1.4 km per liter",
-      "72 kph forward, 14.80 kph reverse, 3 mph in water, 1.4 km per liter"
+      "41 kph; 14.80 kph; 3 kph; 1.4 km per liter",
+      "66 kph; 14.80 kph; 6 mph; 4.1 km per liter",
+      "72 kph; 14.80 kph; 3 mph; 1.4 km per liter",
+      "66 kph; 14.80 kph; 3 mph; 1.4 km per liter"
     ],
-    "answer": 2,
-    "explanation": "Page 73: forward 66 kph (41 mph), reverse 14.80 kph, in water 3 mph, fuel consumption 1.4 km per liter. 72 kph is the Sabrah/Guarani figure.",
+    "answer": 3,
+    "explanation": "Page 73 gives forward 66 kph (41 mph), reverse 14.80 kph, in water 3 mph and 1.4 km per liter. The 72 kph figure belongs to the Sabrah and Guarani.",
     "sourceSlides": [
       73,
       82,
@@ -573,15 +575,15 @@
       "dimensions",
       "ground clearance"
     ],
-    "prompt": "A Philippine Navy landing ship officer asks for the M113A2's size to plan deck space. Which figures match the lesson?",
+    "prompt": "Which dimensions match the M113A2: length, width, height and ground clearance?",
     "options": [
-      "4.90 m long, 2.50 m wide, 2.70 m high, 0.41 m ground clearance",
-      "6.14 m long, 2.70 m wide, 2.50 m high, 0.41 m ground clearance",
-      "4.90 m long, 2.70 m wide, 2.50 m high, 0.43 m ground clearance",
-      "4.90 m long, 2.70 m wide, 2.50 m high, 0.41 m ground clearance"
+      "4.90 m; 2.50 m; 2.70 m; 0.41 m",
+      "6.14 m; 2.70 m; 2.50 m; 0.41 m",
+      "4.90 m; 2.70 m; 2.50 m; 0.43 m",
+      "4.90 m; 2.70 m; 2.50 m; 0.41 m"
     ],
     "answer": 3,
-    "explanation": "Page 73: length 4.90 m, width 2.70 m, height 2.50 m, ground clearance 0.41 m. 6.14 m is the V-150S length (p79); 0.43 m is the Simba vertical obstacle (p80).",
+    "explanation": "Page 73 gives length 4.90 m, width 2.70 m, height 2.50 m and ground clearance 0.41 m. 6.14 m is the V-150S length (page 79) and 0.43 m is the Simba vertical obstacle (page 80).",
     "sourceSlides": [
       73,
       79,
@@ -599,15 +601,15 @@
       "air defense",
       "rack capacity"
     ],
-    "prompt": "A brigade air defense officer asks a Philippine Army AIFV crew what its 25 mm Oerlikon KBA can do against aircraft and how many rounds the vehicle rack holds. Which answer matches the lesson?",
+    "prompt": "What can the AIFV's 25 mm Oerlikon KBA do against aircraft, and how many rounds does the vehicle rack hold?",
     "options": [
-      "Brings down low flying aircraft at 2 km, attacks aircraft directly up to 1.5 km; rack holds 145 rounds",
-      "Brings down low flying aircraft at 1.5 km, attacks aircraft directly up to 2 km; rack holds 145 rounds",
-      "Brings down low flying aircraft at 2 km, attacks aircraft directly up to 1.5 km; rack holds 230 rounds",
-      "Brings down low flying aircraft at 3 km, attacks aircraft directly up to 2 km; rack holds 105 rounds"
+      "Brings down low flying aircraft at 1.5 km and attacks aircraft directly up to 2 km; 145 rounds",
+      "Brings down low flying aircraft at 2 km and attacks aircraft directly up to 1.5 km; 230 rounds",
+      "Brings down low flying aircraft at 2 km and attacks aircraft directly up to 1.5 km; 145 rounds",
+      "Brings down low flying aircraft at 3 km and attacks aircraft directly up to 2 km; 105 rounds"
     ],
-    "answer": 0,
-    "explanation": "Page 76: the KBA can bring down low flying aircraft at 2 km and directly attack aircraft up to 1.5 km; vehicle rack capacity is 145 rounds (230 rounds are in the EWS; 105 is the HE authorization).",
+    "answer": 2,
+    "explanation": "Page 76 says the KBA can bring down low flying aircraft at 2 km and attack aircraft directly up to 1.5 km, and the vehicle rack holds 145 rounds. 230 rounds are in the EWS and 105 is the HE authorization.",
     "sourceSlides": [
       76
     ]
@@ -623,15 +625,15 @@
       "cruising range",
       "combat weight"
     ],
-    "prompt": "A task force S4 compares the road cruising ranges and combat weights of the Simba Fighting Vehicle and the Commando V-150S. Which comparison is correct?",
+    "prompt": "Which comparison of road cruising range and combat weight is correct for the Simba and the Commando V-150S?",
     "options": [
-      "Simba 644 km and 10,160 kg; V-150S 660 km and 10,886 kg",
       "Simba 660 km and 10,160 kg; V-150S 644 km and 10,886 kg",
+      "Simba 644 km and 10,160 kg; V-150S 660 km and 10,886 kg",
       "Simba 660 km and 10,886 kg; V-150S 644 km and 10,160 kg",
       "Simba 482.80 km and 10,160 kg; V-150S 644 km and 11,070 kg"
     ],
-    "answer": 1,
-    "explanation": "Page 80: Simba road range 660 km, combat weight 10,160 kg. Page 79: V-150S road range 644 km, combat weight 10,886 kg.",
+    "answer": 0,
+    "explanation": "Page 80 gives the Simba a 660 km road range and 10,160 kg combat weight. Page 79 gives the V-150S 644 km and 10,886 kg.",
     "sourceSlides": [
       79,
       80
@@ -648,15 +650,15 @@
       "main gun",
       "engine"
     ],
-    "prompt": "A Philippine Army officer prepares a fact sheet on the Sabrah Light Tank (ASCOD II). Which entry matches the lesson?",
+    "prompt": "Which entry matches the fact sheet of the Sabrah Light Tank (ASCOD II)?",
     "options": [
+      "105 mm 52-caliber coiled, low recoil gun; 8.368 m long; 8-V diesel compatible with NATO fuels",
       "76 mm L23A1 gun; 8.368 m long; 8-V diesel compatible with NATO fuels",
       "105 mm 52-caliber coiled, low recoil gun; 3.67 m long; Cummins ISC diesel compatible with NATO fuels",
-      "105 mm 52-caliber coiled, low recoil gun; 8.368 m long; 8-V diesel compatible with NATO fuels",
       "105 mm 52-caliber coiled, low recoil gun; 6.14 m long; Detroit Diesel 6V53 engine"
     ],
-    "answer": 2,
-    "explanation": "Page 82: main armament 105 mm 52 calibers, coiled, low recoil; length 8.368 m (height 3.67 m); diesel 8-V cylinder, turbo-charged engine compatible with NATO fuels. 76 mm L23A1 is the FSV gun (p81).",
+    "answer": 0,
+    "explanation": "Page 82 gives the Sabrah a 105 mm 52-caliber coiled, low recoil gun, a length of 8.368 m (height 3.67 m) and an 8-V turbo-charged diesel compatible with NATO fuels. The 76 mm L23A1 is the FSV gun (page 81).",
     "sourceSlides": [
       81,
       82
@@ -671,15 +673,15 @@
       "limitation violated",
       "time to mount and dismount"
     ],
-    "prompt": "A Philippine Army company commander plans for his AIFVs to halt and have the squads assault the instant the ramps drop, allowing no time between halting and the assault. During the rehearsal, with no enemy fire and on an open road, the squads are still exiting when the assault time arrives. Which mechanized infantry limitation did the plan ignore?",
+    "prompt": "A plan has squads assaulting the instant the AIFV ramps drop, allowing no time between halting and the assault. Which mechanized infantry limitation did the plan ignore?",
     "options": [
       "AVs are restricted to certain avenues of approach",
       "AIFVs and APCs are more vulnerable than tanks",
-      "Dismounted infantrymen are vulnerable to small arms and indirect fire",
-      "Infantrymen need sufficient time to mount and dismount"
+      "Infantrymen need sufficient time to mount and dismount",
+      "Dismounted infantrymen are vulnerable to small arms and indirect fire"
     ],
-    "answer": 3,
-    "explanation": "Page 30: infantrymen need sufficient time to mount and dismount. There was no enemy fire and the road was open, so the other limitations do not explain the delay.",
+    "answer": 2,
+    "explanation": "Page 30 says infantrymen need sufficient time to mount and dismount. There was no enemy fire and the road was open, so the other limitations do not explain the delay.",
     "sourceSlides": [
       30
     ]
@@ -694,15 +696,15 @@
       "mounting SOP",
       "weapon handling"
     ],
-    "prompt": "After a patrol, a Philippine Army squad remounts its AIFV correctly, one at a time under cover, but once inside the soldiers keep rounds chambered with muzzles pointed up at the hatches. Which SOP was violated?",
+    "prompt": "A squad remounts its AIFV one at a time under cover, but inside, the soldiers keep rounds chambered with muzzles pointed up. Which SOP was violated?",
     "options": [
-      "Once inside the AV, clear weapons and muzzle down",
       "Chamber empty, muzzle down",
       "Provide cover while others are mounting",
+      "Once inside the AV, clear weapons and muzzle down",
       "Move inside the AV one at a time"
     ],
-    "answer": 0,
-    "explanation": "Page 45 (mounting SOPs): once inside the AV, clear weapons and muzzle down. 'Chamber empty, muzzle down' is the dismounting SOP (p31); cover and one-at-a-time were followed.",
+    "answer": 2,
+    "explanation": "Page 45 (mounting SOPs) says once inside the AV, clear weapons and muzzle down. Chamber empty, muzzle down is the dismounting SOP (page 31); cover and one-at-a-time were followed.",
     "sourceSlides": [
       31,
       45
@@ -716,15 +718,15 @@
     "tags": [
       "SOPs common to both lists"
     ],
-    "prompt": "Which two SOP items appear in BOTH the SOPs on dismounting and the SOPs on mounting?",
+    "prompt": "Which two SOPs appear in BOTH the SOPs on dismounting and the SOPs on mounting?",
     "options": [
-      "Speed is of the essence; no riders on top of the AV",
       "Speed is of the essence; do not pile up at the door of the AV",
+      "Speed is of the essence; no riders on top of the AV",
       "Chamber empty, muzzle down; move inside the AV one at a time",
       "Provide cover while others mount; never hide behind an AV"
     ],
-    "answer": 1,
-    "explanation": "Page 31 and page 45 both list 'speed is of the essence' and avoiding piling up at the door of the AV. The other items belong to only one list.",
+    "answer": 0,
+    "explanation": "Pages 31 and 45 both list that speed is of the essence and that soldiers must not pile up at the door of the AV. The other items belong to only one list.",
     "sourceSlides": [
       31,
       45
@@ -739,15 +741,15 @@
       "cavalry limitations",
       "limitation"
     ],
-    "prompt": "A Philippine Army cavalry squadron on a long zone reconnaissance across open, dry and trafficable plains in Nueva Ecija must halt repeatedly because fuel, ammunition and spare parts cannot keep up. Terrain posed no problem. Which cavalry limitation does this show?",
+    "prompt": "A cavalry squadron on a long zone reconnaissance across open, dry plains must halt repeatedly because fuel, ammunition and spare parts cannot keep up. Which cavalry limitation does this show?",
     "options": [
       "Mobility restricted by dense forest, steep terrain and water obstacles",
       "Dependence on flatbeds for deployment to the theater",
-      "High logistics requirements",
-      "Lack of organic transport for Classes III, V and IX in infantry units"
+      "Mobility and firepower restricted in extremely close terrain",
+      "High logistics requirements"
     ],
-    "answer": 2,
-    "explanation": "Page 61 lists high logistics requirements as a cavalry limitation. Terrain was not a factor, and the flatbed and Classes III, V and IX items are tank limitations (pp. 67-68).",
+    "answer": 3,
+    "explanation": "Page 61 lists high logistics requirements as a cavalry limitation. Terrain was not a factor, and flatbeds and close terrain are tank limitations (pages 67-68).",
     "sourceSlides": [
       61,
       67,
@@ -763,15 +765,15 @@
       "light tank",
       "limitation violated"
     ],
-    "prompt": "A Philippine Army light tank platoon is ordered to lead a frontal push against enemy main battle tanks, the planner assuming it can absorb the same fire a main battle tank could. Which tank limitation did the planner ignore?",
+    "prompt": "A planner orders a light tank platoon to lead a frontal push against enemy main battle tanks, assuming it can absorb the same fire. Which tank limitation was ignored?",
     "options": [
-      "Tanks are dependent on flatbeds for deployment to the combat theater of operations",
+      "Tanks are dependent on flatbeds for deployment to the combat theater",
       "Mobility and firepower are restricted in extremely close terrain",
       "Infantry units lack organic transport for the tanks' CSS needs",
       "The light tank does not possess the level of protection of a main battle tank"
     ],
     "answer": 3,
-    "explanation": "Page 67: the light tank does not possess the level of protection of a main battle tank.",
+    "explanation": "Page 67 says the light tank does not possess the level of protection of a main battle tank.",
     "sourceSlides": [
       67,
       68
@@ -786,7 +788,7 @@
       "cover against enemy air",
       "consideration violated"
     ],
-    "prompt": "A Philippine Army tank company occupies SBF positions on an open ridge, with a surface danger zone and direct fire control measures planned. Enemy aircraft then attack the exposed tanks. Which tank planning consideration was neglected?",
+    "prompt": "A tank company occupies SBF positions on an open ridge with a surface danger zone and direct fire control measures planned. Enemy aircraft then attack. Which tank planning consideration was neglected?",
     "options": [
       "Cover against enemy air",
       "Surface danger zone",
@@ -808,14 +810,14 @@
       "indirect fire weapon support",
       "cavalry planning"
     ],
-    "prompt": "A Philippine Army cavalry troop screens forward of its brigade at the planned distance from the main body, but no mortar or artillery unit is assigned to cover it, so it cannot call for fires when it makes contact. Which cavalry planning consideration was neglected?",
+    "prompt": "A cavalry troop screens forward of its brigade at the planned distance from the main body, but no mortar or artillery unit is assigned to support it. Which cavalry planning consideration was neglected?",
     "options": [
-      "Distance from main body",
       "Indirect fire weapon support",
+      "Distance from main body",
       "Security operations",
       "Weapon range"
     ],
-    "answer": 1,
+    "answer": 0,
     "explanation": "Page 70 lists indirect fire weapon support first among the cavalry planning considerations; distance from the main body was planned.",
     "sourceSlides": [
       70
@@ -830,15 +832,15 @@
       "tank platoon",
       "crew count"
     ],
-    "prompt": "According to the tank platoon chart, each of the four tanks is crewed by a tank commander, a gunner and a driver. How many crewmen are in the tank platoon?",
+    "prompt": "Each of the four tanks in a tank platoon is crewed by a tank commander, a gunner and a driver. How many crewmen are in the platoon?",
     "options": [
-      "9",
-      "16",
       "12",
-      "15"
+      "9",
+      "15",
+      "16"
     ],
-    "answer": 2,
-    "explanation": "Page 65: four tanks, each with a commander, a gunner and a driver = 12 crewmen (the platoon leader and platoon sergeant command two of the tanks).",
+    "answer": 0,
+    "explanation": "Page 65 shows four tanks, each with a commander, a gunner and a driver, or 12 crewmen. The platoon leader and platoon sergeant command two of the tanks.",
     "sourceSlides": [
       65
     ]

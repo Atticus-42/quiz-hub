@@ -7,15 +7,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "A restored database is available but contains unauthorized changes. Which conclusion is justified?",
+    "prompt": "A database is restored and available, but it contains unauthorized changes. Which pillar of the CIA Triad is compromised?",
     "options": [
-      "The successful restore establishes record integrity, with availability still requiring validation",
-      "The unauthorized changes establish a confidentiality failure but leave integrity undetermined",
-      "Restoring access has not established the integrity of the records",
-      "Successful restore verification can stand in for checking the record-change history"
+      "Confidentiality",
+      "Availability",
+      "Integrity",
+      "Accountability"
     ],
     "answer": 2,
-    "explanation": "Security properties are distinct; being able to open data does not prove it is accurate or unaltered.",
+    "explanation": "Page 15: integrity means data must be authentic and reliable; unauthorized alteration compromises it even when the data is available.",
     "sourceSlides": [
       15,
       16
@@ -29,15 +29,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "A report lists vulnerabilities without assets or consequences. What prevents meaningful prioritization?",
+    "prompt": "An insider exploits an unpatched server to disrupt a command and control system. Which pair labels the insider and the unpatched server?",
     "options": [
-      "It has too many individual findings to be useful",
-      "It omits the vendor's marketing description",
-      "It does not use enough abbreviations in its headings",
-      "Missing asset and mission-risk context"
+      "Asset and vulnerability",
+      "Vulnerability and threat",
+      "Threat and asset",
+      "Threat and vulnerability"
     ],
     "answer": 3,
-    "explanation": "A vulnerability list must be connected to assets, threats and consequences to support risk decisions.",
+    "explanation": "Page 16: insiders are a threat; a weakness in the security posture, such as a missing update, is a vulnerability; the C2 system is the asset.",
     "sourceSlides": [
       16
     ]
@@ -50,15 +50,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "A team equates every possible threat with a confirmed incident. Why is that unsound?",
+    "prompt": "A flood of traffic makes a command post's network unavailable. Which cyber threat and which CIA pillar are involved?",
     "options": [
-      "An asset becomes a threat whenever it is valuable",
-      "Only natural events qualify as threats in the lesson",
-      "Potential causes of harm are not proof that harm occurred",
-      "All threats require identical evidence and consequences"
+      "Advanced Persistent Threat; integrity",
+      "Denial-of-Service attack; availability",
+      "Data breach; confidentiality",
+      "Malware; integrity"
     ],
-    "answer": 2,
-    "explanation": "Threat identification concerns possibility; incident conclusions require evidence of actual events.",
+    "answer": 1,
+    "explanation": "Pages 15 and 17: DoS attacks overwhelm systems with traffic, making them unavailable, which affects availability.",
     "sourceSlides": [
       16,
       17
@@ -72,15 +72,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "A rare event could stop an essential service; a frequent event causes minor inconvenience. What should be compared?",
+    "prompt": "A rare event could stop an essential service, while a frequent one is a minor inconvenience. Which two factors define the risk of each?",
     "options": [
-      "Both likelihood and impact for each event",
-      "Frequency alone regardless of mission consequences",
-      "Only the purchase cost of the affected computers",
-      "The alphabetical order of the event names"
+      "Frequency and purchase cost of the affected assets",
+      "Asset value and recovery time",
+      "Vulnerability count and detection speed",
+      "Likelihood and impact on the mission"
     ],
-    "answer": 0,
-    "explanation": "Neither frequency nor impact alone settles risk; the assessment must consider both in context.",
+    "answer": 3,
+    "explanation": "Page 16: risk is the likelihood that a threat exploits a vulnerability, combined with its impact on the mission.",
     "sourceSlides": [
       16
     ]
@@ -93,15 +93,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "A low technical finding count is presented as proof of low overall risk. Which challenge is strongest?",
+    "prompt": "A scan shows few technical findings, but the ISO is untrained and no back-up procedure exists. Which PPT elements still carry risk?",
     "options": [
-      "People, process and mission consequences may still expose risk",
-      "Risk exists only when a scanner reports a numerical score",
-      "Updated software guarantees effective personnel procedures",
-      "Finding counts are always equivalent to mission impact"
+      "People and Technology",
+      "Technology only",
+      "Technology and Process",
+      "People and Process"
     ],
-    "answer": 0,
-    "explanation": "Technical findings are one input; broader exposure includes human, procedural and mission factors.",
+    "answer": 3,
+    "explanation": "Page 29: an untrained ISO is a People gap and a missing back-up procedure is a Process gap, whatever the technical findings show.",
     "sourceSlides": [
       16,
       29
@@ -115,15 +115,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "Isolation stops spread, but the team has not removed the malicious component. What is the sound status?",
+    "prompt": "An infected workstation is isolated and the spread has stopped, but the malicious files remain. Which statement is correct?",
     "options": [
-      "Contained, with eradication still required",
-      "Fully recovered because network access was removed",
-      "Reviewed, with no further documentation needed",
-      "Prepared, with no incident ever identified"
+      "Identification is done; Recovery is next",
+      "Containment is done; Eradication is next",
+      "Containment is done; Recovery is next",
+      "Eradication is done; Recovery is next"
     ],
-    "answer": 0,
-    "explanation": "Containment limits spread without necessarily removing the cause; phases must not be collapsed into one.",
+    "answer": 1,
+    "explanation": "Pages 21-22: Containment limits the spread; Eradication removes all components and symptoms and validates the result.",
     "sourceSlides": [
       20,
       21,
@@ -138,15 +138,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "An affected service is restored from backup while the entry weakness remains. What concern should govern closure?",
+    "prompt": "A service is restored from backup, but the weakness that let the incident in is still open. Which phase's requirement was missed?",
     "options": [
-      "The unresolved weakness permits recurrence",
-      "All further monitoring would invalidate the recovery",
-      "Restoration proves the original event was harmless",
-      "A backup automatically removes every possible weakness"
+      "Identification",
+      "Eradication",
+      "Assessment and Review",
+      "Containment"
     ],
-    "answer": 0,
-    "explanation": "Healthy restoration must be supported by removal or remediation of the cause and continued monitoring.",
+    "answer": 1,
+    "explanation": "Page 22: in Eradication all components and symptoms must be removed and addressed, with validation to prevent recurrence.",
     "sourceSlides": [
       22,
       23
@@ -160,15 +160,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "A review recommends clearer roles, but the next exercise repeats the same confusion. What failed?",
+    "prompt": "A review recommended clearer roles, yet the next incident shows the same confusion. Which phase's output was not fed into which phase?",
     "options": [
-      "Containment can never be practiced in an exercise",
-      "Role clarity is unrelated to response effectiveness",
-      "Documentation alone proves every improvement was implemented",
-      "Lessons were not incorporated into preparation"
+      "Assessment and Review into Preparation",
+      "Identification into Containment",
+      "Recovery into Eradication",
+      "Containment into Identification"
     ],
-    "answer": 3,
-    "explanation": "Review must feed changes in readiness, procedures and training; recording a lesson is not implementing it.",
+    "answer": 0,
+    "explanation": "Pages 19 and 24: Assessment and Review documents the incident; Preparation ensures readiness of people, tools and procedures.",
     "sourceSlides": [
       19,
       24
@@ -182,15 +182,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "A commander asks for a risk program, and the proposal contains only post-incident actions. What is the key limitation?",
+    "prompt": "A proposal covers only Containment, Eradication, Recovery and Assessment and Review. Which period and phases are missing?",
     "options": [
-      "It should remove preparation to shorten the proposal",
-      "It already covers every risk-management requirement",
-      "It contains too much asset and vulnerability analysis",
-      "Missing preventive assessment and risk treatment"
+      "During Incident: Containment and Eradication",
+      "Pre-Cyber Incident: Preparation and Identification",
+      "Post Incident: Recovery and Assessment and Review",
+      "Pre-Cyber Incident: Preparation and Containment"
     ],
-    "answer": 3,
-    "explanation": "Incident response is important but does not replace preventive risk assessment and treatment.",
+    "answer": 1,
+    "explanation": "Page 18: the Pre-Cyber Incident period has Phase 1, Preparation, and Phase 2, Identification.",
     "sourceSlides": [
       18,
       24
@@ -204,15 +204,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "After apparent recovery, similar symptoms return. What is the most defensible assessment?",
+    "prompt": "When similar symptoms reappear after recovery, which phase decides how quickly the team can detect and size up the new incident?",
     "options": [
-      "Assume the first closure report makes recurrence impossible",
-      "Treat every symptom as proof of a new unrelated attacker",
-      "Reassess incident evidence and recovery effectiveness",
-      "Delete old records so the team starts without context"
+      "Assessment and Review",
+      "Preparation",
+      "Identification",
+      "Containment"
     ],
     "answer": 2,
-    "explanation": "New evidence should inform identification, recovery checks and lessons rather than be dismissed by an earlier conclusion.",
+    "explanation": "Page 20: the ability to detect and identify a cyber incident early determines its impact and gravity.",
     "sourceSlides": [
       20,
       23,
@@ -227,15 +227,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "Inventories are accurate and malware tools updated, but custom applications lack security review. What follows?",
+    "prompt": "The device inventory is accurate and malware defenses are current, but custom applications have had no security review. Which SANS control is still missing?",
     "options": [
-      "Accurate inventory proves every application is secure",
-      "No further assessment is useful once devices are counted",
-      "Application risk remains despite other implemented controls",
-      "Malware updates replace application-security practices"
+      "Continuous Vulnerability Assessment and Remediation",
+      "Inventory of Authorized and Unauthorized Software",
+      "Secure Configurations for Hardware and Software",
+      "Application Software Security"
     ],
-    "answer": 2,
-    "explanation": "The lesson's controls address different weaknesses; satisfying inventory and malware controls does not cover application design.",
+    "answer": 3,
+    "explanation": "Page 26: control 6 tests in-house and third-party applications for security flaws and deploys web application firewalls.",
     "sourceSlides": [
       25,
       26
@@ -249,15 +249,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "Backups restore correctly, yet privileged accounts are shared and unlogged. Which conclusion is best?",
+    "prompt": "Backups restore correctly, yet privileged accounts are shared and their use is unlogged. Which pair of SANS controls is lacking?",
     "options": [
-      "Successful restoration proves account governance is adequate",
-      "Recovery does not resolve accountability gaps",
-      "Shared accounts improve attribution of administrator actions",
-      "Logging is unnecessary when backups are kept securely"
+      "Wireless Device Control and Boundary Defense",
+      "Data Recovery Capability and Account Monitoring and Control",
+      "Controlled Use of Administrative Privileges and Maintenance, Monitoring, and Analysis of Audit Logs",
+      "Controlled Access Based on the Need to Know and Data Loss Prevention"
     ],
-    "answer": 1,
-    "explanation": "Backup assurance and privileged-access accountability solve different problems and must both be addressed.",
+    "answer": 2,
+    "explanation": "Page 27: control 12 protects and validates administrative accounts; control 14 generates and reviews standardized logs.",
     "sourceSlides": [
       26,
       27
@@ -271,15 +271,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "A perimeter firewall is the only planned safeguard. Which lesson-based criticism is strongest?",
+    "prompt": "Which pair of SANS controls calls for multi-layered perimeter defenses and a three-tier DMZ, middleware and private-network architecture?",
     "options": [
-      "It omits layered architecture, internal access and data controls",
-      "One boundary device necessarily implements all 20 controls",
-      "Secure engineering concerns only equipment purchase dates",
-      "Data protection ends once traffic crosses the perimeter"
+      "Boundary Defense and Secure Network Engineering",
+      "Secure Configurations for Network Devices and Data Loss Prevention",
+      "Limitation and Control of Ports and Penetration Tests",
+      "Boundary Defense and Application Software Security"
     ],
     "answer": 0,
-    "explanation": "Boundary defense is one control area; need-to-know, secure engineering and data protection remain relevant.",
+    "explanation": "Pages 27-28: control 13, Boundary Defense, is multi-layered; control 19, Secure Network Engineering, uses a three-tier architecture.",
     "sourceSlides": [
       27,
       28
@@ -293,15 +293,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "An authorized classroom exercise finds a configuration weakness and the team applies a correction. Which evidence would best justify closing that finding?",
+    "prompt": "Which SANS control uses simulated attacks to identify vulnerabilities and gauge the readiness of defenses and response?",
     "options": [
-      "An inventory showing that the affected device is still present.",
-      "A record that lists the planned correction and its owner.",
-      "A separate exercise that does not exercise the corrected setting.",
-      "A follow-up check showing the specific weakness has been addressed."
+      "Penetration Tests and Red Team Exercises",
+      "Incident Response and Management",
+      "Security Skills Assessment and Training",
+      "Continuous Vulnerability Assessment and Remediation"
     ],
-    "answer": 3,
-    "explanation": "The lesson connects vulnerability assessment with remediation and uses authorized exercises to validate defenses.",
+    "answer": 0,
+    "explanation": "Page 28: control 20 uses simulated attacks to identify vulnerabilities and gauge the readiness of defenses and response.",
     "sourceSlides": [
       25,
       28
@@ -315,15 +315,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "A classroom assessment finds unauthorized applications and expired accounts that remain active. The team can verify two controls this week. Which pair directly addresses the evidence?",
+    "prompt": "Unauthorized applications and expired accounts both remain active. Which pair of SANS controls addresses them?",
     "options": [
-      "Review device serial numbers and repeat a data restoration test.",
-      "Review wireless configurations and count boundary devices.",
-      "Test a training website and check server maintenance records.",
-      "Verify authorized software and disable expired accounts."
+      "Inventory of Authorized and Unauthorized Devices and Data Recovery Capability",
+      "Wireless Device Control and Boundary Defense",
+      "Inventory of Authorized and Unauthorized Software and Account Monitoring and Control",
+      "Application Software Security and Penetration Tests"
     ],
-    "answer": 3,
-    "explanation": "The software inventory identifies unapproved installations. Account monitoring and control addresses stale accounts.",
+    "answer": 2,
+    "explanation": "Pages 25 and 28: control 2 tracks installed software; control 16 disables dormant accounts and revokes access of separated personnel.",
     "sourceSlides": [
       25,
       26,
@@ -339,15 +339,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "People training is strong, procedures are missing and software is obsolete. What assessment is appropriate?",
+    "prompt": "A unit's training is strong, but it has no written procedures and uses obsolete software. Which statement is correct under the PPT Framework?",
     "options": [
-      "Average them informally and declare every element strong",
-      "Separate strengths and gaps across all three PPT elements",
-      "Use training attendance to replace software assessment",
-      "Rate only the element with the most favorable evidence"
+      "Only Technology has a gap, because procedures belong to People",
+      "People is strong, but Process and Technology have gaps",
+      "Only Process has a gap, because obsolete software is a policy issue",
+      "All three elements are acceptable because training is strong"
     ],
     "answer": 1,
-    "explanation": "PPT requires examining each element; strength in one does not erase weaknesses in others.",
+    "explanation": "Page 29: training is People; procedures and policies are Process; licensed, updated software is Technology.",
     "sourceSlides": [
       29
     ]
@@ -360,15 +360,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "Using only the lesson's stated bands, how should an exact 0% score be classified?",
+    "prompt": "A unit scores exactly 0%. Which statement about the lesson's risk scale is correct?",
     "options": [
-      "Automatically Low because the slide explicitly includes zero",
-      "Automatically High because all unlisted values are High",
-      "Seek clarification because zero is not assigned a band",
-      "Automatically Medium because zero indicates uncertainty"
+      "The scale assigns no band to 0%, so it cannot be classified from the stated bands",
+      "It is LOW, because LOW covers every value below 10%",
+      "It is MEDIUM, because zero indicates uncertainty",
+      "It is HIGH, because every unlisted value is treated as HIGH"
     ],
-    "answer": 2,
-    "explanation": "The slide begins Low at 1%; assigning zero a band would invent a rule not supplied by the source.",
+    "answer": 0,
+    "explanation": "Page 30: LOW starts at 1%; the scale does not assign a band to 0%.",
     "sourceSlides": [
       30
     ]
@@ -381,15 +381,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "Which pair correctly applies the classroom scale's upper transition?",
+    "prompt": "Which pair correctly gives the HIGH and MEDIUM bands of the lesson's risk scale?",
     "options": [
-      "50% High; 51% High",
-      "50% Medium; 51% High",
-      "50% Low; 51% Medium",
-      "50% Medium; 51% Medium"
+      "HIGH 61% to 100%; MEDIUM 11% to 60%",
+      "HIGH 50% to 100%; MEDIUM 10% to 49%",
+      "HIGH 51% to 100%; MEDIUM 10% to 50%",
+      "HIGH 51% to 100%; MEDIUM 11% to 50%"
     ],
-    "answer": 1,
-    "explanation": "Medium ends at 50% and High starts at 51% in the lesson's whole-number examples.",
+    "answer": 3,
+    "explanation": "Page 30: HIGH is 51% to 100% and MEDIUM is 11% to 50%.",
     "sourceSlides": [
       30
     ]
@@ -402,15 +402,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "Two elements each have Risk Output 50%, but allocated points are 40 and 10. Which weighted results follow?",
+    "prompt": "Two elements each have a Risk Output of 50, with 40 and 10 points allocated. What are the weighted results?",
     "options": [
-      "50 and 50 points",
       "20 and 5 points",
+      "40 and 10 points",
       "90 and 60 points",
-      "40 and 10 points"
+      "50 and 50 points"
     ],
-    "answer": 1,
-    "explanation": "Apply each stated weight separately: 50 × 40 / 100 = 20 and 50 × 10 / 100 = 5.",
+    "answer": 0,
+    "explanation": "Page 30: Risk Output x Points Allocated / 100 gives 50 x 40 / 100 = 20 and 50 x 10 / 100 = 5.",
     "sourceSlides": [
       30
     ]
@@ -423,15 +423,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "A worksheet supplies only three percentages, with no defined weights or mapping. What should an evaluator avoid?",
+    "prompt": "Weighted results of 12, 18 and 9 points are combined. Which result and classification follow from the lesson?",
     "options": [
-      "Requesting the approved scoring instructions",
-      "Inventing allocated points to produce an authoritative total",
-      "Distinguishing raw inputs from weighted element results",
-      "Identifying the source's missing scoring assumptions"
+      "39 points, LOW",
+      "39 points, HIGH",
+      "39 points, MEDIUM",
+      "216 points, HIGH"
     ],
-    "answer": 1,
-    "explanation": "The formula needs defined inputs and allocated points; missing assumptions should be clarified rather than fabricated.",
+    "answer": 2,
+    "explanation": "Page 30: the overall posture is People + Process + Technology = 39, which falls in the MEDIUM band of 11% to 50%.",
     "sourceSlides": [
       30
     ]

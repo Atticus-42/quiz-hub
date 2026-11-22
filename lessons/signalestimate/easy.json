@@ -9,15 +9,15 @@
       "estimate fundamentals",
       "objective"
     ],
-    "prompt": "What does a signal estimate examine?",
+    "prompt": "A signal estimate is an orderly and logical examination of what?",
     "options": [
-      "Only the confirmed equipment inventory",
-      "The publishing sequence of a completed order",
-      "Factors affecting the delivery of signal support",
-      "Only competing headquarters task lists"
+      "All signal equipment held by the unit and its serviceability",
+      "All factors, known or assumed, that may affect the signal support operations mission",
+      "All courses of action open to the enemy in the area of operations",
+      "All personnel and funds available to the S6 section"
     ],
-    "answer": 2,
-    "explanation": "The estimate examines relevant known or assumed factors in a logical order.",
+    "answer": 1,
+    "explanation": "PAM 6-0102 para 0302 and lesson slide 8: the estimate examines all factors, known or assumed, that may affect successful accomplishment of the signal support operations mission.",
     "sourceSlides": [
       27
     ],
@@ -38,15 +38,15 @@
       "estimate fundamentals",
       "objective"
     ],
-    "prompt": "When should the planner revise an estimate?",
+    "prompt": "The signal estimate is revised as the situation changes and new what are introduced?",
     "options": [
-      "When conditions change or new facts emerge",
-      "Only at the next regular publication date",
-      "Only when another staff section requests it",
-      "After every assumption has become a fact"
+      "Orders",
+      "Facts",
+      "Units",
+      "Frequencies"
     ],
-    "answer": 0,
-    "explanation": "An estimate remains current by incorporating changes and new evidence.",
+    "answer": 1,
+    "explanation": "PAM 6-0102 para 0302 and lesson slide 9: the estimate is dynamic and is revised as the situation changes and new facts are introduced.",
     "sourceSlides": [
       27
     ],
@@ -67,15 +67,15 @@
       "estimate fundamentals",
       "objective"
     ],
-    "prompt": "How can the planner organize estimates for multiple signal services?",
+    "prompt": "The manual allows the signal estimate to be a single estimate for all means, or what other arrangement?",
     "options": [
-      "Use separate estimates only when none of the services interact",
-      "Prepare one estimate for equipment and exclude other means",
-      "Use a single prescribed format that cannot be separated by service",
-      "Use separate estimates or one estimate covering the required means"
+      "Separate estimates for each signal support service and C4S capability",
+      "Separate estimates for each MDMP step and each staff section",
+      "A separate estimate for each enemy course of action only",
+      "Separate estimates for each paragraph of the operations order"
     ],
-    "answer": 3,
-    "explanation": "The manual permits separate estimates by service or capability and a single estimate covering all means.",
+    "answer": 0,
+    "explanation": "PAM 6-0102 para 0302: the estimate is formed by separate estimates for each signal support service and C4S capability, or by a single estimate that considers all means required.",
     "sourceSlides": [
       27
     ]
@@ -90,15 +90,15 @@
       "estimate fundamentals",
       "objective"
     ],
-    "prompt": "What alternative name does the manual give the signal estimate?",
+    "prompt": "Which other name does PAM 6-0102 give the signal estimate?",
     "options": [
-      "C4S annex",
-      "C4S estimate",
-      "Signal equipment register",
-      "Communication standing instruction"
+      "Signal plan estimate",
+      "Annex H estimate",
+      "Command estimate",
+      "C4S estimate"
     ],
-    "answer": 1,
-    "explanation": "Paragraph 0303 identifies C4S estimate as another name for signal estimate.",
+    "answer": 3,
+    "explanation": "PAM 6-0102 para 0303 and lesson slide 10: the signal estimate is also referred to as the C4S estimate.",
     "sourceSlides": [
       27
     ],
@@ -119,15 +119,15 @@
       "metal factors",
       "objective"
     ],
-    "prompt": "In METAL, what does M identify?",
+    "prompt": "The M in METAL refers to which factor of the signal estimate?",
     "options": [
       "Maintenance",
-      "Manning",
-      "Means",
-      "Mission"
+      "Mission",
+      "Movement",
+      "Manpower"
     ],
-    "answer": 3,
-    "explanation": "The mission is the assigned purpose and task stated in precise terms.",
+    "answer": 1,
+    "explanation": "PAM 6-0102 para 0303 and lesson slide 10: METAL takes into account the Mission in precise terms, the Enemy, the Troops, the Area of Operations and the Logistical requirements.",
     "sourceSlides": [
       27
     ],
@@ -148,15 +148,15 @@
       "metal factors",
       "objective"
     ],
-    "prompt": "In METAL, what does E direct the planner to examine?",
+    "prompt": "The E in METAL directs the planner to examine what?",
     "options": [
-      "Equipment reserve status",
-      "Environmental conditions",
+      "Environmental effects on propagation",
+      "Equipment held by friendly units",
       "Enemy signal capabilities",
-      "Estimated support cost"
+      "Electronic warfare support available to the unit"
     ],
     "answer": 2,
-    "explanation": "METAL explicitly includes the enemy's signal capabilities.",
+    "explanation": "PAM 6-0102 para 0303 and lesson slide 10: E stands for the Enemy signal capabilities.",
     "sourceSlides": [
       27
     ],
@@ -177,15 +177,15 @@
       "metal factors",
       "objective"
     ],
-    "prompt": "Which METAL factor captures the people and units available to carry out the mission?",
+    "prompt": "Which METAL factor covers the personnel available to carry out the mission?",
     "options": [
-      "Logistics",
-      "Troops",
+      "Mission",
       "Area of Operations",
-      "Mission"
+      "Troops",
+      "Enemy"
     ],
-    "answer": 1,
-    "explanation": "Troops accounts for the forces available to accomplish the mission.",
+    "answer": 2,
+    "explanation": "PAM 6-0102 para 0303 and lesson slide 10: T stands for the Troops available to accomplish the mission.",
     "sourceSlides": [
       27
     ],
@@ -206,15 +206,15 @@
       "metal factors",
       "objective"
     ],
-    "prompt": "What METAL factor covers support needs that keep the mission going?",
+    "prompt": "Supply, maintenance, power, batteries, transport and funds are grouped under which METAL factor?",
     "options": [
-      "Logistics",
       "Troops",
-      "Enemy",
-      "Area of Operations"
+      "Logistical requirements",
+      "Area of operations",
+      "Mission"
     ],
-    "answer": 0,
-    "explanation": "Logistics considers requirements for sustaining the mission.",
+    "answer": 1,
+    "explanation": "PAM 6-0102 para 0303 and lesson slide 10: L stands for the Logistical requirements needed to assure the mission's success. The handout lists supply, maintenance, power, batteries, transport and funds under it.",
     "sourceSlides": [
       27,
       44
@@ -236,15 +236,15 @@
       "situation and opposing coa",
       "objective"
     ],
-    "prompt": "Where does Annex A place terrain, weather and existing communications?",
+    "prompt": "Terrain, weather and existing communications are placed in which part of Annex A?",
     "options": [
-      "Situation and COA",
-      "Mission",
-      "COA Comparison",
-      "Decision and Recommendations"
+      "Analysis of Opposing COA",
+      "Comparison of COAs",
+      "Decision/Recommendations",
+      "Situation and COA (AO and AI Analysis)"
     ],
-    "answer": 0,
-    "explanation": "These are part of the situation analysis of the area of operations and area of interest.",
+    "answer": 3,
+    "explanation": "Annex A (PAM 6-0102 PDF page 44) and lesson slide 21: Section II, Situation and COA, opens with the AO and AI analysis of terrain, weather and existing communications.",
     "sourceSlides": [
       44
     ],
@@ -265,15 +265,15 @@
       "situation and opposing coa",
       "objective"
     ],
-    "prompt": "Where do the friendly personnel status and signal asset inventory belong in the situation section?",
+    "prompt": "Under Situation and COA, which subsection holds the status of personnel and the inventory of signal assets?",
     "options": [
-      "Enemy situation",
-      "Comparison of COAs",
-      "Decision and Recommendations",
+      "Enemy",
+      "Existing communications",
+      "Terrain",
       "Own situation"
     ],
     "answer": 3,
-    "explanation": "The format lists personnel, training and signal inventory under own situation.",
+    "explanation": "Annex A and lesson slide 21: Own Situation lists the organization, disposition, status of personnel and training profile, inventory of signal assets and capabilities.",
     "sourceSlides": [
       44
     ],
@@ -294,15 +294,15 @@
       "situation and opposing coa",
       "objective"
     ],
-    "prompt": "Which staff source is identified for an information request about opposing capabilities?",
+    "prompt": "In Analysis of Opposing COA, the list of enemy capabilities and countermeasures is obtained through an RFI to which staff section?",
     "options": [
       "Operations",
-      "Intelligence",
-      "Sustainment",
-      "Personnel"
+      "Personnel",
+      "Logistics",
+      "Intelligence"
     ],
-    "answer": 1,
-    "explanation": "Annex A identifies an intelligence request for information in the opposing COA analysis.",
+    "answer": 3,
+    "explanation": "Annex A and lesson slide 39: item C of Section III is marked as an RFI from Intel.",
     "sourceSlides": [
       44
     ],
@@ -323,15 +323,15 @@
       "situation and opposing coa",
       "objective"
     ],
-    "prompt": "Where should a planner analyze communications and propagation for the opposing force's proposed course of action?",
+    "prompt": "Which Annex A section covers the communication, disposition and signal propagation of opposing forces?",
     "options": [
-      "Mission",
-      "Comparison of COAs",
       "Analysis of Opposing COA",
-      "Decision and Recommendations"
+      "Situation and COA",
+      "Comparison of COAs",
+      "Decision/Recommendations"
     ],
-    "answer": 2,
-    "explanation": "The third section examines opposing communications, disposition and propagation.",
+    "answer": 0,
+    "explanation": "Annex A and lesson slide 39: Section III, Analysis of Opposing COA, begins with the communication and disposition of opposing forces and their signal propagation.",
     "sourceSlides": [
       44
     ],
@@ -352,15 +352,15 @@
       "coa comparison",
       "objective"
     ],
-    "prompt": "Which Annex A section weighs the candidate courses of action?",
+    "prompt": "Section IV of the Annex A signal estimate format is titled what?",
     "options": [
-      "Situation and COA",
       "Comparison of COAs",
       "Analysis of Opposing COA",
-      "Decision and Recommendations"
+      "Situation and COA",
+      "Decision/Recommendations"
     ],
-    "answer": 1,
-    "explanation": "The fourth section compares candidate courses of action following the preceding analysis.",
+    "answer": 0,
+    "explanation": "Annex A and lesson slide 19: the five sections are Mission, Situation and COA, Analysis of Opposing COA, Comparison of COAs, and Decision/Recommendations.",
     "sourceSlides": [
       44
     ],
@@ -381,15 +381,15 @@
       "coa comparison",
       "objective"
     ],
-    "prompt": "Which sequence matches Annex A?",
+    "prompt": "In order, which Annex A sections follow Situation and COA?",
     "options": [
-      "Analyze opposing COA, compare COAs, make recommendations",
-      "Compare COAs, issue recommendations, analyze opposing COA",
-      "Make recommendations, analyze opposing COA, compare COAs",
-      "Compare COAs, analyze opposing COA, write the mission"
+      "Comparison of COAs; Analysis of Opposing COA; Decision/Recommendations",
+      "Analysis of Opposing COA; Decision/Recommendations; Comparison of COAs",
+      "Decision/Recommendations; Analysis of Opposing COA; Comparison of COAs",
+      "Analysis of Opposing COA; Comparison of COAs; Decision/Recommendations"
     ],
-    "answer": 0,
-    "explanation": "The format moves from analysis through comparison to decisions and recommendations.",
+    "answer": 3,
+    "explanation": "Annex A and lesson slide 19 give the order Mission, Situation and COA, Analysis of Opposing COA, Comparison of COAs, then Decision/Recommendations.",
     "sourceSlides": [
       44
     ],
@@ -410,15 +410,15 @@
       "coa comparison",
       "objective"
     ],
-    "prompt": "What should underpin a signal estimate's comparison of alternatives?",
+    "prompt": "A signal estimate's comparison of alternatives should rest on which three things?",
     "options": [
-      "Only the order in which alternatives were listed",
-      "Only the number of equipment items in each option",
+      "Cost, speed and appearance",
+      "Rank, seniority and equipment age",
       "Mission, situation and available capabilities",
-      "The layout of each course-of-action sketch"
+      "Terrain, weather and time available only"
     ],
     "answer": 2,
-    "explanation": "Comparisons derive from relevant factors and the preceding capability analysis.",
+    "explanation": "PAM 6-0102 paras 0302-0303 and Annex A: the estimate examines factors affecting the mission, so comparison is based on the mission, the situation and what the unit can provide.",
     "sourceSlides": [
       27,
       44
@@ -434,15 +434,15 @@
       "coa comparison",
       "objective"
     ],
-    "prompt": "What does Annex A place immediately before Decision and Recommendations?",
+    "prompt": "In Annex A, which section follows Comparison of COAs?",
     "options": [
-      "Own Situation",
-      "Mission",
+      "Decision/Recommendations",
       "Analysis of Opposing COA",
-      "Comparison of COAs"
+      "Mission",
+      "Situation and COA"
     ],
-    "answer": 3,
-    "explanation": "The comparison in Section IV provides the basis for the recommendations in Section V.",
+    "answer": 0,
+    "explanation": "Annex A and lesson slide 19: Decision/Recommendations is Section V and comes right after Section IV, Comparison of COAs.",
     "sourceSlides": [
       44
     ],
@@ -463,15 +463,15 @@
       "decision and recommendations",
       "objective"
     ],
-    "prompt": "Where does Annex A record recommendations on required personnel, C4S and sustainment?",
+    "prompt": "Which item of Annex A Section V lists the required skills, such as a cybersecurity specialist?",
     "options": [
-      "Mission",
-      "Situation and COA",
-      "Analysis of Opposing COA",
-      "Decision and Recommendations"
+      "C4S requirements",
+      "Sustainment requirements",
+      "Personnel requirements",
+      "Means of communication"
     ],
-    "answer": 3,
-    "explanation": "The final section converts the analysis into specific requirements and recommendations.",
+    "answer": 2,
+    "explanation": "Annex A and lesson slide 52: Section V item A is personnel requirements, where the planner is specific about the skills needed.",
     "sourceSlides": [
       44
     ],
@@ -492,15 +492,15 @@
       "decision and recommendations",
       "objective"
     ],
-    "prompt": "Where is a proposed means of communication listed in Annex A?",
+    "prompt": "Annex A lists the proposed means of communication under which section?",
     "options": [
-      "Area analysis under terrain",
-      "Decision and Recommendations",
-      "Enemy capabilities",
-      "Comparison of COAs"
+      "Situation and COA",
+      "Analysis of Opposing COA",
+      "Comparison of COAs",
+      "Decision/Recommendations"
     ],
-    "answer": 1,
-    "explanation": "The final section includes the means of communication that follow from the estimate.",
+    "answer": 3,
+    "explanation": "Annex A and lesson slides 52 and 56: item D, Means of Communication, sits in Section V, laid out using PACE.",
     "sourceSlides": [
       44
     ],
@@ -522,15 +522,15 @@
       "decision and recommendations",
       "objective"
     ],
-    "prompt": "Which output in the final section addresses actions assigned or derived for the mission?",
+    "prompt": "Which item of Section V is marked as the commander's decision and lists implied and specific tasks?",
     "options": [
-      "The task list",
-      "The weather analysis",
-      "The existing communications inventory",
-      "The COA comparison"
+      "Means of communication",
+      "Task list",
+      "Location of TCP and MCP",
+      "Sustainment requirements"
     ],
-    "answer": 0,
-    "explanation": "The task list records implied and specific tasks and is associated with the commander's decision.",
+    "answer": 1,
+    "explanation": "Annex A and lesson slides 52 and 58: item F, the task list (implied and specific), is marked as the commander's decision.",
     "sourceSlides": [
       44
     ],
@@ -552,15 +552,15 @@
       "decision and recommendations",
       "objective"
     ],
-    "prompt": "Which output identifies proposed locations for the TCP and MCP?",
+    "prompt": "How many lettered items are listed under Decision/Recommendations in Annex A?",
     "options": [
-      "Mission",
-      "Own capabilities",
-      "Decision and Recommendations",
-      "Comparison of COAs"
+      "Six",
+      "Four",
+      "Five",
+      "Seven"
     ],
-    "answer": 2,
-    "explanation": "Annex A includes the locations of the TCP and MCP in its final section.",
+    "answer": 0,
+    "explanation": "Annex A and lesson slide 52 list items A to F: personnel, C4S, sustainment, means of communication, location of TCP and MCP, and the task list.",
     "sourceSlides": [
       44
     ],
@@ -582,14 +582,14 @@
       "estimate fundamentals",
       "objective"
     ],
-    "prompt": "According to the student handout, whose running estimate is the signal estimate?",
+    "prompt": "Every staff section keeps a running estimate. The signal estimate is whose?",
     "options": [
       "The S3's",
-      "The S6's",
       "The S2's",
+      "The S6's",
       "The commander's"
     ],
-    "answer": 1,
+    "answer": 2,
     "explanation": "Handout p. 3: every staff section keeps a running estimate (PAM 3-00, para 0609), and the signal estimate is the S6's.",
     "sourceAlt": {
       "ref": "signal-estimate-handout",
@@ -608,15 +608,15 @@
       "estimate fundamentals",
       "objective"
     ],
-    "prompt": "How many steps does the handout use for making the signal estimate?",
+    "prompt": "Making the signal estimate follows how many steps?",
     "options": [
-      "Three",
       "Four",
+      "Six",
       "Seven",
       "Five"
     ],
     "answer": 3,
-    "explanation": "Handout p. 5: know the problem, gather data and determine possible solutions, analyze, compare, and recommend or decide. Seven is the count for the signal planning process, not the estimate.",
+    "explanation": "Handout p. 5 and lesson slide 11: know the problem, gather data and determine possible solutions, analyze, compare, and recommend or decide.",
     "sourceAlt": [
       {
         "ref": "signal-estimate-handout",
@@ -642,12 +642,12 @@
       "metal factors",
       "objective"
     ],
-    "prompt": "What does the handout say about the older memory aid MENTAL?",
+    "prompt": "Which keyword does PAM 6-0102 para 0303 use instead of the older MENTAL?",
     "options": [
-      "The current reference, PAM 6-0102 para 0303, uses METAL instead",
-      "It adds Training as a sixth factor to METAL",
-      "It applies only to the Basic Course estimate",
-      "It lists the six METT-TC mission variables"
+      "METAL",
+      "METT-TC",
+      "OAKOC",
+      "PACE"
     ],
     "answer": 0,
     "explanation": "Handout p. 4: some older handouts write MENTAL, but PAM 6-0102 para 0303 uses METAL.",
@@ -671,15 +671,15 @@
       "metal factors",
       "objective"
     ],
-    "prompt": "Which METT-TC variables does the Area of operations factor of METAL relate to?",
+    "prompt": "The A in METAL, Area of operations, is related to which METT-TC variables?",
     "options": [
       "Mission; time available",
-      "Enemy",
       "Terrain and weather; civil considerations",
-      "Troops and support"
+      "Enemy; troops and support available",
+      "Troops and support available; time available"
     ],
-    "answer": 2,
-    "explanation": "Handout p. 4: A (Area of operations) relates to terrain and weather and to civil considerations. Mission and time map to M, enemy to E, and troops and support to T and L.",
+    "answer": 1,
+    "explanation": "Handout p. 4: the METAL table relates Area of operations to the terrain and weather and civil considerations variables.",
     "sourceSlides": [
       27
     ],
@@ -700,15 +700,15 @@
       "situation and opposing coa",
       "objective"
     ],
-    "prompt": "In the handout's six-paragraph signal estimate, where do facts and assumptions appear?",
+    "prompt": "In the running estimate format, facts and assumptions are listed in which paragraph?",
     "options": [
       "Paragraph 2, Mission",
       "Paragraph 1, Situation and considerations",
-      "Paragraph 4, Analysis",
-      "Paragraph 6, Recommendations and conclusions"
+      "Paragraph 3, Courses of action",
+      "Paragraph 4, Analysis"
     ],
     "answer": 1,
-    "explanation": "Handout p. 6: facts and assumptions are item 1c, under Situation and considerations.",
+    "explanation": "Handout p. 6: paragraph 1, Situation and considerations, has sub-items a to c, with c covering the facts and assumptions.",
     "sourceAlt": {
       "ref": "signal-estimate-handout",
       "pages": [
@@ -726,15 +726,15 @@
       "coa comparison",
       "objective"
     ],
-    "prompt": "In the handout's decision matrix, where rank 1 is best, rank is multiplied by weight and totals are added, which total is preferred?",
+    "prompt": "In the handout's decision matrix, how is each criterion's score computed?",
     "options": [
-      "The lowest total",
-      "The highest total",
-      "The total with the most criteria won",
-      "The total closest to the average"
+      "The rank is added to the weight, and the totals are averaged",
+      "The rank is divided by the weight, and the totals are added",
+      "The rank is multiplied by the weight, and the totals are added",
+      "The weight is subtracted from the rank, and the totals are compared"
     ],
-    "answer": 0,
-    "explanation": "Handout p. 7: ranks are 1 = best, so multiply by the weight, add, and prefer the lowest total.",
+    "answer": 2,
+    "explanation": "Handout p. 7: ranks are 1 = best; multiply each rank by the weight and add. The lowest total is preferred.",
     "sourceAlt": {
       "ref": "signal-estimate-handout",
       "pages": [
@@ -752,15 +752,15 @@
       "decision and recommendations",
       "application"
     ],
-    "prompt": "The commander personally makes the signal estimate instead of a staff officer. What does its last paragraph become?",
+    "prompt": "A staff officer's estimate ends with a recommendation. What does the last paragraph become when the commander makes the estimate?",
     "options": [
-      "A recommendation to the S3",
-      "A comparison of COAs",
+      "A directive",
+      "An assumption",
       "A decision",
-      "A statement of assumptions"
+      "A comparison"
     ],
     "answer": 2,
-    "explanation": "Handout p. 7: when a staff officer prepares the estimate the last paragraph is a recommendation; when the commander makes it, it is a decision.",
+    "explanation": "Handout p. 7: when a staff officer prepares the estimate, the last paragraph is a recommendation; when the commander makes it, it is a decision.",
     "sourceAlt": {
       "ref": "signal-estimate-handout",
       "pages": [
@@ -778,15 +778,15 @@
       "estimate fundamentals",
       "application"
     ],
-    "prompt": "The mission has just arrived and the S6 starts the running estimate. According to the handout, what does the signal estimate provide at this MDMP step?",
+    "prompt": "At receipt of mission, the first MDMP step, what does the signal estimate provide?",
     "options": [
-      "A ranking of the COAs for signal supportability",
-      "The basis of Annex H and paragraph 5",
-      "The signal means or concept for each COA",
-      "Current C4S status: equipment, personnel and nets in use"
+      "Current C4S status: equipment, personnel and nets in use",
+      "The signal means or concept that could support each COA",
+      "The ranking of COAs for signal supportability",
+      "Signal tasks, facts, assumptions and shortfalls"
     ],
-    "answer": 3,
-    "explanation": "Handout p. 3: at receipt of mission the estimate gives current C4S status; the ranking is for COA comparison, the signal concept for COA development, and Annex H for orders.",
+    "answer": 0,
+    "explanation": "Handout p. 3: at step 1 the estimate provides the current C4S status; the other entries belong to COA development, COA comparison and mission analysis.",
     "sourceSlides": [
       27
     ],
@@ -807,15 +807,15 @@
       "estimate fundamentals",
       "objective"
     ],
-    "prompt": "According to the lesson slides, what must the signal mission be based on?",
+    "prompt": "The signal mission in the estimate must be derived from what?",
     "options": [
-      "The signal equipment already on hand",
-      "The enemy's known signal capabilities in the area",
+      "The enemy's most dangerous course of action",
       "The unit's mission and concept of operation",
-      "The signal plan of the previous operation"
+      "The inventory of available signal assets",
+      "The CEOI issued to subordinate units"
     ],
-    "answer": 2,
-    "explanation": "Lesson slides, slide 13: the signal mission is based on the mission of the unit and its concept of operation. It is Para I of the estimate format.",
+    "answer": 1,
+    "explanation": "Lesson slide 13: the signal mission must be based on the mission of the unit concept of operation.",
     "sourceAlt": {
       "ref": "signal-estimate-slides",
       "pages": [
@@ -833,15 +833,15 @@
       "situation and opposing coa",
       "objective"
     ],
-    "prompt": "The lesson slides say Para II, Situation and Courses of Action, contains four subparagraphs. Which list are they?",
+    "prompt": "The lesson slides divide Para II, Situation and Courses of Action, into four subparagraphs. Which list gives them?",
     "options": [
-      "Characteristics of the AO, enemy situation, own situation and courses of action",
-      "Mission in precise terms, enemy signal capabilities, troops available and logistics",
-      "Personnel requirements, C4S requirements, sustainment requirements and the task list",
-      "Terrain, weather, existing communications and the comparison of own COAs"
+      "Terrain, weather, enemy situation and courses of action",
+      "Characteristics of the AO, enemy situation, friendly situation and analysis",
+      "Mission, enemy situation, own situation and courses of action",
+      "Characteristics of the AO, enemy situation, own situation and courses of action"
     ],
-    "answer": 0,
-    "explanation": "Lesson slides, slide 14: Para II considers known and assumed factors in four subparagraphs: characteristics of the area of operation, enemy situation, own situation and courses of action. Annex A (slide 21) lists terrain, weather and existing communications as the area entries.",
+    "answer": 3,
+    "explanation": "Lesson slide 14 and Annex A: Para II contains the characteristics of the area of operations, the enemy situation, the own situation and the courses of action.",
     "sourceSlides": [
       44
     ],
@@ -863,15 +863,15 @@
       "decision and recommendations",
       "objective"
     ],
-    "prompt": "On the lesson slides, which memory aid lays out the Means of Communication entry in Para V?",
+    "prompt": "The Means of Communication entry in Para V is laid out using which memory aid?",
     "options": [
       "METAL",
       "METT-TC",
-      "SALUTE",
-      "PACE"
+      "PACE",
+      "OAKOC"
     ],
-    "answer": 3,
-    "explanation": "Lesson slides, slide 56: Means of Communication is laid out as P, A, C and E (primary, alternate, contingency and emergency means). METAL organizes the factors of the estimate, not the communications plan.",
+    "answer": 2,
+    "explanation": "Lesson slide 56 and Annex A: item D, Means of Communication, is laid out as Primary, Alternate, Contingency and Emergency.",
     "sourceSlides": [
       44
     ],
@@ -892,15 +892,15 @@
       "coa comparison",
       "objective"
     ],
-    "prompt": "How does the lesson slides' Para IV example compare the courses of action?",
+    "prompt": "How does the lesson's Para IV example set out the comparison of COAs?",
     "options": [
-      "By giving each COA one numeric score with no stated trade-offs",
       "By tabulating each COA's advantages and disadvantages, grouped by factor",
-      "By listing only the equipment that each COA would need from higher headquarters",
-      "By keeping the COAs in the order the staff first proposed them"
+      "By giving each COA a numeric score for ranking",
+      "By listing only the enemy's likely reactions to each COA",
+      "By describing the preferred COA only"
     ],
-    "answer": 1,
-    "explanation": "Lesson slides, slides 45 to 51: each COA is entered in an Advantage and Disadvantage table under the factor it answers: terrain, weather, enemy situation or own situation.",
+    "answer": 0,
+    "explanation": "Lesson slides 45 to 50: Para IV tabulates each COA's advantages and disadvantages, grouped by factor.",
     "sourceAlt": {
       "ref": "signal-estimate-slides",
       "pages": [

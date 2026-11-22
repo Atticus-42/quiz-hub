@@ -7,15 +7,15 @@
     "tags": [
       "concept and seven tenets"
     ],
-    "prompt": "A design authenticates users strongly at network entry, then permits unrestricted access to internal resources. What is the central remaining flaw?",
+    "prompt": "A unit lets any laptop with an enterprise asset tag reach its file server once it is on the office network. Which statement of Zero Trust does this violate?",
     "options": [
-      "It separates authentication from equipment purchase",
-      "It uses too many resources in the inventory",
-      "It treats data sources as computing resources",
-      "It converts admission into broad implicit trust"
+      "Access must be re-authorized every year by the owner of the asset",
+      "No implicit trust is granted based on location or asset ownership",
+      "Every device must be inventoried before it joins the office network",
+      "Resources must sit behind a firewall at the edge of the network"
     ],
-    "answer": 3,
-    "explanation": "Strong initial authentication does not justify unrestricted subsequent resource access; least privilege and per-session decisions still matter.",
+    "answer": 1,
+    "explanation": "The ZT definition says no implicit trust is granted based on physical or network location or on asset ownership.",
     "sourceSlides": [
       19,
       20,
@@ -30,15 +30,15 @@
     "tags": [
       "concept and seven tenets"
     ],
-    "prompt": "Two identical user requests arrive, but one device has newly degraded posture. Must the access outcome remain identical?",
+    "prompt": "After enrollment, a unit never checks the integrity or posture of its assets again. Which tenet is not met?",
     "options": [
-      "Yes; equal request text requires equal authorization",
-      "No; all changing devices must receive administrator access",
-      "Yes; the username permanently determines the result",
-      "No; dynamic policy may respond to changed context"
+      "The enterprise monitors the integrity and posture of all assets",
+      "Access is granted on a per-session basis",
+      "Authentication and authorization are dynamic and strictly enforced",
+      "Collect and use data to continually improve security posture"
     ],
-    "answer": 3,
-    "explanation": "Dynamic policy considers relevant identity, device and behavioral context, so changed posture can justify a different decision.",
+    "answer": 0,
+    "explanation": "Tenet 5 requires the enterprise to monitor the integrity and posture of all assets.",
     "sourceSlides": [
       21
     ]
@@ -51,15 +51,15 @@
     "tags": [
       "concept and seven tenets"
     ],
-    "prompt": "An administrator argues that organization ownership is stronger evidence than monitoring. Which response best fits Zero Trust?",
+    "prompt": "Logs are collected every day, but the unit never uses them to refine its policies. Which tenet is missed?",
     "options": [
-      "Monitoring is relevant only for personal devices",
-      "Device ownership alone does not establish continuing trust",
-      "The framework requires excluding all owned devices",
-      "Ownership grants permanent trust if a receipt exists"
+      "The enterprise monitors the integrity and posture of all assets",
+      "Access is determined by dynamic policy",
+      "Collect and use data to continually improve security posture",
+      "All communication is secured regardless of location"
     ],
-    "answer": 1,
-    "explanation": "Ownership is not a sufficient trust basis. Asset posture and access decisions must still be evaluated.",
+    "answer": 2,
+    "explanation": "Tenet 7 asks the enterprise to collect and use data to continually improve its security posture.",
     "sourceSlides": [
       19,
       21
@@ -73,15 +73,15 @@
     "tags": [
       "concept and seven tenets"
     ],
-    "prompt": "A broad permission set is rarely used but never reviewed. Why is this still a problem under the lesson?",
+    "prompt": "A unit protects traffic crossing its perimeter but sends traffic between internal servers in the clear. Which tenet is missed?",
     "options": [
-      "Rare access is equivalent to per-session approval",
-      "Unused privileges still exceed demonstrated need",
-      "One successful login validates every retained privilege",
-      "Permissions cannot create risk until used daily"
+      "Access is granted on a per-session basis",
+      "All data sources and computing services are resources",
+      "Access is determined by dynamic policy",
+      "All communication is secured regardless of location"
     ],
-    "answer": 1,
-    "explanation": "Least privilege concerns the scope of granted access, not merely how often a user chooses to exercise it.",
+    "answer": 3,
+    "explanation": "Tenet 2 applies to all communication, whether inside or outside the network.",
     "sourceSlides": [
       20,
       21
@@ -95,15 +95,15 @@
     "tags": [
       "concept and seven tenets"
     ],
-    "prompt": "Telemetry is collected continuously but never affects policy or posture improvement. Which tenet is least fulfilled?",
+    "prompt": "A reporting clerk is given read-only access to one report server, and the implicit trust zone around it is made smaller. Which principle does this show?",
     "options": [
-      "Distinguish users from physical devices",
-      "Secure communication regardless of location",
-      "Use collected information to improve security",
-      "Treat data and services as resources"
+      "Assume breach",
+      "Verify explicitly",
+      "Least privilege",
+      "Continuous monitoring"
     ],
     "answer": 2,
-    "explanation": "Collection alone does not satisfy the tenet's purpose; evidence must inform security decisions and improvement.",
+    "explanation": "Least privilege grants only the minimum access needed and shrinks implicit trust zones.",
     "sourceSlides": [
       21
     ]
@@ -116,15 +116,15 @@
     "tags": [
       "policy components"
     ],
-    "prompt": "The PEP faithfully enforces a malicious policy approved through a compromised PE. Where is the decisive failure?",
+    "prompt": "A request is denied by policy, the path is shut down, and the connection is terminated. Which sequence of components acted?",
     "options": [
-      "The existence of an asset inventory",
-      "The fact that the subject requested a resource",
-      "The decision process, not faithful enforcement alone",
-      "The use of separate logical components itself"
+      "PE decided, PA shut the path, PEP terminated the connection",
+      "PA decided, PE shut the path, PEP terminated the connection",
+      "PE decided, PEP shut the path, PA terminated the connection",
+      "PEP decided, PA shut the path, PE terminated the connection"
     ],
-    "answer": 2,
-    "explanation": "Enforcement can correctly implement an incorrect decision. The PE/PA require protection as critical parts of the architecture.",
+    "answer": 0,
+    "explanation": "The PE decides, the PA shuts down the communication path, and the PEP enables, monitors and terminates the connection.",
     "sourceSlides": [
       22,
       24
@@ -138,15 +138,15 @@
     "tags": [
       "policy components"
     ],
-    "prompt": "A diagram contains a PE and PA but leaves a second application endpoint outside the PEP. What must be checked before claiming protected access?",
+    "prompt": "An engineer adds a second route to an application that bypasses the gateway. Which statement from the logical-components slide is broken?",
     "options": [
-      "Whether users prefer the primary endpoint",
-      "Every relevant route to the resource is mediated",
-      "Only the names assigned to the components",
-      "Only the application's procurement classification"
+      "The PE and PA form the control plane",
+      "Nothing reaches a resource except through a PEP",
+      "The PA issues session credentials",
+      "The PE uses CDM, threat intel and logs as inputs"
     ],
     "answer": 1,
-    "explanation": "Protection is undermined if an alternative path bypasses the enforcement boundary, regardless of labels on the diagram.",
+    "explanation": "A second route that avoids the PEP means a resource can be reached without one.",
     "sourceSlides": [
       22
     ]
@@ -159,15 +159,15 @@
     "tags": [
       "policy components"
     ],
-    "prompt": "An access revocation is recorded at the PE, but an existing connection continues. Which chain should the team verify?",
+    "prompt": "Which pairing of component and role is NOT correct?",
     "options": [
-      "Only the user's original account creation form",
-      "Decision, PA execution and PEP termination",
-      "Policy naming, office location and device brand",
-      "Only the PE's displayed approval timestamp"
+      "Policy Engine: decides using the trust algorithm",
+      "Policy Administrator: issues session credentials",
+      "Policy Enforcement Point: grants or denies access",
+      "Policy Enforcement Point: terminates the connection"
     ],
-    "answer": 1,
-    "explanation": "A recorded decision must be executed and enforced; checking only one component cannot establish end-to-end revocation.",
+    "answer": 2,
+    "explanation": "Granting, denying and revoking access is done by the Policy Engine. The PEP enforces by enabling, monitoring and terminating the connection.",
     "sourceSlides": [
       22
     ]
@@ -180,15 +180,15 @@
     "tags": [
       "policy components"
     ],
-    "prompt": "A supplier combines PE, PA and PEP functions in one appliance. What is the best assessment criterion?",
+    "prompt": "A vendor appliance houses both the Policy Engine and the Policy Administrator. Which logical grouping does it provide?",
     "options": [
-      "Whether the product avoids documenting component roles",
-      "Whether the box has exactly three physical processors",
-      "Whether three separate vendors supplied the functions",
-      "Secure execution of each logical responsibility"
+      "The Policy Enforcement Point",
+      "The implicit trust zone",
+      "The Policy Decision Point",
+      "The untrusted zone"
     ],
-    "answer": 3,
-    "explanation": "The roles are logical. A combined implementation still needs correct decisions, execution, enforcement and protection of those functions.",
+    "answer": 2,
+    "explanation": "The PE and PA together are the Policy Decision Point in the control plane.",
     "sourceSlides": [
       22,
       24
@@ -202,15 +202,15 @@
     "tags": [
       "policy components"
     ],
-    "prompt": "A well-configured PE receives falsified device posture. What does this show?",
+    "prompt": "A PE receives falsified logs and threat intelligence. Which part of the PE's operation is affected?",
     "options": [
-      "Device posture should always be omitted from policy",
-      "Correct policy makes input quality irrelevant",
-      "PE compromise is the only possible decision threat",
-      "Trustworthy, protected decision inputs"
+      "The inputs fed to its trust algorithm",
+      "The PEP's gateway configuration for the connection",
+      "The PA's session credentials for the subject",
+      "The resource's implicit trust zone around it"
     ],
-    "answer": 3,
-    "explanation": "Access reasoning depends on input integrity as well as the logic applying policy to those inputs.",
+    "answer": 0,
+    "explanation": "The PE decides using enterprise policy plus inputs such as CDM, threat intel and logs fed to a trust algorithm.",
     "sourceSlides": [
       22,
       24
@@ -224,15 +224,15 @@
     "tags": [
       "deployment approaches"
     ],
-    "prompt": "A segmented network grants every user equal access inside each segment. What complementary capability is most clearly needed?",
+    "prompt": "A unit with many BYOD and cloud/SaaS users decides access mainly by who the subject is, then uses device and environment to refine confidence. Which approach is this?",
     "options": [
-      "Removal of all subject authentication",
-      "A larger segment with fewer boundaries",
-      "Identity-aware policy limiting resource access",
-      "One shared account for each segment"
+      "Micro-segmentation",
+      "Software-defined perimeter",
+      "Zero Trust Enterprise",
+      "Enhanced identity governance"
     ],
-    "answer": 2,
-    "explanation": "Segmentation alone does not establish which user should access which resource; identity-aware least-privilege policy complements it.",
+    "answer": 3,
+    "explanation": "Identity as the key driver of policy, suited to open networks, BYOD and cloud/SaaS, is enhanced identity governance.",
     "sourceSlides": [
       23
     ]
@@ -245,15 +245,15 @@
     "tags": [
       "deployment approaches"
     ],
-    "prompt": "A team proposes identity governance, segmentation and dynamic paths together. Which objection is least defensible?",
+    "prompt": "A solution places resources behind NGFWs and smart switches and also lets the PA reconfigure SDN paths. What does this show?",
     "options": [
-      "Policies must remain consistent across components",
-      "The lesson permits only one approach at a time",
-      "Their interactions need careful assessment",
-      "Resource boundaries must be understood"
+      "Enhanced identity governance used on its own as the only approach",
+      "A misuse, since the three approaches exclude each other",
+      "A Zero Trust Enterprise built without any architecture or plan",
+      "A blend of micro-segmentation and software-defined perimeter"
     ],
-    "answer": 1,
-    "explanation": "The lesson explicitly allows approaches to be blended. Integration and consistency still require assessment.",
+    "answer": 3,
+    "explanation": "Gateways acting as PEPs are micro-segmentation; the PA reconfiguring paths is SDP. A full solution blends all three.",
     "sourceSlides": [
       23
     ]
@@ -266,15 +266,15 @@
     "tags": [
       "deployment approaches"
     ],
-    "prompt": "Two architectures achieve the same access outcome but differ in operational complexity. What should drive the choice?",
+    "prompt": "Which pair gives the approach suited to open networks, BYOD and cloud/SaaS and the approach that shields resources from discovery?",
     "options": [
-      "The lower initial procurement cost relative to current equipment prices",
-      "The greater reuse of the network's existing perimeter devices",
-      "Fit with workflows, assets and operating constraints",
-      "The earlier completion date for the scoped technical pilot"
+      "Micro-segmentation; software-defined perimeter",
+      "Software-defined perimeter; enhanced identity governance",
+      "Enhanced identity governance; software-defined perimeter",
+      "Enhanced identity governance; micro-segmentation"
     ],
-    "answer": 2,
-    "explanation": "The migration approach evaluates candidate solutions against the actual workflow and environment, not superficial labels.",
+    "answer": 3,
+    "explanation": "Enhanced identity governance suits open networks, BYOD and cloud/SaaS, while micro-segmentation shields resources from unauthorized access and discovery.",
     "sourceSlides": [
       23,
       25
@@ -288,15 +288,15 @@
     "tags": [
       "deployment approaches"
     ],
-    "prompt": "A proprietary path-control solution works today but cannot export policy in usable form. Which concern should influence selection?",
+    "prompt": "Vendor lock-in and weaker authentication of automated agents come from which threat, and what does the lesson advise?",
     "options": [
-      "Assumed compatibility because both products say ZTA",
-      "Only the visual design of its management console",
-      "Only the length of the product's name",
-      "Future portability and provider dependence"
+      "Proprietary formats and NPEs; evaluate providers holistically",
+      "Network visibility; evaluate providers holistically",
+      "Proprietary formats and NPEs; protect them with the most restrictive policies",
+      "Storage of network information; evaluate providers holistically"
     ],
-    "answer": 3,
-    "explanation": "The deck identifies vendor lock-in and proprietary formats as risks that warrant holistic evaluation.",
+    "answer": 0,
+    "explanation": "The proprietary formats and NPE threat is answered by evaluating providers holistically.",
     "sourceSlides": [
       23,
       24
@@ -310,15 +310,15 @@
     "tags": [
       "deployment approaches"
     ],
-    "prompt": "A network uses modern segmentation but automatically trusts every organization-owned device. Which conclusion is sound?",
+    "prompt": "A team picks micro-segmentation and drops identity governance and SDP, saying one approach is enough. Which lesson statement does this ignore?",
     "options": [
-      "Ownership is the required default authorization rule",
-      "The trust policy still conflicts with the ZT concept",
-      "Segmentation overrides the no-implicit-trust principle",
-      "Modern networking makes identity evaluation unnecessary"
+      "Micro-segmentation alone needs no PEP",
+      "A full solution blends all three approaches",
+      "Identity governance requires a closed network",
+      "SDP is only for cloud/SaaS environments"
     ],
     "answer": 1,
-    "explanation": "Technical segmentation does not cancel the principle that ownership and location alone cannot establish trust.",
+    "explanation": "The deployment slide says a full solution blends all three approaches.",
     "sourceSlides": [
       19,
       23
@@ -332,15 +332,15 @@
     "tags": [
       "threats and limitations"
     ],
-    "prompt": "A proposal says MFA and ZTA make insider abuse impossible. What is the most defensible correction?",
+    "prompt": "A stolen credential is used from an unusual place at an unusual time, and the access is flagged as abnormal. Which threat and control does this show?",
     "options": [
-      "They transfer responsibility entirely to the user",
-      "They replace the need to secure decision components",
-      "They reduce exposure but leave residual risks to manage",
-      "They work only if all monitoring is disabled"
+      "Network visibility, found by metadata analysis and machine learning",
+      "Storage of network information, found by restrictive policies",
+      "Stolen credentials or insider threat, found by MFA and contextual trust algorithms",
+      "Subversion of the decision process, found by auditing all changes"
     ],
     "answer": 2,
-    "explanation": "The lesson lists insider and stolen-credential threats. Mitigations reduce risk; they do not justify an absolute guarantee.",
+    "explanation": "MFA and contextual trust algorithms detect abnormal access patterns from stolen credentials or insider threat.",
     "sourceSlides": [
       24
     ]
@@ -353,15 +353,15 @@
     "tags": [
       "threats and limitations"
     ],
-    "prompt": "All control components are replicated, but every replica depends on the same unprotected service. What remains unproven?",
+    "prompt": "A scan archive, a policy export and a traffic capture sit on a shared drive. Which threat and safeguard match the lesson?",
     "options": [
-      "The existence of the architecture diagram",
-      "The number of component instances installed",
-      "Whether the components have matching labels",
-      "Resilience against that shared dependency's failure"
+      "Storage of network information; protect with the most restrictive policies",
+      "Network visibility; analyze metadata and apply machine learning",
+      "Subversion of the decision process; configure, monitor, log and audit all changes",
+      "Denial of service or disruption; replicate and host in resilient environments"
     ],
-    "answer": 3,
-    "explanation": "Replication does not by itself remove shared failure points. Availability must be evaluated across dependencies.",
+    "answer": 0,
+    "explanation": "Stored traffic, scans and policies are reconnaissance gold and are protected with the most restrictive policies.",
     "sourceSlides": [
       24
     ]
@@ -374,15 +374,15 @@
     "tags": [
       "threats and limitations"
     ],
-    "prompt": "Encryption protects traffic, but analysts conclude all encrypted flows must be benign. What is the reasoning error?",
+    "prompt": "A product stores policy in a proprietary format and uses automated agents with weak authentication. Which two risks does the lesson name?",
     "options": [
-      "Confusing confidentiality with proof of benign behavior",
-      "Assuming metadata can contain useful observations",
-      "Treating unencrypted traffic as the only resource",
-      "Separating access decisions from product purchases"
+      "Encrypted blind spots and stored reconnaissance data",
+      "Choke points and misconfigured decisions",
+      "Credential theft and insider abuse",
+      "Vendor lock-in and weaker authentication"
     ],
-    "answer": 0,
-    "explanation": "Encryption can protect communication without proving the intent or safety of the communicating subjects.",
+    "answer": 3,
+    "explanation": "Proprietary formats bring vendor lock-in, and automated agents bring weaker authentication.",
     "sourceSlides": [
       24
     ]
@@ -395,15 +395,15 @@
     "tags": [
       "threats and limitations"
     ],
-    "prompt": "Security logs are detailed but available to nearly every account. Which tradeoff has been mishandled?",
+    "prompt": "Which pairing of threat and safeguard is NOT correct?",
     "options": [
-      "Visibility balanced with telemetry protection",
-      "Office location versus network address length",
-      "Training attendance versus device screen size",
-      "Equipment branding versus procurement timing"
+      "Network visibility: replicate the PE, PA and PEP",
+      "Subversion of the decision process: configure, monitor, log and audit all changes",
+      "Storage of network information: protect with the most restrictive policies",
+      "Stolen credentials: MFA and contextual trust algorithms"
     ],
     "answer": 0,
-    "explanation": "Telemetry supports decisions but can reveal valuable security information; access to it needs suitable restriction.",
+    "explanation": "Replication answers denial of service or disruption. Network visibility is answered by analyzing metadata and applying machine learning.",
     "sourceSlides": [
       24
     ]
@@ -416,15 +416,15 @@
     "tags": [
       "threats and limitations"
     ],
-    "prompt": "A provider offers strong human authentication but weak service-account controls. What is the best evaluation?",
+    "prompt": "A unit runs one PE, one PA and one PEP in a single unsecured room. To which threat is it most exposed, according to the lesson?",
     "options": [
-      "Assess human and non-person actors",
-      "Treat service accounts as exempt from inventory",
-      "Accept it because humans are the only actors",
-      "Ignore the weakness if the interface is modern"
+      "Network visibility",
+      "Storage of network information",
+      "Proprietary formats and NPEs",
+      "Denial of service or disruption"
     ],
-    "answer": 0,
-    "explanation": "Automated actors participate in access workflows and can introduce risk even when human authentication is strong.",
+    "answer": 3,
+    "explanation": "The PE, PA and PEP should be replicated and hosted in resilient, secured environments to avoid becoming choke points.",
     "sourceSlides": [
       24,
       25
@@ -438,15 +438,15 @@
     "tags": [
       "migration and application"
     ],
-    "prompt": "A pilot's logs show legitimate work would be denied, but a deadline pressures immediate enterprise enforcement. What is the best recommendation?",
+    "prompt": "A unit buys tools before listing its users or assets. Which two steps should have come first?",
     "options": [
-      "Resolve policy errors before staged expansion",
-      "Discard the affected workflows from the records",
-      "Expand unchanged because reporting-only mode passed time",
-      "Treat all denials as evidence of better protection"
+      "Identify key processes and formulate policies",
+      "Identify actors and identify assets",
+      "Formulate policies and identify solutions",
+      "Identify solutions and deploy and monitor"
     ],
-    "answer": 0,
-    "explanation": "Pilot evidence should guide tuning. A time milestone does not establish safe or effective enforcement.",
+    "answer": 1,
+    "explanation": "Migration starts with identify actors (step 1) and identify assets (step 2); tools come at step 5.",
     "sourceSlides": [
       25
     ]
@@ -459,15 +459,15 @@
     "tags": [
       "migration and application"
     ],
-    "prompt": "A team inventories users but not service accounts, then buys a solution. Which early omission affects later policy design?",
+    "prompt": "After a unit has tuned its policies against real traffic in reporting-only mode, which migration step follows?",
     "options": [
-      "Incomplete actor identification",
-      "Using context to refine privileges",
-      "Excessive attention to resource boundaries",
-      "Too much reporting-only observation"
+      "Identify solutions",
+      "Formulate policies",
+      "Expand the ZTA",
+      "Identify key processes"
     ],
-    "answer": 0,
-    "explanation": "Actor identification includes non-person entities. Missing them can leave necessary access paths unmodeled or weakly controlled.",
+    "answer": 2,
+    "explanation": "Deploy and monitor is step 6 and expand the ZTA is step 7.",
     "sourceSlides": [
       25
     ]
@@ -480,15 +480,15 @@
     "tags": [
       "migration and application"
     ],
-    "prompt": "A pilot succeeds only because it excludes an important application dependency. What must happen before expanding the success claim?",
+    "prompt": "A unit starts its migration with its most critical mission workflow. Which migration advice does it ignore?",
     "options": [
-      "Replace outcome evidence with vendor assurances",
-      "Classify the dependency as outside all future reviews",
-      "Assess the real workflow including the dependency",
-      "Assume success transfers because the user count is small"
+      "Identify assets: inventory shadow IT",
+      "Identify key processes: start with a low-risk workflow",
+      "Formulate policies: set confidence-level weights",
+      "Expand the ZTA: reevaluate whenever the mission changes"
     ],
-    "answer": 2,
-    "explanation": "A pilot supports only the conditions it exercised. Omitted workflow dependencies require assessment before broader conclusions.",
+    "answer": 1,
+    "explanation": "Step 3 says to rank business processes and risks and start with a low-risk workflow.",
     "sourceSlides": [
       25
     ]
@@ -501,15 +501,15 @@
     "tags": [
       "migration and application"
     ],
-    "prompt": "A partner's role changes, but its old permissions remain indefinitely. Which improvement best combines migration and access principles?",
+    "prompt": "A coalition partner needs access to one resource for a week without VPN-style broad trust. Which applicability card fits?",
     "options": [
-      "Reevaluate the workflow and reduce access to current need",
-      "Grant the partner broader access to avoid future requests",
-      "Retain old access because the initial pilot succeeded",
-      "Review only the partner's equipment purchase date"
+      "Contain the breach: limit the blast radius of stolen credentials",
+      "Enable remote and coalition access: per-session, least-privilege access",
+      "Secure tactical networks: place PEPs in front of command networks",
+      "Continuous monitoring: feed logs, posture and threat intel to the PE"
     ],
-    "answer": 0,
-    "explanation": "Iterative reassessment and least privilege require permissions to reflect present responsibilities and context.",
+    "answer": 1,
+    "explanation": "The remote and coalition access card grants partners per-session, least-privilege access without VPN-style broad trust.",
     "sourceSlides": [
       25,
       26
@@ -523,15 +523,15 @@
     "tags": [
       "migration and application"
     ],
-    "prompt": "Leadership asks whether the pilot is ready to expand. Which evidence is strongest?",
+    "prompt": "Which pairing of applicability card and content is correct?",
     "options": [
-      "Validated decisions, enforced paths and acceptable workflow impact",
-      "Completed identity enrollment and the intended policy-engine configuration",
-      "Verified component installation and successful connectivity during maintenance checks",
-      "A high denial rate and improved authentication response time"
+      "Assume the network is hostile: treat internal, deployed and coalition networks as compromised",
+      "Contain the breach: encrypt and authenticate everything",
+      "Secure tactical networks: grant partners per-session access",
+      "Continuous monitoring: place PEPs in front of command networks"
     ],
     "answer": 0,
-    "explanation": "Readiness requires evidence that decisions are executed correctly and legitimate work remains supported, not merely that components are installed.",
+    "explanation": "That card says to treat internal, deployed and coalition networks as compromised and to encrypt and authenticate everything.",
     "sourceSlides": [
       22,
       25,

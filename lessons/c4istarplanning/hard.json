@@ -7,15 +7,15 @@
     "tags": [
       "planning requirements"
     ],
-    "prompt": "Two teams receive the same timely information and still make conflicting decisions because each assumes approval belongs to the other. Which revision directly addresses the failure?",
+    "prompt": "Two units receive the same real-time information yet issue conflicting orders because neither knows who holds approval authority. Which requirement item is lacking?",
     "options": [
-      "Clarify who decides and how teams coordinate",
-      "Increase delivery speed and leave authority implicit",
-      "Let each team establish independent decision rules",
-      "Collect more data before clarifying responsibilities"
+      "Real-time communication",
+      "Field operations",
+      "Resource management",
+      "Clear protocols and command structures"
     ],
-    "answer": 0,
-    "explanation": "Timely exchange is already working. Clear command responsibilities and coordination rules are missing.",
+    "answer": 3,
+    "explanation": "Slide 19 lists Clear Protocols under Coordination and Command Structures to ensure effective information flow and decision-making. Real-time communication (slide 20) was already working.",
     "sourceSlides": [
       14,
       19,
@@ -30,18 +30,17 @@
     "tags": [
       "planning requirements"
     ],
-    "prompt": "A plan includes written security rules, but personnel regularly bypass them under time pressure. Which change tests the relevant capability most directly?",
+    "prompt": "A unit encrypts all its radio traffic but has no capability to defend its networks against cyber attacks. Which requirement item is missing?",
     "options": [
-      "Run a realistic exercise and evaluate whether personnel can carry out required security practices under pressure",
-      "Increase technical capacity and infer that workarounds will disappear",
-      "Assess speed only and leave security performance to a separate survey",
-      "Rewrite the written rules and measure how many people open them"
+      "Secure communications",
+      "Cybersecurity",
+      "Threat assessment",
+      "Personnel training"
     ],
-    "answer": 0,
-    "explanation": "The issue is whether security practices can be applied. Exercises test that in realistic conditions.",
+    "answer": 1,
+    "explanation": "Slide 16 lists Secure Communications, which protects information from interception or tampering, and Cybersecurity, which defends against cyber threats targeting communication systems and data.",
     "sourceSlides": [
-      16,
-      17
+      16
     ]
   },
   {
@@ -52,15 +51,15 @@
     "tags": [
       "planning requirements"
     ],
-    "prompt": "Two proposals have similar initial costs. One lacks a credible repair and upgrade plan. Which criterion best differentiates them?",
+    "prompt": "Two proposals cost the same initially, but one has no plan for repairs or upgrades over time. Which requirement items does the weaker proposal lack?",
     "options": [
-      "Whether the equipment has a longer product description",
-      "Whether repair and upgrade funding supports availability",
-      "Whether both teams can order the same number of devices initially",
-      "Whether the purchase can be announced before the exercise"
+      "Infrastructure development; clear protocols",
+      "Maintenance and support; funding for upgrading",
+      "Personnel training; real-time communication",
+      "Threat assessment; ethics"
     ],
     "answer": 1,
-    "explanation": "The lesson ties reliable infrastructure to maintenance, support, and resourcing beyond acquisition.",
+    "explanation": "Slide 18 lists Maintenance and Support for timely repairs, and slide 21 lists Funding for the acquisition, maintenance and upgrading of systems.",
     "sourceSlides": [
       18,
       21
@@ -74,15 +73,15 @@
     "tags": [
       "planning requirements"
     ],
-    "prompt": "A plan meets real-time requirements under normal conditions and loses service during its first simulated disruption. How should the planner evaluate it?",
+    "prompt": "A natural disaster knocks out routine communication, and the system has no provision to remain operational under adverse conditions. Which requirement item is not met?",
     "options": [
-      "It meets emergency readiness because real-time performance was demonstrated once",
-      "It meets routine timeliness goals but fails the disruption test",
-      "It can pass based on its documented plan without repeat testing",
-      "It fails solely because participants should have sent more messages"
+      "Real-time communication",
+      "Resource management",
+      "Joint operations",
+      "Emergency communications"
     ],
-    "answer": 1,
-    "explanation": "Normal data speed and continuity under adverse conditions are separate requirements.",
+    "answer": 3,
+    "explanation": "Slide 23 lists Emergency Communications under Disaster Response and Management, to be operational even under adverse conditions. Real-time communication (slide 20) concerns quick data exchange in normal operations.",
     "sourceSlides": [
       20,
       23
@@ -96,15 +95,15 @@
     "tags": [
       "planning requirements"
     ],
-    "prompt": "An emerging vulnerability requires a change that competes with other funded upgrades. Which planning response combines threat adaptation and resource management?",
+    "prompt": "A newly discovered vulnerability must be fixed, but funds are limited. Which two requirement items apply?",
     "options": [
-      "Replace every affected component before determining the requirement",
-      "Choose the cheapest change without assessing the risk",
-      "Preserve all original priorities because funding has already been set",
-      "Assess the change against mission risk and allocate resources to the higher-priority need"
+      "Regulations and ethics",
+      "Threat assessment and resource management",
+      "Personnel training and real-time communication",
+      "Infrastructure development and clear protocols"
     ],
-    "answer": 3,
-    "explanation": "Continuous threat assessment informs how constrained resources should be prioritized.",
+    "answer": 1,
+    "explanation": "Slide 22 calls for continuous threat assessment and adaptation, and slide 21 calls for efficient resource management to support communication needs.",
     "sourceSlides": [
       21,
       22
@@ -118,15 +117,15 @@
     "tags": [
       "planning requirements"
     ],
-    "prompt": "A design improves response speed by making sensitive records visible to every classroom participant. Which change best preserves both requirements?",
+    "prompt": "A design speeds up information exchange by making sensitive records visible to every participant. Which two requirement items conflict?",
     "options": [
-      "Preserve access for everyone but add a generic privacy statement",
-      "Use open access because timely exchange is the first demonstrated benefit",
-      "Limit access to appropriate roles and verify that authorized users still receive the information in time",
-      "Hide all records from the participants even where access is required"
+      "Real-time communication and ethics on privacy",
+      "Field operations and funding",
+      "Joint operations and infrastructure development",
+      "Innovation and maintenance and support"
     ],
-    "answer": 2,
-    "explanation": "The plan must balance timely decisions with protection of privacy and compliance.",
+    "answer": 0,
+    "explanation": "Slide 20 asks for real-time data exchange, while slide 24 asks that practices follow regulations on data management and respect privacy and human rights.",
     "sourceSlides": [
       20,
       24
@@ -140,15 +139,15 @@
     "tags": [
       "communications technologies"
     ],
-    "prompt": "An exercise produces more observations, but commanders receive no clearer assessment. Why might buying additional collectors fail to solve the problem?",
+    "prompt": "Drones and radars supply many observations, but commanders still get no clearer picture. Which technology is missing?",
     "options": [
-      "More collection always produces an equivalent increase in useful analysis",
-      "The problem can only be caused by field device durability",
-      "Intelligence analysis is unnecessary if enough observations exist",
-      "The bottleneck is turning collection into actionable analysis"
+      "Intelligence analysis tools",
+      "Additional reconnaissance drones",
+      "Integrated command consoles",
+      "Ruggedized devices"
     ],
-    "answer": 3,
-    "explanation": "Sensors collect observations. Analysis is needed to derive useful conclusions.",
+    "answer": 0,
+    "explanation": "Slides 33 and 34 separate collection (UAVs, radar and sensors) from intelligence analysis tools, which process data to generate actionable insights.",
     "sourceSlides": [
       33,
       34
@@ -162,17 +161,16 @@
     "tags": [
       "communications technologies"
     ],
-    "prompt": "A system verifies user identity but still exposes sensitive data to unauthorized viewing during exchange. What diagnosis best fits?",
+    "prompt": "Users are verified at login, yet data crossing the network can be read by unauthorized persons. Which technology addresses this?",
     "options": [
-      "The presence of sensitive data proves user identity was never checked",
-      "Authentication works, but data in transit still needs protection",
-      "Verified identity guarantees that data is protected at every stage",
-      "The exposure can be corrected by increasing storage capacity alone"
+      "Access control",
+      "Symmetric and asymmetric encryption",
+      "Military standards (MIL-STD-2045)",
+      "Database systems"
     ],
     "answer": 1,
-    "explanation": "Identity verification and protection of data in transit address separate security needs.",
+    "explanation": "Slide 37 lists encryption algorithms (symmetric and asymmetric encryption) to protect data transmitted over networks, while access control only verifies identity.",
     "sourceSlides": [
-      30,
       37
     ]
   },
@@ -184,15 +182,15 @@
     "tags": [
       "communications technologies"
     ],
-    "prompt": "A radio can be reconfigured in software, yet another system still cannot process its messages. Which conclusion is strongest?",
+    "prompt": "A software-reconfigurable radio cannot exchange messages with another service's system. Which technology item addresses the compatibility gap?",
     "options": [
-      "Software reconfiguration establishes interoperability without testing",
-      "Software reconfiguration does not establish compatible exchange",
-      "The failed exchange proves the radio lacks any reconfiguration capability",
-      "The only issue is the ruggedness of the radio housing"
+      "Software-Defined Radios",
+      "Secure radios",
+      "Ruggedized devices",
+      "Network protocols such as MIL-STD-2045"
     ],
-    "answer": 1,
-    "explanation": "Flexibility helps support modes and protocols. Usable exchange still depends on actual compatibility.",
+    "answer": 3,
+    "explanation": "Slide 36 lists military standards such as MIL-STD-2045 for interoperability and secure communication across systems. A reconfigurable radio (slide 25) does not by itself guarantee compatible exchange.",
     "sourceSlides": [
       25,
       36,
@@ -207,15 +205,15 @@
     "tags": [
       "communications technologies"
     ],
-    "prompt": "Equipment survives harsh handling, but service drops whenever the exercise places it under sustained demand. What is the best diagnosis?",
+    "prompt": "Field devices survive harsh handling, but the communication service fails whenever conditions turn adverse or stressful. Which interoperability aspect is deficient?",
     "options": [
-      "Device durability alone has not demonstrated system reliability under stress",
-      "The correct measure of service is how many devices survived the exercise",
-      "Service interruptions are primarily evidence that the devices need tougher cases",
-      "Surviving handling proves the communications system is resilient"
+      "Scalability",
+      "Standardization",
+      "Reliability",
+      "Security"
     ],
-    "answer": 0,
-    "explanation": "A rugged device tolerates its environment. Reliable communications must continue operating as a system.",
+    "answer": 2,
+    "explanation": "Slide 43 says communication systems must be reliable and resilient, functioning even under adverse conditions or high stress; ruggedized devices (slide 38) address only the equipment.",
     "sourceSlides": [
       38,
       43
@@ -229,15 +227,15 @@
     "tags": [
       "communications technologies"
     ],
-    "prompt": "Storage and processing can expand as teams join, but the communications path becomes congested. Which conclusion is best?",
+    "prompt": "Cloud storage and processing can expand as teams join, but the communications path becomes congested. Which interoperability aspect is still in question?",
     "options": [
-      "Check whether the communications path can scale with demand",
-      "The transport path should be evaluated independently of the required exchanges",
-      "Expandable storage proves the whole system meets scalability goals",
-      "Congestion shows that the data should be retained longer in storage"
+      "Standardization",
+      "Reliability",
+      "Scalability",
+      "Security"
     ],
-    "answer": 0,
-    "explanation": "End-to-end scalability requires sufficient capacity to exchange information as demand grows.",
+    "answer": 2,
+    "explanation": "Slide 31 describes scalable cloud resources, while slide 44 says the communication systems themselves must scale with the needs of various operational scenarios.",
     "sourceSlides": [
       27,
       31,
@@ -252,15 +250,15 @@
     "tags": [
       "component roles"
     ],
-    "prompt": "A new sensor produces usable observations, but the command team sees isolated data with no decision context. Which design change fits the documented component roles?",
+    "prompt": "In which order do these components act, from observation to coordinated decision?",
     "options": [
-      "Send each raw observation to the command display and omit analysis",
-      "Use the collection sensor itself to make the command decision",
-      "Connect collection to analysis, then present the assessed results through the command coordination system",
-      "Move all observations into storage and leave them outside the decision workflow"
+      "Analytical software, radar and sensor systems, tactical command systems",
+      "Radar and sensor systems, analytical software, tactical command systems",
+      "Tactical command systems, radar and sensor systems, analytical software",
+      "Radar and sensor systems, tactical command systems, analytical software"
     ],
-    "answer": 2,
-    "explanation": "Collection, analysis, and coordination serve distinct roles that should connect to support decisions.",
+    "answer": 1,
+    "explanation": "Slide 33 lists radar and sensor systems for observation, slide 34 lists analytical software to process data into actionable insights, and slide 28 lists tactical command systems for planning and coordination.",
     "sourceSlides": [
       28,
       33,
@@ -275,19 +273,19 @@
     "tags": [
       "component roles"
     ],
-    "prompt": "A center brings staff and systems together, but participants still cannot exchange usable information. Which assessment is strongest?",
+    "prompt": "Command, communications and intelligence staff share one center, yet their systems cannot exchange data. Which statement is correct?",
     "options": [
-      "Failure to share data proves that staff cannot work in the same facility",
-      "Co-location still leaves the need for compatible data exchange",
-      "A common facility establishes interoperability without a working exchange",
-      "Adding personnel to the facility is sufficient to solve the compatibility gap"
+      "A shared center establishes interoperability by itself",
+      "Adding more staff to the center resolves the incompatibility",
+      "Co-location is not interoperability; the systems still need common standards and interfaces",
+      "Adding a cloud service to the center makes the systems compatible"
     ],
-    "answer": 1,
-    "explanation": "An integrated center can bring functions together. Interoperability depends on whether systems exchange usable information.",
+    "answer": 2,
+    "explanation": "Slide 29 says integrated TOCs house command, communications and intelligence functions, but slides 42 and 43 make interoperability depend on common standards and integration.",
     "sourceSlides": [
-      28,
       29,
-      42
+      42,
+      43
     ]
   },
   {
@@ -298,15 +296,15 @@
     "tags": [
       "component roles"
     ],
-    "prompt": "A classroom architecture needs flexible exchange, retrievable records, and verified access. Which mapping aligns the roles correctly?",
+    "prompt": "Which list matches the technologies, in order, to these needs: flexible data exchange, retrievable records, verified access?",
     "options": [
-      "Authentication for exchange, network for retrieval, and data management for identity",
-      "Network for exchange, authentication for retrieval, and data management for identity",
-      "Network for exchange, data management for retrieval, and authentication for identity",
-      "Data management for exchange, authentication for retrieval, and network for identity"
+      "IP-based networks; database systems; access control",
+      "Access control; IP-based networks; database systems",
+      "IP-based networks; access control; database systems",
+      "Database systems; access control; IP-based networks"
     ],
-    "answer": 2,
-    "explanation": "The network moves information, data management supports storage and access, and authentication verifies identity.",
+    "answer": 0,
+    "explanation": "Slide 27 lists IP-based networks for flexible data transmission, slide 30 lists database systems for storing and accessing data, and slide 37 lists access control to verify users and devices.",
     "sourceSlides": [
       27,
       30,
@@ -321,18 +319,17 @@
     "tags": [
       "component roles"
     ],
-    "prompt": "A planning team has a detailed map and a reliable stream of sensor observations but cannot determine what the observations imply. Which additional capability directly closes that gap?",
+    "prompt": "Which technologies match, in order: (1) visualizes geographical data; (2) overlays digital information on the real world; (3) combines data from multiple sensors?",
     "options": [
-      "Another display layer that reproduces the raw observations",
-      "A second command center that receives the same isolated data",
-      "Greater map storage without analysis",
-      "Analytical processing that turns observations into assessments for the command team"
+      "Augmented reality, GIS, sensor fusion",
+      "GIS, sensor fusion, augmented reality",
+      "Sensor fusion, augmented reality, GIS",
+      "GIS, augmented reality, sensor fusion"
     ],
     "answer": 3,
-    "explanation": "Geographic visualization and collection support awareness. Analytical processing generates usable implications.",
+    "explanation": "Slide 39 describes GIS (mapping and analysis) and augmented reality (overlaying digital information), and slide 35 describes sensor fusion (combining data from multiple sensors).",
     "sourceSlides": [
-      28,
-      34,
+      35,
       39
     ]
   },
@@ -344,15 +341,15 @@
     "tags": [
       "interoperability"
     ],
-    "prompt": "Two systems use the same documented format, but an intermediary delivers only half the fields. What should the planner validate next?",
+    "prompt": "Two systems share the same documented format, but the intermediary linking them delivers only half the fields. Which interoperability aspect failed?",
     "options": [
-      "Whether the equipment enclosures use the same design",
-      "Whether each team can archive its own outgoing data",
-      "Whether the intermediary preserves required fields",
-      "The existence of a written common standard only"
+      "Standardization",
+      "Reliability",
+      "Security",
+      "Integration"
     ],
-    "answer": 2,
-    "explanation": "Common standards are necessary, but integration must actually preserve the information required at the destination.",
+    "answer": 3,
+    "explanation": "Slide 43 says systems must be integrated, often through middleware or interface standards, so they can work together. The common format (standardization, slide 42) was in place.",
     "sourceSlides": [
       42,
       43
@@ -366,15 +363,15 @@
     "tags": [
       "interoperability"
     ],
-    "prompt": "Systems exchange information accurately, but unauthorized users can also retrieve it. How should this result be recorded?",
+    "prompt": "Two systems exchange information accurately, but unauthorized users can also retrieve it. Which interoperability aspect is deficient?",
     "options": [
-      "The exchange worked but failed access control",
-      "The system failed solely on scalability",
-      "Compatible exchange must be discarded because access controls are separate",
-      "Interoperability was fully demonstrated because exchange worked"
+      "Security",
+      "Standardization",
+      "Integration",
+      "Scalability"
     ],
     "answer": 0,
-    "explanation": "The lesson treats protection from unauthorized access as a key part of interoperability.",
+    "explanation": "Slide 44 says communication systems must be secure, with information protected against unauthorized access.",
     "sourceSlides": [
       42,
       44
@@ -388,15 +385,15 @@
     "tags": [
       "interoperability"
     ],
-    "prompt": "A pilot supports one team reliably but breaks down as several more teams connect. Which test best isolates the newly exposed issue?",
+    "prompt": "A system works well for one team, but its performance degrades as several more teams connect. Which pair of aspects should be evaluated?",
     "options": [
-      "Compare equipment purchase dates across teams",
-      "Repeat the single-team test and extrapolate the result",
-      "Increase test load and check exchange performance",
-      "Evaluate whether the new teams attended their briefings"
+      "Standardization and integration",
+      "Security and standardization",
+      "Reliability and scalability",
+      "Integration and security"
     ],
     "answer": 2,
-    "explanation": "The failure appears with scale. Testing representative demand shows whether reliability is maintained as load rises.",
+    "explanation": "Slide 43 covers reliability under stress and slide 44 covers scalability to meet growing operational demands.",
     "sourceSlides": [
       43,
       44
@@ -410,15 +407,15 @@
     "tags": [
       "interoperability"
     ],
-    "prompt": "Two systems have incompatible interfaces but dependable service when used alone. Which design and evaluation pair best addresses the mismatch?",
+    "prompt": "Two systems have incompatible interfaces but work well alone. Which pair of aspects must be addressed to make them work together?",
     "options": [
-      "Increase the reliability of each system independently and assume compatibility follows",
-      "Keep separate interfaces and test only individual uptime",
-      "Select a newer system and test only whether it powers on",
-      "Introduce a compatible interface and test complete exchanges between the systems"
+      "Reliability and scalability",
+      "Security and reliability",
+      "Standardization and integration",
+      "Scalability and security"
     ],
-    "answer": 3,
-    "explanation": "Interface integration addresses the mismatch. End-to-end tests show whether systems actually exchange useful information.",
+    "answer": 2,
+    "explanation": "Slide 42 calls for common standards and protocols, and slide 43 calls for integration through middleware or interface standards.",
     "sourceSlides": [
       42,
       43
@@ -432,15 +429,15 @@
     "tags": [
       "interoperability"
     ],
-    "prompt": "A demonstration shows successful exchanges under light load, using test accounts with broad privileges. What must be demonstrated before claiming readiness for a larger exercise?",
+    "prompt": "A demonstration succeeds under light load using test accounts with broad privileges. Which pair of aspects remains unproven before a larger exercise?",
     "options": [
-      "More archived data while continuing to use broad privileges",
-      "An inventory of systems without a representative exchange test",
-      "The same light-load success with additional observers",
-      "Reliable exchange under representative load and access controls"
+      "Scalability and security",
+      "Standardization and integration",
+      "Standardization and reliability",
+      "Integration and reliability"
     ],
-    "answer": 3,
-    "explanation": "Readiness requires interoperable exchange, reliability and scalability, and protection against unauthorized access.",
+    "answer": 0,
+    "explanation": "Slide 44 says systems must scale to larger operations and that information must be protected against unauthorized access; light load and broad privileges prove neither.",
     "sourceSlides": [
       42,
       43,

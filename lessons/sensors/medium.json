@@ -7,18 +7,17 @@
     "tags": [
       "concept and information quality"
     ],
-    "prompt": "Sensors collect useful observations, but no decision-maker receives them. What is the central shortfall?",
+    "prompt": "Which element of the Sensor, Decision-Maker, Shooter loop executes the decision?",
     "options": [
-      "The organization needs fewer information users",
-      "The information path is not effectively integrated",
-      "The sensors necessarily failed to detect anything",
-      "The presence of sensors already satisfies the requirement"
+      "The Sensor",
+      "The Decision-Maker",
+      "The Shooter",
+      "The commander's staff"
     ],
-    "answer": 1,
-    "explanation": "Collection alone does not deliver usable situational awareness; information must reach its intended users.",
+    "answer": 2,
+    "explanation": "Page 7: the Shooter 'acts' by executing the decision.",
     "sourceSlides": [
-      7,
-      9
+      7
     ]
   },
   {
@@ -29,17 +28,16 @@
     "tags": [
       "concept and information quality"
     ],
-    "prompt": "Several displays show incompatible versions of the same situation. What should integration support?",
+    "prompt": "Which list contains benefits that integrated sensor data brings to the COP?",
     "options": [
-      "A rule that the newest screen is always correct",
-      "More separate displays without reconciling their meaning",
-      "A coherent shared picture based on usable information",
-      "Replacement of every human decision with raw readings"
+      "Situational awareness, encrypted voice, collaborative planning, and accurate counterfire",
+      "Focused intelligence, frequency management, efficient logistics, and spectrum licensing",
+      "Situational awareness, focused intelligence, collaborative planning, and accurate counterfire",
+      "Situational awareness, spectrum allocation, mobility and flexibility, and crypto distribution"
     ],
     "answer": 2,
-    "explanation": "The COP objective requires useful shared understanding, not merely simultaneous display of inconsistent data.",
+    "explanation": "Page 9 lists battlespace situational awareness, focused intelligence, collaborative planning, mobility and flexibility, efficient logistics and accurate counterfire.",
     "sourceSlides": [
-      6,
       9
     ]
   },
@@ -51,15 +49,15 @@
     "tags": [
       "concept and information quality"
     ],
-    "prompt": "An automated observation is treated as a command decision. Which distinction was lost?",
+    "prompt": "Where does sensor integration fit in the loop?",
     "options": [
-      "Collecting a reading automatically approves every action",
-      "Detection differs from interpretation and decision authority",
-      "Every sensor has the same authority as a commander",
-      "Observation removes all need for judgment"
+      "It keeps the first link, seeing, fast, accurate, and connected to everything downstream",
+      "It keeps the last link, acting, fast, accurate, and connected to everything upstream of the shooter",
+      "It replaces the decision-maker's analysis with automated outputs",
+      "It keeps the middle link, thinking, independent of the sensors"
     ],
-    "answer": 1,
-    "explanation": "The conceptual loop distinguishes what sensors observe from the decisions made using that information.",
+    "answer": 0,
+    "explanation": "Page 7: sensor integration keeps the first link, seeing, fast, accurate, and connected to everything downstream.",
     "sourceSlides": [
       7
     ]
@@ -72,18 +70,17 @@
     "tags": [
       "concept and information quality"
     ],
-    "prompt": "A team adds more feeds but users understand less. What should be improved?",
+    "prompt": "Which of the following describes sensor integration as applied to the PA's sensor inventory?",
     "options": [
-      "The number of unrelated devices in the equipment list",
-      "The count of feeds without examining their relevance",
-      "The assumption that all raw data must be equally prominent",
-      "Data management and presentation for the users' needs"
+      "Ensuring architecturally different systems speak the same language through real-time data exchange between sensors and the COP",
+      "Installing, operating, and maintaining the core C4 systems",
+      "Adding new sensors onto the existing system as add-ons",
+      "Combining multiple applications so different software, systems, and processes function as one uninterrupted system"
     ],
     "answer": 3,
-    "explanation": "More collection can create overload; effective integration supports understanding rather than raw volume alone.",
+    "explanation": "Page 9 defines integration as combining applications to function as one uninterrupted system; the first alternative is interoperability (page 28).",
     "sourceSlides": [
-      9,
-      18
+      9
     ]
   },
   {
@@ -94,17 +91,17 @@
     "tags": [
       "sensor types and roles"
     ],
-    "prompt": "A disaster-response exercise needs remote aerial mapping. Which listed platform fits that role?",
+    "prompt": "Which sensors belong to the 'Acoustic / RF Detection' group?",
     "options": [
-      "Fixed network router",
-      "UAS",
-      "SUGV",
-      "Telephone exchange"
+      "Thermal Imager and Unmanned Aerial Systems carrying payloads",
+      "UAS and SUGV",
+      "Thermal Imager and SUGV",
+      "Sniper Fire Location Detector and Ground-Based RDF Systems"
     ],
-    "answer": 1,
-    "explanation": "UAS can carry sensors for remote sensing and mapping; the role stated is aerial.",
+    "answer": 3,
+    "explanation": "Page 15 groups the Sniper Fire Location Detector and Ground-Based Radio Direction Finding Systems under Acoustic / RF Detection.",
     "sourceSlides": [
-      10
+      15
     ]
   },
   {
@@ -115,17 +112,17 @@
     "tags": [
       "sensor types and roles"
     ],
-    "prompt": "A training task needs a modular ground platform to reduce personnel exposure to hazards. Which fits?",
+    "prompt": "Which sensors does the lesson group as Mobile / Remote Platforms?",
     "options": [
-      "Thermal imager alone",
-      "BONTEX",
-      "UAS exclusively",
-      "SUGV"
+      "UAS and SUGV",
+      "Thermal Imager and UAS",
+      "Sniper Fire Location Detector and SUGV",
+      "Ground-Based RDF and UAS"
     ],
-    "answer": 3,
-    "explanation": "The source describes SUGV as a modular ground platform carrying payloads while reducing exposure.",
+    "answer": 0,
+    "explanation": "Page 15 groups UAS and SUGV as mobile or remote platforms that carry other sensors to where fixed ones cannot reach.",
     "sourceSlides": [
-      10
+      15
     ]
   },
   {
@@ -136,15 +133,15 @@
     "tags": [
       "sensor types and roles"
     ],
-    "prompt": "A trainee treats one RDF bearing as an exact location. What should be corrected?",
+    "prompt": "Which statement about ground-based radio direction finding systems is correct?",
     "options": [
-      "RDF directly reveals every transmitter operator's identity",
-      "One bearing always supplies an exact position",
-      "A bearing has no directional information at all",
-      "A direction alone does not resolve a unique position"
+      "One measurement fixes the exact transmitter location of any radio source",
+      "Two or more measurements locate an unknown transmitter or vehicle",
+      "Two measurements identify the transmitter's operator",
+      "A single bearing detects sniper fire"
     ],
-    "answer": 3,
-    "explanation": "A single line of direction is not a unique location; additional observations and uncertainty matter.",
+    "answer": 1,
+    "explanation": "Page 10: they find the direction of a radio source, and two or more measurements locate an unknown transmitter or vehicle.",
     "sourceSlides": [
       10
     ]
@@ -157,18 +154,17 @@
     "tags": [
       "sensor types and roles"
     ],
-    "prompt": "A plan confuses a sensor payload with the platform carrying it. What is the useful distinction?",
+    "prompt": "Which pairing of sensor and capability is correct?",
     "options": [
-      "The platform transports capabilities; the payload performs sensing",
-      "A payload name alone defines all network interfaces",
-      "Every air vehicle has identical sensors by definition",
-      "A ground platform can never carry more than one payload"
+      "Thermal Imager: detects and locates the source of sniper fire in real time from a recon position",
+      "UAS: a modular ground platform that plugs in multiple payloads",
+      "Sniper Fire Location Detector: detects and locates the source of sniper fire in real time",
+      "SUGV: a light air vehicle carrying sensor payloads"
     ],
-    "answer": 0,
-    "explanation": "The lesson separates mobile platforms from specific sensing capabilities they may carry.",
+    "answer": 2,
+    "explanation": "Page 10 gives the sniper fire detector real-time detection of sniper fire; UAS are light air vehicles and SUGV is a modular ground platform.",
     "sourceSlides": [
-      10,
-      15
+      10
     ]
   },
   {
@@ -179,15 +175,15 @@
     "tags": [
       "interoperability and requirements"
     ],
-    "prompt": "Different vendors use incompatible message formats. What should be consulted and agreed?",
+    "prompt": "Which of the following describes Interoperability Points (IOP)?",
     "options": [
-      "Only the delivery dates on purchase invoices",
-      "Only a common color scheme for the equipment",
-      "Interface rules and common interoperability standards",
-      "A requirement that the devices share the same nickname"
+      "Every internal network must use the same technology and the same standardized protocol stack",
+      "Every connection inside a network needs a standardized protocol stack",
+      "Only the sensors need a defined protocol stack",
+      "Only the connection points between networks need a defined, standardized protocol stack"
     ],
-    "answer": 2,
-    "explanation": "Interfaces and standards address how information is exchanged and interpreted across heterogeneous systems.",
+    "answer": 3,
+    "explanation": "Page 16: national networks can use whatever technology internally; only the connection points need a defined, standardized protocol stack.",
     "sourceSlides": [
       16
     ]
@@ -200,15 +196,15 @@
     "tags": [
       "interoperability and requirements"
     ],
-    "prompt": "A partner keeps its internal technology but uses the agreed external interface. Which principle does this illustrate?",
+    "prompt": "Which of the following describes the NATO Interoperability Standards and Profiles (NISP)?",
     "options": [
-      "Removal of technical standards",
-      "Mandatory identical internal systems",
-      "Interoperability Points",
-      "Unrestricted information release"
+      "It describes a system's interfaces and the communication rules for connecting sensors to C4ISTAR",
+      "It prescribes the technical standards needed to achieve interoperability across an alliance",
+      "It lets new sensors be added as add-ons",
+      "It defines the connection points between national networks"
     ],
-    "answer": 2,
-    "explanation": "IOPs standardize inter-network connections without necessarily standardizing all internal technology.",
+    "answer": 1,
+    "explanation": "Page 16: NISP prescribes the technical standards for interoperability of people, processes, technology and communication information systems.",
     "sourceSlides": [
       16
     ]
@@ -221,15 +217,15 @@
     "tags": [
       "interoperability and requirements"
     ],
-    "prompt": "A team proposes commercial phones for protected information. Which requirement governs whether that proposed use is permitted?",
+    "prompt": "Which of the following is a tactical communication medium?",
     "options": [
-      "Approved encryption and device inventory",
-      "Vendor assurance and procurement approval",
-      "Service contracts and staff training",
-      "Applicable COMSEC and authorized-use requirements"
+      "BONTEX, the telephone exchange up to GHQ",
+      "PANET, the secured and managed intranet extended to brigades through DBTOCS",
+      "HF, VHF and UHF radios, including combat net radio using ROIP",
+      "Videoconferencing, cellular and satellite phones"
     ],
-    "answer": 3,
-    "explanation": "Special-purpose commercial communications are governed by policy; convenience is not sufficient authorization.",
+    "answer": 2,
+    "explanation": "Page 17 lists HF, VHF and UHF radios and combat net radio as tactical communication; BONTEX and PANET are fixed.",
     "sourceSlides": [
       17
     ]
@@ -242,18 +238,17 @@
     "tags": [
       "interoperability and requirements"
     ],
-    "prompt": "Sensor observations reach the command post but not higher information systems. Which part needs review?",
+    "prompt": "According to the lesson, how do sensors connect back to Headquarters?",
     "options": [
-      "The onward communications and integration path",
-      "Whether local delivery proves end-to-end delivery",
-      "Only the sensor's optical lens",
-      "Only the user's preferred display language"
+      "Through BONTEX to the command post, then through fiber links back to Headquarters via GHQ",
+      "Through cellular phones to the command post, then PANET",
+      "Through SMVRS directly to Headquarters",
+      "Through radio frequency to the command post, and through PANET back to Headquarters"
     ],
-    "answer": 0,
-    "explanation": "The lesson distinguishes local RF connectivity from onward network connectivity; each segment must work.",
+    "answer": 3,
+    "explanation": "Page 15: sensors connect through RF from the ground control system to the command post, and through PANET back to Headquarters.",
     "sourceSlides": [
-      15,
-      17
+      15
     ]
   },
   {
@@ -264,15 +259,15 @@
     "tags": [
       "context and constraints"
     ],
-    "prompt": "A new sensor fails to work with an older receiving system. Which constraint is illustrated?",
+    "prompt": "Older systems may not be compatible with new sensors. What must be engineered in?",
     "options": [
-      "Public advertising reach",
-      "Legacy compatibility",
-      "Document classification alone",
-      "Personnel seniority"
+      "Backward compatibility",
+      "Forward encryption of every sensor feed",
+      "Redundant shielding",
+      "Modular licensing"
     ],
-    "answer": 1,
-    "explanation": "Legacy integration requires compatibility work rather than assuming newer and older equipment will interoperate.",
+    "answer": 0,
+    "explanation": "Page 18 lists legacy integration: older systems may not be compatible with new sensors, so backward compatibility must be engineered in.",
     "sourceSlides": [
       18
     ]
@@ -285,15 +280,15 @@
     "tags": [
       "context and constraints"
     ],
-    "prompt": "Automation is installed, but untrained users repeatedly misinterpret outputs. What remains essential?",
+    "prompt": "Which constraint covers operator training, situational awareness, and human error, and remains critical even with automation?",
     "options": [
-      "Increasing feed volume without changing instruction",
-      "Removing every person from responsibility",
-      "Operator competence and human-factor controls",
-      "Assuming automated output cannot be misunderstood"
+      "Data overload",
+      "Human factors",
+      "Environmental factors",
+      "Cybersecurity"
     ],
-    "answer": 2,
-    "explanation": "The source emphasizes training and human error even when automation is present.",
+    "answer": 1,
+    "explanation": "Page 18 lists human factors: operator training, situational awareness and human error remain critical even with automation.",
     "sourceSlides": [
       18
     ]
@@ -306,15 +301,15 @@
     "tags": [
       "context and constraints"
     ],
-    "prompt": "The lesson's case study describes a license expiring during use. What should readiness checks include?",
+    "prompt": "In the Marawi case, what broke down when its license expired mid-operation?",
     "options": [
-      "Software entitlement and sustainment dependencies",
-      "Only the appearance of the application icon",
-      "Only whether the equipment was once demonstrated",
-      "An assumption that a working demo never expires"
+      "The SMVRS voice network",
+      "A commercial drone used for ISR",
+      "The cellphone delivered by drone",
+      "A demo Blue Force Tracking system"
     ],
-    "answer": 0,
-    "explanation": "A demonstration is not sustainable readiness; licenses and other continuing dependencies must be checked.",
+    "answer": 3,
+    "explanation": "Page 20: a demo BFT system pairing a Harris SA recorder with Esri's ArcGIS GeoEvent Processor broke down when its software license expired.",
     "sourceSlides": [
       20
     ]
@@ -327,15 +322,15 @@
     "tags": [
       "context and constraints"
     ],
-    "prompt": "A service-to-service exercise and a multinational exercise have different interfaces. What should planning avoid?",
+    "prompt": "Which exercises are cited for coalition interoperability?",
     "options": [
-      "Assuming the same interoperability arrangements fit both",
-      "Checking agreed standards before integration",
-      "Identifying each exercise's information requirements",
-      "Testing the required information exchange"
+      "UN peacekeeping and exercises such as Balikatan",
+      "NATO operations and exercises such as Balikatan",
+      "UN peacekeeping and the Marawi campaign",
+      "ASEAN drills and the AFP Joint C4ISTAR"
     ],
     "answer": 0,
-    "explanation": "Joint and coalition contexts may impose different arrangements; reuse requires verification, not assumption.",
+    "explanation": "Page 19 says coalition interoperability is exercised through UN peacekeeping and exercises such as Balikatan.",
     "sourceSlides": [
       19
     ]
@@ -348,15 +343,15 @@
     "tags": [
       "integration responsibilities and testing"
     ],
-    "prompt": "The using unit assumes ASR performs every routine equipment check. What does the lesson retain with users?",
+    "prompt": "Who retains end-user hardware operation and preventive maintenance?",
     "options": [
-      "Responsibility for all depot-level technology validation",
-      "End-user operation and preventive maintenance",
-      "Sole ownership of all core C4 systems",
-      "Authority to alter every partner interface unilaterally"
+      "The Army Signal Regiment",
+      "The using unit",
+      "The Army Intelligence Regiment",
+      "The depot-level repair facilities"
     ],
     "answer": 1,
-    "explanation": "The source distinguishes technical integration responsibilities from the using unit's routine operation and care.",
+    "explanation": "Page 27: end-user hardware operation and preventive maintenance stay with the using unit.",
     "sourceSlides": [
       27
     ]
@@ -369,15 +364,15 @@
     "tags": [
       "integration responsibilities and testing"
     ],
-    "prompt": "Two systems are physically connected but cannot interpret each other's messages. What is missing?",
+    "prompt": "Which statement distinguishes integration from interoperability?",
     "options": [
-      "A common equipment purchase year",
-      "Only an extra physical cable regardless of format",
-      "Usable information interoperability",
-      "Proof that physical connection always suffices"
+      "Integration proves the sensor keeps talking under real conditions; interoperability gets it talking to the rest of C4ISTAR",
+      "Integration and interoperability both describe adding sensors as add-ons",
+      "Integration gets the sensor talking to the rest of C4ISTAR; interoperability proves it keeps talking under real conditions",
+      "Integration describes the ICD; interoperability describes the COP"
     ],
     "answer": 2,
-    "explanation": "Connectivity is not the same as exchanging information that the receiving system can understand and use.",
+    "explanation": "Page 28: integration is getting the sensor talking to the rest of C4ISTAR; interoperability is proving it keeps talking under real conditions.",
     "sourceSlides": [
       28
     ]
@@ -390,15 +385,15 @@
     "tags": [
       "integration responsibilities and testing"
     ],
-    "prompt": "A prototype works on a desk but has not faced representative conditions. What should follow?",
+    "prompt": "Which of the following is NOT a testing and design requirement for integrated sensors?",
     "options": [
-      "Assurance that environmental testing is unnecessary",
-      "Acceptance based solely on its successful power-on",
-      "A claim of universal resilience from one demonstration",
-      "Relevant operational testing before relying on it"
+      "Replacing all legacy systems with a single vendor's equipment",
+      "Redundancy built in so the failure of one piece of equipment does not compromise the entire system",
+      "EMI and RF shielding",
+      "Modular design"
     ],
-    "answer": 3,
-    "explanation": "Operational testing is intended to expose malfunctions and vulnerabilities before reliance in the field.",
+    "answer": 0,
+    "explanation": "Page 29 lists regular operational testing, redundancy, EMI and RF shielding, and modular design.",
     "sourceSlides": [
       29
     ]
@@ -411,15 +406,15 @@
     "tags": [
       "integration responsibilities and testing"
     ],
-    "prompt": "An upgrade replaces one module. What should be rechecked?",
+    "prompt": "Where is the institutional home for ongoing sensor testing?",
     "options": [
-      "Compatibility and relevant end-to-end behavior",
-      "Only whether the old module can still be photographed",
-      "Only the replacement's packaging color",
-      "Whether modular design removes every test requirement"
+      "The Army Signal Regiment's network operations centers",
+      "The PA's depot-level and level-4 repair facilities",
+      "The Army Intelligence Regiment's ISTAR centers",
+      "The using unit's motor pool"
     ],
-    "answer": 0,
-    "explanation": "Modularity eases replacement; it does not prove that the changed system still meets its requirements.",
+    "answer": 1,
+    "explanation": "Page 29: the PA's depot-level and level-4 repair facilities assess next-generation technologies and validate technical systems.",
     "sourceSlides": [
       29
     ]

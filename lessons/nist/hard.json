@@ -7,15 +7,15 @@
     "tags": [
       "framework purpose and scope"
     ],
-    "prompt": "Two gaps compete for limited funds: a frequent minor inconvenience and a plausible outage of an essential service. What best supports a defensible decision?",
+    "prompt": "A staff officer says the Framework tells units which products to buy. Which statement from the lesson corrects this?",
     "options": [
-      "Compare likelihood and mission impact for both",
-      "Divide funds equally to avoid prioritization",
-      "Fund the frequent event without impact analysis",
-      "Choose whichever vendor gives the largest discount"
+      "It is a mandatory law backed by a compliance audit",
+      "It describes outcomes to achieve, not specific products to buy",
+      "It maps to ISO 27001, COBIT and other control catalogues",
+      "It prioritises effort by likelihood and impact"
     ],
-    "answer": 0,
-    "explanation": "Frequency alone does not capture risk. Leadership needs a comparison of both likelihood and consequences to justify allocation.",
+    "answer": 1,
+    "explanation": "Page 7 says the CSF describes outcomes to achieve, not specific products to buy; the other statements are true but do not answer the claim.",
     "sourceSlides": [
       7,
       9
@@ -29,15 +29,15 @@
     "tags": [
       "framework purpose and scope"
     ],
-    "prompt": "A team claims compliance because every device runs an approved product, although staff bypass its access process. What is the strongest critique?",
+    "prompt": "A team treats the CSF as a complete standard that replaces its own risk judgment. Which statement from page 8 corrects this?",
     "options": [
-      "The framework excludes user behavior",
-      "A newer product would prove compliance automatically",
-      "Approved products make process gaps irrelevant",
-      "Products do not prove required outcomes"
+      "It is mandatory, so judgment is replaced by the audit",
+      "It covers only technology, leaving people to judgment",
+      "It is not exhaustive and complements existing standards",
+      "It applies to government only, leaving others to judgment"
     ],
-    "answer": 3,
-    "explanation": "CSF outcomes concern people, processes and technology. Owning equipment does not establish that safeguards work in practice.",
+    "answer": 2,
+    "explanation": "Page 8 lists 'Not a replacement for your own risk judgment' and 'Not exhaustive - it complements existing standards'.",
     "sourceSlides": [
       7,
       8
@@ -51,15 +51,15 @@
     "tags": [
       "framework purpose and scope"
     ],
-    "prompt": "A critical supplier is secure by its own assessment, but its outage would stop a unit's service. What should the unit do?",
+    "prompt": "A power utility, a university and an AFP unit all adopt the CSF. Which quality makes this possible?",
     "options": [
-      "Exclude the risk because the supplier owns the system",
-      "Assess the dependency within its own risk context",
-      "Treat dependence as unrelated to cybersecurity resilience",
-      "Accept the supplier's conclusion as full assurance"
+      "Mandatory, so it applies to every sector alike",
+      "Technology-neutral, so it works across any sector, mission, or size",
+      "Interoperable only with U.S. standards",
+      "Prescriptive, so it fixes the same controls for all"
     ],
     "answer": 1,
-    "explanation": "The unit must understand its own consequences and third-party exposure rather than substitute a supplier's judgment for its own.",
+    "explanation": "Page 7 describes the CSF as technology-neutral, working across any sector, mission, or size of unit.",
     "sourceSlides": [
       8,
       9
@@ -73,15 +73,15 @@
     "tags": [
       "framework purpose and scope"
     ],
-    "prompt": "Two units choose different safeguards for the same CSF outcome. When is that defensible?",
+    "prompt": "'Prioritise effort by likelihood and impact' and 'maps to ISO 27001 and COBIT' describe which two qualities, in order?",
     "options": [
-      "When each choice addresses its context and risk",
-      "When neither unit documents its reasoning",
-      "Only when both use the same vendor's terminology",
-      "Only when the lower-cost unit copies the other"
+      "Technology-neutral; risk-based",
+      "Interoperable; technology-neutral",
+      "Risk-based; a shared language",
+      "Risk-based; interoperable"
     ],
-    "answer": 0,
-    "explanation": "Technology-neutral outcomes permit different implementations, provided choices are justified and achieve the relevant outcomes.",
+    "answer": 3,
+    "explanation": "Page 7 pairs risk-based with prioritising by likelihood and impact, and interoperable with mapping to ISO 27001, COBIT and other control catalogues.",
     "sourceSlides": [
       7,
       8
@@ -95,15 +95,15 @@
     "tags": [
       "framework purpose and scope"
     ],
-    "prompt": "A technically detailed report never explains which essential service is exposed. What change would most improve command usefulness?",
+    "prompt": "Which pairing is correct: 'frames risk in terms leadership understands' and 'lets units, agencies and coalition partners plan, exercise and respond together'?",
     "options": [
-      "Replace uncertainty with a categorical guarantee",
-      "Connect findings to mission consequences and choices",
-      "Add more product names to the executive summary",
-      "Rank issues solely by the number of log entries"
+      "Turns cyber into a command decision; enables interoperability and shared defense",
+      "Strengthens readiness and resilience; turns cyber into a command decision",
+      "Builds trust with citizens; strengthens readiness and resilience",
+      "Enables interoperability and shared defense; builds a common language"
     ],
-    "answer": 1,
-    "explanation": "Risk communication should support decisions. Mission consequences and options make technical findings actionable for leaders.",
+    "answer": 0,
+    "explanation": "Page 9 pairs the command-decision benefit with framing risk for leadership, and interoperability with shared defense.",
     "sourceSlides": [
       9
     ]
@@ -116,15 +116,15 @@
     "tags": [
       "six csf functions"
     ],
-    "prompt": "Monitoring detects incidents promptly, but nobody has authority to approve containment. Which weakness most directly explains the delay?",
+    "prompt": "A unit assigns roles and authorities, then sets baselines to spot anomalies. Which two Functions, in order?",
     "options": [
-      "An excessively detailed asset inventory",
-      "Unclear governance and response responsibilities",
-      "Insufficient dashboard color differentiation",
-      "Absence of another monitoring sensor alone"
+      "Identify, then Detect",
+      "Govern, then Respond",
+      "Govern, then Detect",
+      "Protect, then Detect"
     ],
-    "answer": 1,
-    "explanation": "Detection cannot resolve an authority gap. Govern establishes responsibilities that enable effective response decisions.",
+    "answer": 2,
+    "explanation": "Page 11 lists roles and authorities under Govern, and page 12 lists baselines to spot anomalies under Detect.",
     "sourceSlides": [
       11,
       12
@@ -138,15 +138,15 @@
     "tags": [
       "six csf functions"
     ],
-    "prompt": "Backups exist, but a test restoration produces unusable data. Which conclusion is best supported?",
+    "prompt": "A team takes a hardware inventory, sets up access control, and verifies a return to normal operations. Which Functions, in order?",
     "options": [
-      "Recovery capability has not been demonstrated",
-      "The incident is solved by renaming the backup",
-      "Backup existence proves successful recovery",
-      "Detection must be removed from the plan"
+      "Identify, Protect, Recover",
+      "Identify, Detect, Recover",
+      "Govern, Protect, Respond",
+      "Identify, Protect, Respond"
     ],
     "answer": 0,
-    "explanation": "Recover requires verified restoration. Possession of backup files alone does not show that operations can resume.",
+    "explanation": "Page 11 lists asset management under Identify and access control under Protect; page 12 lists verified return to normal operations under Recover.",
     "sourceSlides": [
       11,
       12
@@ -160,15 +160,15 @@
     "tags": [
       "six csf functions"
     ],
-    "prompt": "A strategy funds prevention but omits monitoring, response and restoration. What is its main weakness?",
+    "prompt": "Which list gives the six CSF Functions in the order shown in the lesson?",
     "options": [
-      "It makes governance unnecessary after deployment",
-      "It guarantees fewer incidents than a balanced plan",
-      "It follows the required sequence of CSF Functions",
-      "It leaves important resilience outcomes uncovered"
+      "Identify, Govern, Protect, Detect, Respond, Recover",
+      "Govern, Identify, Protect, Detect, Respond, Recover",
+      "Govern, Identify, Detect, Protect, Respond, Recover",
+      "Govern, Identify, Protect, Detect, Recover, Respond"
     ],
-    "answer": 3,
-    "explanation": "The Functions work together. Safeguards alone do not provide the ability to discover, manage and recover from disruptions.",
+    "answer": 1,
+    "explanation": "Page 10 shows Govern, Identify, Protect, Detect, Respond, Recover.",
     "sourceSlides": [
       10,
       11,
@@ -183,15 +183,15 @@
     "tags": [
       "six csf functions"
     ],
-    "prompt": "An incident review finds both unknown assets and weak monitoring. Which allocation best reflects the two gaps?",
+    "prompt": "Which Function includes analysis to scope and understand the event, and reporting and command communication?",
     "options": [
-      "Treat both gaps as procurement certifications",
-      "Identify the assets and strengthen Detect",
-      "Postpone inventory until all monitoring is replaced",
-      "Assign both gaps exclusively to Recover"
+      "Detect",
+      "Recover",
+      "Govern",
+      "Respond"
     ],
-    "answer": 1,
-    "explanation": "Asset knowledge and event discovery are distinct but related needs. Addressing both avoids treating one Function as a substitute for another.",
+    "answer": 3,
+    "explanation": "Page 12 lists analysis to scope and understand the event and reporting and command communication under Respond; Detect has adverse-event analysis.",
     "sourceSlides": [
       11,
       12
@@ -205,15 +205,15 @@
     "tags": [
       "six csf functions"
     ],
-    "prompt": "A restored service is running, but stakeholders have no confirmation of its status. What remains relevant under Recover?",
+    "prompt": "After containment, a team confirms that services are back to normal. Which Function covers this confirmation?",
     "options": [
-      "Verified status and stakeholder communication",
-      "Only the daily inventory spreadsheet",
-      "Only the original product purchase receipt",
-      "A new prevention policy instead of confirmation"
+      "Respond",
+      "Detect",
+      "Protect",
+      "Recover"
     ],
-    "answer": 0,
-    "explanation": "Recovery includes verification and communication, not merely restarting equipment.",
+    "answer": 3,
+    "explanation": "Page 12 lists a verified return to normal operations under Recover.",
     "sourceSlides": [
       11,
       12
@@ -227,15 +227,15 @@
     "tags": [
       "core profiles and tiers"
     ],
-    "prompt": "A unit calls itself Adaptive because it bought automated monitoring, while policies never change after reviews. What evidence is missing?",
+    "prompt": "A commander approves risk practices, but no unit-wide policy exists yet. Which Implementation Tier fits best?",
     "options": [
-      "A supplier's statement about product popularity",
-      "Continuous improvement of risk-management practice",
-      "Proof that every device is the same age",
-      "A larger number of framework diagrams"
+      "Partial",
+      "Repeatable",
+      "Risk Informed",
+      "Adaptive"
     ],
-    "answer": 1,
-    "explanation": "Adaptive describes how practice evolves with learning and new information. A product does not establish that organizational behavior.",
+    "answer": 2,
+    "explanation": "Page 14 describes Risk Informed as practices approved by management but not yet organization-wide policy.",
     "sourceSlides": [
       13,
       14
@@ -249,15 +249,15 @@
     "tags": [
       "core profiles and tiers"
     ],
-    "prompt": "A Target Profile contains outcomes unrelated to the scoped mission, copied from a larger organization. What is the best correction?",
+    "prompt": "Which statement matches the three components of the CSF?",
     "options": [
-      "Treat all gaps as proof of a failed organization",
-      "Retain every outcome to maximize the list length",
-      "Replace the Current Profile with the copied target",
-      "Reconcile target outcomes with mission and risk"
+      "Core: where you stand; Profiles: what to do; Tiers: how rigorously",
+      "Core: what to do; Profiles: where you stand; Tiers: how rigorously",
+      "Core: what to do; Profiles: how rigorously; Tiers: where you stand",
+      "Core: how rigorously; Profiles: where you stand; Tiers: what to do"
     ],
-    "answer": 3,
-    "explanation": "Profiles should reflect the organization's context. Copying another organization's target can distort priorities and resource decisions.",
+    "answer": 1,
+    "explanation": "Page 13 gives the Core as 'what to do', Profiles as 'where you stand', and Tiers as 'how rigorously'.",
     "sourceSlides": [
       13,
       15
@@ -271,15 +271,15 @@
     "tags": [
       "core profiles and tiers"
     ],
-    "prompt": "A dashboard reports one Tier number but cannot show which outcomes are achieved. What additional artifact would best address the gap?",
+    "prompt": "A unit has a Current Profile and a Target Profile but no list of outcomes to choose from. Which component is missing?",
     "options": [
-      "A list of national ICT slogans",
-      "A second Tier number without evidence",
-      "A procurement catalog of desired tools",
-      "A supported Current Profile"
+      "The Core",
+      "The Tiers",
+      "A Current Profile review",
+      "The seven-step sequence"
     ],
-    "answer": 3,
-    "explanation": "Tiers characterize practices; a Current Profile describes the outcomes actually achieved. These answer different questions.",
+    "answer": 0,
+    "explanation": "Page 13: the Core is the hierarchy of outcomes used to pick what to do; Profiles then measure the gap.",
     "sourceSlides": [
       13
     ]
@@ -292,15 +292,15 @@
     "tags": [
       "core profiles and tiers"
     ],
-    "prompt": "An organization has consistent policies but little evidence of learning from incidents. Which claim is better supported?",
+    "prompt": "Which pair of Tiers matches 'formal policies consistently applied and updated' and 'lessons and threat intel reshape defenses'?",
     "options": [
-      "Repeatable practice, with adaptation still to demonstrate",
-      "Partial practice solely because incidents occurred",
-      "Adaptive practice solely because policies are written",
-      "No Tier can be discussed without a NIST certificate"
+      "Risk Informed and Repeatable",
+      "Partial and Adaptive",
+      "Risk Informed and Adaptive",
+      "Repeatable and Adaptive"
     ],
-    "answer": 0,
-    "explanation": "Consistent formal practice fits Repeatable. Adaptive requires evidence of ongoing adjustment, not merely documented procedures.",
+    "answer": 3,
+    "explanation": "Page 14 describes Repeatable (Tier 3) as consistently applied formal policies and Adaptive (Tier 4) as lessons and threat intelligence reshaping defenses.",
     "sourceSlides": [
       14,
       15
@@ -314,15 +314,15 @@
     "tags": [
       "core profiles and tiers"
     ],
-    "prompt": "A profile gap is expensive to close and has low mission impact. What is the best next step?",
+    "prompt": "Which statement is correct about applying the Framework in a military context?",
     "options": [
-      "Prioritize it alongside other risks and constraints",
-      "Treat cost alone as proof it is unnecessary",
-      "Automatically make it the first funded activity",
-      "Delete it so the profiles appear identical"
+      "Use the Core to set readiness levels per key operational need",
+      "Treat the Current Profile as commander's intent for cyber",
+      "Use Tiers to set readiness levels per key operational need",
+      "Fold Identify and Protect into continuity-of-operations plans"
     ],
-    "answer": 0,
-    "explanation": "A prioritized action plan weighs context and risk. Neither hiding the gap nor automatically funding it follows from its existence.",
+    "answer": 2,
+    "explanation": "Page 15: use Tiers to set readiness levels per operational need; the Target Profile is commander's intent; RESPOND/RECOVER fold into COOP.",
     "sourceSlides": [
       13,
       15
@@ -336,15 +336,15 @@
     "tags": [
       "nictef elements and vision"
     ],
-    "prompt": "A digital service has nationwide connectivity but excludes users without skills or affordable devices. What does the case show?",
+    "prompt": "A project provides reliable connectivity, but users lack the skills to use the service. Which NICTEF element is the gap?",
     "options": [
-      "Platforms remove the need for human capability",
-      "Infrastructure alone fulfills the inclusive vision",
-      "Ecosystem elements are interdependent",
-      "Access cost is outside the ICT ecosystem"
+      "Human Capital",
+      "Infostructure/Infrastructure",
+      "Affordable Access and Devices",
+      "Platforms"
     ],
-    "answer": 2,
-    "explanation": "Connectivity is necessary but insufficient when human capability and affordable access prevent people from using services.",
+    "answer": 0,
+    "explanation": "Page 21 describes Human Capital as talents and skills; connectivity belongs to infostructure (page 22).",
     "sourceSlides": [
       19,
       21,
@@ -359,15 +359,15 @@
     "tags": [
       "nictef elements and vision"
     ],
-    "prompt": "Two agencies deploy modern applications that exchange incompatible data. Which investment most directly addresses the coordination failure?",
+    "prompt": "Two agencies' applications cannot exchange data. Which element sets the boundaries that let players inter-operate?",
     "options": [
-      "Shared interoperability standards and alignment",
-      "Separate progress reports with incompatible targets",
-      "More devices with unchanged data conventions",
-      "Independent redesign without cross-agency consultation"
+      "Platforms",
+      "Standards, Regulations and Policies",
+      "Infostructure/Infrastructure",
+      "Human Capital"
     ],
-    "answer": 0,
-    "explanation": "Platforms must interoperate within agreed boundaries. Hardware expansion alone does not solve incompatible standards.",
+    "answer": 1,
+    "explanation": "Page 23: standards, regulations and policies provide the boundaries for safely inter-connecting and inter-operating.",
     "sourceSlides": [
       22,
       23,
@@ -382,15 +382,15 @@
     "tags": [
       "nictef elements and vision"
     ],
-    "prompt": "A national ICT plan is treated as permanently fixed despite changed indicators and outcomes. Which lesson principle is missed?",
+    "prompt": "The NICTEF is an authoritative reference source and also what?",
     "options": [
-      "Only procurement teams may review the framework",
-      "Outcome indicators are unrelated to framework revision",
-      "It is a living reference, updated periodically",
-      "All national plans must be rewritten after each outage"
+      "A fixed legal code issued once",
+      "A technical checklist for units",
+      "A living document updated periodically",
+      "A product catalogue for agencies"
     ],
     "answer": 2,
-    "explanation": "The lesson describes NICTEF as a living document updated with plans, indicators and results.",
+    "explanation": "Page 17 calls the NICTEF an authoritative reference source and a living document updated periodically with the latest plans, programs and projects.",
     "sourceSlides": [
       17,
       25
@@ -404,18 +404,17 @@
     "tags": [
       "nictef elements and vision"
     ],
-    "prompt": "A project measures success only by devices purchased. Which addition best reflects the NICTEF vision?",
+    "prompt": "Which pair makes up the twin purpose of the NICTEF?",
     "options": [
-      "A ranking based only on the newest device model",
-      "A second count of the same equipment deliveries",
-      "The number of acronyms in the project report",
-      "Evidence of usable, inclusive access and outcomes"
+      "Promote cybersecurity compliance and serve as a checklist for units",
+      "Regulate ICT vendors and serve as a blueprint for procurement",
+      "Replace the National Cybersecurity Plan and serve as a blueprint for the harmonization of tactical networks across all units",
+      "Promote the national ICT development agenda and serve as a blueprint for harmonizing and coordinating ICT plans"
     ],
     "answer": 3,
-    "explanation": "The vision concerns people benefiting from reliable, affordable ICT, not merely procurement activity.",
+    "explanation": "Page 18 gives the twin purpose: promote the national ICT development agenda, and serve as a blueprint for harmonization and coordination of ICT plans, programs and projects.",
     "sourceSlides": [
-      19,
-      25
+      18
     ]
   },
   {
@@ -426,15 +425,15 @@
     "tags": [
       "nictef elements and vision"
     ],
-    "prompt": "A service's devices, network and applications function, but agencies disagree on data-sharing boundaries. Which unresolved element should lead the review?",
+    "prompt": "Which matching of NICTEF element and description is correct?",
     "options": [
-      "Human typing speed as the sole constraint",
-      "Cable replacement as the primary solution",
-      "Standards, Regulations and Policies",
-      "Affordable devices as the sole constraint"
+      "Infostructure/Infrastructure: physical and logical components providing secure connectivity",
+      "Platforms: the interfaces through which humans access the applications, services, content and data",
+      "Human Capital: the boundaries for safe inter-connection",
+      "Standards, Regulations and Policies: the individuals who access services"
     ],
-    "answer": 2,
-    "explanation": "Technical connectivity does not establish safe or authorized interoperability; agreed boundaries remain necessary.",
+    "answer": 0,
+    "explanation": "Pages 21-23 define infostructure/infrastructure as the physical and logical components providing secure connectivity.",
     "sourceSlides": [
       21,
       22,
@@ -449,15 +448,15 @@
     "tags": [
       "application and alignment"
     ],
-    "prompt": "A unit's cyber plan matches its own needs but conflicts with shared national ICT priorities. What is the strongest revision?",
+    "prompt": "Which statement correctly relates NICTEF and the CSF?",
     "options": [
-      "Ignore national direction because CSF is voluntary",
-      "Replace both frameworks with a product checklist",
-      "Align priorities while retaining a context-specific CSF plan",
-      "Abandon unit risk analysis and copy a national slogan"
+      "The CSF sets national direction; NICTEF gives units a repeatable method",
+      "NICTEF sets national direction; the CSF gives units a repeatable method to deliver the outcomes",
+      "Both set the same national ICT policy, with NICTEF applying it nationally and the CSF applying it at unit level",
+      "The National Cybersecurity Plan gives units the method; the CSF sets policy"
     ],
-    "answer": 2,
-    "explanation": "The lesson connects organizational risk practice to national direction; alignment does not remove the need for local assessment.",
+    "answer": 1,
+    "explanation": "Page 26: NICTEF sets national direction and the National Cybersecurity Plan sets policy, while the CSF gives units a proven, repeatable method.",
     "sourceSlides": [
       15,
       26
@@ -471,15 +470,15 @@
     "tags": [
       "application and alignment"
     ],
-    "prompt": "After a mission change, an old Target Profile is still used without review. What should happen first?",
+    "prompt": "Which statement about step 7, Implement and repeat, is correct?",
     "options": [
-      "Treat the previous Tier as permanent authorization",
-      "Purchase tools before identifying changed needs",
-      "Keep the target unchanged to preserve comparisons",
-      "Reassess scope, priorities and desired outcomes"
+      "It executes the plan once and closes the cycle",
+      "It compares profiles and builds the action plan",
+      "It executes, monitors, and refines continuously",
+      "It defines the mission, systems, and units in scope"
     ],
-    "answer": 3,
-    "explanation": "Iteration includes revisiting mission context. A formerly appropriate target may no longer express the required outcomes.",
+    "answer": 2,
+    "explanation": "Page 15 step 7: execute, monitor, and refine continuously.",
     "sourceSlides": [
       15,
       27
@@ -493,17 +492,16 @@
     "tags": [
       "application and alignment"
     ],
-    "prompt": "An improvement plan has owners and deadlines but no risk rationale for its ordering. What is the most useful addition?",
+    "prompt": "Which step builds the prioritized action plan, and which step comes directly before it?",
     "options": [
-      "Remove low-cost tasks from the risk review",
-      "Document why each gap has its assigned priority",
-      "Replace deadlines with more detailed product names",
-      "Give all tasks the same urgency label"
+      "Analyze gaps and prioritize, preceded by Conduct a risk assessment",
+      "Implement and repeat, preceded by Create a Target Profile",
+      "Create a Target Profile, preceded by Create a Current Profile",
+      "Analyze gaps and prioritize, preceded by Create a Target Profile"
     ],
-    "answer": 1,
-    "explanation": "A defensible action plan links sequencing to risk and mission priorities, not only administrative completeness.",
+    "answer": 3,
+    "explanation": "Page 15: step 6 is Analyze gaps and prioritize and step 5 is Create a Target Profile.",
     "sourceSlides": [
-      11,
       15
     ]
   },
@@ -515,19 +513,17 @@
     "tags": [
       "application and alignment"
     ],
-    "prompt": "An exercise restores service quickly but repeatedly exposes the same coordination failure. What would show genuine improvement?",
+    "prompt": "Which list gives steps 3 to 5 of applying the Framework in order?",
     "options": [
-      "Move the finding to a different report section",
-      "Record the faster restart as proof of full readiness",
-      "Change the process and verify it in a later exercise",
-      "Stop reviewing exercises that repeat old findings"
+      "Create a Current Profile, Conduct a risk assessment, Create a Target Profile",
+      "Conduct a risk assessment, Create a Current Profile, Create a Target Profile",
+      "Create a Current Profile, Create a Target Profile, Conduct a risk assessment",
+      "Orient, Create a Current Profile, Conduct a risk assessment"
     ],
-    "answer": 2,
-    "explanation": "The framework's iterative approach requires findings to alter practice and be tested, rather than merely being recorded.",
+    "answer": 0,
+    "explanation": "Page 15 lists step 3 Create a Current Profile, step 4 Conduct a risk assessment, and step 5 Create a Target Profile.",
     "sourceSlides": [
-      12,
-      15,
-      27
+      15
     ]
   },
   {
@@ -538,18 +534,16 @@
     "tags": [
       "application and alignment"
     ],
-    "prompt": "A commander wants to move beyond planning documents to demonstrate national alignment, close measured gaps and validate resilience. Which package best supports that assurance claim?",
+    "prompt": "Which pairing is correct on the Signal Corps applicability slide?",
     "options": [
-      "Aligned priorities, policy approval and equipment availability",
-      "Target outcomes, planned controls and reported service uptime",
-      "Aligned priorities and verified implementation",
-      "National objectives, Tier selection and approved recovery plans"
+      "Protect and Detect: drill response and recovery as part of COOP",
+      "Respond and Recover: stand up sensors, baselines and analysis",
+      "Govern: set clear cyber roles, policy and oversight aligned to higher headquarters",
+      "Identify: share Target Profiles across units and align them to NICTEF and the National Cybersecurity Plan"
     ],
     "answer": 2,
-    "explanation": "The package connects strategic direction, an evidence-based improvement plan and demonstrated ability to handle disruption.",
+    "explanation": "Page 27 says to use GOVERN to set clear cyber roles, policy, and oversight aligned to higher headquarters.",
     "sourceSlides": [
-      13,
-      26,
       27
     ]
   }

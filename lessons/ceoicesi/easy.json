@@ -7,15 +7,15 @@
     "tags": [
       "publication roles"
     ],
-    "prompt": "Which publication gives instructions specific to a particular communications system?",
+    "prompt": "Which publication tells the users 'what to do' for the operation of a particular communications system?",
     "options": [
-      "Distribution entry",
       "CESI",
-      "General information entry",
+      "Signal annex",
+      "Command SOP",
       "CEOI"
     ],
     "answer": 3,
-    "explanation": "The CEOI states what the users are to do for a particular system.",
+    "explanation": "Page 9 says the CEOI is a combat order with specific instructions for the operation of a particular communications system and tells the users what to do.",
     "sourceSlides": [
       9
     ]
@@ -28,15 +28,15 @@
     "tags": [
       "publication roles"
     ],
-    "prompt": "Which publication explains how to use the items in the CEOI?",
+    "prompt": "Which publication tells the users 'how to do it' for the items included in the CEOI?",
     "options": [
-      "Distribution entry",
       "CEOI",
-      "Index",
-      "CESI"
+      "CESI",
+      "Signal annex",
+      "Distribution entry"
     ],
-    "answer": 3,
-    "explanation": "The CESI supplies instructions for using items specified by the CEOI.",
+    "answer": 1,
+    "explanation": "Page 9 says the CESI contains instructions explaining the use of the items included in the CEOI and tells the users how to do it.",
     "sourceSlides": [
       9
     ]
@@ -49,15 +49,15 @@
     "tags": [
       "publication roles"
     ],
-    "prompt": "Which publication is relatively stable across echelons in the course comparison?",
+    "prompt": "The CESI at all echelons of command is:",
     "options": [
-      "Local CEOI extract",
-      "First reserve edition",
-      "CESI",
-      "CEOI"
+      "Different for each command",
+      "Identical or similar in contents",
+      "Prepared for short periods and subject to frequent change",
+      "Prepared in four editions"
     ],
-    "answer": 2,
-    "explanation": "The CESI contains substantially common, enduring guidance, whereas the CEOI changes more frequently.",
+    "answer": 1,
+    "explanation": "Page 12 says the CESI at all echelons of command is identical or similar in contents and is permanent in nature, while the CEOI is subject to frequent change.",
     "sourceSlides": [
       12
     ]
@@ -70,15 +70,15 @@
     "tags": [
       "publication roles"
     ],
-    "prompt": "Which feature do the publications share?",
+    "prompt": "Which of the following is a similarity between the CEOI and the CESI?",
     "options": [
-      "A common format",
-      "The same number of editions",
-      "An identical purpose",
-      "The same expected rate of change"
+      "Both are prepared in four editions",
+      "Both are prepared for short periods and subject to frequent change",
+      "Both tell the users what to do",
+      "Both are divided into 7 or 8 distinct sections"
     ],
-    "answer": 0,
-    "explanation": "The course identifies their format as a similarity.",
+    "answer": 3,
+    "explanation": "Page 13 lists as similarities that both are divided into 7 or 8 distinct sections, share an identical format, and have identical instructions prepared by the highest commands.",
     "sourceSlides": [
       13
     ]
@@ -91,15 +91,15 @@
     "tags": [
       "publication roles"
     ],
-    "prompt": "Who is responsible for communications at command level?",
+    "prompt": "Communication is the responsibility of the:",
     "options": [
-      "The commander",
-      "Each publication holder",
-      "The messenger supervisor",
-      "The receiving-unit clerk"
+      "Signal officer",
+      "Commander",
+      "Operations officer",
+      "Issuing headquarters"
     ],
-    "answer": 0,
-    "explanation": "The commander bears overall responsibility for communications.",
+    "answer": 1,
+    "explanation": "Page 14 says communication is the responsibility of the commander; the signal officer is responsible to him for technical control and staff supervision.",
     "sourceSlides": [
       14
     ]
@@ -112,15 +112,15 @@
     "tags": [
       "publication roles"
     ],
-    "prompt": "What responsibility belongs to the signal officer in the course's distinction?",
+    "prompt": "The signal officer is responsible to his commander for which of the following?",
     "options": [
-      "Individual acknowledgment on behalf of all recipients",
-      "Setting the commander's organizational priorities",
-      "Technical control and staff supervision",
-      "Independent command authority over every supported unit"
+      "Technical control and staff supervision over all communications-electronics activities of the command",
+      "The preparation and issuance of the CEOI only, but not the CESI",
+      "Overall responsibility for communications, in place of the commander",
+      "The authentication of every message sent over the command's nets"
     ],
-    "answer": 2,
-    "explanation": "The signal officer is responsible to the commander for technical control and staff supervision.",
+    "answer": 0,
+    "explanation": "Page 14 says the signal officer is responsible for the preparation and issuance of both the CESI and CEOI, and to his commander for technical control and staff supervision of all communications-electronics activities.",
     "sourceSlides": [
       14
     ]
@@ -133,15 +133,15 @@
     "tags": [
       "edition and copy control"
     ],
-    "prompt": "What is the primary purpose of assigning a copy number to each published copy?",
+    "prompt": "A copy number is assigned to each published copy of the CEOI and CESI to facilitate:",
     "options": [
-      "Authenticating the entire order",
-      "Specifying the item's effective date",
-      "Identifying the document's edition",
-      "Distribution control and accounting"
+      "Distribution, control, and accounting",
+      "Identification of a particular edition",
+      "Brevity and additional security",
+      "Authentication of the entire order"
     ],
-    "answer": 3,
-    "explanation": "Copy numbering supports accountability for individual copies.",
+    "answer": 0,
+    "explanation": "Page 15 says each copy published is assigned a copy number to facilitate distribution, control and accounting.",
     "sourceSlides": [
       15
     ]
@@ -154,15 +154,15 @@
     "tags": [
       "edition and copy control"
     ],
-    "prompt": "What does the short title identify?",
+    "prompt": "The short title assigned to the CEOI and CESI identifies a:",
     "options": [
-      "The total page count",
-      "A particular edition",
-      "An individual physical copy",
-      "A receiving unit's copy allocation"
+      "Individual copy",
+      "Particular edition",
+      "Specific item",
+      "Receiving unit"
     ],
     "answer": 1,
-    "explanation": "The short title distinguishes a particular edition.",
+    "explanation": "Page 16 says the short title identifies a particular edition of the CESI or CEOI.",
     "sourceSlides": [
       16
     ]
@@ -175,15 +175,15 @@
     "tags": [
       "edition and copy control"
     ],
-    "prompt": "What distinguishes the basic CEOI edition from the first reserve at initial issue?",
+    "prompt": "Which CEOI edition is the basic edition that is in effect?",
     "options": [
-      "The first reserve supersedes the basic edition on issue",
-      "The basic edition is effective and the first reserve is inactive",
-      "Both are automatically effective on issue",
-      "Neither is effective until the other is withdrawn"
+      "2nd edition (first reserve)",
+      "3rd edition (second reserve)",
+      "4th edition (third reserve)",
+      "1st edition"
     ],
-    "answer": 1,
-    "explanation": "The course distinguishes having a copy from having an edition in effect.",
+    "answer": 3,
+    "explanation": "Pages 21 and 22 describe the 1st edition as the basic edition, the effective one; the 2nd edition is the first reserve and is not in effect.",
     "sourceSlides": [
       21,
       22
@@ -197,15 +197,15 @@
     "tags": [
       "edition and copy control"
     ],
-    "prompt": "Why does the course describe multiple CEOI editions?",
+    "prompt": "The CEOI is prepared in four editions in order to:",
     "options": [
-      "To eliminate the need for copy accounting",
-      "To record different copies of one active edition",
-      "To facilitate replacement after compromise",
-      "To distribute a different general procedure to each echelon"
+      "Provide a separate edition for each echelon of command",
+      "Reduce the number of copies needed in each unit",
+      "Facilitate replacement in the event of a compromise",
+      "Allow frequent change of its general section"
     ],
     "answer": 2,
-    "explanation": "Reserve editions exist to support replacement if the active edition is compromised.",
+    "explanation": "Page 26 says the CEOI is prepared in four editions in order to facilitate replacement in the event of a compromise.",
     "sourceSlides": [
       25,
       26
@@ -219,15 +219,15 @@
     "tags": [
       "edition and copy control"
     ],
-    "prompt": "What role does the first reserve serve after formal replacement of a compromised edition?",
+    "prompt": "In case of compromise, the first reserve or second edition is:",
     "options": [
-      "It continues to be used simultaneously with the compromised edition",
-      "It becomes the basic edition in effect",
-      "It becomes the standard CESI reference",
-      "It becomes only an index to the withdrawn edition"
+      "Pulled out of circulation with the compromised edition",
+      "Kept in the issuing headquarters until the third reserve is issued",
+      "Upgraded into the first or basic edition",
+      "Stored in the same place as the compromised edition"
     ],
-    "answer": 1,
-    "explanation": "The first reserve can be elevated to basic status when the previous active edition is withdrawn.",
+    "answer": 2,
+    "explanation": "Page 26 says that in case of compromise, the document is pulled out of circulation and the first reserve is upgraded into the first or basic edition.",
     "sourceSlides": [
       26
     ]
@@ -240,17 +240,18 @@
     "tags": [
       "compromise and authentication"
     ],
-    "prompt": "What situation may constitute compromise even without proof of misuse?",
+    "prompt": "Which of the following situations makes a CEOI or CESI compromised?",
     "options": [
-      "An approved distribution list being updated",
-      "A document reaching its planned review date",
-      "A credible belief that material was exposed to an unauthorized person",
-      "An authorized holder asking for an explanation"
+      "The document is replaced by a new edition on schedule",
+      "The document is believed to have been exposed to unauthorized personnel",
+      "The document is returned to the issuing headquarters after use",
+      "Only extracts of its items are taken forward to the command post"
     ],
-    "answer": 2,
-    "explanation": "Known or suspected unauthorized exposure can qualify as compromise.",
+    "answer": 1,
+    "explanation": "Page 17 says compromise exists when the document is known or believed to have been captured, lost or exposed to unauthorized personnel, or misused. Page 19 allows extracts to be taken to the command post.",
     "sourceSlides": [
-      17
+      17,
+      19
     ]
   },
   {
@@ -261,15 +262,15 @@
     "tags": [
       "compromise and authentication"
     ],
-    "prompt": "Which pair of reports follows the course's reporting distinction?",
+    "prompt": "Which two types of report are made when a compromise occurs?",
     "options": [
-      "An inventory report and a routine training report",
-      "An oral summary and a distribution update after reissue",
-      "An immediate report and a subsequent written report",
-      "Two identical written reports submitted after investigation"
+      "Immediate report and periodic report",
+      "Written report and verbal report",
+      "Immediate report and written report",
+      "Preliminary report and final inventory report"
     ],
     "answer": 2,
-    "explanation": "Initial notice is prompt. A later written report records the investigation and response.",
+    "explanation": "Page 18 lists the types of report as the immediate report (spot report) and the subsequent written report.",
     "sourceSlides": [
       18
     ]
@@ -282,15 +283,15 @@
     "tags": [
       "compromise and authentication"
     ],
-    "prompt": "Which type of information belongs in the subsequent written report?",
+    "prompt": "Which of the following is contained in the immediate report of a compromise?",
     "options": [
-      "Only the date of the next routine inventory",
-      "Only the pagination of the publication",
-      "A catalog of unrelated active documents",
-      "Circumstances, corrective action, and prevention recommendations"
+      "Date and time of the compromise",
+      "Recommendation to prevent similar occurrences",
+      "Person(s) responsible for the compromise",
+      "Action taken"
     ],
-    "answer": 3,
-    "explanation": "The written report expands on the initial notice with circumstances, action, and prevention measures.",
+    "answer": 0,
+    "explanation": "Page 18 says the immediate report gives the short title or item numbers of the compromised material and the date and time of compromise. The other items belong to the subsequent written report.",
     "sourceSlides": [
       18
     ]
@@ -303,15 +304,15 @@
     "tags": [
       "compromise and authentication"
     ],
-    "prompt": "What security concern does the authentication section address?",
+    "prompt": "The Authentication Section protects the communication system from:",
     "options": [
-      "Fraudulent transmission or reception",
-      "Poor maintenance of communications equipment",
-      "Unbalanced distribution of copies",
-      "Expired personnel qualifications"
+      "Unauthorized copying of the CEOI",
+      "Compromise of the code and cipher items",
+      "Loss of the first reserve edition",
+      "Fraudulent reception or transmission"
     ],
-    "answer": 0,
-    "explanation": "Authentication protects against fraudulent communications.",
+    "answer": 3,
+    "explanation": "Page 33 says the Authentication Section (items 20-29) holds the type of authentication used to protect the communication system from fraudulent reception or transmission.",
     "sourceSlides": [
       33
     ]
@@ -324,17 +325,18 @@
     "tags": [
       "structure and validation"
     ],
-    "prompt": "What three entries are mandatory in the general section?",
+    "prompt": "Which of the following is NOT a mandatory item of the General Section?",
     "options": [
-      "Heading, body, and ending",
-      "Index, distribution, and general information",
-      "Authentication, wire, and radio",
-      "Date, copy number, and preparing headquarters"
+      "Index",
+      "Distribution",
+      "General Information",
+      "Messenger"
     ],
-    "answer": 1,
-    "explanation": "The general section contains the index, distribution, and general information entries.",
+    "answer": 3,
+    "explanation": "Page 28 lists the index, distribution and general information as the mandatory items of the General Section. The Messenger Section is a separate section (page 32).",
     "sourceSlides": [
-      28
+      28,
+      32
     ]
   },
   {
@@ -345,15 +347,15 @@
     "tags": [
       "structure and validation"
     ],
-    "prompt": "Which entry lists titles, corresponding item numbers, and effective dates?",
+    "prompt": "Which General Section item contains the titles of the items, the numbers corresponding to the titles, and the effective date of each item?",
     "options": [
       "Index",
-      "General information",
-      "Ending",
-      "Distribution"
+      "Distribution",
+      "General Information",
+      "Authentication"
     ],
     "answer": 0,
-    "explanation": "The index helps users locate and identify the applicable item and its date.",
+    "explanation": "Page 29 says the index contains the titles of the items in the CESI/CEOI, the corresponding numbers and the effective date of each item.",
     "sourceSlides": [
       29
     ]
@@ -366,15 +368,15 @@
     "tags": [
       "structure and validation"
     ],
-    "prompt": "Which entry specifies units receiving copies and the quantities allocated?",
+    "prompt": "It is the General Section item that specifies the units to receive copies, including the number of copies each.",
     "options": [
-      "General information",
-      "Distribution",
       "Index",
-      "Body"
+      "General Information",
+      "Distribution",
+      "Short title"
     ],
-    "answer": 1,
-    "explanation": "The distribution entry identifies recipients and copy quantities.",
+    "answer": 2,
+    "explanation": "Page 30 says the distribution item specifies the units to receive copies of the CESI and items of the CEOI, including the number of copies each.",
     "sourceSlides": [
       30
     ]
@@ -387,15 +389,15 @@
     "tags": [
       "structure and validation"
     ],
-    "prompt": "Which part of an item number identifies the same item across editions?",
+    "prompt": "In an item number, the number before the hyphen identifies the specific item and is never changed for the same item. What is it called?",
     "options": [
-      "Base number",
-      "Page number",
       "Edition number",
-      "Copy number"
+      "Copy number",
+      "Base number",
+      "Short title"
     ],
-    "answer": 0,
-    "explanation": "The base number identifies the item and remains stable for that item.",
+    "answer": 2,
+    "explanation": "Page 41 says the base number appears before the hyphen, identifies the specific item and is never changed for the same item.",
     "sourceSlides": [
       41
     ]
@@ -408,15 +410,15 @@
     "tags": [
       "structure and validation"
     ],
-    "prompt": "Where does the course place authentication of the entire publication?",
+    "prompt": "The entire CEOI/CESI is authenticated for the commander only in which item?",
     "options": [
-      "The cover heading alone",
-      "The copy count in the ending",
-      "Each item number",
-      "The index item"
+      "Index",
+      "Distribution",
+      "General Information",
+      "Body"
     ],
-    "answer": 3,
-    "explanation": "The index carries the authentication showing issuance by or for the commander.",
+    "answer": 0,
+    "explanation": "Page 47 says it is only in the index item that the entire CEOI/CESI is authenticated for the commander, to indicate that the order is valid and issued by, or for, the commander.",
     "sourceSlides": [
       47
     ]

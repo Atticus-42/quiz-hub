@@ -7,18 +7,16 @@
     "tags": [
       "network concepts"
     ],
-    "prompt": "A plan assumes infrastructure-less means planning-free. What is the strongest correction?",
+    "prompt": "Which list contains only main features of a MANET shown in the lesson?",
     "options": [
-      "Self-configuration can replace the traffic-demand review",
-      "Default settings can supply the service priorities",
-      "Demand and link constraints still apply",
-      "Network membership can replace the link assessment"
+      "Self-forming and self-healing, fixed number of members, frequency hopping, unicast, multicast and broadcast support, quality of service",
+      "Self-forming and self-healing, dynamic number of members, frequency hopping, unicast, multicast and broadcast support, quality of service",
+      "Self-forming and self-healing, dynamic number of members, centralized administration, unicast, multicast and broadcast support, quality of service",
+      "Self-forming and self-healing, dynamic number of members, frequency hopping, permanent wired backbone, quality of service"
     ],
-    "answer": 2,
-    "explanation": "MANET autonomy does not remove capacity, interference or service-planning requirements.",
+    "answer": 1,
+    "explanation": "Page 12 shows these five main features of a MANET.",
     "sourceSlides": [
-      9,
-      11,
       12
     ]
   },
@@ -30,15 +28,15 @@
     "tags": [
       "network concepts"
     ],
-    "prompt": "A demonstration survives one failed path. What conclusion is warranted?",
+    "prompt": "Traffic is sent by parallel transmission so that all nodes are informed and no rebuild is needed after a failure. Which features are described, in order?",
     "options": [
-      "It demonstrates resilience under the tested conditions",
-      "It guarantees identical performance at every network size",
-      "It establishes that physical damage no longer matters",
-      "It proves no combination of failures can disrupt communication"
+      "Frequency hopping; self-healing",
+      "Concurrent flooding; quality of service",
+      "Quality of service; self-forming",
+      "Concurrent flooding; self-healing"
     ],
-    "answer": 0,
-    "explanation": "A successful resilience test is evidence for its conditions, not an unlimited guarantee.",
+    "answer": 3,
+    "explanation": "Pages 12 and 17 to 19 describe concurrent flooding as all-informed parallel transmission and self-healing as restoring the network.",
     "sourceSlides": [
       12,
       17,
@@ -53,15 +51,15 @@
     "tags": [
       "network concepts"
     ],
-    "prompt": "All applications are marked highest priority on a constrained link. What weakness remains?",
+    "prompt": "Voice and video traffic compete on the same constrained link. Which main feature of a MANET addresses the performance of each?",
     "options": [
-      "Priority markings physically eliminate interference",
-      "The policy no longer distinguishes competing needs",
-      "Every application now has unlimited available bandwidth",
-      "Membership changes can no longer affect performance"
+      "Quality of service",
+      "Frequency hopping",
+      "Concurrent flooding",
+      "Self-forming, self-healing"
     ],
-    "answer": 1,
-    "explanation": "QoS needs meaningful prioritization; assigning everything the same top priority does not resolve contention.",
+    "answer": 0,
+    "explanation": "Page 12 lists quality of service among the main MANET features; page 9 notes growing data capacity and users per network.",
     "sourceSlides": [
       9,
       12
@@ -75,15 +73,15 @@
     "tags": [
       "network concepts"
     ],
-    "prompt": "Broadcast delivery is proposed for every service regardless of audience. Which concern is most defensible?",
+    "prompt": "One message goes to a single recipient and a second goes to every node. Which delivery types fit, in order?",
     "options": [
-      "Unnecessary distribution can consume limited resources",
-      "Audience scope has no relationship to network load",
-      "Broadcast always provides stronger content encryption",
-      "Unicast can never operate in a MANET"
+      "Broadcast, then unicast",
+      "Multicast, then broadcast",
+      "Unicast, then multicast",
+      "Unicast, then broadcast"
     ],
-    "answer": 0,
-    "explanation": "Traffic scope should suit service needs; all-informed distribution is not automatically efficient for every use.",
+    "answer": 3,
+    "explanation": "Page 12 lists unicast, multicast and broadcast support; page 17 describes broadcast as all informed.",
     "sourceSlides": [
       12,
       17
@@ -97,17 +95,16 @@
     "tags": [
       "capabilities and security"
     ],
-    "prompt": "An integration test confirms voice compatibility but documents no security properties. What cannot be inferred?",
+    "prompt": "Which pairing of waveform and description is correct?",
     "options": [
-      "That the exchanged voice meets required protection",
-      "That the tested configuration supported that voice service",
-      "That security documentation still needs review",
-      "That a voice exchange occurred in the test"
+      "STANAG 4204: encrypted analog and digital voice; CNR: non-encrypted analog voice",
+      "STANAG 4204: compatible with Elbit legacy systems; CNR: compatible with the NATO waveform",
+      "STANAG 4204: non-encrypted analog voice; CNR: encrypted analog and digital voice",
+      "WMA-HC: non-encrypted analog voice; CNR: compatible with the NATO waveform"
     ],
-    "answer": 0,
-    "explanation": "The source distinguishes encrypted and clear waveforms; successful exchange alone proves no required protection level.",
+    "answer": 2,
+    "explanation": "Pages 35 and 36 give STANAG 4204 as non-encrypted analog voice and CNR as encrypted analog and digital voice.",
     "sourceSlides": [
-      30,
       35,
       36
     ]
@@ -120,15 +117,15 @@
     "tags": [
       "capabilities and security"
     ],
-    "prompt": "Management messages are authenticated but confidentiality has not been assessed. Which conclusion is sound?",
+    "prompt": "Which pairing of security layer and basis is correct?",
     "options": [
-      "Confidentiality and authentication mean the same thing",
-      "Authentication alone does not establish secrecy",
-      "Radio frequency hopping settles management-data confidentiality",
-      "An authenticated message is necessarily unreadable to others"
+      "Over-the-air security: SNMP v3; management security: frequency hopping and TRANSEC",
+      "Over-the-air security: AES 256 key loading; management security: frequency hopping",
+      "Over-the-air security: anti-tamper and erase; management security: TRANSEC",
+      "Over-the-air security: frequency hopping and TRANSEC; management security: SNMP v3"
     ],
-    "answer": 1,
-    "explanation": "Authentication and confidentiality are different properties even when a protocol supports both.",
+    "answer": 3,
+    "explanation": "Page 30 gives frequency hopping and TRANSEC for over-the-air security and SNMP v3 for management security.",
     "sourceSlides": [
       30
     ]
@@ -141,18 +138,17 @@
     "tags": [
       "capabilities and security"
     ],
-    "prompt": "A product supports several services, but a chosen configuration has not been tested with the required mix. What is missing?",
+    "prompt": "Which highlights belong to the HC/WMA waveform?",
     "options": [
-      "Proof that a capability list replaces acceptance testing",
-      "Evidence for the configured end-to-end service requirements",
-      "A reason to assume every configuration has identical capacity",
-      "A requirement to discard every supported service"
+      "1 MHz bandwidth, up to 4 concurrent voice sessions, up to 140 nodes",
+      "1, 2 or 4 MHz bandwidth, 7 concurrent voice sessions, up to 250 nodes",
+      "1, 2 or 4 MHz bandwidth, 4 concurrent voice sessions, up to 140 nodes",
+      "1 MHz bandwidth, 7 concurrent voice sessions, up to 250 nodes"
     ],
     "answer": 1,
-    "explanation": "Advertised or listed capability does not establish performance for a particular configuration and workload.",
+    "explanation": "Page 34 gives 1, 2 or 4 MHz, 7 concurrent voice sessions and up to 250 nodes for HC/WMA; page 32 gives the WB figures.",
     "sourceSlides": [
-      28,
-      31,
+      32,
       34
     ]
   },
@@ -164,18 +160,18 @@
     "tags": [
       "capabilities and security"
     ],
-    "prompt": "Frequency hopping is cited as proof that interference cannot affect service. Which response is accurate?",
+    "prompt": "Which feature is common to both the WB and the HC/WMA waveform highlights?",
     "options": [
-      "Security features eliminate all need for link measurements",
-      "Resistance does not guarantee immunity",
-      "Any hopping system guarantees error-free communication",
-      "Interference can affect only wired systems"
+      "Up to 250 nodes in a single network with automated self-forming and self-healing",
+      "Support for 7 concurrent voice sessions in the same net with analog and IP voice",
+      "A non-encrypted analog voice session compatible with the NATO waveform",
+      "TRANSEC protected, jamming resistant frequency hopping with no single point of failure"
     ],
-    "answer": 1,
-    "explanation": "The source's resistance claims should not be inflated into immunity or universal service guarantees.",
+    "answer": 3,
+    "explanation": "Pages 32 and 34 both list TRANSEC protection, jamming resistance, frequency hopping and no single point of failure.",
     "sourceSlides": [
-      30,
-      32
+      32,
+      34
     ]
   },
   {
@@ -186,19 +182,20 @@
     "tags": [
       "equipment and maintenance"
     ],
-    "prompt": "A built-in test passes but an external cable is visibly damaged. Which conclusion is best?",
+    "prompt": "Which pairing of maintenance type and activity is correct?",
     "options": [
-      "The damage can be ignored unless a user complains",
-      "A passing BIT proves every external component is undamaged",
-      "The physical defect still requires authorized attention",
-      "Software version information repairs the cable automatically"
+      "Preventive maintenance: fault isolation and repair; fault procedure: visual inspection and cleaning of the equipment",
+      "Preventive maintenance: visual inspection and cleaning; fault procedure: identification, isolation, repair, verification",
+      "Preventive maintenance: fault verification; fault procedure: cleaning of the panel and controls only",
+      "Preventive maintenance: fault identification and repair; fault procedure: visual inspection of the cables only"
     ],
-    "answer": 2,
-    "explanation": "Test scope matters; a passing result does not override observed damage outside or beyond what it establishes.",
+    "answer": 1,
+    "explanation": "Pages 24 to 26 describe preventive maintenance as visual inspection and cleaning; page 27 gives the four-step fault procedure.",
     "sourceSlides": [
+      24,
       25,
-      27,
-      58
+      26,
+      27
     ]
   },
   {
@@ -209,15 +206,15 @@
     "tags": [
       "equipment and maintenance"
     ],
-    "prompt": "Replacing a part improves symptoms without identifying the original cause. What should the report distinguish?",
+    "prompt": "A technician traces a problem to one module, then replaces it. Which step comes next?",
     "options": [
-      "Observed improvement from a confirmed diagnosis",
-      "Repair completion from all future performance guarantees",
-      "A guess from evidence by calling both verified",
-      "Equipment age from its network address format"
+      "Fault verification, including BIT",
+      "Fault identification",
+      "Fault isolation",
+      "Cleaning of the panel and controls"
     ],
     "answer": 0,
-    "explanation": "A repair may improve behavior without proving causation; accurate records should preserve that distinction.",
+    "explanation": "Page 27 places repair verification, including BIT, after fault repair.",
     "sourceSlides": [
       27
     ]
@@ -230,19 +227,17 @@
     "tags": [
       "equipment and maintenance"
     ],
-    "prompt": "Maintenance is rushed and verification omitted to save time. What risk does the model identify?",
+    "prompt": "Which order matches the cleaning procedure?",
     "options": [
-      "An unresolved fault may return to service undetected",
-      "A signed repair form guarantees functional correctness",
-      "Identification becomes unnecessary if a part was changed",
-      "Cleaning automatically proves every network function works"
+      "Dampen the cloth with mild soap and water; inspect the exterior; remove dust with a soft cloth; clean panel and controls",
+      "Inspect the exterior; remove dust with a soft cloth; clean panel and controls; dampen the cloth with mild soap and water only if dirt is hard to remove",
+      "Remove dust with a soft cloth; clean panel and controls; inspect the exterior; dampen the cloth with mild soap and water",
+      "Clean panel and controls; inspect the exterior; remove dust with a soft cloth; dampen the cloth with mild soap and water"
     ],
-    "answer": 0,
-    "explanation": "The final verification step is necessary to establish that relevant faults have actually been corrected.",
+    "answer": 1,
+    "explanation": "Page 26 gives the cleaning procedure in this order.",
     "sourceSlides": [
-      25,
-      26,
-      27
+      26
     ]
   },
   {
@@ -253,19 +248,18 @@
     "tags": [
       "equipment and maintenance"
     ],
-    "prompt": "The radio operates alone but fails in its vehicle installation. What is the sound diagnostic scope?",
+    "prompt": "Which statement about the MCTR-7200HH-VS50 VA is correct?",
     "options": [
-      "Ignore the installation because the same radio is present",
-      "Declare the handheld permanently defective without comparison",
-      "Use only a screenshot of the standalone display",
-      "Include adapter, power, connections and relevant test paths"
+      "It is a single-channel ruggedized vehicular adapter with a receiver and RF power amplifier covering 30 to 512 MHz at 50 W",
+      "It is a hand-held single-channel radio with a 5 W output, a GPS antenna and a handset",
+      "It is a dual-channel ruggedized vehicular adapter providing 50 W for two RT-7200 units at once",
+      "It is a single-channel ruggedized vehicular adapter with a receiver and amplifier covering 30 to 88 MHz at 50 W"
     ],
-    "answer": 3,
-    "explanation": "The adapter and installation add dependencies; the source includes tests covering the vehicular arrangement.",
+    "answer": 0,
+    "explanation": "Page 47 describes the VS50 VA as a single-channel ruggedized vehicular adapter with a 30 to 512 MHz, 50 W amplifier for one RT-7200 unit.",
     "sourceSlides": [
-      47,
-      50,
-      58
+      46,
+      47
     ]
   },
   {
@@ -276,18 +270,17 @@
     "tags": [
       "diagnostics and configuration"
     ],
-    "prompt": "Two tests report similar RSSI but different delivery results. Which explanation is most defensible?",
+    "prompt": "Which pairing of Nodes Information parameter and meaning is correct?",
     "options": [
-      "Packet counts must be wrong whenever RSSI matches",
-      "Node names determine delivery independently of all links",
-      "Equal RSSI guarantees equal delivery under every condition",
-      "Strength is not a complete quality measure"
+      "RSSI: received signal quality between nodes; Dist: data rate received from the remote node",
+      "SNR: received signal strength of the remote node; D.Rate: distance to the remote node",
+      "SNR: received signal quality; D.Rate: data rate received from the remote node, WMA only",
+      "Dist: received signal quality between nodes; RSSI: data rate received from the remote node"
     ],
-    "answer": 3,
-    "explanation": "SNR, load and other conditions can differ; no single strength measurement establishes total performance.",
+    "answer": 2,
+    "explanation": "Page 56 gives these meanings for SNR and D.Rate.",
     "sourceSlides": [
-      56,
-      67
+      56
     ]
   },
   {
@@ -298,16 +291,17 @@
     "tags": [
       "diagnostics and configuration"
     ],
-    "prompt": "A failed ping and successful application exchange occur together. What should be checked?",
+    "prompt": "Which menu options match these uses, in order: re-enabling ping after a power cycle; checking network quality with data packets; selecting waveforms for each transceiver?",
     "options": [
-      "Whether a failed ping proves every application is offline",
-      "Whether application success is impossible by definition",
-      "Diagnostic settings and the tested paths",
-      "Whether all performance records should be deleted"
+      "Net Performance; Ping Enable; Transceiver Allocation",
+      "Ping Enable; Transceiver Allocation; Net Performance",
+      "Ping Enable; Net Performance; Transceiver Allocation",
+      "Transceiver Allocation; Net Performance; Ping Enable"
     ],
     "answer": 2,
-    "explanation": "Diagnostic responses and application traffic can have different conditions; investigate rather than overgeneralize.",
+    "explanation": "Pages 64, 66 and 67 describe Transceiver Allocation, Ping Enable and Net Performance.",
     "sourceSlides": [
+      64,
       66,
       67
     ]
@@ -320,16 +314,17 @@
     "tags": [
       "diagnostics and configuration"
     ],
-    "prompt": "A test changes packet size, interval and destination simultaneously. Why is the comparison difficult?",
+    "prompt": "Which Net Performance option clears all the stats configured in that sub-menu?",
     "options": [
-      "Every destination must produce the same result",
-      "Changing a test parameter guarantees an improved network",
-      "The packet counters stop being numerical values",
-      "Multiple changed variables obscure the cause of a difference"
+      "Stop Test",
+      "Restore Params",
+      "Zeroize Stats",
+      "Zeroize Params"
     ],
-    "answer": 3,
-    "explanation": "Controlled comparisons help attribute effects; simultaneous changes make causal conclusions weaker.",
+    "answer": 2,
+    "explanation": "Page 67 lists Zeroize Stats as zeroizing all stats configured in the Net Performance sub-menu.",
     "sourceSlides": [
+      63,
       67
     ]
   },
@@ -341,18 +336,16 @@
     "tags": [
       "diagnostics and configuration"
     ],
-    "prompt": "A student proposes using protected recovery functions during ordinary operation without authorization. Which principle applies?",
+    "prompt": "Which pairing of operational mode and use is correct?",
     "options": [
-      "A recovery label means the function has no operational effect",
-      "Use only authorized functions for the defined maintenance purpose",
-      "Protected functions are unrestricted if the user is curious",
-      "Restoring parameters guarantees all services regardless of context"
+      "OTP: maintenance mode for recovering from a technical fault; MTP: return to normal operation",
+      "OTP: return to normal operation; MTP: maintenance mode for recovering from a technical fault",
+      "OTP: normal mode with many programming cycles; MTP: one-time maintenance after a fault",
+      "OTP: loading of software updates; MTP: loading of operational parameters at the operator level"
     ],
-    "answer": 1,
-    "explanation": "The lesson separates protected functions and maintenance modes; their purpose does not waive authorization.",
+    "answer": 0,
+    "explanation": "Page 68 describes OTP as the maintenance mode for recovering from a technical fault and MTP as the return to normal operation.",
     "sourceSlides": [
-      60,
-      63,
       68
     ]
   },
@@ -364,19 +357,17 @@
     "tags": [
       "integration and assurance"
     ],
-    "prompt": "An integrator forwards data successfully but exposes it to unintended service networks. How should the result be judged?",
+    "prompt": "Which two Integrator best practices address unneeded traffic and traffic crossing into other networks, in that order?",
     "options": [
-      "Service separation is irrelevant after data arrives",
-      "Successful forwarding proves security is fully adequate",
-      "More unintended recipients demonstrate better interoperability",
-      "Functional exchange passed, but traffic-control requirements failed"
+      "Deny traffic leaking; reduce traffic",
+      "Security; reduce traffic",
+      "Reduce traffic; deny traffic leaking",
+      "Dynamic routing; deny traffic leaking"
     ],
-    "answer": 3,
-    "explanation": "Integration must satisfy both functional and security requirements; one does not substitute for the other.",
+    "answer": 2,
+    "explanation": "Page 70 lists reduce traffic and deny traffic leaking among the best practices of the Integrator.",
     "sourceSlides": [
-      69,
-      70,
-      72
+      70
     ]
   },
   {
@@ -387,19 +378,18 @@
     "tags": [
       "integration and assurance"
     ],
-    "prompt": "Local voice, remote data and management tests each pass separately. What is still worth validating?",
+    "prompt": "In the lesson's setup examples, which values belong to the Command Post: its Site ID and its E-LynX radio Node-ID?",
     "options": [
-      "Whether separate successes guarantee all concurrent workloads",
-      "Whether management access replaces application testing",
-      "The required services together under representative conditions",
-      "Only the spelling of the integrator's product name"
+      "Site ID 1 and Node-ID 1",
+      "Site ID 2 and Node-ID 2",
+      "Site ID 1 and Node-ID 2",
+      "Site ID 2 and Node-ID 1"
     ],
-    "answer": 2,
-    "explanation": "Separate tests establish limited facts; concurrent end-to-end requirements can expose interactions and load constraints.",
+    "answer": 3,
+    "explanation": "Page 22 shows the Command Post as Site ID 2, and page 74 shows its E-LynX radio as Node-ID 1.",
     "sourceSlides": [
-      69,
-      71,
-      73
+      22,
+      74
     ]
   },
   {
@@ -410,15 +400,15 @@
     "tags": [
       "integration and assurance"
     ],
-    "prompt": "A repair is called permanent after a brief idle-network test. Which qualification is needed?",
+    "prompt": "After a repair, a technician runs the BIT and the Net Performance test and compares the Sent and Recv counts. Which step and which option are used?",
     "options": [
-      "Assume idle performance is the maximum possible demand",
-      "Claim the short test proves every future workload",
-      "Replace the measurements with an unqualified assurance",
-      "State test scope and verify representative required loads"
+      "Fault verification; Net Performance",
+      "Fault isolation; Net Performance sub-menu",
+      "Fault verification; Zeroize Params option",
+      "Fault repair; Test Results menu"
     ],
-    "answer": 3,
-    "explanation": "Verification should reflect intended conditions and report its limits, not promise performance beyond its evidence.",
+    "answer": 0,
+    "explanation": "Pages 27 and 67 place BIT in repair verification and describe Net Performance counting packets sent and received.",
     "sourceSlides": [
       27,
       67
@@ -432,19 +422,18 @@
     "tags": [
       "integration and assurance"
     ],
-    "prompt": "An upgrade adds video while preserving the old traffic policy unchanged. What should a review examine?",
+    "prompt": "An upgrade adds video. Which integration view and which best practice should be reviewed, in that order?",
     "options": [
-      "Only whether the old policy file has the same name",
-      "Whether adding a capability removes all prior constraints",
-      "Service demand, traffic boundaries and measured performance",
-      "Only whether the new camera looks modern"
+      "Voice integration, then reduce traffic",
+      "Data, positions and video integration, then reduce traffic",
+      "Data, positions and video integration, then the transceiver allocation menu",
+      "Voice integration, then Ping Enable"
     ],
-    "answer": 2,
-    "explanation": "New service demand can change capacity and security needs; integration planning must reassess both.",
+    "answer": 1,
+    "explanation": "Pages 70 and 72 present data, positions and video integration and the reduce traffic practice of the Integrator.",
     "sourceSlides": [
-      9,
-      28,
-      70
+      70,
+      72
     ]
   }
 ]

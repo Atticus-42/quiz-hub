@@ -9,15 +9,15 @@
       "estimate fundamentals",
       "application"
     ],
-    "prompt": "A team lists a staffing figure it cannot yet verify. How should the estimate handle it?",
+    "prompt": "Annex A marks which two items under Own Situation as ASSUMED?",
     "options": [
-      "Report it as a confirmed headcount for comparison",
-      "Remove all mention of staffing until verification",
-      "Treat it as a command decision already made",
-      "State the assumption and update it once verified"
+      "Organizational structure of forces; disposition and location",
+      "Capabilities of friendly forces; inventory of signal assets and reserves",
+      "Status of personnel and training profile; inventory of signal assets",
+      "Status of personnel and training profile; capabilities"
     ],
-    "answer": 3,
-    "explanation": "The estimate can use relevant assumptions while distinguishing them from facts.",
+    "answer": 2,
+    "explanation": "Annex A (PAM 6-0102 PDF page 44): under Own Situation, items c and d, the status of personnel and training profile and the inventory of signal assets, are marked ASSUMED.",
     "sourceSlides": [
       27,
       44
@@ -33,15 +33,15 @@
       "estimate fundamentals",
       "application"
     ],
-    "prompt": "The weather changes after the estimate is briefed and alters communications prospects. What should happen?",
+    "prompt": "Which statement about revising a signal estimate is correct?",
     "options": [
-      "Keep the estimate fixed and amend only presentation labels",
-      "Revise affected analysis and conclusions",
-      "Wait until the mission is complete to review weather",
-      "Discard the comparison but retain its conclusion unchanged"
+      "It is revised only at mission analysis",
+      "It is revised as the situation changes and new facts are introduced",
+      "It is fixed once the commander approves it",
+      "It is revised only when the enemy course of action changes during the operation"
     ],
     "answer": 1,
-    "explanation": "A changed situation calls for a revision when it affects the mission.",
+    "explanation": "PAM 6-0102 para 0302: the signal estimate is revised as the situation changes and new facts are introduced.",
     "sourceSlides": [
       27
     ]
@@ -56,15 +56,15 @@
       "estimate fundamentals",
       "application"
     ],
-    "prompt": "Three services have independent technical factors but share a mission. What estimate arrangement is allowed?",
+    "prompt": "After separate estimates are made for each signal support service and C4S capability, what does the signal officer do?",
     "options": [
-      "Separate service estimates when needed to capture technical factors",
-      "A single estimate limited to the equipment common to all three",
-      "A separate estimate for each subordinate even when it omits services",
-      "A single estimate covering only the largest service"
+      "Publishes each as a separate annex",
+      "Selects the one with the most capability",
+      "Integrates them",
+      "Hands them to the S3 unchanged"
     ],
-    "answer": 0,
-    "explanation": "The manual allows service-specific estimates and an integrated alternative.",
+    "answer": 2,
+    "explanation": "PAM 6-0102 para 0302 allows separate estimates; the handout (p. 3) adds that the signal officer then integrates them.",
     "sourceSlides": [
       27
     ]
@@ -79,15 +79,15 @@
       "estimate fundamentals",
       "application"
     ],
-    "prompt": "A briefing covers every available radio but omits the task the network must support. What makes it a stronger estimate?",
+    "prompt": "Why does the signal estimate examine its factors?",
     "options": [
-      "Add more model numbers to the inventory",
-      "Replace the briefing with the published C4S annex",
-      "Assess the factors against the support mission",
-      "Remove all assumptions from consideration"
+      "To list every available radio, its serviceability, and the operator assigned to it during the operation",
+      "To forecast the enemy's next movement",
+      "To decide which staff section leads the operation",
+      "To determine their effect on the successful accomplishment of the signal support operations mission"
     ],
-    "answer": 2,
-    "explanation": "The estimate evaluates factors for successful accomplishment of the specific mission.",
+    "answer": 3,
+    "explanation": "PAM 6-0102 para 0302: the estimate examines factors, known or assumed, that may affect successful accomplishment of the signal support operations mission.",
     "sourceSlides": [
       27
     ]
@@ -102,15 +102,15 @@
       "metal factors",
       "application"
     ],
-    "prompt": "A weather forecast may disrupt a link. Which METAL heading makes the best fit for the weather itself?",
+    "prompt": "In the Annex A format, terrain, weather and existing communications are analyzed with which METAL factor?",
     "options": [
+      "Enemy signal capabilities",
       "Area of Operations",
       "Troops",
-      "Enemy",
-      "Logistics"
+      "Mission"
     ],
-    "answer": 0,
-    "explanation": "Weather is an environmental condition within the area analysis.",
+    "answer": 1,
+    "explanation": "PAM 6-0102 para 0303 names the Area of Operations as the A in METAL, and Annex A places terrain, weather and existing communications in the AO and AI analysis.",
     "sourceSlides": [
       27,
       44
@@ -126,15 +126,15 @@
       "metal factors",
       "application"
     ],
-    "prompt": "A shortage of qualified operators may constrain an option. Which factor best captures this finding?",
+    "prompt": "A shortage of qualified operators may limit a COA. Under which METAL factor and Annex A entry is this finding recorded?",
     "options": [
-      "Area of Operations",
-      "Enemy",
-      "Mission",
-      "Troops"
+      "Logistical requirements; inventory of signal assets",
+      "Mission; capabilities",
+      "Area of operations; existing communications",
+      "Troops; status of personnel and training profile"
     ],
     "answer": 3,
-    "explanation": "Troops includes the personnel available and their ability to accomplish the mission.",
+    "explanation": "PAM 6-0102 para 0303 names the Troops available to accomplish the mission, and Annex A records personnel status under Own Situation.",
     "sourceSlides": [
       27,
       44
@@ -150,15 +150,15 @@
       "metal factors",
       "application"
     ],
-    "prompt": "A course of action needs an extra resupply trip to remain usable. Which factor captures this dependency?",
+    "prompt": "A COA needs an extra resupply trip to remain usable. Which METAL factor and Annex A item capture this?",
     "options": [
-      "Mission",
-      "Enemy",
-      "Logistics",
-      "Area of Operations"
+      "Troops; personnel requirements and the roster of operators",
+      "Area of operations; existing communications",
+      "Logistical requirements; sustainment requirements",
+      "Enemy; capabilities and limitation"
     ],
     "answer": 2,
-    "explanation": "The requirement for resupply is a logistics consideration.",
+    "explanation": "PAM 6-0102 para 0303 names the Logistical requirements needed to assure the mission's success, and Annex A Section V item C records sustainment requirements.",
     "sourceSlides": [
       27,
       44
@@ -174,15 +174,15 @@
       "metal factors",
       "application"
     ],
-    "prompt": "The staff learns an opposing force can interfere with a type of communications system. Which METAL factor first captures this evidence?",
+    "prompt": "The staff learns that an opposing force can interfere with a type of communications system. Which METAL factor and Annex A section record it?",
     "options": [
-      "Logistics",
-      "Enemy",
-      "Mission",
-      "Troops"
+      "Troops; Own Situation",
+      "Area of operations; Situation and COA",
+      "Enemy; Analysis of Opposing COA",
+      "Mission; Mission paragraph"
     ],
-    "answer": 1,
-    "explanation": "The opposing force's ability is an enemy signal capability.",
+    "answer": 2,
+    "explanation": "PAM 6-0102 para 0303 names the Enemy signal capabilities, and Annex A Section III analyzes the opposing COA and the enemy's capabilities and limitations.",
     "sourceSlides": [
       27,
       44
@@ -198,15 +198,15 @@
       "situation and opposing coa",
       "application"
     ],
-    "prompt": "A report describes the coverage limits of a communications system already operating in the area. Where does the baseline description belong?",
+    "prompt": "Where does the baseline description of an already operating communications system belong in Annex A?",
     "options": [
-      "Friendly limitations in the decision section",
-      "Existing Communications in Situation and COA",
-      "Opposing COA in the mission statement",
-      "Personnel requirements in recommendations"
+      "Capabilities, under Analysis of Opposing COA",
+      "Capabilities, under Own Situation",
+      "Means of communication, under Decision/Recommendations",
+      "Existing communications, under Situation and COA"
     ],
-    "answer": 1,
-    "explanation": "Annex A places existing communications under area and situation analysis.",
+    "answer": 3,
+    "explanation": "Annex A (PAM 6-0102 PDF page 44): Section II, Situation and COA, has item C, Existing Communications, in the AO and AI analysis.",
     "sourceSlides": [
       44
     ]
@@ -221,15 +221,15 @@
       "situation and opposing coa",
       "application"
     ],
-    "prompt": "An intelligence report gives an opposing system's likely capabilities and limits. What should the planner do with it?",
+    "prompt": "Item C of Section III, Analysis of Opposing COA, lists what?",
     "options": [
-      "Assess the opposing COA and possible countermeasures",
-      "Insert it only in the friendly asset inventory",
-      "Use it as a substitute for comparing friendly options",
-      "File it with sustainment recommendations regardless of relevance"
+      "Enemy capabilities and limitations, obtained through an RFI from Intel",
+      "Friendly forces capabilities and limitations, obtained through the S6 section",
+      "Counter-measures against the enemy capabilities",
+      "The communication and disposition of opposing forces"
     ],
     "answer": 0,
-    "explanation": "Annex A connects opposing capability and limitation analysis with possible countermeasures.",
+    "explanation": "Annex A: Section III item C lists the enemy capabilities and countermeasures (RFI from Intel); items D and E cover friendly capabilities and counter-measures.",
     "sourceSlides": [
       44
     ]
@@ -244,15 +244,15 @@
       "situation and opposing coa",
       "application"
     ],
-    "prompt": "A team has mapped opposing units but needs to assess the expected reach of their communications under a proposed COA. Which subsection addresses that gap?",
+    "prompt": "Which Section III item assesses the expected reach of the opposing forces' communications?",
     "options": [
-      "Friendly organizational structure",
-      "Existing communications in the baseline",
       "Signal propagation of opposing forces",
-      "Recommended means of communication"
+      "Communication and disposition of opposing forces",
+      "List of enemy capabilities and countermeasures",
+      "Counter-measures"
     ],
-    "answer": 2,
-    "explanation": "The opposing COA section calls for analysis of the opposing force's signal propagation.",
+    "answer": 0,
+    "explanation": "Annex A: Section III item B is the signal propagation of opposing forces.",
     "sourceSlides": [
       44
     ]
@@ -267,15 +267,15 @@
       "situation and opposing coa",
       "application"
     ],
-    "prompt": "The staff identifies a limitation in the friendly signal platoon that affects responses to opposing activity. Where is that limitation explicitly examined?",
+    "prompt": "Under Counter-measures in Annex A, which two sub-entries are shown?",
     "options": [
-      "Mission",
-      "Area analysis under weather",
-      "Task list only",
-      "Analysis of Opposing COA"
+      "Capabilities of the signal platoon; limitations of the enemy",
+      "On the enemy capabilities; signal platoon limitations",
+      "Enemy structure; enemy strength",
+      "Propagation; disposition"
     ],
-    "answer": 3,
-    "explanation": "The opposing COA analysis considers friendly capabilities and limitations alongside countermeasures.",
+    "answer": 1,
+    "explanation": "Annex A: Section III item E, Counter-measures, has two entries: on the enemy capabilities and signal platoon limitations.",
     "sourceSlides": [
       44
     ]
@@ -290,15 +290,15 @@
       "coa comparison",
       "application"
     ],
-    "prompt": "Two options can support the same mission, but one depends on unverified personnel availability. What should the comparison say?",
+    "prompt": "A COA depends on an assumed asset inventory. How does Annex A treat those items?",
     "options": [
-      "Rank the dependent option first because it names more personnel",
-      "Omit staffing since both options address the same mission",
-      "Weigh both COAs and flag the staffing assumption",
-      "Move all findings into the weather analysis"
+      "They are marked as assumed under Own Situation",
+      "They are treated as verified facts once the COA is selected",
+      "They are deleted from the estimate",
+      "They are moved to the Decision section"
     ],
-    "answer": 2,
-    "explanation": "A defensible comparison accounts for dependencies and the quality of supporting evidence.",
+    "answer": 0,
+    "explanation": "Annex A (PAM 6-0102 PDF page 44): the status of personnel and the inventory of signal assets are marked ASSUMED, and the estimate is revised as facts replace them.",
     "sourceSlides": [
       27,
       44
@@ -314,15 +314,15 @@
       "coa comparison",
       "application"
     ],
-    "prompt": "The opposing COA analysis is complete, and two friendly communications options remain. What output should follow?",
+    "prompt": "The Comparison of COAs section builds directly on which earlier section?",
     "options": [
-      "An unexamined choice carried straight into orders",
-      "A comparison of the options using the findings",
-      "A new mission statement for each capability",
-      "A separate list of unrelated area facts"
+      "Decision/Recommendations",
+      "Mission",
+      "Analysis of Opposing COA",
+      "Situation and COA"
     ],
-    "answer": 1,
-    "explanation": "Annex A places comparison after analysis and before recommendations.",
+    "answer": 2,
+    "explanation": "Annex A: Section III, Analysis of Opposing COA, comes immediately before Section IV, Comparison of COAs.",
     "sourceSlides": [
       44
     ]
@@ -337,15 +337,15 @@
       "coa comparison",
       "application"
     ],
-    "prompt": "Two COAs offer similar capability but differ in sustainment effort. How should this distinction be handled?",
+    "prompt": "Which METAL factor captures the difference in sustainment effort between two COAs?",
     "options": [
-      "Compare them by name because both are capable",
-      "Omit sustainment until after the final option is chosen",
-      "Apply the same sustainment judgment to both",
-      "Compare how the sustainment difference affects mission support"
+      "Logistical requirements",
+      "Troops",
+      "Mission",
+      "Area of operations"
     ],
-    "answer": 3,
-    "explanation": "Logistics is an estimate factor and should inform comparison when it distinguishes alternatives.",
+    "answer": 0,
+    "explanation": "PAM 6-0102 para 0303: the Logistical requirements factor covers what is needed to assure the mission's success, including sustainment.",
     "sourceSlides": [
       27,
       44
@@ -361,15 +361,15 @@
       "coa comparison",
       "application"
     ],
-    "prompt": "A slide titled Comparison repeats the description of each option without addressing trade-offs. What revision gives it the intended role?",
+    "prompt": "A Comparison slide only repeats each option's description. What should it show instead?",
     "options": [
-      "Show relative strengths and limitations against the mission",
-      "Add more labels to the same descriptions",
-      "Move the weather table into the slide unchanged",
-      "Show only the selected option's personnel request"
+      "Relative strengths and limitations against the mission",
+      "The history and development of each option under consideration",
+      "The enemy's preferred COA",
+      "The equipment list for each option"
     ],
     "answer": 0,
-    "explanation": "Comparison weighs alternatives against each other using findings relevant to the mission.",
+    "explanation": "Annex A: Section IV, Comparison of COAs, weighs the friendly options against each other to support the decision.",
     "sourceSlides": [
       44
     ]
@@ -384,15 +384,15 @@
       "decision and recommendations",
       "application"
     ],
-    "prompt": "A comparison identifies a personnel shortage that can be addressed by reallocating a trained operator. Where should the proposed reallocation go?",
+    "prompt": "A trained operator can be reallocated to cover a personnel shortage. Under which Section V item is the recommendation recorded?",
     "options": [
-      "Personnel recommendations",
-      "Enemy capabilities",
-      "Area communications baseline",
-      "Mission statement"
+      "C4S requirements",
+      "Sustainment requirements",
+      "Personnel requirements",
+      "Task list"
     ],
-    "answer": 0,
-    "explanation": "The decision section translates the personnel finding into a specific recommendation.",
+    "answer": 2,
+    "explanation": "Annex A: Section V item A, Personnel Requirements, carries the recommendation for personnel.",
     "sourceSlides": [
       44
     ]
@@ -407,15 +407,15 @@
       "decision and recommendations",
       "application"
     ],
-    "prompt": "An estimate identifies an ongoing battery supply need for a recommended COA. Which final entry should capture it?",
+    "prompt": "Where should an ongoing battery supply need for the recommended COA be entered?",
     "options": [
-      "Opposing communications disposition",
-      "Existing communications in area analysis",
-      "Sustainment requirements and recommendation",
-      "The mission alone"
+      "C4S requirements",
+      "Sustainment requirements",
+      "Personnel requirements and skills",
+      "Means of communication"
     ],
-    "answer": 2,
-    "explanation": "The final section identifies sustainment requirements and recommends how to address them.",
+    "answer": 1,
+    "explanation": "Annex A: Section V item C, Sustainment Requirements, carries the recommendation for supply needs such as generator sets and batteries.",
     "sourceSlides": [
       44
     ]
@@ -430,15 +430,15 @@
       "decision and recommendations",
       "application"
     ],
-    "prompt": "The planner evaluates two potential locations for a command post and supports one. Where does the proposed choice go?",
+    "prompt": "Which Section V item records the proposed locations of the TCP and MCP?",
     "options": [
-      "The baseline weather entry",
-      "The relevant location entry in Decision and Recommendations",
-      "The opposing propagation subsection",
-      "The mission task alone"
+      "Means of communication and PACE",
+      "Location of TCP and MCP",
+      "C4S requirements",
+      "Task list"
     ],
     "answer": 1,
-    "explanation": "The final section records recommended command-post locations.",
+    "explanation": "Annex A: Section V item E is the location of the TCP and MCP.",
     "sourceSlides": [
       44
     ]
@@ -453,15 +453,15 @@
       "decision and recommendations",
       "application"
     ],
-    "prompt": "The estimate states the preferred option but omits the communications method that supports it. What should the planner add?",
+    "prompt": "Which Section V item states the communication method that supports the preferred COA?",
     "options": [
-      "A second list of opposing unit locations",
-      "A restated terrain description",
-      "A new label for the existing comparison table",
-      "A proposed means of communication under recommendations"
+      "C4S requirements",
+      "Task list",
+      "Means of communication",
+      "Location of TCP and MCP"
     ],
-    "answer": 3,
-    "explanation": "The final section should identify the recommended means of communication.",
+    "answer": 2,
+    "explanation": "Annex A: Section V item D, Means of Communication, states the method that supports the recommended COA.",
     "sourceSlides": [
       44
     ]
@@ -476,15 +476,15 @@
       "estimate fundamentals",
       "application"
     ],
-    "prompt": "A draft estimate keeps an assumption that is likely true but would not change any signal solution whether it holds or not. What does the handout direct?",
+    "prompt": "What does the handout direct for an assumption that does not affect the solution?",
     "options": [
-      "Keep it, and record it as a verified fact so that it carries weight in the analysis",
-      "Drop it, because only assumptions that affect the solution are kept",
-      "Hold it until the commander has approved it",
-      "Move it to the recommendation as a risk"
+      "Keep it as a fact",
+      "Verify it before the next step",
+      "Drop it",
+      "Move it to the task list"
     ],
-    "answer": 1,
-    "explanation": "Handout p. 5: replace assumptions with facts as information arrives, and drop any assumption that does not affect the solution.",
+    "answer": 2,
+    "explanation": "Handout p. 5: replace assumptions with facts as information comes in, and drop any assumption that does not affect the solution.",
     "sourceAlt": {
       "ref": "signal-estimate-handout",
       "pages": [
@@ -502,15 +502,15 @@
       "estimate fundamentals",
       "application"
     ],
-    "prompt": "The S6 determines the signal means or concepts that could support each unit COA and screens them. Which of the five estimate steps is this?",
+    "prompt": "Which of the five steps assembles facts and assumptions, determines the signal means for each COA and screens them?",
     "options": [
-      "Step 1, know the problem",
-      "Step 3, analyze the advantages and disadvantages of each solution",
+      "Step 1, know the problem and state the signal mission",
       "Step 2, gather data and determine possible solutions",
+      "Step 3, analyze the solutions",
       "Step 4, compare the solutions"
     ],
-    "answer": 2,
-    "explanation": "Handout p. 5: Step 2 assembles facts and assumptions, determines the signal means or concepts for each COA and screens them.",
+    "answer": 1,
+    "explanation": "Handout p. 5: Step 2 assembles facts and assumptions, determines the signal means or concepts that could support each unit COA, and screens them.",
     "sourceAlt": {
       "ref": "signal-estimate-handout",
       "pages": [
@@ -528,15 +528,15 @@
       "metal factors",
       "application"
     ],
-    "prompt": "During mission analysis the S6 asks whether the enemy can intercept, jam, direction-find or attack cell sites. Which METT-TC variable and METAL factor are being applied?",
+    "prompt": "Can the enemy intercept, jam, direction-find or attack sites? This question belongs to which METT-TC variable and METAL factor?",
     "options": [
+      "Mission, and M for the mission",
       "Enemy, and E for enemy signal capabilities",
-      "Terrain and weather, and A for area of operations",
-      "Troops and support, and T for troops available",
-      "Civil considerations, and A for area of operations"
+      "Troops and support available, and T for troops",
+      "Terrain and weather, and A for area of operations"
     ],
-    "answer": 0,
-    "explanation": "Handout p. 4: the enemy variable asks about interception, jamming, direction finding, attacks on sites, cyber and drones, which are the E factor.",
+    "answer": 1,
+    "explanation": "Handout p. 4: the enemy variable asks about interception, jamming, direction-finding, site attack, cyber and drones, which is the E factor.",
     "sourceSlides": [
       27
     ],
@@ -557,15 +557,15 @@
       "metal factors",
       "application"
     ],
-    "prompt": "The S6 checks the NTC frequency rules and coordination with the PNP and the LGU. Which METT-TC variable is this?",
+    "prompt": "Which METT-TC variable asks which signal tasks are specified or implied and which nets must be entered or provided?",
     "options": [
+      "Enemy",
+      "Troops and support available",
       "Time available",
-      "Troops and support",
-      "Mission",
-      "Civil considerations"
+      "Mission"
     ],
     "answer": 3,
-    "explanation": "Handout p. 4: civil considerations cover commercial networks, power, the NTC rules, PNP and LGU coordination and crowded events.",
+    "explanation": "Handout p. 4: the signal questions for the Mission variable are which signal tasks are specified or implied and which nets must be entered or provided.",
     "sourceSlides": [
       27
     ],
@@ -586,15 +586,15 @@
       "situation and opposing coa",
       "application"
     ],
-    "prompt": "The S6 has findings on congested parts of the spectrum and the enemy's EW units. Where do they go in the handout's estimate sequence?",
+    "prompt": "Under paragraph 1b, characteristics of the area of operations, which enemy details are listed?",
     "options": [
-      "Paragraph 2, Mission",
-      "Paragraph 1b, characteristics of the area of operations",
-      "Paragraph 3a, the friendly COAs being war-gamed with signal means",
-      "Paragraph 5, Comparison"
+      "Committed and uncommitted signal elements, equipment status, training and morale",
+      "EW units, congested parts of the spectrum, C4S capabilities, weaknesses",
+      "Existing commercial systems and the security of using them",
+      "Terrain and weather, propagation, line of sight, critical periods"
     ],
     "answer": 1,
-    "explanation": "Handout p. 6: enemy EW units, congested spectrum and C4S weaknesses are listed under paragraph 1b of Situation and considerations.",
+    "explanation": "Handout p. 6: paragraph 1b lists EW units, congested parts of the spectrum, C4S capabilities and weaknesses under the enemy; the other lists are friendly C4S resources, civil considerations and terrain.",
     "sourceAlt": {
       "ref": "signal-estimate-handout",
       "pages": [
@@ -612,15 +612,15 @@
       "coa comparison",
       "application"
     ],
-    "prompt": "One COA fails to meet the tactical requirement but saves the most signal personnel. What does the handout say about it?",
+    "prompt": "What does the handout say about a COA that fails the tactical requirement?",
     "options": [
-      "Prefer it, because economy of personnel is an advantage",
-      "Keep it as the main COA and add redundant, independent means to cover the gap in the plan",
-      "Compare it only after the others are approved",
-      "Reject it, because failing the tactical requirement is a disadvantage that rules it out"
+      "It is rejected, since failing the tactical requirement is a disadvantage that rules it out",
+      "It is accepted if it saves the most signal personnel, even though it fails the tactical requirement",
+      "It is ranked last but kept for comparison",
+      "It is accepted with a recommendation to mitigate"
     ],
-    "answer": 3,
-    "explanation": "Handout p. 7: failure to meet the tactical requirement is listed among the usual disadvantages, and such a COA is rejected.",
+    "answer": 0,
+    "explanation": "Handout p. 7: failure to meet the tactical requirement is usually a disadvantage, and such a COA is rejected.",
     "sourceAlt": {
       "ref": "signal-estimate-handout",
       "pages": [
@@ -638,15 +638,15 @@
       "coa comparison",
       "application"
     ],
-    "prompt": "The weighted totals of two COAs tie. What does the handout direct the S6 to do next?",
+    "prompt": "When two COAs end with equal weighted totals, what does the handout tell the S6 to do?",
     "options": [
-      "Compare criterion by criterion and explain the trade-off to the commander",
-      "Choose the COA listed first",
-      "Drop the criterion with the lowest weight and recompute the totals until one leads",
-      "Let the matrix select one automatically"
+      "Select the COA that was listed first",
+      "Add a new criterion and repeat the matrix until one total is lower than the other",
+      "Choose the COA that uses fewer signal personnel",
+      "Compare criterion by criterion and explain the trade-off to the commander"
     ],
-    "answer": 0,
-    "explanation": "Handout p. 7: when totals tie, compare criterion by criterion; the matrix supports the recommendation but does not make it.",
+    "answer": 3,
+    "explanation": "Handout p. 7: when totals tie, the S6 compares criterion by criterion and explains the trade-off; the matrix supports the recommendation but does not make it.",
     "sourceAlt": {
       "ref": "signal-estimate-handout",
       "pages": [
@@ -664,15 +664,15 @@
       "decision and recommendations",
       "application"
     ],
-    "prompt": "A draft names the most supportable COA but not what the signal elements will do. What should be added?",
+    "prompt": "A recommendation states the most supportable COA and what else?",
     "options": [
-      "A restatement of the unit mission",
-      "The weights used in the decision matrix",
-      "Who, what, when, where, how and why of the signal support",
-      "A list of the enemy's EW units"
+      "The total of each weighted ranking, shown for every COA and every criterion",
+      "The enemy's likely reaction to each COA",
+      "The list of unserviceable equipment",
+      "What the signal elements will do: who, what, when, where, how and why"
     ],
-    "answer": 2,
-    "explanation": "Handout p. 7: the recommendation states which COA is most supportable and what the signal elements will do to support it: who, what, when, where, how and why.",
+    "answer": 3,
+    "explanation": "Handout p. 7: state which COA is most supportable and what the signal elements will do to support it: who, what, when, where, how and why.",
     "sourceAlt": {
       "ref": "signal-estimate-handout",
       "pages": [
@@ -690,15 +690,15 @@
       "situation and opposing coa",
       "application"
     ],
-    "prompt": "In the lesson slides' Mindoro example, mountain ranges create dead spots for VHF tactical radios. What does the terrain analysis propose?",
+    "prompt": "In the Mindoro example, VHF tactical radios have dead spots behind the mountain ranges. What does the terrain analysis propose?",
     "options": [
-      "Keep units on the coastal lowlands and rely on their VHF handhelds alone",
       "Relay or repeater stations on key terrain, with HF radios under the mountains",
-      "Replace the tactical radios with commercial cellular phones across the AO",
-      "Record the dead spots and leave every response to the commander's later task list"
+      "More VHF handheld radios issued to every squad moving through the mountain ranges",
+      "Messengers on all mountain approaches",
+      "Cellular phones as the only means in the mountains"
     ],
-    "answer": 1,
-    "explanation": "Lesson slides, slides 23 and 24: the mountains reduce VHF range and create dead spots, but Mount Iglit and Mount Halcon become key terrain that extends the system if relay or repeater stations are set up there, and HF radios matter most for operations beneath the mountains.",
+    "answer": 0,
+    "explanation": "Lesson slides 23 and 24: Mount Iglit and Mount Halcon are key terrain for relay or repeater stations, and HF radios matter most under the mountains.",
     "sourceAlt": {
       "ref": "signal-estimate-slides",
       "pages": [
@@ -717,15 +717,15 @@
       "situation and opposing coa",
       "application"
     ],
-    "prompt": "The lesson slides' weather analysis notes early-evening thunderstorms and high daytime temperatures. Which effects does it record?",
+    "prompt": "Which effects does the lesson's weather analysis record?",
     "options": [
-      "Thunderstorms disturb the ionosphere for HF, and heat limits VHF radios",
-      "Both conditions matter only for the commercial cellular sites across the island",
-      "Thunderstorms limit VHF radios, and daytime heat affects the ionosphere for HF",
-      "Neither matters, because the province stays dry for the whole year"
+      "Thunderstorms limit HF radios, and daytime heat affects the ionosphere for VHF",
+      "Thunderstorms limit UHF radios, and high humidity limits HF",
+      "Heavy winter rain limits VHF radios, and cold nights limit HF",
+      "Thunderstorms limit VHF radios, and daytime heat affects the ionosphere for HF"
     ],
-    "answer": 2,
-    "explanation": "Lesson slides, slide 26: thunderstorms and rain showers in the early evening limit the VHF tactical radios; high daytime temperature affects the ionosphere and so the HF signal. Slide 25 gives the dry season as November to April.",
+    "answer": 3,
+    "explanation": "Lesson slides 25 and 26: early evening thunderstorms and showers limit VHF tactical radios, and high daytime temperature affects the ionosphere and the HF modulating signal.",
     "sourceAlt": {
       "ref": "signal-estimate-slides",
       "pages": [
@@ -744,15 +744,15 @@
       "coa comparison",
       "application"
     ],
-    "prompt": "In the lesson slides' comparison, COA 5 imposes total radio listening silence to deceive enemy information gathering. Which disadvantage is recorded?",
+    "prompt": "In the Para IV comparison, what disadvantage is recorded for COA 5, total radio listening silence?",
     "options": [
-      "Requires additional security at the repeater site",
-      "Cellular phones are susceptible to lightning and interception",
-      "Lack of trained personnel to carry it out",
-      "No C2 will be established"
+      "No C2 will be established",
+      "Repeaters cannot be installed",
+      "Cellular sites are exposed",
+      "The enemy detects all transmissions"
     ],
-    "answer": 3,
-    "explanation": "Lesson slides, slide 49: total radio silence deceives enemy information gathering, but no C2 will be established. The other options are disadvantages recorded for the repeater COAs (slide 45), COA 3 (slide 46) and COA 4 (slide 48).",
+    "answer": 0,
+    "explanation": "Lesson slide 49: COA 5 deceives enemy information gathering, but its disadvantage is that no C2 will be established.",
     "sourceAlt": {
       "ref": "signal-estimate-slides",
       "pages": [
@@ -770,15 +770,15 @@
       "decision and recommendations",
       "application"
     ],
-    "prompt": "Para V on the lesson slides ends with a task list marked as the commander's decision. Which entry belongs there?",
+    "prompt": "Which entry belongs in the task list of Para V?",
     "options": [
-      "Install an SMVRS and a co-located UHF repeater, to be done by the signal platoon",
-      "The enemy is believed to be 70% filled up in personnel and 40% in armored vehicles",
-      "COA 7 has limited range, needs a base radio or repeater, and risks COMSEC",
-      "The low-lying alluvial plain increases the range of the radio equipment"
+      "A generator set and ten Harris handheld radios, to be supplied by the sustainment section",
+      "A cybersecurity specialist as a required skill",
+      "PACE arrangements for each net",
+      "Install an SMVRS and a co-located UHF repeater, to be done by the signal platoon"
     ],
-    "answer": 0,
-    "explanation": "Lesson slides, slides 52 and 58: F. Task List (implied and specific) is the commander's decision and assigns actions, such as the signal platoon installing the two repeaters. Enemy fill-up belongs to Para II (slide 30), COA disadvantages to Para IV (slide 51) and terrain effects to Para II (slide 23).",
+    "answer": 3,
+    "explanation": "Lesson slides 52 and 58: the task list is the commander's decision and includes installing the SMVRS and UHF repeater by the signal platoon; the other choices belong to the sustainment, personnel and means-of-communication items.",
     "sourceSlides": [
       44
     ],

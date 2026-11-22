@@ -8,15 +8,15 @@
       "signal operations",
       "storage and security"
     ],
-    "prompt": "A brigade has excellent connectivity among all its units, but its staff store reports on an open shared drive and pass them without protection. A reviewer argues that Signal Operations is satisfied because \"every unit is connected.\" Which rebuttal is best supported by the lesson?",
+    "prompt": "Signal Operations connects Army units and enables which three actions on information?",
     "options": [
-      "Signal Operations also enables the storage and security of information, so connection alone is not enough",
-      "Storage and security belong to intelligence units, so the reviewer is right that connecting every unit is enough",
-      "Signal Operations covers only tactical radios, so the open shared drive is an administrative matter outside it",
-      "Security applies only to commercial devices under COMSEC, so Army-owned drives and links need no protection"
+      "Collection, analysis and dissemination",
+      "Transmission, storage and security",
+      "Transmission, storage and analysis",
+      "Collection, storage and security"
     ],
-    "answer": 0,
-    "explanation": "Page 1: Signal Operations connects Army units and enables the transmission, storage and security of information; Signal Support Operations includes cyberspace operations and electronic warfare. Page 4: establishing communication is only part of the task; the information and systems must also be protected. Page 17: COMSEC governs all communication services regardless of technology.",
+    "answer": 1,
+    "explanation": "Page 1 defines Signal Operations as the synchronized actions of the Signal Corps to connect Army units and enable the transmission, storage and security of information; page 17 repeats that Signal Support protects them.",
     "sourceSlides": [
       1,
       4,
@@ -32,15 +32,15 @@
       "command and control",
       "signal support role"
     ],
-    "prompt": "After a failed attack, an after-action review blames the S6 because the commander's orders were unclear, although every net worked and delivered them on time. Which judgment fits the lesson?",
+    "prompt": "A net delivered the commander's orders on time, yet the orders were unclear. Which statement about Signal Support's role is correct?",
     "options": [
-      "Signal Support exercises command and control on the commander's behalf, so the S6 answers for the content of every order sent",
-      "Signal Support provides the connection the commander uses for C2, so a working net that carried unclear orders is no signal failure",
-      "Combined Arms Operations is defined as a signal activity, so the S6 owns any failure to synchronize the attacking arms in time",
-      "Signal Support Operations includes C2 communication, so every command and control failure is by definition a signal failure"
+      "It is responsible for the wording of the commander's orders",
+      "It decides which orders subordinate units should receive",
+      "It provides the connection the commander uses to exercise command and control",
+      "It is judged only by the number of units the net reaches"
     ],
-    "answer": 1,
-    "explanation": "Page 4: command and control means the commander directs the forces under their authority; Signal Support provides the communication systems, and the commander uses that connection to exercise C2. Page 5 calls Signal Support to Combined Arms Operations an application of that C2 role, and page 1 defines CAO as an approach to warfare, not a signal activity.",
+    "answer": 2,
+    "explanation": "Page 4 states that Signal Support provides the connection and the commander uses that connection to exercise command and control; page 1 defines the services as enabling commanders to exercise it.",
     "sourceSlides": [
       1,
       4,
@@ -57,15 +57,15 @@
       "collective environment",
       "culturally diverse"
     ],
-    "prompt": "A brigade in Mindanao is ordered into typhoon relief in an indigenous community while keeping its security tasks, working alongside government agencies and NGOs. Which assessment of the operational environment is fully accurate?",
+    "prompt": "A brigade is ordered into typhoon relief in an indigenous community, working with government agencies and NGOs. Which characteristics apply, in that order?",
     "options": [
-      "Disaster-Prone: warfighting tasks set aside during relief; Collective: work with agencies and NGOs; Culturally Diverse: customs shape legitimacy and support",
-      "Disaster-Prone: relief taken on alongside warfighting; Collective: only partner militaries take part; Culturally Diverse: customs shape legitimacy and support",
-      "Disaster-Prone: relief taken on alongside warfighting; Collective: work with agencies and NGOs; Culturally Diverse: customs shape legitimacy and support",
-      "Disaster-Prone: relief taken on alongside warfighting; Collective: work with agencies and NGOs; Culturally Diverse: customs affect only maneuver routes"
+      "Disaster-Prone, Collective Environment, Culturally Diverse",
+      "Disaster-Prone, Highly Urbanized, Culturally Diverse",
+      "Archipelagic, Collective Environment, Culturally Diverse",
+      "Disaster-Prone, Collective Environment, Universally Connected"
     ],
-    "answer": 2,
-    "explanation": "Pages 2-3: Disaster-Prone means units undertake disaster response and humanitarian assistance alongside their warfighting responsibilities; Collective Environment means operations involve government agencies, NGOs and partner nations; Culturally Diverse means traditions, beliefs and practices must be considered to establish legitimacy and gain public support.",
+    "answer": 0,
+    "explanation": "Page 2 describes Disaster-Prone as natural calamities requiring disaster response, and page 3 describes Collective Environment as cooperation with agencies and Culturally Diverse as different traditions and beliefs.",
     "sourceSlides": [
       2,
       3
@@ -81,7 +81,7 @@
       "METT-TC",
       "METAL"
     ],
-    "prompt": "Three staff products are prepared for one operation: (1) a broad description of the province across political, military, economic, social, information, infrastructure, physical and time factors; (2) a mission-specific analysis including troops and support available and civil considerations; (3) a Signal Estimate of enemy signal threats, signal personnel, area conditions and logistical needs. Which frameworks were used, in order?",
+    "prompt": "Which tools, in order, give (1) a broad analysis of political, military, economic, social, information, infrastructure, physical environment and time; (2) mission, enemy, terrain and weather, troops, time and civil factors; (3) the guide for the Signal Estimate?",
     "options": [
       "METT-TC, PMESII-PT, METAL",
       "PMESII-PT, METAL, METT-TC",
@@ -89,7 +89,7 @@
       "PMESII-PT, METT-TC, METAL"
     ],
     "answer": 3,
-    "explanation": "Page 3: PMESII-PT covers Political, Military, Economic, Social, Information, Infrastructure, Physical Environment and Time; METT-TC covers Mission, Enemy, Terrain and Weather, Troops and Support Available, Time Available and Civil Considerations. Page 11: METAL (Mission, Enemy, Troops, Area of Operations, Logistical Requirements) guides the Signal Estimate.",
+    "explanation": "Page 3 gives PMESII-PT and METT-TC as the tools commanders use to analyze conditions, and page 11 gives METAL as the guide for preparing the Signal Estimate.",
     "sourceSlides": [
       3,
       11
@@ -104,17 +104,18 @@
       "politically constrained",
       "available resources"
     ],
-    "prompt": "A battalion requests an expensive new satellite system for an upcoming operation, but higher headquarters denies it because of national priorities and budget limits. Which planning response best fits the lesson?",
+    "prompt": "A satellite system is denied because of national priorities and budget limits, and the unit then coordinates relief with NGOs. Which pair of characteristics is reflected?",
     "options": [
-      "Treat it as a resource constraint, plan with what is actually available and ready, and set priorities by the commander's guidance",
-      "Treat the denial as temporary, plan as if the system will still arrive, and correct the plan once the operation has begun",
-      "Treat personal cell phones as the replacement, since they cost nothing, need no installation, and are already in every unit",
-      "Treat low-priority units as unsupported, drop their links quietly, and avoid telling the commander about the resulting gap"
+      "Politically, Economically, and Socially Constrained; Culturally Diverse",
+      "Universally Connected; Highly Urbanized; Collective Environment",
+      "Politically, Economically, and Socially Constrained; Collective Environment",
+      "Disaster-Prone; Archipelagic; Culturally Diverse"
     ],
-    "answer": 0,
-    "explanation": "Page 2: in a politically, economically and socially constrained environment, national priorities and resource limitations influence capability development and operations. Page 12: plan with the resources actually available and ready. Page 13: compare requirements with resources and set priorities under the commander's guidance.",
+    "answer": 2,
+    "explanation": "Page 2 says national priorities, social conditions and resource limitations influence capability development and operations, which is the Politically, Economically, and Socially Constrained characteristic; page 3 describes the Collective Environment as cooperation with nongovernment organizations.",
     "sourceSlides": [
       2,
+      3,
       12,
       13
     ]
@@ -128,15 +129,15 @@
       "connect sustain recover",
       "capabilities"
     ],
-    "prompt": "A brigade deploying to Eastern Visayas in typhoon season lists its Signal Support capabilities under the Connect, Sustain, and Recover framework. Which allocation is correct?",
+    "prompt": "Which allocation of capabilities under Connect, Sustain, and Recover is correct?",
     "options": [
-      "Connect: restoration teams and CSIRT; Sustain: tactical radios and network links; Recover: maintenance, power and SMMART visits",
-      "Connect: tactical radios and network links; Sustain: maintenance, power and SMMART visits; Recover: restoration teams and CSIRT",
-      "Connect: tactical radios and network links; Sustain: restoration teams and CSIRT; Recover: maintenance, power and SMMART visits",
-      "Connect: maintenance, power and SMMART visits; Sustain: tactical radios and network links; Recover: restoration teams and CSIRT"
+      "Connect: maintenance, power and SMMART visits; Sustain: tactical radios and network links; Recover: deployable teams and CSIRT",
+      "Connect: tactical radios and network links; Sustain: deployable teams and CSIRT; Recover: maintenance, power and SMMART visits",
+      "Connect: tactical radios and network links; Sustain: maintenance, power and SMMART visits; Recover: deployable teams and CSIRT",
+      "Connect: deployable teams and CSIRT; Sustain: maintenance, power and SMMART visits; Recover: tactical radios and network links"
     ],
-    "answer": 1,
-    "explanation": "Pages 5-6: Connect establishes connectivity among units, Sustain maintains it throughout operations, and Recover repairs and restores communication when attacked or destroyed. Pages 8-9 ask, for Sustain, what personnel, power, maintenance, protection and support keep the systems operating, and for Recover, what alternate connections and restoration capabilities exist (deployable restoration teams, CSIRT).",
+    "answer": 2,
+    "explanation": "Pages 5 and 6 define Connect, Sustain and Recover; page 8 places SMMART visits under keeping systems serviceable and deployable teams and CSIRT under recovery.",
     "sourceSlides": [
       5,
       6,
@@ -153,15 +154,15 @@
       "cyberspace operations",
       "protect the network"
     ],
-    "prompt": "With the brigade network fully established, the S6 moves the network-defense personnel to installation tasks, saying \"connection is our mission; defense comes later if something happens.\" Which assessment is best supported?",
+    "prompt": "With the network established, an S6 moves the network-defense personnel to installation tasks, saying defense can wait. Which view of Signal Support is correct?",
     "options": [
-      "Sound: network defense belongs to intelligence units alone, so signal personnel are better used for installation work",
-      "Unsound only if no CSIRT exists; a CSIRT on call makes standing network defense by signal personnel unnecessary",
-      "Unsound: Signal Support also operates and defends networks, and its role includes protecting the systems it establishes",
-      "Unsound only because the EW objective \"protect\" needs the personnel more; the network itself needs no cyber defense"
+      "Its role includes operating and defending the networks, so protection continues after connection",
+      "Defense passes to the maneuver units once the network is up",
+      "Protection begins only after an incident is reported",
+      "Connecting the units is the whole mission of Signal Support"
     ],
-    "answer": 2,
-    "explanation": "Page 3: Signal Support enables communication and also protects, maintains and restores the systems used for it. Page 4: in cyberspace its roles include operating Army information networks and defending them; Defensive Cyber Operations is a Signal Corps responsibility; establishing communication is only part of the task.",
+    "answer": 0,
+    "explanation": "Page 4 says Signal Support also operates and defends the Army's networks, and that establishing communication is only part of the task because information and systems must also be protected.",
     "sourceSlides": [
       3,
       4
@@ -177,15 +178,15 @@
       "coalition",
       "HADR"
     ],
-    "prompt": "After an earthquake in Central Luzon, an Army brigade works with Philippine Navy units, a partner nation's relief contingent and civilian responders at once. Which set of signal arrangements matches the lesson?",
+    "prompt": "After an earthquake, the Army works with the Philippine Navy, a partner nation's contingent and civilian responders. Which set of arrangements is correct?",
     "options": [
-      "Navy: links with sovereign networks kept; partner: compatible equipment, coordinated operators; civilians: a separate unclassified relief net",
-      "Navy: compatible equipment, coordinated operators; partner: one merged network; civilians: access to the secured operational net",
-      "Navy: a separate unclassified relief net; partner: links with sovereign networks kept; civilians: compatible equipment, coordinated operators",
-      "Navy: compatible equipment, coordinated operators; partner: links with sovereign networks kept; civilians: a separate unclassified relief net"
+      "Navy: a separate response net; partner: links with sovereign networks kept; civilians: compatible equipment and coordinated operators",
+      "Navy: compatible equipment and coordinated operators; partner: a separate response net; civilians: links with sovereign networks kept",
+      "Navy: compatible equipment and coordinated operators; partner: links with sovereign networks kept; civilians: a separate response net",
+      "Navy: links with sovereign networks kept; partner: compatible equipment and coordinated operators; civilians: a separate response net"
     ],
-    "answer": 3,
-    "explanation": "Page 5: joint operations need interoperability with other major services through compatible equipment and coordinated radio operators; coalition operations establish links with partner nations while keeping each nation's sovereign network; in HADR the disaster-response net stays separate from the secured operational net. Page 19 adds that the disaster-response net is unclassified and unsecured.",
+    "answer": 2,
+    "explanation": "Page 5 gives compatible equipment and coordinated operators for joint operations, links that keep sovereign networks for coalition operations, and a separate response net for disaster response; page 19 says the response net is unsecured.",
     "sourceSlides": [
       5,
       19
@@ -201,15 +202,15 @@
       "special purpose communication",
       "determining systems"
     ],
-    "prompt": "A brigade S6 drafts the system plan for an operation from its garrison headquarters: (1) the headquarters' reporting, information-system access and coordination meetings with division; (2) companies maneuvering in the field; (3) cellular and satellite phones issued to staff officers. Which description of the three parts matches the lesson?",
+    "prompt": "A brigade plans communication for (1) headquarters reporting and coordination meetings, (2) troops on the move, and (3) routine administrative calls. Which services fit, in order?",
     "options": [
-      "(1) fixed systems such as PANET, email, VTC and collaboration tools as the backbone; (2) tactical radios and CNR; (3) a COMSEC-governed supplement",
-      "(1) special purpose means such as commercial videoconferencing as the main channel; (2) tactical radios and CNR; (3) the fixed backbone for routine traffic",
-      "(1) fixed systems; (2) cellular and satellite phones as the main field voice means; (3) tactical radios kept only as a supplement for routine traffic",
-      "(1) tactical CNR extended to division; (2) PANET terminals carried on the move; (3) special purpose means for operational reports whenever convenient"
+      "Tactical; fixed; special purpose",
+      "Fixed; tactical; special purpose",
+      "Special purpose; tactical; fixed",
+      "Fixed; special purpose; tactical"
     ],
-    "answer": 0,
-    "explanation": "Page 6: fixed communication systems connect headquarters and established facilities and form the backbone of the Army's voice and data communications; PANET provides the secured Army intranet, and email, video teleconferencing and collaboration systems let headquarters exchange information and conduct coordination meetings. Tactical systems connect troops on the move and at the halt, and voice remains their foundation. Page 7: HF, VHF and UHF radios and combat net radio are tactical technologies, while cellular phones, satellite phones and commercial videoconferencing are special purpose means that supplement fixed and tactical systems for routine or administrative communication under COMSEC policies. Page 9: determine the requirement first, then select the systems.",
+    "answer": 1,
+    "explanation": "Page 6 describes fixed systems as the backbone for headquarters, page 7 describes tactical systems for troops on the move, and special purpose systems for routine or administrative communication.",
     "sourceSlides": [
       6,
       7,
@@ -226,15 +227,15 @@
       "SMTF",
       "electro-optic"
     ],
-    "prompt": "A planner lists SMTF, SMMART, the DND-AFP electro-optic repair facility and CSIRT under \"communication technologies to be employed.\" A reviewer flags the list. Which correction is right?",
+    "prompt": "SMTF, SMMART, the DND-AFP electro-optic repair facility and CSIRT are best described as what?",
     "options": [
-      "Keep them as listed, since they are electromagnetic spectrum technologies that carry the brigade's traffic",
-      "Reclassify them as support capabilities and organizations that keep the technologies available",
-      "Remove them from the plan, since maintenance and incident response play no part in signal planning",
-      "Reclassify them as fixed communication systems, since each one is a facility that connects headquarters"
+      "Tactical communication technologies",
+      "Support capabilities and organizations that keep technologies available",
+      "Special purpose communication systems",
+      "Domains of cyberspace"
     ],
     "answer": 1,
-    "explanation": "Page 8: SMTF conduct radio repairs, SMMART visit units to inspect, repair and train, the DND-AFP electro-optic facility supports repair of night fighting systems, and CSIRT responds to cybersecurity incidents. These are support capabilities and organizations rather than communication technologies; they keep the technologies available.",
+    "explanation": "Page 8 describes these as support capabilities and organizations, rather than communication technologies themselves; they keep the technologies available for operations.",
     "sourceSlides": [
       8
     ]
@@ -248,15 +249,15 @@
       "electromagnetic spectrum",
       "people domain"
     ],
-    "prompt": "A battalion's radios and network devices are all serviceable, yet (a) hostile interference disrupts its radio nets and (b) unauthorized users are found on its network. Which analysis is most accurate?",
+    "prompt": "Radios and network devices are serviceable, yet hostile interference disrupts the nets and unauthorized users appear on the network. Which pair of issues applies?",
     "options": [
-      "Serviceable gear does ensure a link: (a) is a physical-domain issue of terrain; (b) is a logical-domain issue of firewalls",
-      "Serviceable gear does not ensure a link: (a) is a logical-domain issue of protocols; (b) is a spectrum issue of interference",
-      "Serviceable gear does not ensure a link: (a) is a spectrum issue as hostile forces use it too; (b) is a people-domain issue",
-      "Serviceable gear does ensure a link: (a) and (b) are both solved by issuing more radios and computers"
+      "Physical environment, then logical domain",
+      "Electromagnetic spectrum environment, then people domain",
+      "Electromagnetic spectrum environment, then logical domain",
+      "Cyberspace environment, then physical domain"
     ],
-    "answer": 2,
-    "explanation": "Page 8: equipment availability alone does not guarantee a working connection; friendly and hostile forces both use the spectrum, so interference or hostile activity can disrupt serviceable radios. Pages 7-8: the people domain is the individuals interacting with Army networks, and the handout notes a computer also needs authorized users.",
+    "answer": 1,
+    "explanation": "Page 8 notes that friendly and hostile forces both use the spectrum, and that a network needs authorized users; page 7 lists the logical and physical domains as configurations and equipment.",
     "sourceSlides": [
       7,
       8
@@ -271,15 +272,15 @@
       "five principles",
       "plan review"
     ],
-    "prompt": "A combined arms signal plan (1) supports movement and the full duration; (2) lets infantry, armor, artillery, engineers and HQ all exchange information; (3) runs every link over one path with no backup; (4) is sized for today's battalion with no provision for the units attached in phase 2; and (5) sends orders through an unauthorized commercial app. Which principles does it fail?",
+    "prompt": "A signal plan supports movement and lets all arms exchange information, but has one path per unit, no room for added units and no COMSEC check. Which principles are unmet?",
     "options": [
-      "Operations Focused, Interoperable, and Secured",
-      "Redundant, Interoperable, and Scalable",
-      "Operations Focused, Redundant, and Scalable",
-      "Redundant, Scalable, and Secured"
+      "Operations Focused, Interoperable and Redundant",
+      "Redundant, Scalable and Secured",
+      "Interoperable, Scalable and Secured",
+      "Operations Focused, Redundant and Secured"
     ],
-    "answer": 3,
-    "explanation": "Page 11 gives the check for each principle: Operations Focused (supports mission, movement and duration), Interoperable (all elements exchange information), Redundant (communication continues if a connection fails), Scalable (adapts when units are added), Secured (complies with COMSEC). Items 3, 4 and 5 fail the last three checks.",
+    "answer": 1,
+    "explanation": "Page 11 pairs each principle with a check: Redundant asks if communication continues after a failure, Scalable if support adapts, and Secured if COMSEC requirements are met.",
     "sourceSlides": [
       11
     ]
@@ -294,15 +295,15 @@
       "secured",
       "satellite phones"
     ],
-    "prompt": "The only alternate path available for a company's operational traffic is the staff's satellite phones, which unit COMSEC policy authorizes only for routine administrative calls. The S3 wants them listed as the Alternate so the plan \"has redundancy.\" What should the signal planner recommend?",
+    "prompt": "The only alternate path for operational traffic is satellite phones, which unit COMSEC policy authorizes only for routine administrative use. What should the planner do?",
     "options": [
-      "Reject the phones for this traffic because backups must meet COMSEC, and report the shortfall if no authorized path exists",
-      "Accept the phones as the alternate because redundancy outweighs security whenever the primary path has failed",
-      "Accept the phones for orders and locations only because that traffic is brief and is sent infrequently",
-      "Leave the plan with no alternate because an empty backup line is safer than reporting a shortfall"
+      "Reject them for operational traffic and report the shortfall in alternate paths",
+      "Accept them as the alternate path once the primary fails",
+      "Use them after encrypting each message with commercial software",
+      "Assign them as the emergency path for all operational traffic"
     ],
     "answer": 0,
-    "explanation": "Page 19: backup arrangements must also comply with applicable security requirements. Page 7: satellite phones are special purpose means for routine or administrative communication under COMSEC policies, and page 18 requires checking whether a use is authorized for the information. Page 10: a working connection must also meet the required security standard. Page 13: when requirements exceed capability, the planner identifies the shortfall and recommends priorities under the commander's guidance.",
+    "explanation": "Page 7 says satellite phones follow COMSEC policies and page 19 says backup arrangements must also comply with security requirements, so an unauthorized backup is not redundancy.",
     "sourceSlides": [
       7,
       10,
@@ -320,15 +321,15 @@
       "scalable",
       "phases"
     ],
-    "prompt": "An operation has three phases: preparation at home station, movement by sea to another island, and a deployed phase in which artillery and engineer elements are attached. How should Signal Support apply the Scalable principle?",
+    "prompt": "An operation has home-station preparation, sea movement and a deployed phase with attached artillery and engineers. Which principle requires C2 networks at all three stages, tailored as the force changes?",
     "options": [
-      "Provide C2 networks for the deployed phase only, since home station and sea movement are admin and transport matters",
-      "Provide C2 networks at home station, en route and deployed, tailoring them as the force and phases change",
-      "Provide one fixed network size for all phases, since stability, simplicity, and predictability are what it requires",
-      "Provide more sets of the same devices in each phase, since added devices satisfy the scalability principle"
+      "Scalable",
+      "Operations Focused",
+      "Interoperable",
+      "Redundant"
     ],
-    "answer": 1,
-    "explanation": "Page 10: scalability means Signal Support can expand and be tailored to the size, situation and phases of an operation, with networks that support command and control at home station, en route and in deployed environments, including when elements are added or the force reorganizes.",
+    "answer": 0,
+    "explanation": "Page 10 describes Scalable as support that can expand and be tailored to the size, situation and phases of an operation, including home station, en route and deployed environments.",
     "sourceSlides": [
       10
     ]
@@ -342,15 +343,15 @@
       "usable capability",
       "equipment personnel funds"
     ],
-    "prompt": "For a two-week operation, a battalion reports: 10 radios on hand, of which 3 are unserviceable and 2 others are committed to another unit; 6 trained operators, of whom 2 are deploying elsewhere; funds for installing a relay, but none for its operation or maintenance. What is the soundest planning conclusion?",
+    "prompt": "For a two-week operation a battalion has 10 radios, of which 3 are unserviceable and 2 are committed elsewhere; 6 trained operators, 2 deploying elsewhere; and relay installation funds but none for operation. What is the usable capability?",
     "options": [
-      "10 radios, 6 operators, and adequate funds, since the relay installation is paid for",
-      "5 radios, 6 operators, and adequate funds, since the operators are already trained",
-      "5 radios, 4 operators, and a shortfall in operation and maintenance funds to report",
-      "7 radios, 4 operators, and a shortfall in operation and maintenance funds to report"
+      "10 radios, 6 operators, and adequate funds",
+      "5 radios, 6 operators, and adequate funds",
+      "7 radios, 4 operators, and a shortfall in operation and maintenance funds",
+      "5 radios, 4 operators, and a shortfall in operation and maintenance funds"
     ],
-    "answer": 2,
-    "explanation": "Page 12: check what equipment is on hand, serviceable, unserviceable, committed or in reserve; personnel staffing, shortages and deployments; and funds for installation, operation, maintenance and administration. Count usable capability, not just equipment: 10 - 3 - 2 = 5 radios, 6 - 2 = 4 operators, and unfunded operation and maintenance is a shortfall.",
+    "answer": 3,
+    "explanation": "Page 12 says to count usable capability, not just equipment: 10 minus 3 minus 2 leaves 5 radios, and 6 minus 2 leaves 4 operators; funds must also cover operation and maintenance.",
     "sourceSlides": [
       12
     ]
@@ -366,15 +367,15 @@
       "CSIRT",
       "compromise"
     ],
-    "prompt": "In one night, (1) enemy jamming hits a battalion's primary net, (2) suspicious intrusion is detected on the TOC network, and (3) a squad radio is captured. Which set of responses reflects what the plan should already provide?",
+    "prompt": "In one night, (1) jamming hits the primary net, (2) intrusion is detected on the TOC network, and (3) a squad radio is captured. Which responses fit, in order?",
     "options": [
-      "(1) planned protection and PACE backups; (2) report, then coordinated frequency change; (3) monitoring, first responders and CSIRT",
-      "(1) monitoring, first responders and CSIRT; (2) planned protection and PACE backups; (3) report, then coordinated frequency change",
-      "(1) planned protection and PACE backups; (2) monitoring, first responders and CSIRT; (3) the squad picks its own new frequency",
-      "(1) planned protection and PACE backups; (2) monitoring, first responders and CSIRT; (3) report, then coordinated frequency change"
+      "Monitoring, first responders and CSIRT; planned protection and PACE backups; report, then change frequencies",
+      "Planned protection and PACE backups; report, then change frequencies; monitoring, first responders and CSIRT",
+      "Planned protection and PACE backups; monitoring, first responders and CSIRT; report, then change frequencies",
+      "Report, then change frequencies; monitoring, first responders and CSIRT; planned protection and PACE backups"
     ],
-    "answer": 3,
-    "explanation": "Page 13: plans provide protection against jamming and interception, network monitoring and incident response for cyberattacks, procedures for changing compromised frequencies, and PACE plans. Pages 18-19: first responders and CSIRT handle network incidents; lost or captured equipment is reported and changes are coordinated by authorized personnel because several units may be affected.",
+    "answer": 2,
+    "explanation": "Pages 13 and 19 pair jamming with planned protection and PACE backups, cyber intrusion with monitoring, first responders and CSIRT (page 18), and captured equipment with reporting and changing frequencies.",
     "sourceSlides": [
       13,
       18,
@@ -390,15 +391,15 @@
       "three questions",
       "tactical considerations"
     ],
-    "prompt": "A tactical signal plan connects every element at the start of a five-day operation, but provides no power resupply or maintenance support and no PACE or alternate routing. How does it fare against the lesson's three questions?",
+    "prompt": "A plan connects every element at the start of a five-day operation but includes no power resupply, no maintenance support and no PACE arrangements. Which of Connect, Sustain, and Recover are met?",
     "options": [
-      "Connect: yes; Sustain: no, as power and maintenance are missing; Recover: no, as no backup is prepared",
-      "Connect: yes; Sustain: yes, as all elements start connected; Recover: no, as no backup is prepared",
-      "Connect: no, as power is missing; Sustain: no, as maintenance is missing; Recover: yes, as repair can follow",
-      "Connect: yes; Sustain: no, as power and maintenance are missing; Recover: yes, as backups can be issued later"
+      "Connect and Sustain",
+      "Sustain and Recover",
+      "Recover only",
+      "Connect only"
     ],
-    "answer": 0,
-    "explanation": "Page 14: Can we connect the force? Can we sustain that connection as the situation changes? Can we recover it after disruption? Page 11: having radios is only the beginning. Page 9: sustaining needs personnel, power, maintenance, protection and support. Page 13: PACE and alternate routing must be prepared before the disruption occurs.",
+    "answer": 3,
+    "explanation": "Page 14 gives three questions: can we connect, sustain and recover. The plan connects the force but has no power or maintenance to sustain it and no backups to recover it.",
     "sourceSlides": [
       9,
       11,
@@ -415,15 +416,15 @@
       "signal estimate",
       "update"
     ],
-    "prompt": "A Signal Estimate was written only for a combined arms force's assembly area. During the operation the force moves to a distant objective, an attached company arrives, and enemy jamming is reported. Which statement best describes what the estimate should have done and must do now?",
+    "prompt": "A Signal Estimate covers only the assembly area. The force then moves to a distant objective and an attached company arrives. What should happen to the estimate?",
     "options": [
-      "Cover the destination only, since the assembly area, the route, and the move are short and secure",
-      "Cover preparation, movement and the destination, then be updated as the situation changes",
-      "Stay unchanged once approved, since revising it would confuse the supported units",
-      "Update only the Troops factor, since the new company is the only real change"
+      "It should stay as written, as approved, until the operation ends",
+      "It should cover preparation, movement and the destination, and be updated as the situation changes",
+      "It should be replaced by the Signal Plan, once published, and not revisited",
+      "It should be updated only after an incident, such as jamming, disrupts communication"
     ],
     "answer": 1,
-    "explanation": "Page 15: in the assembly-area example the estimate must consider communication during preparation, movement and operations at the destination, and it is updated as the situation changes. Page 12: the Signal Estimate must be updated when the situation changes; here Troops and Enemy both changed.",
+    "explanation": "Page 15 says the estimate must consider preparation, movement and operations at the destination, and page 12 says it must be updated when the situation changes.",
     "sourceSlides": [
       12,
       15
@@ -438,15 +439,15 @@
       "communication requirements",
       "combined arms elements"
     ],
-    "prompt": "The commander's intent: an infantry-armor team seizes a bridge, artillery supports the attack, and engineers clear obstacles on the approach. Which set of requirements correctly translates this intent for the four elements?",
+    "prompt": "Which pairing of element and communication requirement is correct?",
     "options": [
-      "Infantry: coordinate movement with armor and HQ; armor: send SITREPs, get instructions; artillery: mobility support with maneuver; engineers: support requests by set procedure",
-      "Infantry: send SITREPs, get instructions; armor: support requests by set procedure; artillery: coordinate movement with infantry and HQ; engineers: mobility support with maneuver",
-      "Infantry: send SITREPs, get instructions; armor: coordinate movement with infantry and HQ; artillery: support requests by set procedure; engineers: mobility support with maneuver",
-      "Infantry: send SITREPs, get instructions; armor: coordinate movement with infantry and HQ; artillery: mobility support with maneuver; engineers: support requests by set procedure"
+      "Armor: submit situation reports and receive instructions",
+      "Artillery: coordinate movement with infantry and headquarters",
+      "Engineers: coordinate mobility support with maneuver units",
+      "Infantry: exchange support requests through established procedures"
     ],
     "answer": 2,
-    "explanation": "Page 15 table: infantry submit situation reports and receive instructions; armor coordinate movement with infantry and headquarters; artillery exchange support requests and coordination information through established procedures; engineers coordinate mobility support with maneuver units.",
+    "explanation": "Page 15 lists engineers as coordinating mobility support with maneuver units; submitting reports belongs to infantry, movement coordination to armor, and support requests to artillery.",
     "sourceSlides": [
       15
     ]
@@ -460,15 +461,15 @@
       "MDMP",
       "signal estimate timing"
     ],
-    "prompt": "A battalion begins the Military Decision-Making Process for an attack. The S6 announces he will start the Signal Estimate after the operations order is published and pick the systems then. What is the best critique?",
+    "prompt": "A battalion starts the Military Decision-Making Process for an attack, but the S6 plans to begin the Signal Estimate after the operations order is published. What is wrong with this plan?",
     "options": [
-      "None; signal planning properly begins only after the operations order is published",
-      "None; signal sections follow Troop Leading Procedures, not MDMP, so his timing is fine",
-      "Only his sequence is wrong; he should pick the systems first, then do the estimate",
-      "Signal planning runs alongside MDMP, so the estimate must be developed during it"
+      "The estimate belongs to Troop Leading Procedures, not to MDMP",
+      "The estimate must be finished before MDMP begins",
+      "The estimate is prepared by the commander rather than the S6",
+      "Signal planning runs alongside MDMP, so the estimate is developed during it"
     ],
     "answer": 3,
-    "explanation": "Page 14: the Signal Estimate and Signal Planning Process work alongside MDMP (and TLP for small units), and the first step is to understand the mission and prepare the Signal Estimate before selecting systems. Page 9: determine the communication requirement first, then select systems.",
+    "explanation": "Page 14 says the Signal Estimate and Signal Planning Process work alongside MDMP, and page 9 says the mission's needs come first before selecting equipment.",
     "sourceSlides": [
       9,
       14
@@ -484,15 +485,15 @@
       "C4S annex",
       "publish"
     ],
-    "prompt": "A planner has requirements, resources, priorities and PACE arrangements in hand. What remains before and after the order is issued?",
+    "prompt": "A planner has the requirements, resources, priorities and PACE arrangements. Which steps remain, in order?",
     "options": [
-      "Combine them into one plan, confirm units can use it, publish it as the C4S Annex, and keep the estimate updated",
-      "Send the PACE as a separate memo, skip coordination since units get the order, and file the estimate as final",
-      "Coordinate only with higher headquarters, let adjacent units make their own links, and publish it by voice only",
-      "Publish the requirements list as the annex, leave locations and security to operators, and freeze the plan"
+      "Publish it as the Signal Plan or C4S Annex, prepare and coordinate the tentative plan, and keep the estimate updated",
+      "Keep the estimate updated, publish it as the Signal Plan or C4S Annex, and prepare and coordinate the tentative plan",
+      "Prepare the tentative plan, keep the estimate updated, and coordinate it only after it is published",
+      "Prepare and coordinate the tentative plan, publish it as the Signal Plan or C4S Annex, and keep the estimate updated"
     ],
-    "answer": 0,
-    "explanation": "Pages 16-17: the tentative plan brings requirements, resources, priorities and recovery arrangements into one plan covering resource allocation, facility locations, security, interconnections and alternate routing; coordination confirms units understand and can use it; the approved arrangements are published as the Signal Plan or C4S Annex with diagrams, instructions, appendices and tabs, and the estimate is updated as conditions change.",
+    "answer": 3,
+    "explanation": "Pages 16 and 17 give the last steps as preparing and coordinating the tentative plan, then publishing the Signal Plan or C4S Annex and updating the estimate as conditions change.",
     "sourceSlides": [
       16,
       17
@@ -508,15 +509,15 @@
       "alternate routing",
       "network monitoring"
     ],
-    "prompt": "Coordinating the tentative signal plan for a coastal operation, a brigade S6 receives three notes: (1) logistics personnel cannot support the generator, fuel and crew at the chosen relay site; (2) the maneuver companies' mobile ad hoc networks are left out of network monitoring; (3) the BONTEX trunk to higher headquarters has a single route. Which revision answers all three?",
+    "prompt": "Which pairing of coordination group and what to confirm is correct?",
     "options": [
-      "Keep the relay site, as its coverage is good; add the ad hoc networks to network monitoring; plan alternate routing for the BONTEX trunk",
-      "Relocate the relay with its administrative and logistical needs in view; add the ad hoc networks to monitoring; plan alternate routing for the trunk",
-      "Relocate the relay with its administrative and logistical needs in view; leave ad hoc networks to the CSIRT after incidents; plan alternate routing for the trunk",
-      "Relocate the relay with its administrative and logistical needs in view; add the ad hoc networks to monitoring; keep the single route, as BONTEX is fixed"
+      "Logistics and maintenance personnel: resources for sustained operation, repair and replacement",
+      "Higher headquarters: their requirements, capabilities and operating arrangements",
+      "Adjacent units: the plan supports the operational concept, priorities and phases",
+      "Commander and operations staff: required connections and available support"
     ],
-    "answer": 1,
-    "explanation": "Page 16: the tentative plan covers resource allocation, facility locations, security, interconnections and alternate routing; facility locations must consider logistics among other factors, and logistics and maintenance personnel confirm resources for sustained operation. Page 12 lists administrative and logistical requirements among the facility-location considerations. Page 18: signal plans include network monitoring, including mobile ad hoc networks, with the CSIRT as the incident response capability, not a substitute for monitoring. Page 6: BONTEX connects Army telephone systems with higher headquarters, and page 13 calls for alternate routing as part of preparing for communication failure.",
+    "answer": 0,
+    "explanation": "Page 16 pairs logistics and maintenance personnel with resources for sustained operation, repair and replacement; the other pairings are mismatched with subordinate units, the commander and higher headquarters.",
     "sourceSlides": [
       6,
       12,
@@ -534,15 +535,15 @@
       "disaster-response net",
       "sensitive information"
     ],
-    "prompt": "During flood relief, an officer wants to pass the route and timings of an armed security escort, under threat from an armed group, over the disaster-response net he shares with civilian responders, because \"everyone is already on it.\" What should be done?",
+    "prompt": "During flood relief, an officer wants to pass an armed escort's route over the disaster-response net he shares with civilian responders. What should he do?",
     "options": [
-      "Send the escort details over the relief net, since humanitarian operations suspend the COMSEC requirements",
-      "Merge the relief net with the secured operational net for a while, so that both groups can share the details",
-      "Send the details only by authorized secure means, since the relief net is unclassified and unsecured",
-      "Send the escort details over the relief net in an improvised code, so that the civilians cannot follow them"
+      "Pass the route on the response net using a code word",
+      "Use the response net since civilian responders already monitor it",
+      "Send the details only through authorized secure arrangements",
+      "Pass the route on the response net after the escort starts moving"
     ],
     "answer": 2,
-    "explanation": "Page 19: the disaster-response net is different and separate from the Army's secured operational net and is considered unclassified and unsecured; sensitive operational information must be handled through the appropriate authorized arrangements. Page 18: personnel follow prescribed instructions rather than invent their own procedures.",
+    "explanation": "Page 19 says the disaster-response net is unclassified and unsecured, so sensitive operational information must be handled through the appropriate authorized arrangements.",
     "sourceSlides": [
       5,
       18,
@@ -558,15 +559,15 @@
       "frequency hopping",
       "anti-jamming"
     ],
-    "prompt": "Heavy jamming is expected in the coming operation, but only half of the brigade's radios have frequency hopping and anti-jamming capability. How should the signal plan handle electronic protection?",
+    "prompt": "Heavy jamming is expected, but only half of a brigade's radios have frequency hopping and anti-jamming capability. How should the signal plan handle this?",
     "options": [
-      "Assume every unit can frequency hop, since the brigade owns radios with that capability and can share them",
-      "Give units lacking the capability personal phones as backup, since phones are not affected by the jamming",
-      "Turn off frequency hopping in every unit, since a single common mode makes all of the units interoperable",
-      "Plan and coordinate protection per each unit's equipment and procedures, with authorized backups for the rest"
+      "Plan and coordinate protection for each unit's equipment and procedures, with authorized backups for the rest",
+      "Assume frequency hopping on half the radios protects every net",
+      "Move all units to the disaster-response net during jamming",
+      "Use frequency hopping only after the operation starts"
     ],
-    "answer": 3,
-    "explanation": "Page 19: frequency hopping and anti-jamming capabilities are electronic protection measures, but they must be planned and coordinated and their use depends on available equipment and prescribed procedures; availability is supported by redundancy and backup arrangements, which must also comply with security requirements.",
+    "answer": 0,
+    "explanation": "Page 19 says electronic protection capabilities must be planned and coordinated, and that their use depends on available equipment and prescribed procedures.",
     "sourceSlides": [
       13,
       19
@@ -581,15 +582,15 @@
       "security planning",
       "protocols"
     ],
-    "prompt": "A brigade S6 reviews the security section of a signal plan. Which version best meets the lesson's standard for determining security measures and protocols?",
+    "prompt": "Which version of a signal plan's security section meets the lesson's standard for determining security measures and protocols?",
     "options": [
-      "It names what to protect, the threats, and the prescribed procedures such as COMSEC, CEOI, CESI and CSIRT use",
-      "It names protected systems, assigns control ownership, and documents the tools and resources available for the security tasks",
-      "It lists relevant threats, assigns first-responder duties, and establishes the timetable for monitoring and rehearsals",
-      "It identifies protected information, describes the network architecture, and records the equipment's approved security capabilities"
+      "It lists approved radios, their frequency bands, and the operators trained to use them",
+      "It lists the commercial platforms, their owners, and the units permitted to buy them",
+      "It names what to protect, the threats, and the prescribed procedures such as COMSEC, CEOI, CESI and SOPs",
+      "It lists the staff sections, their annexes, and the dates each must be published"
     ],
-    "answer": 0,
-    "explanation": "Page 17: determining security measures means identifying what must be protected, what threats could affect it, and which prescribed procedures personnel must follow; security is included in the signal plan and applied throughout, and covers confidentiality, integrity and availability. Page 18: plans include network monitoring (including mobile ad hoc networks) and procedures for first responders and the CSIRT, and personnel follow SOPs, CEOI and CESI.",
+    "answer": 2,
+    "explanation": "Page 17 defines security measures and protocols as identifying what must be protected, the threats, and the prescribed procedures; page 18 names COMSEC, SOPs, CEOI and CESI as the guidance.",
     "sourceSlides": [
       17,
       18
@@ -606,15 +607,15 @@
       "tactical",
       "special purpose"
     ],
-    "prompt": "Which matching of the three communication services to the lesson's examples is correct?",
+    "prompt": "Which pairing of each communication service with its examples follows the lesson?",
     "options": [
-      "Fixed: PANET and satellite phones; tactical: HF/VHF/UHF radios; special purpose: CNR and commercial VTC",
-      "Fixed: PANET and VTC; tactical: HF/VHF/UHF radios and CNR; special purpose: cellular and satellite phones",
-      "Fixed: CNR and Army telephones; tactical: cellular phones and HF radios; special purpose: PANET and email",
-      "Fixed: Army telephones and CNR; tactical: VHF radios and satellite phones; special purpose: PANET and VTC"
+      "Fixed: HF, VHF and UHF radios and CNR; tactical: PANET and VTC; special purpose: cellular phones and satellite phones",
+      "Fixed: cellular phones and satellite phones; tactical: HF, VHF and UHF radios and CNR; special purpose: PANET and VTC",
+      "Fixed: PANET and VTC; tactical: cellular phones and satellite phones; special purpose: HF, VHF and UHF radios and CNR",
+      "Fixed: PANET and VTC; tactical: HF, VHF and UHF radios and CNR; special purpose: cellular phones and satellite phones"
     ],
-    "answer": 1,
-    "explanation": "Page 4: fixed communication includes Army telephone systems, PANET, email and video teleconferencing; tactical communication includes HF, VHF and UHF radios and combat net radio; special purpose communication includes cellular phones, satellite phones and commercial videoconferencing.",
+    "answer": 3,
+    "explanation": "Page 4 pairs fixed communication with PANET and video teleconferencing, tactical communication with HF, VHF and UHF radios and combat net radio, and special purpose with cellular and satellite phones.",
     "sourceSlides": [
       4,
       7
@@ -629,15 +630,15 @@
       "planning steps",
       "sequence"
     ],
-    "prompt": "Which sequence matches the lesson's steps for planning and coordinating Signal Support?",
+    "prompt": "In which order does the lesson present the steps for planning and coordinating Signal Support?",
     "options": [
+      "Signal Estimate; who communicates and why; resources; priorities; continuity and recovery; tentative plan; publish and update",
       "Resources; Signal Estimate; priorities; who communicates and why; tentative plan; continuity and recovery; publish and update",
       "Who communicates and why; tentative plan; Signal Estimate; resources; continuity and recovery; priorities; publish and update",
-      "Signal Estimate; who communicates and why; resources; priorities; continuity and recovery; tentative plan; publish and update",
       "Signal Estimate; resources; tentative plan; who communicates and why; priorities; publish and update; continuity and recovery"
     ],
-    "answer": 2,
-    "explanation": "Pages 14-17: understand the mission and prepare the Signal Estimate; determine who needs to communicate and why; determine available resources; establish support priorities; plan continuity and recovery; prepare and coordinate the tentative plan; publish the plan and keep it updated.",
+    "answer": 0,
+    "explanation": "Pages 14 to 17 order the steps as: prepare the Signal Estimate, determine who communicates and why, determine resources, establish priorities, plan continuity and recovery, prepare and coordinate the tentative plan, then publish and update.",
     "sourceSlides": [
       14,
       15,
@@ -654,15 +655,15 @@
       "PACE",
       "Emergency"
     ],
-    "prompt": "During a night attack in Sulu, a company's primary net fails, its alternate set is destroyed, and the contingency option planned for jamming does not fit the situation. A casualty evacuation request must get through at once. Which arrangement of its PACE plan should the company now use?",
+    "prompt": "A company's primary net fails, its alternate set is destroyed, and the contingency option planned for jamming does not fit the situation. Which PACE arrangement remains?",
     "options": [
+      "Primary",
       "Alternate",
       "Contingency",
-      "Primary",
       "Emergency"
     ],
     "answer": 3,
-    "explanation": "Page 16: the Emergency arrangement is the one available when other planned options cannot meet the urgent requirement. Alternate is the substitute for primary failure; Contingency is for a specified disruption or situation.",
+    "explanation": "Page 16 defines Emergency as the arrangement available when other planned options cannot meet the urgent requirement.",
     "sourceSlides": [
       16
     ]
@@ -676,15 +677,15 @@
       "coordination",
       "subordinate and supporting units"
     ],
-    "prompt": "While coordinating the tentative plan for a brigade attack, the S6 meets the attached artillery battalion and engineer company to confirm their requirements, capabilities, operating arrangements and responsibilities. With which party, in the lesson's coordination table, is the S6 coordinating?",
+    "prompt": "An S6 meets the attached artillery battalion and engineer company to confirm their requirements, capabilities, operating arrangements and responsibilities. Which coordination group is this?",
     "options": [
       "Subordinate and supporting units",
-      "Adjacent units",
       "Higher headquarters",
+      "Adjacent units",
       "Commander and operations staff"
     ],
     "answer": 0,
-    "explanation": "Page 16: with subordinate and supporting units, confirm their requirements, capabilities, operating arrangements and responsibilities. Adjacent units: necessary coordination links; higher headquarters: required connections and available support; commander and operations staff: operational concept, priorities and phases.",
+    "explanation": "Page 16 lists their requirements, capabilities, operating arrangements and responsibilities as what to confirm with subordinate and supporting units.",
     "sourceSlides": [
       16
     ]
@@ -697,15 +698,15 @@
     "tags": [
       "terrain, weather and signal coverage"
     ],
-    "prompt": "A brigade relay on Palawan is sited from a map alone, with no site survey or reconnaissance. Once the companies reach their assigned areas, dense forest and an approaching storm leave them in a coverage gap no one had identified, although they are exactly where the plan placed them. Which tactical consideration was neglected?",
+    "prompt": "A relay is sited from a map alone, with no site survey. Dense forest and an approaching mountain later leave coverage gaps for the companies. Which tactical consideration was neglected?",
     "options": [
-      "Consider troop movement and facility locations",
       "Consider terrain, weather, and signal coverage",
+      "Consider troop movement and facility locations",
       "Check equipment, personnel, and resources",
-      "Ensure interoperability and coordination"
+      "Establish priorities when resources are limited"
     ],
-    "answer": 1,
-    "explanation": "Page 12: terrain, vegetation and storms affect propagation; the site survey or reconnaissance determines signal coverage and gaps, and coverage must be verified where troops will actually operate. The troops did not move from their planned positions, so troop movement is not the issue.",
+    "answer": 0,
+    "explanation": "Page 12 says planners must consider terrain and propagation conditions, and verify coverage against where troops will operate by a site survey or reconnaissance.",
     "sourceSlides": [
       12
     ]
@@ -718,15 +719,15 @@
     "tags": [
       "establish priorities"
     ],
-    "prompt": "Resources cannot support every link at once for a battalion attack. The S6 supports requests in the order they arrive, and the main effort's fire support link is left without a radio. Which tactical consideration was compromised?",
+    "prompt": "Resources cannot support every link at once. The S6 serves requests in the order they arrive, and the main effort's fire support link goes without. Which tactical consideration was neglected?",
     "options": [
-      "Check equipment, personnel, and resources",
       "Ensure interoperability and coordination",
       "Establish priorities when resources are limited",
-      "Consider troop movement and facility locations"
+      "Prepare for communication failure and hostile disruption",
+      "Protect the systems and the information"
     ],
-    "answer": 2,
-    "explanation": "Page 13: when requirements exceed capability, planners compare requirements with resources and establish priorities based on supportability and importance to mission accomplishment, guided by the commander. Allocating on a first-come basis ignores this.",
+    "answer": 1,
+    "explanation": "Page 13 says to compare requirements with resources and establish priorities based on supportability and importance to mission accomplishment.",
     "sourceSlides": [
       13
     ]
@@ -740,7 +741,7 @@
       "METAL",
       "Signal Estimate"
     ],
-    "prompt": "An S6 completes a thorough METAL-based Signal Estimate at the start of an operation and files it. Its PACE and frequency-change provisions are sound. Two days later the enemy begins jamming, an attached company arrives and the force moves to new terrain, but the estimate is never revisited. Which tactical consideration was mishandled?",
+    "prompt": "An S6 files a thorough METAL-based Signal Estimate at the start of an operation. Later the enemy begins jamming, a company is attached and the force moves, but the estimate is never revisited. Which consideration was mishandled?",
     "options": [
       "Check equipment, personnel, and resources",
       "Consider troop movement and facility locations",
@@ -748,7 +749,7 @@
       "Understand the situation using METAL"
     ],
     "answer": 3,
-    "explanation": "Page 12: under \"understand the situation using METAL,\" the Signal Estimate must be updated when the situation changes. The other considerations deal with specific resources, locations and failure plans, not with keeping the estimate current.",
+    "explanation": "Page 12 says that under understanding the situation using METAL, the Signal Estimate must be updated when the situation changes.",
     "sourceSlides": [
       11,
       12
@@ -763,15 +764,15 @@
       "CEOI",
       "CESI"
     ],
-    "prompt": "A radio operator must change to new frequencies at a set time. He needs (1) the specific instruction stating what to do and (2) guidance explaining how that instruction is meant to be applied. Which documents provide these, in order?",
+    "prompt": "An operator must change frequencies at a set time. Which documents give (1) the specific instruction of what to do and (2) the guidance explaining how to use it?",
     "options": [
-      "CEOI, then CESI",
       "CESI, then CEOI",
-      "SOPs, then CEOI",
-      "CEOI, then SOPs"
+      "CEOI, then CESI",
+      "SOP, then CEOI",
+      "CEOI, then SOP"
     ],
-    "answer": 0,
-    "explanation": "Page 18: the CEOI provides specific operating instructions (\"what to do\"); the CESI explains the use of the CEOI (\"how to do\"). SOPs provide established unit procedures.",
+    "answer": 1,
+    "explanation": "Page 18 describes the CEOI as providing specific operating instructions, described as what to do, and the CESI as explaining the use of the CEOI, described as how to do.",
     "sourceSlides": [
       18
     ]
@@ -785,15 +786,15 @@
       "CSIRT",
       "cyber defense"
     ],
-    "prompt": "Which of the following is a CSIRT function according to the lesson?",
+    "prompt": "Which of the following is a CSIRT function?",
     "options": [
-      "Inspect equipment and give refresher training to units",
+      "Repair tactical radios and provide refresher training",
       "Manage incident updates and remediate problems",
-      "Conduct radio repairs and support equipment readiness",
-      "Change compromised frequencies quickly and efficiently"
+      "Restore command centers after damage",
+      "Publish the C4S Annex to the operations order"
     ],
     "answer": 1,
-    "explanation": "Page 18: the CSIRT maintains an incident response plan, investigates incidents, manages incident updates, remediates problems and recommends improvements. Inspection and refresher training is SMMART; radio repairs are SMTF.",
+    "explanation": "Page 18 says the CSIRT maintains an incident response plan, investigates incidents, manages incident updates, remediates problems and recommends improvements.",
     "sourceSlides": [
       8,
       18
@@ -808,15 +809,15 @@
       "compromised equipment",
       "frequencies"
     ],
-    "prompt": "Why does the lesson say the response to lost or captured equipment must be coordinated rather than handled by the affected unit alone?",
+    "prompt": "Why must the response to lost or captured equipment be coordinated rather than handled by the affected unit alone?",
     "options": [
-      "Only the CSIRT is authorized to report lost equipment",
-      "Frequency changes apply only to the unit that lost the equipment",
+      "Only the unit commander may change that unit's own frequencies",
+      "Replacement radios are issued only through a coordinating headquarters",
       "A compromise can affect the communication arrangements of several units",
-      "COMSEC policy bars units from reporting their own losses"
+      "The adversary can read only the unit's own traffic"
     ],
     "answer": 2,
-    "explanation": "Page 19: equipment in adversary hands can compromise operational radio frequencies, and a compromise can affect the communication arrangements of several units, so authorized personnel determine and coordinate the changes.",
+    "explanation": "Page 19 says a compromise can affect the communication arrangements of several units, so authorized personnel coordinate the required changes.",
     "sourceSlides": [
       19
     ]

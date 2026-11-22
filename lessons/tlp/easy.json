@@ -9,15 +9,15 @@
       "time and warning orders",
       "objective"
     ],
-    "prompt": "What event anchors reverse planning in the defensive example?",
+    "prompt": "In the sample defense, the timeline is reverse-planned from which time?",
     "options": [
-      "The first company warning order",
-      "The time materials are delivered",
-      "The time the defense must be prepared",
-      "The first subordinate backbrief"
+      "The time the battalion warning order is received",
+      "The time the company OPORD is issued",
+      "The time the battalion rehearsal begins",
+      "The time the battalion requires the defense to be prepared"
     ],
-    "answer": 2,
-    "explanation": "Start with the required ready time and work backward to place earlier actions.",
+    "answer": 3,
+    "explanation": "The sample reverse-plans from 0400H, the battalion's \"defense prepared\" time.",
     "sourceSlides": [
       5
     ]
@@ -32,15 +32,15 @@
       "time and warning orders",
       "objective"
     ],
-    "prompt": "What portion of available time does the planning guideline reserve for subordinates?",
+    "prompt": "Under the one-third/two-thirds guideline in the sample, what share of the available time is kept for subordinates?",
     "options": [
-      "About two-thirds",
-      "About one-third",
-      "About one-half",
-      "About one-quarter"
+      "One-third",
+      "Two-thirds",
+      "One-half",
+      "Three-quarters"
     ],
-    "answer": 0,
-    "explanation": "The leader budgets about one-third and preserves about two-thirds for subordinate planning and preparation.",
+    "answer": 1,
+    "explanation": "The leader uses about one-third of the time and leaves about two-thirds for subordinates.",
     "sourceSlides": [
       5,
       16
@@ -56,15 +56,15 @@
       "time and warning orders",
       "objective"
     ],
-    "prompt": "What lets participants find the company order briefing?",
+    "prompt": "Which item in the sample company WARNO tells subordinates where to be for the OPORD?",
     "options": [
-      "The battalion's full order text",
-      "The final rehearsal results",
-      "The sustainment forecast",
-      "The time and place of the order"
+      "The list of participating elements",
+      "The OPORD time and place",
+      "The tasks not in the SOP",
+      "The planning timeline"
     ],
-    "answer": 3,
-    "explanation": "The warning order names when and where the OPORD will be issued.",
+    "answer": 1,
+    "explanation": "The WARNO names the place of the OPORD on the ground (1500H at BP2), so subordinates know where to go.",
     "sourceSlides": [
       6
     ]
@@ -79,15 +79,15 @@
       "time and warning orders",
       "objective"
     ],
-    "prompt": "What makes an initial company WARNO useful as soon as it arrives?",
+    "prompt": "How soon after the battalion WARNO does the sample company issue its own WARNO?",
     "options": [
-      "It reproduces the entire higher order",
-      "It assigns initial tasks and sets timelines",
-      "It supplies results from the final rehearsal",
-      "It confirms every detail of the completed plan"
+      "30 minutes",
+      "45 minutes",
+      "60 minutes",
+      "15 minutes"
     ],
-    "answer": 1,
-    "explanation": "The warning order gets preparation underway while the full plan is still developing.",
+    "answer": 3,
+    "explanation": "The company WARNO is issued at D-1 1015H, 15 minutes after the battalion WARNO, so subordinates can start preparing at once.",
     "sourceSlides": [
       6
     ]
@@ -102,15 +102,15 @@
       "mission analysis and coa",
       "objective"
     ],
-    "prompt": "Which kind of task is expressly assigned in the higher order?",
+    "prompt": "Which of the following describes a specified task in mission analysis?",
     "options": [
-      "Implied task",
-      "Routine SOP task",
-      "Optional task",
-      "Specified task"
+      "A task necessary to the mission that the order leaves unstated",
+      "A task stated in the higher headquarters' order",
+      "A task that must be done for the mission to succeed",
+      "A limit on freedom of action set by higher headquarters"
     ],
-    "answer": 3,
-    "explanation": "A specified task is stated in the order. An implied task follows from the analysis.",
+    "answer": 1,
+    "explanation": "A specified task is one the higher order states. An implied task is derived from the analysis.",
     "sourceSlides": [
       7
     ]
@@ -125,15 +125,15 @@
       "mission analysis and coa",
       "objective"
     ],
-    "prompt": "What turns a restated task into a mission that nests with higher intent?",
+    "prompt": "It is the part of the restated mission that explains why the task is done and nests it with the battalion intent.",
     "options": [
-      "A list of all known attachments",
-      "A separate map for every platoon",
-      "A purpose that explains what the task achieves for the higher mission",
-      "A transcript of the higher warning order"
+      "Purpose",
+      "Task",
+      "Time",
+      "Location"
     ],
-    "answer": 2,
-    "explanation": "The purpose explains why the company performs its task and connects it to the higher mission.",
+    "answer": 0,
+    "explanation": "The restated mission carries a purpose, which connects the company's task to the higher mission. \"B Co defends the pass\" with no purpose or time is the example to avoid.",
     "sourceSlides": [
       7
     ]
@@ -148,15 +148,15 @@
       "mission analysis and coa",
       "objective"
     ],
-    "prompt": "What does the METT-TC example do with facts about the situation?",
+    "prompt": "Which of the following describes how the sample treats each METT-TC fact?",
     "options": [
-      "Catalogs facts by collection date",
-      "Draws consequences for the company plan",
-      "Substitutes facts for course-of-action development",
-      "Records only factors explicitly named by battalion"
+      "It turns the fact into a \"so what\" for the company plan",
+      "It copies the definition of each factor in turn",
+      "It lists the fact in the order the battalion gave it",
+      "It records the fact without any deduction"
     ],
-    "answer": 1,
-    "explanation": "The study notes ask for a practical consequence from each relevant fact.",
+    "answer": 0,
+    "explanation": "The study notes say every fact becomes a \"so what\" for the plan, and warn against copying the OAKOC definitions.",
     "sourceSlides": [
       8
     ]
@@ -171,15 +171,15 @@
       "mission analysis and coa",
       "objective"
     ],
-    "prompt": "Who decides which COA to use after the staff compares them?",
+    "prompt": "On the war-game slide, who makes the decision once the matrix is scored?",
     "options": [
+      "The executive officer",
       "The commander",
-      "The matrix scorer",
-      "The platoon with the best position",
-      "The officer assigned to the war-game sketch"
+      "The platoon leaders",
+      "The matrix totals"
     ],
-    "answer": 0,
-    "explanation": "Comparison informs the commander's decision.",
+    "answer": 1,
+    "explanation": "The study notes say the matrix supports the decision, but the commander decides.",
     "sourceSlides": [
       10
     ]
@@ -194,15 +194,15 @@
       "movement and reconnaissance",
       "objective"
     ],
-    "prompt": "What should each reconnaissance task resolve?",
+    "prompt": "Which list gives the columns of the reconnaissance table in Steps 4-5?",
     "options": [
-      "An identified information gap",
-      "A final OPORD signature",
-      "An independent rehearsal grade",
-      "A routine inventory discrepancy"
+      "Task, purpose, method and end state",
+      "Terrain feature, enemy strength, route and time",
+      "Who, what, where, when and why",
+      "Information gap, how confirmed, by whom and when"
     ],
-    "answer": 0,
-    "explanation": "Reconnaissance is assigned against specific things the team still needs to verify.",
+    "answer": 3,
+    "explanation": "Each recon task in the sample answers a specific information gap, with how it is confirmed and by whom and when.",
     "sourceSlides": [
       11
     ]
@@ -217,15 +217,15 @@
       "movement and reconnaissance",
       "objective"
     ],
-    "prompt": "When can authorized movement begin during defensive preparation?",
+    "prompt": "Step 4 of the sample defense does not wait for which step to finish?",
     "options": [
-      "Only once the final order is issued",
-      "Only after the final rehearsal",
-      "Only after every position has been inspected",
-      "Before the tentative plan is complete"
+      "Step 2, issue a warning order",
+      "Step 5, conduct reconnaissance",
+      "Step 3, make a tentative plan",
+      "Step 7, issue the order"
     ],
-    "answer": 3,
-    "explanation": "The worked example initiates movement before finishing the plan to gain preparation time.",
+    "answer": 2,
+    "explanation": "Movement starts early: the company moves to its sector before the plan is finished, and Step 4 does not wait for Step 3.",
     "sourceSlides": [
       3,
       11
@@ -241,15 +241,15 @@
       "movement and reconnaissance",
       "objective"
     ],
-    "prompt": "Which perspective is emphasized when examining the defensive area during reconnaissance?",
+    "prompt": "During reconnaissance in the defense, from whose side does the leader walk the engagement area?",
     "options": [
-      "The higher headquarters briefing audience's perspective",
-      "The likely approaching force's perspective",
-      "The sustainment staff's perspective alone",
-      "The perspective of personnel back at the assembly area"
+      "The battalion's side",
+      "The adjacent company's side",
+      "The enemy's side",
+      "The reserve's side"
     ],
-    "answer": 1,
-    "explanation": "Walking the area from the approach side can reveal terrain effects the defenders might otherwise miss.",
+    "answer": 2,
+    "explanation": "The comparison table says the defense walks the engagement area from the enemy's side, and the recon table has the leader walk the creek from the enemy side.",
     "sourceSlides": [
       11
     ]
@@ -264,15 +264,15 @@
       "movement and reconnaissance",
       "objective"
     ],
-    "prompt": "What makes a reconnaissance assignment actionable?",
+    "prompt": "At what time does the sample company move to its sector?",
     "options": [
-      "An overlay with no assigned verification",
-      "A request to bring back any observations",
-      "A question, method, leader, and deadline",
-      "A copy of the company warning order with no task"
+      "1030H",
+      "1300H",
+      "1500H",
+      "1930H"
     ],
-    "answer": 2,
-    "explanation": "The worked table pairs each gap with a method, person and time.",
+    "answer": 1,
+    "explanation": "The company moves at 1300H, before the order is issued, because time on the ground is everything in the defense. The OP squad moves at 1930H.",
     "sourceSlides": [
       11
     ]
@@ -287,15 +287,15 @@
       "orders and communications",
       "objective"
     ],
-    "prompt": "Which OPORD paragraph contains the company communications plan?",
+    "prompt": "In the sample five-paragraph OPORD, which paragraph holds the PACE plan?",
     "options": [
-      "Execution",
-      "Command and Signal",
-      "Situation",
-      "Sustainment"
+      "Paragraph 3, Execution",
+      "Paragraph 4, Sustainment",
+      "Paragraph 5, Command and Signal",
+      "Paragraph 1, Situation"
     ],
-    "answer": 1,
-    "explanation": "The plan for command and signal appears in paragraph five.",
+    "answer": 2,
+    "explanation": "Paragraph 5 carries the PACE plan, code words and pyro signals.",
     "sourceSlides": [
       12
     ]
@@ -310,15 +310,15 @@
       "orders and communications",
       "objective"
     ],
-    "prompt": "Where do attachments and the expected opposing course of action appear in the example order?",
+    "prompt": "The OPFOR most probable course of action and the attachments are given in which paragraph of the sample OPORD?",
     "options": [
       "Situation",
       "Mission",
-      "Sustainment",
+      "Execution",
       "Command and Signal"
     ],
     "answer": 0,
-    "explanation": "The first paragraph describes opposing and friendly forces and attachments.",
+    "explanation": "Paragraph 1, Situation, carries the OPFOR MPCOA and sketch, the adjacent units, the battalion reserve and the attachments.",
     "sourceSlides": [
       12
     ]
@@ -333,15 +333,15 @@
       "orders and communications",
       "objective"
     ],
-    "prompt": "Where does the sample order place casualty collection and resupply?",
+    "prompt": "Class IV/V timing, the casualty collection point and night resupply appear in which paragraph of the sample OPORD?",
     "options": [
-      "Mission",
+      "Execution",
       "Situation",
-      "Sustainment",
-      "Command and Signal"
+      "Command and Signal",
+      "Sustainment"
     ],
-    "answer": 2,
-    "explanation": "The fourth paragraph covers logistical arrangements, including casualty collection and resupply.",
+    "answer": 3,
+    "explanation": "Paragraph 4, Sustainment, gives Class IV/V at 1500, the CCP location and resupply by night.",
     "sourceSlides": [
       12
     ]
@@ -356,15 +356,15 @@
       "orders and communications",
       "objective"
     ],
-    "prompt": "What does a PACE plan arrange?",
+    "prompt": "Which list expands PACE as used in paragraph 5 of the sample order?",
     "options": [
-      "Preparation, assessment, coordination and execution meetings",
-      "Personnel, attachments, capabilities and equipment",
-      "Positions, avenues, constraints and engagement areas",
-      "Primary, alternate, contingency and emergency communications"
+      "Preparation, assessment, coordination, execution",
+      "Personnel, attachments, capabilities, equipment",
+      "Positions, avenues, constraints, engagement areas",
+      "Primary, alternate, contingency, emergency"
     ],
     "answer": 3,
-    "explanation": "PACE gives the company a sequence of communications means to use as conditions change.",
+    "explanation": "PACE gives a sequence of communication means: primary, alternate, contingency and emergency.",
     "sourceSlides": [
       12
     ]
@@ -379,15 +379,15 @@
       "supervision and refinement",
       "objective"
     ],
-    "prompt": "What does a subordinate backbrief help check?",
+    "prompt": "In the Step 8 table, which activity has the purpose \"check mutual support and gaps\"?",
     "options": [
-      "Whether the original order was received by battalion",
-      "Whether barrier materials were purchased",
-      "Whether every map uses the same paper size",
-      "Whether subordinate plans fit together and cover assigned responsibilities"
+      "Platoon leader backbriefs with sector sketches",
+      "Priorities of work",
+      "PCIs, wire and radio checks",
+      "Stand-to through BMNT"
     ],
-    "answer": 3,
-    "explanation": "Backbriefs with sector sketches let leaders check mutual support and gaps.",
+    "answer": 0,
+    "explanation": "PL backbriefs with sector sketches are how the sample checks mutual support and gaps.",
     "sourceSlides": [
       13
     ]
@@ -402,15 +402,15 @@
       "supervision and refinement",
       "objective"
     ],
-    "prompt": "Why run wire and radio checks before execution?",
+    "prompt": "In the Step 8 table, which activity has the purpose \"confirm PACE works\"?",
     "options": [
-      "To establish the next battalion objective",
-      "To confirm the planned communications means work",
-      "To set the initial warning-order deadline",
-      "To calculate the amount of barrier material"
+      "Platoon leader backbriefs with sector sketches",
+      "The commander walking the line",
+      "PCIs; wire and radio checks",
+      "Stand-to through BMNT"
     ],
-    "answer": 1,
-    "explanation": "Communications checks verify that the planned PACE means can be used.",
+    "answer": 2,
+    "explanation": "The PCIs and the wire and radio checks confirm that the PACE means work before the attack.",
     "sourceSlides": [
       13
     ]
@@ -425,15 +425,15 @@
       "supervision and refinement",
       "objective"
     ],
-    "prompt": "What distinguishes a useful rehearsal in the study notes?",
+    "prompt": "Priorities of work, listed in order, serve which purpose in the Step 8 table?",
     "options": [
-      "A named method and a focus on critical events",
-      "A list of attendees with no events",
-      "A slide with only the word rehearsal",
-      "A generic sequence independent of the plan"
+      "Confirm that PACE works",
+      "Check from the enemy's side",
+      "Build the defense in order",
+      "Be ready at the expected attack time"
     ],
-    "answer": 0,
-    "explanation": "The sample rehearsal covers specific transitions so participants can test coordination.",
+    "answer": 2,
+    "explanation": "The study notes list the priorities of work in order (security, positions, fields of fire, obstacles, wire, dig) to build the defense in order.",
     "sourceSlides": [
       13
     ]
@@ -448,15 +448,15 @@
       "supervision and refinement",
       "objective"
     ],
-    "prompt": "What remains part of Step 8 in the defensive example?",
+    "prompt": "In the defense, which TLP step has the leader check positions, fields of fire and wire, rehearse the fight and stand-to at BMNT?",
     "options": [
-      "Writing the first warning order",
-      "First receipt of the mission",
-      "Check positions and fields of fire",
-      "Selecting the initial planning roles"
+      "Step 8, supervise and refine",
+      "Step 5, conduct reconnaissance",
+      "Step 6, complete the plan",
+      "Step 4, initiate movement"
     ],
-    "answer": 2,
-    "explanation": "Leaders supervise preparation through inspections, rehearsals and refinement.",
+    "answer": 0,
+    "explanation": "The comparison table gives these activities for Step 8 in the defense.",
     "sourceSlides": [
       3,
       13

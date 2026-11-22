@@ -7,18 +7,17 @@
     "tags": [
       "system components"
     ],
-    "prompt": "A procurement proposal claims more devices alone will create an integrated C2 capability. Which challenge is strongest?",
+    "prompt": "A unit watches a river approach, a satellite pass and a network segment continuously, using visual, electronic and aural means, to keep situational awareness. Which C4ISTAR component is this?",
     "options": [
-      "C2 becomes complete when every item has a serial number",
-      "Organizational and information integration also matter",
-      "Human responsibilities disappear after hardware installation",
-      "Device quantity always measures decision quality directly"
+      "Reconnaissance",
+      "Intelligence",
+      "Surveillance",
+      "Target Acquisition"
     ],
-    "answer": 1,
-    "explanation": "The system-of-systems concept requires functioning organizational and information relationships, not inventory alone.",
+    "answer": 2,
+    "explanation": "Systematic observation of areas, persons, activities, objects or domains, including aerospace and cyberspace, is surveillance.",
     "sourceSlides": [
-      7,
-      14
+      11
     ]
   },
   {
@@ -29,19 +28,17 @@
     "tags": [
       "system components"
     ],
-    "prompt": "Reliable transport and fast processing are demonstrated, but users receive unusable information. What has not been established?",
+    "prompt": "A team uses a UAS to obtain information about an adversary's activities and the characteristics of an area through visual observation. Which C4ISTAR component is this?",
     "options": [
-      "The measured processing speed in the demonstration",
-      "The existence of the tested transport link",
-      "The presence of the demonstrated computers",
-      "The integrated information purpose"
+      "Surveillance",
+      "Target Acquisition",
+      "Intelligence",
+      "Reconnaissance"
     ],
     "answer": 3,
-    "explanation": "Component performance is insufficient if the resulting information does not support the intended users.",
+    "explanation": "Obtaining information about an adversary or an area through visual observation or other detection techniques is reconnaissance.",
     "sourceSlides": [
-      8,
-      9,
-      14
+      13
     ]
   },
   {
@@ -52,19 +49,17 @@
     "tags": [
       "system components"
     ],
-    "prompt": "A report merges observations and conclusions without distinguishing them. What should the assessment require?",
+    "prompt": "In the intelligence cycle as the manual describes it, which stage comes immediately after Processing and Exploitation?",
     "options": [
-      "Clear separation of collected evidence and analytical judgment",
-      "Removing all source observations from the record",
-      "Treating every observation as a conclusive interpretation",
-      "Assigning certainty according to the report's page count"
+      "Analysis and Production",
+      "Collection",
+      "Dissemination and Integration",
+      "Planning and Direction"
     ],
     "answer": 0,
-    "explanation": "Collection and analysis are related but distinct; readers need to understand the evidential basis of conclusions.",
+    "explanation": "The cycle runs Planning and Direction, Collection, Processing and Exploitation, Analysis and Production, then Dissemination and Integration.",
     "sourceSlides": [
-      10,
-      11,
-      13
+      10
     ]
   },
   {
@@ -75,19 +70,17 @@
     "tags": [
       "system components"
     ],
-    "prompt": "A network outage is described as proof that command authority ceased to exist. What correction is appropriate?",
+    "prompt": "Which sequence matches the chain \"detect and collect; transmit and process; understand and decide; act\"?",
     "options": [
-      "A router failure transfers command to the equipment vendor",
-      "Authority exists only while every device is online",
-      "The computer with the newest software inherits authority",
-      "Technical failure does not erase authority"
+      "Command and Control; Sensors / ISTAR; Communications and Computers; Forces / Shooters",
+      "Sensors / ISTAR; Command and Control; Communications and Computers; Forces / Shooters",
+      "Communications and Computers; Sensors / ISTAR; Command and Control; Forces / Shooters",
+      "Sensors / ISTAR; Communications and Computers; Command and Control; Forces / Shooters"
     ],
     "answer": 3,
-    "explanation": "Technical systems support command, but command is an assigned authority and responsibility.",
+    "explanation": "The slide runs from sensors and ISTAR, through communications and computers, to command and control, and finally forces and shooters.",
     "sourceSlides": [
-      7,
-      8,
-      9
+      14
     ]
   },
   {
@@ -98,18 +91,17 @@
     "tags": [
       "information and authority"
     ],
-    "prompt": "A shared picture looks consistent because conflicting reports were silently discarded. What is the concern?",
+    "prompt": "A commander directs forces and employs resources, while supporting systems collect, process, display, store and disseminate information. Which pair does this describe?",
     "options": [
-      "Discarding all disagreement guarantees completeness",
-      "Consistency of appearance proves the picture is accurate",
-      "Visual agreement may conceal unresolved evidence quality",
-      "The number of displayed symbols establishes truth"
+      "Surveillance and reconnaissance",
+      "Communications and computers",
+      "Command and control",
+      "Intelligence and target acquisition"
     ],
     "answer": 2,
-    "explanation": "A coherent display is not enough if its apparent certainty hides unresolved or excluded evidence.",
+    "explanation": "Command is the authority to direct forces and employ resources; control is the activities and systems that handle the information.",
     "sourceSlides": [
-      14,
-      25
+      7
     ]
   },
   {
@@ -120,18 +112,16 @@
     "tags": [
       "information and authority"
     ],
-    "prompt": "An automated exchange bypasses established permissions to reduce delay. Which review is necessary?",
+    "prompt": "Sensors collect target and situation data, decision-makers plan, and shooters execute while reporting back. Which model does this describe?",
     "options": [
-      "Remove accountability because the process is automated",
-      "Assume lower latency authorizes every information transfer",
-      "Preserve authorized access and responsibility alongside timeliness",
-      "Treat connectivity as consent from all information owners"
+      "Sensors, decision-makers and shooters",
+      "The intelligence cycle of planning, collection and dissemination",
+      "The D3A targeting process of decide, detect and deliver",
+      "The TACOMS concept of defined interoperability points"
     ],
-    "answer": 2,
-    "explanation": "Timeliness does not override authorization or institutional responsibility.",
+    "answer": 0,
+    "explanation": "The interoperability slide links sensors, decision-makers and shooters, with shooters feeding information back.",
     "sourceSlides": [
-      7,
-      24,
       25
     ]
   },
@@ -143,17 +133,16 @@
     "tags": [
       "information and authority"
     ],
-    "prompt": "A report satisfies a basic observation need but is reused for a purpose demanding greater accuracy. What must be checked?",
+    "prompt": "The ultimate product of the integrated C4ISTAR components enables commanders to make timely decisions and employ forces. Which two terms name it?",
     "options": [
-      "Whether a faster network can make its original content more exact",
-      "Whether its information quality meets the new requirement",
-      "Whether its original file name remains unchanged",
-      "Whether copying it into a new template creates sufficient detail"
+      "Situational awareness and an interface control document",
+      "Situational awareness and a Common Operational Picture",
+      "A common operational picture and an interoperability profile",
+      "The intelligence cycle and target acquisition"
     ],
     "answer": 1,
-    "explanation": "Information suitability depends on the intended use; transfer or reformatting does not improve underlying accuracy.",
+    "explanation": "The lesson says the ultimate product is situational awareness and a COP.",
     "sourceSlides": [
-      12,
       14
     ]
   },
@@ -165,15 +154,15 @@
     "tags": [
       "information and authority"
     ],
-    "prompt": "Feedback arrives after the displayed situation has changed, but its age is ignored. What assumption is unsafe?",
+    "prompt": "A staff treats sensors, decision-makers and shooters as a one-way chain. Which lesson statement contradicts this?",
     "options": [
-      "That users should understand the limits of available evidence",
-      "That received feedback necessarily describes the current situation",
-      "That information age can matter to interpretation",
-      "That updated observations may change an assessment"
+      "Sensors also execute the plans for the decision-makers in the field",
+      "Shooters also provide information back to decision-makers as conditions change",
+      "Decision-makers also collect the information on the target and location",
+      "Interoperability requires the three to use identical systems and software"
     ],
     "answer": 1,
-    "explanation": "Delivery does not establish currency; decision-makers need to understand information limitations.",
+    "explanation": "Shooters execute the plans while providing information back to decision-makers as the operational environment changes.",
     "sourceSlides": [
       25
     ]
@@ -186,18 +175,17 @@
     "tags": [
       "interoperability principles"
     ],
-    "prompt": "Every internal system is replaced with one brand, yet staff procedures remain incompatible. What follows?",
+    "prompt": "A unit's legacy radios, cellular, Wi-Fi and IPVPN links must all keep its COP current. Which interoperability principle does this rely on?",
     "options": [
-      "Interoperability has no connection to staff practices",
-      "One vendor automatically standardizes every human process",
-      "Organizational differences cannot affect information exchange",
-      "Uniform equipment does not prove complete interoperability"
+      "Open architecture of the PA C4ISTAR framework",
+      "Standardized networking and data exchange over TCP/IP",
+      "Interoperability through defined Interoperability Points",
+      "Seamless interconnectivity through multiple media"
     ],
     "answer": 3,
-    "explanation": "The lesson includes people and processes; technical uniformity alone cannot satisfy the whole concept.",
+    "explanation": "The Army operates an amalgam of media, and seamless communications let troops and commanders keep SA and COP.",
     "sourceSlides": [
-      17,
-      18
+      21
     ]
   },
   {
@@ -208,17 +196,16 @@
     "tags": [
       "interoperability principles"
     ],
-    "prompt": "Two services use the same interface label but incompatible implementation options. What should acceptance examine?",
+    "prompt": "Two systems exchange data using the same standard, but the receiver reads a value differently. Which document should define the information, its format and how it is interpreted?",
     "options": [
-      "The published specification and the suppliers' current product certificates",
-      "The previous acceptance record for each component assessed separately",
-      "The advertised standard name and nominal service capability",
-      "The agreed profile and actual implementation behavior"
+      "Interface Control Document",
+      "Service Interoperability Point profile",
+      "Open architecture framework",
+      "Seamless interconnectivity plan"
     ],
-    "answer": 3,
-    "explanation": "Interoperability profiles specify options and standards; labels alone do not establish conformance.",
+    "answer": 0,
+    "explanation": "The ICD defines what information is exchanged, how it is formatted, what interface carries it and how the receiving system interprets it.",
     "sourceSlides": [
-      19,
       20
     ]
   },
@@ -230,18 +217,17 @@
     "tags": [
       "interoperability principles"
     ],
-    "prompt": "Packet delivery succeeds, but values are interpreted differently by the receiving system. Which test is missing?",
+    "prompt": "A unit wants to add a new capability to its existing C4ISTAR system, using common internet protocols and standards, without replacing the architecture. Which principle supports this?",
     "options": [
-      "Only the availability of power to the network device",
-      "Correct end-to-end interpretation of exchanged information",
-      "Only the sender's ability to connect a cable",
-      "Whether packet delivery can replace all interface documentation"
+      "Standardized Service Interoperability Points",
+      "Interface Control Documents",
+      "Seamless interconnectivity",
+      "Open architecture"
     ],
-    "answer": 1,
-    "explanation": "Transport success must be complemented by semantic and application-level correctness.",
+    "answer": 3,
+    "explanation": "Open architecture allows new capabilities to be added to existing systems through common communications, internet protocols and standards.",
     "sourceSlides": [
-      20,
-      23
+      22
     ]
   },
   {
@@ -252,19 +238,18 @@
     "tags": [
       "interoperability principles"
     ],
-    "prompt": "An interface change is made without coordinating dependent systems. What is the principal integration risk?",
+    "prompt": "Two applications both use TCP/IP, yet they read one message field differently. Which lesson element addresses this?",
     "options": [
-      "Existing consumers may no longer interpret the exchange correctly",
-      "Interface documentation becomes unnecessary after the first release",
-      "Open architecture guarantees all changes are backward compatible",
-      "A newer format automatically updates every remote consumer"
+      "Open architecture, which guarantees each field is read the same way",
+      "TCP/IP, which defines the meaning of each message field",
+      "An ICD, which defines how the receiving system interprets the information",
+      "Interoperability Points, which define each receiver's internal technology"
     ],
-    "answer": 0,
-    "explanation": "Defined interfaces create dependencies; changes need coordination and compatibility validation.",
+    "answer": 2,
+    "explanation": "TCP/IP gives a communication framework, while the ICD describes the interfaces and rules, including how the receiver interprets information.",
     "sourceSlides": [
-      17,
       20,
-      22
+      23
     ]
   },
   {
@@ -275,15 +260,15 @@
     "tags": [
       "architecture and security"
     ],
-    "prompt": "A supplier equates open architecture with anonymous access. Which response is correct?",
+    "prompt": "A planner claims that open architecture and TCP/IP alone ensure that only authorized users get access. Which lesson statement answers this?",
     "options": [
-      "Only proprietary systems need access restrictions",
-      "Open architecture prohibits every form of authentication",
-      "Published standards automatically authorize every user",
-      "Extensible interfaces still require appropriate security controls"
+      "Open architecture replaces authorization with common standards for every user and device",
+      "Interoperability is not unrestricted connectivity; authentication and access controls still apply",
+      "TCP/IP provides encryption and access control by default for all connected systems",
+      "Security measures apply only to legacy systems that lack open interfaces"
     ],
-    "answer": 3,
-    "explanation": "Openness concerns architectural interoperability and extension, not unrestricted information access.",
+    "answer": 1,
+    "explanation": "The lesson says interoperability does not mean unrestricted connectivity and names authentication, authorization and access controls among the measures.",
     "sourceSlides": [
       22,
       24
@@ -297,17 +282,16 @@
     "tags": [
       "architecture and security"
     ],
-    "prompt": "A design uses TCP/IP and encryption but omits recipient authorization. What can be concluded?",
+    "prompt": "Which list gives measures the lesson names for protecting confidentiality, integrity and availability?",
     "options": [
-      "Access governance remains incomplete",
-      "Encryption replaces the need to identify intended recipients",
-      "Every security requirement is satisfied by those two features",
-      "TCP/IP determines who has a legitimate need-to-know"
+      "Authentication, authorization, encryption, network segmentation, secure protocols and access controls",
+      "Authentication, authorization, encryption, frequency allocation, secure protocols and access controls",
+      "Authentication, authorization, open architecture, network segmentation, secure protocols and access controls",
+      "Authentication, authorization, encryption, network segmentation, secure protocols and interface standardization"
     ],
     "answer": 0,
-    "explanation": "Networking and encryption are not substitutes for authorization and access control.",
+    "explanation": "The security slide lists these measures, plus protection against unauthorized access.",
     "sourceSlides": [
-      23,
       24
     ]
   },
@@ -319,18 +303,18 @@
     "tags": [
       "architecture and security"
     ],
-    "prompt": "All individual components pass tests, but a shared network dependency fails the integrated service. What did component tests miss?",
+    "prompt": "Which statement correctly relates the OODA loop and the D3A methodology in the PA-C4ISTAR framework?",
     "options": [
-      "The existence of individual user manuals",
-      "The fact that each component had a test result",
-      "System-level availability dependencies",
-      "The physical presence of the tested devices"
+      "D3A is the C2 process loop, which OODA reinforces as a targeting methodology",
+      "OODA and D3A are two names for the intelligence cycle",
+      "OODA is the C2 process loop, which D3A reinforces as a targeting methodology",
+      "OODA replaces D3A in a coalition environment"
     ],
     "answer": 2,
-    "explanation": "Integration introduces relationships and dependencies that individual component tests may not exercise.",
+    "explanation": "The framework depicts the C2 process as the OODA loop, reinforced with the D3A methodology.",
     "sourceSlides": [
-      21,
-      24
+      27,
+      29
     ]
   },
   {
@@ -341,18 +325,16 @@
     "tags": [
       "architecture and security"
     ],
-    "prompt": "A planned upgrade improves exchange but removes segmentation. What should the review balance?",
+    "prompt": "A secure integrated service suffers frequent outages. Which property of information security is weakened?",
     "options": [
-      "Functional interoperability with security requirements",
-      "Only whether the new interface uses fewer words",
-      "Only the highest possible count of connected devices",
-      "The assumption that more connectivity always means more security"
+      "Confidentiality",
+      "Availability",
+      "Integrity",
+      "Authorization"
     ],
-    "answer": 0,
-    "explanation": "Interoperability and protection must be designed together; functional improvement does not excuse lost safeguards.",
+    "answer": 1,
+    "explanation": "Security protects confidentiality, integrity and availability; frequent outages weaken availability.",
     "sourceSlides": [
-      18,
-      22,
       24
     ]
   },
@@ -364,15 +346,15 @@
     "tags": [
       "configuration concepts and evolution"
     ],
-    "prompt": "An architecture is evaluated using documented equipment specifications, interfaces and applicable standards, without considering its intended environment or users. What is the main limitation?",
+    "prompt": "A design is reviewed only against documented equipment specifications, interfaces and applicable standards. Which limitation applies?",
     "options": [
-      "Interoperability with specified standards cannot be determined",
-      "Performance against documented equipment limits cannot be assessed",
-      "Suitability cannot be judged from technical elements alone",
-      "Compatibility between the proposed interfaces cannot be assessed"
+      "Interoperability with the specified standards cannot be determined from the documented elements",
+      "Performance against the documented equipment limits cannot be assessed from the same elements",
+      "Compatibility between the proposed interfaces cannot be assessed from the documented elements",
+      "Its suitability for the intended environment and users cannot be established from those elements alone"
     ],
-    "answer": 2,
-    "explanation": "The source explicitly relates architecture to environment, actors, processes and information structure.",
+    "answer": 3,
+    "explanation": "Specifications, interfaces and standards show what the design contains, not how suitable it is for its environment and users; the lesson treats these as conceptual roles and relationships.",
     "sourceSlides": [
       26,
       29
@@ -386,15 +368,15 @@
     "tags": [
       "configuration concepts and evolution"
     ],
-    "prompt": "Historical delivery milestones are presented as proof of present-day readiness. What qualification is necessary?",
+    "prompt": "A presentation lists MCC, BFTS and VSAT deliveries as proof that the Army is ready today. Which qualification applies?",
     "options": [
-      "Historical diagrams are substitutes for all present validation",
-      "Once acquired, equipment can never develop support dependencies",
-      "Past acquisition is not current readiness",
-      "A recorded delivery date guarantees indefinite operational readiness"
+      "Past delivery shows capability development, not current operational readiness",
+      "Delivery dates guarantee readiness until the next milestone is delivered",
+      "Each milestone replaced the one before it entirely and ended the earlier systems",
+      "Only the latest milestone counts as evidence of integration in the Army"
     ],
-    "answer": 2,
-    "explanation": "Milestones document development history, not a current readiness assessment.",
+    "answer": 0,
+    "explanation": "The milestone slides show progressive expansion and integration of capabilities; they are history, not a claim about current readiness.",
     "sourceSlides": [
       30,
       31,
@@ -413,15 +395,15 @@
     "tags": [
       "configuration concepts and evolution"
     ],
-    "prompt": "A classroom configuration diagram is offered as a complete implementation instruction. Why is that inadequate?",
+    "prompt": "A learner is shown a diagram of sensors, network links and information systems. What should the explanation cover?",
     "options": [
-      "Labels alone guarantee correct implementation by any user",
-      "A conceptual diagram omits required specifications, authority and validation",
-      "Every diagram necessarily contains every operational parameter",
-      "A diagram removes the need for approved technical documentation"
+      "The addresses and settings needed to reproduce the setup on an operational network",
+      "Proof that every depicted component is interchangeable with any other component",
+      "The roles and information relationships of the components, at a conceptual level",
+      "Confirmation that the system is ready for operational use without any testing"
     ],
-    "answer": 1,
-    "explanation": "Conceptual relationships support learning but do not replace authorized specifications and validated implementation.",
+    "answer": 2,
+    "explanation": "The system slides present roles and information relationships conceptually, not operating instructions.",
     "sourceSlides": [
       37,
       38,
@@ -436,15 +418,15 @@
     "tags": [
       "configuration concepts and evolution"
     ],
-    "prompt": "Which assessment best fits the lesson's integrated-system objective?",
+    "prompt": "Which combination best describes what the lesson expects of an integrated C4ISTAR and weapon-system capability?",
     "options": [
-      "Check useful information exchange, roles, interfaces and protection together",
-      "Verify one connection and assume every service behaves identically",
-      "Rank systems only by the amount of data they can display",
-      "Count installed devices and ignore how people use the information"
+      "Maximum data display, one brand of equipment and fewer procedures for the staff",
+      "Useful information exchange, clear roles, defined interfaces and protection together",
+      "One verified connection assumed to hold for every service on the network",
+      "A count of installed devices used as the measure of integration"
     ],
-    "answer": 0,
-    "explanation": "The lesson integrates components and organizational roles through usable, secure information exchange.",
+    "answer": 1,
+    "explanation": "The lesson ties interoperability to useful exchange of information, roles, standardized interfaces and security together.",
     "sourceSlides": [
       14,
       18,

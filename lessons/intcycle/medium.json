@@ -9,20 +9,18 @@
       "processed information",
       "intelligence product"
     ],
-    "prompt": "A team translates two conflicting shelter reports and labels the resulting table validated intelligence. Which review comment best addresses the problem?",
+    "prompt": "Which list gives the five stages of the intelligence cycle in order?",
     "options": [
-      "The translated format validates both totals as equally strong intelligence findings",
-      "Translation improves usability, but analysis must still address the conflicting claims",
-      "The conflicting totals make translated material unsuitable for any later analysis",
-      "The common language allows the team to merge both claims without interpretation"
+      "Planning and Direction, Collection, Processing and Exploitation, Analysis and Production, Dissemination and Integration",
+      "Planning and Direction, Processing and Exploitation, Collection, Analysis and Production, Dissemination and Integration",
+      "Collection, Planning and Direction, Processing and Exploitation, Analysis and Production, Dissemination and Integration",
+      "Planning and Direction, Collection, Analysis and Production, Processing and Exploitation, Dissemination and Integration"
     ],
-    "answer": 1,
-    "explanation": "Translation belongs to preparation and does not resolve conflicting claims or establish their meaning. The table may be ready for analysis, but calling it validated intelligence skips that interpretive work. The existence of a usable format does not settle the underlying disagreement.",
+    "answer": 0,
+    "explanation": "Slides 12 and 13 list the stages in this order, from Planning and Direction to Dissemination and Integration.",
     "sourceSlides": [
-      11,
       12,
-      13,
-      17
+      13
     ]
   },
   {
@@ -35,19 +33,17 @@
       "limitations",
       "decision support"
     ],
-    "prompt": "Only some fictional shelters have reported. Which briefing statement best supports understanding without extending beyond the available information?",
+    "prompt": "Which statement gives the stated significance of intelligence in EW operations?",
     "options": [
-      "Extend the reported demand increase to all shelters in the exercise area",
-      "Withhold all findings until every shelter submits a report at the same time",
-      "Interpret the reporting gap as evidence of stable demand in the remaining shelters",
-      "Describe rising demand in received reports and identify the unreported shelters as a gap"
+      "It provides commanders with actionable insights to understand threats, predict adversary actions and optimize mission success",
+      "It ensures a steady flow of information to meet evolving operational needs",
+      "It enhances situational awareness, supports identification of electronic threats and informs countermeasure strategies",
+      "It establishes requirements and priorities that align resources with the mission"
     ],
-    "answer": 3,
-    "explanation": "The statement connects the observed information to a limited assessment while keeping the coverage gap visible. Extending the pattern to every shelter would claim knowledge the reports do not provide. Decision support depends on explaining what the available information can reasonably support.",
+    "answer": 2,
+    "explanation": "Slide 10 gives this wording for EW operations; the second option is the lesson's wording for military operations in general.",
     "sourceSlides": [
-      10,
-      13,
-      19
+      10
     ]
   },
   {
@@ -60,20 +56,17 @@
       "feedback",
       "evolving needs"
     ],
-    "prompt": "After receiving an assessment, the exercise leader asks a narrower follow-up question. Which response best uses the cycle?",
+    "prompt": "Which of the following is NOT a characteristic of the intelligence cycle described in the lesson?",
     "options": [
-      "Refine requirements and revisit relevant stages to answer the changed information need",
-      "Resend the completed product because it addresses the leader's original requirement",
-      "Redesign the existing graphics before checking what the new question requires",
-      "Discard the earlier findings because a follow-up question invalidates previous analytical work"
+      "A dynamic, iterative process",
+      "A process that drives all intelligence activities",
+      "A steady flow of information for evolving operational needs",
+      "A fixed sequence that is completed once and then closed"
     ],
-    "answer": 0,
-    "explanation": "The cycle is dynamic and responds to evolving needs, so the follow-up should inform revised requirements and relevant further work. Resending the same product may leave the new question unanswered. A revised need does not automatically invalidate every finding already developed.",
+    "answer": 3,
+    "explanation": "Slide 11 describes the cycle as continuous, dynamic and iterative, so a one-time closed sequence is not a characteristic.",
     "sourceSlides": [
-      11,
-      12,
-      13,
-      14
+      11
     ]
   },
   {
@@ -85,19 +78,17 @@
       "decision relevance",
       "intelligence process"
     ],
-    "prompt": "A tabletop team gathers many accurate public weather reports but its briefing must explain shelter supply demand. What is the main issue?",
+    "prompt": "In the lesson's diagram, how is intelligence classified, compared with information?",
     "options": [
-      "Public weather sources fall outside the collection disciplines in the intelligence cycle",
-      "The weather report volume is too small to qualify as useful intelligence",
-      "The team must connect the available information to the actual support decision",
-      "Weather reports already establish supply demand without needing a further analytical link"
+      "Unprocessed (raw)",
+      "Semi-processed to processed",
+      "Unprocessed to semi-processed",
+      "Processed only after dissemination"
     ],
-    "answer": 2,
-    "explanation": "Information becomes useful to this task through its relationship to the requirement and the analysis supporting the decision. Accurate weather reports may contribute, but volume or accuracy alone does not explain shelter supply demand. The team must establish their relevance to the question.",
+    "answer": 1,
+    "explanation": "Slide 11 shows information as unprocessed (raw) and intelligence as semi-processed to processed.",
     "sourceSlides": [
-      10,
-      12,
-      14
+      11
     ]
   },
   {
@@ -110,17 +101,16 @@
       "priorities",
       "commander collaboration"
     ],
-    "prompt": "The leader requests a short briefing before deciding which support issue needs further review. Reports cover several unrelated subjects. What should the team clarify?",
+    "prompt": "Which list gives the three items under Importance in Planning and Direction?",
     "options": [
-      "Clarify the decision question and the information gaps most important to answering it",
-      "Select the subject with the greatest number of already formatted briefing slides",
-      "Prioritize the subject supported by the most confident classroom report author",
-      "Fit as many unrelated subjects as possible into the available briefing time"
+      "Defining EW intelligence needs, allocating resources, tasking EW assets",
+      "Establishing intelligence requirements, allocating resources, tasking EW assets",
+      "Establishing intelligence requirements, prioritizing tasks, directing EW resources",
+      "Defining EW intelligence needs, prioritizing tasks, directing EW resources"
     ],
-    "answer": 0,
-    "explanation": "Planning and direction should establish the information need and priorities in consultation with the decision-maker. Selecting the subject with the most ready-made slides would let presentation convenience define the requirement, even though the briefing exists to support a particular decision.",
+    "answer": 2,
+    "explanation": "Slide 14 lists these three under Importance; the other three, Defining Needs, Allocating Resources and Tasking EW Assets, are its Activities.",
     "sourceSlides": [
-      12,
       14
     ]
   },
@@ -133,17 +123,16 @@
       "resource allocation",
       "mission alignment"
     ],
-    "prompt": "Two classroom teams duplicate a low-priority report review while an important decision question remains unanswered. Which management adjustment fits planning and direction?",
+    "prompt": "Assigning specific tasks to EW units or systems based on identified intelligence needs is which Planning and Direction activity?",
     "options": [
-      "Retain the duplication because separate reviews provide more evidence of the unmet need",
-      "Develop additional templates before deciding which information need deserves staff attention",
-      "Coordinate the available staff effort around the important unanswered decision requirement",
-      "Assign priorities according to the order in which teams submitted their folders"
+      "Allocating resources",
+      "Defining EW intelligence needs",
+      "Prioritizing tasks",
+      "Tasking EW assets"
     ],
-    "answer": 2,
-    "explanation": "Planning and direction includes coordinating resources against identified needs, so the unmet priority should guide the adjustment. Duplicate review can sometimes be useful, but its mere existence does not justify leaving an important requirement unanswered when staff effort is limited.",
+    "answer": 3,
+    "explanation": "Slide 14 describes Tasking EW Assets as assigning specific tasks to EW units or systems and coordinating their deployment for optimal coverage.",
     "sourceSlides": [
-      12,
       14
     ]
   },
@@ -156,17 +145,16 @@
       "environment assessment",
       "requirement scope"
     ],
-    "prompt": "A disaster exercise changes from a routine update to reviewing needs after a new storm. The team proposes keeping all old priorities. What is the better response?",
+    "prompt": "Which Planning and Direction activity includes assessing the operational environment to determine what intelligence is required?",
     "options": [
-      "Retain the old priorities because the requirement belongs to the earlier exercise phase",
-      "Reassess the environment and align requirements with the changed decision purpose",
-      "Replace all information sources before consulting the leader about the new decision",
-      "Wait for final dissemination before reviewing whether the original priorities remain useful"
+      "Allocating resources",
+      "Prioritizing tasks",
+      "Defining EW intelligence needs",
+      "Directing EW resources"
     ],
-    "answer": 1,
-    "explanation": "Planning includes assessing the environment and aligning requirements with mission objectives, which can change with the exercise situation. Retaining every old priority without review risks answering yesterday's question. The cycle's iterative nature supports revisiting direction when the decision context changes.",
+    "answer": 2,
+    "explanation": "Slide 14 lists assessing the operational environment and collaborating with commanders under Defining EW Intelligence Needs.",
     "sourceSlides": [
-      11,
       12,
       14
     ]
@@ -180,15 +168,15 @@
       "intelligence needs",
       "decision relevance"
     ],
-    "prompt": "A planning note says only, 'Find everything about the disaster.' Which replacement would best guide a classroom review?",
+    "prompt": "Which of the following is NOT an item under Planning and Direction?",
     "options": [
-      "Identify the information needed to explain the particular support shortfall under review",
-      "Gather more files across all subjects and define the support issue afterward",
-      "Collect every publication first and let the final briefing establish the requirement",
-      "Rank information by download date so recent files determine the review's subject"
+      "Setting clear priorities to focus efforts on critical intelligence gaps",
+      "Identifying the specific information needed to support mission objectives",
+      "Converting collected data into usable formats",
+      "Guiding EW assets to collect and process the necessary intelligence"
     ],
-    "answer": 0,
-    "explanation": "The replacement connects information needs to a defined support problem, giving the review a useful direction. Gathering everything may produce many files, but volume alone does not establish priorities or explain which information will help answer the decision-maker's question.",
+    "answer": 2,
+    "explanation": "Converting collected data into usable formats is Processing and Exploitation (slide 12); slide 14 lists the other items under Planning and Direction.",
     "sourceSlides": [
       12,
       14
@@ -205,15 +193,15 @@
       "OSINT",
       "source classification"
     ],
-    "prompt": "An exercise packet contains an authorized interview, training photographs and a public bulletin. Which classification preserves the distinctions among the inputs?",
+    "prompt": "Which of the following is NOT one of the sources listed under the Collection stage?",
     "options": [
-      "SIGINT for all three inputs because the packet uses electronic delivery",
-      "HUMINT for all three inputs because people helped create the original material",
-      "HUMINT for the interview, IMINT for photographs, OSINT for the public bulletin",
-      "IMINT for all three inputs because each item can appear on a display"
+      "HUMINT",
+      "IMINT",
+      "OSINT",
+      "MASINT"
     ],
-    "answer": 2,
-    "explanation": "The categories distinguish human accounts, imagery and openly available material. Classifying every item by the packet's electronic delivery would confuse the delivery medium with the source discipline. The mixed packet can contain several disciplines without becoming a single source type.",
+    "answer": 3,
+    "explanation": "Slide 12 lists HUMINT, SIGINT, IMINT and OSINT as Collection sources; MASINT is not listed.",
     "sourceSlides": [
       12
     ]
@@ -229,15 +217,15 @@
       "ELINT",
       "taxonomy"
     ],
-    "prompt": "A training chart has SIGINT as a heading and COMINT and ELINT beneath it. Which review decision is best?",
+    "prompt": "Which of the following describes ELINT?",
     "options": [
-      "Replace SIGINT with IMINT because both subsets can appear on a display",
-      "Move COMINT above SIGINT because communications encompass noncommunication electronic emissions",
-      "Merge COMINT and ELINT because both labels describe the same electronic source type",
-      "Keep the SIGINT hierarchy and distinguish communications from noncommunication emissions"
+      "Intelligence gathered from intercepting and analyzing electronic communications and signals to monitor enemy transmissions",
+      "A subset of SIGINT focused specifically on intercepting and analyzing communication signals, including tactical discussions",
+      "Intelligence derived from detecting and analyzing non-communication electronic emissions, such as radar and missile guidance systems",
+      "Intelligence gathered from continuous monitoring of electronic signals to detect changes in the electronic environment"
     ],
-    "answer": 3,
-    "explanation": "The chart correctly treats SIGINT as the umbrella, with COMINT for communications and ELINT for noncommunication electronic emissions. Combining the subsets would remove the distinction taught in the source. The hierarchy describes categories and supplies no procedure for collecting signals.",
+    "answer": 2,
+    "explanation": "Slide 15 describes ELINT as intelligence from non-communication electronic emissions such as radar and missile guidance systems.",
     "sourceSlides": [
       15
     ]
@@ -252,15 +240,15 @@
       "signal analysis",
       "activity classification"
     ],
-    "prompt": "A fictional training narrative separates capturing a transmitted signal from later evaluating its significance. Which interpretation best preserves the activity distinction?",
+    "prompt": "Which technique evaluates intercepted signals to determine their nature, origin and significance?",
     "options": [
-      "Classify capture as interception and significance evaluation as signal analysis",
-      "Call both production because each activity can contribute to a final briefing",
-      "Call both surveillance because each activity concerns information from electronic signals",
-      "Classify evaluation as interception and capture as a completed analytical interpretation"
+      "Signal analysis",
+      "Surveillance",
+      "Interception",
+      "Correlation"
     ],
     "answer": 0,
-    "explanation": "The source distinguishes capturing transmitted signals from evaluating collected signals' nature, origin or significance. Treating both as surveillance would lose the difference between capture and interpretation. This is a conceptual classification of a fictional narrative, without describing how to perform either activity.",
+    "explanation": "Slide 16 describes signal analysis as evaluating intercepted signals to extract useful information and determine their nature, origin and significance.",
     "sourceSlides": [
       16
     ]
@@ -275,19 +263,17 @@
       "analysis distinction",
       "OSINT"
     ],
-    "prompt": "Students collect public shelter bulletins and immediately claim that gathering them proves the demand trend. Which correction is best?",
+    "prompt": "Gathering raw data from HUMINT, SIGINT, IMINT and OSINT sources is which stage, and what is its purpose?",
     "options": [
-      "Public bulletin collection falls outside the stages used for intelligence assessment",
-      "Collection supplies inputs, while the trend claim still requires analytical interpretation",
-      "A larger bulletin collection supplies sufficient proof without interpreting the dates",
-      "Government sources allow the collection step to stand in for trend analysis"
+      "Processing and Exploitation, which prepares the information for detailed analysis",
+      "Analysis and Production, which transforms raw data into insights",
+      "Planning and Direction, which aligns efforts with the mission's objectives",
+      "Collection, which provides the raw material necessary for analysis"
     ],
-    "answer": 1,
-    "explanation": "Collecting bulletins provides raw material, while a trend claim requires interpreting changes over time. Government publication can make a source relevant, but gathering it does not itself establish the conclusion. The cycle separates collection from the analytical work that follows.",
+    "answer": 3,
+    "explanation": "Slide 12 describes Collection as gathering raw data from these sources to provide the raw material necessary for analysis.",
     "sourceSlides": [
-      12,
-      13,
-      18
+      12
     ]
   },
   {
@@ -300,18 +286,17 @@
       "usable formats",
       "analysis readiness"
     ],
-    "prompt": "Two shelter files use different date formats, making comparison confusing. What should the team do before interpreting changes?",
+    "prompt": "Which three activities does the lesson list under Processing and Exploitation to convert collected data into usable formats?",
     "options": [
-      "Compare entries using the existing text-sort order of the date field in each file",
-      "Aggregate values within each file before matching the date representations used between files",
-      "Group reports by submitting organization and compare totals before aligning their observation dates",
-      "Organize the dates consistently so the team can interpret comparable information"
+      "Decryption, translation and data sorting",
+      "Correlation, translation and data sorting",
+      "Decryption, correlation and trend analysis",
+      "Surveillance, interception and signal analysis"
     ],
-    "answer": 3,
-    "explanation": "Processing can sort and organize collected information into a form that supports meaningful analysis. A consistent date representation helps the team compare like information. Choosing a format to favor a desired result would confuse preparation with deciding the conclusion in advance.",
+    "answer": 0,
+    "explanation": "Slide 12 lists decryption, translation and data sorting as the means of converting collected data into usable formats.",
     "sourceSlides": [
       12,
-      13,
       17
     ]
   },
@@ -325,18 +310,16 @@
       "context",
       "interpretation"
     ],
-    "prompt": "A translated training report uses an unclear term for shelter occupancy. What is the best handling before using its number in an assessment?",
+    "prompt": "Which processing activity analyzes the context and content of processed signals to extract meaningful information?",
     "options": [
-      "Clarify the term's meaning and keep any remaining ambiguity visible for analysis",
-      "Adopt the team's preferred definition because the translated report is already readable",
-      "Average the unclear number with another figure so the wording has less influence",
-      "Exclude translated reports from the assessment because one term has uncertain meaning"
+      "Signal decryption",
+      "Signal pattern analysis",
+      "Data interpretation",
+      "Correlation"
     ],
-    "answer": 0,
-    "explanation": "Processing aims to make content usable, so unresolved wording needs attention before it supports a comparison. A completed translation does not guarantee that every term has an unambiguous meaning. Clarifying context prepares the material for analysis without inventing a conclusion.",
+    "answer": 2,
+    "explanation": "Slide 17 describes Data Interpretation as analyzing the context and content of processed signals to extract meaningful information.",
     "sourceSlides": [
-      12,
-      13,
       17
     ]
   },
@@ -349,20 +332,17 @@
       "patterns and anomalies",
       "stage boundaries"
     ],
-    "prompt": "While sorting a fictional dataset, a student notices an unusual value and labels it a confirmed demand surge. What correction is most appropriate?",
+    "prompt": "Data interpretation in Processing and Exploitation extracts meaningful information such as which of the following?",
     "options": [
-      "Discard the unusual value because an anomaly cannot support a useful assessment",
-      "Accept the surge label because processing has already revealed a distinctive pattern",
-      "Flag the anomaly for analytical review before deciding what the value signifies",
-      "Move the value to the appendix so the initial conclusion can remain unchanged"
+      "Patterns or anomalies",
+      "Requirements or priorities",
+      "Reports or briefings",
+      "Recipients or channels"
     ],
-    "answer": 2,
-    "explanation": "Processing may reveal patterns or anomalies, but interpreting their significance belongs to later analytical work. An unusual value could matter, yet its presence alone does not confirm a demand surge. Flagging it preserves useful information while avoiding a premature conclusion.",
+    "answer": 0,
+    "explanation": "Slide 17 states that data interpretation extracts meaningful information, such as identifying patterns or anomalies.",
     "sourceSlides": [
-      12,
-      13,
-      17,
-      18
+      17
     ]
   },
   {
@@ -374,18 +354,16 @@
       "decryption concept",
       "access and assessment"
     ],
-    "prompt": "A fictional message becomes readable after an authorized access step. A student says readability proves its claims. Which response best fits the cycle?",
+    "prompt": "What is the stated purpose of signal decryption?",
     "options": [
-      "Treat readability as verification because the team completed an authorized access step",
-      "Interpret the accessible content before using it to support an assessed conclusion",
-      "Use the message as a recommendation because it is now available for briefing",
-      "Proceed directly to dissemination because readable content no longer needs interpretation"
+      "It ensures that intelligence is available when and where it is needed to influence actions",
+      "It ensures that intercepted communications and signals can be understood and utilized",
+      "It identifies and classifies signal types, sources and potential threats",
+      "It helps to understand how various signals are interconnected"
     ],
     "answer": 1,
-    "explanation": "The access step prepares content for use rather than proving the truth or importance of its claims. Analysis and production still need to interpret the accessible information. Confusing successful access with successful assessment would skip the stage that develops decision-relevant understanding.",
+    "explanation": "Slide 17 states that signal decryption ensures that intercepted electronic communications and signals can be understood and utilized.",
     "sourceSlides": [
-      12,
-      13,
       17
     ]
   },
@@ -398,17 +376,16 @@
       "correlation",
       "alternative interpretation"
     ],
-    "prompt": "Fictional shelter occupancy and supply requests rise together. What conclusion is best supported by the comparison alone?",
+    "prompt": "Which statement gives the stated purpose of correlation?",
     "options": [
-      "Occupancy caused all increases in requests because both measures moved in the same direction",
-      "The relationship establishes the same change at unreported shelters because both measures rose",
-      "The two measures are interchangeable because the observed increases occurred together in the dataset",
-      "The observed relationship deserves analysis, but the comparison alone does not prove its cause"
+      "It predicts future developments and helps anticipate adversary actions based on historical data trends",
+      "It helps to understand how various signals and information are interconnected, enhancing situational awareness",
+      "It identifies and classifies signal types, sources and potential threats",
+      "It determines the nature, origin and significance of the signals, supporting decision-making and threat assessment"
     ],
-    "answer": 3,
-    "explanation": "Correlation examines relationships between pieces of information, and the joint increase is a relationship worth interpreting. It does not by itself establish a cause or justify conclusions about unreported shelters. The assessment should match what the compared information actually supports.",
+    "answer": 1,
+    "explanation": "Slide 18 states that correlation helps to understand how signals and information are interconnected, enhancing situational awareness.",
     "sourceSlides": [
-      13,
       18
     ]
   },
@@ -422,15 +399,15 @@
       "time comparison",
       "limitations"
     ],
-    "prompt": "A team claims a sustained trend from one high shelter total. Which review feedback most directly addresses the reasoning gap?",
+    "prompt": "An analyst studies signal data collected over many months to anticipate adversary actions from historical data. Which technique is this?",
     "options": [
-      "Increase the total's visual prominence to communicate the strength of the apparent pattern",
-      "Rename the finding a trend to match the expected structure of the final briefing",
-      "Compare relevant observations over time before describing the high total as a trend",
-      "Repeat the total in several charts to give the audience multiple supporting observations"
+      "Trend analysis",
+      "Correlation",
+      "Signal pattern analysis",
+      "Data interpretation"
     ],
-    "answer": 2,
-    "explanation": "Trend analysis depends on examining data over time, so a single high total cannot establish a sustained direction by itself. Repeating that observation in several displays adds no new time comparison. The reasoning needs evidence of change across relevant observations.",
+    "answer": 0,
+    "explanation": "Slide 18 states that trend analysis predicts future developments and helps anticipate adversary actions based on historical data trends.",
     "sourceSlides": [
       18
     ]
@@ -445,15 +422,15 @@
       "trend analysis",
       "method selection"
     ],
-    "prompt": "A synthetic signal dataset asks about recurring characteristics within entries, rather than changes across dates. Which approach best matches that question?",
+    "prompt": "Which analysis technique examines the characteristics and patterns of electronic signals to infer their source and purpose?",
     "options": [
-      "Use trend analysis to compare the characteristics over successive days.",
-      "Use signal pattern analysis to examine the recurring characteristics.",
-      "Use dissemination to send the records before evaluating the characteristics.",
-      "Use planning and direction to allocate a new collection team before examining the records."
+      "Signal pattern analysis",
+      "Correlation",
+      "Trend analysis",
+      "Signal analysis"
     ],
-    "answer": 1,
-    "explanation": "The lesson uses signal pattern analysis to examine signal characteristics and trend analysis to detect change over time.",
+    "answer": 0,
+    "explanation": "Slide 18 describes signal pattern analysis as examining characteristics and patterns of signals to infer their source and purpose.",
     "sourceSlides": [
       18
     ]
@@ -467,15 +444,15 @@
       "production",
       "evidence and recommendations"
     ],
-    "prompt": "A draft recommends reviewing shelter support but omits the findings that led to the recommendation. What should the author add?",
+    "prompt": "Which statement describes the production of EW intelligence reports and briefings?",
     "options": [
-      "Add findings and analysis that explain why the recommendation follows from the information",
-      "Add recommendations about related subjects so the briefing offers a broader set of choices",
-      "Attach the original messages without explaining which ones support the proposed recommendation",
-      "Present the recommendation more decisively so the recipient can accept it without discussion"
+      "Converting collected data into usable formats through decryption, translation and data sorting to prepare it for analysis",
+      "Compiling analyzed data into detailed reports and briefings that give actionable insights to decision-makers",
+      "Delivering intelligence products to the relevant decision-makers and ensuring they are integrated into operational plans",
+      "Gathering raw data and information from various sources"
     ],
-    "answer": 0,
-    "explanation": "Production brings together findings, analysis and useful recommendations, so the product should show why its recommendation follows. A message archive may preserve inputs, but without the connecting reasoning it leaves the recipient to reconstruct the assessment rather than understand the team's judgment.",
+    "answer": 1,
+    "explanation": "Slide 19 describes production as compiling analyzed data into detailed reports and briefings with actionable insights and recommendations.",
     "sourceSlides": [
       13,
       19
@@ -491,18 +468,17 @@
       "relevant recipients",
       "integration"
     ],
-    "prompt": "A completed assessment reaches the correct exercise leader only after the relevant planning discussion. Which improvement addresses the main failure?",
+    "prompt": "It is the stage that ensures intelligence is available when and where it is needed to influence actions. Which stage is this?",
     "options": [
-      "Increase the assessment's detail before resending it after the planning discussion has finished",
-      "Expand the recipient list without checking when the leader needs the assessment product",
-      "Align assessment delivery with the timing of the planning decision it must support",
-      "Reorganize the source folder without changing when the completed assessment reaches the leader"
+      "Analysis and Production",
+      "Dissemination and Integration",
+      "Processing and Exploitation",
+      "Collection"
     ],
-    "answer": 2,
-    "explanation": "Dissemination should deliver the product when it is needed so it can contribute to decisions and plans. Correct addressing alone does not solve late delivery. Adding recipients or pages would leave the original timing problem unresolved if the decision discussion has already passed.",
+    "answer": 1,
+    "explanation": "Slide 13 states that the purpose of Dissemination and Integration is to ensure intelligence is available when and where it is needed to influence actions.",
     "sourceSlides": [
-      13,
-      20
+      13
     ]
   },
   {
@@ -515,18 +491,16 @@
       "analysis context",
       "situational awareness"
     ],
-    "prompt": "A dashboard shows a demand increase but removes the assessment's note that only a few shelters reported. What is the best correction?",
+    "prompt": "What is the goal of integrating EW intelligence into C2 systems?",
     "options": [
-      "Retain the simplified chart because a dashboard needs less context than a written report",
-      "Remove the chart until every possible source has contributed to a complete assessment",
-      "Replace interpretation with raw totals so the dashboard avoids presenting an assessed finding",
-      "Display the reporting coverage limitation together with the assessment's finding"
+      "To convert raw EW data into usable formats through decryption, translation and sorting before analysis",
+      "To establish intelligence requirements and collection priorities for EW assets",
+      "To protect EW intelligence from adversaries who could undermine military operations",
+      "To support command and control by improving situational awareness and decision-making"
     ],
     "answer": 3,
-    "explanation": "Visualization should support understanding, and the reporting limitation affects how the displayed finding can be interpreted. Removing it can make a partial picture appear comprehensive. The staff can communicate the available assessment while preserving the context that limits its use.",
+    "explanation": "Slide 20 states that the goal is to ensure EW intelligence supports command and control, improving situational awareness and decision-making.",
     "sourceSlides": [
-      13,
-      19,
       20
     ]
   },
@@ -540,17 +514,16 @@
       "updates",
       "plan integration"
     ],
-    "prompt": "Staff receive a revised assessment but continue using a superseded summary in a tabletop plan. What action best completes integration?",
+    "prompt": "Which list gives the three processes of integrating EW intelligence into C2 platforms?",
     "options": [
-      "Review the plan and update assumptions affected by the revised assessment's findings",
-      "Record delivery of the revision and assume the plan now reflects its changed findings",
-      "Retain both versions without indicating which assessment should inform the planning assumptions",
-      "Seek new collection before checking whether the existing revision changes any planning assumptions"
+      "Data sharing, trend analysis, visualization",
+      "Data sorting, real-time updates, correlation",
+      "Information control, secure communication, threat awareness",
+      "Data sharing, real-time updates, visualization"
     ],
-    "answer": 0,
-    "explanation": "Integration means using the product in plans and decisions, so the staff should review assumptions affected by the revision. A delivery record proves receipt, but it does not show that the new understanding influenced planning. Revision matters where it changes the decision context.",
+    "answer": 3,
+    "explanation": "Slide 20 lists data sharing, real-time updates and visualization as the processes of C2 integration.",
     "sourceSlides": [
-      13,
       20
     ]
   },
@@ -564,17 +537,16 @@
       "information control",
       "secure communication"
     ],
-    "prompt": "The exercise leader needs an assessment promptly, but the suggested channel has an unverified audience. What handling choice best fits the lesson?",
+    "prompt": "Which list gives the three key principles of OPSEC in the lesson?",
     "options": [
-      "Send the full product because the urgent need establishes permission for the group",
-      "Remove page numbers before sending because the document will appear less sensitive",
-      "Ask the broad group to forward the product until it reaches the intended leader",
-      "Confirm the permitted audience and use the approved route for timely communication"
+      "Legal compliance, moral standards, transparency vs. security",
+      "Information control, secure communication, threat awareness",
+      "Information control, legal compliance, threat awareness",
+      "Secure communication, moral standards, data sharing"
     ],
-    "answer": 3,
-    "explanation": "Timely support and information control both matter, so the team should confirm the audience and use the authorized route. A rapid send to an unverified group does not establish permitted access. Cosmetic changes to the document cannot resolve a recipient authorization problem.",
+    "answer": 1,
+    "explanation": "Slide 21 lists information control, secure communication and threat awareness as the key OPSEC principles.",
     "sourceSlides": [
-      13,
       21
     ]
   },
@@ -588,15 +560,15 @@
       "civilian harm",
       "legal compliance"
     ],
-    "prompt": "A public exercise summary could explain the team's reasoning without identifying individual civilians. Which choice best balances the stated ethical concerns?",
+    "prompt": "Which ethical aspect calls for avoiding actions that could harm civilians or violate ethical principles?",
     "options": [
-      "Publish the complete dataset because readers need every personal detail to understand the reasoning",
-      "Explain permitted findings while withholding identifying details unnecessary to the public summary",
-      "Withhold every general finding because any security concern prevents a public explanation",
-      "Share personal details informally because the information controls apply only to the final briefing"
+      "Moral standards",
+      "Legal compliance",
+      "Transparency vs. security",
+      "Threat awareness"
     ],
-    "answer": 1,
-    "explanation": "The lesson calls for balancing transparency and security while respecting legal obligations and avoiding civilian harm. A permitted explanation can communicate the reasoning without unnecessary personal exposure. Complete disclosure is therefore not the only way to make the assessment understandable to an audience.",
+    "answer": 0,
+    "explanation": "Slide 21 lists Moral Standards as avoiding actions that could harm civilians or violate ethical principles.",
     "sourceSlides": [
       21
     ]

@@ -5,15 +5,15 @@
     "tags": [
       "framework purpose and scope"
     ],
-    "prompt": "A risk workshop excludes a contractor maintaining a key service. What is missing?",
+    "prompt": "Which list correctly states what the Framework is NOT?",
     "options": [
-      "Workforce awareness and training-related risks",
-      "Third-party and supply-chain risks",
-      "Business continuity and internal recovery planning",
-      "Internal asset and configuration-management risks"
+      "Not a mandatory law, not a product, and not a replacement for your own risk judgment",
+      "Not a mandatory law, not a risk-based playbook, and not a shared language",
+      "Not a product, not interoperable, and not a replacement for existing standards",
+      "Not exhaustive, not technology-neutral, and not a mandatory law"
     ],
-    "answer": 1,
-    "explanation": "The framework's scope includes supplier and third-party dependencies that can affect enterprise risk. References: NIST Framework, page 8.",
+    "answer": 0,
+    "explanation": "Page 8's 'What it is not' column lists a mandatory law or one-size audit, a product or technical control, a replacement for risk judgment, and not exhaustive. References: NIST Framework, page 8.",
     "id": 1,
     "qid": "moduleseven-m-01"
   },
@@ -23,15 +23,15 @@
     "tags": [
       "six csf functions"
     ],
-    "prompt": "An office assigns a cyber risk owner and establishes oversight meetings. Which Function is central?",
+    "prompt": "Which Function includes organizational context and risk appetite?",
     "options": [
-      "Detect",
-      "Recover",
+      "Identify",
+      "Protect",
       "Respond",
       "Govern"
     ],
     "answer": 3,
-    "explanation": "Assigning responsibilities and oversight establishes how cybersecurity risk decisions are directed and monitored. References: NIST Framework, page 11.",
+    "explanation": "Page 11 lists organizational context and risk appetite under Govern, which establishes and monitors the cyber risk strategy. References: NIST Framework, page 11.",
     "id": 2,
     "qid": "moduleseven-m-02"
   },
@@ -41,15 +41,15 @@
     "tags": [
       "core profiles and tiers"
     ],
-    "prompt": "A plan lists desired controls but never records current outcomes. What comparison is missing?",
+    "prompt": "The three CSF components answer 'what to do', 'where you stand' and 'how rigorously'. Which component answers 'where you stand'?",
     "options": [
-      "Incident counts versus training attendance",
-      "Staff numbers versus software licenses",
-      "Tier labels versus vendor market share",
-      "Current outcomes versus desired outcomes"
+      "Profiles",
+      "The Core",
+      "Tiers",
+      "The Functions"
     ],
-    "answer": 3,
-    "explanation": "Without a Current Profile, the team cannot reliably identify the gap between its existing and desired outcomes. References: NIST Framework, page 13.",
+    "answer": 0,
+    "explanation": "Page 13: the Core is 'what to do', Profiles are 'where you stand', and Tiers are 'how rigorously'. References: NIST Framework, page 13.",
     "id": 3,
     "qid": "moduleseven-m-03"
   },
@@ -59,15 +59,15 @@
     "tags": [
       "nictef elements and vision"
     ],
-    "prompt": "Two agencies' systems cannot safely exchange information because operating boundaries are unclear. Which element is directly relevant?",
+    "prompt": "Standards, Regulations and Policies provide the boundaries for what?",
     "options": [
-      "Standards, Regulations and Policies",
-      "Application screen design only",
-      "Human Capital recruitment only",
-      "Affordable Access and Devices only"
+      "Deciding which users may access devices at no cost",
+      "Funding the ICT plans of national agencies",
+      "Training the individuals who use the services",
+      "Letting players and elements safely and productively inter-connect and inter-operate"
     ],
-    "answer": 0,
-    "explanation": "Standards and policy define boundaries that support safe interconnection and interoperability. References: NIST Framework, page 23.",
+    "answer": 3,
+    "explanation": "Page 23 says standards, regulations and policies provide the boundaries for safe and productive interconnection and interoperation. References: NIST Framework, page 23.",
     "id": 4,
     "qid": "moduleseven-m-04"
   },
@@ -79,15 +79,15 @@
       "core profiles and tiers",
       "concept and seven tenets"
     ],
-    "prompt": "A Target Profile calls for access limited to job needs, but current accounts still have broad privileges. How should the team use this finding?",
+    "prompt": "Comparing a Current Profile with a Target Profile is mainly used to do what?",
     "options": [
-      "Assign the highest Tier solely because least privilege appears in the plan",
-      "Remove access from all accounts without assessing legitimate job requirements",
-      "Record the Current-to-Target gap and prioritize a justified access improvement",
-      "Mark the Target Profile achieved because the desired policy has been written"
+      "Assign an Implementation Tier to each unit",
+      "Identify and prioritize gaps",
+      "List the Functions the unit must adopt",
+      "Rate the unit as high, medium or low risk"
     ],
-    "answer": 2,
-    "explanation": "Profiles distinguish current outcomes from desired ones. The observed privilege gap should inform a prioritized improvement, while legitimate access needs remain relevant. References: NIST Framework, page 13; Zero Trust, slides 20, 21.",
+    "answer": 1,
+    "explanation": "The gap between the Current and Target Profiles becomes the prioritized action plan; a Target Profile may call for outcomes such as least-privilege access. References: NIST Framework, page 13; Zero Trust, slides 20, 21.",
     "id": 5,
     "qid": "moduleseven-m-05"
   },
@@ -100,15 +100,15 @@
       "agreement and governance",
       "incident response and assurance"
     ],
-    "prompt": "A response drill finds that everyone assumed someone else would report a suspected disclosure. Which improvement most directly addresses the gap?",
+    "prompt": "Under GSOMIA, who is accountable for a breach of the agreement or a lapse in security?",
     "options": [
-      "Give designated technical analysts a dedicated reporting dashboard and compare incident-detection times",
-      "Assign reporting responsibility and rehearse the required escalation process",
-      "Refresh the awareness briefing and compare participants' recognition of reporting triggers",
-      "Add reporting instructions to the common checklist and compare the number of recorded alerts"
+      "Only the nation that originated the information",
+      "Only the staff member who discovered the breach",
+      "All parties to the agreement",
+      "The external auditors who find it"
     ],
-    "answer": 1,
-    "explanation": "Govern concerns responsibilities and oversight. Accountability and prompt reporting need a clear owner and process, rather than shared awareness alone. References: NIST Framework, pages 10, 11; LOE3 GSOMIA Compliance, slide 25; LOE3 GSOMIA Compliance, slides 27, 38.",
+    "answer": 2,
+    "explanation": "Parties are accountable for any breaches of the agreement or lapses in security, and the Govern Function assigns roles and oversight; suspected compromises are reported promptly. References: NIST Framework, pages 10, 11; LOE3 GSOMIA Compliance, slides 25, 27, 38.",
     "id": 6,
     "qid": "moduleseven-m-06"
   },
@@ -121,15 +121,15 @@
       "defensive control coverage",
       "migration and application"
     ],
-    "prompt": "A risk review lists approved servers but excludes a contractor-managed cloud application used by staff. What should be corrected?",
+    "prompt": "Which items belong in the asset inventory for a Zero Trust migration?",
     "options": [
-      "The missing application automatically proves that all existing controls failed",
-      "The scope and asset view should include the relevant third-party resource",
-      "The cloud application can be omitted because the office does not own it",
-      "The inventory should list only equipment physically inside the office"
+      "Hardware and licensed software only",
+      "Owned laptops and approved servers only",
+      "Hardware, virtual assets and shadow IT",
+      "Hardware, user accounts and written policies"
     ],
-    "answer": 1,
-    "explanation": "Risk includes third parties, inventories need relevant resources, and Zero Trust migration includes virtual assets and shadow IT. The omission is a scope gap, not proof that every control is ineffective. References: NIST Framework, page 8; Cyber Risk Assessment, page 25; Zero Trust, slide 25.",
+    "answer": 2,
+    "explanation": "Step 2 of the migration is to inventory hardware, virtual assets and shadow IT; hardware and software inventories show which devices and programs are authorized and present, and the CSF scope covers people and processes. References: NIST Framework, page 8; Cyber Risk Assessment, page 25; Zero Trust, slide 25.",
     "id": 7,
     "qid": "moduleseven-m-07"
   },
@@ -142,15 +142,15 @@
       "agreement and governance",
       "incident response lifecycle"
     ],
-    "prompt": "An exercise report documents a recurring handling error but the next plan repeats the same procedure. What is missing from improvement?",
+    "prompt": "What should the Assessment and Review phase of the risk management process produce?",
     "options": [
-      "Replacing all technical safeguards before reviewing the handling procedure",
-      "Turning the lesson into an implemented change and checking its effect",
-      "Producing another report that repeats the same recommendation",
-      "Raising the reported posture score because a review meeting occurred"
+      "A validated removal of all components and symptoms",
+      "Documentation such as the After Activity Report and Special Report",
+      "Restored data and systems in a healthy working state",
+      "A readiness check of people, tools and procedures"
     ],
     "answer": 1,
-    "explanation": "Iterative improvement, policy review and lessons learned require follow-through. Recording a finding alone does not demonstrate that the identified weakness was addressed. References: NIST Framework, page 15; LOE3 GSOMIA Compliance, slides 29, 46; Cyber Risk Assessment, page 24.",
+    "explanation": "The Assessment and Review phase prepares documentation such as the After Activity Report and Special Report; the other options describe eradication, recovery and preparation, and security practices are reviewed regularly. References: NIST Framework, page 15; LOE3 GSOMIA Compliance, slide 29; Cyber Risk Assessment, page 24.",
     "id": 8,
     "qid": "moduleseven-m-08"
   },
@@ -160,15 +160,15 @@
     "tags": [
       "concept and seven tenets"
     ],
-    "prompt": "A system secures external communication but leaves internal links unprotected. Which tenet is missed?",
+    "prompt": "Which pair correctly gives tenets 2 and 3 of the seven tenets?",
     "options": [
-      "Treat all physical locations as separate identities",
-      "Secure communication regardless of location",
-      "Collect only external threat information",
-      "Approve all access for device owners"
+      "All communication is secured regardless of location; access is determined by dynamic policy",
+      "All data sources and computing services are resources; access is granted on a per-session basis",
+      "All communication is secured regardless of location; access is granted on a per-session basis",
+      "All communication is secured regardless of location; the enterprise monitors the integrity and posture of all assets"
     ],
-    "answer": 1,
-    "explanation": "Zero Trust does not exempt communication from security because it occurs inside a network. References: Zero Trust, slide 21.",
+    "answer": 2,
+    "explanation": "NIST SP 800-207 tenets 2 and 3 are secured communication regardless of location and per-session access. References: Zero Trust, slide 21.",
     "id": 9,
     "qid": "moduleseven-m-09"
   },
@@ -178,15 +178,15 @@
     "tags": [
       "policy components"
     ],
-    "prompt": "A protected application can be reached through an unmonitored bypass route. Which architectural role is being bypassed?",
+    "prompt": "Which of the following is NOT an input fed to the trust algorithm, according to the lesson?",
     "options": [
-      "Vendor support contract",
-      "Procurement approval board",
-      "Training attendance system",
-      "Policy Enforcement Point"
+      "CDM data",
+      "The subject's rank",
+      "Threat intelligence feeds",
+      "Network and system logs"
     ],
-    "answer": 3,
-    "explanation": "A route around enforcement undermines the connection controls that should mediate access to the resource. References: Zero Trust, slide 22.",
+    "answer": 1,
+    "explanation": "The PE uses enterprise policy plus inputs such as CDM, threat intel and logs. References: Zero Trust, slide 22.",
     "id": 10,
     "qid": "moduleseven-m-10"
   },
@@ -196,15 +196,15 @@
     "tags": [
       "deployment approaches"
     ],
-    "prompt": "A cloud-heavy office evaluates user privileges and device context for each access request. Which approach is emphasized?",
+    "prompt": "Which pairing of approach and technology matches the lesson?",
     "options": [
-      "Enhanced identity governance",
-      "A physical fence as the only boundary",
-      "Location-only admission control",
-      "Flat-network implicit trust"
+      "Micro-segmentation: NGFWs and smart switches acting as PEPs",
+      "Software-defined perimeter: NGFWs and smart switches acting as PEPs",
+      "Enhanced identity governance: SDN and overlay networks",
+      "Micro-segmentation: the PA acting as network controller"
     ],
     "answer": 0,
-    "explanation": "Identity governance uses actor identity and privileges as major policy inputs, refined by contextual information. References: Zero Trust, slide 23.",
+    "explanation": "NGFWs and smart switches are the gateways of micro-segmentation. SDP uses SDN and overlay networks with the PA as controller. References: Zero Trust, slide 23.",
     "id": 11,
     "qid": "moduleseven-m-11"
   },
@@ -214,15 +214,15 @@
     "tags": [
       "threats and limitations"
     ],
-    "prompt": "Encrypted traffic cannot all be inspected as plaintext. What evidence can still help analysis?",
+    "prompt": "Which of the following is NOT a safeguard named on the threats slide?",
     "options": [
-      "Assurance that encryption proves benign intent",
-      "Traffic metadata and contextual signals",
-      "A complete absence of logging",
-      "Only the packet payload after discarding metadata"
+      "Replicate and host the PE, PA and PEP in resilient environments",
+      "Use MFA and contextual trust algorithms",
+      "Evaluate providers holistically",
+      "Disable logging to reduce stored data"
     ],
-    "answer": 1,
-    "explanation": "The lesson recommends analysis of metadata to improve visibility while recognizing encrypted-traffic limitations. References: Zero Trust, slide 24.",
+    "answer": 3,
+    "explanation": "The slide advises auditing and logging changes, not disabling logs. References: Zero Trust, slide 24.",
     "id": 12,
     "qid": "moduleseven-m-12"
   },
@@ -234,15 +234,15 @@
       "policy components",
       "access and sharing"
     ],
-    "prompt": "A cleared employee changes assignments. The account remains valid, but the former file access is no longer needed. Which response fits both lessons?",
+    "prompt": "Role-based access control is based on what?",
     "options": [
-      "Let the employee's network location decide whether the old role still applies",
-      "Keep the old permissions because the original identity check remains valid",
-      "Assume continuing clearance proves a continuing need for every former file",
-      "Reassess permissions against the current role and legitimate need"
+      "The clearance level of the person alone",
+      "The device's posture at login",
+      "Permissions associated with assigned duties",
+      "The classification of the network used"
     ],
-    "answer": 3,
-    "explanation": "Access depends on more than identity. Current responsibilities and need-to-know must be reflected in permission decisions. References: Zero Trust, slide 22; LOE3 GSOMIA Compliance, slides 22, 33; LOE3 GSOMIA Compliance, slide 34.",
+    "answer": 2,
+    "explanation": "Role-based access controls ensure that individuals only have access to information necessary for their duties; the Policy Engine's inputs such as device posture are separate. References: Zero Trust, slide 22; LOE3 GSOMIA Compliance, slides 22, 33, 34.",
     "id": 13,
     "qid": "moduleseven-m-13"
   },
@@ -254,15 +254,15 @@
       "policy components",
       "defensive control coverage"
     ],
-    "prompt": "An access log shows that a prohibited request reached a resource despite a deny decision. What should the team examine first?",
+    "prompt": "A deny decision was made, yet access still succeeded. Which component enables, monitors and terminates the connection between the subject and the resource?",
     "options": [
-      "Whether the access rule was appropriate for the requester's assigned task",
-      "Whether the resource's configuration matches the organization's approved hardening baseline",
-      "Whether the current asset profile contains the requester's device and resource",
-      "Whether the decision was correctly enforced at the access path"
+      "Policy Enforcement Point",
+      "Policy Engine",
+      "Policy Administrator",
+      "Trust algorithm"
     ],
-    "answer": 3,
-    "explanation": "The Policy Engine decides and the PEP enforces. Logs indicating a mismatch between decision and access justify checking that enforcement path, rather than inferring a specific cause without evidence. References: Zero Trust, slide 22; Cyber Risk Assessment, pages 27, 28.",
+    "answer": 0,
+    "explanation": "The Policy Enforcement Point enables, monitors and terminates the connection; the Policy Engine decides and the Policy Administrator establishes the path. Logs support review of unauthorized activity. References: Zero Trust, slide 22; Cyber Risk Assessment, pages 27, 28.",
     "id": 14,
     "qid": "moduleseven-m-14"
   },
@@ -275,15 +275,15 @@
       "application and alignment",
       "defensive control coverage"
     ],
-    "prompt": "A pilot is in reporting-only mode. It flags legitimate work because several resource dependencies were not inventoried. What is the best next step?",
+    "prompt": "Why does a Zero Trust migration begin deployment in reporting-only mode?",
     "options": [
-      "Update the scoped resource view and tune policy using observed workflows",
-      "Delete the flagged events so the pilot appears to have fewer errors",
-      "Enable enforcement immediately to make the incomplete policy authoritative",
-      "Treat inventory gaps as a reason to grant every actor permanent access"
+      "To block all traffic until the policies are approved",
+      "To avoid inventorying resources",
+      "To observe real traffic and tune policies",
+      "To expand the architecture to every workflow at once"
     ],
-    "answer": 0,
-    "explanation": "Observation before enforcement helps expose policy and inventory mistakes. The scoped asset view and real workflows should inform tuning before wider rollout. References: Zero Trust, slide 25; NIST Framework, page 15; Cyber Risk Assessment, page 25.",
+    "answer": 2,
+    "explanation": "Step 6 operates in reporting-only mode first and tunes policies against real traffic; the scope and the asset inventory set what is observed. References: Zero Trust, slide 25; NIST Framework, page 15; Cyber Risk Assessment, page 25.",
     "id": 15,
     "qid": "moduleseven-m-15"
   },
@@ -296,15 +296,15 @@
       "defensive control coverage",
       "classification and handling"
     ],
-    "prompt": "Security telemetry improves access decisions, but it also describes internal resources and user activity. How should the team handle it?",
+    "prompt": "Why must stored scans, policies and network information be protected in a Zero Trust architecture?",
     "options": [
-      "Stop all logging so that no additional protection decisions are necessary",
-      "Publish the telemetry broadly because it contains operational metadata",
-      "Grant every application account access to the complete security store",
-      "Retain useful evidence under appropriate access and storage protection"
+      "They can reveal valuable reconnaissance information",
+      "They are needed to restore deleted logs",
+      "They replace the Policy Engine's decisions",
+      "They determine each user's clearance"
     ],
-    "answer": 3,
-    "explanation": "Logs support decision-making and investigation, but security information itself can be valuable to an attacker. Its storage and access need appropriate protection. References: Zero Trust, slide 24; Cyber Risk Assessment, pages 27, 28; LOE3 GSOMIA Compliance, slide 31.",
+    "answer": 0,
+    "explanation": "Stored traffic, scans and policies are reconnaissance gold and should be protected with the most restrictive policies; protected information is also kept in authorized secure storage. References: Zero Trust, slide 24; Cyber Risk Assessment, pages 27, 28; LOE3 GSOMIA Compliance, slide 31.",
     "id": 16,
     "qid": "moduleseven-m-16"
   },
@@ -314,15 +314,15 @@
     "tags": [
       "agreement and governance"
     ],
-    "prompt": "A partner asks for a protected file during a rehearsal, but staff cannot confirm that the specific transfer has been authorized. What should they do first?",
+    "prompt": "Which statement describes the Controlled Sharing guideline?",
     "options": [
-      "Verify that the proposed release is authorized under the applicable process.",
-      "Send it to the partner and record the authorization later.",
-      "Use an approved channel and assume that the request is enough authority.",
-      "Send the file to a previously approved recipient from the same organization."
+      "Share with partner nations only through authorized entities",
+      "Share with any partner nation as long as its staff hold a clearance",
+      "Share it first and document the exchange afterward",
+      "Share it through the originating unit only"
     ],
     "answer": 0,
-    "explanation": "The lesson requires controlled sharing with authorized entities through a documented process. References: LOE3 GSOMIA Compliance, slides 20, 26, 36.",
+    "explanation": "Slide 36 says to follow protocols for sharing classified information with partner nations, ensuring it is shared only with authorized entities. References: LOE3 GSOMIA Compliance, slides 20, 26, 36.",
     "id": 17,
     "qid": "moduleseven-m-17"
   },
@@ -332,15 +332,15 @@
     "tags": [
       "classification and handling"
     ],
-    "prompt": "A colleague offers an encrypted consumer app not approved for the information. What is missing?",
+    "prompt": "A colleague proposes sending classified material through an unapproved consumer app. Which guideline is ignored?",
     "options": [
-      "More recipients to confirm the message arrived",
-      "Authorization for that channel and handling method",
-      "A larger icon for the application on the phone",
-      "A personal assurance that the encryption sounds strong"
+      "Secure storage: physical and electronic security",
+      "Marking information: showing the classification level",
+      "Destruction of information: preventing recovery",
+      "Secure transmission: encryption and secure channels"
     ],
-    "answer": 1,
-    "explanation": "Encryption is one safeguard, not evidence that a channel is authorized for a specific information exchange. References: LOE3 GSOMIA Compliance, slides 31, 37.",
+    "answer": 3,
+    "explanation": "Slide 37 requires encryption and secure channels such as encrypted email or secure messaging systems for transmitting classified information. References: LOE3 GSOMIA Compliance, slides 31, 37.",
     "id": 18,
     "qid": "moduleseven-m-18"
   },
@@ -350,15 +350,15 @@
     "tags": [
       "access and sharing"
     ],
-    "prompt": "Reviewers see an unusual sequence of file accesses. What evidence is most useful initially?",
+    "prompt": "Which record would show reviewers who opened a classified file, when, and why?",
     "options": [
-      "The file's classification marking and approved storage configuration",
-      "Current user-clearance records and the approved project-access roster",
-      "Access logs identifying users, times and purposes",
-      "The account's authentication settings and latest security-training record"
+      "The background check file",
+      "The classification marking",
+      "The audit trail of access logs",
+      "The role-specific training record"
     ],
     "answer": 2,
-    "explanation": "Logs allow reviewers to examine the access pattern and establish facts without assuming wrongdoing from a pattern alone. References: LOE3 GSOMIA Compliance, slide 35.",
+    "explanation": "Slide 35 says audit trails log who accessed classified information, when, and for what purpose, and are reviewed for anomalies. References: LOE3 GSOMIA Compliance, slide 35.",
     "id": 19,
     "qid": "moduleseven-m-19"
   },
@@ -368,15 +368,15 @@
     "tags": [
       "incident response and assurance"
     ],
-    "prompt": "An external review finds a recurring control failure. What completes the assurance cycle?",
+    "prompt": "A third-party review reveals a recurring control failure. What closes the assurance cycle?",
     "options": [
-      "Replace evidence with a favorable verbal assurance",
-      "File the report and assume the risk disappeared",
-      "Track corrective action and verify the improvement",
-      "Stop independent reviews to avoid future findings"
+      "Repeat the audit before any change is made to anything",
+      "File the report as documentation only",
+      "Retrain only the auditors",
+      "Update policies and procedures using the findings"
     ],
-    "answer": 2,
-    "explanation": "Audit findings should lead to implemented and checked improvements, not merely a completed report. References: LOE3 GSOMIA Compliance, slides 40, 46.",
+    "answer": 3,
+    "explanation": "Slide 40 has external reviews give independent evaluations, and Slide 46 says to use their feedback to improve security measures. References: LOE3 GSOMIA Compliance, slides 40, 46.",
     "id": 20,
     "qid": "moduleseven-m-20"
   },
@@ -389,15 +389,15 @@
       "access and sharing",
       "concept and seven tenets"
     ],
-    "prompt": "A partner proposes a secure channel for a protected file, but the recipient's task does not require the full dataset. What should the sender establish?",
+    "prompt": "How should classified information be transmitted under the GSOMIA guidelines?",
     "options": [
-      "The authorized recipient and minimum releasable information for the task",
-      "That technical interoperability permits the recipient to decide release rules",
-      "That the encrypted channel is fast enough before reviewing the recipient",
-      "That every cleared partner may receive every field on the same project"
+      "Through encrypted channels or secure couriers",
+      "Through marked but unencrypted email",
+      "Through any partner-owned channel",
+      "Through public cloud links with passwords"
     ],
     "answer": 0,
-    "explanation": "Secure transmission is one requirement. Need-to-know, authorization and appropriate scope remain necessary; a protected channel does not create release authority. References: LOE3 GSOMIA Compliance, slides 31, 37; LOE3 GSOMIA Compliance, slides 22, 33; Zero Trust, slides 20, 21.",
+    "explanation": "The guidelines call for secure methods such as encrypted channels or secure couriers, to authorized recipients who hold clearance and need to know. References: LOE3 GSOMIA Compliance, slides 22, 31, 33, 37; Zero Trust, slides 20, 21.",
     "id": 21,
     "qid": "moduleseven-m-21"
   },
@@ -409,15 +409,15 @@
       "access and sharing",
       "defensive control coverage"
     ],
-    "prompt": "A temporary administrator assignment ends, yet its elevated access remains active. Which corrective action best addresses the finding?",
+    "prompt": "Which GSOMIA access-control measure keeps logs of who accessed classified information, when and for what purpose?",
     "options": [
-      "Reconcile privileges with current duties and review the relevant access record",
-      "Reconfirm the account holder's current clearance and retain the approved role assignment",
-      "Review authentication strength and the current password-change record for the elevated account",
-      "Review recent account activity before renewing the existing elevated-role authorization period"
+      "Role-based access",
+      "Access monitoring (audit trails)",
+      "Background checks",
+      "Marking of classified information"
     ],
-    "answer": 0,
-    "explanation": "Role-based access and privileged-access controls require permissions appropriate to present duties. Access records help assess use and support accountability. References: LOE3 GSOMIA Compliance, slide 34; LOE3 GSOMIA Compliance, slide 35; Cyber Risk Assessment, page 27.",
+    "answer": 1,
+    "explanation": "Access monitoring maintains audit trails and regularly reviews access logs for anomalies; role-based access limits information to assigned duties and administrative privileges are controlled. References: LOE3 GSOMIA Compliance, slides 34, 35; Cyber Risk Assessment, page 27.",
     "id": 22,
     "qid": "moduleseven-m-22"
   },
@@ -429,15 +429,15 @@
       "incident response and assurance",
       "incident response lifecycle"
     ],
-    "prompt": "A suspected disclosure is reported. The team has limited its further spread but has not determined or removed the cause. How should it describe progress?",
+    "prompt": "Which statement correctly contrasts containment with eradication?",
     "options": [
-      "Cause removal can be inferred solely from the absence of new reports",
-      "Reporting and containment occurred; cause removal and recovery remain separate work",
-      "The incident is resolved because reporting and containment have both happened",
-      "The original report should be withdrawn until every response phase is complete"
+      "Containment removes the cause; eradication limits the spread",
+      "Containment restores data; eradication isolates the workstation",
+      "Containment limits the spread; eradication removes the cause and malicious components",
+      "Containment documents lessons; eradication reports to higher headquarters"
     ],
-    "answer": 1,
-    "explanation": "The response stages have different purposes. Reporting and containment are useful achievements but are not proof that the underlying cause has been removed or healthy operation restored. References: LOE3 GSOMIA Compliance, slides 27, 38; LOE3 GSOMIA Compliance, slide 39; Cyber Risk Assessment, pages 21, 22.",
+    "answer": 2,
+    "explanation": "Containment limits the scope and effects of a compromise, whereas eradication removes all components and symptoms of the incident; the incident must also be reported promptly. References: LOE3 GSOMIA Compliance, slides 27, 38, 39; Cyber Risk Assessment, pages 21, 22.",
     "id": 23,
     "qid": "moduleseven-m-23"
   },
@@ -449,15 +449,15 @@
       "incident response and assurance",
       "application and alignment"
     ],
-    "prompt": "An audit finds that staff can repeat the handling rules but apply them inconsistently. Which improvement is most relevant?",
+    "prompt": "Which GSOMIA guideline calls for training tailored to specific roles and responsibilities?",
     "options": [
-      "Role-specific practice followed by checks of the actual handling behavior",
-      "A higher compliance rating based only on the number of trained staff",
-      "A decision to stop auditing because the rules have already been explained",
-      "Another general briefing counted as proof that procedures are being followed"
+      "Awareness initiatives",
+      "Role-specific training",
+      "Regular audits",
+      "External reviews"
     ],
-    "answer": 0,
-    "explanation": "Knowledge and attendance are not the same as implemented behavior. Continuing role-specific training and assurance should address the observed application gap. References: LOE3 GSOMIA Compliance, slide 40; LOE3 GSOMIA Compliance, slides 28, 42; NIST Framework, page 27.",
+    "answer": 1,
+    "explanation": "Role-specific training tailors programs to roles and responsibilities; audits examine compliance, and sustained awareness and technical training supports every CSF Function. References: LOE3 GSOMIA Compliance, slides 28, 40, 42; NIST Framework, page 27.",
     "id": 24,
     "qid": "moduleseven-m-24"
   },
@@ -467,15 +467,15 @@
     "tags": [
       "risk concepts and cia"
     ],
-    "prompt": "A workstation holds valuable records, has missing updates and faces malware exposure. Which mapping is correct?",
+    "prompt": "Records, an unpatched operating system and malware are best matched to which key risk terms?",
     "options": [
-      "All three are interchangeable names for the same incident",
-      "Records: threat; missing updates: asset; malware: vulnerability",
-      "Records: asset; missing updates: vulnerability; malware: threat",
-      "Records: vulnerability; missing updates: threat; malware: asset"
+      "Asset, threat, vulnerability",
+      "Asset, vulnerability, threat",
+      "Threat, asset, vulnerability",
+      "Vulnerability, threat, asset"
     ],
-    "answer": 2,
-    "explanation": "Assets, vulnerabilities and threats describe different parts of the risk situation. References: Cyber Risk Assessment, pages 16, 17.",
+    "answer": 1,
+    "explanation": "Page 16: records are of value (asset), a missing update is a weakness (vulnerability) and malware is a potential cause of an unwanted incident (threat). References: Cyber Risk Assessment, pages 16, 17.",
     "id": 25,
     "qid": "moduleseven-m-25"
   },
@@ -485,15 +485,15 @@
     "tags": [
       "incident response lifecycle"
     ],
-    "prompt": "A unit appoints response staff and rehearses procedures before any incident. Which phase is illustrated?",
+    "prompt": "Which pair of phases falls in the During-Cyber Incident period?",
     "options": [
-      "Eradication",
-      "Containment",
-      "Preparation",
-      "Recovery"
+      "Recovery and Assessment and Review",
+      "Identification and Containment",
+      "Containment and Eradication",
+      "Preparation and Identification"
     ],
     "answer": 2,
-    "explanation": "Pre-incident readiness activities belong to preparation, even when they simulate later phases. References: Cyber Risk Assessment, pages 19, 20.",
+    "explanation": "Page 18: Pre-Incident has Preparation and Identification; During Incident has Containment and Eradication; Post Incident has Recovery and Assessment and Review. References: Cyber Risk Assessment, pages 19, 20.",
     "id": 26,
     "qid": "moduleseven-m-26"
   },
@@ -503,15 +503,15 @@
     "tags": [
       "defensive control coverage"
     ],
-    "prompt": "A team hardens operating systems but ignores its custom web application and unauthorized Wi-Fi. Which areas remain?",
+    "prompt": "Which SANS control allows only wireless devices with an authorized configuration, security profile and documented owner, and scans for rogue access points?",
     "options": [
-      "Host configuration and log collection management",
-      "Hardware inventory and administrative privilege management",
-      "Application security and wireless access control",
-      "Malware defense and data backup recovery"
+      "Boundary Defense",
+      "Secure Configurations for Network Devices",
+      "Application Software Security",
+      "Wireless Device Control"
     ],
-    "answer": 2,
-    "explanation": "The lesson separately includes application security and wireless access control, beyond host hardening. References: Cyber Risk Assessment, pages 25, 26.",
+    "answer": 3,
+    "explanation": "Page 26: control 7, Wireless Device Control, allows only authorized wireless devices and scans for rogue access points. References: Cyber Risk Assessment, pages 25, 26.",
     "id": 27,
     "qid": "moduleseven-m-27"
   },
@@ -521,15 +521,15 @@
     "tags": [
       "people process technology and scoring"
     ],
-    "prompt": "Using the stated formula, Risk Output is 40% and Points Allocated is 50. What is the weighted result?",
+    "prompt": "Using Risk Output x Points Allocated / 100, what is the result for a Risk Output of 40 and 50 points allocated?",
     "options": [
-      "50 points",
-      "90 points",
+      "10 points",
       "20 points",
-      "40 points"
+      "90 points",
+      "2,000 points"
     ],
-    "answer": 2,
-    "explanation": "Apply the supplied values directly: 40 × 50 / 100 = 20 points; do not infer additional weights. References: Cyber Risk Assessment, page 30.",
+    "answer": 1,
+    "explanation": "Page 30: 40 x 50 / 100 = 20 points. References: Cyber Risk Assessment, page 30.",
     "id": 28,
     "qid": "moduleseven-m-28"
   },
@@ -542,15 +542,15 @@
       "framework purpose and scope",
       "application and alignment"
     ],
-    "prompt": "A team ranks every weakness by technical severity alone. A service with major mission consequences receives little attention because its issue appears less dramatic. What should the review add?",
+    "prompt": "In the cyber risk lesson, risk is the likelihood that a threat exploits a vulnerability, combined with what?",
     "options": [
-      "The number of screenshots attached to each weakness report",
-      "The frequency with which the issue appears in product advertising",
-      "A rule that the most recently installed device always has highest priority",
-      "Mission impact, likelihood and the agreed scope of priorities"
+      "Its cost to fix",
+      "The number of users affected",
+      "The age of the asset",
+      "Its impact on the mission"
     ],
     "answer": 3,
-    "explanation": "A technical indicator is useful but not a complete risk decision. The lessons connect likelihood and mission consequences to scoped priorities. References: Cyber Risk Assessment, page 16; NIST Framework, page 9; NIST Framework, page 15.",
+    "explanation": "Risk combines the likelihood of exploitation with its impact on the mission; a shared cybersecurity language and a defined scope support defensible decisions. References: Cyber Risk Assessment, page 16; NIST Framework, pages 9, 15.",
     "id": 29,
     "qid": "moduleseven-m-29"
   },
@@ -562,15 +562,15 @@
       "defensive control coverage",
       "application and alignment"
     ],
-    "prompt": "An exercise finds that backups exist, but no one has restored the critical service from them. Which conclusion is warranted?",
+    "prompt": "Which SANS control requires automatic backups at least weekly and regular testing of restoration?",
     "options": [
-      "Recoverability and continuity still need a relevant restoration exercise",
-      "Use backup job success records as evidence that the critical service can recover",
-      "Use the approved continuity plan and allocated recovery roles as evidence of recoverability",
-      "Use successful file-integrity checks as evidence of the critical service's restoration capability"
+      "Malware Defenses",
+      "Data Loss Prevention",
+      "Incident Response and Management",
+      "Data Recovery Capability"
     ],
-    "answer": 0,
-    "explanation": "A backup's existence does not prove restoration, while continuity exercises provide evidence about recovering capability. The missing test limits the claim without proving backup corruption. References: Cyber Risk Assessment, page 26; NIST Framework, page 27.",
+    "answer": 3,
+    "explanation": "Control 8, data recovery capability, backs up systems at least weekly and regularly tests restoration; response and recovery are rehearsed together to support continuity of operations. References: Cyber Risk Assessment, page 26; NIST Framework, page 27.",
     "id": 30,
     "qid": "moduleseven-m-30"
   },
@@ -583,15 +583,15 @@
       "policy components",
       "access and sharing"
     ],
-    "prompt": "A review shows that an account's historical role justifies more access than its current assignment needs. Which treatment best matches the evidence?",
+    "prompt": "Which SANS control disables dormant accounts and immediately revokes the access of separated personnel?",
     "options": [
-      "Wait for an incident before considering whether elevated rights remain necessary",
-      "Retain historical privileges because identity was verified at account creation",
-      "Use the internal network address to validate every inherited permission",
-      "Update permissions using the present role and relevant access context"
+      "Controlled Use of Administrative Privileges",
+      "Account Monitoring and Control",
+      "Controlled Access Based on the Need to Know",
+      "Maintenance, Monitoring, and Analysis of Audit Logs"
     ],
-    "answer": 3,
-    "explanation": "Privilege management, contextual access and role-based authorization all require attention to current legitimate duties. References: Cyber Risk Assessment, page 27; Zero Trust, slide 22; LOE3 GSOMIA Compliance, slide 34.",
+    "answer": 1,
+    "explanation": "Control 16, account monitoring and control, disables dormant accounts and revokes access of separated personnel, keeping permissions tied to the present role. References: Cyber Risk Assessment, page 27; Zero Trust, slide 22; LOE3 GSOMIA Compliance, slide 34.",
     "id": 31,
     "qid": "moduleseven-m-31"
   },
@@ -603,15 +603,15 @@
       "people process technology and scoring",
       "framework purpose and scope"
     ],
-    "prompt": "A posture review gives hardware improvements full attention but ignores unclear reporting procedures and untrained staff. What is the main problem?",
+    "prompt": "In the People-Process-Technology Framework, which element covers licensed, updated software and regular maintenance of ICT equipment?",
     "options": [
-      "The missing procedures can be represented by the hardware purchase cost",
-      "The assessment needs more hardware entries before people can be considered",
-      "The assessment overlooks People and Process alongside Technology",
-      "The selected framework limits risk work to equipment and software"
+      "Technology",
+      "People",
+      "Process",
+      "Governance"
     ],
-    "answer": 2,
-    "explanation": "The PPT view and the NIST lesson both include people and processes. A technology-only assessment misses distinct sources of risk and improvement needs. References: Cyber Risk Assessment, page 29; NIST Framework, page 8.",
+    "answer": 0,
+    "explanation": "The Technology element covers licensed and updated operating systems and applications and regular maintenance of ICT equipment; the CSF scope also includes people and processes. References: Cyber Risk Assessment, page 29; NIST Framework, page 8.",
     "id": 32,
     "qid": "moduleseven-m-32"
   }

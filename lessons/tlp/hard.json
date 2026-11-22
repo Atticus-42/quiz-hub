@@ -9,15 +9,15 @@
       "time and warning orders",
       "application"
     ],
-    "prompt": "Six hours remain until the required ready time. The company has enough information to issue its order within two hours, but a higher update on one detail will arrive after that. What schedule decision best preserves subordinate preparation?",
+    "prompt": "A battalion WARNO arrives at D-1 1000H and the defense must be prepared by 0400H on D. Using the one-third/two-thirds guideline, by what time must the company OPORD be issued at the latest?",
     "options": [
-      "Issue the order within two hours and pass the update later",
-      "Wait for the update and use three hours for the full order",
-      "Issue the full order at the last possible moment to minimize revisions",
-      "Reserve all six hours for headquarters and extend the required ready time"
+      "1600H",
+      "1300H",
+      "1900H",
+      "2200H"
     ],
     "answer": 0,
-    "explanation": "The one-third guideline and early warning principle protect subordinate time. Later information can refine guidance already issued.",
+    "explanation": "The timeline is 18 hours, so the company keeps 6 hours: the OPORD is NLT 1600H (planned 1500H) and subordinates keep the rest.",
     "sourceSlides": [
       5,
       6
@@ -33,15 +33,15 @@
       "time and warning orders",
       "application"
     ],
-    "prompt": "A company timeline works backward from its own rehearsal and ends up missing the higher required ready time. What is the correct repair?",
+    "prompt": "A company plans forward from receipt of the mission and finds no time left to rehearse before the battalion rehearsal. Which sample practice prevents this?",
     "options": [
-      "Anchor it to material delivery so the schedule has one fixed dependency",
-      "Move the higher ready time to the end of the rehearsal",
-      "Anchor it to the higher ready time and reinsert the rehearsal and earlier deadlines",
-      "Start at receipt of mission and schedule each activity in sequence with no end check"
+      "Issuing the WARNO only after the tentative plan is complete and approved",
+      "Keeping one-half of the time for the company's own planning and orders",
+      "Starting the timeline from the time the company OPORD is issued to subordinates",
+      "Reverse-planning from the \"defense prepared\" time with battalion deadlines"
     ],
-    "answer": 2,
-    "explanation": "The imposed ready time anchors the reverse plan. Rehearsal is a dependency to fit before that deadline.",
+    "answer": 3,
+    "explanation": "The sample timeline is reverse-planned from 0400H and includes the battalion's backbrief, rehearsal and evacuation deadlines.",
     "sourceSlides": [
       5
     ]
@@ -56,15 +56,15 @@
       "time and warning orders",
       "application"
     ],
-    "prompt": "An updated higher warning order changes a known preparation deadline, while the company order remains an hour away. Which action avoids preventable delay?",
+    "prompt": "A company commander holds the WARNO until the plan is finished, so subordinates wait. Which \"why this works\" point of the sample WARNO is lost?",
     "options": [
-      "Hold all changes for the full company order",
-      "Pass the revised deadline and affected initial tasks promptly",
-      "Send only the updated higher warning order with no company instructions",
-      "Brief the original deadline and explain the change at the rehearsal"
+      "It names the place of the OPORD on the ground overlooking the EA",
+      "It gives the OP task early so that the squad can plan its move",
+      "Out fast, so subordinates can start moving and preparing at once",
+      "It is reverse-planned from the battalion defense-prepared time"
     ],
-    "answer": 1,
-    "explanation": "An update gives subordinates usable company instructions as soon as the deadline changes.",
+    "answer": 2,
+    "explanation": "The study notes say the WARNO works because it goes out fast; the sample issues it 15 minutes after the battalion WARNO.",
     "sourceSlides": [
       5,
       6
@@ -80,15 +80,15 @@
       "time and warning orders",
       "application"
     ],
-    "prompt": "The ready deadline is fixed. A delivery required for one task slips, but checks on unrelated tasks can start now. How should the timeline change?",
+    "prompt": "Which statement matches the sample timeline for the company on D-1?",
     "options": [
-      "Shift every preparation action by the length of the delivery delay",
-      "Move the required ready time even though it is imposed",
-      "Leave the schedule untouched until the delivery arrives",
-      "Resequence independent work and recompute the delayed task's time window"
+      "It issues the OPORD at 1500H and moves only after the order is out",
+      "It moves at 1300H, before the OPORD at 1500H, to use time on the ground",
+      "It moves at 1500H at BP2 together with the issue of the OPORD",
+      "It moves after the stand-to so that the plan is already final"
     ],
-    "answer": 3,
-    "explanation": "Reverse planning can preserve the fixed end time by using time on tasks unaffected by the delay.",
+    "answer": 1,
+    "explanation": "The company moves to its sector at 1300H, before its order is issued, because waiting for a finished plan before moving is the mistake to avoid.",
     "sourceSlides": [
       5,
       13
@@ -104,15 +104,15 @@
       "mission analysis and coa",
       "application"
     ],
-    "prompt": "Higher intent emphasizes civilian protection, and a route needed by the company is reserved for evacuation until release. Which analysis best shapes the plan?",
+    "prompt": "Route 7 must stay open until 2000, and the R1 obstacle may be closed only on battalion order. How does the sample mission analysis classify these items?",
     "options": [
-      "Make route closure the essential task and leave its timing to the teams",
-      "Treat the release requirement as a constraint and adapt preparations around it",
-      "Treat civilian traffic as background and keep the original schedule",
-      "Record the route restriction only as a sustainment request"
+      "Specified tasks",
+      "Implied tasks",
+      "Essential tasks",
+      "Constraints"
     ],
-    "answer": 1,
-    "explanation": "A useful deduction turns the higher restriction into a concrete limit on company actions and timing.",
+    "answer": 3,
+    "explanation": "Both are limits on when and how the company may act, which the sample lists under constraints.",
     "sourceSlides": [
       7,
       8
@@ -128,15 +128,15 @@
       "mission analysis and coa",
       "application"
     ],
-    "prompt": "A COA wins a comparison matrix but the war-game exposes an unanswered event that could prevent its purpose. What should the commander do before selection?",
+    "prompt": "In the sample war-game, the enemy mortars the company's emitters. Which counteraction does the plan list?",
     "options": [
-      "Refine the COA at the critical event, then compare again",
-      "Select the highest-scoring COA automatically",
-      "Discard the war-game because it conflicts with the matrix",
-      "Add comparison criteria until the initial ranking returns"
+      "Remote antennas and use wire",
+      "Use 90RR and BC2001",
+      "Use BP1 and BC2002",
+      "Use camouflage and emission control"
     ],
     "answer": 0,
-    "explanation": "The war-game tests how a plan responds to events. The comparison supports the decision and cannot substitute for judgment.",
+    "explanation": "The war-game pairs each enemy event with a counteraction: mortars on emitters is answered by remote antennas and wire, while the drone at BMNT is answered by camouflage and emission control.",
     "sourceSlides": [
       9,
       10
@@ -152,15 +152,15 @@
       "mission analysis and coa",
       "application"
     ],
-    "prompt": "A draft gives supporting elements independent goals and the company mission merely repeats a task. What pair of revisions fixes the nesting problem?",
+    "prompt": "In COA 1, which element's task and purpose is to destroy the creek element so it cannot flank the main effort?",
     "options": [
-      "Add more terrain facts and rewrite all supporting tasks as specified tasks",
-      "Replace the main effort with equal effort and move intent to Sustainment",
-      "Summarize the decision matrix in the mission and give each element an unrelated success measure",
-      "State the company's purpose under higher intent and link supporting purposes to the main effort"
+      "2nd PLT (ME) with the 90RR at BP2",
+      "3rd PLT(-) (SE2) at BP3",
+      "1st PLT (SE1) at BP1",
+      "The OP squad on Hill 310"
     ],
-    "answer": 3,
-    "explanation": "Purpose connects the company mission upward and subordinate contributions to the selected company plan.",
+    "answer": 2,
+    "explanation": "SE1 at BP1 destroys the creek element so it cannot flank the ME. SE2 at BP3 blocks penetration of PL STEEL.",
     "sourceSlides": [
       7,
       9
@@ -176,15 +176,15 @@
       "mission analysis and coa",
       "application"
     ],
-    "prompt": "A team lists two plausible approaches but rehearses its COA against only one of them during analysis. Which revision most directly improves its war-game?",
+    "prompt": "Which list gives the factors on the sample war-game decision matrix?",
     "options": [
-      "Rank the approaches by map distance and remove the longer one from analysis",
-      "Replace the event sequence with a list of available resources",
-      "Trace critical events along both relevant approaches and check planned responses",
-      "Increase the number of comparison criteria without revisiting events"
+      "Depth, mass at the EA, creek coverage, simplicity, obstacle integration, survivability",
+      "Depth, mass at the EA, creek coverage, speed, obstacle integration, survivability",
+      "Depth, mass at the EA, creek coverage, simplicity, obstacle integration, supportability",
+      "Depth, dispersion, creek coverage, simplicity, obstacle integration, survivability"
     ],
-    "answer": 2,
-    "explanation": "The example's avenue-in-depth war-game ties critical events on relevant approaches to planned responses.",
+    "answer": 0,
+    "explanation": "The matrix compares COA 1 and COA 2 on six factors; the study notes warn against factors unrelated to the war-game.",
     "sourceSlides": [
       8,
       10
@@ -200,15 +200,15 @@
       "movement and reconnaissance",
       "application"
     ],
-    "prompt": "A map suggests one route is screened. Early preparation is authorized, but the final choice depends on checking that route. What is the best immediate plan?",
+    "prompt": "The platoon leader needs to know the distance at which the cane stops hiding the enemy. Which sample recon task answers this gap?",
     "options": [
-      "Wait for route verification before taking any authorized preparation action",
-      "Use the map result as final and cancel reconnaissance",
-      "Start unaffected work and assign a team to check visibility",
-      "Send the entire company to test the route before starting any other work"
+      "Pace from PL IRON to the cane edge (2nd PL)",
+      "Walk the creek from the enemy side (1st PL)",
+      "Walk the positions and mark limits (CO and PLs)",
+      "Recon the R1 site and bypasses (engineer squad leader)"
     ],
-    "answer": 2,
-    "explanation": "The example starts authorized work early and assigns focused reconnaissance where assumptions still need checking.",
+    "answer": 0,
+    "explanation": "The sample answers the engagement distance gap by pacing from PL IRON to the cane edge, assigned to the 2nd PL.",
     "sourceSlides": [
       8,
       11
@@ -224,15 +224,15 @@
       "movement and reconnaissance",
       "application"
     ],
-    "prompt": "Two reconnaissance reports conflict on visibility from the same position because teams checked it from different sides. What follow-up resolves the planning uncertainty?",
+    "prompt": "In the sample reconnaissance table, who confirms the R1 site and bypasses, and when?",
     "options": [
-      "Use whichever report came from the senior observer",
-      "Recheck the position and approach under agreed conditions",
-      "Average the two reports without specifying locations",
-      "Keep the favorable result because it supports the tentative plan"
+      "The OP squad leader, 1600H",
+      "The engineer squad leader, 1430H",
+      "The 1st PLT leader, 1100H",
+      "The commander and platoon leaders, 1030H"
     ],
     "answer": 1,
-    "explanation": "The reconnaissance should match the actual decision and verify the disputed terrain effect from the relevant perspective.",
+    "explanation": "Each gap names who confirms it and when: Engr SL at 1430H for R1, and OP SL at 1600H for the OP site and withdrawal route.",
     "sourceSlides": [
       11
     ]
@@ -247,15 +247,15 @@
       "movement and reconnaissance",
       "application"
     ],
-    "prompt": "Reconnaissance contradicts a critical assumption just before the order is issued. What should the company do?",
+    "prompt": "Which pair of movements matches the sample?",
     "options": [
-      "Issue the tentative plan unchanged to preserve briefing time",
-      "Move the conflicting information to the appendix and ignore its effects",
-      "Cancel authorized preparations without checking whether they depend on the assumption",
-      "Update the selected plan and brief the resulting changes in the order"
+      "The company moves at 1030H; the OP moves at 1930H to be in place by 2000H",
+      "The company moves at 1300H; the OP moves at 1930H to be in place by 2000H",
+      "The company moves at 1300H; the OP moves at 1600H to be in place by 1700H",
+      "The company moves at 1500H; the OP moves at 1300H to be in place by 1500H"
     ],
-    "answer": 3,
-    "explanation": "Reconnaissance informs completion of the plan, so consequential findings must carry into the order.",
+    "answer": 1,
+    "explanation": "The slide closes Step 4 with the company moving at 1300H and the OP moving at 1930H to be in place by 2000H.",
     "sourceSlides": [
       11,
       12
@@ -271,15 +271,15 @@
       "movement and reconnaissance",
       "application"
     ],
-    "prompt": "A reconnaissance task confirmed a position, but a later inspection finds preparation blocked by a new condition. Which action fits TLP?",
+    "prompt": "How does Step 5 reconnaissance in the sample defense differ from the attack in the comparison table?",
     "options": [
-      "Verify the new condition and refine the affected preparation or order",
-      "Treat the earlier reconnaissance as permanently conclusive",
-      "Delete the condition from the timeline because the site was already approved",
-      "Ask the original recon team to reissue its old findings unchanged"
+      "The leader looks at the engagement area from our own side instead of from the enemy's side during the recon",
+      "The leader waits for the OPORD before any recon of the sector instead of moving early",
+      "The leader walks the engagement area from the enemy's side instead of looking at the objective from our side",
+      "The leader leaves the whole sector recon to the engineer squad leader alone"
     ],
-    "answer": 0,
-    "explanation": "Supervision and refinement continue after reconnaissance and order issue.",
+    "answer": 2,
+    "explanation": "In the attack the leader looks at the objective from our side; in the defense the leader walks the engagement area from the enemy's side.",
     "sourceSlides": [
       11,
       13
@@ -295,15 +295,15 @@
       "orders and communications",
       "application"
     ],
-    "prompt": "The company expects intermittent failure of its preferred means. A draft lists four tools with no priorities or use conditions. What revision makes it usable?",
+    "prompt": "A group lists company VHF as its primary means, although the OPFOR has already mortared emitters. Which change follows the sample?",
     "options": [
-      "Send the list unchanged with the higher communications reference attached",
-      "Name the four tools again in the Situation paragraph",
-      "Use the fastest tool for every element and keep the rest off the plan",
-      "Set a company PACE sequence suited to the assessed threat and test the means"
+      "Keep VHF primary and add a second company radio net as a back-up",
+      "Make messengers primary and drop the wire from the plan altogether",
+      "Copy the battalion CEOI into paragraph 5 as the company plan",
+      "Make field wire primary and remote the antennas"
     ],
     "answer": 3,
-    "explanation": "Command and Signal should tell subordinates which means to use when the primary becomes unsuitable.",
+    "explanation": "The sample warns against radio as primary when the enemy hunts emitters: wire is primary and antennas are remoted.",
     "sourceSlides": [
       12
     ]
@@ -318,15 +318,15 @@
       "orders and communications",
       "application"
     ],
-    "prompt": "An OPORD has detailed execution instructions, but a required higher restriction is absent and the mission purpose is vague. What should the leader correct?",
+    "prompt": "Which list gives the sample PACE plan from primary to emergency?",
     "options": [
-      "Move the complete execution plan into Mission and delete the restriction",
-      "Put the purpose in Sustainment and leave the restriction to informal briefings",
-      "State the nested purpose in Mission and carry the restriction into coordinating instructions",
-      "Add the restriction to the signal annex and leave the mission unchanged"
+      "Company VHF B2; field wire to BPs; messengers; pyro or whistle",
+      "Field wire to BPs; company VHF B2; messengers; pyro or whistle",
+      "Field wire to BPs; messengers; company VHF B2; pyro or whistle",
+      "Field wire to BPs; company VHF B2; pyro or whistle; messengers"
     ],
-    "answer": 2,
-    "explanation": "The order should show why the task matters and clearly convey restrictions that govern execution.",
+    "answer": 1,
+    "explanation": "The plan is P: field wire to BPs, A: company VHF B2, C: messengers, E: pyro and whistle.",
     "sourceSlides": [
       7,
       12
@@ -342,15 +342,15 @@
       "orders and communications",
       "application"
     ],
-    "prompt": "The order defines a transition, but teams disagree on which signal initiates it. What will best resolve the discrepancy?",
+    "prompt": "Which of the following is named as the mistake to AVOID in paragraph 5 of the sample order?",
     "options": [
-      "Clarify the order's signal instructions and rehearse the transition with the affected teams",
-      "Reissue the first warning order and keep the rehearsal schedule unchanged",
-      "Put the transition time into Sustainment and leave the signal open",
-      "Assign each team a different local signal and compare them after execution"
+      "Making field wire the primary means in the defense",
+      "Remoting the antennas",
+      "Copying the battalion CEOI as paragraph 5",
+      "Planning a KIDLAT drill for the whole company"
     ],
-    "answer": 0,
-    "explanation": "Clear instructions plus rehearsal let the team verify a shared understanding of the critical transition.",
+    "answer": 2,
+    "explanation": "The other three are parts of the sample's company plan. Copying the battalion CEOI is the mistake to avoid.",
     "sourceSlides": [
       12,
       13
@@ -366,15 +366,15 @@
       "orders and communications",
       "application"
     ],
-    "prompt": "A briefing team pastes the higher communications reference into its order. It has radio and nonradio resources but has not decided who uses what. What belongs in the company order?",
+    "prompt": "According to the study notes, what should paragraph 5 of the company order be?",
     "options": [
-      "The full higher reference moved unchanged into Situation",
-      "A company plan naming users, means, and fallback priorities",
-      "An expanded mission paragraph containing equipment inventories",
-      "A decision matrix of tools without any approved operating sequence"
+      "A copy of the battalion CEOI with the company callsigns added",
+      "A list of every radio net used across the whole battalion",
+      "A timeline of the battalion rehearsals and backbriefs",
+      "A real company plan matched to the enemy's DF threat"
     ],
-    "answer": 1,
-    "explanation": "The annotated example calls for a real company plan suited to the communications environment.",
+    "answer": 3,
+    "explanation": "The notes say paragraph 5 is a real company plan matched to the enemy's DF threat, which is where signal officers show their value.",
     "sourceSlides": [
       12
     ]
@@ -389,15 +389,15 @@
       "supervision and refinement",
       "application"
     ],
-    "prompt": "Subordinate backbriefs show different assumptions about who covers an adjoining responsibility. What should the commander do next?",
+    "prompt": "During PCIs the wire to BP2 is found cut, and the company switches to company VHF B2. Which PACE level is now in use?",
     "options": [
-      "Keep each subordinate interpretation because both plans are complete",
-      "Resolve assignments and verify coordination in rehearsal",
-      "Skip rehearsal to give teams more independent preparation time",
-      "Restate the higher mission without addressing the seam"
+      "Alternate",
+      "Primary",
+      "Contingency",
+      "Emergency"
     ],
-    "answer": 1,
-    "explanation": "Backbriefs reveal misunderstandings. Refinement and rehearsal check that the correction works across teams.",
+    "answer": 0,
+    "explanation": "Field wire is the primary means, so company VHF B2 is the alternate.",
     "sourceSlides": [
       13
     ]
@@ -412,15 +412,15 @@
       "supervision and refinement",
       "application"
     ],
-    "prompt": "The order's fallback method fails its practical check. A viable substitute exists and teams are about to rehearse. What response best follows Step 8?",
+    "prompt": "Which pair of Step 8 activities serves these purposes in order: \"check mutual support and gaps\" and \"check from the enemy's side\"?",
     "options": [
-      "Leave the fallback as written and count the substitute as available without a check",
-      "Make the substitute the sole method for all users and end testing",
-      "Wait until execution to report the failed check",
-      "Update the communications plan, notify users and verify the substitute in rehearsal"
+      "The rock drill and fires support rehearsal; stand-to through BMNT",
+      "Platoon leader backbriefs; the commander walks the line",
+      "PCIs and wire and radio checks; the commander walks the line",
+      "Platoon leader backbriefs with sector sketches; stand-to through BMNT"
     ],
-    "answer": 3,
-    "explanation": "Refinement incorporates the check result, and rehearsal verifies that the revised plan is understood and usable.",
+    "answer": 1,
+    "explanation": "The Step 8 table pairs backbriefs with mutual support and gaps, and the commander's walk of the line with the enemy's-side check.",
     "sourceSlides": [
       12,
       13
@@ -436,15 +436,15 @@
       "supervision and refinement",
       "application"
     ],
-    "prompt": "A prior delay shortens rehearsal time. Which decision best preserves its purpose?",
+    "prompt": "A group's Step 8 says only \"we will rehearse.\" What does the sample add?",
     "options": [
-      "Read every slide in order and omit all practical checks",
-      "Spend the session repeating the initial warning order",
-      "Rehearse the most consequential coordination events",
-      "Cancel coordination checks and reserve the time for brief formatting"
+      "A list of the priorities of work in order, from security to dig",
+      "Leaders checking the positions themselves before the attack",
+      "The rehearsal type and method, focused on critical events",
+      "The PACE plan with the stand-to time for the company"
     ],
     "answer": 2,
-    "explanation": "The worked example focuses rehearsals on critical events rather than requiring every activity to be rehearsed equally.",
+    "explanation": "The study notes say the rehearsal names its type and method and focuses on critical events; \"we will rehearse\" with no type or focus is the example to avoid.",
     "sourceSlides": [
       5,
       13
@@ -460,15 +460,15 @@
       "supervision and refinement",
       "application"
     ],
-    "prompt": "The supervisor finds preparation has focused on one local task while assigned safety checks and communications checks are incomplete. What should change?",
+    "prompt": "How does Step 8 differ between the sample defense and an attack in the comparison table?",
     "options": [
-      "Restore work priorities and verify the open checks by the deadline",
-      "Use the current work rate as the new definition of readiness",
-      "Ask each team to set unrelated priorities until the next review",
-      "Add the checks to the after-action discussion and leave the plan intact"
+      "The defense rehearses the assault at the attack position; the attack checks positions, fields of fire and wire",
+      "The defense moves to the attack position; the attack stands to at BMNT",
+      "The defense walks the objective; the attack walks the engagement area",
+      "The defense checks positions, fields of fire and wire and stands to at BMNT; the attack rehearses the assault"
     ],
-    "answer": 0,
-    "explanation": "Supervision checks that work follows the planned priorities and that essential checks happen before execution.",
+    "answer": 3,
+    "explanation": "The table gives \"check positions, fields of fire and wire; rehearse the fight; stand-to at BMNT\" for the defense and \"rehearse the assault\" for the attack.",
     "sourceSlides": [
       13
     ]

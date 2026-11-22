@@ -7,15 +7,15 @@
     "tags": [
       "framework purpose and scope"
     ],
-    "prompt": "What does the CSF primarily describe?",
+    "prompt": "Which of the following does the CSF describe, rather than specific products to buy?",
     "options": [
-      "Prescribed controls with mandatory implementation steps",
-      "Technical procedures for each network architecture",
-      "Cybersecurity outcomes to pursue",
-      "Certification criteria confirming complete cybersecurity compliance"
+      "Outcomes to achieve",
+      "Tools to deploy",
+      "Controls to purchase",
+      "Vendors to approve"
     ],
-    "answer": 2,
-    "explanation": "The CSF describes desired outcomes. An organization chooses suitable controls and products in light of its risks.",
+    "answer": 0,
+    "explanation": "Page 7 says the CSF describes outcomes to achieve, not specific products to buy, so any organization can apply it.",
     "sourceSlides": [
       7
     ]
@@ -28,15 +28,15 @@
     "tags": [
       "framework purpose and scope"
     ],
-    "prompt": "Which consideration best reflects a risk-based approach?",
+    "prompt": "Which quality of the CSF means prioritising effort by likelihood and impact, not by fear?",
     "options": [
-      "Purchase price and brand prestige",
-      "Age of the network alone",
-      "Likelihood and mission impact",
-      "Number of alerts alone"
+      "Technology-neutral",
+      "Interoperable",
+      "Risk-based",
+      "A shared language"
     ],
     "answer": 2,
-    "explanation": "The lesson prioritizes likelihood and impact rather than fear, product popularity or a single technical indicator.",
+    "explanation": "Page 7 pairs 'Risk-based' with 'Prioritise effort by likelihood and impact, not by fear'.",
     "sourceSlides": [
       7
     ]
@@ -49,15 +49,15 @@
     "tags": [
       "framework purpose and scope"
     ],
-    "prompt": "Who can use the Cybersecurity Framework?",
+    "prompt": "Who can use the NIST Cybersecurity Framework?",
     "options": [
-      "Organizations of different sizes and sectors",
-      "Only suppliers already certified by NIST",
-      "Only organizations with mature security teams",
-      "Only national critical-infrastructure agencies"
+      "Only U.S. federal agencies and their contractors",
+      "Only critical-infrastructure operators",
+      "Only organizations with a dedicated cyber department",
+      "Any organization, regardless of sector, size, or maturity"
     ],
-    "answer": 0,
-    "explanation": "The framework is adaptable across sectors, sizes and levels of experience, including small units.",
+    "answer": 3,
+    "explanation": "Page 8 says the Framework is for any organization, regardless of sector, size, or maturity.",
     "sourceSlides": [
       8
     ]
@@ -70,15 +70,15 @@
     "tags": [
       "framework purpose and scope"
     ],
-    "prompt": "Which statement correctly describes the framework's scope?",
+    "prompt": "Which of the following does the Framework cover?",
     "options": [
-      "It covers only network equipment",
-      "It includes people and processes",
-      "It excludes supplier relationships",
-      "It replaces organizational judgment"
+      "A mandatory one-size compliance audit",
+      "Supply-chain and third-party (C-SCRM) risk",
+      "A specific product, tool, or technical control",
+      "A replacement for the organization's own risk judgment"
     ],
     "answer": 1,
-    "explanation": "The scope includes people, processes, technology and third-party risk; it does not remove the need for judgment.",
+    "explanation": "Page 8 lists supply-chain and third-party (C-SCRM) risk under what it covers; the other options are listed under what it is NOT.",
     "sourceSlides": [
       8
     ]
@@ -91,15 +91,15 @@
     "tags": [
       "framework purpose and scope"
     ],
-    "prompt": "Why does a common cybersecurity language help commanders?",
+    "prompt": "What does the Framework enable commanders to do?",
     "options": [
-      "It supports defensible risk decisions",
-      "It removes all technical uncertainty",
-      "It transfers all responsibility to engineers",
-      "It standardizes every equipment purchase"
+      "Replace engineers' judgment with fixed risk scores",
+      "Make deliberate, defensible choices on where to invest",
+      "Certify units through a mandatory compliance audit",
+      "Standardize every product used by coalition partners"
     ],
-    "answer": 0,
-    "explanation": "A shared model connects technical concerns to mission consequences so leaders can decide how to allocate effort.",
+    "answer": 1,
+    "explanation": "Page 9 says the Framework turns cyber into a command decision, enabling deliberate, defensible choices on where to invest.",
     "sourceSlides": [
       9
     ]
@@ -112,15 +112,15 @@
     "tags": [
       "six csf functions"
     ],
-    "prompt": "Which Function establishes strategy, roles and oversight?",
+    "prompt": "Which activity falls under Govern?",
     "options": [
-      "Recover",
-      "Protect",
-      "Govern",
-      "Identify"
+      "Establishing baselines to spot anomalies",
+      "Executing the recovery plan",
+      "Assigning roles, responsibilities and authorities",
+      "Managing identity, authentication and access control"
     ],
     "answer": 2,
-    "explanation": "Govern establishes and monitors cybersecurity risk direction, responsibilities and policy.",
+    "explanation": "Page 11 lists roles, responsibilities and authorities under Govern; baselines are Detect, recovery plans are Recover, and access control is Protect.",
     "sourceSlides": [
       10,
       11
@@ -134,15 +134,15 @@
     "tags": [
       "six csf functions"
     ],
-    "prompt": "Which Function includes understanding assets and risks?",
+    "prompt": "Asset management of hardware, software and data is an activity of which Function?",
     "options": [
-      "Detect",
-      "Recover",
       "Identify",
-      "Respond"
+      "Govern",
+      "Protect",
+      "Detect"
     ],
-    "answer": 2,
-    "explanation": "Identify concerns knowing the assets, threats, vulnerabilities and priorities that matter to the mission.",
+    "answer": 0,
+    "explanation": "Page 11 lists asset management under Identify, whose purpose is to understand what you must defend.",
     "sourceSlides": [
       10,
       11
@@ -156,15 +156,15 @@
     "tags": [
       "six csf functions"
     ],
-    "prompt": "Which activity belongs most directly to Protect?",
+    "prompt": "Which of the following is a Protect activity?",
     "options": [
-      "Analysis of an active incident",
-      "Restoration of damaged systems",
-      "Role-based security training",
-      "Correlation of unusual event logs"
+      "Continuous monitoring of networks and assets",
+      "Incident management and triage",
+      "Recovery-plan execution and restoration",
+      "Identity, authentication and access control"
     ],
-    "answer": 2,
-    "explanation": "Protect includes safeguards such as access controls, security training and data protection.",
+    "answer": 3,
+    "explanation": "Page 11 lists identity, authentication and access control under Protect; monitoring is Detect, triage is Respond and restoration is Recover.",
     "sourceSlides": [
       11
     ]
@@ -177,15 +177,15 @@
     "tags": [
       "six csf functions"
     ],
-    "prompt": "Which Function focuses on finding anomalous activity?",
+    "prompt": "Establishing baselines to spot anomalies is an activity of which Function?",
     "options": [
       "Detect",
+      "Identify",
       "Protect",
-      "Recover",
-      "Govern"
+      "Respond"
     ],
     "answer": 0,
-    "explanation": "Detect uses monitoring, baselines and event analysis to discover potential trouble.",
+    "explanation": "Page 12 lists establishing baselines to spot anomalies under Detect.",
     "sourceSlides": [
       12
     ]
@@ -198,15 +198,15 @@
     "tags": [
       "six csf functions"
     ],
-    "prompt": "Which pairing correctly distinguishes Respond from Recover?",
+    "prompt": "Which Function is summed up as 'Restore and improve'?",
     "options": [
-      "Contain an incident; restore capability",
-      "Inventory assets; assign risk owners",
-      "Train personnel; monitor anomalies",
-      "Restore capability; define policy"
+      "Respond",
+      "Recover",
+      "Protect",
+      "Identify"
     ],
-    "answer": 0,
-    "explanation": "Respond addresses incident management and containment; Recover restores operations and incorporates lessons.",
+    "answer": 1,
+    "explanation": "Page 12 gives Recover the tagline 'Restore and improve'; Respond is 'Act on confirmed incidents'.",
     "sourceSlides": [
       12
     ]
@@ -219,15 +219,15 @@
     "tags": [
       "core profiles and tiers"
     ],
-    "prompt": "What is the hierarchy in the CSF Core?",
+    "prompt": "Which list gives the Core hierarchy from the broadest level to the most detailed?",
     "options": [
-      "Incidents, Tickets, Accounts",
-      "Profiles, Budgets, Purchases",
-      "Tiers, Vendors, Products",
+      "Categories, Functions, Subcategories",
+      "Functions, Subcategories, Categories",
+      "Subcategories, Categories, Functions",
       "Functions, Categories, Subcategories"
     ],
     "answer": 3,
-    "explanation": "The Core organizes cybersecurity outcomes from broad Functions into Categories and more detailed Subcategories.",
+    "explanation": "Page 13 describes the Core as a hierarchy of Functions, then Categories, then Subcategories.",
     "sourceSlides": [
       13
     ]
@@ -240,15 +240,15 @@
     "tags": [
       "core profiles and tiers"
     ],
-    "prompt": "What does a Current Profile describe?",
+    "prompt": "A Current Profile captures which of the following?",
     "options": [
-      "Outcomes desired next year",
-      "Outcomes the organization currently achieves",
-      "The number of known attackers",
-      "The assigned readiness tier alone"
+      "The desired state of the organization",
+      "The prioritised action plan for closing gaps",
+      "The posture of the organization today",
+      "How rigorous the risk-management practice is"
     ],
-    "answer": 1,
-    "explanation": "A Current Profile captures the present posture; a Target Profile describes the desired outcomes.",
+    "answer": 2,
+    "explanation": "Page 13: a Current Profile captures today's posture, while a Target Profile captures the desired state.",
     "sourceSlides": [
       13
     ]
@@ -261,15 +261,15 @@
     "tags": [
       "core profiles and tiers"
     ],
-    "prompt": "What is the main use of comparing Current and Target Profiles?",
+    "prompt": "What does the gap between the Current Profile and the Target Profile become?",
     "options": [
-      "Calculate a universal certification score",
-      "Choose a vendor without evaluation",
-      "Remove the need for risk assessment",
-      "Identify and prioritize gaps"
+      "The organization's Implementation Tier",
+      "The prioritised action plan",
+      "The list of Functions to adopt",
+      "The set of Subcategories to remove"
     ],
-    "answer": 3,
-    "explanation": "The difference between present and desired outcomes supports a prioritized improvement plan.",
+    "answer": 1,
+    "explanation": "Page 13 says the gap between the two Profiles becomes your prioritised action plan.",
     "sourceSlides": [
       13
     ]
@@ -282,15 +282,15 @@
     "tags": [
       "core profiles and tiers"
     ],
-    "prompt": "Which Tier describes ad hoc, reactive practices?",
+    "prompt": "How many Implementation Tiers does the CSF have?",
     "options": [
-      "Partial",
-      "Risk Informed",
-      "Repeatable",
-      "Adaptive"
+      "Four",
+      "Three",
+      "Five",
+      "Six"
     ],
     "answer": 0,
-    "explanation": "Partial is Tier 1 and describes risk management handled case by case rather than through consistent organization-wide practices.",
+    "explanation": "Page 13 states four Implementation Tiers, from Partial (1) to Adaptive (4); six is the number of Functions.",
     "sourceSlides": [
       14
     ]
@@ -303,15 +303,15 @@
     "tags": [
       "core profiles and tiers"
     ],
-    "prompt": "Which Tier emphasizes continuous adaptation from lessons and threat information?",
+    "prompt": "Which Implementation Tier is the third Tier?",
     "options": [
-      "Repeatable",
       "Partial",
       "Risk Informed",
-      "Adaptive"
+      "Adaptive",
+      "Repeatable"
     ],
     "answer": 3,
-    "explanation": "Adaptive practices use new information and lessons to refine risk management continuously.",
+    "explanation": "Page 14 numbers the Tiers 1 Partial, 2 Risk Informed, 3 Repeatable and 4 Adaptive.",
     "sourceSlides": [
       14
     ]
@@ -324,15 +324,15 @@
     "tags": [
       "nictef elements and vision"
     ],
-    "prompt": "What is NICTEF's main coordinating purpose in the lesson?",
+    "prompt": "What does NICTEF stand for?",
     "options": [
-      "Mandate a single security product",
-      "Harmonize national ICT efforts",
-      "Certify individual network engineers",
-      "Replace every agency's mission"
+      "National ICT Education and Training Framework",
+      "National ICT Ecosystem Framework",
+      "National Information and Cyber Technology Evaluation Framework",
+      "National ICT Efficiency and Transformation Framework"
     ],
     "answer": 1,
-    "explanation": "The lesson presents NICTEF as a national blueprint for coordinated ICT plans, programs and projects.",
+    "explanation": "Pages 17-18 name the NICTEF as the National ICT Ecosystem Framework.",
     "sourceSlides": [
       18,
       25
@@ -346,15 +346,15 @@
     "tags": [
       "nictef elements and vision"
     ],
-    "prompt": "Which objective reflects the NICTEF vision?",
+    "prompt": "Which of the following is part of the NICTEF vision?",
     "options": [
-      "Exclusive access for major institutions",
-      "Innovation limited to urban agencies",
-      "Connectivity without privacy protections",
-      "Reliable and affordable ICT access"
+      "Only government agencies have secure and reliable access to ICT",
+      "ICT access is provided according to each user's ability to pay",
+      "Everyone, especially the poor and vulnerable, has reliable and affordable access to and use of ICT",
+      "Cyber defense is reserved for the armed forces alone"
     ],
-    "answer": 3,
-    "explanation": "The vision stresses inclusive, reliable and affordable access, particularly for poor and vulnerable groups.",
+    "answer": 2,
+    "explanation": "Page 19 states the vision that everyone, especially the poor and vulnerable, has reliable and affordable access to and use of ICT.",
     "sourceSlides": [
       19
     ]
@@ -367,15 +367,15 @@
     "tags": [
       "nictef elements and vision"
     ],
-    "prompt": "Which framework element concerns users' talents and skills?",
+    "prompt": "Which NICTEF framework element refers to talents and skills?",
     "options": [
-      "Standards and Policies",
       "Human Capital",
-      "Infostructure",
-      "Platforms"
+      "Affordable Access and Devices",
+      "Platforms",
+      "Standards, Regulations and Policies"
     ],
-    "answer": 1,
-    "explanation": "Human Capital concerns the people who use and contribute to ICT services and the capabilities they need.",
+    "answer": 0,
+    "explanation": "Page 21 describes Human Capital as talents and skills, the individuals who access the applications, services, content and data.",
     "sourceSlides": [
       21
     ]
@@ -388,15 +388,15 @@
     "tags": [
       "nictef elements and vision"
     ],
-    "prompt": "Which element provides physical and logical connectivity?",
+    "prompt": "Cellphones, laptops and internet cafes are examples of which NICTEF framework element?",
     "options": [
       "Human Capital",
-      "Regulations and Policies",
+      "Platforms",
       "Infostructure/Infrastructure",
-      "Content and Applications"
+      "Affordable Access and Devices"
     ],
-    "answer": 2,
-    "explanation": "Infrastructure connects users and devices to platforms through physical and logical components.",
+    "answer": 3,
+    "explanation": "Page 21 describes Affordable Access and Devices as the interfaces or venues through which humans access services, such as cellphones, laptops and internet cafes.",
     "sourceSlides": [
       22
     ]
@@ -409,15 +409,15 @@
     "tags": [
       "nictef elements and vision"
     ],
-    "prompt": "Which matching is correct?",
+    "prompt": "Which NICTEF framework element includes apps/services and content/data?",
     "options": [
-      "Laptops are national policies",
-      "Applications are Platforms",
-      "Connectivity links are Human Capital",
-      "User skills are infrastructure cables"
+      "Human Capital",
+      "Infostructure/Infrastructure",
+      "Platforms",
+      "Standards, Regulations and Policies"
     ],
-    "answer": 1,
-    "explanation": "Platforms include applications, services, content and data. Devices, connectivity and skills belong to other ecosystem elements.",
+    "answer": 2,
+    "explanation": "Page 22 defines Platforms as the apps/services and content/data accessed by users in the ecosystem.",
     "sourceSlides": [
       21,
       22,
@@ -432,15 +432,15 @@
     "tags": [
       "application and alignment"
     ],
-    "prompt": "What begins the lesson's seven-step application sequence?",
+    "prompt": "Which is the first of the seven steps for applying the Framework?",
     "options": [
       "Prioritize and scope",
-      "Buy security appliances",
-      "Assign an Adaptive Tier",
-      "Publish a compliance certificate"
+      "Orient",
+      "Create a Current Profile",
+      "Conduct a risk assessment"
     ],
     "answer": 0,
-    "explanation": "The sequence starts by defining the mission, systems and units in scope before choosing implementation actions.",
+    "explanation": "Page 15 begins with Prioritize and scope: define the mission, systems, and units in scope.",
     "sourceSlides": [
       15
     ]
@@ -453,15 +453,15 @@
     "tags": [
       "application and alignment"
     ],
-    "prompt": "What should follow implementation in the lesson's approach?",
+    "prompt": "Which is the seventh and last step for applying the Framework?",
     "options": [
-      "Remove all review responsibilities",
-      "Stop collecting risk information",
-      "Freeze the Target Profile permanently",
-      "Monitor, refine and repeat"
+      "Analyze gaps and prioritize",
+      "Implement and repeat",
+      "Create a Target Profile",
+      "Conduct a risk assessment"
     ],
-    "answer": 3,
-    "explanation": "Implementation is iterative. Monitoring and refinement keep the approach relevant as needs and risks change.",
+    "answer": 1,
+    "explanation": "Page 15 ends with step 7, Implement and repeat: execute, monitor, and refine continuously.",
     "sourceSlides": [
       15
     ]
@@ -474,15 +474,15 @@
     "tags": [
       "application and alignment"
     ],
-    "prompt": "How does the lesson relate NICTEF and the NIST CSF?",
+    "prompt": "Which gives units a proven, repeatable method to deliver national ICT outcomes at the tactical and technical level?",
     "options": [
-      "National direction and a risk-management method",
-      "Equivalent names for the same framework",
-      "A security product and its license",
-      "Two competing hardware standards"
+      "NICTEF",
+      "The National Cybersecurity Plan",
+      "The Philippine Development Plan",
+      "The NIST CSF"
     ],
-    "answer": 0,
-    "explanation": "NICTEF provides national ICT direction; the CSF helps organizations manage cybersecurity risk in that context.",
+    "answer": 3,
+    "explanation": "Page 26's synthesis says the NIST CSF gives units a proven, repeatable method to deliver those outcomes; NICTEF sets national direction.",
     "sourceSlides": [
       26
     ]
@@ -495,15 +495,15 @@
     "tags": [
       "application and alignment"
     ],
-    "prompt": "Why rehearse response and recovery together?",
+    "prompt": "Which Functions should a Signal unit rehearse as part of continuity of operations so operations survive and bounce back from intrusion?",
     "options": [
-      "Guarantee no future incidents",
-      "Support continuity of operations",
-      "Replace all monitoring activities",
-      "Eliminate the need for prevention"
+      "Govern and Identify",
+      "Protect and Detect",
+      "Respond and Recover",
+      "Identify and Protect"
     ],
-    "answer": 1,
-    "explanation": "Rehearsals test the ability to handle disruption and restore capability, which supports continuity rather than guaranteeing immunity.",
+    "answer": 2,
+    "explanation": "Page 27 says to rehearse RESPOND and RECOVER as part of COOP so operations survive and bounce back from intrusion.",
     "sourceSlides": [
       27
     ]
@@ -516,15 +516,15 @@
     "tags": [
       "application and alignment"
     ],
-    "prompt": "Which activity supports the human side of every Function?",
+    "prompt": "For the Signal Corps, which is described as the decisive factor in every Function?",
     "options": [
-      "One procurement briefing for all roles",
-      "Replacing review with equipment upgrades",
-      "Delegating all decisions to vendors",
-      "Sustained awareness and technical training"
+      "Continuous monitoring and baselines",
+      "Sustained awareness and technical training",
+      "Shared Target Profiles across units",
+      "Command intent and oversight"
     ],
-    "answer": 3,
-    "explanation": "The lesson treats trained people as essential across the Functions, not as a substitute for technical controls.",
+    "answer": 1,
+    "explanation": "Page 27 calls sustained awareness and technical training the decisive factor in every Function.",
     "sourceSlides": [
       27
     ]

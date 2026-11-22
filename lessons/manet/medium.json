@@ -7,18 +7,17 @@
     "tags": [
       "network concepts"
     ],
-    "prompt": "Nodes move during an exercise. Which network characteristic addresses changing membership?",
+    "prompt": "Which of the following is the lesson's second definition of a MANET?",
     "options": [
-      "A fixed membership list that cannot change",
-      "Self-configuring connectivity",
-      "Permanent point-to-point wiring only",
-      "A rule prohibiting all node movement"
+      "A collection of fixed wireless relays forming a permanent network that is run under centralized administration and established infrastructure",
+      "A collection of wired exchanges forming a permanent backbone that relies on established infrastructure and centralized administration",
+      "A collection of satellite terminals forming a network through one central ground hub that provides the established infrastructure",
+      "A collection of low-power wireless mobile nodes forming a temporary wireless network without any established infrastructure or centralized administration"
     ],
-    "answer": 1,
-    "explanation": "MANETs are designed for changing mobile membership, although actual connectivity still depends on conditions.",
+    "answer": 3,
+    "explanation": "Page 11 defines a MANET as a collection of low-power wireless mobile nodes forming a temporary wireless network without established infrastructure or centralized administration.",
     "sourceSlides": [
-      11,
-      12
+      11
     ]
   },
   {
@@ -29,15 +28,15 @@
     "tags": [
       "network concepts"
     ],
-    "prompt": "A user wants to send data to one recipient rather than every member. Which term applies?",
+    "prompt": "Which feature does the lesson NOT list among the main MANET features?",
     "options": [
-      "Multicast to all groups",
-      "Unicast",
-      "Offline replication",
-      "Broadcast"
+      "Dedicated fixed relay towers",
+      "Quality of service for competing traffic",
+      "Frequency hopping across channels",
+      "Self-forming, self-healing connectivity"
     ],
-    "answer": 1,
-    "explanation": "Unicast addresses one destination; broadcast and multicast have different audience scopes.",
+    "answer": 0,
+    "explanation": "Page 12 lists self-forming and self-healing, frequency hopping, quality of service, dynamic membership and unicast, multicast and broadcast support.",
     "sourceSlides": [
       12
     ]
@@ -50,17 +49,16 @@
     "tags": [
       "network concepts"
     ],
-    "prompt": "Video demand rises while voice quality falls on a shared link. Which planning review most directly addresses competition between these services?",
+    "prompt": "Which pair of main features relates to changing membership and to network restoration, in that order?",
     "options": [
-      "Radio software versions and compatibility of the new video application",
-      "Voice-group membership and each user's selected operating group",
-      "Nominal waveform capacity using the original low-load service plan",
-      "Traffic priorities and capacity under actual link conditions"
+      "Frequency hopping; quality of service",
+      "Self-forming, self-healing; unicast, multicast and broadcast support",
+      "Quality of service; dynamic number of members",
+      "Dynamic number of members; self-forming, self-healing"
     ],
     "answer": 3,
-    "explanation": "Competing demand and constrained links call for traffic/QoS assessment, not indiscriminate prioritization.",
+    "explanation": "Page 12 lists a dynamic number of members in the net and self-forming, self-healing among the main features.",
     "sourceSlides": [
-      9,
       12
     ]
   },
@@ -72,15 +70,15 @@
     "tags": [
       "network concepts"
     ],
-    "prompt": "A self-healing network loses every possible path to a node. What should be expected?",
+    "prompt": "Concurrent flooding is described in the lesson as traffic that is delivered in which way?",
     "options": [
-      "Broadcast removes all physical reachability constraints",
-      "A node identifier alone supplies an alternate radio path",
-      "The label self-healing guarantees uninterrupted delivery",
-      "Self-healing cannot create a nonexistent physical path"
+      "Broadcast, \"all informed\", by parallel transmission",
+      "Sent to one recipient through a single path",
+      "Hopped across several frequencies in sequence",
+      "Routed through a central controller that sets each path"
     ],
-    "answer": 3,
-    "explanation": "Adaptation requires usable paths; self-healing is not a guarantee under complete disconnection.",
+    "answer": 0,
+    "explanation": "Page 17 describes concurrent flooding as traffic broadcast (all informed) by parallel transmission, so that no rebuild is needed.",
     "sourceSlides": [
       12,
       17,
@@ -95,17 +93,16 @@
     "tags": [
       "capabilities and security"
     ],
-    "prompt": "An operator can use local controls but needs authorized remote operation. What does the lesson identify?",
+    "prompt": "Which statement describes the remote operation of the E-LynX?",
     "options": [
-      "A guarantee that every legacy radio has the same interface",
-      "A remote mode requiring no network connection",
-      "Public anonymous access from every internet device",
-      "IP/Ethernet-based remote operation replicating local functions"
+      "It is available only on hand-held radios",
+      "It replicates the local operation and is IP/Ethernet based",
+      "It uses a 2.8-inch display and keypads",
+      "It is carried out through the G-10N key fill device and a data connector"
     ],
-    "answer": 3,
-    "explanation": "The source describes remote operation over IP/Ethernet, not unrestricted or universal remote access.",
+    "answer": 1,
+    "explanation": "Page 29 states that remote operation replicates the local operation and is IP/Ethernet based, on all radio platforms and configurations.",
     "sourceSlides": [
-      28,
       29
     ]
   },
@@ -117,18 +114,17 @@
     "tags": [
       "capabilities and security"
     ],
-    "prompt": "A clear interoperability waveform is selected. Which assumption is unsafe?",
+    "prompt": "Which of the following describes the local operation of the E-LynX?",
     "options": [
-      "That compatibility automatically provides encryption",
-      "That required services should be tested end to end",
-      "That approved handling rules still apply",
-      "That security properties should be checked separately"
+      "A 3.5-inch color display of 480 x 640 pixels, with keypads",
+      "A 2.8-inch monochrome display of 240 x 320 pixels, with touch keys",
+      "A 2.8-inch color display of 240 x 320 pixels, with keypads",
+      "IP/Ethernet-based screen replication from a management station"
     ],
-    "answer": 0,
-    "explanation": "The lesson explicitly describes a non-encrypted waveform, so interoperability does not imply protected content.",
+    "answer": 2,
+    "explanation": "Page 29 describes local operation as a 2.8-inch color display, 240 x 320 pixels, and keypads.",
     "sourceSlides": [
-      30,
-      35
+      29
     ]
   },
   {
@@ -139,15 +135,15 @@
     "tags": [
       "capabilities and security"
     ],
-    "prompt": "A team protects radio traffic but leaves management access uncontrolled. What remains?",
+    "prompt": "Which list gives the built-in information security capabilities of all E-LynX configurations?",
     "options": [
-      "Only a cosmetic configuration problem",
-      "An automatic increase in available radio capacity",
-      "A separate management-security exposure",
-      "No risk because over-the-air protection covers all interfaces"
+      "Embedded TRANSEC based on AES 128, anti-tamper and erase abilities, keys management and loading",
+      "Embedded TRANSEC based on AES 256, anti-jam hopping tables, open key distribution",
+      "Embedded TRANSEC based on AES 256, plain-text fallback, automatic key sharing",
+      "Embedded TRANSEC based on AES 256, anti-tamper and erase abilities, keys management and loading"
     ],
-    "answer": 2,
-    "explanation": "Management and radio traffic require their appropriate protections; one does not automatically secure the other.",
+    "answer": 3,
+    "explanation": "Page 30 lists embedded TRANSEC based on AES 256, anti-tamper and erase abilities, and keys management and loading.",
     "sourceSlides": [
       30
     ]
@@ -160,20 +156,17 @@
     "tags": [
       "capabilities and security"
     ],
-    "prompt": "Two waveforms differ in supported services and protection. What should selection be based on?",
+    "prompt": "Which list gives the waveforms of the E-LynX shown in the lesson?",
     "options": [
-      "Only whether one waveform appears first in a menu",
-      "The assumption that all listed waveforms are interchangeable",
-      "Only the shortest waveform name",
-      "Required compatibility, services and approved security needs"
+      "NB, WB, WMA-HC, STANAG 4204 and SINCGARS",
+      "NB, WB, WMA-HC, STANAG 4204 and CNR",
+      "NB, WB, WMA-HC, STANAG 5066 and CNR",
+      "NB, WB, WMA-LC, STANAG 4204 and CNR"
     ],
-    "answer": 3,
-    "explanation": "The source lists distinct waveform capabilities; planning must compare requirements rather than equate labels.",
+    "answer": 1,
+    "explanation": "Page 31 lists the narrowband, wideband, WMA-HC, STANAG 4204 and CNR waveforms.",
     "sourceSlides": [
-      31,
-      34,
-      35,
-      36
+      31
     ]
   },
   {
@@ -184,15 +177,15 @@
     "tags": [
       "equipment and maintenance"
     ],
-    "prompt": "Inspection reveals a damaged cable and bent connector pins. What is justified?",
+    "prompt": "For connectors, the visual inspection looks for which conditions?",
     "options": [
-      "Ignore the issue if the display still lights up",
-      "Record the fault and follow authorized maintenance procedures",
-      "Force the connector until the fault disappears",
-      "Assume a software reset repairs the physical damage"
+      "Damage, corrosion, and broken or bent pins",
+      "Fraying, cuts and broken insulation",
+      "Cracks and any other external damage",
+      "Rough action and interference in the buttons"
     ],
-    "answer": 1,
-    "explanation": "Physical defects require appropriate maintenance; power-on alone does not demonstrate equipment integrity.",
+    "answer": 0,
+    "explanation": "Page 25 lists damage, corrosion and broken or bent pins for connectors, while cable inspection covers fraying, cuts and broken insulation.",
     "sourceSlides": [
       25
     ]
@@ -205,15 +198,15 @@
     "tags": [
       "equipment and maintenance"
     ],
-    "prompt": "A technician replaces a suspected part and stops. Which step is missing?",
+    "prompt": "Which step of the four-step fault procedure comes immediately before fault repair?",
     "options": [
-      "Equipment purchase authorization",
-      "Instructor biography review",
-      "Repair verification",
-      "Fault identification necessarily never occurred"
+      "Fault identification",
+      "Fault isolation",
+      "Fault verification (including BIT)",
+      "Preventive inspection"
     ],
-    "answer": 2,
-    "explanation": "The troubleshooting model explicitly includes verification after repair, including relevant built-in tests.",
+    "answer": 1,
+    "explanation": "Page 27 shows the order fault identification, fault isolation, fault repair, repair verification.",
     "sourceSlides": [
       27
     ]
@@ -226,15 +219,15 @@
     "tags": [
       "equipment and maintenance"
     ],
-    "prompt": "The source's indicator table distinguishes a technical fault from an operational fault. How should it be used?",
+    "prompt": "On the VS50-VA indicator lights, what does the CALL light on orange show?",
     "options": [
-      "Replace all equipment without identifying the indication",
-      "Consult the specific indication and verify the reported condition",
-      "Treat every colored light as the same failure",
-      "Assume any illuminated indicator means successful reception"
+      "The radio is transmitting voice",
+      "A technical fault from a built-in test error",
+      "The radio is receiving voice, only when squelch is detected",
+      "PBIT and IBIT are in progress"
     ],
-    "answer": 1,
-    "explanation": "Indicators provide diagnostic clues; their meanings should guide authorized fault identification and verification.",
+    "answer": 2,
+    "explanation": "Page 50 states that CALL on orange means the radio is receiving voice, only when squelch is detected.",
     "sourceSlides": [
       50
     ]
@@ -247,17 +240,18 @@
     "tags": [
       "equipment and maintenance"
     ],
-    "prompt": "A handheld and its vehicular adapter have different listed roles and outputs. What should a student avoid?",
+    "prompt": "Which statement correctly contrasts the E-LynX hand-held radio with the VS50-VA vehicular adapter?",
     "options": [
-      "Applying one configuration's specification to every configuration",
-      "Distinguishing mechanical support from networking functions",
-      "Checking which configuration a question describes",
-      "Consulting the correct approved equipment documentation"
+      "The hand-held has 5 W output power; the VS50-VA has 50 W",
+      "The hand-held has 50 W output power; the VS50-VA has 5 W",
+      "Both have 5 W output power",
+      "Both have 50 W output power"
     ],
     "answer": 0,
-    "explanation": "Source-specific equipment values cannot be generalized across handheld and adapter configurations.",
+    "explanation": "Pages 38 and 46 give 5 W for the hand-held radio and 50 W for the VS50-VA.",
     "sourceSlides": [
       38,
+      46,
       47
     ]
   },
@@ -269,15 +263,15 @@
     "tags": [
       "diagnostics and configuration"
     ],
-    "prompt": "Received strength is high but signal quality is poor. What additional measure helps distinguish the issue?",
+    "prompt": "Which Nodes Information parameter shows the received signal strength?",
     "options": [
-      "Only the elapsed-time counter",
       "SNR",
-      "Only the display brightness",
-      "Only the device's serial-number length"
+      "Dist",
+      "D.Rate",
+      "RSSI"
     ],
-    "answer": 1,
-    "explanation": "Strong received energy does not guarantee a favorable signal-to-noise ratio or successful service.",
+    "answer": 3,
+    "explanation": "Page 56 describes RSSI as received signal strength, while SNR measures received signal quality.",
     "sourceSlides": [
       56
     ]
@@ -290,15 +284,15 @@
     "tags": [
       "diagnostics and configuration"
     ],
-    "prompt": "A ping fails after restart, but the source says ping enablement may reset. What should be checked before concluding link failure?",
+    "prompt": "Which statement about the ping option is correct?",
     "options": [
-      "The selected waveform and expected application data rate",
-      "The remote node's maintenance history and last recorded BIT result",
-      "The permitted diagnostic setting and test conditions",
-      "The receiving application's message format and last accepted report"
+      "It stays enabled permanently once it is first activated",
+      "It is available only at the secure level",
+      "It must be re-enabled every time the device is turned on or off",
+      "It can check another E-LynX radio but never an IP host"
     ],
     "answer": 2,
-    "explanation": "A disabled diagnostic response can resemble connectivity failure; verify the stated test conditions first.",
+    "explanation": "Page 66 states that ping must be re-enabled each time the device is turned on or off; page 54 states it can check a radio or an IP host.",
     "sourceSlides": [
       54,
       66
@@ -312,15 +306,15 @@
     "tags": [
       "diagnostics and configuration"
     ],
-    "prompt": "A performance test sends 100 packets and records 90 received. What does this directly show?",
+    "prompt": "In Net Performance, what does the Dest field specify?",
     "options": [
-      "Every voice conversation will fail at the same rate",
-      "The entire network is permanently unusable",
-      "The fault has been proven to be a broken antenna",
-      "Ten packets were not received during that test"
+      "The size of the packets to send",
+      "The pause time between each packet sending",
+      "The remote ID that the packet is sent to",
+      "The number of packets received at the destination"
     ],
-    "answer": 3,
-    "explanation": "The counts describe that test's outcome; they do not alone establish permanence, application effects or root cause.",
+    "answer": 2,
+    "explanation": "Page 67 describes Dest as the remote ID that the packet is sent to.",
     "sourceSlides": [
       67
     ]
@@ -333,17 +327,16 @@
     "tags": [
       "diagnostics and configuration"
     ],
-    "prompt": "Two radios have the same configured node identifier. Which requirement has been violated?",
+    "prompt": "Which statement describes the Node ID?",
     "options": [
-      "Node identifiers should be unique",
-      "Identifiers should follow the voice-group assignment",
-      "Identifiers should match the common network name",
-      "Identifiers should be assigned by equipment platform"
+      "A shared parameter used by all transceivers in the net",
+      "A unique configuration parameter given to each transceiver",
+      "The management IP used for management purposes",
+      "The technician address used to access the radio from a computer terminal"
     ],
-    "answer": 0,
-    "explanation": "The source states that each transceiver has a unique node ID; duplicate identity undermines that requirement.",
+    "answer": 1,
+    "explanation": "Page 68 describes the node ID as a unique configuration parameter given to each transceiver.",
     "sourceSlides": [
-      55,
       68
     ]
   },
@@ -355,19 +348,17 @@
     "tags": [
       "integration and assurance"
     ],
-    "prompt": "A legacy voice call succeeds but position updates do not reach the application. What remains to verify?",
+    "prompt": "Which services does the lesson list under data, positions and video integration?",
     "options": [
-      "The data service and its integration path",
-      "Whether working voice proves the data must already be present",
-      "Whether the application can be ignored because radios transmit",
-      "Only the voice handset's volume setting"
+      "Location, voice and data",
+      "Data, voice and video",
+      "Location, data and video",
+      "Location, voice and video"
     ],
-    "answer": 0,
-    "explanation": "Voice success is not evidence that data interfaces, routing and receiving applications work correctly.",
+    "answer": 2,
+    "explanation": "Page 72 lists location, data and video for the data, positions and video integration.",
     "sourceSlides": [
-      69,
-      72,
-      73
+      72
     ]
   },
   {
@@ -378,15 +369,15 @@
     "tags": [
       "integration and assurance"
     ],
-    "prompt": "Unneeded traffic crosses between service networks. Which source principle is most relevant?",
+    "prompt": "Which Integrator best practice prevents traffic from crossing into networks it should not reach?",
     "options": [
-      "Treat every service as equally authorized everywhere",
-      "Increase broadcast traffic on every interface",
-      "Prevent leakage and reduce unnecessary traffic",
-      "Remove all separation to simplify testing"
+      "Reduce traffic on the network",
+      "Deny traffic leaking",
+      "Security of the integrated services",
+      "Dynamic routing between the networks"
     ],
-    "answer": 2,
-    "explanation": "The integration guidance calls for controlled traffic boundaries and reduction of unnecessary load.",
+    "answer": 1,
+    "explanation": "Page 70 lists deny traffic leaking among the best practices of the Integrator.",
     "sourceSlides": [
       70
     ]
@@ -399,18 +390,17 @@
     "tags": [
       "integration and assurance"
     ],
-    "prompt": "A local service works but its authorized remote counterpart does not. Which area deserves examination?",
+    "prompt": "Which list gives the services shown on the Integrator slide between H.Q., C.P. and field units?",
     "options": [
-      "Only the name of the source file",
-      "Whether local success proves remote reachability",
-      "The inter-network path and service integration",
-      "Only the local screen's resolution"
+      "Location, voice, data and imagery",
+      "Voice, data, video and telemetry",
+      "Location, voice, text and video",
+      "Location, voice, data and video"
     ],
-    "answer": 2,
-    "explanation": "A local test does not exercise every route, boundary or application dependency of a remote service.",
+    "answer": 3,
+    "explanation": "Page 69 lists location, voice, data and video among the services of the Integrator.",
     "sourceSlides": [
-      71,
-      72
+      69
     ]
   },
   {
@@ -421,19 +411,17 @@
     "tags": [
       "integration and assurance"
     ],
-    "prompt": "A maintenance report says 'fixed' with no test evidence. What should be added?",
+    "prompt": "Which of the following can be viewed through the Test menu?",
     "options": [
-      "Relevant verification conditions and observed results",
-      "Only a larger signature block",
-      "A statement that tests are unnecessary after repair",
-      "Only the technician's preferred equipment brand"
+      "The elapsed time counter",
+      "The operator password",
+      "The Node ID assigned by the operator",
+      "The group voice names"
     ],
     "answer": 0,
-    "explanation": "Recorded verification supports confidence in the repair and enables meaningful follow-up if symptoms recur.",
+    "explanation": "Page 58 lists testing the RX and TX paths, software and hardware versions, network performance and the elapsed time counter.",
     "sourceSlides": [
-      27,
-      58,
-      67
+      58
     ]
   }
 ]

@@ -8,15 +8,15 @@
       "integration",
       "planning relevance"
     ],
-    "prompt": "A fictional signals summary and a separate exercise report disagree about whether a coordination notice changed. The briefing question depends on that change. Which product best reflects the lesson's intelligence definition?",
+    "prompt": "According to the lesson, which statement describes intelligence?",
     "options": [
-      "A transcript of the signals summary with the conflicting report placed in an appendix",
-      "An assessment integrating both reports and explaining the unresolved planning implication",
-      "A count of the documents received with the signals summary listed as the latest entry",
-      "A briefing adopting whichever report contains more technical detail about its original format"
+      "The interception of signals, whether communications between people or electronic emissions, by Army units in the field",
+      "Any information gathered about foreign nations or operating areas, whether or not it has been evaluated",
+      "The product of collecting, evaluating, analyzing and integrating all information significant to military planning",
+      "The equipment and sensors used to gather information in the area of operations"
     ],
-    "answer": 1,
-    "explanation": "Slide 12 includes evaluation, analysis and integration in the intelligence product and connects that product to planning. The conflict matters because it affects the briefing question, so it should be assessed explicitly. A transcript may preserve a source accurately while still leaving the decision-maker without an explanation of the disagreement.",
+    "answer": 2,
+    "explanation": "Slide 12 defines intelligence as a product that results from collection, evaluation, analysis and integration. Raw or unevaluated information is not yet intelligence.",
     "sourceSlides": [
       12
     ]
@@ -30,19 +30,18 @@
       "program objectives",
       "evidence limits"
     ],
-    "prompt": "After reading the lesson's objectives, a trainee claims that a fictional unit must already deliver fully reliable intelligence instantly. Which review comment is best supported?",
+    "prompt": "Which statement describes the general objective of the PA SIGINT program?",
     "options": [
-      "The objectives express intended support and training goals without proving a unit's performance",
-      "The objectives establish reliability if a fictional unit uses the same intelligence vocabulary",
-      "The objectives prove delivery speed but leave the intelligence report's formatting unconfirmed",
-      "The objectives establish performance whenever the classroom scenario mentions secure communication"
+      "Providing strategic intelligence to General Headquarters in support of national defense policy",
+      "Maintaining effective Army-wide HF/VHF/UHF intercept operation and RDF capability",
+      "Providing real time intelligence to infantry brigades and battalions for AFP missions",
+      "Setting up an Army-wide secured intelligence communication network"
     ],
-    "answer": 0,
-    "explanation": "Slides 10 and 11 describe broad aims, including timely intelligence support, secure communication and professional training. They do not document the performance of a particular unit. Inferring instant reliability from those aims also overlooks slide 20's limitations, which still apply when reviewing individual reports.",
+    "answer": 2,
+    "explanation": "Slide 10 gives the general objective; the other two choices are specific objectives on slide 11.",
     "sourceSlides": [
       10,
-      11,
-      20
+      11
     ]
   },
   {
@@ -54,19 +53,17 @@
       "source classification",
       "electronic delivery"
     ],
-    "prompt": "An instructor emails a tentative fictional signals assessment and a volunteer's account of a public relief meeting. A student labels both confirmed SIGINT because they arrived by email. Which revision best corrects the review?",
+    "prompt": "Which statement about cryptanalysis and traffic analysis in SIGINT is supported by the lesson?",
     "options": [
-      "Classify both as COMINT from their email delivery and preserve the signals assessment's tentative wording",
-      "Classify each from its information basis but treat the supplied signals assessment as already confirmed",
-      "Classify both as ELINT from their electronic format and evaluate their planning relevance separately",
-      "Classify each by its information basis and retain the stated limitations on its claims"
+      "Cryptanalysis re-integrates information, while traffic analysis deciphers messages",
+      "Both are used only on signals not directly used in communication",
+      "Cryptanalysis deciphers messages, while traffic analysis re-integrates information",
+      "Both replace the need to intercept the signals first"
     ],
-    "answer": 3,
-    "explanation": "Slide 13 classifies SIGINT by the underlying signals, so email delivery does not establish the basis of both attachments. Slides 12 and 20 also require evaluation and attention to limitations. Correctly identifying a signals source would not justify removing the supplied assessment's tentative status or treating its claims as confirmed.",
+    "answer": 2,
+    "explanation": "Slide 13 says that, as sensitive information is often encrypted, SIGINT uses cryptanalysis to decipher messages and traffic analysis to re-integrate information.",
     "sourceSlides": [
-      12,
-      13,
-      20
+      13
     ]
   },
   {
@@ -78,17 +75,18 @@
       "intelligence product",
       "interpretation"
     ],
-    "prompt": "A team submits a neatly organized fictional packet and calls it a finished intelligence product. It contains relevant material but no evaluation of what the material supports. What is the main gap?",
+    "prompt": "Which of the following is NOT one of the activities from which intelligence results?",
     "options": [
-      "The packet needs a broader recipient list before any intelligence work can occur",
-      "The packet needs more illustrations to establish the underlying claims as reliable",
-      "The packet needs evaluated meaning linked to the question the planners must answer",
-      "The packet needs an equipment section because every intelligence product concerns RDF"
+      "Collection of all information",
+      "Dissemination of information",
+      "Evaluation of all information",
+      "Integration of all information"
     ],
-    "answer": 2,
-    "explanation": "Slide 12 defines the intelligence product through evaluation, analysis and integration of collected information relevant to planning. Organization helps usability but leaves the meaning of the material unresolved. Adding illustrations may improve presentation, yet it cannot substitute for explaining what the evidence supports about the planners' question.",
+    "answer": 1,
+    "explanation": "Slide 12 names collection, evaluation, analysis and integration in the definition of intelligence. Dissemination is a step of the SIGINT cycle on slide 22.",
     "sourceSlides": [
-      12
+      12,
+      22
     ]
   },
   {
@@ -100,17 +98,17 @@
       "underlying signals",
       "COMINT ELINT boundary"
     ],
-    "prompt": "A fictional written report describes noncommunication emissions, while a separate audio file contains spoken exercise messages. Both are supplied for review. Which classification is best justified?",
+    "prompt": "Which of the following is NOT a capability listed for ELINT?",
     "options": [
-      "The report concerns ELINT and the spoken messages concern COMINT by their underlying signals",
-      "The written report concerns COMINT because all readable reports contain communication material",
-      "The audio file concerns ELINT because sound recordings require electronic playback equipment",
-      "Both concern the same category because delivery formats decide the source classification"
+      "Direction finding to a target in signals intercept",
+      "Voice interception",
+      "Jamming",
+      "Communication intercept through traffic analysis of electronic emissions"
     ],
-    "answer": 0,
-    "explanation": "Slide 13 distinguishes communications from noncommunication signals, and slide 15 includes voice within COMINT. The written report can describe ELINT information even though its presentation communicates with the reader. Classifying it as COMINT solely because it is readable would confuse the assessment's form with its underlying source.",
+    "answer": 1,
+    "explanation": "Slide 14 lists direction finding, jamming and traffic analysis of electronic emissions for ELINT. Voice interception belongs to COMINT on slide 15.",
     "sourceSlides": [
-      13,
+      14,
       15
     ]
   },
@@ -123,18 +121,18 @@
       "identity inference",
       "possible benefit"
     ],
-    "prompt": "A fictional voice message names a meeting organizer. The draft assessment says the organizer definitely spoke and was at the meeting location. What revision best fits the lesson?",
+    "prompt": "Which list contains the four things COMINT is capable of revealing?",
     "options": [
-      "Keep both conclusions because a name in voice content establishes identity and exact location",
-      "Remove the content entirely because voice messages cannot contribute information about people",
-      "Change the source category to ELINT because the identity and location claims are uncertain",
-      "Report the naming as content and qualify the identity and location inferences"
+      "Who is transmitting, jamming, text interception, voice interception",
+      "Location, direction finding, traffic analysis, voice interception",
+      "Who is transmitting, location, text interception, voice interception",
+      "Who is transmitting, location, cryptanalysis, text interception of traffic"
     ],
-    "answer": 3,
-    "explanation": "Slide 15 describes identity, location and text or voice as possible information benefits of COMINT. It does not guarantee that every mention proves the speaker's identity or whereabouts. Slide 20's substantiation limitation supports keeping the directly stated content separate from stronger inferences that the excerpt alone cannot establish.",
+    "answer": 2,
+    "explanation": "Slide 15 lists who is transmitting, location, text interception and voice interception. Jamming, direction finding and traffic analysis appear under ELINT on slide 14.",
     "sourceSlides": [
-      15,
-      20
+      14,
+      15
     ]
   },
   {
@@ -146,17 +144,18 @@
       "scope precision",
       "lesson categories"
     ],
-    "prompt": "A student writes, 'The lesson covers COMINT and ELINT, so these are the only SIGINT categories that can exist anywhere.' Which edit preserves the supported learning point?",
+    "prompt": "Which statement distinguishes ELINT from COMINT?",
     "options": [
-      "Replace SIGINT with intelligence so the statement covers all possible intelligence categories",
-      "Say these are the two SIGINT categories covered here without claiming universal completeness",
-      "Retain the statement because an introductory diagram necessarily lists every possible category",
-      "Delete ELINT from the statement because noncommunication signals cannot support intelligence"
+      "ELINT deals with messages or voice information, while COMINT uses electronic sensors and surveillance systems",
+      "ELINT uses electronic sensors and surveillance systems, while COMINT deals with messages or voice information",
+      "ELINT is limited to jamming operations, while COMINT is limited to cryptanalysis of messages",
+      "ELINT is gathered from human contacts, while COMINT is gathered from intercepted signals"
     ],
     "answer": 1,
-    "explanation": "Slide 13 provides the lesson's COMINT and ELINT distinction, which supports classifying the supplied examples within that coverage. It does not justify a universal claim that no broader categorization exists. Removing ELINT would lose a category expressly included in the slide rather than correct the overstatement.",
+    "explanation": "Slide 14 describes ELINT as using electronic sensors and surveillance systems; slide 15 describes COMINT as dealing with messages or voice information.",
     "sourceSlides": [
-      13
+      14,
+      15
     ]
   },
   {
@@ -168,18 +167,16 @@
       "content versus conclusion",
       "source limitations"
     ],
-    "prompt": "A supplied fictional message states that exercise supplies have arrived, but a separate classroom record lists their status as unconfirmed. Which COMINT assessment is most defensible?",
+    "prompt": "A SIGINT report must be checked against other intelligence disciplines before it is relied upon. Which disadvantage does this describe?",
     "options": [
-      "The message reports arrival while the underlying arrival claim remains subject to review",
-      "The message proves arrival because communications content always verifies the event it describes",
-      "The message must be reclassified as ELINT because a classroom record contradicts its content",
-      "The message has no analytical value because another record leaves the event unconfirmed"
+      "It cannot be clarified from the source",
+      "It sometimes cannot stand alone without substantiation",
+      "Enemy deception becomes possible if security is compromised",
+      "It cannot decipher encrypted messages"
     ],
-    "answer": 0,
-    "explanation": "Slide 15 supports using communications content as information, while slides 12 and 20 require evaluation and recognize possible substantiation needs. The fact that a message states something is different from establishing that the event occurred. Contradiction does not erase the content or change its communications basis.",
+    "answer": 1,
+    "explanation": "Slide 20 lists three disadvantages; needing substantiation from other intelligence disciplines is the one stated as not standing alone.",
     "sourceSlides": [
-      12,
-      15,
       20
     ]
   },
@@ -192,18 +189,17 @@
       "component function",
       "evidence distinction"
     ],
-    "prompt": "A group points to 'Radio Receiver and Bearing Processor' on the equipment slide and claims the label proves its fictional direction estimate is correct. What should the reviewer say?",
+    "prompt": "Which statement correctly describes the radio direction finder (RDF) system?",
     "options": [
-      "Accept the estimate because naming the processor independently establishes accuracy",
-      "Reject all directional information because component diagrams cannot contain useful labels",
-      "The label identifies a component but does not validate this particular estimate",
-      "The label establishes a sender's identity if the fictional packet also contains a name"
+      "It uses a transmitter and jamming unit to disrupt enemy activities and fix their exact locations",
+      "It uses a cipher unit and Doppler antenna to decipher enemy messages and identify their speakers",
+      "It uses a Doppler antenna and analysis software to produce finished intelligence for brigade commanders and battalion staffs",
+      "It uses a receiver, bearing processor and Doppler antenna to monitor enemy activities and locate estimated positions"
     ],
-    "answer": 2,
-    "explanation": "Slide 17 identifies the Radio Receiver and Bearing Processor as equipment, not as validation evidence for each supplied result. Slide 19's accuracy aim still requires scrutiny of the report. A component's name can explain what the diagram depicts without independently confirming the correctness of a particular estimate.",
+    "answer": 3,
+    "explanation": "Slide 17 describes the RDF system as used for radio communication transmission countermeasures to monitor enemy activities and locate their estimated locations.",
     "sourceSlides": [
-      17,
-      19
+      17
     ]
   },
   {
@@ -215,19 +211,18 @@
       "RDF estimate",
       "planning significance"
     ],
-    "prompt": "A fictional exercise packet includes an estimated direction and a communications assessment. A learner wants to replace the assessment with the estimate because it looks more precise. Which response is strongest?",
+    "prompt": "Direction finding to a target in signals intercept is listed as a capability of which SIGINT category?",
     "options": [
-      "Replace the assessment because numerical appearance makes directional information analytically complete",
-      "Use the estimate as a full transcript because direction finding establishes communications content",
-      "Discard the estimate because a direction cannot contribute to any intelligence assessment",
-      "Retain the estimate as an input and assess its relevance alongside the other information"
+      "COMINT",
+      "Both COMINT and ELINT",
+      "Neither; it belongs to cryptanalysis",
+      "ELINT"
     ],
     "answer": 3,
-    "explanation": "Slide 17 supports a broad directional estimation role, while slide 23 places direction finding alongside analytical functions. An estimate can contribute to understanding without replacing evaluation of the other information. Its precise appearance does not establish message content or explain what the combined evidence means for the planning question.",
+    "explanation": "Slide 14 lists direction finding to a target in signals intercept under ELINT. COMINT on slide 15 lists who is transmitting, location, text and voice interception.",
     "sourceSlides": [
-      12,
-      17,
-      23
+      14,
+      15
     ]
   },
   {
@@ -239,15 +234,15 @@
       "RDF scope",
       "communications and noncommunications"
     ],
-    "prompt": "A classroom poster limits the lesson's broad direction-finding and advanced-analysis functions to spoken conversations alone. Which correction is supported by the function slide?",
+    "prompt": "The second SIGINT function calls for advanced analysis of which information?",
     "options": [
-      "Describe the broad functions as relevant to communications and noncommunication signals",
-      "Expand the poster to claim every signal report establishes exact identity and location",
-      "Restrict the poster further to voice transcripts because technical analysis excludes other signals",
-      "Replace all analytical functions with equipment labels because a component list explains purpose"
+      "Intercepted communications signals information only, excluding electronic emissions",
+      "Intercepted communications and non-communications signals information",
+      "Encrypted communications and imagery information from the field",
+      "Decrypted human source reports from informants"
     ],
-    "answer": 0,
-    "explanation": "Slide 23 describes broad functions covering both communications and noncommunication signals, including direction finding and advanced analysis. Restricting that scope to spoken conversations is narrower than the slide supports. Expanding it into guaranteed exact identity or location would instead make an unsupported performance claim.",
+    "answer": 1,
+    "explanation": "Slide 23 states the function as conducting advanced analysis on intercepted communications and non-communications signals information.",
     "sourceSlides": [
       23
     ]
@@ -261,18 +256,17 @@
       "equipment illustration",
       "uncertainty preservation"
     ],
-    "prompt": "A trainee correctly names the RDF components, then uses their picture as separate confirmation to remove 'estimated' from a fictional result before briefing. Which revision preserves both useful learning and sound reporting?",
+    "prompt": "How does the lesson describe the locations obtained through the RDF system?",
     "options": [
-      "Keep the component labels and present the picture as confirmation because it depicts the relevant equipment",
-      "Keep the component labels and restore the estimate's qualification pending relevant supporting evidence",
-      "Remove the component labels but retain the confident result because component knowledge and accuracy are unrelated",
-      "Keep the component labels and move the removed qualification to a glossary rather than the result"
+      "Exact locations",
+      "Confirmed locations",
+      "Encrypted locations",
+      "Estimated locations"
     ],
-    "answer": 1,
-    "explanation": "Slide 17 supports recognizing the depicted components, but their picture does not independently validate a supplied estimate. Slide 20's substantiation limitation therefore remains relevant to the result. Moving the qualification to a glossary preserves words somewhere in the briefing without accurately qualifying the claim that readers will rely on.",
+    "answer": 3,
+    "explanation": "Slide 17 says the RDF system is used to monitor enemy activities and locate their estimated locations.",
     "sourceSlides": [
-      17,
-      20
+      17
     ]
   },
   {
@@ -284,18 +278,17 @@
       "relevance",
       "current requirements"
     ],
-    "prompt": "An older fictional report is well supported and clearly written, but a revised exercise question concerns a different issue. The deadline is approaching. What should reviewers do first with the report?",
+    "prompt": "A SIGINT report is sound and well written, but it answers a question the commander did not ask. Which advantage is lacking?",
     "options": [
-      "Treat its clear writing as evidence that it still answers the revised exercise question",
-      "Accept it unchanged because using an available report is always the most timely choice",
-      "Check which parts address the revised need before using it in the decision briefing",
-      "Reject all older material because age alone proves that its contents are inaccurate"
+      "Accurate",
+      "Timely",
+      "Relevant",
+      "Substantiated"
     ],
     "answer": 2,
-    "explanation": "Slide 19's relevance aim depends on the need established through requirements on slide 22. A report's quality on another issue does not show that it answers the revised question. Its age also does not automatically invalidate every part, so reviewers should assess the connection rather than accept or reject it wholesale.",
+    "explanation": "Slide 19 lists accurate, timely and relevant as the advantages. A report that does not answer the decision at hand is not relevant.",
     "sourceSlides": [
-      19,
-      22
+      19
     ]
   },
   {
@@ -307,19 +300,16 @@
       "timely assessment",
       "qualified findings"
     ],
-    "prompt": "A fictional relief briefing is due soon. Some supplied information supports a useful limited finding, while one important point remains unresolved. Which response best combines the lesson's quality aims?",
+    "prompt": "Which description fits the Dissemination step of the SIGINT cycle?",
     "options": [
-      "Deliver the supported finding in time and clearly identify the unresolved point",
-      "Delay all findings until every exercise uncertainty is resolved",
-      "Present the unresolved point as certain so the briefing will appear complete and useful",
-      "Send the full packet without analysis because the approaching deadline replaces evaluation"
+      "Proper procedure of gathering information",
+      "Conversion of collected SIGINT data into intelligence",
+      "Timely production of intelligence to those who need to know only",
+      "Understanding the mission and direction needs to plan collection"
     ],
-    "answer": 0,
-    "explanation": "Slides 19 and 22 emphasize useful, timely intelligence and delivery, while slide 20 requires attention to limitations. A bounded finding can inform the decision without hiding the unresolved point. Sending raw material on time may be fast, but it does not perform the analytical work described on slides 12 and 22.",
+    "answer": 2,
+    "explanation": "Slide 22 describes Dissemination as the timely production of intelligence to those who need to know only.",
     "sourceSlides": [
-      12,
-      19,
-      20,
       22
     ]
   },
@@ -332,19 +322,17 @@
       "accuracy versus detail",
       "evidence quality"
     ],
-    "prompt": "Two fictional assessments answer the same requirement and arrive before the briefing. One uses elaborate technical language but weak support; the other explains a modest conclusion using clear supporting information. Which is preferable?",
+    "prompt": "Which description fits the Processing/Exploitation step of the SIGINT cycle?",
     "options": [
-      "The elaborate assessment because technical vocabulary independently establishes report accuracy",
-      "Neither assessment because a modest conclusion can never satisfy a planning requirement",
-      "The elaborate assessment because more terminology makes further substantiation unnecessary",
-      "The modest assessment because its conclusion is better matched to its supporting evidence"
+      "Timely production of intelligence to those who need to know only",
+      "Converting collected SIGINT data into intelligence for planning",
+      "Gathering information by the proper collection procedure used by operators",
+      "Intercepted communication traffic and the estimated direction of the enemy"
     ],
     "answer": 3,
-    "explanation": "Slide 19's accuracy aim concerns the quality of the information, not the amount of technical vocabulary. Slide 12 requires evaluation and analysis, and slide 20 recognizes substantiation needs. A modest conclusion grounded in its evidence is more defensible than an elaborate conclusion whose wording masks weak support.",
+    "explanation": "Slide 22 describes Processing/Exploitation as dealing with intercepted communication traffic and the estimated direction of the enemy.",
     "sourceSlides": [
-      12,
-      19,
-      20
+      22
     ]
   },
   {
@@ -356,18 +344,17 @@
       "quality distinction",
       "decision utility"
     ],
-    "prompt": "A fictional report's statements are well supported, but it arrives after the exercise decision and concerns a question the planners did not ask. Which evaluation is most precise?",
+    "prompt": "Which list contains the three disadvantages of SIGINT?",
     "options": [
-      "Its supported statements establish that the report meets all three stated quality aims",
-      "Its evidence may support accuracy while its timing and relevance still reduce usefulness",
-      "Its late arrival proves the statements were inaccurate when the report was originally written",
-      "Its unrelated subject makes the original source category impossible to determine in principle"
+      "Needs substantiation, cannot be clarified from the source, open to deception if security is compromised",
+      "Needs substantiation, cannot be clarified from the source, cannot be deciphered without cryptanalysis or traffic analysis",
+      "Not accurate, cannot be clarified from the source, open to deception if security is compromised",
+      "Needs substantiation, not timely, open to deception if security is compromised at any step"
     ],
-    "answer": 1,
-    "explanation": "Slide 19 presents accuracy, timeliness and relevance as different qualities, and slide 22 links requirements and delivery to mission needs. A report can be supported yet miss the useful decision window and question. Neither lateness nor irrelevance alone proves that its factual statements are false.",
+    "answer": 0,
+    "explanation": "Slide 20 lists the three disadvantages as the need for substantiation, no clarification from the source, and enemy disinformation or deception if security is compromised.",
     "sourceSlides": [
-      19,
-      22
+      20
     ]
   },
   {
@@ -379,17 +366,17 @@
       "conflicting evidence",
       "substantiation"
     ],
-    "prompt": "A fictional signals summary and a separately prepared exercise account disagree. A reviewer proposes choosing the signals summary because its category sounds more technical. Which response best follows the lesson?",
+    "prompt": "Which of the following is a disadvantage of SIGINT?",
     "options": [
-      "Choose the signals summary because technical source categories automatically outweigh other disciplines",
-      "Choose the other account because SIGINT limitations make every signals conclusion unreliable",
-      "Compare the evidence behind both accounts and preserve any unresolved conflict in the assessment",
-      "Merge the wording into one confident statement so the briefing contains no visible disagreement"
+      "It cannot be clarified from the source",
+      "It is not accurate",
+      "It is not timely",
+      "It is not relevant to tactical requirements"
     ],
-    "answer": 2,
-    "explanation": "Slide 20 states that other intelligence disciplines may be needed to substantiate SIGINT. Slide 12's evaluation and integration therefore apply to the disagreement rather than privileging a technical label. Merging the wording into a confident claim hides the conflict without establishing which account the evidence supports.",
+    "answer": 0,
+    "explanation": "Slide 20 lists inability to clarify from the source as a disadvantage. Accurate, timely and relevant are advantages on slide 19.",
     "sourceSlides": [
-      12,
+      19,
       20
     ]
   },
@@ -402,17 +389,16 @@
       "unresolved meaning",
       "source clarification"
     ],
-    "prompt": "A fictional excerpt could refer to either of two classroom supply events. Direct clarification with the source is unavailable, and the interpretation would change the briefing. Which action is best?",
+    "prompt": "Because SIGINT cannot be clarified from the source, what does this mean for the analyst?",
     "options": [
-      "Assign the excerpt to the event most convenient for completing the scheduled briefing",
-      "Remove the source limitation once two students agree on their preferred interpretation",
-      "Treat the earliest possible event as established because timing resolves all ambiguous wording",
-      "Explain both plausible readings and seek relevant support before selecting a firm interpretation"
+      "The analyst cannot ask the originator of the intercepted signal what it meant",
+      "The analyst cannot decipher the encrypted traffic that was intercepted",
+      "The analyst cannot locate the transmitter by direction finding at all",
+      "The analyst cannot disseminate the result to the units that need it"
     ],
-    "answer": 3,
-    "explanation": "Slide 20 identifies the inability to clarify directly with the source as a limitation and recognizes the need for substantiation. Because the ambiguity affects the conclusion, the assessment should expose it and examine other relevant support. Agreement among readers can be useful discussion but does not itself supply missing source clarification.",
+    "answer": 0,
+    "explanation": "Slide 20 states that SIGINT cannot be clarified from the source, so intercepted material cannot be explained by its originator.",
     "sourceSlides": [
-      12,
       20
     ]
   },
@@ -425,17 +411,16 @@
       "evidence dependence",
       "corroboration"
     ],
-    "prompt": "A fictional report qualifies a notice change as uncertain. A copied slide deck repeats the change but drops that qualification, and a draft cites the two as agreement. Which revision best reflects their evidentiary support?",
+    "prompt": "Two summaries both trace back to one unverified report. Which statement is correct?",
     "options": [
-      "Restore the qualification and describe the report and copied deck as one underlying basis",
-      "Restore the qualification but keep the two documents as independent support for the change",
-      "Count one underlying basis but retain the deck's definite wording for a simpler briefing",
-      "Treat the omitted qualification as new evidence that the report's uncertainty has been resolved"
+      "They count as one line of evidence, so independent support is still needed",
+      "They corroborate each other, so the claim is considered confirmed",
+      "They are accurate because both summaries were delivered in a timely and relevant way",
+      "They are relevant, so no further support is required for the briefing"
     ],
     "answer": 0,
-    "explanation": "Slide 20 recognizes possible substantiation needs, and a copied deck does not supply separate support for its source report. The report's uncertainty also remains relevant when its claim is repeated. Counting one underlying basis is necessary, but retaining definite wording would still overstate what that basis supports.",
+    "explanation": "The SIGINT reviewer says reports with the same origin do not independently corroborate a claim, and slide 20 says SIGINT may need substantiation from other disciplines.",
     "sourceSlides": [
-      12,
       20
     ]
   },
@@ -448,17 +433,16 @@
       "security warning",
       "evidence review"
     ],
-    "prompt": "An exercise warning identifies a compromised information channel. One fictional report from that channel matches the planners' expectations. How should the team handle it?",
+    "prompt": "Which statement about SIGINT security is supported by the lesson?",
     "options": [
-      "Accept it without qualification because expected content cannot be deceptive in the exercise",
-      "Discard all related planning questions because a compromised channel prevents any useful assessment",
-      "Review its support with the compromise warning visible before assigning it decision weight",
-      "Increase its credibility because agreement with the planners' expectations removes source concerns"
+      "A compromised effort lets the enemy respond with disinformation or deception",
+      "A compromised effort affects only the Dissemination step of the cycle",
+      "Security matters only for ELINT operations, not for COMINT operations",
+      "Security matters only after intelligence has already been disseminated"
     ],
-    "answer": 2,
-    "explanation": "Slide 20 warns that a security compromise can permit disinformation or deception. A report's agreement with expectations does not remove that concern, so its supporting evidence needs review. The warning calls for bounded assessment, not an assumption that every report is true or that every related question is impossible to address.",
+    "answer": 0,
+    "explanation": "Slide 20 warns that if security is compromised, the enemy can counter the government efforts with disinformation or deception.",
     "sourceSlides": [
-      12,
       20
     ]
   },
@@ -471,17 +455,16 @@
       "need to know",
       "audience selection"
     ],
-    "prompt": "A fictional assessment is relevant to a relief exercise decision. Its draft distribution includes several authorized classroom participants whose assigned work has no connection to that decision. Which revision fits the lesson?",
+    "prompt": "To whom is intelligence disseminated in the SIGINT cycle?",
     "options": [
-      "Use assigned technical specialization as the recipient criterion where the participants hold the required exercise authorization",
-      "Match the recipient list to the participants who need this assessment for their assigned work",
-      "Use membership in the decision group's parent organization as the recipient criterion for this assessment",
-      "Use the existing protected mailing list as the recipient criterion because its membership has already been approved for exercise traffic"
+      "All units in the Army-wide network",
+      "Infantry brigades and battalions only",
+      "Anyone using the secured network",
+      "Those who need to know only"
     ],
-    "answer": 1,
-    "explanation": "Slide 22 specifies timely dissemination on a need-to-know basis, so the audience should reflect the assessment's purpose and the recipients' responsibilities. General classroom authorization does not establish that every participant needs every product. Slide 11's secure communication objective supports a purposeful handoff rather than preventing dissemination altogether.",
+    "answer": 3,
+    "explanation": "Slide 22 describes Dissemination as the timely production of intelligence to those who need to know only.",
     "sourceSlides": [
-      11,
       22
     ]
   },
@@ -494,18 +477,17 @@
       "secure handoff",
       "recipient change"
     ],
-    "prompt": "The intended recipient of a fictional assessment changes before the deadline. The authorized communication arrangement can reach the replacement. What handoff best fits the lesson?",
+    "prompt": "Which specific objective of the PA SIGINT program concerns training of personnel?",
     "options": [
-      "Use the authorized arrangement and confirm the replacement's need for this assessment",
-      "Post it openly so the replacement can obtain a copy without coordination",
-      "Use the former recipient automatically because the assessment was drafted before the change",
-      "Withhold it permanently because a change of recipient makes timely dissemination impossible"
+      "To sustain efficiency through professional and technical development/training of PA/AFP SIGINT personnel",
+      "To continuously upgrade the SIGINT compartments responsive to the tactical requirements of operating units",
+      "To develop strategic monitoring sites in line with AFP external defense posture",
+      "To set up an Army-wide secured intelligence communication network for operating units"
     ],
     "answer": 0,
-    "explanation": "Slide 11 emphasizes secure intelligence communication, and slide 22 combines timely delivery with need to know. A changed recipient calls for aligning the handoff with the current exercise responsibility. Sending the assessment broadly may be convenient, but it does not establish the broader audience's need for the product.",
+    "explanation": "Slide 11 lists the training objective separately from upgrading compartments, developing monitoring sites and the secured network.",
     "sourceSlides": [
-      11,
-      22
+      11
     ]
   },
   {
@@ -517,17 +499,16 @@
       "cycle stages",
       "handoff diagnosis"
     ],
-    "prompt": "In a fictional training workflow, the need is clear and the supplied material has been gathered and prepared. The team has not explained what it means. Which next step addresses the missing work?",
+    "prompt": "Which SIGINT cycle step directly follows Processing/Exploitation?",
     "options": [
-      "Disseminate the material unchanged because preparation already establishes its intelligence significance",
-      "Redefine every requirement because information gathering makes earlier mission needs unusable",
-      "Repeat the gathering step solely to increase the amount of material in the classroom packet",
-      "Analyze the prepared material against the requirement before producing the assessment"
+      "Collection",
+      "Analysis",
+      "Dissemination",
+      "Requirements"
     ],
-    "answer": 3,
-    "explanation": "Slide 22 separates requirements, collection, processing and exploitation, analysis, and dissemination. Once supplied data is prepared, analysis still needs to convert it into intelligence that addresses the requirement. Increasing the volume of material does not by itself fill a gap in interpretation of what the existing information means.",
+    "answer": 1,
+    "explanation": "Slide 22 orders the cycle as Requirements, Collection, Processing/Exploitation, Analysis, Dissemination.",
     "sourceSlides": [
-      12,
       22
     ]
   },
@@ -540,17 +521,16 @@
       "collection versus analysis",
       "supplied data"
     ],
-    "prompt": "An instructor has already supplied all permitted fictional material for an exercise. A learner calls listing the packet's contents 'analysis.' Which correction best identifies the actual gap?",
+    "prompt": "Which two steps are the first and last of the SIGINT cycle?",
     "options": [
-      "Listing contents completes dissemination because the packet already reached the training team",
-      "Listing contents establishes requirements because each listed document creates its own mission need",
-      "Listing records available material; analysis must explain what it supports about the question",
-      "Listing proves the packet complete because any supplied set contains all information the team needs"
+      "Requirements and Dissemination",
+      "Collection and Processing/Exploitation",
+      "Requirements and Analysis",
+      "Collection and Dissemination"
     ],
-    "answer": 2,
-    "explanation": "Slide 22 distinguishes gathering data from analyzing it, and slide 12 links the intelligence product to evaluated meaning relevant to planning. An inventory can show what the team has without answering the exercise question. It also cannot establish completeness merely because the instructor supplied a defined packet.",
+    "answer": 0,
+    "explanation": "Slide 22 begins the cycle with Requirements and ends it with Dissemination.",
     "sourceSlides": [
-      12,
       22
     ]
   },
@@ -563,17 +543,16 @@
       "dissemination",
       "feedback loop"
     ],
-    "prompt": "Authorized planners receive a fictional assessment but explain that it answers an earlier version of their question. Which response best uses the cycle?",
+    "prompt": "Which list gives the SIGINT cycle steps in the correct order?",
     "options": [
-      "Resend the same assessment to additional recipients until someone finds the old answer useful",
-      "Use the feedback to refine the requirement and reassess what existing material can answer",
-      "Treat delivery as proof of completion because the assessment reached an authorized audience",
-      "Rename the analysis stage as dissemination so the old conclusion fits the revised question"
+      "Collection, Requirements, Processing/Exploitation, Analysis, Dissemination",
+      "Requirements, Collection, Analysis, Processing/Exploitation, Dissemination",
+      "Requirements, Processing/Exploitation, Collection, Analysis, Dissemination",
+      "Requirements, Collection, Processing/Exploitation, Analysis, Dissemination"
     ],
-    "answer": 1,
-    "explanation": "Slide 22 connects dissemination back to planning, direction, needs and requirements in a cycle. Feedback that the question changed should therefore inform the next requirement and review. Successful delivery to authorized recipients does not establish that the product remains relevant to the decision they now need to make.",
+    "answer": 3,
+    "explanation": "Slide 22 gives the order Requirements, Collection, Processing/Exploitation, Analysis and Dissemination.",
     "sourceSlides": [
-      19,
       22
     ]
   }

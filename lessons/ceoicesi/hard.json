@@ -7,17 +7,17 @@
     "tags": [
       "publication roles"
     ],
-    "prompt": "Two classroom units received different current assignments but should follow one common procedure. Which organization reduces ambiguity?",
+    "prompt": "Which statement pairs each publication with its editions and rate of change correctly?",
     "options": [
-      "Replace the two assignments with different editions of the standard procedure",
-      "Issue unit-specific CEOIs and keep one controlled CESI for the common procedure",
-      "Use the CESI to set both current assignments and remove the corresponding CEOI entries",
-      "Keep the assignment and procedure together only in an informal index"
+      "CEOI: one edition and permanent; CESI: four editions and frequent change",
+      "CEOI: four editions and permanent; CESI: one edition and frequent change",
+      "CEOI: one edition and frequent change; CESI: four editions and permanent",
+      "CEOI: four editions and frequent change; CESI: one edition and permanent"
     ],
-    "answer": 1,
-    "explanation": "A current assignment and its standard method can vary independently while remaining linked.",
+    "answer": 3,
+    "explanation": "Pages 11 and 12 say the CEOI is prepared in four editions for short periods and is subject to frequent change, while the CESI is prepared in only one edition and is permanent in nature.",
     "sourceSlides": [
-      9,
+      11,
       12
     ]
   },
@@ -29,19 +29,17 @@
     "tags": [
       "publication roles"
     ],
-    "prompt": "A changed assignment references a stable procedure. A student proposes republishing the whole procedural guide. Which correction best fits the course?",
+    "prompt": "Which statement about the relationship of CEOI items and the CESI is correct?",
     "options": [
-      "Change the procedural guide first and treat both publications as automatically superseded",
-      "Reissue both under the old edition labels without checking dates",
-      "Keep the old operating assignment and add a second method to the procedural guide",
-      "Update the operating item and verify its effective date and procedure reference"
+      "Specific items in the CESI obtain their numbers from the CEOI",
+      "Specific items in the CEOI obtain their numbers from the CESI",
+      "Items of both publications are numbered independently by the using unit",
+      "Item numbers are assigned by the signal officer of the receiving unit"
     ],
-    "answer": 3,
-    "explanation": "The CEOI is designed for changing requirements. Traceability and dates keep those requirements aligned with the stable CESI.",
+    "answer": 1,
+    "explanation": "Page 12 says the specific items in the CEOI obtain their numbers from the CESI.",
     "sourceSlides": [
-      9,
-      12,
-      29
+      12
     ]
   },
   {
@@ -52,15 +50,15 @@
     "tags": [
       "publication roles"
     ],
-    "prompt": "Subordinate teams draft divergent versions of a common instruction while the commander retains issuance authority. What resolution fits both principles?",
+    "prompt": "Several commands need an identical instruction. Who prepares and distributes it?",
     "options": [
-      "Allow the first team that finishes to issue its text for everyone",
-      "Have technical staff issue a replacement independently of command authority",
-      "Consolidate common guidance at the proper command level and use signal staff to review technical consistency",
-      "Have each team authorize and publish its own version"
+      "Each command that uses it",
+      "The highest command involved",
+      "The signal officer of the lowest command",
+      "The commander of the using unit"
     ],
-    "answer": 2,
-    "explanation": "Common instructions belong at the applicable command level. Technical oversight supports command responsibility.",
+    "answer": 1,
+    "explanation": "Page 13 says instructions that are identical within several commands are prepared and distributed by the highest commands.",
     "sourceSlides": [
       13,
       14
@@ -74,15 +72,15 @@
     "tags": [
       "publication roles"
     ],
-    "prompt": "A practice document is technically correct but has not been formally issued. Another document has been issued but its operating item is technically inconsistent. Which diagnosis is strongest?",
+    "prompt": "Who is responsible for each of these, in order: (1) communication at command level; (2) technical control of communications-electronics activities; (3) preparation and issuance of the CESI and CEOI?",
     "options": [
-      "Formal issuance makes the inconsistency immaterial",
-      "Both formal issuance and technical consistency require verification",
-      "The two issues can be resolved solely by increasing the number of copies",
-      "Technical review is sufficient for the unissued draft to take effect"
+      "Signal officer; commander; commander",
+      "Commander; commander; signal officer",
+      "Signal officer; signal officer; commander",
+      "Commander; signal officer; signal officer"
     ],
-    "answer": 1,
-    "explanation": "Command authority and technical control serve separate, necessary functions.",
+    "answer": 3,
+    "explanation": "Page 14 says communication is the commander's responsibility, while the signal officer prepares and issues both publications and is responsible to the commander for technical control and staff supervision.",
     "sourceSlides": [
       9,
       14
@@ -96,20 +94,19 @@
     "tags": [
       "edition and copy control"
     ],
-    "prompt": "A register tracks short titles but neither unique copies nor effective status. What revision addresses both gaps?",
+    "prompt": "Which identifiers distinguish (1) an individual copy and (2) a particular edition, respectively?",
     "options": [
-      "Count holders and assume all issued editions are effective",
-      "Replace each short title with the publication's page count",
-      "Record each copy number and whether its edition is in effect",
-      "Record the title and effective status without tracking individual copies"
+      "Short title; copy number",
+      "Copy number; short title",
+      "Base number; copy number",
+      "Copy number; base number"
     ],
-    "answer": 2,
-    "explanation": "Edition identity, copy accountability, and activation status are distinct controls.",
+    "answer": 1,
+    "explanation": "Page 15 says the copy number supports accounting of each published copy, and page 16 says the short title identifies a particular edition. The base number identifies the item (page 41).",
     "sourceSlides": [
       15,
       16,
-      21,
-      22
+      41
     ]
   },
   {
@@ -120,15 +117,15 @@
     "tags": [
       "edition and copy control"
     ],
-    "prompt": "The distribution record authorizes a copy and the holder confirms receipt. A later check finds the same copy number assigned to two holders. What is the precise failure?",
+    "prompt": "Which statement correctly distinguishes distribution from copy number?",
     "options": [
-      "Distribution was authorized, but copy numbering is unreliable",
-      "The common procedure must be reissued at a higher echelon",
-      "Edition identity is necessarily wrong for every copy",
-      "The index's publication authentication is necessarily invalid"
+      "Distribution specifies the units to receive copies and how many; the copy number identifies each published copy",
+      "Distribution identifies each published copy; the copy number specifies the units to receive copies",
+      "Both identify a particular edition of the publication",
+      "Distribution authenticates the order; the copy number lists the effective dates"
     ],
     "answer": 0,
-    "explanation": "The distribution record can be correct while unique copy accountability fails.",
+    "explanation": "Page 30 says the distribution item specifies the units to receive copies and the number each, and page 15 says each copy published is assigned a copy number to facilitate distribution, control and accounting.",
     "sourceSlides": [
       15,
       30
@@ -142,18 +139,19 @@
     "tags": [
       "edition and copy control"
     ],
-    "prompt": "A replacement edition is present locally, but formal elevation has not been confirmed. Which evaluation prevents parallel use of conflicting instructions?",
+    "prompt": "Which statement about the CEOI editions is correct?",
     "options": [
-      "Treat the most recently received edition as effective",
-      "Allow each holder to choose whichever is more recent",
-      "Check authorized effective status before permitting the reserve to replace the active copy",
-      "Treat publication and issuance as equivalent to activation"
+      "Only the 1st edition is in effect; the 1st reserve is issued to the using unit but is not in effect",
+      "The 1st reserve and 2nd reserve are both issued to the using unit but are not in effect",
+      "The 2nd reserve is issued to the using unit, while the 1st reserve is kept in the issuing headquarters",
+      "The 1st reserve is in effect together with the 1st edition until a compromise occurs"
     ],
-    "answer": 2,
-    "explanation": "An issued reserve remains inactive unless authorized to replace the active edition.",
+    "answer": 0,
+    "explanation": "Pages 21 to 23 say the 1st edition is effective, the 2nd edition (first reserve) is issued to the using unit but not in effect, and the 3rd edition (second reserve) is not issued to the using unit and is kept in the issuing headquarters.",
     "sourceSlides": [
       21,
       22,
+      23,
       26
     ]
   },
@@ -165,15 +163,15 @@
     "tags": [
       "edition and copy control"
     ],
-    "prompt": "The exercise confirms a problem limited to the active operating edition. Why is automatic replacement of the standard procedural publication a poor inference?",
+    "prompt": "Which statement about the CESI is correct?",
     "options": [
-      "The CESI is the first reserve for the active CEOI",
-      "Every CEOI change automatically alters all procedural explanations",
-      "The CESI maintains the same reserve sequence as the CEOI",
-      "CEOI reserve replacement addresses the affected operating edition, while the CESI serves a separate enduring function"
+      "It normally contains classified information, so four editions are prepared",
+      "It does not normally contain classified information, so it poses no danger to communications security, and only one edition is prepared",
+      "It is kept in the storage vault of the preparing headquarters as a master copy",
+      "It is prepared for short periods and replaced when it is compromised"
     ],
-    "answer": 3,
-    "explanation": "The course distinguishes the four-edition operating model from the one-edition standard instructions.",
+    "answer": 1,
+    "explanation": "Page 25 says the CESI does not normally contain classified information, does not endanger communications security, and only one edition is prepared.",
     "sourceSlides": [
       12,
       25,
@@ -188,15 +186,15 @@
     "tags": [
       "edition and copy control"
     ],
-    "prompt": "A team announces a replacement but gives no way for users to distinguish it from the withdrawn edition. Which control best corrects that weakness?",
+    "prompt": "Which identifier lets users tell a replacement edition from the withdrawn edition?",
     "options": [
-      "Identify the replacement edition and state when it takes effect",
-      "Ask each user to choose the copy with the newest-looking cover",
-      "Retain both editions under a generic label and rely on page order",
-      "Increase the number of copies while leaving status implicit"
+      "Copy number",
+      "Base number",
+      "Page number",
+      "Short title"
     ],
-    "answer": 0,
-    "explanation": "An edition identifier and explicit status let users distinguish current material from withdrawn material.",
+    "answer": 3,
+    "explanation": "Page 16 says the short title identifies a particular edition of the CESI or CEOI, so it distinguishes a replacement edition from the one it replaces.",
     "sourceSlides": [
       16,
       26
@@ -210,15 +208,15 @@
     "tags": [
       "compromise and authentication"
     ],
-    "prompt": "All registered copies are present, but a credible account suggests unauthorized viewing. Why does the copy check fail to close the case?",
+    "prompt": "All registered copies of a CEOI are accounted for, but a credible report says an unauthorized person saw it. What is its status?",
     "options": [
-      "A complete register authenticates the origin of every message",
-      "Possession eliminates the possibility that a copy was ever seen",
-      "The register confirms possession, leaving exposure unresolved",
-      "Compromise requires a missing copy and no credible report"
+      "Not compromised, because every copy is accounted for",
+      "Not compromised until misuse is proven",
+      "Compromised, because exposure to unauthorized personnel counts even if no copy is missing",
+      "Compromised only if a copy number is missing"
     ],
     "answer": 2,
-    "explanation": "The course includes exposure as well as loss or capture. A register cannot prove that unauthorized viewing never happened.",
+    "explanation": "Page 17 says a CEOI/CESI known or believed to have been exposed to unauthorized personnel is compromised, and page 15 shows copy numbers only account for individual copies.",
     "sourceSlides": [
       15,
       17,
@@ -233,15 +231,15 @@
     "tags": [
       "compromise and authentication"
     ],
-    "prompt": "Which response best addresses uncertain exposure without waiting for an investigation to finish?",
+    "prompt": "A using unit's signal officer learns that a CEOI is believed to have been exposed. Which report is sent first, and how?",
     "options": [
-      "Report the suspicion now and follow up in writing with facts",
-      "Send only a scheduled monthly report with a copy total",
-      "Declare all details confirmed in the first notice to speed review",
-      "Wait for proof of harmful use before issuing any notice"
+      "A written report, through command channels",
+      "An immediate report, through command channels",
+      "An immediate report, by the fastest means",
+      "A written report, by the fastest means"
     ],
-    "answer": 0,
-    "explanation": "The two-stage process supports timely notice while preserving the distinction between suspicion and established findings.",
+    "answer": 2,
+    "explanation": "Page 18 says the signal officer of the using unit submits an immediate or spot report by the fastest means, followed by a subsequent written report through command channels.",
     "sourceSlides": [
       17,
       18
@@ -255,15 +253,15 @@
     "tags": [
       "compromise and authentication"
     ],
-    "prompt": "Two teams send the same immediate notice. Only one later explains circumstances and proposes a preventive change. What improvement does that follow-up provide?",
+    "prompt": "Which statement about the two reports on a compromise is correct?",
     "options": [
-      "It supplies the short title of every unaffected publication",
-      "It replaces copy accounting with a narrative description",
-      "It retroactively makes the incident's first notice unnecessary",
-      "It links the circumstances to corrective and preventive action"
+      "The written report replaces the immediate report and omits the date and time",
+      "The written report repeats the immediate report's information and adds circumstances, persons responsible, action taken and recommendations",
+      "The immediate report must include recommendations to prevent similar occurrences",
+      "The immediate report is sent through command channels, and the written report by the fastest means"
     ],
-    "answer": 3,
-    "explanation": "The later report provides investigative and preventive detail beyond the immediate notification.",
+    "answer": 1,
+    "explanation": "Page 18 says the written report contains the information in the immediate report plus the circumstances, person(s) responsible, action taken, recommendations and other information the commander desires.",
     "sourceSlides": [
       18
     ]
@@ -276,15 +274,15 @@
     "tags": [
       "compromise and authentication"
     ],
-    "prompt": "A validly issued publication is on file, but a particular classroom transmission may be fraudulent. Which conclusion follows?",
+    "prompt": "Which part protects the communication system from fraudulent transmissions, and which part authenticates the entire publication for the commander?",
     "options": [
-      "Authenticating a publication differs from authenticating a transmission",
-      "A valid index proves that every individual transmission is authentic",
-      "An uncertain transmission invalidates the publication's index automatically",
-      "Checking an item number is equivalent to authenticating both"
+      "The Index; Authentication Section",
+      "Authentication Section; Distribution entry",
+      "Authentication Section (items 20-29); the Index",
+      "Code and Cipher Section; the Index"
     ],
-    "answer": 0,
-    "explanation": "Index authentication concerns issuance of the order. The communications authentication section concerns fraudulent traffic.",
+    "answer": 2,
+    "explanation": "Page 33 says the Authentication Section protects the system from fraudulent reception or transmission, and page 47 says only the index authenticates the entire CEOI/CESI for the commander.",
     "sourceSlides": [
       33,
       47
@@ -298,15 +296,15 @@
     "tags": [
       "compromise and authentication"
     ],
-    "prompt": "A practice team has reported confirmed compromise. A reserve copy is available but formal activation is pending. Which treatment fits the lesson?",
+    "prompt": "A CEOI is confirmed compromised. Which action does the lesson prescribe?",
     "options": [
-      "Keep the compromised copy in service until the reserve is activated.",
-      "Withdraw the reserve and keep the compromised edition for routine traffic.",
-      "Activate both editions so each user can select a copy.",
-      "Withdraw the compromised copy promptly and verify the replacement’s effective status before use."
+      "Pull it out of circulation immediately and upgrade the first reserve to the first or basic edition",
+      "Keep it in service until the first reserve is reissued",
+      "Upgrade the second reserve to the basic edition and keep the compromised edition as the reserve",
+      "Withdraw the first reserve and keep using the compromised edition"
     ],
-    "answer": 3,
-    "explanation": "The lesson calls for immediate withdrawal of compromised material and controlled replacement with the reserve.",
+    "answer": 0,
+    "explanation": "Page 26 says that in case of compromise, the document is immediately pulled out of circulation and the first reserve is upgraded into the first or basic edition.",
     "sourceSlides": [
       18,
       26
@@ -320,15 +318,15 @@
     "tags": [
       "structure and validation"
     ],
-    "prompt": "Two entries share a base number but have different edition numbers and effective dates. What should decide which is applicable?",
+    "prompt": "In an item number, which parts are before and after the hyphen, respectively?",
     "options": [
-      "The edition and effective date of the item in the current authoritative index",
-      "The base number alone because it is unchanged",
-      "The copy number of whichever document is nearby",
-      "The page position of the newer entry"
+      "Edition number, which indicates the edition; base number, which never changes for the item",
+      "Item number, which indicates the edition; copy number, which never changes for the item",
+      "Base number, which never changes for the item; copy number, which indicates the edition",
+      "Base number, which never changes for the item; edition number, which indicates the edition"
     ],
-    "answer": 0,
-    "explanation": "The base number identifies the item. Edition and effective date establish the applicable version.",
+    "answer": 3,
+    "explanation": "Page 41 says the base number appears before the hyphen and is never changed for the same item, and the edition number appears after the hyphen and indicates the edition.",
     "sourceSlides": [
       29,
       41
@@ -342,15 +340,15 @@
     "tags": [
       "structure and validation"
     ],
-    "prompt": "A classroom distribution audit matches the quantities issued, but the index shows that a newer edition of one item is already in effect. Which conclusion best fits the controls?",
+    "prompt": "Which General Section items state the units to receive copies and the effective dates of items, respectively?",
     "options": [
-      "Matching copy quantities proves that the old edition still applies.",
-      "Copy allocation can be correct even though the item edition is inapplicable.",
-      "The older edition automatically remains valid for any recipient named in distribution.",
-      "The index must change because it conflicts with the quantities issued."
+      "Index; Distribution",
+      "General Information; Index",
+      "Distribution; General Information",
+      "Distribution; Index"
     ],
-    "answer": 1,
-    "explanation": "Distribution establishes recipients and copy quantities. The index and edition details establish which item is in effect.",
+    "answer": 3,
+    "explanation": "Page 30 says distribution specifies the units to receive copies, and page 29 says the index gives the effective date of each item.",
     "sourceSlides": [
       29,
       30,
@@ -365,15 +363,15 @@
     "tags": [
       "structure and validation"
     ],
-    "prompt": "A holder has the right item number and version but notices an unexplained gap in pagination. What should they verify next?",
+    "prompt": "Which part of the Ending lets a holder detect that pages of an item are missing?",
     "options": [
-      "Whether the item is referenced by more than one SOP",
-      "Whether the actual pages match the item page numbers and expected total",
-      "Whether the recipient has more than one authorized copy",
-      "Whether all holders share the same short title"
+      "The page number and total number of pages at the bottom center",
+      "The copy number below the unit designation",
+      "The item number at the bottom right",
+      "The designation of the preparing headquarters at the bottom left"
     ],
-    "answer": 1,
-    "explanation": "Correct identification does not establish completeness. Pagination and total pages test that separately.",
+    "answer": 0,
+    "explanation": "Page 45 says the number of each page and the total number of pages for each item are placed at the bottom center, in line with the unit designation. The other parts identify the copy, item and preparing headquarters.",
     "sourceSlides": [
       29,
       45
@@ -387,18 +385,21 @@
     "tags": [
       "structure and validation"
     ],
-    "prompt": "A new classroom SOP changes a standing message-preparation rule, but the general information item still describes the old rule. What should be reconciled?",
+    "prompt": "Which topics does General Information cover, as detailed as possible?",
     "options": [
-      "The current page count and the old short title",
-      "The radio section and the approval date of unrelated material",
-      "Update general information to match the standing SOP",
-      "The distribution quantities and individual copy numbers"
+      "Type of radio, station per net, call signs and frequencies",
+      "Telephone directory, communication designators and wire tagging code",
+      "Security, communication media, message preparation and other information the commander desires",
+      "Panel codes, recognition signals and pyrotechnic signals"
     ],
     "answer": 2,
-    "explanation": "The lesson makes general information part of standing SOP guidance, so the two should agree.",
+    "explanation": "Page 31 says general information covers security, communication media, message preparation and other information the commander desires. The other options describe the Radio, Wire and Visual and Sonic Sections (pages 35 to 37).",
     "sourceSlides": [
       28,
-      31
+      31,
+      35,
+      36,
+      37
     ]
   },
   {
@@ -409,17 +410,18 @@
     "tags": [
       "structure and validation"
     ],
-    "prompt": "A list matches the correct titles, item numbers, and dates, but its authentication is missing. What is established and what remains open?",
+    "prompt": "Besides titles, numbers and dates, the Index of the CESI and CEOI contains which two portions?",
     "options": [
-      "The missing authentication changes only the number of copies authorized",
-      "The list identifies items. Issuance authority still needs verification",
-      "The publication is valid whenever its list looks internally consistent",
-      "Matching dates prove that command issuance is valid"
+      "Short title and copy number",
+      "General information and messenger schedules",
+      "Authentication and distribution portions",
+      "Base number and edition number"
     ],
-    "answer": 1,
-    "explanation": "Index entries establish what is listed. Authentication establishes issuance by or for the commander.",
+    "answer": 2,
+    "explanation": "Pages 29, 30 and 47 say the index lists titles, numbers and effective dates, and also contains the authentication and distribution portions.",
     "sourceSlides": [
       29,
+      30,
       47
     ]
   },
@@ -431,20 +433,19 @@
     "tags": [
       "structure and validation"
     ],
-    "prompt": "Two practice pages have the same item title. One belongs to a different edition and the other belongs to a different numbered copy. Which comparison can separate both discrepancies?",
+    "prompt": "Where are these heading elements located: designation of the preparing headquarters, title with short title, and item number?",
     "options": [
-      "Check only the order in which the pages were received",
-      "Check only the preparing headquarters in the heading",
-      "Check only the title and page total",
-      "Check item and edition in heading, copy in ending"
+      "Upper left; upper right; center in line with the unit designation",
+      "Upper right; upper left; center in line with the unit designation",
+      "Upper left; upper right; bottom right",
+      "Upper left; center; upper right"
     ],
-    "answer": 3,
-    "explanation": "Heading information distinguishes item and edition. The ending identifies the individual copy.",
+    "answer": 0,
+    "explanation": "Pages 39 to 41 place the preparing headquarters designation at the upper left, the specific title and short title at the upper right, and the item number at the center in line with the unit designation.",
     "sourceSlides": [
       39,
       40,
-      41,
-      45
+      41
     ]
   }
 ]
