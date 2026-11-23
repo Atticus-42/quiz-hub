@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync, mkdtempSync, mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { actualExamData } from '../actual-exams.mjs';
 import { ROOT, MODES, CLASS_FORBIDDEN, loadClass } from '../build.mjs';
 import { test, plain, findAll, isShown, hasClass, parseHtml, appScripts, runPage, withEndpoint, fakeFetch, TEST_ENDPOINT, loadCodeGs, withoutFontPreloads, withoutShareMeta } from './harness.mjs';
 
@@ -60,7 +61,8 @@ export async function instructorSuite({ lessons }) {
     assert.equal(state.module, 'module-1');
     page.byId('module-module-2').click();
     const module2 = lessons.filter(lesson => lesson.module === 'module-2' && !lesson.pool);
-    const expected = module2.reduce((sum, lesson) => sum + MODES.reduce((s, mode) => s + lesson.banks[mode].length, 0), 0) + 1;
+    const expected = module2.reduce((sum, lesson) => sum + MODES.reduce((s, mode) => s + lesson.banks[mode].length, 0), 0)
+      + Object.values(itemData.questions).filter(q => q.mode === 'exam' && module2.some(lesson => lesson.key === q.lesson)).length + 1;
     assert.equal(rowsOf(page).length, expected, 'every Module 2 bank question plus the one no longer in a bank');
     const first = rowsOf(page).find(row => row.children[3].textContent === '10');
     assert.equal(rowsOf(page)[0].children[5].textContent, '100%', 'sorted by miss rate, highest first');
@@ -119,6 +121,25 @@ export async function instructorSuite({ lessons }) {
     assert.match(page.byId('pool-note').textContent, /Module 4 Exam attempts count towards each question’s own lesson and difficulty/);
     page.byId('module-module-2').click();
     assert.match(page.byId('pool-note').textContent, /Combined Practice Exam attempts count towards each question’s own lesson and difficulty/);
+  });
+
+  await T('exam-style rows (mode exam) parse, are labelled Exam-style, carry their question text and filter by the Exam-style chip', async () => {
+    const examIds = Object.keys(itemData.questions).filter(qid => itemData.questions[qid].mode === 'exam');
+    assert.ok(examIds.length > 0, 'items.json holds the exam-style questions');
+    const sample = examIds[0];
+    const [lessonKey, , qid] = sample.split(':');
+    assert.match(qid, new RegExp('^' + lessonKey + '-x-[0-9]{2,4}$'));
+    assert.ok(itemData.questions[sample].prompt && itemData.questions[sample].options.length >= 2);
+    const page = load(itemsBody([{ qid: sample, lesson: lessonKey, mode: 'exam', asked: 6, missed: 5 }]));
+    await page.api.whenSettled();
+    assert.deepEqual(plain(page.api.cleanItemRow({ qid: sample, asked: 2, missed: 1 })), { qid: sample, lesson: lessonKey, mode: 'exam', asked: 2, missed: 1 });
+    assert.equal(page.api.cleanItemRow({ qid: lessonKey + ':easy:' + lessonKey + '-x-01', asked: 1, missed: 0 }), null, 'x letter only with mode exam');
+    assert.equal(page.byId('mode-exam').textContent, 'Exam-style');
+    assert.equal(page.api.setMode('exam'), true);
+    assert.equal(page.byId('mode-exam').getAttribute('aria-pressed'), 'true');
+    const current = itemData.modules.find(module => module.id === page.api.getState().module);
+    assert.equal(rowsOf(page).length, examIds.filter(qid => current.lessons.some(lesson => lesson.key === itemData.questions[qid].lesson)).length, 'exam-style questions of the selected module');
+    assert.match(rowsOf(page)[0].textContent, /Exam-style/);
   });
 
   await T('remote data is untrusted: bad qids and counts are dropped, missed never exceeds asked, hostile text stays text', () => {
@@ -189,8 +210,11 @@ export async function instructorSuite({ lessons }) {
     assert.match(builtHtml, /var DATA_URL = 'items\.json';/, 'a relative URL, no scheme or host');
     const data = itemData;
     const count = lessons.filter(lesson => !lesson.pool).reduce((sum, lesson) => sum + MODES.reduce((s, mode) => s + lesson.banks[mode].length, 0), 0);
-    assert.equal(Object.keys(data.questions).length, count);
-    assert.ok(Object.keys(data.questions).every(key => /^[a-z][a-z0-9]{1,23}:(easy|medium|hard):[a-z][a-z0-9]{1,23}-[emh]-[0-9]{2,4}$/.test(key)));
+    const examStyle = actualExamData(ROOT, lessons).all.reviewer.bank.length;
+    assert.ok(examStyle > 0);
+    assert.equal(Object.keys(data.questions).length, count + examStyle, 'every bank question plus every exam-style question');
+    assert.equal(Object.values(data.questions).filter(q => q.mode === 'exam').length, examStyle);
+    assert.ok(Object.keys(data.questions).every(key => /^[a-z][a-z0-9]{1,23}:(easy|medium|hard):[a-z][a-z0-9]{1,23}-[emh]-[0-9]{2,4}$/.test(key) || /^([a-z][a-z0-9]{1,23}):exam:\1-x-[0-9]{2,4}$/.test(key)));
   });
 }
 

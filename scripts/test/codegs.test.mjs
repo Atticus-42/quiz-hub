@@ -1,4 +1,4 @@
-// apps-script/Code.gs (version 8) in a sandbox: fake SpreadsheetApp, LockService and ContentService.
+// apps-script/Code.gs (version 9) in a sandbox: fake SpreadsheetApp, LockService and ContentService.
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -52,9 +52,9 @@ export async function codeGsSuite() {
   const ids = (lesson, mode, letter, from, n) => Array.from({ length: n }, (_, i) => `${lesson}:${mode}:${lesson}-${letter}-${String(from + i).padStart(2, '0')}`);
   const attempt = over => ({ lesson: 'armor', name: 'Maria Santos', mode: 'easy', score: 20, total: 25, percent: 80, band: 'Proficient', finishedAt: '2026-10-01T08:00:00.000Z', ...over });
 
-  await T('declares version 8 and keeps every lesson key and tab name', () => {
+  await T('declares version 9 and keeps every lesson key and tab name', () => {
     const gs = loadCodeGs(source);
-    assert.equal(gs.context.VERSION, 8);
+    assert.equal(gs.context.VERSION, 9);
     assert.deepEqual(plain(gs.context.LESSONS), TABS);
     for (const [key, tab] of Object.entries(TABS)) assert.equal(gs.context.tabFor(key), tab);
     assert.equal(gs.context.tabFor(undefined), 'History', 'a request without a lesson is the first quiz');
@@ -190,7 +190,7 @@ export async function codeGsSuite() {
     }
   });
 
-  await T('a tab created before version 8 gets the Missed header added once; existing rows are untouched', () => {
+  await T('a tab created before version 9 gets the Missed header added once; existing rows are untouched', () => {
     const old = new FakeSheet('Armor History', [OLD_HEADERS, [new Date('2026-09-01'), 'Old Timer', 'easy', 10, 25, 40, 'Needs review', new Date('2026-09-01')]]);
     const gs = loadCodeGs(source, { sheets: new Map([['Armor History', old]]) });
     assert.deepEqual(gs.get({ lesson: 'armor' }).rows.map(row => row.name), ['Old Timer'], 'reading an old tab works');
@@ -208,9 +208,54 @@ export async function codeGsSuite() {
     assert.equal(custom.rows[0].length, 8, 'a tab with different headers is never relabelled');
   });
 
+  await T('exam-style ids: a mixed Actual attempt (30 actual + 20 exam-style) is accepted with item counts; itemRows reports mode exam', () => {
+    const gs = loadCodeGs(source);
+    const actual = ids('gradedisr', 'actual', 'a', 1, 30);
+    const exam = ['armor', 'isr', 'signal', 'manet'].flatMap((key, k) => ids(key, 'exam', 'x', 1 + k * 5, 5));
+    const asked = [...actual, ...exam];
+    assert.equal(asked.length, 50);
+    const missed = [actual[2], exam[0], exam[7]];
+    assert.deepEqual(gs.post(attempt({ lesson: 'gradedall', mode: 'actual', total: 50, score: 47, asked, missed })), { ok: true });
+    const items = gs.sheets.get('Item Analysis');
+    assert.equal(items.rows.length, 51, 'every one of the 50 ids is counted');
+    const find = qid => items.rows.find(item => item[0] === qid);
+    assert.deepEqual(find('armor:exam:armor-x-01').slice(0, 6), ['armor:exam:armor-x-01', 'armor', 'exam', 1, 1, 1]);
+    assert.deepEqual(find(actual[2]).slice(0, 6), [actual[2], 'gradedisr', 'actual', 1, 1, 1]);
+    const rows = gs.get({ action: 'items', lesson: 'all' }).rows;
+    assert.equal(rows.filter(row => row.mode === 'exam').length, 20);
+    assert.deepEqual(rows.find(row => row.qid === 'isr:exam:isr-x-08'), { qid: 'isr:exam:isr-x-08', lesson: 'isr', mode: 'exam', asked: 1, missed: 1 });
+    assert.equal(gs.get({ action: 'items', lesson: 'armor' }).rows.filter(row => row.mode === 'exam').length, 5);
+    assert.deepEqual(gs.post(attempt({ lesson: 'gradedall', mode: 'actual', total: 5, score: 5, asked: exam.slice(0, 5), missed: [] })), { ok: true });
+    assert.equal(find('armor:exam:armor-x-01')[3], 2);
+  });
+
+  await T('exam-style ids are rejected outside an actual attempt or when the qid names another lesson; the attempt itself is still stored', () => {
+    const gs = loadCodeGs(source);
+    const exam = ids('armor', 'exam', 'x', 1, 25);
+    for (const mode of ['easy', 'medium', 'hard']) {
+      assert.deepEqual(gs.post(attempt({ mode, asked: exam, missed: [], score: 25 })), { ok: true });
+    }
+    assert.equal(gs.sheets.has('Item Analysis'), false, 'no item counts from an exam id in an easy/medium/hard attempt');
+    assert.equal(gs.sheets.get('Armor History').rows.length, 4);
+    const wrong = [...ids('armor', 'exam', 'x', 1, 24), 'armor:exam:isr-x-01'];
+    assert.deepEqual(gs.post(attempt({ mode: 'actual', asked: wrong, missed: [], score: 25 })), { ok: true });
+    assert.equal(gs.sheets.has('Item Analysis'), false, 'qid lesson differs from its key');
+    const letter = [...ids('armor', 'exam', 'x', 1, 24), 'armor:exam:armor-a-01'];
+    gs.post(attempt({ mode: 'actual', asked: letter, missed: [], score: 25 }));
+    assert.equal(gs.sheets.has('Item Analysis'), false, 'exam id must use the x letter');
+    const unknown = [...ids('armor', 'exam', 'x', 1, 24), 'gunnery:exam:gunnery-x-01'];
+    gs.post(attempt({ mode: 'actual', asked: unknown, missed: [], score: 25 }));
+    assert.equal(gs.sheets.has('Item Analysis'), false, 'unknown lesson key');
+    const asEasy = [...ids('armor', 'easy', 'e', 1, 24), 'armor:easy:armor-x-01'];
+    gs.post(attempt({ asked: asEasy, missed: [], score: 25 }));
+    assert.equal(gs.sheets.has('Item Analysis'), false, 'x letter is not valid in an easy id');
+    assert.equal(gs.context.validQid('armor:exam:armor-x-07', 'actual'), 'armor:exam:armor-x-07');
+    assert.equal(gs.context.validQid('armor:exam:armor-x-07', 'hard'), null);
+  });
+
   await T('GET ?action=items returns validated counters for one lesson or all; unknown actions and lessons are refused', () => {
     const gs = loadCodeGs(source);
-    assert.deepEqual(gs.get({ action: 'items', lesson: 'all' }), { ok: true, kind: 'items', version: 8, rows: [] }, 'no tab yet: no rows');
+    assert.deepEqual(gs.get({ action: 'items', lesson: 'all' }), { ok: true, kind: 'items', version: 9, rows: [] }, 'no tab yet: no rows');
     gs.post(attempt({ asked: ids('armor', 'easy', 'e', 1, 25), missed: ids('armor', 'easy', 'e', 1, 5) }));
     gs.post(attempt({ lesson: 'isr', mode: 'hard', total: 2, score: 1, asked: ids('isr', 'hard', 'h', 1, 2), missed: ids('isr', 'hard', 'h', 2, 1) }));
     gs.sheets.get('Item Analysis').appendRow(['=junk()', 'isr', 'hard', 3, 3, 1, new Date()]);

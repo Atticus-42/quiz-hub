@@ -2,15 +2,19 @@
 
 One Google Sheet serves every quiz on this site. Each finished attempt adds a row to its lesson's tab: name, difficulty, score, total, percentage, mastery band, finish time and the codes of the questions missed. The 'Item Analysis' tab counts how often each question was asked and missed, and the instructor page (`/quiz-hub/instructor/`) reads those counts. The answers students chose are never sent, and practice retries send nothing.
 
-`Code.gs` in this folder is the one copy of the script (version 8). The live web app is already deployed. Its URL is `HISTORY_ENDPOINT` in `scripts/build.mjs`.
+`Code.gs` in this folder is the one copy of the script (version 9). The live web app is already deployed. Its URL is `HISTORY_ENDPOINT` in `scripts/build.mjs`.
 
-## Updating the deployed script (after Code.gs changes, for example to version 8)
+## Updating the deployed script (after Code.gs changes, for example to version 9)
 
 1. Open the class history spreadsheet and choose **Extensions > Apps Script**.
 2. Replace the whole contents of `Code.gs` with this folder's `Code.gs`, then save (Ctrl+S).
 3. Choose **Deploy > Manage deployments**, click the pencil icon on the existing web-app deployment, set **Version** to **New version**, and click **Deploy**.
    Editing the existing deployment keeps the same `/exec` URL. A *new* deployment would get a new URL, and then every page would need rebuilding with that URL.
-4. Quick check: open `<exec URL>?action=items&lesson=all` in a browser. It should show `{"ok":true,"kind":"items","version":8,"rows":[]}` (the rows fill as attempts arrive).
+4. Quick check: open `<exec URL>?action=items&lesson=all` in a browser. It should show `{"ok":true,"kind":"items","version":9,"rows":[]}` (the rows fill as attempts arrive).
+
+Version 9 (what changed): the Comprehensive Exam Reviewer's Mixed set and Topic coverage set send mode `actual` attempts whose `asked`/`missed` lists also hold exam-style ids (`<lessonKey>:exam:<lessonKey>-x-NN`, for example `armor:exam:armor-x-07`). Version 8 rejected those ids, so the whole attempt was stored without item counts. Version 9 accepts them, only inside an `actual` attempt and only when the qid starts with its own lesson key. They are counted in Item Analysis with mode `exam`, and `?action=items` returns them with `mode: "exam"`. The instructor page shows them under a new Exam-style mode chip. All easy/medium/hard and Actual Exam rules are unchanged and no lesson keys were added.
+
+**The owner must redeploy** for this to take effect: Manage deployments, edit the existing deployment, set Version to New version (steps above). Until then the live script stays on version 8 and keeps dropping item counts for those two sets. The quick check should then show `"version":9`.
 
 Version 7 is backward compatible:
 - pages that send no `asked`/`missed` (or no `total`) are stored as before;

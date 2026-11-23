@@ -1,10 +1,13 @@
-// Class score history and question analysis for the quiz sites (version 8).
+// Class score history and question analysis for the quiz sites (version 9).
 // Deploy as a Web app (Execute as: Me, Who has access: Anyone); see SETUP.md.
 // One spreadsheet serves every quiz: each lesson has its own history tab (see LESSONS), and the
 // 'Item Analysis' tab counts how often each question was asked and missed.
 //
 // POST (Content-Type text/plain) body:
 //   mode is easy|medium|hard|actual (Actual Exam; qids <examKey>-a-NN, see LESSONS for the graded exam keys).
+//   An 'actual' attempt may also hold exam-style practice ids "<lessonKey>:exam:<lessonKey>-x-NN" (the Comprehensive
+//   Exam Reviewer's Mixed set and Topic coverage set); they are valid only in 'actual' attempts and are counted
+//   with mode 'exam' in the Item Analysis tab. An exam id in an easy/medium/hard attempt rejects the item counts.
 //   {"lesson","name","mode","score","total","percent","band","finishedAt"[, "asked": [qid...], "missed": [qid...]]}
 //   total is the number of questions in the attempt (1-500). asked/missed hold stable question ids
 //   "<lessonKey>:<mode>:<qid>" (never the answers chosen); pages older than version 7 send neither, and
@@ -12,10 +15,10 @@
 // GET ?lesson=isr|armor|fieldartillery|armyops|signal|signaljoint|combined&mode=all|easy|medium|hard|actual&limit=100
 //   -> {"ok":true,"rows":[...newest first]}
 // GET ?action=items&lesson=<key>|all
-//   -> {"ok":true,"kind":"items","version":8,"rows":[{qid,lesson,mode,asked,missed}, ...]}
+//   -> {"ok":true,"kind":"items","version":9,"rows":[{qid,lesson,mode,asked,missed}, ...]}
 // A request without "lesson" is treated as the first lesson ('isr'), so the oldest quiz pages keep working.
 
-var VERSION = 8;
+var VERSION = 9;
 var LESSONS = {
   isr: 'History',        // first quiz: ISR Operations (original tab name kept)
   armor: 'Armor History',                  // Fundamentals of Armor Operations quiz
@@ -88,7 +91,7 @@ var HEADERS = ['Received', 'Name', 'Mode', 'Score', 'Total', 'Percent', 'Band', 
 var LEGACY_HEADER_COUNT = 8;               // history tabs created before version 7 have no 'Missed' column
 var ITEM_TAB = 'Item Analysis';
 var ITEM_HEADERS = ['QID', 'Lesson', 'Mode', 'Asked', 'Missed', 'Miss rate', 'Last updated'];
-var QID_PATTERN = /^([a-z][a-z0-9]{1,23}):(easy|medium|hard|actual):([a-z][a-z0-9]{1,23}-[emha]-[0-9]{2,4})$/;
+var QID_PATTERN = /^([a-z][a-z0-9]{1,23}):(easy|medium|hard|actual|exam):([a-z][a-z0-9]{1,23}-[emhax]-[0-9]{2,4})$/;
 var MISSED_CELL_MAX = 4000;                // characters kept in an attempt row's 'Missed' cell
 var MODES = ['easy', 'medium', 'hard', 'actual'];
 var MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h', actual: 'a' };
@@ -190,9 +193,15 @@ function itemsFor(data, mode, total, score) {
 function validQid(value, mode) {
   if (typeof value !== 'string' || value.length > 64) return null;
   var match = QID_PATTERN.exec(value);
-  if (!match || match[2] !== mode || !Object.prototype.hasOwnProperty.call(LESSONS, match[1])) return null;
+  if (!match || !Object.prototype.hasOwnProperty.call(LESSONS, match[1])) return null;
   // The qid itself is <lessonKey>-<e|m|h|a>-NN: it must name the same lesson and difficulty. An Actual Exam
   // qid is <examKey>-a-NN and may be asked on a lesson page, so it needs only to name a known key.
+  // An exam-style id (<lessonKey>:exam:<lessonKey>-x-NN) is allowed only inside an 'actual' attempt.
+  if (match[2] === 'exam') {
+    if (mode !== 'actual') return null;
+    return match[3].indexOf(match[1] + '-x-') === 0 ? value : null;
+  }
+  if (match[2] !== mode) return null;
   var letter = MODE_LETTERS[mode];
   if (mode === 'actual') {
     var own = /^([a-z][a-z0-9]{1,23})-a-[0-9]{2,4}$/.exec(match[3]);

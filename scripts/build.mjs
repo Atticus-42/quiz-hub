@@ -853,7 +853,7 @@ export function renderHub(template, contours, modules, lessons, { endpoint = HIS
 }
 
 // Question text for the instructor page, keyed by the stable item id <lessonKey>:<mode>:<qid>.
-export function instructorData(modules, lessons) {
+export function instructorData(modules, lessons, actual = null) {
   const questions = {};
   for (const lesson of lessons) {
     if (lesson.pool) continue;
@@ -868,6 +868,19 @@ export function instructorData(modules, lessons) {
           answer: question.answer,
         };
       }
+    }
+  }
+  // Exam-style practice questions (Comprehensive Exam Reviewer) are keyed <lesson>:exam:<qid>, the id the engine sends.
+  if (actual) {
+    for (const question of actual.all.reviewer.bank) {
+      questions[`${question.lessonKey}:exam:${question.qid}`] = {
+        lesson: question.lessonKey,
+        mode: 'exam',
+        category: question.category,
+        prompt: question.prompt,
+        options: question.options,
+        answer: question.answer,
+      };
     }
   }
   return {
@@ -1347,7 +1360,7 @@ export function build({ root = ROOT, out = root, endpoint = HISTORY_ENDPOINT, wr
     pages[path] = html.replace('</body>', '<script src="' + up + 'assets/identity.js" defer></script>\n</body>');
   }
   // The instructor page fetches its question text from this sibling file (kept out of the 1 MB page).
-  pages['instructor/items.json'] = JSON.stringify(instructorData(modules, lessons)) + '\n';
+  pages['instructor/items.json'] = JSON.stringify(instructorData(modules, lessons, actual)) + '\n';
   if (write) {
     for (const [path, html] of Object.entries(pages)) {
       mkdirSync(dirname(join(out, path)), { recursive: true });

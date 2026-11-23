@@ -472,6 +472,7 @@
           <button type="button" class="chip" id="mode-easy" aria-pressed="false">Easy</button>
           <button type="button" class="chip" id="mode-medium" aria-pressed="false">Medium</button>
           <button type="button" class="chip" id="mode-hard" aria-pressed="false">Hard</button>
+          <button type="button" class="chip" id="mode-exam" aria-pressed="false">Exam-style</button>
         </span>
       </div>
       <p id="pool-note" class="section-intro" hidden></p>
@@ -530,10 +531,11 @@
     // Written by scripts/build.mjs; empty means class history is switched off. The only network address used.
     var HISTORY_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwTNNYOiebIGo46PzM3fUA9VT6XnS740D72prOPg-0OJ5Kvg4W8LVl-xJEo_gxImxqnmg/exec';
     var ENDPOINT = String(HISTORY_ENDPOINT || '').trim();
-    var MODES = ['easy', 'medium', 'hard'];
-    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard' };
+    var MODES = ['easy', 'medium', 'hard', 'exam'];
+    var MODE_LABELS = { easy: 'Easy', medium: 'Medium', hard: 'Hard', exam: 'Exam-style' };
+    var MODE_LETTERS = { easy: 'e', medium: 'm', hard: 'h', exam: 'x' };
     var LETTERS = ['A', 'B', 'C', 'D'];
-    var QID_PATTERN = /^([a-z][a-z0-9]{1,23}):(easy|medium|hard):([a-z][a-z0-9]{1,23}-[emh]-[0-9]{2,4})$/;
+    var QID_PATTERN = /^([a-z][a-z0-9]{1,23}):(easy|medium|hard|exam):([a-z][a-z0-9]{1,23}-[emhx]-[0-9]{2,4})$/;
     var REVIEW_RATE = 60;          // a question missed at least this often (%) ...
     var REVIEW_MIN_ASKED = 5;      // ... in at least this many attempts is flagged for review
     var TRUNCATE = 110;            // characters of a question shown before it is expanded
@@ -597,7 +599,7 @@
       if (!row || typeof row !== 'object' || Array.isArray(row)) return null;
       var qid = typeof row.qid === 'string' ? row.qid.trim() : '';
       var match = QID_PATTERN.exec(qid);
-      if (!match) return null;
+      if (!match || match[3].indexOf(match[1] + '-' + MODE_LETTERS[match[2]] + '-') !== 0) return null;
       var asked = toCount(row.asked);
       var missed = toCount(row.missed);
       if (asked === null || missed === null) return null;
