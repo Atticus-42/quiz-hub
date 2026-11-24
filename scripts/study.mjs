@@ -92,7 +92,7 @@ export function renderStudyPages(root, modules, lessons, study, { escapeHtml: e,
       BASE_CSS: baseCss(base, up + 'assets/'), STUDY_CSS: css, FONT_PRELOAD: fontPreloads(up + 'assets/'),
       CREST_HREF: up + 'assets/bandwidth-brothers-colored-400.webp', BRAND_HREF: up,
       PAGE_TITLE: e(title), TITLE: e(title), INTRO: e(intro), BODY: body, SCRIPTS: scripts,
-      EYEBROW: e(eyebrow), HERO_CLASS: depth === 2 ? 'lesson-hero' : 'section-hero',
+      EYEBROW: e(eyebrow), HERO_CLASS: depth === 2 || path.startsWith('library/unit-organization/') ? 'lesson-hero' : 'section-hero',
       HERO_META: meta, HERO_ART: art,
     });
   };

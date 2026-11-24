@@ -4,8 +4,26 @@ import { readFileSync, existsSync, mkdtempSync, mkdirSync, writeFileSync, rmSync
 import { fileURLToPath } from 'node:url';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { loadOrganizations, renderOrganizations } from '../unit-organizations.mjs';
+import { loadOrganizations, loadOrganizationPages, renderOrganizations } from '../unit-organizations.mjs';
 const root = fileURLToPath(new URL('../../', import.meta.url));
+// The atlas renders a hub plus one page per collection; collect every render call by path.
+const renderedPages = esc => { const out = {}; renderOrganizations(root, (...args) => { out[args[0]] = args; }, esc); return out; };
+
+test('atlas pages: hub links every collection, each formation sits on one page and chart links stay on their page', () => {
+ const groups = loadOrganizations(root);
+ const { pages, pageOf } = loadOrganizationPages(root);
+ assert.equal(Object.keys(pageOf).length, groups.length);
+ const rendered = renderedPages(s => String(s));
+ const hub = rendered['library/unit-organization/index.html'][5];
+ for (const page of pages) {
+  assert.match(hub, new RegExp('href="' + page.key + '/"'));
+  const html = rendered['library/unit-organization/' + page.key + '/index.html'][5];
+  for (const id of page.groups) assert.match(html, new RegExp('id="' + id + '" aria-labelledby'));
+  assert.doesNotMatch(html, /href="sources\//, page.key + ': excerpt links climb one folder');
+ }
+ // Each page stays light enough for a phone.
+ for (const [path, args] of Object.entries(rendered)) assert.ok(args[5].length < 2_500_000, path + ' is under 2.5 MB');
+});
 test('organization evidence links resolve to available PDFs and exact pages', () => {
  const data=loadOrganizations(root);
  assert.ok(data.length>=3);
@@ -29,8 +47,10 @@ test('documented nine-person squad counts existing marksman once',()=>{
  assert.equal(squad.children[2].children.at(-1).title,'Rifleman');
 });
 test('native trees preserve unknown counts, attachments and direct references',()=>{
- let output;renderOrganizations(root,(...args)=>{output=args},s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;'));
- assert.equal(output[0],'library/unit-organization/index.html');
+ const pages=renderedPages(s=>String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('"','&quot;'));
+ assert.ok(pages['library/unit-organization/index.html']);
+ const output=pages['library/unit-organization/to-2019/index.html'];
+ assert.equal(output[0],'library/unit-organization/to-2019/index.html');
  assert.match(output[5],/<details/);assert.match(output[5],/<summary/);
  assert.match(output[5],/Not specified/);assert.match(output[5],/Attached/);
  assert.match(output[5],/pam-3-0101-04.pdf#page=14/);
@@ -224,23 +244,23 @@ test('excerpt PDFs are not listed in the Library', () => {
 });
 
 test('chart page carries the detail panel, node paths, source links and drill-down trail', () => {
- let output; renderOrganizations(root, (...args) => { output = args; }, escHtml);
+ const output = renderedPages(escHtml)['library/unit-organization/to-2019/index.html'];
  const html = output[5];
  assert.match(html, /id="org-panel" role="dialog"/);
  assert.match(html, /aria-labelledby="org-panel-title"/);
  assert.match(html, /id="org-panel-close"/);
  assert.match(output[6].scripts, /unit-organizations\.js/);
  assert.match(html, /data-node="r\.1"/);
- assert.match(html, /class="org-source-link" href="sources\/signal\.pdf#page=3"/);
- assert.match(html, /<a class="org-source-ref" href="sources\/command-signal-battalion\.pdf#page=2"/);
+ assert.match(html, /class="org-source-link" href="\.\.\/sources\/signal\.pdf#page=3"/);
+ assert.match(html, /<a class="org-source-ref" href="\.\.\/sources\/command-signal-battalion\.pdf#page=2"/);
  const json = /<script type="application\/json" id="org-data">([^<]+)<\/script>/.exec(html);
  assert.ok(json);
  const panel = JSON.parse(json[1]);
  assert.equal(panel.parent['command-signal-battalion'], 'signal');
  assert.equal(panel.parent.infantry, 'infantry-battalion');
  assert.equal(panel.groups.signal.nodes.r.kids.length, 6);
- assert.ok(panel.groups.signal.sources.some(s => s.kind === 'excerpt' && /^sources\/signal\.pdf#page=\d+$/.test(s.href)));
- assert.ok(panel.groups.signal.sources.some(s => s.kind === 'library' && /^\.\.\/files\/pam-6-0102\.pdf#page=16$/.test(s.href)));
+ assert.ok(panel.groups.signal.sources.some(s => s.kind === 'excerpt' && /^\.\.\/sources\/signal\.pdf#page=\d+$/.test(s.href)));
+ assert.ok(panel.groups.signal.sources.some(s => s.kind === 'library' && /^\.\.\/\.\.\/files\/pam-6-0102\.pdf#page=16$/.test(s.href)));
  // Static drill-down links and breadcrumbs work without JavaScript.
  assert.match(html, /<a class="org-chart-open" href="#command-signal-battalion">/);
  assert.match(html, /data-trail="infantry"[^>]*><ol><li><a href="#infantry-division">[^]*?<a href="#infantry-battalion">/);
@@ -251,9 +271,11 @@ test('every chart link points at an existing formation and every box has a node 
  const ids = new Set(groups.map(g => g.id));
  const walk = n => [n, ...(n.children || []).flatMap(walk)];
  for (const g of groups) for (const n of walk(g.tree)) if (n.chart) assert.ok(ids.has(n.chart) && n.chart !== g.id, n.title);
- let output; renderOrganizations(root, (...args) => { output = args; }, escHtml);
- const panel = JSON.parse(/id="org-data">([^<]+)</.exec(output[5])[1]);
+ const rendered = renderedPages(escHtml);
+ const { pageOf } = loadOrganizationPages(root);
  for (const g of groups) {
+  const output = rendered['library/unit-organization/' + pageOf[g.id] + '/index.html'];
+  const panel = JSON.parse(/id="org-data">([^<]+)</.exec(output[5])[1]);
   const nodes = panel.groups[g.id].nodes;
   const start = output[5].indexOf('id="' + g.id + '" aria-labelledby');
   const section = output[5].slice(start, output[5].indexOf('</section>', start));

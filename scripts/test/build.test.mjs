@@ -101,7 +101,7 @@ export async function buildSuite({ lessons, modules }) {
       'instructor/index.html', 'instructor/items.json', 'codes-ciphers/index.html', ...lessons.map(lesson => `${lesson.slug}/index.html`)];
     const howtoPages = JSON.parse(readFileSync(join(ROOT, 'data/howto.json'), 'utf8')).map(guide => `how-to/${guide.id}/index.html`);
     const actualPages = ['comprehensive-reviewer/all/index.html', ...JSON.parse(readFileSync(join(ROOT, 'data/actual-exams.json'), 'utf8')).exams.map(exam => `comprehensive-reviewer/${exam.slug}/index.html`)];
-    const studyPages = ['comprehensive-reviewer/index.html', ...howtoPages, 'how-to/index.html', 'los-radios/index.html', 'library/index.html', 'library/unit-organization/index.html', 'reviewer/index.html', ...lessons.filter(lesson => !lesson.pool && !(lesson.prominent && lesson.order === 0)).map(lesson => `reviewer/${lesson.key}/index.html`)];
+    const studyPages = ['comprehensive-reviewer/index.html', ...howtoPages, 'how-to/index.html', 'los-radios/index.html', 'library/index.html', 'library/unit-organization/index.html', ...JSON.parse(readFileSync(join(ROOT, 'data/unit-organization-pages.json'), 'utf8')).map(page => `library/unit-organization/${page.key}/index.html`), 'reviewer/index.html', ...lessons.filter(lesson => !lesson.pool && !(lesson.prominent && lesson.order === 0)).map(lesson => `reviewer/${lesson.key}/index.html`)];
     assert.deepEqual(Object.keys(pages).sort(), [...expectedPages, ...studyPages, ...actualPages].sort());
     for (const slug of ['isr', 'armor', 'field-artillery', 'army-operations', 'signal-support', 'joint-signal', 'coalition-signal', 'combined']) assert.ok(expectedPages.includes(`${slug}/index.html`), slug);
     for (const [path, html] of Object.entries(pages)) {
