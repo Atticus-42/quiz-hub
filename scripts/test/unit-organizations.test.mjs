@@ -98,6 +98,13 @@ test('TOE groups (2019 and 2025): every counted parent equals its children and t
  assert.deepEqual(total('infantry-brigade-hq-2025'),[15,81,0]);
  assert.deepEqual(total('infantry-battalion-2025'),[30,543,0]);
  assert.deepEqual(total('division-reconnaissance-company-2025'),[5,95,0]);
+ // TOE s-2025 Signal Regiment recaps: HHC + TSS + CSBn + NETBn + 11 SBn + SIMBn + Cyber Battalion.
+ assert.deepEqual(total('signal-2025'),[205,1842,69]);
+ assert.deepEqual(total('command-signal-battalion-2025'),[9,110,14]);
+ assert.deepEqual(total('network-enterprise-technology-battalion-2025'),[10,117,13]);
+ assert.deepEqual(total('signal-battalion-2025'),[9,115,1]);
+ assert.deepEqual(total('signal-installation-maintenance-battalion-2025'),[9,112,7]);
+ assert.deepEqual(total('cyber-battalion-2025'),[25,120,14]);
 });
 test('TOE citations are text-only, carry no URL and no equipment quantities',()=>{
  const raw=readFileSync(root+'data/unit-organizations.json','utf8');
@@ -121,7 +128,7 @@ test('dual-designated elements show their parenthesized figures, cite a sheet an
   for(const n of dual){
    assert.equal(n.personnel,0,'added strength stays 0: '+n.title);
    assert.ok(n.dualPersonnel===null||Number.isInteger(n.dualPersonnel),n.title);
-   assert.match(n.dualSource,/sheet “[^”]+” · rows \d+–\d+|basic document · page \d+ · /,'dual figures cite a sheet and rows: '+n.title);
+   assert.match(n.dualSource,/sheet “[^”]+” · rows \d+–\d+|basic document · page \d+ · /i,'dual figures cite a sheet and rows: '+n.title);
   }
   const html=renderOrganizationCharts(g,esc);
   if(dual.length){
@@ -130,7 +137,7 @@ test('dual-designated elements show their parenthesized figures, cite a sheet an
    assert.doesNotMatch(html,/\b0 officers \/ 0 EP/,g.id);
   }
  }
- assert.equal(dualCount,18);
+ assert.equal(dualCount,36);
  const rear=walk(data.find(g=>g.id==='signal-battalion').tree).find(n=>n.title==='Message Center Team'&&n.dualPersonnel!==undefined);
  assert.deepEqual([rear.dualPersonnel,rear.dualOfficers,rear.dualEp],[6,0,6]);
  const html=renderOrganizationCharts(data.find(g=>g.id==='signal-battalion'),esc);
