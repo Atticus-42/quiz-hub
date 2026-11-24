@@ -12,7 +12,7 @@ test('organization evidence links resolve to available PDFs and exact pages', ()
  for(const group of data){
   assert.ok(group.sources.length);
   for(const s of group.sources){
-   if(s.toe){ assert.equal(s.edition,'DND-approved PA TO 2019'); assert.ok(s.label&&s.locator); assert.equal(s.file,undefined); continue; }
+   if(s.toe){ assert.ok(['DND-approved PA TO 2019','PA TOE s-2025, 22 May 2025'].includes(s.edition),s.edition); assert.ok(s.label&&s.locator); assert.equal(s.file,undefined); continue; }
    assert.ok(existsSync(root+'library/files/'+s.file+'.pdf')); assert.ok(Number.isInteger(s.page)&&s.page>0);
   }
  }
@@ -73,13 +73,13 @@ test('every formation has a connected schematic and source-derived subunit label
  }
 });
 
-test('TOE 2019 groups: every counted parent equals its children and totals match the approved charts',()=>{
+test('TOE groups (2019 and 2025): every counted parent equals its children and totals match the approved charts',()=>{
  const data=loadOrganizations(root);
  const walk=n=>[n,...(n.children||[]).flatMap(walk)];
  const toe=data.filter(g=>g.estimate==='toe');
  assert.ok(toe.length>=10);
  for(const g of toe){
-  assert.ok(g.sources.some(s=>s.toe&&s.edition==='DND-approved PA TO 2019'),g.id);
+  assert.ok(g.sources.some(s=>s.toe&&['DND-approved PA TO 2019','PA TOE s-2025, 22 May 2025'].includes(s.edition)),g.id);
   for(const n of walk(g.tree)){
    const kids=(n.children||[]).filter(c=>c.personnel!==undefined&&!c.relation);
    if(n.personnel===undefined||!kids.length||kids.length!==(n.children||[]).filter(c=>!c.relation).length) continue;
@@ -93,6 +93,11 @@ test('TOE 2019 groups: every counted parent equals its children and totals match
  assert.deepEqual(total('infantry-battalion'),[32,570,0]);
  assert.deepEqual(total('infantry'),[5,130,0]);
  assert.deepEqual(total('artillery-signal'),[17,199,0]);
+ // TOE s-2025 (22 May 2025) recaps: division combat units = 3 brigade HHC + 9 battalions + 3 reconnaissance companies.
+ assert.deepEqual(total('infantry-division-combat-units-2025'),[330,5415,0]);
+ assert.deepEqual(total('infantry-brigade-hq-2025'),[15,81,0]);
+ assert.deepEqual(total('infantry-battalion-2025'),[30,543,0]);
+ assert.deepEqual(total('division-reconnaissance-company-2025'),[5,95,0]);
 });
 test('TOE citations are text-only, carry no URL and no equipment quantities',()=>{
  const raw=readFileSync(root+'data/unit-organizations.json','utf8');
@@ -116,7 +121,7 @@ test('dual-designated elements show their parenthesized figures, cite a sheet an
   for(const n of dual){
    assert.equal(n.personnel,0,'added strength stays 0: '+n.title);
    assert.ok(n.dualPersonnel===null||Number.isInteger(n.dualPersonnel),n.title);
-   assert.match(n.dualSource,/sheet “[^”]+” · rows \d+–\d+/,'dual figures cite a sheet and rows: '+n.title);
+   assert.match(n.dualSource,/sheet “[^”]+” · rows \d+–\d+|basic document · page \d+ · /,'dual figures cite a sheet and rows: '+n.title);
   }
   const html=renderOrganizationCharts(g,esc);
   if(dual.length){
@@ -125,7 +130,7 @@ test('dual-designated elements show their parenthesized figures, cite a sheet an
    assert.doesNotMatch(html,/\b0 officers \/ 0 EP/,g.id);
   }
  }
- assert.equal(dualCount,17);
+ assert.equal(dualCount,18);
  const rear=walk(data.find(g=>g.id==='signal-battalion').tree).find(n=>n.title==='Message Center Team'&&n.dualPersonnel!==undefined);
  assert.deepEqual([rear.dualPersonnel,rear.dualOfficers,rear.dualEp],[6,0,6]);
  const html=renderOrganizationCharts(data.find(g=>g.id==='signal-battalion'),esc);

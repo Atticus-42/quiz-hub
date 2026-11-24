@@ -3,6 +3,8 @@ import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 export const TOE_EDITION = 'DND-approved PA TO 2019';
+// Newer Table of Organization and Equipment for the Infantry Division combat units (personnel sections only).
+export const TOE_EDITIONS = [TOE_EDITION, 'PA TOE s-2025, 22 May 2025'];
 
 export function loadOrganizations(root) {
   const groups = JSON.parse(readFileSync(join(root, 'data/unit-organizations.json'), 'utf8'));
@@ -19,8 +21,8 @@ export function loadOrganizations(root) {
     if (!group.sources?.length) throw new Error('Organization lacks evidence');
     for (const source of group.sources) {
       if (source.toe) {
-        // Text-only citation of the DND-approved PA Table of Organization 2019. The TOE files themselves are never published.
-        if (source.edition !== TOE_EDITION || !source.label || !source.locator || source.file) throw new Error('Invalid TOE citation');
+        // Text-only citation of an approved PA Table of Organization (2019, or the 2025 Infantry Division combat units). The TOE files themselves are never published.
+        if (!TOE_EDITIONS.includes(source.edition) || !source.label || !source.locator || source.file) throw new Error('Invalid TOE citation');
         // Excerpt PDFs (organization charts and manning sheets only, no Table of Equipment) live outside the Library, under library/unit-organization/sources.
         if (!/^sources\/[a-z0-9-]+\.pdf$/.test(source.pdf || '') || !existsSync(join(root, 'library/unit-organization', source.pdf)) || !Number.isInteger(source.pdfPage) || source.pdfPage < 1) throw new Error('Unavailable TOE excerpt: ' + group.id);
         continue;

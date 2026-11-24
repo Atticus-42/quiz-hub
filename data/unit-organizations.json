@@ -2560,6 +2560,879 @@
   }
  },
  {
+  "id": "infantry-division-combat-units-2025",
+  "title": "Infantry Division combat units (2025)",
+  "branch": "Infantry",
+  "estimate": "toe",
+  "tag": "PA TOE s-2025 (22 May 2025) · required strength",
+  "intro": "The combat units of the Infantry Division as drawn in the 2025 annex: three brigade headquarters companies, nine infantry battalions and three division reconnaissance companies. Open a unit to see its sections and squads, including the S6 signal staff and the battalion Signal Platoon.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Combat Unit, Infantry Division chart · page 1",
+    "locator": "TOE number not printed · 1.0 basic document · page 1",
+    "pdf": "sources/infantry-division-combat-units-2025.pdf",
+    "pdfPage": 2
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Combat Unit, Infantry Division recap by grade · page 2",
+    "locator": "TOE number not printed · 1.0 basic document · page 2",
+    "pdf": "sources/infantry-division-combat-units-2025.pdf",
+    "pdfPage": 3
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "330 · TOE 2025 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "5,415 required"
+   ],
+   [
+    "Civilian employees",
+    "0"
+   ],
+   [
+    "Total allowance",
+    "5,745 required"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE s-2025. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "Unit boxes sum to the combat units: officers 3 × 15 + 9 × 30 + 3 × 5 = 330, EP 3 × 81 + 9 × 543 + 3 × 95 = 5,415, total 3 × 96 + 9 × 573 + 3 × 100 = 5,745. Both match the division recap (330 / 5,415 / 5,745), and the grade rows of the unit manning documents multiplied by 3, 9 and 3 equal every grade row of the division recap (for example O7 3, O6 6, O5 18, O4 27, O3 111, O2 51, O1 114).",
+   "The 2025 annex covers only the combat units (BDE HHQ x3, Infantry Battalion x9, Division Reconnaissance Company x3). The Division Headquarters, military intelligence, CMO, support, training and hospital units drawn in the 2019 division are not in these documents, so the figures are not comparable with the 2019 division total of 516 / 6,528.",
+   "The 2025 chart prints no strength figures in its boxes, only the quantities x3, x9 and x3; the totals come from the recap and the unit manning documents. The annex also prints no TOE number.",
+   "Against the same three unit types in the 2019 entry (3 × 15 + 9 × 32 + 3 × 5 = 348 officers, 3 × 83 + 9 × 570 + 3 × 95 = 5,664 EP): officers are 18 fewer and EP 249 fewer. The brigade headquarters company loses 2 EP each, the infantry battalion loses its Weapons Company strength (2 officers, 56 EP) and gains 29 EP in its headquarters company, and the reconnaissance company is unchanged at 5 / 95."
+  ],
+  "tree": {
+   "title": "Combat units, Infantry Division",
+   "role": "The combat units of the Infantry Division as drawn on the 2025 annex: three brigade headquarters companies, nine infantry battalions and three division reconnaissance companies.",
+   "officers": 330,
+   "ep": 5415,
+   "personnel": 5745,
+   "children": [
+    {
+     "title": "HHC, Infantry Brigade",
+     "role": "Command and supervision of the brigade's tactical operations; command and control of attached units, emergency successor headquarters for the division, operational control of up to five maneuver battalions. Three per Infantry Division.",
+     "quantity": 3,
+     "officers": 15,
+     "ep": 81,
+     "personnel": 96,
+     "chart": "infantry-brigade-hq-2025"
+    },
+    {
+     "title": "Infantry Battalion",
+     "role": "Close with the enemy by fire and maneuver to destroy or capture him or repel his assault by fire, close combat and counterattack. Nine battalions per Infantry Division.",
+     "quantity": 9,
+     "officers": 30,
+     "ep": 543,
+     "personnel": 573,
+     "chart": "infantry-battalion-2025"
+    },
+    {
+     "title": "Division Reconnaissance Company",
+     "role": "Security and reconnaissance for the division or the unit to which it is assigned or attached. Three per Infantry Division.",
+     "quantity": 3,
+     "officers": 5,
+     "ep": 95,
+     "personnel": 100,
+     "chart": "division-reconnaissance-company-2025"
+    }
+   ]
+  }
+ },
+ {
+  "id": "infantry-brigade-hq-2025",
+  "title": "Infantry Brigade headquarters company (2025)",
+  "branch": "Infantry",
+  "estimate": "toe",
+  "tag": "PA TOE s-2025 (22 May 2025) · required strength",
+  "intro": "The headquarters and headquarters company of an Infantry Brigade: command and staff sections (S1 to S4, S6, S7 and finance), a support platoon and a rifle platoon. Three per Infantry Division.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Brigade HHC basic document · mission and basis of allocation · pages 1–2",
+    "locator": "G1-30-5 · 1.1_INF_BDE basic document · pages 1–2",
+    "pdf": "sources/infantry-brigade-hq-2025.pdf",
+    "pdfPage": 2
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Brigade HHC chart · page 3",
+    "locator": "G1-30-5 · 1.1_INF_BDE basic document · page 3",
+    "pdf": "sources/infantry-brigade-hq-2025.pdf",
+    "pdfPage": 4
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Brigade HHC recap by grade · page 4",
+    "locator": "G1-30-5 · 1.1_INF_BDE basic document · page 4",
+    "pdf": "sources/infantry-brigade-hq-2025.pdf",
+    "pdfPage": 5
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Brigade HHC unit manning document · pages 5–7",
+    "locator": "G1-30-5 · 1.1_INF_BDE basic document · pages 5–7",
+    "pdf": "sources/infantry-brigade-hq-2025.pdf",
+    "pdfPage": 6
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "15 · TOE 2025 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "81 required"
+   ],
+   [
+    "Civilian employees",
+    "0"
+   ],
+   [
+    "Total allowance",
+    "96 required"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE s-2025. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "Brigade headquarters 11 / 27 plus headquarters company 4 / 54 sum to 15 / 81 = 96, matching the recap and the UMD aggregate total of 96. The grade rows of the UMD equal the recap row by row. The brigade has no organic signal unit in this table: its S6 section (signal officer, signal NCO, assistant signal NCO) is a staff section; the clerk is a dual designation.",
+   "Basis of allocation: three Headquarters and Headquarters Companies, Infantry Brigade per Infantry Division. Mission: command, control and supervision of the tactical operations of the brigade and attached units; can act as emergency successor operational headquarters for the division and control up to five maneuver battalions. Mobility 30%.",
+   "Dual designations not counted: Database NCO (S2), Assistant Brigade Operations Officer (S3), Clerk (S6), CSP NCO and Military Information Systems NCO (S7), Special Disbursing Officer (finance), Assistant Liaison NCO and 2 Cooks (company headquarters), and a machine gunner, combat medic and assistant machine gunner in the rifle platoon headquarters.",
+   "Compared with the 2019 entry (15 / 83 = 98): officers are unchanged; EP is 2 fewer, because the S3 section (2019: 2 / 5) and S7 section (2019: 1 / 5) each lose one EP. The headquarters company is unchanged at 4 / 54. The chart carries no printed corner figures; dashed boxes on the chart carry no strength."
+  ],
+  "tree": {
+   "title": "Headquarters and Headquarters Company, Infantry Brigade",
+   "role": "Command and supervision of the brigade's tactical operations; command and control of attached units, emergency successor headquarters for the division, operational control of up to five maneuver battalions. Three per Infantry Division.",
+   "officers": 15,
+   "ep": 81,
+   "personnel": 96,
+   "children": [
+    {
+     "title": "Brigade headquarters",
+     "officers": 11,
+     "ep": 27,
+     "personnel": 38,
+     "children": [
+      {
+       "title": "Command section",
+       "officers": 3,
+       "ep": 4,
+       "personnel": 7
+      },
+      {
+       "title": "S1 section",
+       "officers": 1,
+       "ep": 4,
+       "personnel": 5
+      },
+      {
+       "title": "S2 section",
+       "officers": 1,
+       "ep": 5,
+       "personnel": 6
+      },
+      {
+       "title": "S3 section",
+       "officers": 2,
+       "ep": 4,
+       "personnel": 6
+      },
+      {
+       "title": "S4 section",
+       "officers": 1,
+       "ep": 3,
+       "personnel": 4
+      },
+      {
+       "title": "S6 section (communications / C4S)",
+       "role": "The brigade signal staff: signal officer, signal NCO and assistant signal NCO (the clerk is a dual designation and is not counted).",
+       "officers": 1,
+       "ep": 2,
+       "personnel": 3
+      },
+      {
+       "title": "S7 section",
+       "officers": 1,
+       "ep": 4,
+       "personnel": 5
+      },
+      {
+       "title": "Finance section",
+       "officers": 1,
+       "ep": 1,
+       "personnel": 2
+      }
+     ]
+    },
+    {
+     "title": "Headquarters company",
+     "officers": 4,
+     "ep": 54,
+     "personnel": 58,
+     "children": [
+      {
+       "title": "Company headquarters",
+       "officers": 2,
+       "ep": 6,
+       "personnel": 8
+      },
+      {
+       "title": "Support platoon",
+       "officers": 1,
+       "ep": 15,
+       "personnel": 16,
+       "children": [
+        {
+         "title": "Platoon headquarters",
+         "officers": 1,
+         "ep": 1,
+         "personnel": 2
+        },
+        {
+         "title": "Supply section",
+         "officers": 0,
+         "ep": 3,
+         "personnel": 3
+        },
+        {
+         "title": "Maintenance and transportation section",
+         "officers": 0,
+         "ep": 11,
+         "personnel": 11
+        }
+       ]
+      },
+      {
+       "title": "Rifle platoon",
+       "officers": 1,
+       "ep": 33,
+       "personnel": 34,
+       "children": [
+        {
+         "title": "Platoon headquarters",
+         "officers": 1,
+         "ep": 6,
+         "personnel": 7
+        },
+        {
+         "title": "Rifle squad",
+         "quantity": 3,
+         "officers": 0,
+         "ep": 9,
+         "personnel": 9
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "infantry-battalion-2025",
+  "title": "Infantry Battalion (2025)",
+  "branch": "Infantry",
+  "estimate": "toe",
+  "tag": "PA TOE s-2025 (22 May 2025) · required strength",
+  "intro": "Headquarters and headquarters company with its signal, medical, intelligence, scout, sniper, mortar and support platoons, and three rifle companies. The Weapons Company is drawn dashed and carries no strength. Nine per Infantry Division.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Infantry Battalion basic document · mission and basis of allocation · pages 1–2",
+    "locator": "G1-30-4 · 1.2_INF_BN basic document · pages 1–2",
+    "pdf": "sources/infantry-battalion-2025.pdf",
+    "pdfPage": 2
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Infantry Battalion chart · page 3",
+    "locator": "G1-30-4 · 1.2_INF_BN basic document · page 3",
+    "pdf": "sources/infantry-battalion-2025.pdf",
+    "pdfPage": 4
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Infantry Battalion recap by grade · page 4",
+    "locator": "G1-30-4 · 1.2_INF_BN basic document · page 4",
+    "pdf": "sources/infantry-battalion-2025.pdf",
+    "pdfPage": 5
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "HHC basic document · mission and basis of allocation · pages 5–6",
+    "locator": "G1-30-5 · 1.2_INF_BN basic document · pages 5–6",
+    "pdf": "sources/infantry-battalion-2025.pdf",
+    "pdfPage": 6
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "HHC chart · page 7",
+    "locator": "G1-30-5 · 1.2_INF_BN basic document · page 7",
+    "pdf": "sources/infantry-battalion-2025.pdf",
+    "pdfPage": 8
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "HHC recap by grade · page 8",
+    "locator": "G1-30-5 · 1.2_INF_BN basic document · page 8",
+    "pdf": "sources/infantry-battalion-2025.pdf",
+    "pdfPage": 9
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "HHC unit manning document (staff sections, platoons, signal platoon) · pages 9–13",
+    "locator": "G1-30-5 · 1.2_INF_BN basic document · pages 9–13",
+    "pdf": "sources/infantry-battalion-2025.pdf",
+    "pdfPage": 10
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Rifle Company basic document · mission and basis of allocation · pages 14–15",
+    "locator": "G1-30-5 · 1.2_INF_BN basic document · pages 14–15",
+    "pdf": "sources/infantry-battalion-2025.pdf",
+    "pdfPage": 15
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Rifle Company chart · page 16",
+    "locator": "G1-30-5 · 1.2_INF_BN basic document · page 16",
+    "pdf": "sources/infantry-battalion-2025.pdf",
+    "pdfPage": 17
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Rifle Company recap by grade · page 17",
+    "locator": "G1-30-5 · 1.2_INF_BN basic document · page 17",
+    "pdf": "sources/infantry-battalion-2025.pdf",
+    "pdfPage": 18
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Rifle Company unit manning document · pages 18–19",
+    "locator": "G1-30-5 · 1.2_INF_BN basic document · pages 18–19",
+    "pdf": "sources/infantry-battalion-2025.pdf",
+    "pdfPage": 19
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "30 · TOE 2025 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "543 required"
+   ],
+   [
+    "Civilian employees",
+    "0"
+   ],
+   [
+    "Total allowance",
+    "573 required"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE s-2025. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "Elements sum to the battalion: officers 15 + 0 + 3 × 5 = 30, EP 153 + 0 + 3 × 130 = 543, total 168 + 3 × 135 = 573. These equal the battalion recap (30 / 543 / 573), the HHC recap (15 / 153 / 168) and the Rifle Company recap (5 / 130 / 135), and the grade rows of the HHC and rifle company UMDs (HHC + 3 × rifle) equal the battalion recap row by row.",
+   "The battalion Signal Platoon is 11 EP: platoon headquarters 1 (signal chief / platoon sergeant), communications section 6, electronics section 2, information systems section 2. The S6 section (signal officer, signal NCO, assistant signal NCO) is a separate 3-person staff section in the battalion headquarters, 1 officer and 2 EP. The platoon leader, supply sergeant and the electronics and information systems section chiefs are dual designations and are not counted.",
+   "Headquarters 10 / 30 plus headquarters company 5 / 123 give the HHC 15 / 153. The headquarters company holds company headquarters 7, support platoon 23 (including a 2-EP liaison section), medical platoon 17, signal platoon 11, intelligence platoon 23, scout platoon 26 and mortar platoon 21. The Sniper Section is entirely dual-designated (7 positions in parentheses) and adds 0. The UMD prints the collection teams (x3), scout teams (x3), rifle platoons (x3) and rifle squads (x9) as totals for all repeated elements; the tree shows the count for one element.",
+   "The Weapons Company is drawn as a dashed box on the battalion chart but has no basis of allocation, recap or manning document in the 2025 files, and the battalion recap equals the HHC plus three rifle companies. It is shown with no strength; its mortar platoon and sniper section now sit in the HHC.",
+   "Basis of allocation: nine Infantry Battalions per Infantry Division; one HHC per battalion (mobility 80%); three Rifle Companies per battalion (relies on the battalion headquarters). The battalion mobility is 30%. Mission: close with the enemy by fire and maneuver to destroy or capture him or repel his assault by fire, close combat and counterattack.",
+   "Compared with the 2019 entry (32 / 570 = 602): the officers drop by 2 and the EP by 27. The 2019 Weapons Company (2 / 56) is gone, the mortar platoon (21 EP) moves into the HHC, the sniper section changes from 7 counted EP to dual-designated, the S2 section gains 2 EP (5 to 7) and the intelligence platoon gains 6 EP (17 to 23: three collection teams of 7 against 4 plus a separate signal intelligence team of 3). Other HHC elements and the 5 / 130 Rifle Company are unchanged. The 2019 Heavy machine-gun platoon (18 EP) has no 2025 counterpart."
+  ],
+  "tree": {
+   "title": "Infantry Battalion",
+   "role": "Close with the enemy by fire and maneuver to destroy or capture him or repel his assault by fire, close combat and counterattack. Nine battalions per Infantry Division.",
+   "officers": 30,
+   "ep": 543,
+   "personnel": 573,
+   "children": [
+    {
+     "title": "Headquarters and Headquarters Company",
+     "role": "Battalion staff plus the support, medical, signal, intelligence, scout, sniper and mortar elements of the headquarters company.",
+     "officers": 15,
+     "ep": 153,
+     "personnel": 168,
+     "children": [
+      {
+       "title": "Battalion headquarters",
+       "officers": 10,
+       "ep": 30,
+       "personnel": 40,
+       "children": [
+        {
+         "title": "Command section",
+         "officers": 2,
+         "ep": 4,
+         "personnel": 6
+        },
+        {
+         "title": "S1 and Adjutant section",
+         "officers": 1,
+         "ep": 4,
+         "personnel": 5
+        },
+        {
+         "title": "S2 section",
+         "officers": 1,
+         "ep": 7,
+         "personnel": 8
+        },
+        {
+         "title": "S3 section",
+         "officers": 2,
+         "ep": 4,
+         "personnel": 6
+        },
+        {
+         "title": "S4 section",
+         "officers": 1,
+         "ep": 3,
+         "personnel": 4
+        },
+        {
+         "title": "S6 section (communications / C4S)",
+         "role": "The battalion signal staff: signal officer, signal NCO and assistant signal NCO. Battalion communications, electronics and information-system support comes from the Signal Platoon of the headquarters company.",
+         "officers": 1,
+         "ep": 2,
+         "personnel": 3
+        },
+        {
+         "title": "S7 section",
+         "officers": 1,
+         "ep": 5,
+         "personnel": 6
+        },
+        {
+         "title": "Finance section",
+         "officers": 1,
+         "ep": 1,
+         "personnel": 2
+        }
+       ]
+      },
+      {
+       "title": "Headquarters company",
+       "officers": 5,
+       "ep": 123,
+       "personnel": 128,
+       "children": [
+        {
+         "title": "Company headquarters",
+         "officers": 2,
+         "ep": 5,
+         "personnel": 7
+        },
+        {
+         "title": "Support platoon",
+         "officers": 1,
+         "ep": 22,
+         "personnel": 23,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "officers": 1,
+           "ep": 1,
+           "personnel": 2
+          },
+          {
+           "title": "Supply section",
+           "officers": 0,
+           "ep": 3,
+           "personnel": 3
+          },
+          {
+           "title": "Transportation and maintenance section",
+           "officers": 0,
+           "ep": 16,
+           "personnel": 16
+          },
+          {
+           "title": "Liaison section",
+           "officers": 0,
+           "ep": 2,
+           "personnel": 2
+          }
+         ]
+        },
+        {
+         "title": "Medical platoon",
+         "officers": 0,
+         "ep": 17,
+         "personnel": 17,
+         "children": [
+          {
+           "title": "Headquarters section",
+           "officers": 0,
+           "ep": 1,
+           "personnel": 1
+          },
+          {
+           "title": "Treatment section",
+           "officers": 0,
+           "ep": 3,
+           "personnel": 3
+          },
+          {
+           "title": "Evacuation section",
+           "officers": 0,
+           "ep": 3,
+           "personnel": 3
+          },
+          {
+           "title": "Combat medic section",
+           "officers": 0,
+           "ep": 10,
+           "personnel": 10
+          }
+         ]
+        },
+        {
+         "title": "Signal platoon",
+         "role": "Battalion communications, electronics and information-system support. The platoon leader, supply sergeant and the electronics and information systems section chiefs are dual designations and are not counted.",
+         "officers": 0,
+         "ep": 11,
+         "personnel": 11,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "officers": 0,
+           "ep": 1,
+           "personnel": 1
+          },
+          {
+           "title": "Communications section",
+           "officers": 0,
+           "ep": 6,
+           "personnel": 6
+          },
+          {
+           "title": "Electronics section",
+           "officers": 0,
+           "ep": 2,
+           "personnel": 2
+          },
+          {
+           "title": "Information systems section",
+           "officers": 0,
+           "ep": 2,
+           "personnel": 2
+          }
+         ]
+        },
+        {
+         "title": "Intelligence platoon",
+         "officers": 1,
+         "ep": 22,
+         "personnel": 23,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "officers": 1,
+           "ep": 1,
+           "personnel": 2
+          },
+          {
+           "title": "Collection team",
+           "quantity": 3,
+           "officers": 0,
+           "ep": 7,
+           "personnel": 7,
+           "children": [
+            {
+             "title": "Human intelligence team",
+             "officers": 0,
+             "ep": 4,
+             "personnel": 4
+            },
+            {
+             "title": "Signal intelligence team",
+             "officers": 0,
+             "ep": 1,
+             "personnel": 1
+            },
+            {
+             "title": "Geospatial intelligence team",
+             "officers": 0,
+             "ep": 2,
+             "personnel": 2
+            }
+           ]
+          }
+         ]
+        },
+        {
+         "title": "Scout platoon",
+         "officers": 1,
+         "ep": 25,
+         "personnel": 26,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "officers": 1,
+           "ep": 4,
+           "personnel": 5
+          },
+          {
+           "title": "Scout team",
+           "quantity": 3,
+           "officers": 0,
+           "ep": 7,
+           "personnel": 7
+          }
+         ]
+        },
+        {
+         "title": "Sniper section",
+         "role": "Section leader 1, observers 3 and shooters 3 are all printed in parentheses (dual designations drawn from scout and rifle personnel), so no additional strength is counted. Shown dashed on the HHC chart.",
+         "officers": 0,
+         "ep": 0,
+         "personnel": 0,
+         "dualOfficers": 0,
+         "dualEp": 7,
+         "dualPersonnel": 7,
+         "dualSource": "1.2_INF_BN basic document · page 12 · Sniper Section (UMD, all positions in parentheses)"
+        },
+        {
+         "title": "Mortar platoon",
+         "officers": 0,
+         "ep": 21,
+         "personnel": 21,
+         "children": [
+          {
+           "title": "Platoon headquarters",
+           "officers": 0,
+           "ep": 5,
+           "personnel": 5
+          },
+          {
+           "title": "Mortar squad",
+           "quantity": 4,
+           "officers": 0,
+           "ep": 4,
+           "personnel": 4
+          }
+         ]
+        }
+       ]
+      }
+     ]
+    },
+    {
+     "title": "Weapons company",
+     "role": "Drawn as a dashed box on the battalion chart. The 2025 TOE gives it no basis of allocation, recap or manning, and the battalion recap equals the headquarters company plus three rifle companies.",
+     "relation": "Dashed in chart · no strength in the 2025 TOE"
+    },
+    {
+     "title": "Rifle company",
+     "role": "Command, headquarters platoon and three rifle platoons. Mobility: relies on the battalion headquarters.",
+     "quantity": 3,
+     "officers": 5,
+     "ep": 130,
+     "personnel": 135,
+     "children": [
+      {
+       "title": "Headquarters platoon",
+       "officers": 2,
+       "ep": 25,
+       "personnel": 27,
+       "children": [
+        {
+         "title": "Headquarters section",
+         "officers": 2,
+         "ep": 11,
+         "personnel": 13
+        },
+        {
+         "title": "Anti-armor section",
+         "officers": 0,
+         "ep": 7,
+         "personnel": 7
+        },
+        {
+         "title": "Mortar section (60 mm)",
+         "officers": 0,
+         "ep": 7,
+         "personnel": 7
+        }
+       ]
+      },
+      {
+       "title": "Rifle platoon",
+       "quantity": 3,
+       "officers": 1,
+       "ep": 35,
+       "personnel": 36,
+       "children": [
+        {
+         "title": "Platoon headquarters",
+         "officers": 1,
+         "ep": 8,
+         "personnel": 9
+        },
+        {
+         "title": "Rifle squad",
+         "quantity": 3,
+         "officers": 0,
+         "ep": 9,
+         "personnel": 9
+        }
+       ]
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
+  "id": "division-reconnaissance-company-2025",
+  "title": "Division Reconnaissance Company (2025)",
+  "branch": "Infantry",
+  "estimate": "toe",
+  "tag": "PA TOE s-2025 (22 May 2025) · required strength",
+  "intro": "A headquarters platoon with anti-armor and mortar sections, and three scout platoons of three scout teams each, for security and reconnaissance of the division. Three per Infantry Division.",
+  "sources": [
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Division Reconnaissance Company basic document · mission and basis of allocation · pages 1–2",
+    "locator": "G1-30-5 · 1.3_DRC basic document · pages 1–2",
+    "pdf": "sources/division-reconnaissance-company-2025.pdf",
+    "pdfPage": 2
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Division Reconnaissance Company chart · page 3",
+    "locator": "G1-30-5 · 1.3_DRC basic document · page 3",
+    "pdf": "sources/division-reconnaissance-company-2025.pdf",
+    "pdfPage": 4
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Division Reconnaissance Company recap by grade · page 4",
+    "locator": "G1-30-5 · 1.3_DRC basic document · page 4",
+    "pdf": "sources/division-reconnaissance-company-2025.pdf",
+    "pdfPage": 5
+   },
+   {
+    "toe": true,
+    "edition": "PA TOE s-2025, 22 May 2025",
+    "label": "Division Reconnaissance Company unit manning document · pages 5–6",
+    "locator": "G1-30-5 · 1.3_DRC basic document · pages 5–6",
+    "pdf": "sources/division-reconnaissance-company-2025.pdf",
+    "pdfPage": 6
+   }
+  ],
+  "personnelRecord": [
+   [
+    "Officers",
+    "5 · TOE 2025 required"
+   ],
+   [
+    "Enlisted personnel (EP)",
+    "95 required"
+   ],
+   [
+    "Civilian employees",
+    "0"
+   ],
+   [
+    "Total allowance",
+    "100 required"
+   ]
+  ],
+  "notes": [
+   "Counts are the Required strength column of the TOE s-2025. Positions printed in parentheses are dual designations and are not counted. Officers (O1–O9) and enlisted personnel (EP, E1–E9) are read from the grade rows; civilian employees (SG grades) are shown separately and are not part of personnel totals.",
+   "Elements sum to the company: officers 2 + 3 × 1 = 5, EP 26 + 3 × 23 = 95, total 28 + 3 × 24 = 100. This equals the recap (5 / 95 / 100) and the UMD aggregate total of 100, and the UMD grade rows equal the recap row by row. The UMD prints the three scout platoons (x3) and nine scout teams (x9) as totals; the tree shows the count for one element.",
+   "Dual designations not counted: UAV operator and assistant UAV operator (company headquarters) and, in the scout platoon headquarters, the combat medic, machine gunners and assistant machine gunners. The company has no signal section: its commo chief and 2 radio operators are in the headquarters section and each scout platoon has a radio operator and a radioman in every team.",
+   "Basis of allocation: three Division Reconnaissance Companies per Infantry Division. Mission: provide security and perform reconnaissance for the division or the unit to which it is assigned or attached and engage in offensive, defensive, delaying and economy of force operations. Mobility: relies on the battalion headquarters.",
+   "The total (5 / 95 / 100) is the same as in the 2019 division entry. The chart carries no printed corner figures."
+  ],
+  "tree": {
+   "title": "Division Reconnaissance Company",
+   "role": "Security and reconnaissance for the division or the unit to which it is assigned or attached. Three per Infantry Division.",
+   "officers": 5,
+   "ep": 95,
+   "personnel": 100,
+   "children": [
+    {
+     "title": "Headquarters platoon",
+     "officers": 2,
+     "ep": 26,
+     "personnel": 28,
+     "children": [
+      {
+       "title": "Headquarters section",
+       "officers": 2,
+       "ep": 12,
+       "personnel": 14
+      },
+      {
+       "title": "Anti-armor section",
+       "officers": 0,
+       "ep": 7,
+       "personnel": 7
+      },
+      {
+       "title": "Mortar section",
+       "officers": 0,
+       "ep": 7,
+       "personnel": 7
+      }
+     ]
+    },
+    {
+     "title": "Scout platoon",
+     "quantity": 3,
+     "officers": 1,
+     "ep": 23,
+     "personnel": 24,
+     "children": [
+      {
+       "title": "Platoon headquarters",
+       "officers": 1,
+       "ep": 2,
+       "personnel": 3
+      },
+      {
+       "title": "Scout team",
+       "quantity": 3,
+       "officers": 0,
+       "ep": 7,
+       "personnel": 7
+      }
+     ]
+    }
+   ]
+  }
+ },
+ {
   "id": "infantry-division",
   "title": "Infantry Division (2019)",
   "branch": "Infantry",
@@ -2973,7 +3846,7 @@
  },
  {
   "id": "infantry-brigade-hq",
-  "title": "Infantry Brigade headquarters company",
+  "title": "Infantry Brigade headquarters company (2019)",
   "branch": "Infantry",
   "estimate": "toe",
   "tag": "DND-approved PA TO 2019 · required strength",
@@ -3156,7 +4029,7 @@
  },
  {
   "id": "infantry-battalion",
-  "title": "Infantry Battalion",
+  "title": "Infantry Battalion (2019)",
   "branch": "Infantry",
   "estimate": "toe",
   "tag": "DND-approved PA TO 2019 · required strength",
