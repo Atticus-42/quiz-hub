@@ -271,4 +271,6 @@
   const lift = () => box.style.setProperty('--bb-music-lift', bar && getComputedStyle(bar).position === 'sticky' ? bar.offsetHeight + 'px' : '0px');
   lift();
   addEventListener('resize', lift);
+  // The bar is empty until a quiz starts, so follow its size as it appears and changes.
+  if (bar && window.ResizeObserver) new ResizeObserver(lift).observe(bar);
 })();
