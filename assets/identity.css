@@ -8,3 +8,18 @@
 @media print { .identity-ribbon { display:none; } }
 
 @media(max-width:520px) { .identity-home img,.brand-crest { width:64px; height:64px; } .identity-home { gap:.45rem; } .identity-home > span { max-width:9rem; } .identity-edition { max-width:5rem; } }
+
+/* Class playlist launcher (built by identity.js). */
+.bb-music { position:fixed; z-index:40; right:max(1rem,env(safe-area-inset-right)); bottom:calc(var(--bb-music-lift,0px) + max(1rem,env(safe-area-inset-bottom))); }
+.bb-music-toggle { position:relative; display:grid; place-items:center; width:48px; height:48px; padding:0; border:1px solid #203a30; border-radius:50%; background:#203a30; color:#f8f5eb; box-shadow:0 4px 14px #0000002e; cursor:pointer; }
+.bb-music-toggle:hover { background:#2d5243; }
+.bb-music-toggle.is-loaded::after { content:""; position:absolute; top:3px; right:3px; width:10px; height:10px; border:2px solid #f8f5eb; border-radius:50%; background:#1db954; }
+.bb-music-toggle:focus-visible,.bb-music-head button:focus-visible { outline:3px solid #79511d; outline-offset:2px; }
+.bb-music-panel { position:absolute; right:0; bottom:calc(100% + .5rem); width:min(340px,calc(100vw - 2rem)); box-sizing:border-box; padding:.35rem .4rem .45rem; border:1px solid #c8c2ae; border-radius:12px; background:#f8f5eb; box-shadow:0 10px 30px #00000033; }
+.bb-music-panel.is-hidden { visibility:hidden; pointer-events:none; }
+.bb-music-head { display:flex; align-items:center; gap:.15rem; padding:0 .1rem .3rem .3rem; color:#203a30; font:600 .68rem var(--font-mono,monospace); letter-spacing:.08em; text-transform:uppercase; }
+.bb-music-head span { flex:1; }
+.bb-music-head button { display:grid; place-items:center; width:40px; height:40px; padding:0; border:0; border-radius:8px; background:none; color:inherit; cursor:pointer; }
+.bb-music-head button:hover { background:#e9e4d3; }
+.bb-music-panel iframe { display:block; width:100%; height:152px; border:0; border-radius:10px; }
+@media print { .bb-music { display:none; } }

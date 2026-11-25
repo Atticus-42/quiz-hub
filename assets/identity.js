@@ -223,3 +223,52 @@
   document.querySelectorAll("[data-domain-attribution]").forEach(node => { node.textContent = "— " + quotes[state.last].speaker + " · " + quotes[state.last].work; });
   try { sessionStorage.setItem(key, JSON.stringify(state)); } catch {}
 })();
+/* Class playlist: a small launcher on every page. Nothing loads from Spotify until a visitor opens it. */
+(() => {
+  if (!document.body || !document.createElement) return;
+  const embed = 'https://open.spotify.com/embed/playlist/6qFNGPhnQVge6pWv8zaKY8?utm_source=generator&theme=0';
+  const icon = path => '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="' + path + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const box = document.createElement('div');
+  box.className = 'bb-music';
+  box.innerHTML = '<div class="bb-music-panel is-hidden" id="bb-music-panel" role="region" aria-label="Class playlist">'
+    + '<div class="bb-music-head"><span>Class playlist</span>'
+    + '<button type="button" data-music-pop title="Pop out" aria-label="Pop out: keeps playing while you move between pages">' + icon('M14 4h6v6M20 4l-8 8M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5') + '</button>'
+    + '<button type="button" data-music-hide title="Hide" aria-label="Hide the player (music keeps playing)">' + icon('M6 9l6 6 6-6') + '</button></div></div>'
+    + '<button type="button" class="bb-music-toggle" aria-controls="bb-music-panel" aria-expanded="false" aria-label="Class playlist" title="Class playlist">'
+    + '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 18V5l11-2v13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" fill="currentColor"/><circle cx="17" cy="16" r="3" fill="currentColor"/></svg></button>';
+  document.body.appendChild(box);
+  const panel = box.querySelector('.bb-music-panel');
+  const toggle = box.querySelector('.bb-music-toggle');
+  const load = () => {
+    if (panel.querySelector('iframe')) return;
+    const frame = document.createElement('iframe');
+    frame.src = embed;
+    frame.title = 'Spotify player: Bandwidth Brothers class playlist';
+    frame.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+    panel.appendChild(frame);
+    toggle.classList.add('is-loaded');
+  };
+  // Hiding uses visibility, not display:none, so a playing track keeps going.
+  const show = open => {
+    panel.classList.toggle('is-hidden', !open);
+    toggle.setAttribute('aria-expanded', String(open));
+    if (open) load();
+  };
+  toggle.addEventListener('click', () => show(panel.classList.contains('is-hidden')));
+  box.querySelector('[data-music-hide]').addEventListener('click', () => { show(false); toggle.focus(); });
+  box.querySelector('[data-music-pop]').addEventListener('click', () => {
+    if (!window.open(embed, 'bb-playlist', 'popup,width=400,height=200')) return;
+    const frame = panel.querySelector('iframe');
+    if (frame) frame.remove();
+    toggle.classList.remove('is-loaded');
+    show(false);
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !panel.classList.contains('is-hidden') && box.contains(document.activeElement)) { show(false); toggle.focus(); }
+  });
+  // Quiz pages pin their answer controls to the bottom of the screen; sit above them.
+  const bar = document.querySelector('.quiz-actions');
+  const lift = () => box.style.setProperty('--bb-music-lift', bar && getComputedStyle(bar).position === 'sticky' ? bar.offsetHeight + 'px' : '0px');
+  lift();
+  addEventListener('resize', lift);
+})();

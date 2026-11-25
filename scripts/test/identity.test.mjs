@@ -50,3 +50,10 @@ test('failed image preserves original and does not advance the deck', () => {
   assert.equal(memory.get('quiz-hub:crest-deck:v1'), before);
 });
 
+test('class playlist: only the one Spotify playlist, loaded on demand', () => {
+  const urls = [...script.matchAll(/https?:\/\/[^\s'"]+/g)].map(match => match[0]);
+  assert.deepEqual(urls, ['https://open.spotify.com/embed/playlist/6qFNGPhnQVge6pWv8zaKY8?utm_source=generator&theme=0']);
+  const launcher = script.slice(script.indexOf('/* Class playlist'));
+  assert.ok(launcher.indexOf("createElement('iframe')") > launcher.indexOf('const load = () =>'), 'the iframe is built only inside load()');
+  assert.match(launcher, /if \(open\) load\(\);/, 'load() runs only when the visitor opens the player');
+});
