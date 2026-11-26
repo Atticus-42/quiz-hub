@@ -223,44 +223,126 @@
   document.querySelectorAll("[data-domain-attribution]").forEach(node => { node.textContent = "— " + quotes[state.last].speaker + " · " + quotes[state.last].work; });
   try { sessionStorage.setItem(key, JSON.stringify(state)); } catch {}
 })();
-/* Class playlist: a small launcher on every page. Nothing loads from Spotify until a visitor opens it. */
+/* Class playlist: a small launcher on every page. Nothing loads from Spotify until a visitor opens it.
+   Shuffle (the default) plays the tracks listed in assets/playlist.json in random order, one track at a time,
+   through Spotify's iFrame API. With shuffle off, Spotify plays the playlist in its own order. */
 (() => {
   if (!document.body || !document.createElement) return;
-  const embed = 'https://open.spotify.com/embed/playlist/6qFNGPhnQVge6pWv8zaKY8?utm_source=generator&theme=0';
-  const icon = path => '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="' + path + '" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const base = new URL('./', document.currentScript ? document.currentScript.src : location.href);
+  const PLAYLIST = 'spotify:playlist:6qFNGPhnQVge6pWv8zaKY8';
+  const API = 'https://open.spotify.com/embed/iframe-api/v1';
+  const popout = document.body.hasAttribute('data-playlist-popout');
+  const prefKey = 'quiz-hub:playlist-shuffle';
+  const deckKey = 'quiz-hub:playlist-deck:v1';
+  const read = (store, key) => { try { return window[store].getItem(key); } catch { return null; } };
+  const write = (store, key, value) => { try { window[store].setItem(key, value); } catch {} };
+  const icon = (path, fill) => '<svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="' + path + '" fill="' + (fill ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  let shuffle = read('localStorage', prefKey) !== 'off';
+  let tracks = null, deck = [], at = -1, saved = '', ended = '';
+  let controller = null, started = false, wantPlay = false, playing = false, apiPromise = null;
+
   const box = document.createElement('div');
-  box.className = 'bb-music';
-  box.innerHTML = '<div class="bb-music-panel is-hidden" id="bb-music-panel" role="region" aria-label="Class playlist">'
+  box.className = 'bb-music' + (popout ? ' is-popout' : '');
+  box.innerHTML = '<div class="bb-music-panel' + (popout ? '' : ' is-hidden') + '" id="bb-music-panel" role="region" aria-label="Class playlist">'
     + '<div class="bb-music-head"><span>Class playlist</span>'
-    + '<button type="button" data-music-pop title="Pop out" aria-label="Pop out: keeps playing while you move between pages">' + icon('M14 4h6v6M20 4l-8 8M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5') + '</button>'
-    + '<button type="button" data-music-hide title="Hide" aria-label="Hide the player (music keeps playing)">' + icon('M6 9l6 6 6-6') + '</button></div></div>'
-    + '<button type="button" class="bb-music-toggle" aria-controls="bb-music-panel" aria-expanded="false" aria-label="Class playlist" title="Class playlist">'
-    + '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 18V5l11-2v13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" fill="currentColor"/><circle cx="17" cy="16" r="3" fill="currentColor"/></svg></button>';
+    + '<button type="button" data-music-shuffle title="Shuffle" aria-label="Shuffle" aria-pressed="' + shuffle + '">' + icon('M16 3h5v5M4 20L21 3M21 16v5h-5M15 15l6 6M4 4l5 5') + '</button>'
+    + '<button type="button" data-music-next title="Next song" aria-label="Next song"' + (shuffle ? '' : ' hidden') + '>' + icon('M6 5l9 7-9 7z M18 5v14', true) + '</button>'
+    + (popout ? '' : '<button type="button" data-music-pop title="Pop out" aria-label="Pop out: keeps playing while you move between pages">' + icon('M14 4h6v6M20 4l-8 8M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5') + '</button>'
+      + '<button type="button" data-music-hide title="Hide" aria-label="Hide the player (music keeps playing)">' + icon('M6 9l6 6 6-6') + '</button>')
+    + '</div><div class="bb-music-frame"></div></div>'
+    + (popout ? '' : '<button type="button" class="bb-music-toggle" aria-controls="bb-music-panel" aria-expanded="false" aria-label="Class playlist" title="Class playlist">'
+      + '<svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 18V5l11-2v13" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="6" cy="18" r="3" fill="currentColor"/><circle cx="17" cy="16" r="3" fill="currentColor"/></svg></button>');
   document.body.appendChild(box);
   const panel = box.querySelector('.bb-music-panel');
+  const slot = box.querySelector('.bb-music-frame');
   const toggle = box.querySelector('.bb-music-toggle');
-  const load = () => {
-    if (panel.querySelector('iframe')) return;
-    const frame = document.createElement('iframe');
-    frame.src = embed;
-    frame.title = 'Spotify player: Bandwidth Brothers class playlist';
-    frame.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
-    panel.appendChild(frame);
-    toggle.classList.add('is-loaded');
+  const shuffleButton = box.querySelector('[data-music-shuffle]');
+  const nextButton = box.querySelector('[data-music-next]');
+
+  // The shuffled order lasts for the browser tab, so moving between pages does not replay songs.
+  const reshuffle = () => {
+    deck = tracks.map((_, i) => i);
+    for (let i = deck.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [deck[i], deck[j]] = [deck[j], deck[i]];
+    }
+    at = -1;
+  };
+  const restore = () => {
+    let state;
+    try { state = JSON.parse(read('sessionStorage', deckKey)); } catch {}
+    if (state && Array.isArray(state.deck) && state.deck.length === tracks.length && Number.isInteger(state.at) && state.at < tracks.length) { deck = state.deck; at = state.at; } else reshuffle();
+  };
+  const pick = () => {
+    if (++at >= deck.length) { reshuffle(); at = 0; }
+    return tracks[deck[at]];
+  };
+  const nextTrack = () => (tracks ? Promise.resolve() : fetch(new URL('playlist.json', base)).then(response => response.json()).then(data => {
+    tracks = data.tracks.map(id => 'spotify:track:' + id);
+    restore();
+  })).then(pick);
+
+  const api = () => apiPromise || (apiPromise = new Promise((resolve, reject) => {
+    window.onSpotifyIframeApiReady = resolve;
+    const script = document.createElement('script');
+    script.src = API;
+    script.async = true;
+    script.onerror = reject;
+    document.head.appendChild(script);
+  }));
+  const load = (uri, play) => { wantPlay = play; ended = ''; controller.loadUri(uri); };
+  const onUpdate = event => {
+    const d = event.data || {};
+    playing = !d.isPaused && d.position > 0;
+    if (!shuffle || !tracks || d.playingURI !== tracks[deck[at]]) return;
+    if (playing && saved !== d.playingURI) { saved = d.playingURI; write('sessionStorage', deckKey, JSON.stringify({ deck, at })); }
+    if (d.duration > 0 && d.position >= d.duration - 400 && ended !== d.playingURI) { ended = d.playingURI; nextTrack().then(uri => load(uri, true)); }
+  };
+  const start = () => {
+    if (started) return;
+    started = true;
+    const host = document.createElement('div');
+    slot.appendChild(host);
+    Promise.all([api(), shuffle ? nextTrack() : PLAYLIST]).then(([IFrameAPI, uri]) => IFrameAPI.createController(host, { uri, width: '100%', height: 152 }, c => {
+      controller = c;
+      if (c.iframeElement) c.iframeElement.title = 'Spotify player: Bandwidth Brothers class playlist';
+      c.addListener('ready', () => { if (wantPlay) { wantPlay = false; c.play(); } });
+      c.addListener('playback_update', onUpdate);
+    })).catch(() => {
+      // Spotify's player script could not load: fall back to the plain playlist player.
+      slot.innerHTML = '<iframe title="Spotify player: Bandwidth Brothers class playlist" src="https://open.spotify.com/embed/playlist/6qFNGPhnQVge6pWv8zaKY8?theme=0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>';
+    });
+    if (toggle) toggle.classList.add('is-loaded');
+  };
+  const stop = () => {
+    if (controller) controller.destroy();
+    slot.innerHTML = '';
+    controller = null; started = false; playing = false;
+    if (toggle) toggle.classList.remove('is-loaded');
   };
   // Hiding uses visibility, not display:none, so a playing track keeps going.
   const show = open => {
     panel.classList.toggle('is-hidden', !open);
-    toggle.setAttribute('aria-expanded', String(open));
-    if (open) load();
+    if (toggle) toggle.setAttribute('aria-expanded', String(open));
+    if (open) start();
   };
+
+  shuffleButton.addEventListener('click', () => {
+    shuffle = !shuffle;
+    write('localStorage', prefKey, shuffle ? 'on' : 'off');
+    shuffleButton.setAttribute('aria-pressed', String(shuffle));
+    nextButton.hidden = !shuffle;
+    if (!controller) return;
+    const resume = playing;
+    if (shuffle) nextTrack().then(uri => load(uri, resume)); else load(PLAYLIST, resume);
+  });
+  nextButton.addEventListener('click', () => { if (controller && shuffle) nextTrack().then(uri => load(uri, true)); });
+  if (popout) { start(); return; }
   toggle.addEventListener('click', () => show(panel.classList.contains('is-hidden')));
   box.querySelector('[data-music-hide]').addEventListener('click', () => { show(false); toggle.focus(); });
   box.querySelector('[data-music-pop]').addEventListener('click', () => {
-    if (!window.open(embed, 'bb-playlist', 'popup,width=400,height=200')) return;
-    const frame = panel.querySelector('iframe');
-    if (frame) frame.remove();
-    toggle.classList.remove('is-loaded');
+    if (!window.open(new URL('playlist.html', base).href, 'bb-playlist', 'popup,width=420,height=250')) return;
+    stop();
     show(false);
   });
   document.addEventListener('keydown', event => {

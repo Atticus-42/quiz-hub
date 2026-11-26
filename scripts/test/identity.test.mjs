@@ -50,10 +50,19 @@ test('failed image preserves original and does not advance the deck', () => {
   assert.equal(memory.get('quiz-hub:crest-deck:v1'), before);
 });
 
-test('class playlist: only the one Spotify playlist, loaded on demand', () => {
-  const urls = [...script.matchAll(/https?:\/\/[^\s'"]+/g)].map(match => match[0]);
-  assert.deepEqual(urls, ['https://open.spotify.com/embed/playlist/6qFNGPhnQVge6pWv8zaKY8?utm_source=generator&theme=0']);
+test('class playlist: Spotify loads only when opened, shuffle is the default and the track list is complete', () => {
   const launcher = script.slice(script.indexOf('/* Class playlist'));
-  assert.ok(launcher.indexOf("createElement('iframe')") > launcher.indexOf('const load = () =>'), 'the iframe is built only inside load()');
-  assert.match(launcher, /if \(open\) load\(\);/, 'load() runs only when the visitor opens the player');
+  const urls = [...script.matchAll(/https?:\/\/[^\s'"]+/g)].map(match => match[0]);
+  assert.deepEqual([...new Set(urls)], ['https://open.spotify.com/embed/iframe-api/v1', 'https://open.spotify.com/embed/playlist/6qFNGPhnQVge6pWv8zaKY8?theme=0']);
+  assert.ok(launcher.indexOf('document.head.appendChild(script)') > launcher.indexOf('const api = () =>'), 'the Spotify script is added only inside api()');
+  assert.match(launcher, /if \(open\) start\(\);/, 'the player starts only when the visitor opens it');
+  assert.match(launcher, /let shuffle = read\('localStorage', prefKey\) !== 'off';/, 'shuffle is on unless the visitor turned it off');
+  const list = JSON.parse(readFileSync(new URL('../../assets/playlist.json', import.meta.url), 'utf8'));
+  assert.equal(list.playlist, '6qFNGPhnQVge6pWv8zaKY8');
+  assert.equal(list.tracks.length, 447);
+  assert.equal(new Set(list.tracks).size, list.tracks.length, 'no track is listed twice');
+  assert.ok(list.tracks.every(id => /^[A-Za-z0-9]{22}$/.test(id)), 'every entry is a Spotify track id');
+  const popout = readFileSync(new URL('../../assets/playlist.html', import.meta.url), 'utf8');
+  assert.match(popout, /<body data-playlist-popout>/);
+  assert.doesNotMatch(popout, /https?:/, 'the pop-out page itself loads nothing from outside the site');
 });
