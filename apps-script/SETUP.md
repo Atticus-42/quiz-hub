@@ -14,7 +14,7 @@ One Google Sheet serves every quiz on this site. Each finished attempt adds a ro
 
 Version 9 (what changed): the Comprehensive Exam Reviewer's Mixed set and Topic coverage set send mode `actual` attempts whose `asked`/`missed` lists also hold exam-style ids (`<lessonKey>:exam:<lessonKey>-x-NN`, for example `armor:exam:armor-x-07`). Version 8 rejected those ids, so the whole attempt was stored without item counts. Version 9 accepts them, only inside an `actual` attempt and only when the qid starts with its own lesson key. They are counted in Item Analysis with mode `exam`, and `?action=items` returns them with `mode: "exam"`. The instructor page shows them under a new Exam-style mode chip. All easy/medium/hard and Actual Exam rules are unchanged and no lesson keys were added.
 
-**The owner must redeploy** for this to take effect: Manage deployments, edit the existing deployment, set Version to New version (steps above). Until then the live script stays on version 8 and keeps dropping item counts for those two sets. The quick check should then show `"version":9`.
+Version 9 was deployed on 26 November 2026 as deployment version 18 of the existing web app (same `/exec` URL). Before the update, the live code matched the committed version 8 exactly. The quick check now shows `"version":9`, and the history reads still work. Attempts recorded before this date from those two sets have no item counts; that cannot be recovered.
 
 Version 7 is backward compatible:
 - pages that send no `asked`/`missed` (or no `total`) are stored as before;
